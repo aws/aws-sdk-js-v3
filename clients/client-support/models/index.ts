@@ -142,7 +142,7 @@ export interface CaseDetails {
   /**
    * <p>The email addresses that receive copies of communication about the case.</p>
    */
-  ccEmailAddresses?: Array<string>;
+  ccEmailAddresses?: string[];
 
   /**
    * <p>The ID displayed for the case in the AWS Support Center. This is a numeric
@@ -234,7 +234,7 @@ export interface Communication {
   /**
    * <p>Information about the attachments to the case communication.</p>
    */
-  attachmentSet?: Array<AttachmentDetails>;
+  attachmentSet?: AttachmentDetails[];
 
   /**
    * <p>The text of the communication between the customer and AWS Support.</p>
@@ -276,7 +276,7 @@ export interface RecentCaseCommunications {
   /**
    * <p>The five most recent communications associated with the case.</p>
    */
-  communications?: Array<Communication>;
+  communications?: Communication[];
 
   /**
    * <p>A resumption point for pagination.</p>
@@ -300,7 +300,7 @@ export interface Service {
    *             Categories consist of a category name and a category code. Category names and codes are
    *             passed to AWS Support when you call <a>CreateCase</a>.</p>
    */
-  categories?: Array<Category>;
+  categories?: Category[];
 
   /**
    * <p>The code for an AWS service returned by the <a>DescribeServices</a>
@@ -515,7 +515,7 @@ export interface AddAttachmentsToSetRequest {
    * <p>One or more attachments to add to the set. The limit is 3 attachments per set, and
    *             the size limit is 5 MB per attachment.</p>
    */
-  attachments: Array<Attachment> | undefined;
+  attachments: Attachment[] | undefined;
 }
 
 export namespace AddAttachmentsToSetRequest {
@@ -571,7 +571,7 @@ export interface AddCommunicationToCaseRequest {
    * <p>The email addresses in the CC line of an email to be added to the support
    *             case.</p>
    */
-  ccEmailAddresses?: Array<string>;
+  ccEmailAddresses?: string[];
 
   /**
    * <p>The body of an email communication to add to the support case.</p>
@@ -617,7 +617,7 @@ export interface CreateCaseRequest {
   /**
    * <p>A list of email addresses that AWS Support copies on case correspondence.</p>
    */
-  ccEmailAddresses?: Array<string>;
+  ccEmailAddresses?: string[];
 
   /**
    * <p>The communication body text when you create an AWS Support case by calling <a>CreateCase</a>.</p>
@@ -733,7 +733,7 @@ export interface DescribeCasesRequest {
    * <p>A list of ID numbers of the support cases you want returned. The maximum number of
    *             cases is 100.</p>
    */
-  caseIdList?: Array<string>;
+  caseIdList?: string[];
 
   /**
    * <p>The ID displayed for a case in the AWS Support Center user interface.</p>
@@ -785,7 +785,7 @@ export interface DescribeCasesResponse {
   /**
    * <p>The details for the cases that match the request.</p>
    */
-  cases?: Array<CaseDetails>;
+  cases?: CaseDetails[];
 
   /**
    * <p>A resumption point for pagination.</p>
@@ -845,7 +845,7 @@ export interface DescribeCommunicationsResponse {
   /**
    * <p>The communications for the case.</p>
    */
-  communications?: Array<Communication>;
+  communications?: Communication[];
 
   /**
    * <p>A resumption point for pagination.</p>
@@ -870,7 +870,7 @@ export interface DescribeServicesRequest {
   /**
    * <p>A JSON-formatted list of service codes available for AWS services.</p>
    */
-  serviceCodeList?: Array<string>;
+  serviceCodeList?: string[];
 }
 
 export namespace DescribeServicesRequest {
@@ -887,7 +887,7 @@ export interface DescribeServicesResponse {
   /**
    * <p>A JSON-formatted list of AWS services.</p>
    */
-  services?: Array<Service>;
+  services?: Service[];
 }
 
 export namespace DescribeServicesResponse {
@@ -919,7 +919,7 @@ export interface DescribeSeverityLevelsResponse {
    * <p>The available severity levels for the support case. Available severity levels are
    *             defined by your service level agreement with AWS.</p>
    */
-  severityLevels?: Array<SeverityLevel>;
+  severityLevels?: SeverityLevel[];
 }
 
 export namespace DescribeSeverityLevelsResponse {
@@ -1034,7 +1034,7 @@ export interface DescribeTrustedAdvisorCheckRefreshStatusesRequest {
    * <p>The IDs of the Trusted Advisor checks to get the status of. <b>Note:</b> Specifying the check ID of a check that is automatically refreshed
    *             causes an <code>InvalidParameterValue</code> error.</p>
    */
-  checkIds: Array<string> | undefined;
+  checkIds: string[] | undefined;
 }
 
 export namespace DescribeTrustedAdvisorCheckRefreshStatusesRequest {
@@ -1052,7 +1052,7 @@ export interface DescribeTrustedAdvisorCheckRefreshStatusesResponse {
   /**
    * <p>The refresh status of the specified Trusted Advisor checks.</p>
    */
-  statuses: Array<TrustedAdvisorCheckRefreshStatus> | undefined;
+  statuses: TrustedAdvisorCheckRefreshStatus[] | undefined;
 }
 
 export namespace DescribeTrustedAdvisorCheckRefreshStatusesResponse {
@@ -1106,7 +1106,7 @@ export interface DescribeTrustedAdvisorCheckSummariesRequest {
   /**
    * <p>The IDs of the Trusted Advisor checks.</p>
    */
-  checkIds: Array<string> | undefined;
+  checkIds: string[] | undefined;
 }
 
 export namespace DescribeTrustedAdvisorCheckSummariesRequest {
@@ -1124,7 +1124,7 @@ export interface DescribeTrustedAdvisorCheckSummariesResponse {
   /**
    * <p>The summary information for the requested Trusted Advisor checks.</p>
    */
-  summaries: Array<TrustedAdvisorCheckSummary> | undefined;
+  summaries: TrustedAdvisorCheckSummary[] | undefined;
 }
 
 export namespace DescribeTrustedAdvisorCheckSummariesResponse {
@@ -1160,7 +1160,7 @@ export interface DescribeTrustedAdvisorChecksResponse {
   /**
    * <p>Information about all available Trusted Advisor checks.</p>
    */
-  checks: Array<TrustedAdvisorCheckDescription> | undefined;
+  checks: TrustedAdvisorCheckDescription[] | undefined;
 }
 
 export namespace DescribeTrustedAdvisorChecksResponse {
@@ -1248,7 +1248,7 @@ export interface TrustedAdvisorCheckDescription {
    *             shown in the Excel download, even in those cases where the UI shows just summary data.
    *        </p>
    */
-  metadata: Array<string> | undefined;
+  metadata: string[] | undefined;
 
   /**
    * <p>The display name for the Trusted Advisor check.</p>
@@ -1333,7 +1333,7 @@ export interface TrustedAdvisorCheckResult {
   /**
    * <p>The details about each resource listed in the check result.</p>
    */
-  flaggedResources: Array<TrustedAdvisorResourceDetail> | undefined;
+  flaggedResources: TrustedAdvisorResourceDetail[] | undefined;
 
   /**
    * <p>Details about AWS resources that were analyzed in a call to Trusted Advisor <a>DescribeTrustedAdvisorCheckSummaries</a>.</p>
@@ -1443,7 +1443,7 @@ export interface TrustedAdvisorResourceDetail {
    *             object returned by the call to <a>DescribeTrustedAdvisorChecks</a>. <b>Metadata</b> contains all the data that is shown in the Excel
    *             download, even in those cases where the UI shows just summary data.</p>
    */
-  metadata: Array<string> | undefined;
+  metadata: string[] | undefined;
 
   /**
    * <p>The AWS region in which the identified resource is located.</p>

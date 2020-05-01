@@ -118,7 +118,7 @@ export interface Backup {
   /**
    * <p>Tags associated with a particular file system.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The type of the backup.</p>
@@ -359,7 +359,7 @@ export interface CreateBackupRequest {
    * <p>The tags to apply to the backup at backup creation. The key value of the
    *                 <code>Name</code> tag appears in the console as the backup name.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateBackupRequest {
@@ -401,7 +401,7 @@ export interface CreateDataRepositoryTaskRequest {
    * <p>(Optional) The path or paths on the Amazon FSx file system to use when the data repository task is processed.
    *             The default path is the file system root directory.</p>
    */
-  Paths?: Array<string>;
+  Paths?: string[];
 
   /**
    * <p>Defines whether or not Amazon FSx provides a CompletionReport once the task has completed.
@@ -414,7 +414,7 @@ export interface CreateDataRepositoryTaskRequest {
   /**
    * <p>A list of <code>Tag</code> values, with a maximum of 50 elements.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>Specifies the type of data repository task to create.</p>
@@ -463,21 +463,21 @@ export interface CreateFileSystemFromBackupRequest {
    *             interfaces created for file system access. These security groups apply to all network
    *             interfaces. This value isn't returned in later describe requests.</p>
    */
-  SecurityGroupIds?: Array<string>;
+  SecurityGroupIds?: string[];
 
   /**
    * <p>A list of IDs for the subnets that the file system will be accessible from.
    *             Currently, you can specify only one subnet. The file server is also launched in that
    *             subnet's Availability Zone.</p>
    */
-  SubnetIds: Array<string> | undefined;
+  SubnetIds: string[] | undefined;
 
   /**
    * <p>The tags to be applied to the file system at file system creation. The key value of
    *             the <code>Name</code> tag appears in the console as the file system
    *             name.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The configuration for this Microsoft Windows file system.</p>
@@ -601,7 +601,7 @@ export interface CreateFileSystemRequest {
    *             created for file system access. This list isn't returned in later requests to
    *             describe the file system.</p>
    */
-  SecurityGroupIds?: Array<string>;
+  SecurityGroupIds?: string[];
 
   /**
    * <p>The storage capacity of the file system being created.</p>
@@ -618,13 +618,13 @@ export interface CreateFileSystemRequest {
    *         <p>For Windows <code>SINGLE_AZ_1</code> file system deployment types and Lustre file systems, provide exactly one subnet ID.
    *            The file server is launched in that subnet's Availability Zone.</p>
    */
-  SubnetIds: Array<string> | undefined;
+  SubnetIds: string[] | undefined;
 
   /**
    * <p>The tags to apply to the file system being created. The key value of
    *             the <code>Name</code> tag appears in the console as the file system name.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The Microsoft Windows configuration for the file system being created.
@@ -849,7 +849,7 @@ export interface DataRepositoryTask {
    *             For example, in an EXPORT_TO_REPOSITORY task, the paths specify which data to export to the linked data repository.</p>
    *             <p>(Default) If <code>Paths</code> is not specified, Amazon FSx uses the file system root directory.</p>
    */
-  Paths?: Array<string>;
+  Paths?: string[];
 
   /**
    * <p>Provides a report detailing the data repository task results of the files processed that match the criteria specified in the report <code>Scope</code> parameter.
@@ -881,7 +881,7 @@ export interface DataRepositoryTask {
   /**
    * <p>A list of <code>Tag</code> values, with a maximum of 50 elements.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The system-generated, unique 17-digit ID of the data repository task.</p>
@@ -979,7 +979,7 @@ export interface DataRepositoryTaskFilter {
    * <p>Use Values to include the specific file system IDs and task
    *             lifecycle states for the filters you are using.</p>
    */
-  Values?: Array<string>;
+  Values?: string[];
 }
 
 export namespace DataRepositoryTaskFilter {
@@ -1168,7 +1168,7 @@ export interface DeleteFileSystemWindowsConfiguration {
   /**
    * <p>A set of tags for your final backup.</p>
    */
-  FinalBackupTags?: Array<Tag>;
+  FinalBackupTags?: Tag[];
 
   /**
    * <p>By default, Amazon FSx for Windows takes a final backup on your behalf when the
@@ -1198,7 +1198,7 @@ export interface DeleteFileSystemWindowsResponse {
   /**
    * <p>The set of tags applied to the final backup.</p>
    */
-  FinalBackupTags?: Array<Tag>;
+  FinalBackupTags?: Tag[];
 }
 
 export namespace DeleteFileSystemWindowsResponse {
@@ -1215,13 +1215,13 @@ export interface DescribeBackupsRequest {
    * <p>(Optional) IDs of the backups you want to retrieve (String). This overrides any
    *             filters. If any IDs are not found, BackupNotFound will be thrown.</p>
    */
-  BackupIds?: Array<string>;
+  BackupIds?: string[];
 
   /**
    * <p>(Optional) Filters structure. Supported names are file-system-id and
    *             backup-type.</p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>(Optional) Maximum number of backups to return in the response (integer). This
@@ -1252,7 +1252,7 @@ export interface DescribeBackupsResponse {
   /**
    * <p>Any array of backups.</p>
    */
-  Backups?: Array<Backup>;
+  Backups?: Backup[];
 
   /**
    * <p>This is present if there are more backups than returned in the response (String).
@@ -1273,7 +1273,7 @@ export interface DescribeDataRepositoryTasksRequest {
    * <p>(Optional) You can use filters to narrow the <code>DescribeDataRepositoryTasks</code> response to
    *             include just tasks for specific file systems, or tasks in a specific lifecycle state.</p>
    */
-  Filters?: Array<DataRepositoryTaskFilter>;
+  Filters?: DataRepositoryTaskFilter[];
 
   /**
    * <p>The maximum number of resources to return in the response. This value must be an
@@ -1292,7 +1292,7 @@ export interface DescribeDataRepositoryTasksRequest {
    * <p>(Optional) IDs of the tasks whose descriptions you want to retrieve
    *             (String).</p>
    */
-  TaskIds?: Array<string>;
+  TaskIds?: string[];
 }
 
 export namespace DescribeDataRepositoryTasksRequest {
@@ -1305,7 +1305,7 @@ export interface DescribeDataRepositoryTasksResponse {
   /**
    * <p>The collection of data repository task descriptions returned.</p>
    */
-  DataRepositoryTasks?: Array<DataRepositoryTask>;
+  DataRepositoryTasks?: DataRepositoryTask[];
 
   /**
    * <p>(Optional) Opaque pagination token returned from a previous operation (String). If
@@ -1329,7 +1329,7 @@ export interface DescribeFileSystemsRequest {
    * <p>(Optional) IDs of the file systems whose descriptions you want to retrieve
    *             (String).</p>
    */
-  FileSystemIds?: Array<string>;
+  FileSystemIds?: string[];
 
   /**
    * <p>(Optional) Maximum number of file systems to return in the response (integer). This
@@ -1360,7 +1360,7 @@ export interface DescribeFileSystemsResponse {
   /**
    * <p>An array of file system descriptions.</p>
    */
-  FileSystems?: Array<FileSystem>;
+  FileSystems?: FileSystem[];
 
   /**
    * <p>Present if there are more file systems than returned in the response (String). You
@@ -1462,7 +1462,7 @@ export interface FileSystem {
    *             interface ID. For an Amazon FSx for Lustre file system, you can have more than
    *             one.</p>
    */
-  NetworkInterfaceIds?: Array<string>;
+  NetworkInterfaceIds?: string[];
 
   /**
    * <p>The AWS account that created the file system. If the file system was created by an AWS
@@ -1486,14 +1486,14 @@ export interface FileSystem {
    *             supported. The file system is launched in the Availability Zone associated with this
    *             subnet.</p>
    */
-  SubnetIds?: Array<string>;
+  SubnetIds?: string[];
 
   /**
    * <p>The tags to associate with the file system. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging Your
    *                 Amazon EC2 Resources</a> in the <i>Amazon EC2 User
    *             Guide</i>.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The ID of the primary VPC for the file system.</p>
@@ -1578,7 +1578,7 @@ export interface Filter {
    * <p>The values of the filter. These are all the values for any of the applied
    *             filters.</p>
    */
-  Values?: Array<string>;
+  Values?: string[];
 }
 
 export namespace Filter {
@@ -1756,7 +1756,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>A list of tags on the resource.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace ListTagsForResourceResponse {
@@ -1895,7 +1895,7 @@ export interface SelfManagedActiveDirectoryAttributes {
    * <p>A list of up to two IP addresses of DNS servers or domain controllers in the
    *             self-managed AD directory.</p>
    */
-  DnsIps?: Array<string>;
+  DnsIps?: string[];
 
   /**
    * <p>The fully qualified domain name of the self-managed AD directory.</p>
@@ -1950,7 +1950,7 @@ export interface SelfManagedActiveDirectoryConfiguration {
    *             </li>
    *          </ul>
    */
-  DnsIps: Array<string> | undefined;
+  DnsIps: string[] | undefined;
 
   /**
    * <p>The fully qualified domain name of the self-managed AD directory, such as
@@ -2012,7 +2012,7 @@ export interface SelfManagedActiveDirectoryConfigurationUpdates {
    * <p>A list of up to two IP addresses of DNS servers or domain controllers in the
    *             self-managed AD directory.</p>
    */
-  DnsIps?: Array<string>;
+  DnsIps?: string[];
 
   /**
    * <p>The password for the service account on your self-managed AD domain that Amazon FSx will use to join to
@@ -2108,7 +2108,7 @@ export interface TagResourceRequest {
    * <p>A list of tags for the resource. If a tag with a given key already exists, the
    *             value is replaced by the one specified in this parameter.</p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -2161,7 +2161,7 @@ export interface UntagResourceRequest {
    * <p>A list of keys of tags on the resource to untag. In case the tag key doesn't exist,
    *             the call will still succeed to be idempotent.</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -2340,9 +2340,7 @@ export interface WindowsFileSystemConfiguration {
   /**
    * <p>The list of maintenance operations in progress for this file system.</p>
    */
-  MaintenanceOperationsInProgress?: Array<
-    FileSystemMaintenanceOperation | string
-  >;
+  MaintenanceOperationsInProgress?: (FileSystemMaintenanceOperation | string)[];
 
   /**
    * <p>For <code>MULTI_AZ_1</code> deployment types, the IP address of the primary, or preferred, file server.</p>

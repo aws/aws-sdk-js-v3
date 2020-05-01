@@ -180,7 +180,7 @@ export interface CreateDeviceRequest {
   /**
    * <p>The tags to apply to the resource during creation.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The type of the device.</p>
@@ -223,7 +223,7 @@ export interface CreateGlobalNetworkRequest {
   /**
    * <p>The tags to apply to the resource during creation.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateGlobalNetworkRequest {
@@ -277,7 +277,7 @@ export interface CreateLinkRequest {
   /**
    * <p>The tags to apply to the resource during creation.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The type of the link.</p>
@@ -340,7 +340,7 @@ export interface CreateSiteRequest {
   /**
    * <p>The tags to apply to the resource during creation.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateSiteRequest {
@@ -559,7 +559,7 @@ export interface DescribeGlobalNetworksRequest {
   /**
    * <p>The IDs of one or more global networks. The maximum is 10.</p>
    */
-  GlobalNetworkIds?: Array<string>;
+  GlobalNetworkIds?: string[];
 
   /**
    * <p>The maximum number of results to return.</p>
@@ -582,7 +582,7 @@ export interface DescribeGlobalNetworksResponse {
   /**
    * <p>Information about the global networks.</p>
    */
-  GlobalNetworks?: Array<GlobalNetwork>;
+  GlobalNetworks?: GlobalNetwork[];
 
   /**
    * <p>The token for the next page of results.</p>
@@ -653,7 +653,7 @@ export interface Device {
   /**
    * <p>The tags for the device.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The device type.</p>
@@ -751,7 +751,7 @@ export interface GetCustomerGatewayAssociationsRequest {
    * <p>One or more customer gateway Amazon Resource Names (ARNs). For more information, see
    *                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonec2.html#amazonec2-resources-for-iam-policies">Resources Defined by Amazon EC2</a>. The maximum is 10.</p>
    */
-  CustomerGatewayArns?: Array<string>;
+  CustomerGatewayArns?: string[];
 
   /**
    * <p>The ID of the global network.</p>
@@ -779,7 +779,7 @@ export interface GetCustomerGatewayAssociationsResponse {
   /**
    * <p>The customer gateway associations.</p>
    */
-  CustomerGatewayAssociations?: Array<CustomerGatewayAssociation>;
+  CustomerGatewayAssociations?: CustomerGatewayAssociation[];
 
   /**
    * <p>The token for the next page of results.</p>
@@ -797,7 +797,7 @@ export interface GetDevicesRequest {
   /**
    * <p>One or more device IDs. The maximum is 10.</p>
    */
-  DeviceIds?: Array<string>;
+  DeviceIds?: string[];
 
   /**
    * <p>The ID of the global network.</p>
@@ -830,7 +830,7 @@ export interface GetDevicesResponse {
   /**
    * <p>The devices.</p>
    */
-  Devices?: Array<Device>;
+  Devices?: Device[];
 
   /**
    * <p>The token for the next page of results.</p>
@@ -881,7 +881,7 @@ export interface GetLinkAssociationsResponse {
   /**
    * <p>The link associations.</p>
    */
-  LinkAssociations?: Array<LinkAssociation>;
+  LinkAssociations?: LinkAssociation[];
 
   /**
    * <p>The token for the next page of results.</p>
@@ -904,7 +904,7 @@ export interface GetLinksRequest {
   /**
    * <p>One or more link IDs. The maximum is 10.</p>
    */
-  LinkIds?: Array<string>;
+  LinkIds?: string[];
 
   /**
    * <p>The maximum number of results to return.</p>
@@ -942,7 +942,7 @@ export interface GetLinksResponse {
   /**
    * <p>The links.</p>
    */
-  Links?: Array<Link>;
+  Links?: Link[];
 
   /**
    * <p>The token for the next page of results.</p>
@@ -975,7 +975,7 @@ export interface GetSitesRequest {
   /**
    * <p>One or more site IDs. The maximum is 10.</p>
    */
-  SiteIds?: Array<string>;
+  SiteIds?: string[];
 }
 
 export namespace GetSitesRequest {
@@ -993,7 +993,7 @@ export interface GetSitesResponse {
   /**
    * <p>The sites.</p>
    */
-  Sites?: Array<Site>;
+  Sites?: Site[];
 }
 
 export namespace GetSitesResponse {
@@ -1022,7 +1022,7 @@ export interface GetTransitGatewayRegistrationsRequest {
    * <p>The Amazon Resource Names (ARNs) of one or more transit gateways. The maximum is
    *             10.</p>
    */
-  TransitGatewayArns?: Array<string>;
+  TransitGatewayArns?: string[];
 }
 
 export namespace GetTransitGatewayRegistrationsRequest {
@@ -1040,7 +1040,7 @@ export interface GetTransitGatewayRegistrationsResponse {
   /**
    * <p>The transit gateway registrations.</p>
    */
-  TransitGatewayRegistrations?: Array<TransitGatewayRegistration>;
+  TransitGatewayRegistrations?: TransitGatewayRegistration[];
 }
 
 export namespace GetTransitGatewayRegistrationsResponse {
@@ -1081,7 +1081,7 @@ export interface GlobalNetwork {
   /**
    * <p>The tags for the global network.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace GlobalNetwork {
@@ -1168,7 +1168,7 @@ export interface Link {
   /**
    * <p>The tags for the link.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The type of the link.</p>
@@ -1243,7 +1243,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>The list of tags.</p>
    */
-  TagList?: Array<Tag>;
+  TagList?: Tag[];
 }
 
 export namespace ListTagsForResourceResponse {
@@ -1415,7 +1415,7 @@ export interface Site {
   /**
    * <p>The tags for the site.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace Site {
@@ -1461,7 +1461,7 @@ export interface TagResourceRequest {
   /**
    * <p>The tags to apply to the specified resource.</p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -1563,7 +1563,7 @@ export interface UntagResourceRequest {
   /**
    * <p>The tag keys to remove from the specified resource.</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -1803,7 +1803,7 @@ export interface ValidationException
   /**
    * <p>The fields that caused the error, if applicable.</p>
    */
-  Fields?: Array<ValidationExceptionField>;
+  Fields?: ValidationExceptionField[];
 
   Message: string | undefined;
   /**

@@ -2792,7 +2792,7 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
 };
 
 const serializeAws_json1_1ArnList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2817,7 +2817,7 @@ const serializeAws_json1_1CategoricalParameterRange = (
 };
 
 const serializeAws_json1_1CategoricalParameterRanges = (
-  input: Array<CategoricalParameterRange>,
+  input: CategoricalParameterRange[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2850,7 +2850,7 @@ const serializeAws_json1_1ContinuousParameterRange = (
 };
 
 const serializeAws_json1_1ContinuousParameterRanges = (
-  input: Array<ContinuousParameterRange>,
+  input: ContinuousParameterRange[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3294,7 +3294,7 @@ const serializeAws_json1_1FeaturizationMethodParameters = (
 };
 
 const serializeAws_json1_1FeaturizationPipeline = (
-  input: Array<FeaturizationMethod>,
+  input: FeaturizationMethod[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3305,7 +3305,7 @@ const serializeAws_json1_1FeaturizationPipeline = (
 };
 
 const serializeAws_json1_1Featurizations = (
-  input: Array<Featurization>,
+  input: Featurization[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3333,7 +3333,7 @@ const serializeAws_json1_1Filter = (
 };
 
 const serializeAws_json1_1Filters = (
-  input: Array<Filter>,
+  input: Filter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3344,7 +3344,7 @@ const serializeAws_json1_1Filters = (
 };
 
 const serializeAws_json1_1ForecastDimensions = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3355,7 +3355,7 @@ const serializeAws_json1_1ForecastDimensions = (
 };
 
 const serializeAws_json1_1ForecastTypes = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3430,7 +3430,7 @@ const serializeAws_json1_1IntegerParameterRange = (
 };
 
 const serializeAws_json1_1IntegerParameterRanges = (
-  input: Array<IntegerParameterRange>,
+  input: IntegerParameterRange[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3614,7 +3614,7 @@ const serializeAws_json1_1SchemaAttribute = (
 };
 
 const serializeAws_json1_1SchemaAttributes = (
-  input: Array<SchemaAttribute>,
+  input: SchemaAttribute[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3639,7 +3639,7 @@ const serializeAws_json1_1SupplementaryFeature = (
 };
 
 const serializeAws_json1_1SupplementaryFeatures = (
-  input: Array<SupplementaryFeature>,
+  input: SupplementaryFeature[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3678,7 +3678,7 @@ const serializeAws_json1_1UpdateDatasetGroupRequest = (
 };
 
 const serializeAws_json1_1Values = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3691,7 +3691,7 @@ const serializeAws_json1_1Values = (
 const deserializeAws_json1_1ArnList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -3716,7 +3716,7 @@ const deserializeAws_json1_1CategoricalParameterRange = (
 const deserializeAws_json1_1CategoricalParameterRanges = (
   output: any,
   context: __SerdeContext
-): Array<CategoricalParameterRange> => {
+): CategoricalParameterRange[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1CategoricalParameterRange(entry, context)
   );
@@ -3751,7 +3751,7 @@ const deserializeAws_json1_1ContinuousParameterRange = (
 const deserializeAws_json1_1ContinuousParameterRanges = (
   output: any,
   context: __SerdeContext
-): Array<ContinuousParameterRange> => {
+): ContinuousParameterRange[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ContinuousParameterRange(entry, context)
   );
@@ -3918,7 +3918,7 @@ const deserializeAws_json1_1DatasetGroupSummary = (
 const deserializeAws_json1_1DatasetGroups = (
   output: any,
   context: __SerdeContext
-): Array<DatasetGroupSummary> => {
+): DatasetGroupSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DatasetGroupSummary(entry, context)
   );
@@ -3979,7 +3979,7 @@ const deserializeAws_json1_1DatasetImportJobSummary = (
 const deserializeAws_json1_1DatasetImportJobs = (
   output: any,
   context: __SerdeContext
-): Array<DatasetImportJobSummary> => {
+): DatasetImportJobSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DatasetImportJobSummary(entry, context)
   );
@@ -4027,7 +4027,7 @@ const deserializeAws_json1_1DatasetSummary = (
 const deserializeAws_json1_1Datasets = (
   output: any,
   context: __SerdeContext
-): Array<DatasetSummary> => {
+): DatasetSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DatasetSummary(entry, context)
   );
@@ -4625,7 +4625,7 @@ const deserializeAws_json1_1FeaturizationMethodParameters = (
 const deserializeAws_json1_1FeaturizationPipeline = (
   output: any,
   context: __SerdeContext
-): Array<FeaturizationMethod> => {
+): FeaturizationMethod[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1FeaturizationMethod(entry, context)
   );
@@ -4634,7 +4634,7 @@ const deserializeAws_json1_1FeaturizationPipeline = (
 const deserializeAws_json1_1Featurizations = (
   output: any,
   context: __SerdeContext
-): Array<Featurization> => {
+): Featurization[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Featurization(entry, context)
   );
@@ -4654,7 +4654,7 @@ const deserializeAws_json1_1FieldStatistics = (
 const deserializeAws_json1_1ForecastDimensions = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -4713,7 +4713,7 @@ const deserializeAws_json1_1ForecastExportJobSummary = (
 const deserializeAws_json1_1ForecastExportJobs = (
   output: any,
   context: __SerdeContext
-): Array<ForecastExportJobSummary> => {
+): ForecastExportJobSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ForecastExportJobSummary(entry, context)
   );
@@ -4769,14 +4769,14 @@ const deserializeAws_json1_1ForecastSummary = (
 const deserializeAws_json1_1ForecastTypes = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1Forecasts = (
   output: any,
   context: __SerdeContext
-): Array<ForecastSummary> => {
+): ForecastSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ForecastSummary(entry, context)
   );
@@ -4872,7 +4872,7 @@ const deserializeAws_json1_1IntegerParameterRange = (
 const deserializeAws_json1_1IntegerParameterRanges = (
   output: any,
   context: __SerdeContext
-): Array<IntegerParameterRange> => {
+): IntegerParameterRange[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1IntegerParameterRange(entry, context)
   );
@@ -5119,7 +5119,7 @@ const deserializeAws_json1_1ParameterRanges = (
 const deserializeAws_json1_1PredictorEvaluationResults = (
   output: any,
   context: __SerdeContext
-): Array<EvaluationResult> => {
+): EvaluationResult[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EvaluationResult(entry, context)
   );
@@ -5169,7 +5169,7 @@ const deserializeAws_json1_1PredictorExecutionDetails = (
 const deserializeAws_json1_1PredictorExecutions = (
   output: any,
   context: __SerdeContext
-): Array<PredictorExecution> => {
+): PredictorExecution[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PredictorExecution(entry, context)
   );
@@ -5221,7 +5221,7 @@ const deserializeAws_json1_1PredictorSummary = (
 const deserializeAws_json1_1Predictors = (
   output: any,
   context: __SerdeContext
-): Array<PredictorSummary> => {
+): PredictorSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PredictorSummary(entry, context)
   );
@@ -5329,7 +5329,7 @@ const deserializeAws_json1_1SchemaAttribute = (
 const deserializeAws_json1_1SchemaAttributes = (
   output: any,
   context: __SerdeContext
-): Array<SchemaAttribute> => {
+): SchemaAttribute[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SchemaAttribute(entry, context)
   );
@@ -5398,7 +5398,7 @@ const deserializeAws_json1_1SupplementaryFeature = (
 const deserializeAws_json1_1SupplementaryFeatures = (
   output: any,
   context: __SerdeContext
-): Array<SupplementaryFeature> => {
+): SupplementaryFeature[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SupplementaryFeature(entry, context)
   );
@@ -5407,7 +5407,7 @@ const deserializeAws_json1_1SupplementaryFeatures = (
 const deserializeAws_json1_1TestWindowDetails = (
   output: any,
   context: __SerdeContext
-): Array<TestWindowSummary> => {
+): TestWindowSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1TestWindowSummary(entry, context)
   );
@@ -5444,7 +5444,7 @@ const deserializeAws_json1_1TestWindowSummary = (
 const deserializeAws_json1_1TestWindows = (
   output: any,
   context: __SerdeContext
-): Array<WindowSummary> => {
+): WindowSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1WindowSummary(entry, context)
   );
@@ -5474,7 +5474,7 @@ const deserializeAws_json1_1UpdateDatasetGroupResponse = (
 const deserializeAws_json1_1Values = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -5499,7 +5499,7 @@ const deserializeAws_json1_1WeightedQuantileLoss = (
 const deserializeAws_json1_1WeightedQuantileLosses = (
   output: any,
   context: __SerdeContext
-): Array<WeightedQuantileLoss> => {
+): WeightedQuantileLoss[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1WeightedQuantileLoss(entry, context)
   );

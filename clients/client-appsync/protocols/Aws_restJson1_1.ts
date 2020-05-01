@@ -6617,7 +6617,7 @@ const serializeAws_restJson1_1AdditionalAuthenticationProvider = (
 };
 
 const serializeAws_restJson1_1AdditionalAuthenticationProviders = (
-  input: Array<AdditionalAuthenticationProvider>,
+  input: AdditionalAuthenticationProvider[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6678,7 +6678,7 @@ const serializeAws_restJson1_1CachingConfig = (
 };
 
 const serializeAws_restJson1_1CachingKeys = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6763,7 +6763,7 @@ const serializeAws_restJson1_1ElasticsearchDataSourceConfig = (
 };
 
 const serializeAws_restJson1_1FunctionsIds = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6998,7 +6998,7 @@ const deserializeAws_restJson1_1AdditionalAuthenticationProvider = (
 const deserializeAws_restJson1_1AdditionalAuthenticationProviders = (
   output: any,
   context: __SerdeContext
-): Array<AdditionalAuthenticationProvider> => {
+): AdditionalAuthenticationProvider[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1AdditionalAuthenticationProvider(entry, context)
   );
@@ -7072,7 +7072,7 @@ const deserializeAws_restJson1_1ApiKey = (
 const deserializeAws_restJson1_1ApiKeys = (
   output: any,
   context: __SerdeContext
-): Array<ApiKey> => {
+): ApiKey[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ApiKey(entry, context)
   );
@@ -7147,7 +7147,7 @@ const deserializeAws_restJson1_1CachingConfig = (
 const deserializeAws_restJson1_1CachingKeys = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -7250,7 +7250,7 @@ const deserializeAws_restJson1_1DataSource = (
 const deserializeAws_restJson1_1DataSources = (
   output: any,
   context: __SerdeContext
-): Array<DataSource> => {
+): DataSource[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DataSource(entry, context)
   );
@@ -7389,7 +7389,7 @@ const deserializeAws_restJson1_1FunctionConfiguration = (
 const deserializeAws_restJson1_1Functions = (
   output: any,
   context: __SerdeContext
-): Array<FunctionConfiguration> => {
+): FunctionConfiguration[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1FunctionConfiguration(entry, context)
   );
@@ -7398,7 +7398,7 @@ const deserializeAws_restJson1_1Functions = (
 const deserializeAws_restJson1_1FunctionsIds = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -7479,7 +7479,7 @@ const deserializeAws_restJson1_1GraphqlApi = (
 const deserializeAws_restJson1_1GraphqlApis = (
   output: any,
   context: __SerdeContext
-): Array<GraphqlApi> => {
+): GraphqlApi[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1GraphqlApi(entry, context)
   );
@@ -7756,7 +7756,7 @@ const deserializeAws_restJson1_1Resolver = (
 const deserializeAws_restJson1_1Resolvers = (
   output: any,
   context: __SerdeContext
-): Array<Resolver> => {
+): Resolver[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Resolver(entry, context)
   );
@@ -7837,7 +7837,7 @@ const deserializeAws_restJson1_1Type = (
 const deserializeAws_restJson1_1TypeList = (
   output: any,
   context: __SerdeContext
-): Array<Type> => {
+): Type[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Type(entry, context)
   );

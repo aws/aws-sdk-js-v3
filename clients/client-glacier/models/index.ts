@@ -481,7 +481,7 @@ export interface S3Location {
   /**
    * <p>A list of grants that control access to the staged results.</p>
    */
-  AccessControlList?: Array<Grant>;
+  AccessControlList?: Grant[];
 
   /**
    * <p>The name of the Amazon S3 bucket where the job results are stored.</p>
@@ -818,7 +818,7 @@ export interface DataRetrievalPolicy {
    * <p>The policy rule. Although this is a list type, currently there must be only one rule,
    *          which contains a Strategy field and optionally a BytesPerHour field.</p>
    */
-  Rules?: Array<DataRetrievalRule>;
+  Rules?: DataRetrievalRule[];
 }
 
 export namespace DataRetrievalPolicy {
@@ -1802,7 +1802,7 @@ export interface ListJobsOutput {
    * <p>A list of job objects. Each job object contains metadata describing the
    *          job.</p>
    */
-  JobList?: Array<GlacierJobDescription>;
+  JobList?: GlacierJobDescription[];
 
   /**
    * <p>
@@ -1874,7 +1874,7 @@ export interface ListMultipartUploadsOutput {
   /**
    * <p>A list of in-progress multipart uploads.</p>
    */
-  UploadsList?: Array<UploadListElement>;
+  UploadsList?: UploadListElement[];
 }
 
 export namespace ListMultipartUploadsOutput {
@@ -1967,7 +1967,7 @@ export interface ListPartsOutput {
    *          <code>RangeBytes</code> and <code>sha256-tree-hash</code> name/value
    *          pair.</p>
    */
-  Parts?: Array<PartListElement>;
+  Parts?: PartListElement[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the vault to which the multipart upload was
@@ -2002,7 +2002,7 @@ export interface ListProvisionedCapacityOutput {
   /**
    * <p>The response body contains the following JSON fields.</p>
    */
-  ProvisionedCapacityList?: Array<ProvisionedCapacityDescription>;
+  ProvisionedCapacityList?: ProvisionedCapacityDescription[];
 }
 
 export namespace ListProvisionedCapacityOutput {
@@ -2099,7 +2099,7 @@ export interface ListVaultsOutput {
   /**
    * <p>List of vaults.</p>
    */
-  VaultList?: Array<DescribeVaultOutput>;
+  VaultList?: DescribeVaultOutput[];
 }
 
 export namespace ListVaultsOutput {
@@ -2251,7 +2251,7 @@ export interface RemoveTagsFromVaultInput {
   /**
    * <p>A list of tag keys. Each corresponding tag is removed from the vault.</p>
    */
-  TagKeys?: Array<string>;
+  TagKeys?: string[];
 
   /**
    * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
@@ -2635,7 +2635,7 @@ export interface VaultNotificationConfig {
    * <p>A list of one or more events for which Amazon S3 Glacier will send a notification to the
    *          specified Amazon SNS topic.</p>
    */
-  Events?: Array<string>;
+  Events?: string[];
 
   /**
    * <p>The Amazon Simple Notification Service (Amazon SNS) topic Amazon Resource Name

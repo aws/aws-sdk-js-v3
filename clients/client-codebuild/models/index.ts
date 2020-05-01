@@ -47,7 +47,7 @@ export interface BatchDeleteBuildsInput {
   /**
    * <p>The IDs of the builds to delete.</p>
    */
-  ids: Array<string> | undefined;
+  ids: string[] | undefined;
 }
 
 export namespace BatchDeleteBuildsInput {
@@ -60,12 +60,12 @@ export interface BatchDeleteBuildsOutput {
   /**
    * <p>The IDs of the builds that were successfully deleted.</p>
    */
-  buildsDeleted?: Array<string>;
+  buildsDeleted?: string[];
 
   /**
    * <p>Information about any builds that could not be successfully deleted.</p>
    */
-  buildsNotDeleted?: Array<BuildNotDeleted>;
+  buildsNotDeleted?: BuildNotDeleted[];
 }
 
 export namespace BatchDeleteBuildsOutput {
@@ -78,7 +78,7 @@ export interface BatchGetBuildsInput {
   /**
    * <p>The IDs of the builds.</p>
    */
-  ids: Array<string> | undefined;
+  ids: string[] | undefined;
 }
 
 export namespace BatchGetBuildsInput {
@@ -91,12 +91,12 @@ export interface BatchGetBuildsOutput {
   /**
    * <p>Information about the requested builds.</p>
    */
-  builds?: Array<Build>;
+  builds?: Build[];
 
   /**
    * <p>The IDs of builds for which information could not be found.</p>
    */
-  buildsNotFound?: Array<string>;
+  buildsNotFound?: string[];
 }
 
 export namespace BatchGetBuildsOutput {
@@ -110,7 +110,7 @@ export interface BatchGetProjectsInput {
    * <p>The names or ARNs of the build projects. To get information about a project shared with your AWS account, its ARN must
    *          be specified. You cannot specify a shared project using its name.</p>
    */
-  names: Array<string> | undefined;
+  names: string[] | undefined;
 }
 
 export namespace BatchGetProjectsInput {
@@ -123,12 +123,12 @@ export interface BatchGetProjectsOutput {
   /**
    * <p>Information about the requested build projects.</p>
    */
-  projects?: Array<Project>;
+  projects?: Project[];
 
   /**
    * <p>The names of build projects for which information could not be found.</p>
    */
-  projectsNotFound?: Array<string>;
+  projectsNotFound?: string[];
 }
 
 export namespace BatchGetProjectsOutput {
@@ -143,7 +143,7 @@ export interface BatchGetReportGroupsInput {
    *          An array of report group ARNs that identify the report groups to return.
    *       </p>
    */
-  reportGroupArns: Array<string> | undefined;
+  reportGroupArns: string[] | undefined;
 }
 
 export namespace BatchGetReportGroupsInput {
@@ -158,14 +158,14 @@ export interface BatchGetReportGroupsOutput {
    *          The array of report groups returned by <code>BatchGetReportGroups</code>.
    *       </p>
    */
-  reportGroups?: Array<ReportGroup>;
+  reportGroups?: ReportGroup[];
 
   /**
    * <p>
    *          An array of ARNs passed to <code>BatchGetReportGroups</code> that are not associated with a <code>ReportGroup</code>.
    *       </p>
    */
-  reportGroupsNotFound?: Array<string>;
+  reportGroupsNotFound?: string[];
 }
 
 export namespace BatchGetReportGroupsOutput {
@@ -180,7 +180,7 @@ export interface BatchGetReportsInput {
    *          An array of ARNs that identify the <code>Report</code> objects to return.
    *       </p>
    */
-  reportArns: Array<string> | undefined;
+  reportArns: string[] | undefined;
 }
 
 export namespace BatchGetReportsInput {
@@ -195,14 +195,14 @@ export interface BatchGetReportsOutput {
    *          The array of <code>Report</code> objects returned by <code>BatchGetReports</code>.
    *       </p>
    */
-  reports?: Array<Report>;
+  reports?: Report[];
 
   /**
    * <p>
    *          An array of ARNs passed to <code>BatchGetReportGroups</code> that are not associated with a <code>Report</code>.
    *       </p>
    */
-  reportsNotFound?: Array<string>;
+  reportsNotFound?: string[];
 }
 
 export namespace BatchGetReportsOutput {
@@ -308,7 +308,7 @@ export interface Build {
    *          A list of exported environment variables for this build.
    *       </p>
    */
-  exportedEnvironmentVariables?: Array<ExportedEnvironmentVariable>;
+  exportedEnvironmentVariables?: ExportedEnvironmentVariable[];
 
   /**
    * <p>The unique ID for the build.</p>
@@ -348,7 +348,7 @@ export interface Build {
    * <p>Information about all previous build phases that are complete and information about any
    *          current build phase that is not yet complete.</p>
    */
-  phases?: Array<BuildPhase>;
+  phases?: BuildPhase[];
 
   /**
    * <p>The name of the AWS CodeBuild project.</p>
@@ -365,7 +365,7 @@ export interface Build {
    *          An array of the ARNs associated with this build's reports.
    *       </p>
    */
-  reportArns?: Array<string>;
+  reportArns?: string[];
 
   /**
    * <p> An identifier for the version of this build's source code. </p>
@@ -386,7 +386,7 @@ export interface Build {
   /**
    * <p> An array of <code>ProjectArtifacts</code> objects. </p>
    */
-  secondaryArtifacts?: Array<BuildArtifacts>;
+  secondaryArtifacts?: BuildArtifacts[];
 
   /**
    * <p> An array of <code>ProjectSourceVersion</code> objects. Each
@@ -414,12 +414,12 @@ export interface Build {
    *             </li>
    *          </ul>
    */
-  secondarySourceVersions?: Array<ProjectSourceVersion>;
+  secondarySourceVersions?: ProjectSourceVersion[];
 
   /**
    * <p> An array of <code>ProjectSource</code> objects. </p>
    */
-  secondarySources?: Array<ProjectSource>;
+  secondarySources?: ProjectSource[];
 
   /**
    * <p>The name of a service role used for this build.</p>
@@ -553,7 +553,7 @@ export interface BuildPhase {
    * <p>Additional information about a build phase, especially to help troubleshoot a failed
    *          build.</p>
    */
-  contexts?: Array<PhaseContext>;
+  contexts?: PhaseContext[];
 
   /**
    * <p>How long, in seconds, between the starting and ending times of the build's phase.</p>
@@ -804,7 +804,7 @@ export interface CreateProjectInput {
   /**
    * <p> An array of <code>ProjectArtifacts</code> objects. </p>
    */
-  secondaryArtifacts?: Array<ProjectArtifacts>;
+  secondaryArtifacts?: ProjectArtifacts[];
 
   /**
    * <p>
@@ -812,12 +812,12 @@ export interface CreateProjectInput {
    *          <code>secondarySourceVersions</code> (at the project level).
    *       </p>
    */
-  secondarySourceVersions?: Array<ProjectSourceVersion>;
+  secondarySourceVersions?: ProjectSourceVersion[];
 
   /**
    * <p> An array of <code>ProjectSource</code> objects. </p>
    */
-  secondarySources?: Array<ProjectSource>;
+  secondarySources?: ProjectSource[];
 
   /**
    * <p>The ARN of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on
@@ -873,7 +873,7 @@ export interface CreateProjectInput {
    *          <p>These tags are available for use by AWS services that support AWS CodeBuild build project
    *          tags.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 
   /**
    * <p>How long, in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait before it times out any
@@ -974,7 +974,7 @@ export interface CreateWebhookInput {
    *          to pass, each of its filters must pass.
    *       </p>
    */
-  filterGroups?: Array<Array<WebhookFilter>>;
+  filterGroups?: WebhookFilter[][];
 
   /**
    * <p>The name of the AWS CodeBuild project.</p>
@@ -1208,7 +1208,7 @@ export interface DescribeTestCasesOutput {
    *          The returned list of test cases.
    *       </p>
    */
-  testCases?: Array<TestCase>;
+  testCases?: TestCase[];
 }
 
 export namespace DescribeTestCasesOutput {
@@ -1234,7 +1234,7 @@ export interface EnvironmentImage {
   /**
    * <p>A list of environment image versions.</p>
    */
-  versions?: Array<string>;
+  versions?: string[];
 }
 
 export namespace EnvironmentImage {
@@ -1251,7 +1251,7 @@ export interface EnvironmentLanguage {
   /**
    * <p>The list of Docker images that are related by the specified programming language.</p>
    */
-  images?: Array<EnvironmentImage>;
+  images?: EnvironmentImage[];
 
   /**
    * <p>The programming language for the Docker images.</p>
@@ -1272,7 +1272,7 @@ export interface EnvironmentPlatform {
   /**
    * <p>The list of programming languages that are available for the specified platform.</p>
    */
-  languages?: Array<EnvironmentLanguage>;
+  languages?: EnvironmentLanguage[];
 
   /**
    * <p>The platform's name.</p>
@@ -1589,7 +1589,7 @@ export interface ListBuildsForProjectOutput {
    * <p>A list of build IDs for the specified build project, with each build ID representing a
    *          single build.</p>
    */
-  ids?: Array<string>;
+  ids?: string[];
 
   /**
    * <p>If there are more than 100 items in the list, only the first 100 items are returned,
@@ -1642,7 +1642,7 @@ export interface ListBuildsOutput {
   /**
    * <p>A list of build IDs, with each build ID representing a single build.</p>
    */
-  ids?: Array<string>;
+  ids?: string[];
 
   /**
    * <p>If there are more than 100 items in the list, only the first 100 items are returned,
@@ -1672,7 +1672,7 @@ export interface ListCuratedEnvironmentImagesOutput {
    * <p>Information about supported platforms for Docker images that are managed by
    *          AWS CodeBuild.</p>
    */
-  platforms?: Array<EnvironmentPlatform>;
+  platforms?: EnvironmentPlatform[];
 }
 
 export namespace ListCuratedEnvironmentImagesOutput {
@@ -1750,7 +1750,7 @@ export interface ListProjectsOutput {
    * <p>The list of build project names, with each build project name representing a single
    *          build project.</p>
    */
-  projects?: Array<string>;
+  projects?: string[];
 }
 
 export namespace ListProjectsOutput {
@@ -1833,7 +1833,7 @@ export interface ListReportGroupsOutput {
    *          The list of ARNs for the report groups in the current AWS account.
    *       </p>
    */
-  reportGroups?: Array<string>;
+  reportGroups?: string[];
 }
 
 export namespace ListReportGroupsOutput {
@@ -1907,7 +1907,7 @@ export interface ListReportsForReportGroupOutput {
    *          The list of returned report group ARNs.
    *       </p>
    */
-  reports?: Array<string>;
+  reports?: string[];
 }
 
 export namespace ListReportsForReportGroupOutput {
@@ -1986,7 +1986,7 @@ export interface ListReportsOutput {
    *          The list of returned ARNs for the reports in the current AWS account.
    *       </p>
    */
-  reports?: Array<string>;
+  reports?: string[];
 }
 
 export namespace ListReportsOutput {
@@ -2076,7 +2076,7 @@ export interface ListSharedProjectsOutput {
    *          The list of ARNs for the build projects shared with the current AWS account or user.
    *       </p>
    */
-  projects?: Array<string>;
+  projects?: string[];
 }
 
 export namespace ListSharedProjectsOutput {
@@ -2166,7 +2166,7 @@ export interface ListSharedReportGroupsOutput {
    *          The list of ARNs for the report groups shared with the current AWS account or user.
    *       </p>
    */
-  reportGroups?: Array<string>;
+  reportGroups?: string[];
 }
 
 export namespace ListSharedReportGroupsOutput {
@@ -2191,7 +2191,7 @@ export interface ListSourceCredentialsOutput {
    *          the authentication type, token ARN, and type of source provider for one set of credentials.
    *       </p>
    */
-  sourceCredentialsInfos?: Array<SourceCredentialsInfo>;
+  sourceCredentialsInfos?: SourceCredentialsInfo[];
 }
 
 export namespace ListSourceCredentialsOutput {
@@ -2430,7 +2430,7 @@ export interface Project {
   /**
    * <p> An array of <code>ProjectArtifacts</code> objects. </p>
    */
-  secondaryArtifacts?: Array<ProjectArtifacts>;
+  secondaryArtifacts?: ProjectArtifacts[];
 
   /**
    * <p>
@@ -2438,12 +2438,12 @@ export interface Project {
    *          <code>secondarySourceVersions</code> (at the project level).
    *       </p>
    */
-  secondarySourceVersions?: Array<ProjectSourceVersion>;
+  secondarySourceVersions?: ProjectSourceVersion[];
 
   /**
    * <p> An array of <code>ProjectSource</code> objects. </p>
    */
-  secondarySources?: Array<ProjectSource>;
+  secondarySources?: ProjectSource[];
 
   /**
    * <p>The ARN of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on
@@ -2497,7 +2497,7 @@ export interface Project {
    *          <p>These tags are available for use by AWS services that support AWS CodeBuild build project
    *          tags.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 
   /**
    * <p>How long, in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait before timing out any
@@ -2851,7 +2851,7 @@ export interface ProjectCache {
    *             </li>
    *          </ul>
    */
-  modes?: Array<CacheMode | string>;
+  modes?: (CacheMode | string)[];
 
   /**
    * <p>The type of cache used by the build project. Valid values include:</p>
@@ -2941,7 +2941,7 @@ export interface ProjectEnvironment {
    * <p>A set of environment variables to make available to builds for this build
    *          project.</p>
    */
-  environmentVariables?: Array<EnvironmentVariable>;
+  environmentVariables?: EnvironmentVariable[];
 
   /**
    * <p>The image tag or image digest that identifies the Docker image to use for this build project. Use the following formats:</p>
@@ -3869,7 +3869,7 @@ export interface StartBuildInput {
    * <p>A set of environment variables that overrides, for this build only, the latest ones
    *          already defined in the build project.</p>
    */
-  environmentVariablesOverride?: Array<EnvironmentVariable>;
+  environmentVariablesOverride?: EnvironmentVariable[];
 
   /**
    * <p>The user-defined depth of history, with a minimum value of 0, that overrides, for this
@@ -3969,18 +3969,18 @@ export interface StartBuildInput {
   /**
    * <p> An array of <code>ProjectArtifacts</code> objects. </p>
    */
-  secondaryArtifactsOverride?: Array<ProjectArtifacts>;
+  secondaryArtifactsOverride?: ProjectArtifacts[];
 
   /**
    * <p> An array of <code>ProjectSource</code> objects. </p>
    */
-  secondarySourcesOverride?: Array<ProjectSource>;
+  secondarySourcesOverride?: ProjectSource[];
 
   /**
    * <p> An array of <code>ProjectSourceVersion</code> objects that specify one or more versions
    *          of the project's secondary sources to be used for this build only. </p>
    */
-  secondarySourcesVersionOverride?: Array<ProjectSourceVersion>;
+  secondarySourcesVersionOverride?: ProjectSourceVersion[];
 
   /**
    * <p>The name of a service role for this build that overrides the one specified in the build
@@ -4316,7 +4316,7 @@ export interface UpdateProjectInput {
   /**
    * <p> An array of <code>ProjectSource</code> objects. </p>
    */
-  secondaryArtifacts?: Array<ProjectArtifacts>;
+  secondaryArtifacts?: ProjectArtifacts[];
 
   /**
    * <p>
@@ -4324,12 +4324,12 @@ export interface UpdateProjectInput {
    *          <code>secondarySourceVersions</code> (at the project level).
    *       </p>
    */
-  secondarySourceVersions?: Array<ProjectSourceVersion>;
+  secondarySourceVersions?: ProjectSourceVersion[];
 
   /**
    * <p> An array of <code>ProjectSource</code> objects. </p>
    */
-  secondarySources?: Array<ProjectSource>;
+  secondarySources?: ProjectSource[];
 
   /**
    * <p>The replacement ARN of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS
@@ -4386,7 +4386,7 @@ export interface UpdateProjectInput {
    *          <p>These tags are available for use by AWS services that support AWS CodeBuild build project
    *          tags.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 
   /**
    * <p>The replacement value in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait before
@@ -4488,7 +4488,7 @@ export interface UpdateWebhookInput {
    *             <code>WebhookFilter</code>.
    *       </p>
    */
-  filterGroups?: Array<Array<WebhookFilter>>;
+  filterGroups?: WebhookFilter[][];
 
   /**
    * <p>The name of the AWS CodeBuild project.</p>
@@ -4530,12 +4530,12 @@ export interface VpcConfig {
   /**
    * <p>A list of one or more security groups IDs in your Amazon VPC.</p>
    */
-  securityGroupIds?: Array<string>;
+  securityGroupIds?: string[];
 
   /**
    * <p>A list of one or more subnet IDs in your Amazon VPC.</p>
    */
-  subnets?: Array<string>;
+  subnets?: string[];
 
   /**
    * <p>The ID of the Amazon VPC.</p>
@@ -4576,7 +4576,7 @@ export interface Webhook {
    *          to pass, each of its filters must pass.
    *       </p>
    */
-  filterGroups?: Array<Array<WebhookFilter>>;
+  filterGroups?: WebhookFilter[][];
 
   /**
    * <p> A timestamp that indicates the last time a repository's secret token was modified.

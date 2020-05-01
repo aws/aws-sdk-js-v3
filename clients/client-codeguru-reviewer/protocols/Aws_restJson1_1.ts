@@ -811,7 +811,7 @@ const deserializeAws_restJson1_1RepositoryAssociation = (
 const deserializeAws_restJson1_1RepositoryAssociationSummaries = (
   output: any,
   context: __SerdeContext
-): Array<RepositoryAssociationSummary> => {
+): RepositoryAssociationSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1RepositoryAssociationSummary(entry, context)
   );

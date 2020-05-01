@@ -3739,7 +3739,7 @@ const serializeAws_restJson1_1ImportAssetsFromS3RequestDetails = (
 };
 
 const serializeAws_restJson1_1ListOfAssetDestinationEntry = (
-  input: Array<AssetDestinationEntry>,
+  input: AssetDestinationEntry[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3752,7 +3752,7 @@ const serializeAws_restJson1_1ListOfAssetDestinationEntry = (
 };
 
 const serializeAws_restJson1_1ListOfAssetSourceEntry = (
-  input: Array<AssetSourceEntry>,
+  input: AssetSourceEntry[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4235,7 +4235,7 @@ const deserializeAws_restJson1_1JobError = (
 const deserializeAws_restJson1_1ListOfAssetDestinationEntry = (
   output: any,
   context: __SerdeContext
-): Array<AssetDestinationEntry> => {
+): AssetDestinationEntry[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1AssetDestinationEntry(entry, context)
   );
@@ -4244,7 +4244,7 @@ const deserializeAws_restJson1_1ListOfAssetDestinationEntry = (
 const deserializeAws_restJson1_1ListOfAssetEntry = (
   output: any,
   context: __SerdeContext
-): Array<AssetEntry> => {
+): AssetEntry[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1AssetEntry(entry, context)
   );
@@ -4253,7 +4253,7 @@ const deserializeAws_restJson1_1ListOfAssetEntry = (
 const deserializeAws_restJson1_1ListOfAssetSourceEntry = (
   output: any,
   context: __SerdeContext
-): Array<AssetSourceEntry> => {
+): AssetSourceEntry[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1AssetSourceEntry(entry, context)
   );
@@ -4262,7 +4262,7 @@ const deserializeAws_restJson1_1ListOfAssetSourceEntry = (
 const deserializeAws_restJson1_1ListOfDataSetEntry = (
   output: any,
   context: __SerdeContext
-): Array<DataSetEntry> => {
+): DataSetEntry[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DataSetEntry(entry, context)
   );
@@ -4271,7 +4271,7 @@ const deserializeAws_restJson1_1ListOfDataSetEntry = (
 const deserializeAws_restJson1_1ListOfJobEntry = (
   output: any,
   context: __SerdeContext
-): Array<JobEntry> => {
+): JobEntry[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1JobEntry(entry, context)
   );
@@ -4280,7 +4280,7 @@ const deserializeAws_restJson1_1ListOfJobEntry = (
 const deserializeAws_restJson1_1ListOfJobError = (
   output: any,
   context: __SerdeContext
-): Array<JobError> => {
+): JobError[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1JobError(entry, context)
   );
@@ -4289,7 +4289,7 @@ const deserializeAws_restJson1_1ListOfJobError = (
 const deserializeAws_restJson1_1ListOfRevisionEntry = (
   output: any,
   context: __SerdeContext
-): Array<RevisionEntry> => {
+): RevisionEntry[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1RevisionEntry(entry, context)
   );

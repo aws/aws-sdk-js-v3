@@ -3200,7 +3200,7 @@ const serializeAws_json1_1BatchGetReportsInput = (
 };
 
 const serializeAws_json1_1BuildIds = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3465,7 +3465,7 @@ const serializeAws_json1_1EnvironmentVariable = (
 };
 
 const serializeAws_json1_1EnvironmentVariables = (
-  input: Array<EnvironmentVariable>,
+  input: EnvironmentVariable[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3476,7 +3476,7 @@ const serializeAws_json1_1EnvironmentVariables = (
 };
 
 const serializeAws_json1_1FilterGroup = (
-  input: Array<WebhookFilter>,
+  input: WebhookFilter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3487,7 +3487,7 @@ const serializeAws_json1_1FilterGroup = (
 };
 
 const serializeAws_json1_1FilterGroups = (
-  input: Array<Array<WebhookFilter>>,
+  input: WebhookFilter[][],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3782,7 +3782,7 @@ const serializeAws_json1_1ProjectArtifacts = (
 };
 
 const serializeAws_json1_1ProjectArtifactsList = (
-  input: Array<ProjectArtifacts>,
+  input: ProjectArtifacts[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3813,7 +3813,7 @@ const serializeAws_json1_1ProjectCache = (
 };
 
 const serializeAws_json1_1ProjectCacheModes = (
-  input: Array<CacheMode | string>,
+  input: (CacheMode | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3864,7 +3864,7 @@ const serializeAws_json1_1ProjectEnvironment = (
 };
 
 const serializeAws_json1_1ProjectNames = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3875,7 +3875,7 @@ const serializeAws_json1_1ProjectNames = (
 };
 
 const serializeAws_json1_1ProjectSecondarySourceVersions = (
-  input: Array<ProjectSourceVersion>,
+  input: ProjectSourceVersion[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3938,7 +3938,7 @@ const serializeAws_json1_1ProjectSourceVersion = (
 };
 
 const serializeAws_json1_1ProjectSources = (
-  input: Array<ProjectSource>,
+  input: ProjectSource[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3977,7 +3977,7 @@ const serializeAws_json1_1RegistryCredential = (
 };
 
 const serializeAws_json1_1ReportArns = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4016,7 +4016,7 @@ const serializeAws_json1_1ReportFilter = (
 };
 
 const serializeAws_json1_1ReportGroupArns = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4067,7 +4067,7 @@ const serializeAws_json1_1S3ReportExportConfig = (
 };
 
 const serializeAws_json1_1SecurityGroupIds = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4240,7 +4240,7 @@ const serializeAws_json1_1StopBuildInput = (
 };
 
 const serializeAws_json1_1Subnets = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4262,7 +4262,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_json1_1TagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4814,7 +4814,7 @@ const deserializeAws_json1_1BuildArtifacts = (
 const deserializeAws_json1_1BuildArtifactsList = (
   output: any,
   context: __SerdeContext
-): Array<BuildArtifacts> => {
+): BuildArtifacts[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1BuildArtifacts(entry, context)
   );
@@ -4823,7 +4823,7 @@ const deserializeAws_json1_1BuildArtifactsList = (
 const deserializeAws_json1_1BuildIds = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -4888,7 +4888,7 @@ const deserializeAws_json1_1BuildPhase = (
 const deserializeAws_json1_1BuildPhases = (
   output: any,
   context: __SerdeContext
-): Array<BuildPhase> => {
+): BuildPhase[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1BuildPhase(entry, context)
   );
@@ -4897,14 +4897,14 @@ const deserializeAws_json1_1BuildPhases = (
 const deserializeAws_json1_1BuildReportArns = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1Builds = (
   output: any,
   context: __SerdeContext
-): Array<Build> => {
+): Build[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Build(entry, context)
   );
@@ -4913,7 +4913,7 @@ const deserializeAws_json1_1Builds = (
 const deserializeAws_json1_1BuildsNotDeleted = (
   output: any,
   context: __SerdeContext
-): Array<BuildNotDeleted> => {
+): BuildNotDeleted[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1BuildNotDeleted(entry, context)
   );
@@ -5099,7 +5099,7 @@ const deserializeAws_json1_1EnvironmentImage = (
 const deserializeAws_json1_1EnvironmentImages = (
   output: any,
   context: __SerdeContext
-): Array<EnvironmentImage> => {
+): EnvironmentImage[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EnvironmentImage(entry, context)
   );
@@ -5129,7 +5129,7 @@ const deserializeAws_json1_1EnvironmentLanguage = (
 const deserializeAws_json1_1EnvironmentLanguages = (
   output: any,
   context: __SerdeContext
-): Array<EnvironmentLanguage> => {
+): EnvironmentLanguage[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EnvironmentLanguage(entry, context)
   );
@@ -5159,7 +5159,7 @@ const deserializeAws_json1_1EnvironmentPlatform = (
 const deserializeAws_json1_1EnvironmentPlatforms = (
   output: any,
   context: __SerdeContext
-): Array<EnvironmentPlatform> => {
+): EnvironmentPlatform[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EnvironmentPlatform(entry, context)
   );
@@ -5190,7 +5190,7 @@ const deserializeAws_json1_1EnvironmentVariable = (
 const deserializeAws_json1_1EnvironmentVariables = (
   output: any,
   context: __SerdeContext
-): Array<EnvironmentVariable> => {
+): EnvironmentVariable[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EnvironmentVariable(entry, context)
   );
@@ -5217,7 +5217,7 @@ const deserializeAws_json1_1ExportedEnvironmentVariable = (
 const deserializeAws_json1_1ExportedEnvironmentVariables = (
   output: any,
   context: __SerdeContext
-): Array<ExportedEnvironmentVariable> => {
+): ExportedEnvironmentVariable[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ExportedEnvironmentVariable(entry, context)
   );
@@ -5226,7 +5226,7 @@ const deserializeAws_json1_1ExportedEnvironmentVariables = (
 const deserializeAws_json1_1FilterGroup = (
   output: any,
   context: __SerdeContext
-): Array<WebhookFilter> => {
+): WebhookFilter[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1WebhookFilter(entry, context)
   );
@@ -5235,7 +5235,7 @@ const deserializeAws_json1_1FilterGroup = (
 const deserializeAws_json1_1FilterGroups = (
   output: any,
   context: __SerdeContext
-): Array<Array<WebhookFilter>> => {
+): WebhookFilter[][] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1FilterGroup(entry, context)
   );
@@ -5272,7 +5272,7 @@ const deserializeAws_json1_1GitSubmodulesConfig = (
 const deserializeAws_json1_1ImageVersions = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -5644,7 +5644,7 @@ const deserializeAws_json1_1PhaseContext = (
 const deserializeAws_json1_1PhaseContexts = (
   output: any,
   context: __SerdeContext
-): Array<PhaseContext> => {
+): PhaseContext[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PhaseContext(entry, context)
   );
@@ -5790,7 +5790,7 @@ const deserializeAws_json1_1Project = (
 const deserializeAws_json1_1ProjectArns = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -5852,7 +5852,7 @@ const deserializeAws_json1_1ProjectArtifacts = (
 const deserializeAws_json1_1ProjectArtifactsList = (
   output: any,
   context: __SerdeContext
-): Array<ProjectArtifacts> => {
+): ProjectArtifacts[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ProjectArtifacts(entry, context)
   );
@@ -5904,7 +5904,7 @@ const deserializeAws_json1_1ProjectCache = (
 const deserializeAws_json1_1ProjectCacheModes = (
   output: any,
   context: __SerdeContext
-): Array<CacheMode | string> => {
+): (CacheMode | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -5968,14 +5968,14 @@ const deserializeAws_json1_1ProjectEnvironment = (
 const deserializeAws_json1_1ProjectNames = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1ProjectSecondarySourceVersions = (
   output: any,
   context: __SerdeContext
-): Array<ProjectSourceVersion> => {
+): ProjectSourceVersion[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ProjectSourceVersion(entry, context)
   );
@@ -6063,7 +6063,7 @@ const deserializeAws_json1_1ProjectSourceVersion = (
 const deserializeAws_json1_1ProjectSources = (
   output: any,
   context: __SerdeContext
-): Array<ProjectSource> => {
+): ProjectSource[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ProjectSource(entry, context)
   );
@@ -6072,7 +6072,7 @@ const deserializeAws_json1_1ProjectSources = (
 const deserializeAws_json1_1Projects = (
   output: any,
   context: __SerdeContext
-): Array<Project> => {
+): Project[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Project(entry, context)
   );
@@ -6176,7 +6176,7 @@ const deserializeAws_json1_1Report = (
 const deserializeAws_json1_1ReportArns = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -6244,14 +6244,14 @@ const deserializeAws_json1_1ReportGroup = (
 const deserializeAws_json1_1ReportGroupArns = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1ReportGroups = (
   output: any,
   context: __SerdeContext
-): Array<ReportGroup> => {
+): ReportGroup[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ReportGroup(entry, context)
   );
@@ -6271,7 +6271,7 @@ const deserializeAws_json1_1ReportStatusCounts = (
 const deserializeAws_json1_1Reports = (
   output: any,
   context: __SerdeContext
-): Array<Report> => {
+): Report[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Report(entry, context)
   );
@@ -6366,7 +6366,7 @@ const deserializeAws_json1_1S3ReportExportConfig = (
 const deserializeAws_json1_1SecurityGroupIds = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -6413,7 +6413,7 @@ const deserializeAws_json1_1SourceCredentialsInfo = (
 const deserializeAws_json1_1SourceCredentialsInfos = (
   output: any,
   context: __SerdeContext
-): Array<SourceCredentialsInfo> => {
+): SourceCredentialsInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SourceCredentialsInfo(entry, context)
   );
@@ -6450,7 +6450,7 @@ const deserializeAws_json1_1StopBuildOutput = (
 const deserializeAws_json1_1Subnets = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -6475,7 +6475,7 @@ const deserializeAws_json1_1Tag = (
 const deserializeAws_json1_1TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );
@@ -6529,7 +6529,7 @@ const deserializeAws_json1_1TestCase = (
 const deserializeAws_json1_1TestCases = (
   output: any,
   context: __SerdeContext
-): Array<TestCase> => {
+): TestCase[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1TestCase(entry, context)
   );

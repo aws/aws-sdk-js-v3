@@ -15347,7 +15347,7 @@ const deserializeAws_queryUnrecognizedPublicKeyEncodingExceptionResponse = async
 };
 
 const serializeAws_queryActionNameListType = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -15482,7 +15482,7 @@ const serializeAws_queryContextEntry = (
 };
 
 const serializeAws_queryContextEntryListType = (
-  input: Array<ContextEntry>,
+  input: ContextEntry[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -15498,7 +15498,7 @@ const serializeAws_queryContextEntryListType = (
 };
 
 const serializeAws_queryContextKeyValueListType = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -17070,7 +17070,7 @@ const serializeAws_queryResetServiceSpecificCredentialRequest = (
 };
 
 const serializeAws_queryResourceNameListType = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -17263,7 +17263,7 @@ const serializeAws_querySimulatePrincipalPolicyRequest = (
 };
 
 const serializeAws_querySimulationPolicyListType = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -17667,7 +17667,7 @@ const serializeAws_queryUploadSigningCertificateRequest = (
 };
 
 const serializeAws_queryclientIDListType = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -17680,7 +17680,7 @@ const serializeAws_queryclientIDListType = (
 };
 
 const serializeAws_queryentityListType = (
-  input: Array<EntityType | string>,
+  input: (EntityType | string)[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -17693,7 +17693,7 @@ const serializeAws_queryentityListType = (
 };
 
 const serializeAws_queryserviceNamespaceListType = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -17706,7 +17706,7 @@ const serializeAws_queryserviceNamespaceListType = (
 };
 
 const serializeAws_querytagKeyListType = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -17719,7 +17719,7 @@ const serializeAws_querytagKeyListType = (
 };
 
 const serializeAws_querytagListType = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -17735,7 +17735,7 @@ const serializeAws_querytagListType = (
 };
 
 const serializeAws_querythumbprintListType = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -17800,7 +17800,7 @@ const deserializeAws_queryAccessDetail = (
 const deserializeAws_queryAccessDetails = (
   output: any,
   context: __SerdeContext
-): Array<AccessDetail> => {
+): AccessDetail[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryAccessDetail(entry, context));
@@ -17916,7 +17916,7 @@ const deserializeAws_queryAccessKeyMetadata = (
 const deserializeAws_queryArnListType = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -17992,7 +17992,7 @@ const deserializeAws_queryConcurrentModificationException = (
 const deserializeAws_queryContextKeyNamesResultListType = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -18606,7 +18606,7 @@ const deserializeAws_queryEvaluationResult = (
 const deserializeAws_queryEvaluationResultsListType = (
   output: any,
   context: __SerdeContext
-): Array<EvaluationResult> => {
+): EvaluationResult[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryEvaluationResult(entry, context));
@@ -21089,7 +21089,7 @@ const deserializeAws_queryManagedPolicyDetail = (
 const deserializeAws_queryManagedPolicyDetailListType = (
   output: any,
   context: __SerdeContext
-): Array<ManagedPolicyDetail> => {
+): ManagedPolicyDetail[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryManagedPolicyDetail(entry, context));
@@ -21134,7 +21134,7 @@ const deserializeAws_queryOpenIDConnectProviderListEntry = (
 const deserializeAws_queryOpenIDConnectProviderListType = (
   output: any,
   context: __SerdeContext
-): Array<OpenIDConnectProviderListEntry> => {
+): OpenIDConnectProviderListEntry[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -21457,7 +21457,7 @@ const deserializeAws_queryPolicyGroup = (
 const deserializeAws_queryPolicyGroupListType = (
   output: any,
   context: __SerdeContext
-): Array<PolicyGroup> => {
+): PolicyGroup[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryPolicyGroup(entry, context));
@@ -21509,7 +21509,7 @@ const deserializeAws_queryPolicyRole = (
 const deserializeAws_queryPolicyRoleListType = (
   output: any,
   context: __SerdeContext
-): Array<PolicyRole> => {
+): PolicyRole[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryPolicyRole(entry, context));
@@ -21544,7 +21544,7 @@ const deserializeAws_queryPolicyUser = (
 const deserializeAws_queryPolicyUserListType = (
   output: any,
   context: __SerdeContext
-): Array<PolicyUser> => {
+): PolicyUser[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryPolicyUser(entry, context));
@@ -21725,7 +21725,7 @@ const deserializeAws_queryResourceSpecificResult = (
 const deserializeAws_queryResourceSpecificResultListType = (
   output: any,
   context: __SerdeContext
-): Array<ResourceSpecificResult> => {
+): ResourceSpecificResult[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryResourceSpecificResult(entry, context));
@@ -21971,7 +21971,7 @@ const deserializeAws_queryRoleLastUsed = (
 const deserializeAws_queryRoleUsageListType = (
   output: any,
   context: __SerdeContext
-): Array<RoleUsageType> => {
+): RoleUsageType[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryRoleUsageType(entry, context));
@@ -22038,7 +22038,7 @@ const deserializeAws_querySAMLProviderListEntry = (
 const deserializeAws_querySAMLProviderListType = (
   output: any,
   context: __SerdeContext
-): Array<SAMLProviderListEntry> => {
+): SAMLProviderListEntry[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_querySAMLProviderListEntry(entry, context));
@@ -22098,7 +22098,7 @@ const deserializeAws_querySSHPublicKey = (
 const deserializeAws_querySSHPublicKeyListType = (
   output: any,
   context: __SerdeContext
-): Array<SSHPublicKeyMetadata> => {
+): SSHPublicKeyMetadata[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_querySSHPublicKeyMetadata(entry, context));
@@ -22403,7 +22403,7 @@ const deserializeAws_queryServiceSpecificCredentialMetadata = (
 const deserializeAws_queryServiceSpecificCredentialsListType = (
   output: any,
   context: __SerdeContext
-): Array<ServiceSpecificCredentialMetadata> => {
+): ServiceSpecificCredentialMetadata[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -22416,7 +22416,7 @@ const deserializeAws_queryServiceSpecificCredentialsListType = (
 const deserializeAws_queryServicesLastAccessed = (
   output: any,
   context: __SerdeContext
-): Array<ServiceLastAccessed> => {
+): ServiceLastAccessed[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryServiceLastAccessed(entry, context));
@@ -22548,7 +22548,7 @@ const deserializeAws_queryStatement = (
 const deserializeAws_queryStatementListType = (
   output: any,
   context: __SerdeContext
-): Array<Statement> => {
+): Statement[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryStatement(entry, context));
@@ -22922,7 +22922,7 @@ const deserializeAws_queryVirtualMFADevice = (
 const deserializeAws_queryaccessKeyMetadataListType = (
   output: any,
   context: __SerdeContext
-): Array<AccessKeyMetadata> => {
+): AccessKeyMetadata[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryAccessKeyMetadata(entry, context));
@@ -22933,7 +22933,7 @@ const deserializeAws_queryaccessKeyMetadataListType = (
 const deserializeAws_queryaccountAliasListType = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -22944,7 +22944,7 @@ const deserializeAws_queryaccountAliasListType = (
 const deserializeAws_queryattachedPoliciesListType = (
   output: any,
   context: __SerdeContext
-): Array<AttachedPolicy> => {
+): AttachedPolicy[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryAttachedPolicy(entry, context));
@@ -22955,7 +22955,7 @@ const deserializeAws_queryattachedPoliciesListType = (
 const deserializeAws_querycertificateListType = (
   output: any,
   context: __SerdeContext
-): Array<SigningCertificate> => {
+): SigningCertificate[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_querySigningCertificate(entry, context));
@@ -22966,7 +22966,7 @@ const deserializeAws_querycertificateListType = (
 const deserializeAws_queryclientIDListType = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -22977,7 +22977,7 @@ const deserializeAws_queryclientIDListType = (
 const deserializeAws_queryentityDetailsListType = (
   output: any,
   context: __SerdeContext
-): Array<EntityDetails> => {
+): EntityDetails[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryEntityDetails(entry, context));
@@ -22988,7 +22988,7 @@ const deserializeAws_queryentityDetailsListType = (
 const deserializeAws_querygroupDetailListType = (
   output: any,
   context: __SerdeContext
-): Array<GroupDetail> => {
+): GroupDetail[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryGroupDetail(entry, context));
@@ -22999,7 +22999,7 @@ const deserializeAws_querygroupDetailListType = (
 const deserializeAws_querygroupListType = (
   output: any,
   context: __SerdeContext
-): Array<Group> => {
+): Group[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryGroup(entry, context));
@@ -23010,7 +23010,7 @@ const deserializeAws_querygroupListType = (
 const deserializeAws_querygroupNameListType = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -23021,7 +23021,7 @@ const deserializeAws_querygroupNameListType = (
 const deserializeAws_queryinstanceProfileListType = (
   output: any,
   context: __SerdeContext
-): Array<InstanceProfile> => {
+): InstanceProfile[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryInstanceProfile(entry, context));
@@ -23032,7 +23032,7 @@ const deserializeAws_queryinstanceProfileListType = (
 const deserializeAws_querylistPolicyGrantingServiceAccessResponseListType = (
   output: any,
   context: __SerdeContext
-): Array<ListPoliciesGrantingServiceAccessEntry> => {
+): ListPoliciesGrantingServiceAccessEntry[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -23045,7 +23045,7 @@ const deserializeAws_querylistPolicyGrantingServiceAccessResponseListType = (
 const deserializeAws_querymfaDeviceListType = (
   output: any,
   context: __SerdeContext
-): Array<MFADevice> => {
+): MFADevice[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryMFADevice(entry, context));
@@ -23056,7 +23056,7 @@ const deserializeAws_querymfaDeviceListType = (
 const deserializeAws_querypolicyDetailListType = (
   output: any,
   context: __SerdeContext
-): Array<PolicyDetail> => {
+): PolicyDetail[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryPolicyDetail(entry, context));
@@ -23067,7 +23067,7 @@ const deserializeAws_querypolicyDetailListType = (
 const deserializeAws_querypolicyDocumentVersionListType = (
   output: any,
   context: __SerdeContext
-): Array<PolicyVersion> => {
+): PolicyVersion[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryPolicyVersion(entry, context));
@@ -23078,7 +23078,7 @@ const deserializeAws_querypolicyDocumentVersionListType = (
 const deserializeAws_querypolicyGrantingServiceAccessListType = (
   output: any,
   context: __SerdeContext
-): Array<PolicyGrantingServiceAccess> => {
+): PolicyGrantingServiceAccess[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -23091,7 +23091,7 @@ const deserializeAws_querypolicyGrantingServiceAccessListType = (
 const deserializeAws_querypolicyListType = (
   output: any,
   context: __SerdeContext
-): Array<Policy> => {
+): Policy[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryPolicy(entry, context));
@@ -23102,7 +23102,7 @@ const deserializeAws_querypolicyListType = (
 const deserializeAws_querypolicyNameListType = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -23113,7 +23113,7 @@ const deserializeAws_querypolicyNameListType = (
 const deserializeAws_queryroleDetailListType = (
   output: any,
   context: __SerdeContext
-): Array<RoleDetail> => {
+): RoleDetail[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryRoleDetail(entry, context));
@@ -23124,7 +23124,7 @@ const deserializeAws_queryroleDetailListType = (
 const deserializeAws_queryroleListType = (
   output: any,
   context: __SerdeContext
-): Array<Role> => {
+): Role[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryRole(entry, context));
@@ -23135,7 +23135,7 @@ const deserializeAws_queryroleListType = (
 const deserializeAws_queryserverCertificateMetadataListType = (
   output: any,
   context: __SerdeContext
-): Array<ServerCertificateMetadata> => {
+): ServerCertificateMetadata[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -23163,7 +23163,7 @@ const deserializeAws_querysummaryMapType = (
 const deserializeAws_querytagListType = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryTag(entry, context));
@@ -23174,7 +23174,7 @@ const deserializeAws_querytagListType = (
 const deserializeAws_querythumbprintListType = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -23185,7 +23185,7 @@ const deserializeAws_querythumbprintListType = (
 const deserializeAws_queryuserDetailListType = (
   output: any,
   context: __SerdeContext
-): Array<UserDetail> => {
+): UserDetail[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryUserDetail(entry, context));
@@ -23196,7 +23196,7 @@ const deserializeAws_queryuserDetailListType = (
 const deserializeAws_queryuserListType = (
   output: any,
   context: __SerdeContext
-): Array<User> => {
+): User[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryUser(entry, context));
@@ -23207,7 +23207,7 @@ const deserializeAws_queryuserListType = (
 const deserializeAws_queryvirtualMFADeviceListType = (
   output: any,
   context: __SerdeContext
-): Array<VirtualMFADevice> => {
+): VirtualMFADevice[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryVirtualMFADevice(entry, context));

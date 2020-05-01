@@ -13145,7 +13145,7 @@ const serializeAws_restJson1_1CalculatedColumn = (
 };
 
 const serializeAws_restJson1_1CalculatedColumnList = (
-  input: Array<CalculatedColumn>,
+  input: CalculatedColumn[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -13189,7 +13189,7 @@ const serializeAws_restJson1_1ColumnGroup = (
 };
 
 const serializeAws_restJson1_1ColumnGroupList = (
-  input: Array<ColumnGroup>,
+  input: ColumnGroup[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -13200,7 +13200,7 @@ const serializeAws_restJson1_1ColumnGroupList = (
 };
 
 const serializeAws_restJson1_1ColumnList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -13222,7 +13222,7 @@ const serializeAws_restJson1_1ColumnTag = (
 };
 
 const serializeAws_restJson1_1ColumnTagList = (
-  input: Array<ColumnTag>,
+  input: ColumnTag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -13363,7 +13363,7 @@ const serializeAws_restJson1_1DataSetReference = (
 };
 
 const serializeAws_restJson1_1DataSetReferenceList = (
-  input: Array<DataSetReference>,
+  input: DataSetReference[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -13545,7 +13545,7 @@ const serializeAws_restJson1_1DateTimeParameter = (
 };
 
 const serializeAws_restJson1_1DateTimeParameterList = (
-  input: Array<DateTimeParameter>,
+  input: DateTimeParameter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -13573,7 +13573,7 @@ const serializeAws_restJson1_1DecimalParameter = (
 };
 
 const serializeAws_restJson1_1DecimalParameterList = (
-  input: Array<DecimalParameter>,
+  input: DecimalParameter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -13626,7 +13626,7 @@ const serializeAws_restJson1_1GeoSpatialColumnGroup = (
 };
 
 const serializeAws_restJson1_1IdentityMap = (
-  input: { [key: string]: Array<string> },
+  input: { [key: string]: string[] },
   context: __SerdeContext
 ): any => {
   const mapParams: any = {};
@@ -13640,7 +13640,7 @@ const serializeAws_restJson1_1IdentityMap = (
 };
 
 const serializeAws_restJson1_1IdentityNameList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -13665,7 +13665,7 @@ const serializeAws_restJson1_1InputColumn = (
 };
 
 const serializeAws_restJson1_1InputColumnList = (
-  input: Array<InputColumn>,
+  input: InputColumn[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -13693,7 +13693,7 @@ const serializeAws_restJson1_1IntegerParameter = (
 };
 
 const serializeAws_restJson1_1IntegerParameterList = (
-  input: Array<IntegerParameter>,
+  input: IntegerParameter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -13963,7 +13963,7 @@ const serializeAws_restJson1_1ProjectOperation = (
 };
 
 const serializeAws_restJson1_1ProjectedColumnList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -14196,7 +14196,7 @@ const serializeAws_restJson1_1StringParameter = (
 };
 
 const serializeAws_restJson1_1StringParameterList = (
-  input: Array<StringParameter>,
+  input: StringParameter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -14347,7 +14347,7 @@ const serializeAws_restJson1_1TransformOperation = (
 };
 
 const serializeAws_restJson1_1TransformOperationList = (
-  input: Array<TransformOperation>,
+  input: TransformOperation[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -14372,7 +14372,7 @@ const serializeAws_restJson1_1TwitterParameters = (
 };
 
 const serializeAws_restJson1_1UpdateResourcePermissionList = (
-  input: Array<ResourcePermission>,
+  input: ResourcePermission[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -14417,7 +14417,7 @@ const serializeAws_restJson1_1VpcConnectionProperties = (
 };
 
 const serializeAws_restJson1_1ActionList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -14428,7 +14428,7 @@ const serializeAws_restJson1_1ActionList = (
 };
 
 const serializeAws_restJson1_1DoubleList = (
-  input: Array<number>,
+  input: number[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -14439,7 +14439,7 @@ const serializeAws_restJson1_1DoubleList = (
 };
 
 const serializeAws_restJson1_1LongList = (
-  input: Array<number>,
+  input: number[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -14467,7 +14467,7 @@ const serializeAws_restJson1_1ResourcePermission = (
 };
 
 const serializeAws_restJson1_1ResourcePermissionList = (
-  input: Array<ResourcePermission>,
+  input: ResourcePermission[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -14478,7 +14478,7 @@ const serializeAws_restJson1_1ResourcePermissionList = (
 };
 
 const serializeAws_restJson1_1StringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -14503,7 +14503,7 @@ const serializeAws_restJson1_1Tag = (
 };
 
 const serializeAws_restJson1_1TagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -14514,7 +14514,7 @@ const serializeAws_restJson1_1TagList = (
 };
 
 const serializeAws_restJson1_1TimestampList = (
-  input: Array<Date>,
+  input: Date[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -14545,7 +14545,7 @@ const deserializeAws_restJson1_1ActiveIAMPolicyAssignment = (
 const deserializeAws_restJson1_1ActiveIAMPolicyAssignmentList = (
   output: any,
   context: __SerdeContext
-): Array<ActiveIAMPolicyAssignment> => {
+): ActiveIAMPolicyAssignment[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ActiveIAMPolicyAssignment(entry, context)
   );
@@ -14662,7 +14662,7 @@ const deserializeAws_restJson1_1CalculatedColumn = (
 const deserializeAws_restJson1_1CalculatedColumnList = (
   output: any,
   context: __SerdeContext
-): Array<CalculatedColumn> => {
+): CalculatedColumn[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1CalculatedColumn(entry, context)
   );
@@ -14727,7 +14727,7 @@ const deserializeAws_restJson1_1ColumnGroupColumnSchema = (
 const deserializeAws_restJson1_1ColumnGroupColumnSchemaList = (
   output: any,
   context: __SerdeContext
-): Array<ColumnGroupColumnSchema> => {
+): ColumnGroupColumnSchema[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ColumnGroupColumnSchema(entry, context)
   );
@@ -14736,7 +14736,7 @@ const deserializeAws_restJson1_1ColumnGroupColumnSchemaList = (
 const deserializeAws_restJson1_1ColumnGroupList = (
   output: any,
   context: __SerdeContext
-): Array<ColumnGroup> => {
+): ColumnGroup[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ColumnGroup(entry, context)
   );
@@ -14769,7 +14769,7 @@ const deserializeAws_restJson1_1ColumnGroupSchema = (
 const deserializeAws_restJson1_1ColumnGroupSchemaList = (
   output: any,
   context: __SerdeContext
-): Array<ColumnGroupSchema> => {
+): ColumnGroupSchema[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ColumnGroupSchema(entry, context)
   );
@@ -14778,7 +14778,7 @@ const deserializeAws_restJson1_1ColumnGroupSchemaList = (
 const deserializeAws_restJson1_1ColumnList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -14807,7 +14807,7 @@ const deserializeAws_restJson1_1ColumnSchema = (
 const deserializeAws_restJson1_1ColumnSchemaList = (
   output: any,
   context: __SerdeContext
-): Array<ColumnSchema> => {
+): ColumnSchema[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ColumnSchema(entry, context)
   );
@@ -14833,7 +14833,7 @@ const deserializeAws_restJson1_1ColumnTag = (
 const deserializeAws_restJson1_1ColumnTagList = (
   output: any,
   context: __SerdeContext
-): Array<ColumnTag> => {
+): ColumnTag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ColumnTag(entry, context)
   );
@@ -14954,7 +14954,7 @@ const deserializeAws_restJson1_1DashboardError = (
 const deserializeAws_restJson1_1DashboardErrorList = (
   output: any,
   context: __SerdeContext
-): Array<DashboardError> => {
+): DashboardError[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DashboardError(entry, context)
   );
@@ -15011,7 +15011,7 @@ const deserializeAws_restJson1_1DashboardSummary = (
 const deserializeAws_restJson1_1DashboardSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<DashboardSummary> => {
+): DashboardSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DashboardSummary(entry, context)
   );
@@ -15095,7 +15095,7 @@ const deserializeAws_restJson1_1DashboardVersionSummary = (
 const deserializeAws_restJson1_1DashboardVersionSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<DashboardVersionSummary> => {
+): DashboardVersionSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DashboardVersionSummary(entry, context)
   );
@@ -15219,7 +15219,7 @@ const deserializeAws_restJson1_1DataSetConfiguration = (
 const deserializeAws_restJson1_1DataSetConfigurationList = (
   output: any,
   context: __SerdeContext
-): Array<DataSetConfiguration> => {
+): DataSetConfiguration[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DataSetConfiguration(entry, context)
   );
@@ -15294,7 +15294,7 @@ const deserializeAws_restJson1_1DataSetSummary = (
 const deserializeAws_restJson1_1DataSetSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<DataSetSummary> => {
+): DataSetSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DataSetSummary(entry, context)
   );
@@ -15395,7 +15395,7 @@ const deserializeAws_restJson1_1DataSourceErrorInfo = (
 const deserializeAws_restJson1_1DataSourceList = (
   output: any,
   context: __SerdeContext
-): Array<DataSource> => {
+): DataSource[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DataSource(entry, context)
   );
@@ -15675,7 +15675,7 @@ const deserializeAws_restJson1_1Group = (
 const deserializeAws_restJson1_1GroupList = (
   output: any,
   context: __SerdeContext
-): Array<Group> => {
+): Group[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Group(entry, context)
   );
@@ -15702,7 +15702,7 @@ const deserializeAws_restJson1_1GroupMember = (
 const deserializeAws_restJson1_1GroupMemberList = (
   output: any,
   context: __SerdeContext
-): Array<GroupMember> => {
+): GroupMember[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1GroupMember(entry, context)
   );
@@ -15772,7 +15772,7 @@ const deserializeAws_restJson1_1IAMPolicyAssignmentSummary = (
 const deserializeAws_restJson1_1IAMPolicyAssignmentSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<IAMPolicyAssignmentSummary> => {
+): IAMPolicyAssignmentSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1IAMPolicyAssignmentSummary(entry, context)
   );
@@ -15781,7 +15781,7 @@ const deserializeAws_restJson1_1IAMPolicyAssignmentSummaryList = (
 const deserializeAws_restJson1_1IdentityMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: Array<string> } => {
+): { [key: string]: string[] } => {
   const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_restJson1_1IdentityNameList(
@@ -15795,7 +15795,7 @@ const deserializeAws_restJson1_1IdentityMap = (
 const deserializeAws_restJson1_1IdentityNameList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -15871,7 +15871,7 @@ const deserializeAws_restJson1_1Ingestion = (
 const deserializeAws_restJson1_1Ingestions = (
   output: any,
   context: __SerdeContext
-): Array<Ingestion> => {
+): Ingestion[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Ingestion(entry, context)
   );
@@ -15898,7 +15898,7 @@ const deserializeAws_restJson1_1InputColumn = (
 const deserializeAws_restJson1_1InputColumnList = (
   output: any,
   context: __SerdeContext
-): Array<InputColumn> => {
+): InputColumn[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1InputColumn(entry, context)
   );
@@ -16090,7 +16090,7 @@ const deserializeAws_restJson1_1OutputColumn = (
 const deserializeAws_restJson1_1OutputColumnList = (
   output: any,
   context: __SerdeContext
-): Array<OutputColumn> => {
+): OutputColumn[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1OutputColumn(entry, context)
   );
@@ -16208,7 +16208,7 @@ const deserializeAws_restJson1_1ProjectOperation = (
 const deserializeAws_restJson1_1ProjectedColumnList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -16589,7 +16589,7 @@ const deserializeAws_restJson1_1TemplateAlias = (
 const deserializeAws_restJson1_1TemplateAliasList = (
   output: any,
   context: __SerdeContext
-): Array<TemplateAlias> => {
+): TemplateAlias[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1TemplateAlias(entry, context)
   );
@@ -16616,7 +16616,7 @@ const deserializeAws_restJson1_1TemplateError = (
 const deserializeAws_restJson1_1TemplateErrorList = (
   output: any,
   context: __SerdeContext
-): Array<TemplateError> => {
+): TemplateError[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1TemplateError(entry, context)
   );
@@ -16664,7 +16664,7 @@ const deserializeAws_restJson1_1TemplateSummary = (
 const deserializeAws_restJson1_1TemplateSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<TemplateSummary> => {
+): TemplateSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1TemplateSummary(entry, context)
   );
@@ -16750,7 +16750,7 @@ const deserializeAws_restJson1_1TemplateVersionSummary = (
 const deserializeAws_restJson1_1TemplateVersionSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<TemplateVersionSummary> => {
+): TemplateVersionSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1TemplateVersionSummary(entry, context)
   );
@@ -16848,7 +16848,7 @@ const deserializeAws_restJson1_1TransformOperation = (
 const deserializeAws_restJson1_1TransformOperationList = (
   output: any,
   context: __SerdeContext
-): Array<TransformOperation> => {
+): TransformOperation[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1TransformOperation(entry, context)
   );
@@ -16943,7 +16943,7 @@ const deserializeAws_restJson1_1User = (
 const deserializeAws_restJson1_1UserList = (
   output: any,
   context: __SerdeContext
-): Array<User> => {
+): User[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1User(entry, context)
   );
@@ -16969,7 +16969,7 @@ const deserializeAws_restJson1_1VpcConnectionProperties = (
 const deserializeAws_restJson1_1ActionList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -16997,7 +16997,7 @@ const deserializeAws_restJson1_1ResourcePermission = (
 const deserializeAws_restJson1_1ResourcePermissionList = (
   output: any,
   context: __SerdeContext
-): Array<ResourcePermission> => {
+): ResourcePermission[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ResourcePermission(entry, context)
   );
@@ -17024,7 +17024,7 @@ const deserializeAws_restJson1_1Tag = (
 const deserializeAws_restJson1_1TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Tag(entry, context)
   );

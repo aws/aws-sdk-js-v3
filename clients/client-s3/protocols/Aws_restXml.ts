@@ -10712,7 +10712,7 @@ const serializeAws_restXmlAccessControlTranslation = (
 };
 
 const serializeAws_restXmlAllowedHeaders = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
@@ -10726,7 +10726,7 @@ const serializeAws_restXmlAllowedHeaders = (
 };
 
 const serializeAws_restXmlAllowedMethods = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
@@ -10740,7 +10740,7 @@ const serializeAws_restXmlAllowedMethods = (
 };
 
 const serializeAws_restXmlAllowedOrigins = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
@@ -10974,7 +10974,7 @@ const serializeAws_restXmlCORSRule = (
 };
 
 const serializeAws_restXmlCORSRules = (
-  input: Array<CORSRule>,
+  input: CORSRule[],
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
@@ -11109,7 +11109,7 @@ const serializeAws_restXmlCompletedPart = (
 };
 
 const serializeAws_restXmlCompletedPartList = (
-  input: Array<CompletedPart>,
+  input: CompletedPart[],
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
@@ -11326,7 +11326,7 @@ const serializeAws_restXmlErrorDocument = (
 };
 
 const serializeAws_restXmlEventList = (
-  input: Array<Event | string>,
+  input: (Event | string)[],
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
@@ -11352,7 +11352,7 @@ const serializeAws_restXmlExistingObjectReplication = (
 };
 
 const serializeAws_restXmlExposeHeaders = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
@@ -11386,7 +11386,7 @@ const serializeAws_restXmlFilterRule = (
 };
 
 const serializeAws_restXmlFilterRuleList = (
-  input: Array<FilterRule>,
+  input: FilterRule[],
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
@@ -11467,7 +11467,7 @@ const serializeAws_restXmlGrantee = (
 };
 
 const serializeAws_restXmlGrants = (
-  input: Array<Grant>,
+  input: Grant[],
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
@@ -11633,7 +11633,7 @@ const serializeAws_restXmlInventoryFilter = (
 };
 
 const serializeAws_restXmlInventoryOptionalFields = (
-  input: Array<InventoryOptionalField | string>,
+  input: (InventoryOptionalField | string)[],
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
@@ -11762,7 +11762,7 @@ const serializeAws_restXmlLambdaFunctionConfiguration = (
 };
 
 const serializeAws_restXmlLambdaFunctionConfigurationList = (
-  input: Array<LambdaFunctionConfiguration>,
+  input: LambdaFunctionConfiguration[],
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
@@ -11923,7 +11923,7 @@ const serializeAws_restXmlLifecycleRuleFilter = (
 };
 
 const serializeAws_restXmlLifecycleRules = (
-  input: Array<LifecycleRule>,
+  input: LifecycleRule[],
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
@@ -12105,7 +12105,7 @@ const serializeAws_restXmlNoncurrentVersionTransition = (
 };
 
 const serializeAws_restXmlNoncurrentVersionTransitionList = (
-  input: Array<NoncurrentVersionTransition>,
+  input: NoncurrentVersionTransition[],
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
@@ -12192,7 +12192,7 @@ const serializeAws_restXmlObjectIdentifier = (
 };
 
 const serializeAws_restXmlObjectIdentifierList = (
-  input: Array<ObjectIdentifier>,
+  input: ObjectIdentifier[],
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
@@ -12404,7 +12404,7 @@ const serializeAws_restXmlQueueConfiguration = (
 };
 
 const serializeAws_restXmlQueueConfigurationList = (
-  input: Array<QueueConfiguration>,
+  input: QueueConfiguration[],
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
@@ -12608,7 +12608,7 @@ const serializeAws_restXmlReplicationRuleFilter = (
 };
 
 const serializeAws_restXmlReplicationRules = (
-  input: Array<ReplicationRule>,
+  input: ReplicationRule[],
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
@@ -12757,7 +12757,7 @@ const serializeAws_restXmlRoutingRule = (
 };
 
 const serializeAws_restXmlRoutingRules = (
-  input: Array<RoutingRule>,
+  input: RoutingRule[],
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
@@ -12977,7 +12977,7 @@ const serializeAws_restXmlServerSideEncryptionRule = (
 };
 
 const serializeAws_restXmlServerSideEncryptionRules = (
-  input: Array<ServerSideEncryptionRule>,
+  input: ServerSideEncryptionRule[],
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
@@ -13071,7 +13071,7 @@ const serializeAws_restXmlTag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_restXmlTagSet = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
@@ -13119,7 +13119,7 @@ const serializeAws_restXmlTargetGrant = (
 };
 
 const serializeAws_restXmlTargetGrants = (
-  input: Array<TargetGrant>,
+  input: TargetGrant[],
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
@@ -13165,7 +13165,7 @@ const serializeAws_restXmlTopicConfiguration = (
 };
 
 const serializeAws_restXmlTopicConfigurationList = (
-  input: Array<TopicConfiguration>,
+  input: TopicConfiguration[],
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
@@ -13203,7 +13203,7 @@ const serializeAws_restXmlTransition = (
 };
 
 const serializeAws_restXmlTransitionList = (
-  input: Array<Transition>,
+  input: Transition[],
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
@@ -13215,7 +13215,7 @@ const serializeAws_restXmlTransitionList = (
 };
 
 const serializeAws_restXmlUserMetadata = (
-  input: Array<MetadataEntry>,
+  input: MetadataEntry[],
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
@@ -13321,7 +13321,7 @@ const deserializeAws_restXmlAccessControlTranslation = (
 const deserializeAws_restXmlAllowedHeaders = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -13332,7 +13332,7 @@ const deserializeAws_restXmlAllowedHeaders = (
 const deserializeAws_restXmlAllowedMethods = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -13343,7 +13343,7 @@ const deserializeAws_restXmlAllowedMethods = (
 const deserializeAws_restXmlAllowedOrigins = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -13411,7 +13411,7 @@ const deserializeAws_restXmlAnalyticsConfiguration = (
 const deserializeAws_restXmlAnalyticsConfigurationList = (
   output: any,
   context: __SerdeContext
-): Array<AnalyticsConfiguration> => {
+): AnalyticsConfiguration[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_restXmlAnalyticsConfiguration(entry, context));
@@ -13526,7 +13526,7 @@ const deserializeAws_restXmlBucket = (
 const deserializeAws_restXmlBuckets = (
   output: any,
   context: __SerdeContext
-): Array<Bucket> => {
+): Bucket[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_restXmlBucket(entry, context));
@@ -13611,7 +13611,7 @@ const deserializeAws_restXmlCORSRule = (
 const deserializeAws_restXmlCORSRules = (
   output: any,
   context: __SerdeContext
-): Array<CORSRule> => {
+): CORSRule[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_restXmlCORSRule(entry, context));
@@ -13639,7 +13639,7 @@ const deserializeAws_restXmlCommonPrefix = (
 const deserializeAws_restXmlCommonPrefixList = (
   output: any,
   context: __SerdeContext
-): Array<CommonPrefix> => {
+): CommonPrefix[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_restXmlCommonPrefix(entry, context));
@@ -13805,7 +13805,7 @@ const deserializeAws_restXmlDeleteMarkerReplication = (
 const deserializeAws_restXmlDeleteMarkers = (
   output: any,
   context: __SerdeContext
-): Array<DeleteMarkerEntry> => {
+): DeleteMarkerEntry[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_restXmlDeleteMarkerEntry(entry, context));
@@ -13854,7 +13854,7 @@ const deserializeAws_restXmlDeletedObject = (
 const deserializeAws_restXmlDeletedObjects = (
   output: any,
   context: __SerdeContext
-): Array<DeletedObject> => {
+): DeletedObject[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_restXmlDeletedObject(entry, context));
@@ -13996,7 +13996,7 @@ const deserializeAws_restXmlErrorDocument = (
 const deserializeAws_restXmlErrors = (
   output: any,
   context: __SerdeContext
-): Array<_Error> => {
+): _Error[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_restXml_Error(entry, context));
@@ -14007,7 +14007,7 @@ const deserializeAws_restXmlErrors = (
 const deserializeAws_restXmlEventList = (
   output: any,
   context: __SerdeContext
-): Array<Event | string> => {
+): (Event | string)[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -14035,7 +14035,7 @@ const deserializeAws_restXmlExistingObjectReplication = (
 const deserializeAws_restXmlExposeHeaders = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -14070,7 +14070,7 @@ const deserializeAws_restXmlFilterRule = (
 const deserializeAws_restXmlFilterRuleList = (
   output: any,
   context: __SerdeContext
-): Array<FilterRule> => {
+): FilterRule[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_restXmlFilterRule(entry, context));
@@ -14150,7 +14150,7 @@ const deserializeAws_restXmlGrantee = (
 const deserializeAws_restXmlGrants = (
   output: any,
   context: __SerdeContext
-): Array<Grant> => {
+): Grant[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_restXmlGrant(entry, context));
@@ -14271,7 +14271,7 @@ const deserializeAws_restXmlInventoryConfiguration = (
 const deserializeAws_restXmlInventoryConfigurationList = (
   output: any,
   context: __SerdeContext
-): Array<InventoryConfiguration> => {
+): InventoryConfiguration[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_restXmlInventoryConfiguration(entry, context));
@@ -14334,7 +14334,7 @@ const deserializeAws_restXmlInventoryFilter = (
 const deserializeAws_restXmlInventoryOptionalFields = (
   output: any,
   context: __SerdeContext
-): Array<InventoryOptionalField | string> => {
+): (InventoryOptionalField | string)[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -14447,7 +14447,7 @@ const deserializeAws_restXmlLambdaFunctionConfiguration = (
 const deserializeAws_restXmlLambdaFunctionConfigurationList = (
   output: any,
   context: __SerdeContext
-): Array<LambdaFunctionConfiguration> => {
+): LambdaFunctionConfiguration[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -14630,7 +14630,7 @@ const deserializeAws_restXmlLifecycleRuleFilter = (
 const deserializeAws_restXmlLifecycleRules = (
   output: any,
   context: __SerdeContext
-): Array<LifecycleRule> => {
+): LifecycleRule[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_restXmlLifecycleRule(entry, context));
@@ -14756,7 +14756,7 @@ const deserializeAws_restXmlMetricsConfiguration = (
 const deserializeAws_restXmlMetricsConfigurationList = (
   output: any,
   context: __SerdeContext
-): Array<MetricsConfiguration> => {
+): MetricsConfiguration[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_restXmlMetricsConfiguration(entry, context));
@@ -14841,7 +14841,7 @@ const deserializeAws_restXmlMultipartUpload = (
 const deserializeAws_restXmlMultipartUploadList = (
   output: any,
   context: __SerdeContext
-): Array<MultipartUpload> => {
+): MultipartUpload[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_restXmlMultipartUpload(entry, context));
@@ -14895,7 +14895,7 @@ const deserializeAws_restXmlNoncurrentVersionTransition = (
 const deserializeAws_restXmlNoncurrentVersionTransitionList = (
   output: any,
   context: __SerdeContext
-): Array<NoncurrentVersionTransition> => {
+): NoncurrentVersionTransition[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -14969,7 +14969,7 @@ const deserializeAws_restXml_Object = (
 const deserializeAws_restXmlObjectList = (
   output: any,
   context: __SerdeContext
-): Array<_Object> => {
+): _Object[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_restXml_Object(entry, context));
@@ -15120,7 +15120,7 @@ const deserializeAws_restXmlObjectVersion = (
 const deserializeAws_restXmlObjectVersionList = (
   output: any,
   context: __SerdeContext
-): Array<ObjectVersion> => {
+): ObjectVersion[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_restXmlObjectVersion(entry, context));
@@ -15192,7 +15192,7 @@ const deserializeAws_restXmlPart = (
 const deserializeAws_restXmlParts = (
   output: any,
   context: __SerdeContext
-): Array<Part> => {
+): Part[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_restXmlPart(entry, context));
@@ -15298,7 +15298,7 @@ const deserializeAws_restXmlQueueConfiguration = (
 const deserializeAws_restXmlQueueConfigurationList = (
   output: any,
   context: __SerdeContext
-): Array<QueueConfiguration> => {
+): QueueConfiguration[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_restXmlQueueConfiguration(entry, context));
@@ -15535,7 +15535,7 @@ const deserializeAws_restXmlReplicationRuleFilter = (
 const deserializeAws_restXmlReplicationRules = (
   output: any,
   context: __SerdeContext
-): Array<ReplicationRule> => {
+): ReplicationRule[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_restXmlReplicationRule(entry, context));
@@ -15612,7 +15612,7 @@ const deserializeAws_restXmlRoutingRule = (
 const deserializeAws_restXmlRoutingRules = (
   output: any,
   context: __SerdeContext
-): Array<RoutingRule> => {
+): RoutingRule[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_restXmlRoutingRule(entry, context));
@@ -15737,7 +15737,7 @@ const deserializeAws_restXmlServerSideEncryptionRule = (
 const deserializeAws_restXmlServerSideEncryptionRules = (
   output: any,
   context: __SerdeContext
-): Array<ServerSideEncryptionRule> => {
+): ServerSideEncryptionRule[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -15849,7 +15849,7 @@ const deserializeAws_restXmlTag = (
 const deserializeAws_restXmlTagSet = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_restXmlTag(entry, context));
@@ -15884,7 +15884,7 @@ const deserializeAws_restXmlTargetGrant = (
 const deserializeAws_restXmlTargetGrants = (
   output: any,
   context: __SerdeContext
-): Array<TargetGrant> => {
+): TargetGrant[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_restXmlTargetGrant(entry, context));
@@ -15935,7 +15935,7 @@ const deserializeAws_restXmlTopicConfiguration = (
 const deserializeAws_restXmlTopicConfigurationList = (
   output: any,
   context: __SerdeContext
-): Array<TopicConfiguration> => {
+): TopicConfiguration[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_restXmlTopicConfiguration(entry, context));
@@ -15975,7 +15975,7 @@ const deserializeAws_restXmlTransition = (
 const deserializeAws_restXmlTransitionList = (
   output: any,
   context: __SerdeContext
-): Array<Transition> => {
+): Transition[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_restXmlTransition(entry, context));

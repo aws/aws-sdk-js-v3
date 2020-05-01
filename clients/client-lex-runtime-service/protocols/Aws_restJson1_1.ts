@@ -1453,7 +1453,7 @@ const serializeAws_restJson1_1IntentSummary = (
 };
 
 const serializeAws_restJson1_1IntentSummaryList = (
-  input: Array<IntentSummary>,
+  input: IntentSummary[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1565,7 +1565,7 @@ const deserializeAws_restJson1_1IntentSummary = (
 const deserializeAws_restJson1_1IntentSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<IntentSummary> => {
+): IntentSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1IntentSummary(entry, context)
   );
@@ -1685,7 +1685,7 @@ const deserializeAws_restJson1_1ResponseCard = (
 const deserializeAws_restJson1_1genericAttachmentList = (
   output: any,
   context: __SerdeContext
-): Array<GenericAttachment> => {
+): GenericAttachment[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1GenericAttachment(entry, context)
   );
@@ -1694,7 +1694,7 @@ const deserializeAws_restJson1_1genericAttachmentList = (
 const deserializeAws_restJson1_1listOfButtons = (
   output: any,
   context: __SerdeContext
-): Array<Button> => {
+): Button[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Button(entry, context)
   );

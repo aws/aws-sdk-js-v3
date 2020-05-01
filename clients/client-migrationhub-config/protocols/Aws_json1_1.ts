@@ -648,7 +648,7 @@ const deserializeAws_json1_1HomeRegionControl = (
 const deserializeAws_json1_1HomeRegionControls = (
   output: any,
   context: __SerdeContext
-): Array<HomeRegionControl> => {
+): HomeRegionControl[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1HomeRegionControl(entry, context)
   );

@@ -5252,7 +5252,7 @@ const serializeAws_restJson1_1AwsCloudMapInstanceAttribute = (
 };
 
 const serializeAws_restJson1_1AwsCloudMapInstanceAttributes = (
-  input: Array<AwsCloudMapInstanceAttribute>,
+  input: AwsCloudMapInstanceAttribute[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5298,7 +5298,7 @@ const serializeAws_restJson1_1Backend = (
 };
 
 const serializeAws_restJson1_1Backends = (
-  input: Array<Backend>,
+  input: Backend[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5395,7 +5395,7 @@ const serializeAws_restJson1_1GrpcRetryPolicy = (
 };
 
 const serializeAws_restJson1_1GrpcRetryPolicyEvents = (
-  input: Array<GrpcRetryPolicyEvent | string>,
+  input: (GrpcRetryPolicyEvent | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5486,7 +5486,7 @@ const serializeAws_restJson1_1GrpcRouteMetadata = (
 };
 
 const serializeAws_restJson1_1GrpcRouteMetadataList = (
-  input: Array<GrpcRouteMetadata>,
+  input: GrpcRouteMetadata[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5585,7 +5585,7 @@ const serializeAws_restJson1_1HttpRetryPolicy = (
 };
 
 const serializeAws_restJson1_1HttpRetryPolicyEvents = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5656,7 +5656,7 @@ const serializeAws_restJson1_1HttpRouteHeader = (
 };
 
 const serializeAws_restJson1_1HttpRouteHeaders = (
-  input: Array<HttpRouteHeader>,
+  input: HttpRouteHeader[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5710,7 +5710,7 @@ const serializeAws_restJson1_1Listener = (
 };
 
 const serializeAws_restJson1_1Listeners = (
-  input: Array<Listener>,
+  input: Listener[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5824,7 +5824,7 @@ const serializeAws_restJson1_1ServiceDiscovery = (
 };
 
 const serializeAws_restJson1_1TagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5835,7 +5835,7 @@ const serializeAws_restJson1_1TagKeyList = (
 };
 
 const serializeAws_restJson1_1TagList = (
-  input: Array<TagRef>,
+  input: TagRef[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5860,7 +5860,7 @@ const serializeAws_restJson1_1TagRef = (
 };
 
 const serializeAws_restJson1_1TcpRetryPolicyEvents = (
-  input: Array<TcpRetryPolicyEvent | string>,
+  input: (TcpRetryPolicyEvent | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5956,7 +5956,7 @@ const serializeAws_restJson1_1VirtualRouterListener = (
 };
 
 const serializeAws_restJson1_1VirtualRouterListeners = (
-  input: Array<VirtualRouterListener>,
+  input: VirtualRouterListener[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6046,7 +6046,7 @@ const serializeAws_restJson1_1WeightedTarget = (
 };
 
 const serializeAws_restJson1_1WeightedTargets = (
-  input: Array<WeightedTarget>,
+  input: WeightedTarget[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6090,7 +6090,7 @@ const deserializeAws_restJson1_1AwsCloudMapInstanceAttribute = (
 const deserializeAws_restJson1_1AwsCloudMapInstanceAttributes = (
   output: any,
   context: __SerdeContext
-): Array<AwsCloudMapInstanceAttribute> => {
+): AwsCloudMapInstanceAttribute[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1AwsCloudMapInstanceAttribute(entry, context)
   );
@@ -6140,7 +6140,7 @@ const deserializeAws_restJson1_1Backend = (
 const deserializeAws_restJson1_1Backends = (
   output: any,
   context: __SerdeContext
-): Array<Backend> => {
+): Backend[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Backend(entry, context)
   );
@@ -6251,7 +6251,7 @@ const deserializeAws_restJson1_1GrpcRetryPolicy = (
 const deserializeAws_restJson1_1GrpcRetryPolicyEvents = (
   output: any,
   context: __SerdeContext
-): Array<GrpcRetryPolicyEvent | string> => {
+): (GrpcRetryPolicyEvent | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -6356,7 +6356,7 @@ const deserializeAws_restJson1_1GrpcRouteMetadata = (
 const deserializeAws_restJson1_1GrpcRouteMetadataList = (
   output: any,
   context: __SerdeContext
-): Array<GrpcRouteMetadata> => {
+): GrpcRouteMetadata[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1GrpcRouteMetadata(entry, context)
   );
@@ -6510,7 +6510,7 @@ const deserializeAws_restJson1_1HttpRetryPolicy = (
 const deserializeAws_restJson1_1HttpRetryPolicyEvents = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -6590,7 +6590,7 @@ const deserializeAws_restJson1_1HttpRouteHeader = (
 const deserializeAws_restJson1_1HttpRouteHeaders = (
   output: any,
   context: __SerdeContext
-): Array<HttpRouteHeader> => {
+): HttpRouteHeader[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1HttpRouteHeader(entry, context)
   );
@@ -6652,7 +6652,7 @@ const deserializeAws_restJson1_1Listener = (
 const deserializeAws_restJson1_1Listeners = (
   output: any,
   context: __SerdeContext
-): Array<Listener> => {
+): Listener[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Listener(entry, context)
   );
@@ -6728,7 +6728,7 @@ const deserializeAws_restJson1_1MeshData = (
 const deserializeAws_restJson1_1MeshList = (
   output: any,
   context: __SerdeContext
-): Array<MeshRef> => {
+): MeshRef[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1MeshRef(entry, context)
   );
@@ -6877,7 +6877,7 @@ const deserializeAws_restJson1_1RouteData = (
 const deserializeAws_restJson1_1RouteList = (
   output: any,
   context: __SerdeContext
-): Array<RouteRef> => {
+): RouteRef[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1RouteRef(entry, context)
   );
@@ -6992,7 +6992,7 @@ const deserializeAws_restJson1_1ServiceDiscovery = (
 const deserializeAws_restJson1_1TagList = (
   output: any,
   context: __SerdeContext
-): Array<TagRef> => {
+): TagRef[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1TagRef(entry, context)
   );
@@ -7019,7 +7019,7 @@ const deserializeAws_restJson1_1TagRef = (
 const deserializeAws_restJson1_1TcpRetryPolicyEvents = (
   output: any,
   context: __SerdeContext
-): Array<TcpRetryPolicyEvent | string> => {
+): (TcpRetryPolicyEvent | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -7099,7 +7099,7 @@ const deserializeAws_restJson1_1VirtualNodeData = (
 const deserializeAws_restJson1_1VirtualNodeList = (
   output: any,
   context: __SerdeContext
-): Array<VirtualNodeRef> => {
+): VirtualNodeRef[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1VirtualNodeRef(entry, context)
   );
@@ -7241,7 +7241,7 @@ const deserializeAws_restJson1_1VirtualRouterData = (
 const deserializeAws_restJson1_1VirtualRouterList = (
   output: any,
   context: __SerdeContext
-): Array<VirtualRouterRef> => {
+): VirtualRouterRef[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1VirtualRouterRef(entry, context)
   );
@@ -7267,7 +7267,7 @@ const deserializeAws_restJson1_1VirtualRouterListener = (
 const deserializeAws_restJson1_1VirtualRouterListeners = (
   output: any,
   context: __SerdeContext
-): Array<VirtualRouterListener> => {
+): VirtualRouterListener[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1VirtualRouterListener(entry, context)
   );
@@ -7408,7 +7408,7 @@ const deserializeAws_restJson1_1VirtualServiceData = (
 const deserializeAws_restJson1_1VirtualServiceList = (
   output: any,
   context: __SerdeContext
-): Array<VirtualServiceRef> => {
+): VirtualServiceRef[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1VirtualServiceRef(entry, context)
   );
@@ -7515,7 +7515,7 @@ const deserializeAws_restJson1_1WeightedTarget = (
 const deserializeAws_restJson1_1WeightedTargets = (
   output: any,
   context: __SerdeContext
-): Array<WeightedTarget> => {
+): WeightedTarget[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1WeightedTarget(entry, context)
   );

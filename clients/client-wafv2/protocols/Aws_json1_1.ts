@@ -4750,7 +4750,7 @@ const serializeAws_json1_1CountAction = (
 };
 
 const serializeAws_json1_1CountryCodes = (
-  input: Array<CountryCode | string>,
+  input: (CountryCode | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5029,7 +5029,7 @@ const serializeAws_json1_1ExcludedRule = (
 };
 
 const serializeAws_json1_1ExcludedRules = (
-  input: Array<ExcludedRule>,
+  input: ExcludedRule[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5231,7 +5231,7 @@ const serializeAws_json1_1GetWebACLRequest = (
 };
 
 const serializeAws_json1_1IPAddresses = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5386,7 +5386,7 @@ const serializeAws_json1_1ListWebACLsRequest = (
 };
 
 const serializeAws_json1_1LogDestinationConfigs = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5544,7 +5544,7 @@ const serializeAws_json1_1RateBasedStatement = (
 };
 
 const serializeAws_json1_1RedactedFields = (
-  input: Array<FieldToMatch>,
+  input: FieldToMatch[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5589,7 +5589,7 @@ const serializeAws_json1_1RegexPatternSetReferenceStatement = (
 };
 
 const serializeAws_json1_1RegularExpressionList = (
-  input: Array<Regex>,
+  input: Regex[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5672,7 +5672,7 @@ const serializeAws_json1_1RuleGroupReferenceStatement = (
 };
 
 const serializeAws_json1_1Rules = (
-  input: Array<Rule>,
+  input: Rule[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5847,7 +5847,7 @@ const serializeAws_json1_1Statement = (
 };
 
 const serializeAws_json1_1Statements = (
-  input: Array<Statement>,
+  input: Statement[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5869,7 +5869,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_json1_1TagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5880,7 +5880,7 @@ const serializeAws_json1_1TagKeyList = (
 };
 
 const serializeAws_json1_1TagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5919,7 +5919,7 @@ const serializeAws_json1_1TextTransformation = (
 };
 
 const serializeAws_json1_1TextTransformations = (
-  input: Array<TextTransformation>,
+  input: TextTransformation[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6267,7 +6267,7 @@ const deserializeAws_json1_1CountAction = (
 const deserializeAws_json1_1CountryCodes = (
   output: any,
   context: __SerdeContext
-): Array<CountryCode | string> => {
+): (CountryCode | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -6452,7 +6452,7 @@ const deserializeAws_json1_1ExcludedRule = (
 const deserializeAws_json1_1ExcludedRules = (
   output: any,
   context: __SerdeContext
-): Array<ExcludedRule> => {
+): ExcludedRule[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ExcludedRule(entry, context)
   );
@@ -6716,7 +6716,7 @@ const deserializeAws_json1_1HTTPHeader = (
 const deserializeAws_json1_1HTTPHeaders = (
   output: any,
   context: __SerdeContext
-): Array<HTTPHeader> => {
+): HTTPHeader[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1HTTPHeader(entry, context)
   );
@@ -6762,7 +6762,7 @@ const deserializeAws_json1_1HTTPRequest = (
 const deserializeAws_json1_1IPAddresses = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -6823,7 +6823,7 @@ const deserializeAws_json1_1IPSetReferenceStatement = (
 const deserializeAws_json1_1IPSetSummaries = (
   output: any,
   context: __SerdeContext
-): Array<IPSetSummary> => {
+): IPSetSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1IPSetSummary(entry, context)
   );
@@ -7038,7 +7038,7 @@ const deserializeAws_json1_1ListWebACLsResponse = (
 const deserializeAws_json1_1LogDestinationConfigs = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -7076,7 +7076,7 @@ const deserializeAws_json1_1LoggingConfiguration = (
 const deserializeAws_json1_1LoggingConfigurations = (
   output: any,
   context: __SerdeContext
-): Array<LoggingConfiguration> => {
+): LoggingConfiguration[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1LoggingConfiguration(entry, context)
   );
@@ -7110,7 +7110,7 @@ const deserializeAws_json1_1ManagedRuleGroupStatement = (
 const deserializeAws_json1_1ManagedRuleGroupSummaries = (
   output: any,
   context: __SerdeContext
-): Array<ManagedRuleGroupSummary> => {
+): ManagedRuleGroupSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ManagedRuleGroupSummary(entry, context)
   );
@@ -7298,7 +7298,7 @@ const deserializeAws_json1_1RateBasedStatementManagedKeysIPSet = (
 const deserializeAws_json1_1RedactedFields = (
   output: any,
   context: __SerdeContext
-): Array<FieldToMatch> => {
+): FieldToMatch[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1FieldToMatch(entry, context)
   );
@@ -7388,7 +7388,7 @@ const deserializeAws_json1_1RegexPatternSetReferenceStatement = (
 const deserializeAws_json1_1RegexPatternSetSummaries = (
   output: any,
   context: __SerdeContext
-): Array<RegexPatternSetSummary> => {
+): RegexPatternSetSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RegexPatternSetSummary(entry, context)
   );
@@ -7427,7 +7427,7 @@ const deserializeAws_json1_1RegexPatternSetSummary = (
 const deserializeAws_json1_1RegularExpressionList = (
   output: any,
   context: __SerdeContext
-): Array<Regex> => {
+): Regex[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Regex(entry, context)
   );
@@ -7436,7 +7436,7 @@ const deserializeAws_json1_1RegularExpressionList = (
 const deserializeAws_json1_1ResourceArns = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -7576,7 +7576,7 @@ const deserializeAws_json1_1RuleGroupReferenceStatement = (
 const deserializeAws_json1_1RuleGroupSummaries = (
   output: any,
   context: __SerdeContext
-): Array<RuleGroupSummary> => {
+): RuleGroupSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RuleGroupSummary(entry, context)
   );
@@ -7615,7 +7615,7 @@ const deserializeAws_json1_1RuleGroupSummary = (
 const deserializeAws_json1_1RuleSummaries = (
   output: any,
   context: __SerdeContext
-): Array<RuleSummary> => {
+): RuleSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RuleSummary(entry, context)
   );
@@ -7642,7 +7642,7 @@ const deserializeAws_json1_1RuleSummary = (
 const deserializeAws_json1_1Rules = (
   output: any,
   context: __SerdeContext
-): Array<Rule> => {
+): Rule[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Rule(entry, context)
   );
@@ -7687,7 +7687,7 @@ const deserializeAws_json1_1SampledHTTPRequest = (
 const deserializeAws_json1_1SampledHTTPRequests = (
   output: any,
   context: __SerdeContext
-): Array<SampledHTTPRequest> => {
+): SampledHTTPRequest[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SampledHTTPRequest(entry, context)
   );
@@ -7920,7 +7920,7 @@ const deserializeAws_json1_1Statement = (
 const deserializeAws_json1_1Statements = (
   output: any,
   context: __SerdeContext
-): Array<Statement> => {
+): Statement[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Statement(entry, context)
   );
@@ -7965,7 +7965,7 @@ const deserializeAws_json1_1TagInfoForResource = (
 const deserializeAws_json1_1TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );
@@ -8002,7 +8002,7 @@ const deserializeAws_json1_1TextTransformation = (
 const deserializeAws_json1_1TextTransformations = (
   output: any,
   context: __SerdeContext
-): Array<TextTransformation> => {
+): TextTransformation[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1TextTransformation(entry, context)
   );
@@ -8364,7 +8364,7 @@ const deserializeAws_json1_1WebACL = (
 const deserializeAws_json1_1WebACLSummaries = (
   output: any,
   context: __SerdeContext
-): Array<WebACLSummary> => {
+): WebACLSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1WebACLSummary(entry, context)
   );

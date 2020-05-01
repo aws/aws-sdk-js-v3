@@ -1038,7 +1038,7 @@ const deserializeAws_restJson1_1StatementTimeoutExceptionResponse = async (
 };
 
 const serializeAws_restJson1_1ArrayOfArray = (
-  input: Array<ArrayValue>,
+  input: ArrayValue[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1064,7 +1064,7 @@ const serializeAws_restJson1_1ArrayValue = (
 };
 
 const serializeAws_restJson1_1BooleanArray = (
-  input: Array<boolean>,
+  input: boolean[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1075,7 +1075,7 @@ const serializeAws_restJson1_1BooleanArray = (
 };
 
 const serializeAws_restJson1_1DoubleArray = (
-  input: Array<number>,
+  input: number[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1102,7 +1102,7 @@ const serializeAws_restJson1_1Field = (
 };
 
 const serializeAws_restJson1_1LongArray = (
-  input: Array<number>,
+  input: number[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1127,7 +1127,7 @@ const serializeAws_restJson1_1SqlParameter = (
 };
 
 const serializeAws_restJson1_1SqlParameterSets = (
-  input: Array<Array<SqlParameter>>,
+  input: SqlParameter[][],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1138,7 +1138,7 @@ const serializeAws_restJson1_1SqlParameterSets = (
 };
 
 const serializeAws_restJson1_1SqlParametersList = (
-  input: Array<SqlParameter>,
+  input: SqlParameter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1149,7 +1149,7 @@ const serializeAws_restJson1_1SqlParametersList = (
 };
 
 const serializeAws_restJson1_1StringArray = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1162,7 +1162,7 @@ const serializeAws_restJson1_1StringArray = (
 const deserializeAws_restJson1_1ArrayOfArray = (
   output: any,
   context: __SerdeContext
-): Array<ArrayValue> => {
+): ArrayValue[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ArrayValue(entry, context)
   );
@@ -1219,7 +1219,7 @@ const deserializeAws_restJson1_1ArrayValue = (
 const deserializeAws_restJson1_1ArrayValueList = (
   output: any,
   context: __SerdeContext
-): Array<Value> => {
+): Value[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Value(entry, context)
   );
@@ -1228,7 +1228,7 @@ const deserializeAws_restJson1_1ArrayValueList = (
 const deserializeAws_restJson1_1BooleanArray = (
   output: any,
   context: __SerdeContext
-): Array<boolean> => {
+): boolean[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -1304,7 +1304,7 @@ const deserializeAws_restJson1_1ColumnMetadata = (
 const deserializeAws_restJson1_1DoubleArray = (
   output: any,
   context: __SerdeContext
-): Array<number> => {
+): number[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -1357,7 +1357,7 @@ const deserializeAws_restJson1_1Field = (
 const deserializeAws_restJson1_1FieldList = (
   output: any,
   context: __SerdeContext
-): Array<Field> => {
+): Field[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Field(entry, context)
   );
@@ -1366,14 +1366,14 @@ const deserializeAws_restJson1_1FieldList = (
 const deserializeAws_restJson1_1LongArray = (
   output: any,
   context: __SerdeContext
-): Array<number> => {
+): number[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1Metadata = (
   output: any,
   context: __SerdeContext
-): Array<ColumnMetadata> => {
+): ColumnMetadata[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ColumnMetadata(entry, context)
   );
@@ -1396,7 +1396,7 @@ const deserializeAws_restJson1_1_Record = (
 const deserializeAws_restJson1_1Records = (
   output: any,
   context: __SerdeContext
-): Array<_Record> => {
+): _Record[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1_Record(entry, context)
   );
@@ -1453,7 +1453,7 @@ const deserializeAws_restJson1_1ResultSetMetadata = (
 const deserializeAws_restJson1_1Row = (
   output: any,
   context: __SerdeContext
-): Array<Value> => {
+): Value[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Value(entry, context)
   );
@@ -1462,7 +1462,7 @@ const deserializeAws_restJson1_1Row = (
 const deserializeAws_restJson1_1SqlRecords = (
   output: any,
   context: __SerdeContext
-): Array<Array<Field>> => {
+): Field[][] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1FieldList(entry, context)
   );
@@ -1495,7 +1495,7 @@ const deserializeAws_restJson1_1SqlStatementResult = (
 const deserializeAws_restJson1_1SqlStatementResults = (
   output: any,
   context: __SerdeContext
-): Array<SqlStatementResult> => {
+): SqlStatementResult[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SqlStatementResult(entry, context)
   );
@@ -1504,7 +1504,7 @@ const deserializeAws_restJson1_1SqlStatementResults = (
 const deserializeAws_restJson1_1StringArray = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -1545,7 +1545,7 @@ const deserializeAws_restJson1_1UpdateResult = (
 const deserializeAws_restJson1_1UpdateResults = (
   output: any,
   context: __SerdeContext
-): Array<UpdateResult> => {
+): UpdateResult[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1UpdateResult(entry, context)
   );

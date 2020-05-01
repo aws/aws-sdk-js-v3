@@ -289,7 +289,7 @@ export interface ColumnGroupSchema {
   /**
    * <p>A structure containing the list of schemas for column group columns.</p>
    */
-  ColumnGroupColumnSchemaList?: Array<ColumnGroupColumnSchema>;
+  ColumnGroupColumnSchemaList?: ColumnGroupColumnSchema[];
 
   /**
    * <p>The name of the column group schema.</p>
@@ -371,7 +371,7 @@ export interface CreateColumnsOperation {
   /**
    * <p>Calculated columns to create.</p>
    */
-  Columns: Array<CalculatedColumn> | undefined;
+  Columns: CalculatedColumn[] | undefined;
 }
 
 export namespace CreateColumnsOperation {
@@ -439,7 +439,7 @@ export interface CreateDashboardRequest {
    * <p>A structure that contains the permissions of the dashboard. You can use this structure for
    * 			granting permissions with principal and action information.</p>
    */
-  Permissions?: Array<ResourcePermission>;
+  Permissions?: ResourcePermission[];
 
   /**
    * <p>The source entity from which the dashboard is created. The source entity accepts the Amazon
@@ -455,7 +455,7 @@ export interface CreateDashboardRequest {
   /**
    * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dashboard.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>A description for the first version of the dashboard being created.</p>
@@ -512,7 +512,7 @@ export interface CreateDataSetRequest {
   /**
    * <p>Groupings of columns that work together in certain QuickSight features. Currently, only geospatial hierarchy is supported.</p>
    */
-  ColumnGroups?: Array<ColumnGroup>;
+  ColumnGroups?: ColumnGroup[];
 
   /**
    * <p>An ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.</p>
@@ -537,7 +537,7 @@ export interface CreateDataSetRequest {
   /**
    * <p>A list of resource permissions on the dataset.</p>
    */
-  Permissions?: Array<ResourcePermission>;
+  Permissions?: ResourcePermission[];
 
   /**
    * <p>Declares the physical tables that are available in the underlying data sources.</p>
@@ -552,7 +552,7 @@ export interface CreateDataSetRequest {
   /**
    * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateDataSetRequest {
@@ -626,7 +626,7 @@ export interface CreateDataSourceRequest {
   /**
    * <p>A list of resource permissions on the data source.</p>
    */
-  Permissions?: Array<ResourcePermission>;
+  Permissions?: ResourcePermission[];
 
   /**
    * <p>Secure Socket Layer (SSL) properties that apply when QuickSight connects to your underlying source.</p>
@@ -636,7 +636,7 @@ export interface CreateDataSourceRequest {
   /**
    * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The type of the data source. Currently, the supported types for this operation are:
@@ -824,7 +824,7 @@ export interface CreateIAMPolicyAssignmentRequest {
   /**
    * <p>The QuickSight users, groups, or both that you want to assign the policy to.</p>
    */
-  Identities?: { [key: string]: Array<string> };
+  Identities?: { [key: string]: string[] };
 
   /**
    * <p>The namespace that contains the assignment.</p>
@@ -879,7 +879,7 @@ export interface CreateIAMPolicyAssignmentResponse {
   /**
    * <p>The QuickSight users, groups, or both that the IAM policy is assigned to.</p>
    */
-  Identities?: { [key: string]: Array<string> };
+  Identities?: { [key: string]: string[] };
 
   /**
    * <p>The ARN for the IAM policy that is applied to the QuickSight users and groups specified in this assignment.</p>
@@ -1012,7 +1012,7 @@ export interface CreateTemplateRequest {
   /**
    * <p>A list of resource permissions to be set on the template. </p>
    */
-  Permissions?: Array<ResourcePermission>;
+  Permissions?: ResourcePermission[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the source entity from which this template is being
@@ -1024,7 +1024,7 @@ export interface CreateTemplateRequest {
   /**
    * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>An ID for the template that you want to create. This template is unique per AWS Region in
@@ -1109,7 +1109,7 @@ export interface CustomSql {
   /**
    * <p>The column schema from the SQL query result set.</p>
    */
-  Columns?: Array<InputColumn>;
+  Columns?: InputColumn[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the data source.</p>
@@ -1268,7 +1268,7 @@ export interface DashboardSourceTemplate {
   /**
    * <p>Dataset references.</p>
    */
-  DataSetReferences: Array<DataSetReference> | undefined;
+  DataSetReferences: DataSetReference[] | undefined;
 }
 
 export namespace DashboardSourceTemplate {
@@ -1350,7 +1350,7 @@ export interface DashboardVersion {
   /**
    * <p>Errors.</p>
    */
-  Errors?: Array<DashboardError>;
+  Errors?: DashboardError[];
 
   /**
    * <p>Source entity ARN.</p>
@@ -1428,7 +1428,7 @@ export interface DataSet {
    * <p>Groupings of columns that work together in certain Amazon QuickSight features. Currently,
    * 			only geospatial hierarchy is supported.</p>
    */
-  ColumnGroups?: Array<ColumnGroup>;
+  ColumnGroups?: ColumnGroup[];
 
   /**
    * <p>The amount of SPICE capacity used by this dataset. This is 0 if the dataset isn't
@@ -1471,7 +1471,7 @@ export interface DataSet {
    * <p>The list of columns after all transforms. These columns are available in templates,
    * 			analyses, and dashboards.</p>
    */
-  OutputColumns?: Array<OutputColumn>;
+  OutputColumns?: OutputColumn[];
 
   /**
    * <p>Declares the physical tables that are available in the underlying data sources.</p>
@@ -1496,7 +1496,7 @@ export interface DataSetConfiguration {
   /**
    * <p>A structure containing the list of column group schemas.</p>
    */
-  ColumnGroupSchemaList?: Array<ColumnGroupSchema>;
+  ColumnGroupSchemaList?: ColumnGroupSchema[];
 
   /**
    * <p>Dataset schema.</p>
@@ -1548,7 +1548,7 @@ export interface DataSetSchema {
   /**
    * <p>A structure containing the list of column schemas.</p>
    */
-  ColumnSchemaList?: Array<ColumnSchema>;
+  ColumnSchemaList?: ColumnSchema[];
 }
 
 export namespace DataSetSchema {
@@ -1862,7 +1862,7 @@ export interface DateTimeParameter {
   /**
    * <p>Values.</p>
    */
-  Values: Array<Date> | undefined;
+  Values: Date[] | undefined;
 }
 
 export namespace DateTimeParameter {
@@ -1883,7 +1883,7 @@ export interface DecimalParameter {
   /**
    * <p>Values.</p>
    */
-  Values: Array<number> | undefined;
+  Values: number[] | undefined;
 }
 
 export namespace DecimalParameter {
@@ -2353,7 +2353,7 @@ export interface DescribeDashboardPermissionsResponse {
   /**
    * <p>A structure that contains the permissions for the dashboard.</p>
    */
-  Permissions?: Array<ResourcePermission>;
+  Permissions?: ResourcePermission[];
 
   /**
    * <p>The AWS request ID for this operation.</p>
@@ -2446,7 +2446,7 @@ export interface DescribeDataSetPermissionsResponse {
   /**
    * <p>A list of resource permissions on the dataset.</p>
    */
-  Permissions?: Array<ResourcePermission>;
+  Permissions?: ResourcePermission[];
 
   /**
    * <p>The AWS request ID for this operation.</p>
@@ -2528,7 +2528,7 @@ export interface DescribeDataSourcePermissionsResponse {
   /**
    * <p>A list of resource permissions on the data source.</p>
    */
-  Permissions?: Array<ResourcePermission>;
+  Permissions?: ResourcePermission[];
 
   /**
    * <p>The AWS request ID for this operation.</p>
@@ -2771,7 +2771,7 @@ export interface DescribeTemplatePermissionsResponse {
   /**
    * <p>A list of resource permissions to be set on the template. </p>
    */
-  Permissions?: Array<ResourcePermission>;
+  Permissions?: ResourcePermission[];
 
   /**
    * <p>The AWS request ID for this operation.</p>
@@ -2972,7 +2972,7 @@ export interface GeoSpatialColumnGroup {
   /**
    * <p>Columns in this hierarchy.</p>
    */
-  Columns: Array<string> | undefined;
+  Columns: string[] | undefined;
 
   /**
    * <p>Country code.</p>
@@ -3164,7 +3164,7 @@ export interface IAMPolicyAssignment {
   /**
    * <p>Identities.</p>
    */
-  Identities?: { [key: string]: Array<string> };
+  Identities?: { [key: string]: string[] };
 
   /**
    * <p>The Amazon Resource Name (ARN) for the IAM policy.</p>
@@ -3391,7 +3391,7 @@ export interface IntegerParameter {
   /**
    * <p>Values.</p>
    */
-  Values: Array<number> | undefined;
+  Values: number[] | undefined;
 }
 
 export namespace IntegerParameter {
@@ -3487,7 +3487,7 @@ export interface ListDashboardVersionsResponse {
   /**
    * <p>A structure that contains information about each version of the dashboard.</p>
    */
-  DashboardVersionSummaryList?: Array<DashboardVersionSummary>;
+  DashboardVersionSummaryList?: DashboardVersionSummary[];
 
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
@@ -3534,7 +3534,7 @@ export interface ListDashboardsResponse {
    * <p>A structure that contains all of the dashboards shared with the user. This structure
    * 			provides basic information about the dashboards.</p>
    */
-  DashboardSummaryList?: Array<DashboardSummary>;
+  DashboardSummaryList?: DashboardSummary[];
 
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
@@ -3580,7 +3580,7 @@ export interface ListDataSetsResponse {
   /**
    * <p>The list of dataset summaries.</p>
    */
-  DataSetSummaries?: Array<DataSetSummary>;
+  DataSetSummaries?: DataSetSummary[];
 
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
@@ -3626,7 +3626,7 @@ export interface ListDataSourcesResponse {
   /**
    * <p>A list of data sources.</p>
    */
-  DataSources?: Array<DataSource>;
+  DataSources?: DataSource[];
 
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
@@ -3683,7 +3683,7 @@ export interface ListGroupMembershipsResponse {
   /**
    * <p>The list of the members of the group.</p>
    */
-  GroupMemberList?: Array<GroupMember>;
+  GroupMemberList?: GroupMember[];
 
   /**
    * <p>A pagination token that can be used in a subsequent request.</p>
@@ -3735,7 +3735,7 @@ export interface ListGroupsResponse {
   /**
    * <p>The list of the groups.</p>
    */
-  GroupList?: Array<Group>;
+  GroupList?: Group[];
 
   /**
    * <p>A pagination token that can be used in a subsequent request.</p>
@@ -3791,7 +3791,7 @@ export interface ListIAMPolicyAssignmentsForUserResponse {
   /**
    * <p>The active assignments for this user.</p>
    */
-  ActiveAssignments?: Array<ActiveIAMPolicyAssignment>;
+  ActiveAssignments?: ActiveIAMPolicyAssignment[];
 
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
@@ -3847,7 +3847,7 @@ export interface ListIAMPolicyAssignmentsResponse {
   /**
    * <p>Information describing the IAM policy assignments.</p>
    */
-  IAMPolicyAssignments?: Array<IAMPolicyAssignmentSummary>;
+  IAMPolicyAssignments?: IAMPolicyAssignmentSummary[];
 
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
@@ -3898,7 +3898,7 @@ export interface ListIngestionsResponse {
   /**
    * <p>A list of the ingestions.</p>
    */
-  Ingestions?: Array<Ingestion>;
+  Ingestions?: Ingestion[];
 
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
@@ -3940,7 +3940,7 @@ export interface ListTagsForResourceResponse {
    * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
    * 			resource.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace ListTagsForResourceResponse {
@@ -3991,7 +3991,7 @@ export interface ListTemplateAliasesResponse {
   /**
    * <p>A structure containing the list of the template's aliases.</p>
    */
-  TemplateAliasList?: Array<TemplateAlias>;
+  TemplateAliasList?: TemplateAlias[];
 }
 
 export namespace ListTemplateAliasesResponse {
@@ -4042,7 +4042,7 @@ export interface ListTemplateVersionsResponse {
   /**
    * <p>A structure containing a list of all the versions of the specified template.</p>
    */
-  TemplateVersionSummaryList?: Array<TemplateVersionSummary>;
+  TemplateVersionSummaryList?: TemplateVersionSummary[];
 }
 
 export namespace ListTemplateVersionsResponse {
@@ -4088,7 +4088,7 @@ export interface ListTemplatesResponse {
   /**
    * <p>A structure containing information about the templates in the list.</p>
    */
-  TemplateSummaryList?: Array<TemplateSummary>;
+  TemplateSummaryList?: TemplateSummary[];
 }
 
 export namespace ListTemplatesResponse {
@@ -4135,7 +4135,7 @@ export interface ListUserGroupsResponse {
   /**
    * <p>The list of groups the user is a member of.</p>
    */
-  GroupList?: Array<Group>;
+  GroupList?: Group[];
 
   /**
    * <p>A pagination token that can be used in a subsequent request.</p>
@@ -4197,7 +4197,7 @@ export interface ListUsersResponse {
   /**
    * <p>The list of users.</p>
    */
-  UserList?: Array<User>;
+  UserList?: User[];
 }
 
 export namespace ListUsersResponse {
@@ -4221,7 +4221,7 @@ export interface LogicalTable {
   /**
    * <p>Transform operations that act on this logical table.</p>
    */
-  DataTransforms?: Array<TransformOperation>;
+  DataTransforms?: TransformOperation[];
 
   /**
    * <p>Source of this logical table.</p>
@@ -4356,22 +4356,22 @@ export interface _Parameters {
   /**
    * <p>DateTime parameters.</p>
    */
-  DateTimeParameters?: Array<DateTimeParameter>;
+  DateTimeParameters?: DateTimeParameter[];
 
   /**
    * <p>Decimal parameters.</p>
    */
-  DecimalParameters?: Array<DecimalParameter>;
+  DecimalParameters?: DecimalParameter[];
 
   /**
    * <p>Integer parameters.</p>
    */
-  IntegerParameters?: Array<IntegerParameter>;
+  IntegerParameters?: IntegerParameter[];
 
   /**
    * <p>String parameters.</p>
    */
-  StringParameters?: Array<StringParameter>;
+  StringParameters?: StringParameter[];
 }
 
 export namespace _Parameters {
@@ -4466,7 +4466,7 @@ export interface ProjectOperation {
   /**
    * <p>Projected columns.</p>
    */
-  ProjectedColumns: Array<string> | undefined;
+  ProjectedColumns: string[] | undefined;
 }
 
 export namespace ProjectOperation {
@@ -4706,7 +4706,7 @@ export interface RelationalTable {
   /**
    * <p>The column schema of the table.</p>
    */
-  InputColumns: Array<InputColumn> | undefined;
+  InputColumns: InputColumn[] | undefined;
 
   /**
    * <p>The name of the relational table.</p>
@@ -4820,7 +4820,7 @@ export interface S3Source {
   /**
    * <p>A physical table type for as S3 data source.</p>
    */
-  InputColumns: Array<InputColumn> | undefined;
+  InputColumns: InputColumn[] | undefined;
 
   /**
    * <p>Information about the format for the S3 source file or files.</p>
@@ -4987,7 +4987,7 @@ export interface StringParameter {
   /**
    * <p>Values.</p>
    */
-  Values: Array<string> | undefined;
+  Values: string[] | undefined;
 }
 
 export namespace StringParameter {
@@ -5011,7 +5011,7 @@ export interface TagColumnOperation {
    * 			         <p>This is not tags for the AWS tagging feature. .</p>
    * 		       </note>
    */
-  Tags: Array<ColumnTag> | undefined;
+  Tags: ColumnTag[] | undefined;
 }
 
 export namespace TagColumnOperation {
@@ -5029,7 +5029,7 @@ export interface TagResourceRequest {
   /**
    * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.</p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -5161,7 +5161,7 @@ export interface TemplateSourceAnalysis {
    * <p>A structure containing information about the dataset references used as placeholders in
    * 			the template.</p>
    */
-  DataSetReferences: Array<DataSetReference> | undefined;
+  DataSetReferences: DataSetReference[] | undefined;
 }
 
 export namespace TemplateSourceAnalysis {
@@ -5262,7 +5262,7 @@ export interface TemplateVersion {
    * 			created from the template should be bound to new datasets matching the same schema
    * 			described through this API. .</p>
    */
-  DataSetConfigurations?: Array<DataSetConfiguration>;
+  DataSetConfigurations?: DataSetConfiguration[];
 
   /**
    * <p>The description of the template.</p>
@@ -5272,7 +5272,7 @@ export interface TemplateVersion {
   /**
    * <p>Errors associated with the template.</p>
    */
-  Errors?: Array<TemplateError>;
+  Errors?: TemplateError[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the analysis or template which was used to create this
@@ -5438,7 +5438,7 @@ export interface UntagResourceRequest {
   /**
    * <p>The keys of the key-value pairs for the resource tag or tags assigned to the resource.</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -5475,12 +5475,12 @@ export interface UpdateDashboardPermissionsRequest {
   /**
    * <p>The permissions that you want to grant on this resource.</p>
    */
-  GrantPermissions?: Array<ResourcePermission>;
+  GrantPermissions?: ResourcePermission[];
 
   /**
    * <p>The permissions that you want to revoke from this resource.</p>
    */
-  RevokePermissions?: Array<ResourcePermission>;
+  RevokePermissions?: ResourcePermission[];
 }
 
 export namespace UpdateDashboardPermissionsRequest {
@@ -5503,7 +5503,7 @@ export interface UpdateDashboardPermissionsResponse {
   /**
    * <p>Information about the permissions on the dashboard.</p>
    */
-  Permissions?: Array<ResourcePermission>;
+  Permissions?: ResourcePermission[];
 
   /**
    * <p>The AWS request ID for this operation.</p>
@@ -5687,12 +5687,12 @@ export interface UpdateDataSetPermissionsRequest {
   /**
    * <p>The resource permissions that you want to grant to the dataset.</p>
    */
-  GrantPermissions?: Array<ResourcePermission>;
+  GrantPermissions?: ResourcePermission[];
 
   /**
    * <p>The resource permissions that you want to revoke from the dataset.</p>
    */
-  RevokePermissions?: Array<ResourcePermission>;
+  RevokePermissions?: ResourcePermission[];
 }
 
 export namespace UpdateDataSetPermissionsRequest {
@@ -5734,7 +5734,7 @@ export interface UpdateDataSetRequest {
   /**
    * <p>Groupings of columns that work together in certain QuickSight features. Currently, only geospatial hierarchy is supported.</p>
    */
-  ColumnGroups?: Array<ColumnGroup>;
+  ColumnGroups?: ColumnGroup[];
 
   /**
    * <p>The ID for the dataset that you want to update. This ID is unique per AWS Region for each
@@ -5823,12 +5823,12 @@ export interface UpdateDataSourcePermissionsRequest {
   /**
    * <p>A list of resource permissions that you want to grant on the data source.</p>
    */
-  GrantPermissions?: Array<ResourcePermission>;
+  GrantPermissions?: ResourcePermission[];
 
   /**
    * <p>A list of resource permissions that you want to revoke on the data source.</p>
    */
-  RevokePermissions?: Array<ResourcePermission>;
+  RevokePermissions?: ResourcePermission[];
 }
 
 export namespace UpdateDataSourcePermissionsRequest {
@@ -6016,7 +6016,7 @@ export interface UpdateIAMPolicyAssignmentRequest {
   /**
    * <p>The QuickSight users, groups, or both that you want to assign the policy to.</p>
    */
-  Identities?: { [key: string]: Array<string> };
+  Identities?: { [key: string]: string[] };
 
   /**
    * <p>The namespace of the assignment.</p>
@@ -6071,7 +6071,7 @@ export interface UpdateIAMPolicyAssignmentResponse {
   /**
    * <p>The QuickSight users, groups, or both that the IAM policy is assigned to.</p>
    */
-  Identities?: { [key: string]: Array<string> };
+  Identities?: { [key: string]: string[] };
 
   /**
    * <p>The ARN for the IAM policy applied to the QuickSight users and groups specified in this
@@ -6149,12 +6149,12 @@ export interface UpdateTemplatePermissionsRequest {
   /**
    * <p>A list of resource permissions to be granted on the template. </p>
    */
-  GrantPermissions?: Array<ResourcePermission>;
+  GrantPermissions?: ResourcePermission[];
 
   /**
    * <p>A list of resource permissions to be revoked from the template. </p>
    */
-  RevokePermissions?: Array<ResourcePermission>;
+  RevokePermissions?: ResourcePermission[];
 
   /**
    * <p>The ID for the template.</p>
@@ -6172,7 +6172,7 @@ export interface UpdateTemplatePermissionsResponse {
   /**
    * <p>A list of resource permissions to be set on the template.</p>
    */
-  Permissions?: Array<ResourcePermission>;
+  Permissions?: ResourcePermission[];
 
   /**
    * <p>The AWS request ID for this operation.</p>
@@ -6698,7 +6698,7 @@ export interface ResourcePermission {
    * <p>The action to grant or revoke permissions on, for example
    * 				<code>"quicksight:DescribeDashboard"</code>.</p>
    */
-  Actions: Array<string> | undefined;
+  Actions: string[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of an Amazon QuickSight user or group, or an IAM ARN. If you

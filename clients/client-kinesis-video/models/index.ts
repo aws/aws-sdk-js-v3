@@ -191,7 +191,7 @@ export interface CreateSignalingChannelInput {
   /**
    * <p>A set of tags (key/value pairs) that you want to associate with this channel.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateSignalingChannelInput {
@@ -491,7 +491,7 @@ export interface GetSignalingChannelEndpointOutput {
   /**
    * <p>A list of endpoints for the specified signaling channel.</p>
    */
-  ResourceEndpointList?: Array<ResourceEndpointListItem>;
+  ResourceEndpointList?: ResourceEndpointListItem[];
 }
 
 export namespace GetSignalingChannelEndpointOutput {
@@ -577,7 +577,7 @@ export interface ListSignalingChannelsOutput {
   /**
    * <p>An array of <code>ChannelInfo</code> objects.</p>
    */
-  ChannelInfoList?: Array<ChannelInfo>;
+  ChannelInfoList?: ChannelInfo[];
 
   /**
    * <p>If the response is truncated, the call returns this element with a token. To get the
@@ -629,7 +629,7 @@ export interface ListStreamsOutput {
   /**
    * <p>An array of <code>StreamInfo</code> objects.</p>
    */
-  StreamInfoList?: Array<StreamInfo>;
+  StreamInfoList?: StreamInfo[];
 }
 
 export namespace ListStreamsOutput {
@@ -807,7 +807,7 @@ export interface SingleMasterChannelEndpointConfiguration {
    *             API returns a websocket endpoint. If <code>HTTPS</code> is specified, this API returns
    *             an <code>HTTPS</code> endpoint.</p>
    */
-  Protocols?: Array<ChannelProtocol | string>;
+  Protocols?: (ChannelProtocol | string)[];
 
   /**
    * <p>This property is used to determine messaging permissions in this
@@ -962,7 +962,7 @@ export interface TagResourceInput {
    * <p>A list of tags to associate with the specified signaling channel. Each tag is a
    *             key-value pair.</p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace TagResourceInput {
@@ -1040,7 +1040,7 @@ export interface UntagResourceInput {
   /**
    * <p>A list of the keys of the tags that you want to remove.</p>
    */
-  TagKeyList: Array<string> | undefined;
+  TagKeyList: string[] | undefined;
 }
 
 export namespace UntagResourceInput {
@@ -1073,7 +1073,7 @@ export interface UntagStreamInput {
   /**
    * <p>A list of the keys of the tags that you want to remove.</p>
    */
-  TagKeyList: Array<string> | undefined;
+  TagKeyList: string[] | undefined;
 }
 
 export namespace UntagStreamInput {

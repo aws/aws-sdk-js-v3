@@ -3564,7 +3564,7 @@ const deserializeAws_json1_1ServerInternalErrorExceptionResponse = async (
 };
 
 const serializeAws_json1_1AgentIds = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3575,7 +3575,7 @@ const serializeAws_json1_1AgentIds = (
 };
 
 const serializeAws_json1_1ApplicationIdsList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3617,7 +3617,7 @@ const serializeAws_json1_1BatchDeleteImportDataRequest = (
 };
 
 const serializeAws_json1_1ConfigurationIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3628,7 +3628,7 @@ const serializeAws_json1_1ConfigurationIdList = (
 };
 
 const serializeAws_json1_1ContinuousExportIds = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3804,7 +3804,7 @@ const serializeAws_json1_1DescribeExportTasksRequest = (
 };
 
 const serializeAws_json1_1DescribeImportTasksFilterList = (
-  input: Array<ImportTaskFilter>,
+  input: ImportTaskFilter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3872,7 +3872,7 @@ const serializeAws_json1_1DisassociateConfigurationItemsFromApplicationRequest =
 };
 
 const serializeAws_json1_1ExportDataFormats = (
-  input: Array<ExportDataFormat | string>,
+  input: (ExportDataFormat | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3903,7 +3903,7 @@ const serializeAws_json1_1ExportFilter = (
 };
 
 const serializeAws_json1_1ExportFilters = (
-  input: Array<ExportFilter>,
+  input: ExportFilter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3914,7 +3914,7 @@ const serializeAws_json1_1ExportFilters = (
 };
 
 const serializeAws_json1_1ExportIds = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3945,7 +3945,7 @@ const serializeAws_json1_1Filter = (
 };
 
 const serializeAws_json1_1FilterValues = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3956,7 +3956,7 @@ const serializeAws_json1_1FilterValues = (
 };
 
 const serializeAws_json1_1Filters = (
-  input: Array<Filter>,
+  input: Filter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3992,7 +3992,7 @@ const serializeAws_json1_1ImportTaskFilter = (
 };
 
 const serializeAws_json1_1ImportTaskFilterValueList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4071,7 +4071,7 @@ const serializeAws_json1_1OrderByElement = (
 };
 
 const serializeAws_json1_1OrderByList = (
-  input: Array<OrderByElement>,
+  input: OrderByElement[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4203,7 +4203,7 @@ const serializeAws_json1_1TagFilter = (
 };
 
 const serializeAws_json1_1TagFilters = (
-  input: Array<TagFilter>,
+  input: TagFilter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4214,7 +4214,7 @@ const serializeAws_json1_1TagFilters = (
 };
 
 const serializeAws_json1_1TagSet = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4225,7 +4225,7 @@ const serializeAws_json1_1TagSet = (
 };
 
 const serializeAws_json1_1ToDeleteIdentifierList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4280,7 +4280,7 @@ const deserializeAws_json1_1AgentConfigurationStatus = (
 const deserializeAws_json1_1AgentConfigurationStatusList = (
   output: any,
   context: __SerdeContext
-): Array<AgentConfigurationStatus> => {
+): AgentConfigurationStatus[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AgentConfigurationStatus(entry, context)
   );
@@ -4369,7 +4369,7 @@ const deserializeAws_json1_1AgentNetworkInfo = (
 const deserializeAws_json1_1AgentNetworkInfoList = (
   output: any,
   context: __SerdeContext
-): Array<AgentNetworkInfo> => {
+): AgentNetworkInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AgentNetworkInfo(entry, context)
   );
@@ -4378,7 +4378,7 @@ const deserializeAws_json1_1AgentNetworkInfoList = (
 const deserializeAws_json1_1AgentsInfo = (
   output: any,
   context: __SerdeContext
-): Array<AgentInfo> => {
+): AgentInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AgentInfo(entry, context)
   );
@@ -4436,7 +4436,7 @@ const deserializeAws_json1_1BatchDeleteImportDataError = (
 const deserializeAws_json1_1BatchDeleteImportDataErrorList = (
   output: any,
   context: __SerdeContext
-): Array<BatchDeleteImportDataError> => {
+): BatchDeleteImportDataError[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1BatchDeleteImportDataError(entry, context)
   );
@@ -4508,7 +4508,7 @@ const deserializeAws_json1_1ConfigurationTag = (
 const deserializeAws_json1_1ConfigurationTagSet = (
   output: any,
   context: __SerdeContext
-): Array<ConfigurationTag> => {
+): ConfigurationTag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ConfigurationTag(entry, context)
   );
@@ -4517,7 +4517,7 @@ const deserializeAws_json1_1ConfigurationTagSet = (
 const deserializeAws_json1_1Configurations = (
   output: any,
   context: __SerdeContext
-): Array<{ [key: string]: string }> => {
+): { [key: string]: string }[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Configuration(entry, context)
   );
@@ -4588,7 +4588,7 @@ const deserializeAws_json1_1ContinuousExportDescription = (
 const deserializeAws_json1_1ContinuousExportDescriptions = (
   output: any,
   context: __SerdeContext
-): Array<ContinuousExportDescription> => {
+): ContinuousExportDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ContinuousExportDescription(entry, context)
   );
@@ -4770,7 +4770,7 @@ const deserializeAws_json1_1DescribeConfigurationsAttribute = (
 const deserializeAws_json1_1DescribeConfigurationsAttributes = (
   output: any,
   context: __SerdeContext
-): Array<{ [key: string]: string }> => {
+): { [key: string]: string }[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DescribeConfigurationsAttribute(entry, context)
   );
@@ -4985,7 +4985,7 @@ const deserializeAws_json1_1ExportInfo = (
 const deserializeAws_json1_1ExportsInfo = (
   output: any,
   context: __SerdeContext
-): Array<ExportInfo> => {
+): ExportInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ExportInfo(entry, context)
   );
@@ -5152,7 +5152,7 @@ const deserializeAws_json1_1ImportTask = (
 const deserializeAws_json1_1ImportTaskList = (
   output: any,
   context: __SerdeContext
-): Array<ImportTask> => {
+): ImportTask[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ImportTask(entry, context)
   );
@@ -5277,7 +5277,7 @@ const deserializeAws_json1_1NeighborConnectionDetail = (
 const deserializeAws_json1_1NeighborDetailsList = (
   output: any,
   context: __SerdeContext
-): Array<NeighborConnectionDetail> => {
+): NeighborConnectionDetail[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1NeighborConnectionDetail(entry, context)
   );

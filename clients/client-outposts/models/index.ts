@@ -107,7 +107,7 @@ export interface GetOutpostInstanceTypesOutput {
   /**
    * <p>Information about the instance types.</p>
    */
-  InstanceTypes?: Array<InstanceTypeItem>;
+  InstanceTypes?: InstanceTypeItem[];
 
   /**
    * <p>The pagination token.</p>
@@ -203,7 +203,7 @@ export interface ListOutpostsOutput {
   /**
    * <p>Information about the Outposts.</p>
    */
-  Outposts?: Array<Outpost>;
+  Outposts?: Outpost[];
 }
 
 export namespace ListOutpostsOutput {
@@ -239,7 +239,7 @@ export interface ListSitesOutput {
   /**
    * <p>Information about the sites.</p>
    */
-  Sites?: Array<Site>;
+  Sites?: Site[];
 }
 
 export namespace ListSitesOutput {

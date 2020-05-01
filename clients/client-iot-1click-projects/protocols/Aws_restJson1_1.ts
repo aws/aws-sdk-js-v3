@@ -2526,7 +2526,7 @@ const deserializeAws_restJson1_1PlacementSummary = (
 const deserializeAws_restJson1_1PlacementSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<PlacementSummary> => {
+): PlacementSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1PlacementSummary(entry, context)
   );
@@ -2636,7 +2636,7 @@ const deserializeAws_restJson1_1ProjectSummary = (
 const deserializeAws_restJson1_1ProjectSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<ProjectSummary> => {
+): ProjectSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ProjectSummary(entry, context)
   );

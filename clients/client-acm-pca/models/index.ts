@@ -371,7 +371,7 @@ export interface CreateCertificateAuthorityRequest {
    * 			50 tags with a private CA. For information using tags with </p>
    * 		       <p>IAM to manage permissions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html">Controlling Access Using IAM Tags</a>.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateCertificateAuthorityRequest {
@@ -404,7 +404,7 @@ export interface CreatePermissionRequest {
    * 				<code>IssueCertificate</code>, <code>GetCertificate</code>, and
    * 				<code>ListPermissions</code>.</p>
    */
-  Actions: Array<ActionType | string> | undefined;
+  Actions: (ActionType | string)[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the CA that grants the permissions. You can find the ARN
@@ -1149,7 +1149,7 @@ export interface ListCertificateAuthoritiesResponse {
   /**
    * <p>Summary information about each certificate authority you have created.</p>
    */
-  CertificateAuthorities?: Array<CertificateAuthority>;
+  CertificateAuthorities?: CertificateAuthority[];
 
   /**
    * <p>When the list is truncated, this value is present and should be used for the
@@ -1207,7 +1207,7 @@ export interface ListPermissionsResponse {
    * <p>Summary information about each permission assigned by the specified private CA,
    * 			including the action enabled, the policy provided, and the time of creation.</p>
    */
-  Permissions?: Array<Permission>;
+  Permissions?: Permission[];
 }
 
 export namespace ListPermissionsResponse {
@@ -1258,7 +1258,7 @@ export interface ListTagsResponse {
   /**
    * <p>The tags associated with your private CA.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace ListTagsResponse {
@@ -1310,7 +1310,7 @@ export interface Permission {
   /**
    * <p>The private CA actions that can be performed by the designated AWS service.</p>
    */
-  Actions?: Array<ActionType | string>;
+  Actions?: (ActionType | string)[];
 
   /**
    * <p>The Amazon Resource Number (ARN) of the private CA from which the permission was
@@ -1557,7 +1557,7 @@ export interface TagCertificateAuthorityRequest {
   /**
    * <p>List of tags to be associated with the CA.</p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace TagCertificateAuthorityRequest {
@@ -1596,7 +1596,7 @@ export interface UntagCertificateAuthorityRequest {
   /**
    * <p>List of tags to be removed from the CA.</p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace UntagCertificateAuthorityRequest {

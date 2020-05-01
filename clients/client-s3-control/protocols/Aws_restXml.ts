@@ -2075,7 +2075,7 @@ const serializeAws_restXmlJobManifest = (
 };
 
 const serializeAws_restXmlJobManifestFieldList = (
-  input: Array<JobManifestFieldName | string>,
+  input: (JobManifestFieldName | string)[],
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
@@ -2455,7 +2455,7 @@ const serializeAws_restXmlS3Grant = (
 };
 
 const serializeAws_restXmlS3GrantList = (
-  input: Array<S3Grant>,
+  input: S3Grant[],
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
@@ -2665,7 +2665,7 @@ const serializeAws_restXmlS3Tag = (
 };
 
 const serializeAws_restXmlS3TagSet = (
-  input: Array<S3Tag>,
+  input: S3Tag[],
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
@@ -2751,7 +2751,7 @@ const deserializeAws_restXmlAccessPoint = (
 const deserializeAws_restXmlAccessPointList = (
   output: any,
   context: __SerdeContext
-): Array<AccessPoint> => {
+): AccessPoint[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_restXmlAccessPoint(entry, context));
@@ -2917,7 +2917,7 @@ const deserializeAws_restXmlJobFailure = (
 const deserializeAws_restXmlJobFailureList = (
   output: any,
   context: __SerdeContext
-): Array<JobFailure> => {
+): JobFailure[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_restXmlJobFailure(entry, context));
@@ -2989,7 +2989,7 @@ const deserializeAws_restXmlJobListDescriptor = (
 const deserializeAws_restXmlJobListDescriptorList = (
   output: any,
   context: __SerdeContext
-): Array<JobListDescriptor> => {
+): JobListDescriptor[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_restXmlJobListDescriptor(entry, context));
@@ -3024,7 +3024,7 @@ const deserializeAws_restXmlJobManifest = (
 const deserializeAws_restXmlJobManifestFieldList = (
   output: any,
   context: __SerdeContext
-): Array<JobManifestFieldName | string> => {
+): (JobManifestFieldName | string)[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -3514,7 +3514,7 @@ const deserializeAws_restXmlS3Grant = (
 const deserializeAws_restXmlS3GrantList = (
   output: any,
   context: __SerdeContext
-): Array<S3Grant> => {
+): S3Grant[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_restXmlS3Grant(entry, context));
@@ -3765,7 +3765,7 @@ const deserializeAws_restXmlS3Tag = (
 const deserializeAws_restXmlS3TagSet = (
   output: any,
   context: __SerdeContext
-): Array<S3Tag> => {
+): S3Tag[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_restXmlS3Tag(entry, context));

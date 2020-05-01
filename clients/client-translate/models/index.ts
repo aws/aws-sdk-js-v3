@@ -23,7 +23,7 @@ export interface AppliedTerminology {
    *       translated text response. A maximum of 250 terms will be returned, and the specific terms
    *       applied will be the first 250 terms in the source text. </p>
    */
-  Terms?: Array<Term>;
+  Terms?: Term[];
 }
 
 export namespace AppliedTerminology {
@@ -379,7 +379,7 @@ export interface ListTerminologiesResponse {
   /**
    * <p>The properties list of the custom terminologies returned on the list request.</p>
    */
-  TerminologyPropertiesList?: Array<TerminologyProperties>;
+  TerminologyPropertiesList?: TerminologyProperties[];
 }
 
 export namespace ListTerminologiesResponse {
@@ -422,7 +422,7 @@ export interface ListTextTranslationJobsResponse {
   /**
    * <p>A list containing the properties of each job that is returned.</p>
    */
-  TextTranslationJobPropertiesList?: Array<TextTranslationJobProperties>;
+  TextTranslationJobPropertiesList?: TextTranslationJobProperties[];
 }
 
 export namespace ListTextTranslationJobsResponse {
@@ -529,13 +529,13 @@ export interface StartTextTranslationJobRequest {
   /**
    * <p>The language code of the output language.</p>
    */
-  TargetLanguageCodes: Array<string> | undefined;
+  TargetLanguageCodes: string[] | undefined;
 
   /**
    * <p>The name of the terminology to use in the batch translation job. For a list of available
    *       terminologies, use the <a>ListTerminologies</a> operation.</p>
    */
-  TerminologyNames?: Array<string>;
+  TerminologyNames?: string[];
 }
 
 export namespace StartTextTranslationJobRequest {
@@ -747,7 +747,7 @@ export interface TerminologyProperties {
    * <p>The language codes for the target languages available with the custom terminology file.
    *       All possible target languages are returned in array.</p>
    */
-  TargetLanguageCodes?: Array<string>;
+  TargetLanguageCodes?: string[];
 
   /**
    * <p>The number of terms included in the custom terminology.</p>
@@ -880,14 +880,14 @@ export interface TextTranslationJobProperties {
    * <p>The language code of the language of the target text. The language must be a language
    *       supported by Amazon Translate.</p>
    */
-  TargetLanguageCodes?: Array<string>;
+  TargetLanguageCodes?: string[];
 
   /**
    * <p>A list containing the names of the terminologies applied to a translation job. Only one
    *       terminology can be applied per <a>StartTextTranslationJob</a> request at this
    *       time.</p>
    */
-  TerminologyNames?: Array<string>;
+  TerminologyNames?: string[];
 }
 
 export namespace TextTranslationJobProperties {
@@ -935,7 +935,7 @@ export interface TranslateTextRequest {
    *       1 terminology list at most in a <code>TranslateText</code> request. Terminology lists can
    *       contain a maximum of 256 terms.</p>
    */
-  TerminologyNames?: Array<string>;
+  TerminologyNames?: string[];
 
   /**
    * <p>The text to translate. The text string can be a maximum of 5,000 bytes long. Depending on
@@ -955,7 +955,7 @@ export interface TranslateTextResponse {
    * <p>The names of the custom terminologies applied to the input text by Amazon Translate for the
    *       translated text response.</p>
    */
-  AppliedTerminologies?: Array<AppliedTerminology>;
+  AppliedTerminologies?: AppliedTerminology[];
 
   /**
    * <p>The language code for the language of the source text.</p>

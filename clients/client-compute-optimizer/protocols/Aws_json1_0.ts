@@ -1109,7 +1109,7 @@ const deserializeAws_json1_0ThrottlingExceptionResponse = async (
 };
 
 const serializeAws_json1_0AccountIds = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1120,7 +1120,7 @@ const serializeAws_json1_0AccountIds = (
 };
 
 const serializeAws_json1_0AutoScalingGroupArns = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1148,7 +1148,7 @@ const serializeAws_json1_0Filter = (
 };
 
 const serializeAws_json1_0FilterValues = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1159,7 +1159,7 @@ const serializeAws_json1_0FilterValues = (
 };
 
 const serializeAws_json1_0Filters = (
-  input: Array<Filter>,
+  input: Filter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1281,7 +1281,7 @@ const serializeAws_json1_0GetRecommendationSummariesRequest = (
 };
 
 const serializeAws_json1_0InstanceArns = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1461,7 +1461,7 @@ const deserializeAws_json1_0AutoScalingGroupRecommendationOption = (
 const deserializeAws_json1_0AutoScalingGroupRecommendationOptions = (
   output: any,
   context: __SerdeContext
-): Array<AutoScalingGroupRecommendationOption> => {
+): AutoScalingGroupRecommendationOption[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0AutoScalingGroupRecommendationOption(entry, context)
   );
@@ -1470,7 +1470,7 @@ const deserializeAws_json1_0AutoScalingGroupRecommendationOptions = (
 const deserializeAws_json1_0AutoScalingGroupRecommendations = (
   output: any,
   context: __SerdeContext
-): Array<AutoScalingGroupRecommendation> => {
+): AutoScalingGroupRecommendation[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0AutoScalingGroupRecommendation(entry, context)
   );
@@ -1608,7 +1608,7 @@ const deserializeAws_json1_0GetRecommendationError = (
 const deserializeAws_json1_0GetRecommendationErrors = (
   output: any,
   context: __SerdeContext
-): Array<GetRecommendationError> => {
+): GetRecommendationError[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0GetRecommendationError(entry, context)
   );
@@ -1752,7 +1752,7 @@ const deserializeAws_json1_0InstanceRecommendationOption = (
 const deserializeAws_json1_0InstanceRecommendations = (
   output: any,
   context: __SerdeContext
-): Array<InstanceRecommendation> => {
+): InstanceRecommendation[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0InstanceRecommendation(entry, context)
   );
@@ -1789,7 +1789,7 @@ const deserializeAws_json1_0InvalidParameterValueException = (
 const deserializeAws_json1_0MetricValues = (
   output: any,
   context: __SerdeContext
-): Array<number> => {
+): number[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -1852,7 +1852,7 @@ const deserializeAws_json1_0ProjectedMetric = (
 const deserializeAws_json1_0ProjectedMetrics = (
   output: any,
   context: __SerdeContext
-): Array<ProjectedMetric> => {
+): ProjectedMetric[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0ProjectedMetric(entry, context)
   );
@@ -1861,7 +1861,7 @@ const deserializeAws_json1_0ProjectedMetrics = (
 const deserializeAws_json1_0ProjectedUtilizationMetrics = (
   output: any,
   context: __SerdeContext
-): Array<UtilizationMetric> => {
+): UtilizationMetric[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0UtilizationMetric(entry, context)
   );
@@ -1870,7 +1870,7 @@ const deserializeAws_json1_0ProjectedUtilizationMetrics = (
 const deserializeAws_json1_0RecommendationOptions = (
   output: any,
   context: __SerdeContext
-): Array<InstanceRecommendationOption> => {
+): InstanceRecommendationOption[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0InstanceRecommendationOption(entry, context)
   );
@@ -1903,7 +1903,7 @@ const deserializeAws_json1_0RecommendationSource = (
 const deserializeAws_json1_0RecommendationSources = (
   output: any,
   context: __SerdeContext
-): Array<RecommendationSource> => {
+): RecommendationSource[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0RecommendationSource(entry, context)
   );
@@ -1912,7 +1912,7 @@ const deserializeAws_json1_0RecommendationSources = (
 const deserializeAws_json1_0RecommendationSummaries = (
   output: any,
   context: __SerdeContext
-): Array<RecommendationSummary> => {
+): RecommendationSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0RecommendationSummary(entry, context)
   );
@@ -1980,7 +1980,7 @@ const deserializeAws_json1_0RecommendedOptionProjectedMetric = (
 const deserializeAws_json1_0RecommendedOptionProjectedMetrics = (
   output: any,
   context: __SerdeContext
-): Array<RecommendedOptionProjectedMetric> => {
+): RecommendedOptionProjectedMetric[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0RecommendedOptionProjectedMetric(entry, context)
   );
@@ -2017,7 +2017,7 @@ const deserializeAws_json1_0ServiceUnavailableException = (
 const deserializeAws_json1_0Summaries = (
   output: any,
   context: __SerdeContext
-): Array<Summary> => {
+): Summary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0Summary(entry, context)
   );
@@ -2058,7 +2058,7 @@ const deserializeAws_json1_0ThrottlingException = (
 const deserializeAws_json1_0Timestamps = (
   output: any,
   context: __SerdeContext
-): Array<Date> => {
+): Date[] => {
   return (output || []).map((entry: any) => new Date(Math.round(entry * 1000)));
 };
 
@@ -2105,7 +2105,7 @@ const deserializeAws_json1_0UtilizationMetric = (
 const deserializeAws_json1_0UtilizationMetrics = (
   output: any,
   context: __SerdeContext
-): Array<UtilizationMetric> => {
+): UtilizationMetric[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0UtilizationMetric(entry, context)
   );

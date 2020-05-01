@@ -1230,7 +1230,7 @@ const serializeAws_queryTag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_querypolicyDescriptorListType = (
-  input: Array<PolicyDescriptorType>,
+  input: PolicyDescriptorType[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -1249,7 +1249,7 @@ const serializeAws_querypolicyDescriptorListType = (
 };
 
 const serializeAws_querytagKeyListType = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -1262,7 +1262,7 @@ const serializeAws_querytagKeyListType = (
 };
 
 const serializeAws_querytagListType = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};

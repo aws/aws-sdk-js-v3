@@ -835,7 +835,7 @@ const deserializeAws_restJson1_1UnsupportedGrantTypeExceptionResponse = async (
 };
 
 const serializeAws_restJson1_1Scopes = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];

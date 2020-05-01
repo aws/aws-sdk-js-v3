@@ -496,7 +496,7 @@ const deserializeAws_restJson1_1Block = (
 const deserializeAws_restJson1_1Blocks = (
   output: any,
   context: __SerdeContext
-): Array<Block> => {
+): Block[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Block(entry, context)
   );
@@ -530,7 +530,7 @@ const deserializeAws_restJson1_1ChangedBlock = (
 const deserializeAws_restJson1_1ChangedBlocks = (
   output: any,
   context: __SerdeContext
-): Array<ChangedBlock> => {
+): ChangedBlock[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ChangedBlock(entry, context)
   );

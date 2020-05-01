@@ -584,7 +584,7 @@ export interface ListInvitationsOutput {
   /**
    * <p>The invitations for the network.</p>
    */
-  Invitations?: Array<Invitation>;
+  Invitations?: Invitation[];
 
   /**
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
@@ -642,7 +642,7 @@ export interface ListMembersOutput {
   /**
    * <p>An array of <code>MemberSummary</code> objects. Each object contains details about a network member.</p>
    */
-  Members?: Array<MemberSummary>;
+  Members?: MemberSummary[];
 
   /**
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
@@ -693,7 +693,7 @@ export interface ListNetworksOutput {
   /**
    * <p>An array of <code>NetworkSummary</code> objects that contain configuration properties for each network.</p>
    */
-  Networks?: Array<NetworkSummary>;
+  Networks?: NetworkSummary[];
 
   /**
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
@@ -749,7 +749,7 @@ export interface ListNodesOutput {
   /**
    * <p>An array of <code>NodeSummary</code> objects that contain configuration properties for each node.</p>
    */
-  Nodes?: Array<NodeSummary>;
+  Nodes?: NodeSummary[];
 }
 
 export namespace ListNodesOutput {
@@ -807,7 +807,7 @@ export interface ListProposalVotesOutput {
    *          The listing of votes.
    *       </p>
    */
-  ProposalVotes?: Array<VoteSummary>;
+  ProposalVotes?: VoteSummary[];
 }
 
 export namespace ListProposalVotesOutput {
@@ -854,7 +854,7 @@ export interface ListProposalsOutput {
   /**
    * <p>The summary of each proposal made on the network.</p>
    */
-  Proposals?: Array<ProposalSummary>;
+  Proposals?: ProposalSummary[];
 }
 
 export namespace ListProposalsOutput {
@@ -1556,14 +1556,14 @@ export interface ProposalActions {
    *          The actions to perform for an <code>APPROVED</code> proposal to invite an AWS account to create a member and join the network.
    *       </p>
    */
-  Invitations?: Array<InviteAction>;
+  Invitations?: InviteAction[];
 
   /**
    * <p>
    *          The actions to perform for an <code>APPROVED</code> proposal to remove a member from the network, which deletes the member and all associated member resources from the network.
    *       </p>
    */
-  Removals?: Array<RemoveAction>;
+  Removals?: RemoveAction[];
 }
 
 export namespace ProposalActions {

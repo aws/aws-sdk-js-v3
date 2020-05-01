@@ -331,7 +331,7 @@ export interface CreateJobResponse {
   /**
    * <p>The errors associated with jobs.</p>
    */
-  Errors?: Array<JobError>;
+  Errors?: JobError[];
 
   /**
    * <p>The unique identifier for the job.</p>
@@ -558,7 +558,7 @@ export interface Details {
   /**
    * <p>The list of sources for the assets.</p>
    */
-  ImportAssetsFromS3JobErrorDetails?: Array<AssetSourceEntry>;
+  ImportAssetsFromS3JobErrorDetails?: AssetSourceEntry[];
 }
 
 export namespace Details {
@@ -635,7 +635,7 @@ export interface ExportAssetsToS3RequestDetails {
   /**
    * <p>The destination for the asset.</p>
    */
-  AssetDestinations: Array<AssetDestinationEntry> | undefined;
+  AssetDestinations: AssetDestinationEntry[] | undefined;
 
   /**
    * <p>The unique identifier for the data set associated with this export job.</p>
@@ -661,7 +661,7 @@ export interface ExportAssetsToS3ResponseDetails {
   /**
    * <p>The destination in Amazon S3 where the asset is exported.</p>
    */
-  AssetDestinations: Array<AssetDestinationEntry> | undefined;
+  AssetDestinations: AssetDestinationEntry[] | undefined;
 
   /**
    * <p>The unique identifier for the data set associated with this export job.</p>
@@ -868,7 +868,7 @@ export interface GetJobResponse {
   /**
    * <p>The errors associated with jobs.</p>
    */
-  Errors?: Array<JobError>;
+  Errors?: JobError[];
 
   /**
    * <p>The unique identifier for the job.</p>
@@ -1060,7 +1060,7 @@ export interface ImportAssetsFromS3RequestDetails {
   /**
    * <p>Is a list of S3 bucket and object key pairs.</p>
    */
-  AssetSources: Array<AssetSourceEntry> | undefined;
+  AssetSources: AssetSourceEntry[] | undefined;
 
   /**
    * <p>The unique identifier for the data set associated with this import job.</p>
@@ -1086,7 +1086,7 @@ export interface ImportAssetsFromS3ResponseDetails {
   /**
    * <p>Is a list of Amazon S3 bucket and object key pairs.</p>
    */
-  AssetSources: Array<AssetSourceEntry> | undefined;
+  AssetSources: AssetSourceEntry[] | undefined;
 
   /**
    * <p>The unique identifier for the data set associated with this import job.</p>
@@ -1146,7 +1146,7 @@ export interface JobEntry {
   /**
    * <p>Errors for jobs.</p>
    */
-  Errors?: Array<JobError>;
+  Errors?: JobError[];
 
   /**
    * <p>The unique identifier for the job.</p>
@@ -1272,7 +1272,7 @@ export interface ListDataSetRevisionsResponse {
   /**
    * <p>The asset objects listed by the request.</p>
    */
-  Revisions?: Array<RevisionEntry>;
+  Revisions?: RevisionEntry[];
 }
 
 export namespace ListDataSetRevisionsResponse {
@@ -1308,7 +1308,7 @@ export interface ListDataSetsResponse {
   /**
    * <p>The data set objects listed by the request.</p>
    */
-  DataSets?: Array<DataSetEntry>;
+  DataSets?: DataSetEntry[];
 
   /**
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
@@ -1354,7 +1354,7 @@ export interface ListJobsResponse {
   /**
    * <p>The jobs listed by the request.</p>
    */
-  Jobs?: Array<JobEntry>;
+  Jobs?: JobEntry[];
 
   /**
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
@@ -1400,7 +1400,7 @@ export interface ListRevisionAssetsResponse {
   /**
    * <p>The asset objects listed by the request.</p>
    */
-  Assets?: Array<AssetEntry>;
+  Assets?: AssetEntry[];
 
   /**
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
@@ -1734,7 +1734,7 @@ export interface UntagResourceRequest {
   /**
    * The key tags.
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {

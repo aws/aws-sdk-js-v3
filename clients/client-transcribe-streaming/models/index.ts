@@ -12,7 +12,7 @@ export interface Alternative {
   /**
    * <p>One or more alternative interpretations of the input audio. </p>
    */
-  Items?: Array<Item>;
+  Items?: Item[];
 
   /**
    * <p>The text that was transcribed from the audio.</p>
@@ -200,7 +200,7 @@ export interface Result {
    * <p>A list of possible transcriptions for the audio. Each alternative typically contains one
    *         <code>item</code> that contains the result of the transcription.</p>
    */
-  Alternatives?: Array<Alternative>;
+  Alternatives?: Alternative[];
 
   /**
    * <p>The offset in seconds from the beginning of the audio stream to the end of the
@@ -329,7 +329,7 @@ export interface Transcript {
    *             <a>Result</a> objects that contain the results of transcribing a portion of the
    *       input audio stream. The array can be empty.</p>
    */
-  Results?: Array<Result>;
+  Results?: Result[];
 }
 
 export namespace Transcript {

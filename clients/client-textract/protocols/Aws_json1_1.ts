@@ -1325,7 +1325,7 @@ const serializeAws_json1_1AnalyzeDocumentRequest = (
 };
 
 const serializeAws_json1_1ContentClassifiers = (
-  input: Array<ContentClassifier | string>,
+  input: (ContentClassifier | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1381,7 +1381,7 @@ const serializeAws_json1_1DocumentLocation = (
 };
 
 const serializeAws_json1_1FeatureTypes = (
-  input: Array<FeatureType | string>,
+  input: (FeatureType | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1699,7 +1699,7 @@ const deserializeAws_json1_1Block = (
 const deserializeAws_json1_1BlockList = (
   output: any,
   context: __SerdeContext
-): Array<Block> => {
+): Block[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Block(entry, context)
   );
@@ -1798,7 +1798,7 @@ const deserializeAws_json1_1DocumentTooLargeException = (
 const deserializeAws_json1_1EntityTypes = (
   output: any,
   context: __SerdeContext
-): Array<EntityType | string> => {
+): (EntityType | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -1960,7 +1960,7 @@ const deserializeAws_json1_1HumanLoopActivationOutput = (
 const deserializeAws_json1_1HumanLoopActivationReasons = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -1997,7 +1997,7 @@ const deserializeAws_json1_1HumanLoopQuotaExceededException = (
 const deserializeAws_json1_1IdList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -2112,7 +2112,7 @@ const deserializeAws_json1_1LimitExceededException = (
 const deserializeAws_json1_1Pages = (
   output: any,
   context: __SerdeContext
-): Array<number> => {
+): number[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -2137,7 +2137,7 @@ const deserializeAws_json1_1Point = (
 const deserializeAws_json1_1Polygon = (
   output: any,
   context: __SerdeContext
-): Array<Point> => {
+): Point[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Point(entry, context)
   );
@@ -2182,7 +2182,7 @@ const deserializeAws_json1_1Relationship = (
 const deserializeAws_json1_1RelationshipList = (
   output: any,
   context: __SerdeContext
-): Array<Relationship> => {
+): Relationship[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Relationship(entry, context)
   );
@@ -2273,7 +2273,7 @@ const deserializeAws_json1_1Warning = (
 const deserializeAws_json1_1Warnings = (
   output: any,
   context: __SerdeContext
-): Array<Warning> => {
+): Warning[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Warning(entry, context)
   );

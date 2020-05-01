@@ -46,9 +46,7 @@ export interface AddApplicationCloudWatchLoggingOptionResponse {
   /**
    * <p>The descriptions of the current CloudWatch logging options for the Kinesis Data Analytics application.</p>
    */
-  CloudWatchLoggingOptionDescriptions?: Array<
-    CloudWatchLoggingOptionDescription
-  >;
+  CloudWatchLoggingOptionDescriptions?: CloudWatchLoggingOptionDescription[];
 }
 
 export namespace AddApplicationCloudWatchLoggingOptionResponse {
@@ -167,7 +165,7 @@ export interface AddApplicationInputResponse {
    *
    *     </p>
    */
-  InputDescriptions?: Array<InputDescription>;
+  InputDescriptions?: InputDescription[];
 }
 
 export namespace AddApplicationInputResponse {
@@ -224,7 +222,7 @@ export interface AddApplicationOutputResponse {
    *
    *     </p>
    */
-  OutputDescriptions?: Array<OutputDescription>;
+  OutputDescriptions?: OutputDescription[];
 }
 
 export namespace AddApplicationOutputResponse {
@@ -280,7 +278,7 @@ export interface AddApplicationReferenceDataSourceResponse {
    *
    *     </p>
    */
-  ReferenceDataSourceDescriptions?: Array<ReferenceDataSourceDescription>;
+  ReferenceDataSourceDescriptions?: ReferenceDataSourceDescription[];
 }
 
 export namespace AddApplicationReferenceDataSourceResponse {
@@ -439,7 +437,7 @@ export interface ApplicationConfiguration {
   /**
    * <p>The array of descriptions of VPC configurations available to the application.</p>
    */
-  VpcConfigurations?: Array<VpcConfiguration>;
+  VpcConfigurations?: VpcConfiguration[];
 }
 
 export namespace ApplicationConfiguration {
@@ -489,7 +487,7 @@ export interface ApplicationConfigurationDescription {
   /**
    * <p>The array of descriptions of VPC configurations available to the application.</p>
    */
-  VpcConfigurationDescriptions?: Array<VpcConfigurationDescription>;
+  VpcConfigurationDescriptions?: VpcConfigurationDescription[];
 }
 
 export namespace ApplicationConfigurationDescription {
@@ -532,7 +530,7 @@ export interface ApplicationConfigurationUpdate {
   /**
    * <p>Updates to the array of descriptions of VPC configurations available to the application.</p>
    */
-  VpcConfigurationUpdates?: Array<VpcConfigurationUpdate>;
+  VpcConfigurationUpdates?: VpcConfigurationUpdate[];
 }
 
 export namespace ApplicationConfigurationUpdate {
@@ -580,9 +578,7 @@ export interface ApplicationDetail {
   /**
    * <p>Describes the application Amazon CloudWatch logging options.</p>
    */
-  CloudWatchLoggingOptionDescriptions?: Array<
-    CloudWatchLoggingOptionDescription
-  >;
+  CloudWatchLoggingOptionDescriptions?: CloudWatchLoggingOptionDescription[];
 
   /**
    * <p>The current timestamp when the application was created.</p>
@@ -1191,7 +1187,7 @@ export interface CreateApplicationRequest {
    *       configuration errors.
    *       </p>
    */
-  CloudWatchLoggingOptions?: Array<CloudWatchLoggingOption>;
+  CloudWatchLoggingOptions?: CloudWatchLoggingOption[];
 
   /**
    * <p>The runtime environment for the application (<code>SQL-1.0</code> or <code>FLINK-1_6</code>).</p>
@@ -1208,7 +1204,7 @@ export interface CreateApplicationRequest {
    * <p>A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
    *         For more information, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html">Using Tagging</a>.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateApplicationRequest {
@@ -1301,9 +1297,7 @@ export interface DeleteApplicationCloudWatchLoggingOptionResponse {
   /**
    * <p>The descriptions of the remaining CloudWatch logging options for the application.</p>
    */
-  CloudWatchLoggingOptionDescriptions?: Array<
-    CloudWatchLoggingOptionDescription
-  >;
+  CloudWatchLoggingOptionDescriptions?: CloudWatchLoggingOptionDescription[];
 }
 
 export namespace DeleteApplicationCloudWatchLoggingOptionResponse {
@@ -1691,18 +1685,18 @@ export interface DiscoverInputSchemaResponse {
   /**
    * <p>An array of elements, where each element corresponds to a row in a stream record (a stream record can have more than one row).</p>
    */
-  ParsedInputRecords?: Array<Array<string>>;
+  ParsedInputRecords?: string[][];
 
   /**
    * <p>The stream data that was modified by the processor specified in the
    *         <code>InputProcessingConfiguration</code> parameter.</p>
    */
-  ProcessedInputRecords?: Array<string>;
+  ProcessedInputRecords?: string[];
 
   /**
    * <p>The raw stream data that was sampled to infer the schema.</p>
    */
-  RawInputRecords?: Array<string>;
+  RawInputRecords?: string[];
 }
 
 export namespace DiscoverInputSchemaResponse {
@@ -1719,7 +1713,7 @@ export interface EnvironmentProperties {
   /**
    * <p>Describes the execution property groups.</p>
    */
-  PropertyGroups: Array<PropertyGroup> | undefined;
+  PropertyGroups: PropertyGroup[] | undefined;
 }
 
 export namespace EnvironmentProperties {
@@ -1736,7 +1730,7 @@ export interface EnvironmentPropertyDescriptions {
   /**
    * <p>Describes the execution property groups.</p>
    */
-  PropertyGroupDescriptions?: Array<PropertyGroup>;
+  PropertyGroupDescriptions?: PropertyGroup[];
 }
 
 export namespace EnvironmentPropertyDescriptions {
@@ -1753,7 +1747,7 @@ export interface EnvironmentPropertyUpdates {
   /**
    * <p>Describes updates to the execution property groups.</p>
    */
-  PropertyGroups: Array<PropertyGroup> | undefined;
+  PropertyGroups: PropertyGroup[] | undefined;
 }
 
 export namespace EnvironmentPropertyUpdates {
@@ -1936,7 +1930,7 @@ export interface InputDescription {
   /**
    * <p>Returns the in-application stream names that are mapped to the stream source. </p>
    */
-  InAppStreamNames?: Array<string>;
+  InAppStreamNames?: string[];
 
   /**
    * <p>The input ID that is associated with the application input. This is the ID that Kinesis
@@ -2161,7 +2155,7 @@ export interface InputSchemaUpdate {
    * <p>A list of <code>RecordColumn</code> objects. Each object describes the mapping
    *       of the streaming source element to the corresponding column in the in-application stream.</p>
    */
-  RecordColumnUpdates?: Array<RecordColumn>;
+  RecordColumnUpdates?: RecordColumn[];
 
   /**
    * <p>Specifies the encoding of the records in the streaming source; for example, UTF-8.</p>
@@ -2713,7 +2707,7 @@ export interface ListApplicationSnapshotsResponse {
   /**
    * <p>A collection of objects containing information about the application snapshots.</p>
    */
-  SnapshotSummaries?: Array<SnapshotDetails>;
+  SnapshotSummaries?: SnapshotDetails[];
 }
 
 export namespace ListApplicationSnapshotsResponse {
@@ -2747,7 +2741,7 @@ export interface ListApplicationsResponse {
   /**
    * <p>A list of <code>ApplicationSummary</code> objects.</p>
    */
-  ApplicationSummaries: Array<ApplicationSummary> | undefined;
+  ApplicationSummaries: ApplicationSummary[] | undefined;
 
   /**
    * <p>The pagination token for the next set of results, or <code>null</code> if there are no additional results.
@@ -2781,7 +2775,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>The key-value tags assigned to the application.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace ListTagsForResourceResponse {
@@ -3423,7 +3417,7 @@ export interface RunConfiguration {
    * <p>Describes the starting parameters for an SQL-based Kinesis Data Analytics
    *       application.</p>
    */
-  SqlRunConfigurations?: Array<SqlRunConfiguration>;
+  SqlRunConfigurations?: SqlRunConfiguration[];
 }
 
 export namespace RunConfiguration {
@@ -3724,7 +3718,7 @@ export interface SourceSchema {
   /**
    * <p>A list of <code>RecordColumn</code> objects. </p>
    */
-  RecordColumns: Array<RecordColumn> | undefined;
+  RecordColumns: RecordColumn[] | undefined;
 
   /**
    * <p>Specifies the encoding of the records in the streaming source. For example, UTF-8.</p>
@@ -3751,19 +3745,19 @@ export interface SqlApplicationConfiguration {
    * <p>The array of <a>Input</a> objects describing the input streams used by the
    *       application.</p>
    */
-  Inputs?: Array<Input>;
+  Inputs?: Input[];
 
   /**
    * <p>The array of <a>Output</a> objects describing the destination streams used by
    *       the application.</p>
    */
-  Outputs?: Array<Output>;
+  Outputs?: Output[];
 
   /**
    * <p>The array of <a>ReferenceDataSource</a> objects describing the reference data
    *       sources used by the application.</p>
    */
-  ReferenceDataSources?: Array<ReferenceDataSource>;
+  ReferenceDataSources?: ReferenceDataSource[];
 }
 
 export namespace SqlApplicationConfiguration {
@@ -3781,19 +3775,19 @@ export interface SqlApplicationConfigurationDescription {
    * <p>The array of <a>InputDescription</a> objects describing the input streams used
    *       by the application.</p>
    */
-  InputDescriptions?: Array<InputDescription>;
+  InputDescriptions?: InputDescription[];
 
   /**
    * <p>The array of <a>OutputDescription</a> objects describing the destination
    *       streams used by the application.</p>
    */
-  OutputDescriptions?: Array<OutputDescription>;
+  OutputDescriptions?: OutputDescription[];
 
   /**
    * <p>The array of <a>ReferenceDataSourceDescription</a> objects describing the
    *       reference data sources used by the application.</p>
    */
-  ReferenceDataSourceDescriptions?: Array<ReferenceDataSourceDescription>;
+  ReferenceDataSourceDescriptions?: ReferenceDataSourceDescription[];
 }
 
 export namespace SqlApplicationConfigurationDescription {
@@ -3811,19 +3805,19 @@ export interface SqlApplicationConfigurationUpdate {
    * <p>The array of <a>InputUpdate</a> objects describing the new input streams used
    *       by the application.</p>
    */
-  InputUpdates?: Array<InputUpdate>;
+  InputUpdates?: InputUpdate[];
 
   /**
    * <p>The array of <a>OutputUpdate</a> objects describing the new destination streams
    *       used by the application.</p>
    */
-  OutputUpdates?: Array<OutputUpdate>;
+  OutputUpdates?: OutputUpdate[];
 
   /**
    * <p>The array of <a>ReferenceDataSourceUpdate</a> objects describing the new
    *       reference data sources used by the application.</p>
    */
-  ReferenceDataSourceUpdates?: Array<ReferenceDataSourceUpdate>;
+  ReferenceDataSourceUpdates?: ReferenceDataSourceUpdate[];
 }
 
 export namespace SqlApplicationConfigurationUpdate {
@@ -3937,7 +3931,7 @@ export interface TagResourceRequest {
   /**
    * <p>The key-value tags to assign to the application.</p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -3983,12 +3977,12 @@ export interface UnableToDetectSchemaException
   /**
    * <p>Stream data that was modified by the processor specified in the <code>InputProcessingConfiguration</code> parameter. </p>
    */
-  ProcessedInputRecords?: Array<string>;
+  ProcessedInputRecords?: string[];
 
   /**
    * <p>Raw stream data that was sampled to infer the schema.</p>
    */
-  RawInputRecords?: Array<string>;
+  RawInputRecords?: string[];
 }
 
 export namespace UnableToDetectSchemaException {
@@ -4022,7 +4016,7 @@ export interface UntagResourceRequest {
   /**
    * <p>A list of keys of tags to remove from the specified application.</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -4056,7 +4050,7 @@ export interface UpdateApplicationRequest {
    *       existing CloudWatch logging options with this action. To add a new CloudWatch logging option,
    *       use <a>AddApplicationCloudWatchLoggingOption</a>.</p>
    */
-  CloudWatchLoggingOptionUpdates?: Array<CloudWatchLoggingOptionUpdate>;
+  CloudWatchLoggingOptionUpdates?: CloudWatchLoggingOptionUpdate[];
 
   /**
    * <p>The current application version ID. You can retrieve the application version ID using <a>DescribeApplication</a>.</p>
@@ -4100,12 +4094,12 @@ export interface VpcConfiguration {
   /**
    * <p>The array of <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SecurityGroup.html">SecurityGroup</a> IDs used by the VPC configuration.</p>
    */
-  SecurityGroupIds: Array<string> | undefined;
+  SecurityGroupIds: string[] | undefined;
 
   /**
    * <p>The array of <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Subnet.html">Subnet</a> IDs used by the VPC configuration.</p>
    */
-  SubnetIds: Array<string> | undefined;
+  SubnetIds: string[] | undefined;
 }
 
 export namespace VpcConfiguration {
@@ -4121,12 +4115,12 @@ export interface VpcConfigurationDescription {
   /**
    * <p>The array of <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SecurityGroup.html">SecurityGroup</a> IDs used by the VPC configuration.</p>
    */
-  SecurityGroupIds: Array<string> | undefined;
+  SecurityGroupIds: string[] | undefined;
 
   /**
    * <p>The array of <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Subnet.html">Subnet</a> IDs used by the VPC configuration.</p>
    */
-  SubnetIds: Array<string> | undefined;
+  SubnetIds: string[] | undefined;
 
   /**
    * <p>The ID of the VPC configuration.</p>
@@ -4152,13 +4146,13 @@ export interface VpcConfigurationUpdate {
   /**
    * <p>Describes updates to the array of <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SecurityGroup.html">SecurityGroup</a> IDs used by the VPC configuration.</p>
    */
-  SecurityGroupIdUpdates?: Array<string>;
+  SecurityGroupIdUpdates?: string[];
 
   /**
    * <p>Describes updates to the array of <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Subnet.html">Subnet</a> IDs
    *         used by the VPC configuration.</p>
    */
-  SubnetIdUpdates?: Array<string>;
+  SubnetIdUpdates?: string[];
 
   /**
    * <p>Describes an update to the ID of the VPC configuration.</p>

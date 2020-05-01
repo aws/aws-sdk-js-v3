@@ -214,7 +214,7 @@ export interface BuildSuggestersResponse {
   /**
    * <p>A list of field names.</p>
    */
-  FieldNames?: Array<string>;
+  FieldNames?: string[];
 }
 
 export namespace BuildSuggestersResponse {
@@ -679,7 +679,7 @@ export interface DescribeAnalysisSchemesRequest {
   /**
    * <p>The analysis schemes you want to describe.</p>
    */
-  AnalysisSchemeNames?: Array<string>;
+  AnalysisSchemeNames?: string[];
 
   /**
    * <p>Whether to display the deployed configuration (<code>true</code>) or include any pending changes (<code>false</code>). Defaults to <code>false</code>.</p>
@@ -705,7 +705,7 @@ export interface DescribeAnalysisSchemesResponse {
   /**
    * <p>The analysis scheme descriptions.</p>
    */
-  AnalysisSchemes: Array<AnalysisSchemeStatus> | undefined;
+  AnalysisSchemes: AnalysisSchemeStatus[] | undefined;
 }
 
 export namespace DescribeAnalysisSchemesResponse {
@@ -795,7 +795,7 @@ export interface DescribeDomainsRequest {
   /**
    * <p>The names of the domains you want to include in the response.</p>
    */
-  DomainNames?: Array<string>;
+  DomainNames?: string[];
 }
 
 export namespace DescribeDomainsRequest {
@@ -811,7 +811,7 @@ export interface DescribeDomainsResponse {
   /**
    * <p>A list that contains the status of each requested domain.</p>
    */
-  DomainStatusList: Array<DomainStatus> | undefined;
+  DomainStatusList: DomainStatus[] | undefined;
 }
 
 export namespace DescribeDomainsResponse {
@@ -838,7 +838,7 @@ export interface DescribeExpressionsRequest {
   /**
    * <p>Limits the <code><a>DescribeExpressions</a></code> response to the specified expressions. If not specified, all expressions are shown.</p>
    */
-  ExpressionNames?: Array<string>;
+  ExpressionNames?: string[];
 }
 
 export namespace DescribeExpressionsRequest {
@@ -854,7 +854,7 @@ export interface DescribeExpressionsResponse {
   /**
    * <p>The expressions configured for the domain.</p>
    */
-  Expressions: Array<ExpressionStatus> | undefined;
+  Expressions: ExpressionStatus[] | undefined;
 }
 
 export namespace DescribeExpressionsResponse {
@@ -880,7 +880,7 @@ export interface DescribeIndexFieldsRequest {
   /**
    * <p>A list of the index fields you want to describe. If not specified, information is returned for all configured index fields.</p>
    */
-  FieldNames?: Array<string>;
+  FieldNames?: string[];
 }
 
 export namespace DescribeIndexFieldsRequest {
@@ -896,7 +896,7 @@ export interface DescribeIndexFieldsResponse {
   /**
    * <p>The index fields configured for the domain.</p>
    */
-  IndexFields: Array<IndexFieldStatus> | undefined;
+  IndexFields: IndexFieldStatus[] | undefined;
 }
 
 export namespace DescribeIndexFieldsResponse {
@@ -991,7 +991,7 @@ export interface DescribeSuggestersRequest {
   /**
    * <p>The suggesters you want to describe.</p>
    */
-  SuggesterNames?: Array<string>;
+  SuggesterNames?: string[];
 }
 
 export namespace DescribeSuggestersRequest {
@@ -1007,7 +1007,7 @@ export interface DescribeSuggestersResponse {
   /**
    * <p>The suggesters configured for the domain specified in the request.</p>
    */
-  Suggesters: Array<SuggesterStatus> | undefined;
+  Suggesters: SuggesterStatus[] | undefined;
 }
 
 export namespace DescribeSuggestersResponse {
@@ -1326,7 +1326,7 @@ export interface IndexDocumentsResponse {
   /**
    * <p>The names of the fields that are currently being indexed.</p>
    */
-  FieldNames?: Array<string>;
+  FieldNames?: string[];
 }
 
 export namespace IndexDocumentsResponse {

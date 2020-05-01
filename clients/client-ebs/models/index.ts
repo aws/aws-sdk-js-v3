@@ -164,7 +164,7 @@ export interface ListChangedBlocksResponse {
   /**
    * <p>An array of objects containing information about the changed blocks.</p>
    */
-  ChangedBlocks?: Array<ChangedBlock>;
+  ChangedBlocks?: ChangedBlock[];
 
   /**
    * <p>The time when the <code>block token</code> expires.</p>
@@ -227,7 +227,7 @@ export interface ListSnapshotBlocksResponse {
   /**
    * <p>An array of objects containing information about the blocks.</p>
    */
-  Blocks?: Array<Block>;
+  Blocks?: Block[];
 
   /**
    * <p>The time when the <code>block token</code> expires.</p>

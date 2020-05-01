@@ -1585,7 +1585,7 @@ const serializeAws_json1_1MetricDimension = (
 };
 
 const serializeAws_json1_1MetricDimensions = (
-  input: Array<MetricDimension>,
+  input: MetricDimension[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1718,7 +1718,7 @@ const serializeAws_json1_1RegisterScalableTargetRequest = (
 };
 
 const serializeAws_json1_1ResourceIdsMaxLen1600 = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1760,7 +1760,7 @@ const serializeAws_json1_1StepAdjustment = (
 };
 
 const serializeAws_json1_1StepAdjustments = (
-  input: Array<StepAdjustment>,
+  input: StepAdjustment[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1870,7 +1870,7 @@ const deserializeAws_json1_1Alarm = (
 const deserializeAws_json1_1Alarms = (
   output: any,
   context: __SerdeContext
-): Array<Alarm> => {
+): Alarm[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Alarm(entry, context)
   );
@@ -2120,7 +2120,7 @@ const deserializeAws_json1_1MetricDimension = (
 const deserializeAws_json1_1MetricDimensions = (
   output: any,
   context: __SerdeContext
-): Array<MetricDimension> => {
+): MetricDimension[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1MetricDimension(entry, context)
   );
@@ -2271,7 +2271,7 @@ const deserializeAws_json1_1ScalableTargetAction = (
 const deserializeAws_json1_1ScalableTargets = (
   output: any,
   context: __SerdeContext
-): Array<ScalableTarget> => {
+): ScalableTarget[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ScalableTarget(entry, context)
   );
@@ -2280,7 +2280,7 @@ const deserializeAws_json1_1ScalableTargets = (
 const deserializeAws_json1_1ScalingActivities = (
   output: any,
   context: __SerdeContext
-): Array<ScalingActivity> => {
+): ScalingActivity[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ScalingActivity(entry, context)
   );
@@ -2349,7 +2349,7 @@ const deserializeAws_json1_1ScalingActivity = (
 const deserializeAws_json1_1ScalingPolicies = (
   output: any,
   context: __SerdeContext
-): Array<ScalingPolicy> => {
+): ScalingPolicy[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ScalingPolicy(entry, context)
   );
@@ -2494,7 +2494,7 @@ const deserializeAws_json1_1ScheduledAction = (
 const deserializeAws_json1_1ScheduledActions = (
   output: any,
   context: __SerdeContext
-): Array<ScheduledAction> => {
+): ScheduledAction[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ScheduledAction(entry, context)
   );
@@ -2534,7 +2534,7 @@ const deserializeAws_json1_1StepAdjustment = (
 const deserializeAws_json1_1StepAdjustments = (
   output: any,
   context: __SerdeContext
-): Array<StepAdjustment> => {
+): StepAdjustment[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1StepAdjustment(entry, context)
   );

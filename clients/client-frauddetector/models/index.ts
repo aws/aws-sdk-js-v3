@@ -35,7 +35,7 @@ export interface BatchCreateVariableRequest {
   /**
    * <p>The list of variables for the batch create variable request.</p>
    */
-  variableEntries: Array<VariableEntry> | undefined;
+  variableEntries: VariableEntry[] | undefined;
 }
 
 export namespace BatchCreateVariableRequest {
@@ -48,7 +48,7 @@ export interface BatchCreateVariableResult {
   /**
    * <p>Provides the errors for the <code>BatchCreateVariable</code> request.</p>
    */
-  errors?: Array<BatchCreateVariableError>;
+  errors?: BatchCreateVariableError[];
 }
 
 export namespace BatchCreateVariableResult {
@@ -87,7 +87,7 @@ export interface BatchGetVariableRequest {
   /**
    * <p>The list of variable names to get.</p>
    */
-  names: Array<string> | undefined;
+  names: string[] | undefined;
 }
 
 export namespace BatchGetVariableRequest {
@@ -100,12 +100,12 @@ export interface BatchGetVariableResult {
   /**
    * <p>The errors from the request.</p>
    */
-  errors?: Array<BatchGetVariableError>;
+  errors?: BatchGetVariableError[];
 
   /**
    * <p>The returned variables.</p>
    */
-  variables?: Array<Variable>;
+  variables?: Variable[];
 }
 
 export namespace BatchGetVariableResult {
@@ -128,17 +128,17 @@ export interface CreateDetectorVersionRequest {
   /**
    * <p>The Amazon Sagemaker model endpoints to include in the detector version.</p>
    */
-  externalModelEndpoints?: Array<string>;
+  externalModelEndpoints?: string[];
 
   /**
    * <p>The model versions to include in the detector version.</p>
    */
-  modelVersions?: Array<ModelVersion>;
+  modelVersions?: ModelVersion[];
 
   /**
    * <p>The rules to include in the detector version.</p>
    */
-  rules: Array<Rule> | undefined;
+  rules: Rule[] | undefined;
 }
 
 export namespace CreateDetectorVersionRequest {
@@ -245,7 +245,7 @@ export interface CreateRuleRequest {
   /**
    * <p>The outcome or outcomes returned when the rule expression matches.</p>
    */
-  outcomes: Array<string> | undefined;
+  outcomes: string[] | undefined;
 
   /**
    * <p>The rule ID.</p>
@@ -413,7 +413,7 @@ export interface DescribeDetectorResult {
   /**
    * <p>The status and description for each detector version.</p>
    */
-  detectorVersionSummaries?: Array<DetectorVersionSummary>;
+  detectorVersionSummaries?: DetectorVersionSummary[];
 
   /**
    * <p>The next token to be used for subsequent requests.</p>
@@ -464,7 +464,7 @@ export interface DescribeModelVersionsResult {
   /**
    * <p>The model version details.</p>
    */
-  modelVersionDetails?: Array<ModelVersionDetail>;
+  modelVersionDetails?: ModelVersionDetail[];
 
   /**
    * <p>The next token.</p>
@@ -637,7 +637,7 @@ export interface GetDetectorVersionResult {
   /**
    * <p>The Amazon SageMaker model endpoints included in the detector version.</p>
    */
-  externalModelEndpoints?: Array<string>;
+  externalModelEndpoints?: string[];
 
   /**
    * <p>The timestamp when the detector version was last updated.
@@ -648,12 +648,12 @@ export interface GetDetectorVersionResult {
   /**
    * <p>The model versions included in the detector version. </p>
    */
-  modelVersions?: Array<ModelVersion>;
+  modelVersions?: ModelVersion[];
 
   /**
    * <p>The rules included in the detector version.</p>
    */
-  rules?: Array<Rule>;
+  rules?: Rule[];
 
   /**
    * <p>The status of the detector version.</p>
@@ -694,7 +694,7 @@ export interface GetDetectorsResult {
   /**
    * <p>The detectors.</p>
    */
-  detectors?: Array<Detector>;
+  detectors?: Detector[];
 
   /**
    * <p>The next page token.</p>
@@ -735,7 +735,7 @@ export interface GetExternalModelsResult {
   /**
    * <p>Gets the Amazon SageMaker models.</p>
    */
-  externalModels?: Array<ExternalModel>;
+  externalModels?: ExternalModel[];
 
   /**
    * <p>The next page token to be used in subsequent requests.</p>
@@ -837,7 +837,7 @@ export interface GetModelsResult {
   /**
    * <p>The returned models. </p>
    */
-  models?: Array<Model>;
+  models?: Model[];
 
   /**
    * <p>The next token for subsequent requests. </p>
@@ -883,7 +883,7 @@ export interface GetOutcomesResult {
   /**
    * <p>The outcomes. </p>
    */
-  outcomes?: Array<Outcome>;
+  outcomes?: Outcome[];
 }
 
 export namespace GetOutcomesResult {
@@ -929,12 +929,12 @@ export interface GetPredictionResult {
   /**
    * <p>The model scores for models used in the detector version.</p>
    */
-  modelScores?: Array<ModelScores>;
+  modelScores?: ModelScores[];
 
   /**
    * <p>The prediction outcomes.</p>
    */
-  outcomes?: Array<string>;
+  outcomes?: string[];
 }
 
 export namespace GetPredictionResult {
@@ -985,7 +985,7 @@ export interface GetRulesResult {
   /**
    * <p>The details of the requested rule.</p>
    */
-  ruleDetails?: Array<RuleDetail>;
+  ruleDetails?: RuleDetail[];
 }
 
 export namespace GetRulesResult {
@@ -1026,7 +1026,7 @@ export interface GetVariablesResult {
   /**
    * <p>The names of the variables returned. </p>
    */
-  variables?: Array<Variable>;
+  variables?: Variable[];
 }
 
 export namespace GetVariablesResult {
@@ -1052,7 +1052,7 @@ export interface LabelSchema {
    *             mapper is a list, because you may have multiple variants for a single Amazon Fraud Detector label.
    *         </p>
    */
-  labelMapper: { [key: string]: Array<string> } | undefined;
+  labelMapper: { [key: string]: string[] } | undefined;
 }
 
 export namespace LabelSchema {
@@ -1101,7 +1101,7 @@ export interface Model {
   /**
    * <p>The model input variables.</p>
    */
-  modelVariables?: Array<ModelVariable>;
+  modelVariables?: ModelVariable[];
 
   /**
    * <p>The model training data source in Amazon S3.</p>
@@ -1324,7 +1324,7 @@ export interface ModelVersionDetail {
   /**
    * <p>The model variables.</p>
    */
-  modelVariables?: Array<ModelVariable>;
+  modelVariables?: ModelVariable[];
 
   /**
    * <p>The model version.</p>
@@ -1497,7 +1497,7 @@ export interface PutModelRequest {
   /**
    * <p>The model input variables.</p>
    */
-  modelVariables: Array<ModelVariable> | undefined;
+  modelVariables: ModelVariable[] | undefined;
 
   /**
    * <p>The training data source location in Amazon S3.  </p>
@@ -1629,7 +1629,7 @@ export interface RuleDetail {
   /**
    * <p>The rule outcomes.</p>
    */
-  outcomes?: Array<string>;
+  outcomes?: string[];
 
   /**
    * <p>The rule ID.</p>
@@ -1719,17 +1719,17 @@ export interface UpdateDetectorVersionRequest {
   /**
    * <p>The Amazon SageMaker model endpoints to include in the detector version.</p>
    */
-  externalModelEndpoints: Array<string> | undefined;
+  externalModelEndpoints: string[] | undefined;
 
   /**
    * <p>The model versions to include in the detector version.</p>
    */
-  modelVersions?: Array<ModelVersion>;
+  modelVersions?: ModelVersion[];
 
   /**
    * <p>The rules to include in the detector version.</p>
    */
-  rules: Array<Rule> | undefined;
+  rules: Rule[] | undefined;
 }
 
 export namespace UpdateDetectorVersionRequest {
@@ -1867,7 +1867,7 @@ export interface UpdateRuleVersionRequest {
   /**
    * <p>The outcomes.</p>
    */
-  outcomes: Array<string> | undefined;
+  outcomes: string[] | undefined;
 
   /**
    * <p>The rule to update.</p>

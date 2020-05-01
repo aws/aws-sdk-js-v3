@@ -3096,7 +3096,7 @@ const serializeAws_restJson1_1UpdateEncryption = (
 };
 
 const serializeAws_restJson1_1__listOfAddOutputRequest = (
-  input: Array<AddOutputRequest>,
+  input: AddOutputRequest[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3107,7 +3107,7 @@ const serializeAws_restJson1_1__listOfAddOutputRequest = (
 };
 
 const serializeAws_restJson1_1__listOfGrantEntitlementRequest = (
-  input: Array<GrantEntitlementRequest>,
+  input: GrantEntitlementRequest[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3120,7 +3120,7 @@ const serializeAws_restJson1_1__listOfGrantEntitlementRequest = (
 };
 
 const serializeAws_restJson1_1__listOf__string = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3539,7 +3539,7 @@ const deserializeAws_restJson1_1Transport = (
 const deserializeAws_restJson1_1__listOfEntitlement = (
   output: any,
   context: __SerdeContext
-): Array<Entitlement> => {
+): Entitlement[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Entitlement(entry, context)
   );
@@ -3548,7 +3548,7 @@ const deserializeAws_restJson1_1__listOfEntitlement = (
 const deserializeAws_restJson1_1__listOfListedEntitlement = (
   output: any,
   context: __SerdeContext
-): Array<ListedEntitlement> => {
+): ListedEntitlement[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ListedEntitlement(entry, context)
   );
@@ -3557,7 +3557,7 @@ const deserializeAws_restJson1_1__listOfListedEntitlement = (
 const deserializeAws_restJson1_1__listOfListedFlow = (
   output: any,
   context: __SerdeContext
-): Array<ListedFlow> => {
+): ListedFlow[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ListedFlow(entry, context)
   );
@@ -3566,7 +3566,7 @@ const deserializeAws_restJson1_1__listOfListedFlow = (
 const deserializeAws_restJson1_1__listOfOutput = (
   output: any,
   context: __SerdeContext
-): Array<Output> => {
+): Output[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Output(entry, context)
   );
@@ -3575,7 +3575,7 @@ const deserializeAws_restJson1_1__listOfOutput = (
 const deserializeAws_restJson1_1__listOf__string = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 

@@ -3078,7 +3078,7 @@ const deserializeAws_queryResourceNotFoundExceptionResponse = async (
 };
 
 const serializeAws_queryAlarmNames = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -3112,7 +3112,7 @@ const serializeAws_queryAnomalyDetectorConfiguration = (
 };
 
 const serializeAws_queryAnomalyDetectorExcludedTimeRanges = (
-  input: Array<Range>,
+  input: Range[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -3128,7 +3128,7 @@ const serializeAws_queryAnomalyDetectorExcludedTimeRanges = (
 };
 
 const serializeAws_queryCounts = (
-  input: Array<number>,
+  input: number[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -3141,7 +3141,7 @@ const serializeAws_queryCounts = (
 };
 
 const serializeAws_queryDashboardNames = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -3402,7 +3402,7 @@ const serializeAws_queryDimensionFilter = (
 };
 
 const serializeAws_queryDimensionFilters = (
-  input: Array<DimensionFilter>,
+  input: DimensionFilter[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -3418,7 +3418,7 @@ const serializeAws_queryDimensionFilters = (
 };
 
 const serializeAws_queryDimensions = (
-  input: Array<Dimension>,
+  input: Dimension[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -3506,7 +3506,7 @@ const serializeAws_queryEnableInsightRulesInput = (
 };
 
 const serializeAws_queryExtendedStatistics = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -3669,7 +3669,7 @@ const serializeAws_queryGetMetricWidgetImageInput = (
 };
 
 const serializeAws_queryInsightRuleMetricList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -3682,7 +3682,7 @@ const serializeAws_queryInsightRuleMetricList = (
 };
 
 const serializeAws_queryInsightRuleNames = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -3771,7 +3771,7 @@ const serializeAws_queryMetric = (
 };
 
 const serializeAws_queryMetricData = (
-  input: Array<MetricDatum>,
+  input: MetricDatum[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -3787,7 +3787,7 @@ const serializeAws_queryMetricData = (
 };
 
 const serializeAws_queryMetricDataQueries = (
-  input: Array<MetricDataQuery>,
+  input: MetricDataQuery[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -4134,7 +4134,7 @@ const serializeAws_queryRange = (
 };
 
 const serializeAws_queryResourceList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -4187,7 +4187,7 @@ const serializeAws_queryStatisticSet = (
 };
 
 const serializeAws_queryStatistics = (
-  input: Array<Statistic | string>,
+  input: (Statistic | string)[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -4211,7 +4211,7 @@ const serializeAws_queryTag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_queryTagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -4224,7 +4224,7 @@ const serializeAws_queryTagKeyList = (
 };
 
 const serializeAws_queryTagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -4276,7 +4276,7 @@ const serializeAws_queryUntagResourceInput = (
 };
 
 const serializeAws_queryValues = (
-  input: Array<number>,
+  input: number[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -4384,7 +4384,7 @@ const deserializeAws_queryAlarmHistoryItem = (
 const deserializeAws_queryAlarmHistoryItems = (
   output: any,
   context: __SerdeContext
-): Array<AlarmHistoryItem> => {
+): AlarmHistoryItem[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryAlarmHistoryItem(entry, context));
@@ -4488,7 +4488,7 @@ const deserializeAws_queryAnomalyDetectorConfiguration = (
 const deserializeAws_queryAnomalyDetectorExcludedTimeRanges = (
   output: any,
   context: __SerdeContext
-): Array<Range> => {
+): Range[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryRange(entry, context));
@@ -4499,7 +4499,7 @@ const deserializeAws_queryAnomalyDetectorExcludedTimeRanges = (
 const deserializeAws_queryAnomalyDetectors = (
   output: any,
   context: __SerdeContext
-): Array<AnomalyDetector> => {
+): AnomalyDetector[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryAnomalyDetector(entry, context));
@@ -4510,7 +4510,7 @@ const deserializeAws_queryAnomalyDetectors = (
 const deserializeAws_queryBatchFailures = (
   output: any,
   context: __SerdeContext
-): Array<PartialFailure> => {
+): PartialFailure[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryPartialFailure(entry, context));
@@ -4538,7 +4538,7 @@ const deserializeAws_queryConcurrentModificationException = (
 const deserializeAws_queryDashboardEntries = (
   output: any,
   context: __SerdeContext
-): Array<DashboardEntry> => {
+): DashboardEntry[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryDashboardEntry(entry, context));
@@ -4660,7 +4660,7 @@ const deserializeAws_queryDashboardValidationMessage = (
 const deserializeAws_queryDashboardValidationMessages = (
   output: any,
   context: __SerdeContext
-): Array<DashboardValidationMessage> => {
+): DashboardValidationMessage[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -4766,7 +4766,7 @@ const deserializeAws_queryDatapointValueMap = (
 const deserializeAws_queryDatapointValues = (
   output: any,
   context: __SerdeContext
-): Array<number> => {
+): number[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -4779,7 +4779,7 @@ const deserializeAws_queryDatapointValues = (
 const deserializeAws_queryDatapoints = (
   output: any,
   context: __SerdeContext
-): Array<Datapoint> => {
+): Datapoint[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryDatapoint(entry, context));
@@ -5021,7 +5021,7 @@ const deserializeAws_queryDimension = (
 const deserializeAws_queryDimensions = (
   output: any,
   context: __SerdeContext
-): Array<Dimension> => {
+): Dimension[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryDimension(entry, context));
@@ -5404,7 +5404,7 @@ const deserializeAws_queryInsightRuleContributorDatapoint = (
 const deserializeAws_queryInsightRuleContributorDatapoints = (
   output: any,
   context: __SerdeContext
-): Array<InsightRuleContributorDatapoint> => {
+): InsightRuleContributorDatapoint[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -5417,7 +5417,7 @@ const deserializeAws_queryInsightRuleContributorDatapoints = (
 const deserializeAws_queryInsightRuleContributorKeyLabels = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -5428,7 +5428,7 @@ const deserializeAws_queryInsightRuleContributorKeyLabels = (
 const deserializeAws_queryInsightRuleContributorKeys = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -5439,7 +5439,7 @@ const deserializeAws_queryInsightRuleContributorKeys = (
 const deserializeAws_queryInsightRuleContributors = (
   output: any,
   context: __SerdeContext
-): Array<InsightRuleContributor> => {
+): InsightRuleContributor[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryInsightRuleContributor(entry, context));
@@ -5520,7 +5520,7 @@ const deserializeAws_queryInsightRuleMetricDatapoint = (
 const deserializeAws_queryInsightRuleMetricDatapoints = (
   output: any,
   context: __SerdeContext
-): Array<InsightRuleMetricDatapoint> => {
+): InsightRuleMetricDatapoint[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -5533,7 +5533,7 @@ const deserializeAws_queryInsightRuleMetricDatapoints = (
 const deserializeAws_queryInsightRules = (
   output: any,
   context: __SerdeContext
-): Array<InsightRule> => {
+): InsightRule[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryInsightRule(entry, context));
@@ -6020,7 +6020,7 @@ const deserializeAws_queryMetricAlarm = (
 const deserializeAws_queryMetricAlarms = (
   output: any,
   context: __SerdeContext
-): Array<MetricAlarm> => {
+): MetricAlarm[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryMetricAlarm(entry, context));
@@ -6031,7 +6031,7 @@ const deserializeAws_queryMetricAlarms = (
 const deserializeAws_queryMetricDataQueries = (
   output: any,
   context: __SerdeContext
-): Array<MetricDataQuery> => {
+): MetricDataQuery[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryMetricDataQuery(entry, context));
@@ -6171,7 +6171,7 @@ const deserializeAws_queryMetricDataResult = (
 const deserializeAws_queryMetricDataResultMessages = (
   output: any,
   context: __SerdeContext
-): Array<MessageData> => {
+): MessageData[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryMessageData(entry, context));
@@ -6182,7 +6182,7 @@ const deserializeAws_queryMetricDataResultMessages = (
 const deserializeAws_queryMetricDataResults = (
   output: any,
   context: __SerdeContext
-): Array<MetricDataResult> => {
+): MetricDataResult[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryMetricDataResult(entry, context));
@@ -6229,7 +6229,7 @@ const deserializeAws_queryMetricStat = (
 const deserializeAws_queryMetrics = (
   output: any,
   context: __SerdeContext
-): Array<Metric> => {
+): Metric[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryMetric(entry, context));
@@ -6343,7 +6343,7 @@ const deserializeAws_queryRange = (
 const deserializeAws_queryResourceList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -6423,7 +6423,7 @@ const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
 const deserializeAws_queryTagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryTag(entry, context));
@@ -6444,7 +6444,7 @@ const deserializeAws_queryTagResourceOutput = (
 const deserializeAws_queryTimestamps = (
   output: any,
   context: __SerdeContext
-): Array<Date> => {
+): Date[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(new Date(entry));

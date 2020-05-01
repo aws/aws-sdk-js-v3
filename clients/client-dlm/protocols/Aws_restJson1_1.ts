@@ -1163,7 +1163,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
 };
 
 const serializeAws_restJson1_1AvailabilityZoneList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1236,7 +1236,7 @@ const serializeAws_restJson1_1CrossRegionCopyRule = (
 };
 
 const serializeAws_restJson1_1CrossRegionCopyRules = (
-  input: Array<CrossRegionCopyRule>,
+  input: CrossRegionCopyRule[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1320,7 +1320,7 @@ const serializeAws_restJson1_1PolicyDetails = (
 };
 
 const serializeAws_restJson1_1ResourceTypeValuesList = (
-  input: Array<ResourceTypeValues | string>,
+  input: (ResourceTypeValues | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1400,7 +1400,7 @@ const serializeAws_restJson1_1Schedule = (
 };
 
 const serializeAws_restJson1_1ScheduleList = (
-  input: Array<Schedule>,
+  input: Schedule[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1436,7 +1436,7 @@ const serializeAws_restJson1_1TagMap = (
 };
 
 const serializeAws_restJson1_1TagsToAddList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1447,7 +1447,7 @@ const serializeAws_restJson1_1TagsToAddList = (
 };
 
 const serializeAws_restJson1_1TargetTagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1458,7 +1458,7 @@ const serializeAws_restJson1_1TargetTagList = (
 };
 
 const serializeAws_restJson1_1TimesList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1469,7 +1469,7 @@ const serializeAws_restJson1_1TimesList = (
 };
 
 const serializeAws_restJson1_1VariableTagsList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1482,7 +1482,7 @@ const serializeAws_restJson1_1VariableTagsList = (
 const deserializeAws_restJson1_1AvailabilityZoneList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -1562,7 +1562,7 @@ const deserializeAws_restJson1_1CrossRegionCopyRule = (
 const deserializeAws_restJson1_1CrossRegionCopyRules = (
   output: any,
   context: __SerdeContext
-): Array<CrossRegionCopyRule> => {
+): CrossRegionCopyRule[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1CrossRegionCopyRule(entry, context)
   );
@@ -1685,7 +1685,7 @@ const deserializeAws_restJson1_1LifecyclePolicySummary = (
 const deserializeAws_restJson1_1LifecyclePolicySummaryList = (
   output: any,
   context: __SerdeContext
-): Array<LifecyclePolicySummary> => {
+): LifecyclePolicySummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1LifecyclePolicySummary(entry, context)
   );
@@ -1694,7 +1694,7 @@ const deserializeAws_restJson1_1LifecyclePolicySummaryList = (
 const deserializeAws_restJson1_1ParameterList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -1760,14 +1760,14 @@ const deserializeAws_restJson1_1PolicyDetails = (
 const deserializeAws_restJson1_1PolicyIdList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1ResourceTypeValuesList = (
   output: any,
   context: __SerdeContext
-): Array<ResourceTypeValues | string> => {
+): (ResourceTypeValues | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -1859,7 +1859,7 @@ const deserializeAws_restJson1_1Schedule = (
 const deserializeAws_restJson1_1ScheduleList = (
   output: any,
   context: __SerdeContext
-): Array<Schedule> => {
+): Schedule[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Schedule(entry, context)
   );
@@ -1897,7 +1897,7 @@ const deserializeAws_restJson1_1TagMap = (
 const deserializeAws_restJson1_1TagsToAddList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Tag(entry, context)
   );
@@ -1906,7 +1906,7 @@ const deserializeAws_restJson1_1TagsToAddList = (
 const deserializeAws_restJson1_1TargetTagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Tag(entry, context)
   );
@@ -1915,14 +1915,14 @@ const deserializeAws_restJson1_1TargetTagList = (
 const deserializeAws_restJson1_1TimesList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1VariableTagsList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Tag(entry, context)
   );

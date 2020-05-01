@@ -971,7 +971,7 @@ const serializeAws_json1_1UsageRecord = (
 };
 
 const serializeAws_json1_1UsageRecordList = (
-  input: Array<UsageRecord>,
+  input: UsageRecord[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1311,7 +1311,7 @@ const deserializeAws_json1_1UsageRecord = (
 const deserializeAws_json1_1UsageRecordList = (
   output: any,
   context: __SerdeContext
-): Array<UsageRecord> => {
+): UsageRecord[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1UsageRecord(entry, context)
   );
@@ -1348,7 +1348,7 @@ const deserializeAws_json1_1UsageRecordResult = (
 const deserializeAws_json1_1UsageRecordResultList = (
   output: any,
   context: __SerdeContext
-): Array<UsageRecordResult> => {
+): UsageRecordResult[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1UsageRecordResult(entry, context)
   );

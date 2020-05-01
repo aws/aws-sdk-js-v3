@@ -2539,7 +2539,7 @@ const serializeAws_json1_1DnsRecord = (
 };
 
 const serializeAws_json1_1DnsRecordList = (
-  input: Array<DnsRecord>,
+  input: DnsRecord[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2550,7 +2550,7 @@ const serializeAws_json1_1DnsRecordList = (
 };
 
 const serializeAws_json1_1FilterValues = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2659,7 +2659,7 @@ const serializeAws_json1_1HealthCheckCustomConfig = (
 };
 
 const serializeAws_json1_1InstanceIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2767,7 +2767,7 @@ const serializeAws_json1_1NamespaceFilter = (
 };
 
 const serializeAws_json1_1NamespaceFilters = (
-  input: Array<NamespaceFilter>,
+  input: NamespaceFilter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2798,7 +2798,7 @@ const serializeAws_json1_1OperationFilter = (
 };
 
 const serializeAws_json1_1OperationFilters = (
-  input: Array<OperationFilter>,
+  input: OperationFilter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2878,7 +2878,7 @@ const serializeAws_json1_1ServiceFilter = (
 };
 
 const serializeAws_json1_1ServiceFilters = (
-  input: Array<ServiceFilter>,
+  input: ServiceFilter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3118,7 +3118,7 @@ const deserializeAws_json1_1DnsRecord = (
 const deserializeAws_json1_1DnsRecordList = (
   output: any,
   context: __SerdeContext
-): Array<DnsRecord> => {
+): DnsRecord[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DnsRecord(entry, context)
   );
@@ -3309,7 +3309,7 @@ const deserializeAws_json1_1HttpInstanceSummary = (
 const deserializeAws_json1_1HttpInstanceSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<HttpInstanceSummary> => {
+): HttpInstanceSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1HttpInstanceSummary(entry, context)
   );
@@ -3406,7 +3406,7 @@ const deserializeAws_json1_1InstanceSummary = (
 const deserializeAws_json1_1InstanceSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<InstanceSummary> => {
+): InstanceSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1InstanceSummary(entry, context)
   );
@@ -3628,7 +3628,7 @@ const deserializeAws_json1_1NamespaceProperties = (
 const deserializeAws_json1_1NamespaceSummariesList = (
   output: any,
   context: __SerdeContext
-): Array<NamespaceSummary> => {
+): NamespaceSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1NamespaceSummary(entry, context)
   );
@@ -3759,7 +3759,7 @@ const deserializeAws_json1_1OperationSummary = (
 const deserializeAws_json1_1OperationSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<OperationSummary> => {
+): OperationSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1OperationSummary(entry, context)
   );
@@ -3932,7 +3932,7 @@ const deserializeAws_json1_1ServiceNotFound = (
 const deserializeAws_json1_1ServiceSummariesList = (
   output: any,
   context: __SerdeContext
-): Array<ServiceSummary> => {
+): ServiceSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ServiceSummary(entry, context)
   );

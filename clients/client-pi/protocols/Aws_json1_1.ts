@@ -428,7 +428,7 @@ const serializeAws_json1_1MetricQueryFilterMap = (
 };
 
 const serializeAws_json1_1MetricQueryList = (
-  input: Array<MetricQuery>,
+  input: MetricQuery[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -439,7 +439,7 @@ const serializeAws_json1_1MetricQueryList = (
 };
 
 const serializeAws_json1_1StringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -512,7 +512,7 @@ const deserializeAws_json1_1DataPoint = (
 const deserializeAws_json1_1DataPointsList = (
   output: any,
   context: __SerdeContext
-): Array<DataPoint> => {
+): DataPoint[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DataPoint(entry, context)
   );
@@ -592,7 +592,7 @@ const deserializeAws_json1_1DimensionKeyDescription = (
 const deserializeAws_json1_1DimensionKeyDescriptionList = (
   output: any,
   context: __SerdeContext
-): Array<DimensionKeyDescription> => {
+): DimensionKeyDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DimensionKeyDescription(entry, context)
   );
@@ -676,7 +676,7 @@ const deserializeAws_json1_1MetricKeyDataPoints = (
 const deserializeAws_json1_1MetricKeyDataPointsList = (
   output: any,
   context: __SerdeContext
-): Array<MetricKeyDataPoints> => {
+): MetricKeyDataPoints[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1MetricKeyDataPoints(entry, context)
   );
@@ -685,7 +685,7 @@ const deserializeAws_json1_1MetricKeyDataPointsList = (
 const deserializeAws_json1_1MetricValuesList = (
   output: any,
   context: __SerdeContext
-): Array<number> => {
+): number[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -709,7 +709,7 @@ const deserializeAws_json1_1ResponsePartitionKey = (
 const deserializeAws_json1_1ResponsePartitionKeyList = (
   output: any,
   context: __SerdeContext
-): Array<ResponsePartitionKey> => {
+): ResponsePartitionKey[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ResponsePartitionKey(entry, context)
   );

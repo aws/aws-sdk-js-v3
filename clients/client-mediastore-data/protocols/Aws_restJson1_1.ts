@@ -775,7 +775,7 @@ const deserializeAws_restJson1_1Item = (
 const deserializeAws_restJson1_1ItemList = (
   output: any,
   context: __SerdeContext
-): Array<Item> => {
+): Item[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Item(entry, context)
   );

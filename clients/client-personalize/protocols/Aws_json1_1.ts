@@ -4054,7 +4054,7 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
 };
 
 const serializeAws_json1_1ArnList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4127,7 +4127,7 @@ const serializeAws_json1_1CategoricalHyperParameterRange = (
 };
 
 const serializeAws_json1_1CategoricalHyperParameterRanges = (
-  input: Array<CategoricalHyperParameterRange>,
+  input: CategoricalHyperParameterRange[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4140,7 +4140,7 @@ const serializeAws_json1_1CategoricalHyperParameterRanges = (
 };
 
 const serializeAws_json1_1CategoricalValues = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4168,7 +4168,7 @@ const serializeAws_json1_1ContinuousHyperParameterRange = (
 };
 
 const serializeAws_json1_1ContinuousHyperParameterRanges = (
-  input: Array<ContinuousHyperParameterRange>,
+  input: ContinuousHyperParameterRange[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4714,7 +4714,7 @@ const serializeAws_json1_1IntegerHyperParameterRange = (
 };
 
 const serializeAws_json1_1IntegerHyperParameterRanges = (
-  input: Array<IntegerHyperParameterRange>,
+  input: IntegerHyperParameterRange[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5065,7 +5065,7 @@ const deserializeAws_json1_1AlgorithmImage = (
 const deserializeAws_json1_1ArnList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -5267,7 +5267,7 @@ const deserializeAws_json1_1BatchInferenceJobSummary = (
 const deserializeAws_json1_1BatchInferenceJobs = (
   output: any,
   context: __SerdeContext
-): Array<BatchInferenceJobSummary> => {
+): BatchInferenceJobSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1BatchInferenceJobSummary(entry, context)
   );
@@ -5438,7 +5438,7 @@ const deserializeAws_json1_1CampaignUpdateSummary = (
 const deserializeAws_json1_1Campaigns = (
   output: any,
   context: __SerdeContext
-): Array<CampaignSummary> => {
+): CampaignSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1CampaignSummary(entry, context)
   );
@@ -5468,7 +5468,7 @@ const deserializeAws_json1_1CategoricalHyperParameterRange = (
 const deserializeAws_json1_1CategoricalHyperParameterRanges = (
   output: any,
   context: __SerdeContext
-): Array<CategoricalHyperParameterRange> => {
+): CategoricalHyperParameterRange[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1CategoricalHyperParameterRange(entry, context)
   );
@@ -5477,7 +5477,7 @@ const deserializeAws_json1_1CategoricalHyperParameterRanges = (
 const deserializeAws_json1_1CategoricalValues = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -5506,7 +5506,7 @@ const deserializeAws_json1_1ContinuousHyperParameterRange = (
 const deserializeAws_json1_1ContinuousHyperParameterRanges = (
   output: any,
   context: __SerdeContext
-): Array<ContinuousHyperParameterRange> => {
+): ContinuousHyperParameterRange[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ContinuousHyperParameterRange(entry, context)
   );
@@ -5816,7 +5816,7 @@ const deserializeAws_json1_1DatasetGroupSummary = (
 const deserializeAws_json1_1DatasetGroups = (
   output: any,
   context: __SerdeContext
-): Array<DatasetGroupSummary> => {
+): DatasetGroupSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DatasetGroupSummary(entry, context)
   );
@@ -5934,7 +5934,7 @@ const deserializeAws_json1_1DatasetImportJobSummary = (
 const deserializeAws_json1_1DatasetImportJobs = (
   output: any,
   context: __SerdeContext
-): Array<DatasetImportJobSummary> => {
+): DatasetImportJobSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DatasetImportJobSummary(entry, context)
   );
@@ -6063,7 +6063,7 @@ const deserializeAws_json1_1DatasetSummary = (
 const deserializeAws_json1_1Datasets = (
   output: any,
   context: __SerdeContext
-): Array<DatasetSummary> => {
+): DatasetSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DatasetSummary(entry, context)
   );
@@ -6097,7 +6097,7 @@ const deserializeAws_json1_1DefaultCategoricalHyperParameterRange = (
 const deserializeAws_json1_1DefaultCategoricalHyperParameterRanges = (
   output: any,
   context: __SerdeContext
-): Array<DefaultCategoricalHyperParameterRange> => {
+): DefaultCategoricalHyperParameterRange[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DefaultCategoricalHyperParameterRange(entry, context)
   );
@@ -6132,7 +6132,7 @@ const deserializeAws_json1_1DefaultContinuousHyperParameterRange = (
 const deserializeAws_json1_1DefaultContinuousHyperParameterRanges = (
   output: any,
   context: __SerdeContext
-): Array<DefaultContinuousHyperParameterRange> => {
+): DefaultContinuousHyperParameterRange[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DefaultContinuousHyperParameterRange(entry, context)
   );
@@ -6207,7 +6207,7 @@ const deserializeAws_json1_1DefaultIntegerHyperParameterRange = (
 const deserializeAws_json1_1DefaultIntegerHyperParameterRanges = (
   output: any,
   context: __SerdeContext
-): Array<DefaultIntegerHyperParameterRange> => {
+): DefaultIntegerHyperParameterRange[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DefaultIntegerHyperParameterRange(entry, context)
   );
@@ -6515,7 +6515,7 @@ const deserializeAws_json1_1EventTrackerSummary = (
 const deserializeAws_json1_1EventTrackers = (
   output: any,
   context: __SerdeContext
-): Array<EventTrackerSummary> => {
+): EventTrackerSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EventTrackerSummary(entry, context)
   );
@@ -6776,7 +6776,7 @@ const deserializeAws_json1_1IntegerHyperParameterRange = (
 const deserializeAws_json1_1IntegerHyperParameterRanges = (
   output: any,
   context: __SerdeContext
-): Array<IntegerHyperParameterRange> => {
+): IntegerHyperParameterRange[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1IntegerHyperParameterRange(entry, context)
   );
@@ -7108,7 +7108,7 @@ const deserializeAws_json1_1RecipeSummary = (
 const deserializeAws_json1_1Recipes = (
   output: any,
   context: __SerdeContext
-): Array<RecipeSummary> => {
+): RecipeSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RecipeSummary(entry, context)
   );
@@ -7146,7 +7146,7 @@ const deserializeAws_json1_1S3DataConfig = (
 const deserializeAws_json1_1Schemas = (
   output: any,
   context: __SerdeContext
-): Array<DatasetSchemaSummary> => {
+): DatasetSchemaSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DatasetSchemaSummary(entry, context)
   );
@@ -7455,7 +7455,7 @@ const deserializeAws_json1_1SolutionVersionSummary = (
 const deserializeAws_json1_1SolutionVersions = (
   output: any,
   context: __SerdeContext
-): Array<SolutionVersionSummary> => {
+): SolutionVersionSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SolutionVersionSummary(entry, context)
   );
@@ -7464,7 +7464,7 @@ const deserializeAws_json1_1SolutionVersions = (
 const deserializeAws_json1_1Solutions = (
   output: any,
   context: __SerdeContext
-): Array<SolutionSummary> => {
+): SolutionSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SolutionSummary(entry, context)
   );

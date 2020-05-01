@@ -750,7 +750,7 @@ const deserializeAws_json1_0_Record = (
 const deserializeAws_json1_0RecordList = (
   output: any,
   context: __SerdeContext
-): Array<_Record> => {
+): _Record[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0_Record(entry, context)
   );
@@ -811,7 +811,7 @@ const deserializeAws_json1_0Shard = (
 const deserializeAws_json1_0ShardDescriptionList = (
   output: any,
   context: __SerdeContext
-): Array<Shard> => {
+): Shard[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0Shard(entry, context)
   );
@@ -902,7 +902,7 @@ const deserializeAws_json1_0StreamDescription = (
 const deserializeAws_json1_0StreamList = (
   output: any,
   context: __SerdeContext
-): Array<_Stream> => {
+): _Stream[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0_Stream(entry, context)
   );
@@ -1044,7 +1044,7 @@ const deserializeAws_json1_0AttributeValue = (
 const deserializeAws_json1_0BinarySetAttributeValue = (
   output: any,
   context: __SerdeContext
-): Array<Uint8Array> => {
+): Uint8Array[] => {
   return (output || []).map((entry: any) => context.base64Decoder(entry));
 };
 
@@ -1065,7 +1065,7 @@ const deserializeAws_json1_0InternalServerError = (
 const deserializeAws_json1_0KeySchema = (
   output: any,
   context: __SerdeContext
-): Array<KeySchemaElement> => {
+): KeySchemaElement[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0KeySchemaElement(entry, context)
   );
@@ -1106,7 +1106,7 @@ const deserializeAws_json1_0LimitExceededException = (
 const deserializeAws_json1_0ListAttributeValue = (
   output: any,
   context: __SerdeContext
-): Array<AttributeValue> => {
+): AttributeValue[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0AttributeValue(entry, context)
   );
@@ -1126,7 +1126,7 @@ const deserializeAws_json1_0MapAttributeValue = (
 const deserializeAws_json1_0NumberSetAttributeValue = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -1147,7 +1147,7 @@ const deserializeAws_json1_0ResourceNotFoundException = (
 const deserializeAws_json1_0StringSetAttributeValue = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 

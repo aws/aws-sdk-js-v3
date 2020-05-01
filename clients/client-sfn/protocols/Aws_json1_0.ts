@@ -2759,7 +2759,7 @@ const serializeAws_json1_0LogDestination = (
 };
 
 const serializeAws_json1_0LogDestinationList = (
-  input: Array<LogDestination>,
+  input: LogDestination[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3081,7 +3081,7 @@ const serializeAws_json1_0Tag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_json1_0TagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3092,7 +3092,7 @@ const serializeAws_json1_0TagKeyList = (
 };
 
 const serializeAws_json1_0TagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3721,7 +3721,7 @@ const deserializeAws_json1_0HistoryEvent = (
 const deserializeAws_json1_0HistoryEventList = (
   output: any,
   context: __SerdeContext
-): Array<HistoryEvent> => {
+): HistoryEvent[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0HistoryEvent(entry, context)
   );
@@ -3861,7 +3861,7 @@ const deserializeAws_json1_0LogDestination = (
 const deserializeAws_json1_0LogDestinationList = (
   output: any,
   context: __SerdeContext
-): Array<LogDestination> => {
+): LogDestination[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0LogDestination(entry, context)
   );
@@ -4193,7 +4193,7 @@ const deserializeAws_json1_0ActivityLimitExceeded = (
 const deserializeAws_json1_0ActivityList = (
   output: any,
   context: __SerdeContext
-): Array<ActivityListItem> => {
+): ActivityListItem[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0ActivityListItem(entry, context)
   );
@@ -4478,7 +4478,7 @@ const deserializeAws_json1_0ExecutionLimitExceeded = (
 const deserializeAws_json1_0ExecutionList = (
   output: any,
   context: __SerdeContext
-): Array<ExecutionListItem> => {
+): ExecutionListItem[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0ExecutionListItem(entry, context)
   );
@@ -4871,7 +4871,7 @@ const deserializeAws_json1_0StateMachineLimitExceeded = (
 const deserializeAws_json1_0StateMachineList = (
   output: any,
   context: __SerdeContext
-): Array<StateMachineListItem> => {
+): StateMachineListItem[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0StateMachineListItem(entry, context)
   );
@@ -4952,7 +4952,7 @@ const deserializeAws_json1_0Tag = (
 const deserializeAws_json1_0TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0Tag(entry, context)
   );

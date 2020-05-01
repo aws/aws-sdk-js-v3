@@ -60,7 +60,7 @@ export interface Backup {
    */
   SourceRegion?: string;
 
-  TagList?: Array<Tag>;
+  TagList?: Tag[];
 }
 
 export namespace Backup {
@@ -148,7 +148,7 @@ export interface Cluster {
   /**
    * <p>Contains information about the HSMs in the cluster.</p>
    */
-  Hsms?: Array<Hsm>;
+  Hsms?: Hsm[];
 
   /**
    * <p>The default password for the cluster's Pre-Crypto Officer (PRECO) user.</p>
@@ -181,7 +181,7 @@ export interface Cluster {
    */
   SubnetMapping?: { [key: string]: string };
 
-  TagList?: Array<Tag>;
+  TagList?: Tag[];
   /**
    * <p>The identifier (ID) of the virtual private cloud (VPC) that contains the
    *       cluster.</p>
@@ -217,7 +217,7 @@ export interface CopyBackupToRegionRequest {
    */
   DestinationRegion: string | undefined;
 
-  TagList?: Array<Tag>;
+  TagList?: Tag[];
 }
 
 export namespace CopyBackupToRegionRequest {
@@ -270,9 +270,9 @@ export interface CreateClusterRequest {
    *             </li>
    *          </ul>
    */
-  SubnetIds: Array<string> | undefined;
+  SubnetIds: string[] | undefined;
 
-  TagList?: Array<Tag>;
+  TagList?: Tag[];
 }
 
 export namespace CreateClusterRequest {
@@ -442,7 +442,7 @@ export interface DescribeBackupsRequest {
    *          <p>Use the <code>states</code> filter to return only backups that match the specified
    *       state.</p>
    */
-  Filters?: { [key: string]: Array<string> };
+  Filters?: { [key: string]: string[] };
 
   /**
    * <p>The maximum number of backups to return in the response. When there are more backups
@@ -473,7 +473,7 @@ export interface DescribeBackupsResponse {
   /**
    * <p>A list of backups.</p>
    */
-  Backups?: Array<Backup>;
+  Backups?: Backup[];
 
   /**
    * <p>An opaque string that indicates that the response contains only a subset of backups.
@@ -499,7 +499,7 @@ export interface DescribeClustersRequest {
    *          <p>Use the <code>states</code> filter to return only clusters that match the specified
    *       state.</p>
    */
-  Filters?: { [key: string]: Array<string> };
+  Filters?: { [key: string]: string[] };
 
   /**
    * <p>The maximum number of clusters to return in the response. When there are more clusters
@@ -524,7 +524,7 @@ export interface DescribeClustersResponse {
   /**
    * <p>A list of clusters.</p>
    */
-  Clusters?: Array<Cluster>;
+  Clusters?: Cluster[];
 
   /**
    * <p>An opaque string that indicates that the response contains only a subset of clusters.
@@ -712,7 +712,7 @@ export interface ListTagsResponse {
   /**
    * <p>A list of tags.</p>
    */
-  TagList: Array<Tag> | undefined;
+  TagList: Tag[] | undefined;
 }
 
 export namespace ListTagsResponse {
@@ -777,7 +777,7 @@ export interface TagResourceRequest {
   /**
    * <p>A list of one or more tags.</p>
    */
-  TagList: Array<Tag> | undefined;
+  TagList: Tag[] | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -806,7 +806,7 @@ export interface UntagResourceRequest {
    * <p>A list of one or more tag keys for the tags that you are removing. Specify only the tag
    *       keys, not the tag values.</p>
    */
-  TagKeyList: Array<string> | undefined;
+  TagKeyList: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {

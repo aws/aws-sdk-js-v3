@@ -20,7 +20,7 @@ export interface AcceptDirectConnectGatewayAssociationProposalRequest {
    * <p>Overrides the Amazon VPC prefixes advertised to the Direct Connect gateway.</p>
    *          <p>For information about how to set the prefixes, see <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/multi-account-associate-vgw.html#allowed-prefixes">Allowed Prefixes</a> in the <i>AWS Direct Connect User Guide</i>.</p>
    */
-  overrideAllowedPrefixesToDirectConnectGateway?: Array<RouteFilterPrefix>;
+  overrideAllowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[];
 
   /**
    * <p>The ID of the request proposal.</p>
@@ -116,7 +116,7 @@ export interface AllocateHostedConnectionRequest {
   /**
    * <p>The tags associated with the connection.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 
   /**
    * <p>The dedicated VLAN provisioned to the hosted connection.</p>
@@ -800,7 +800,7 @@ export interface Connection {
   /**
    * <p>The tags associated with the connection.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 
   /**
    * <p>The ID of the VLAN.</p>
@@ -828,7 +828,7 @@ export interface Connections {
   /**
    * <p>The connections.</p>
    */
-  connections?: Array<Connection>;
+  connections?: Connection[];
 }
 
 export namespace Connections {
@@ -896,7 +896,7 @@ export interface CreateConnectionRequest {
   /**
    * <p>The tags to associate with the lag.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace CreateConnectionRequest {
@@ -909,7 +909,7 @@ export interface CreateDirectConnectGatewayAssociationProposalRequest {
   /**
    * <p>The Amazon VPC prefixes to advertise to the Direct Connect gateway.</p>
    */
-  addAllowedPrefixesToDirectConnectGateway?: Array<RouteFilterPrefix>;
+  addAllowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[];
 
   /**
    * <p>The ID of the Direct Connect gateway.</p>
@@ -929,7 +929,7 @@ export interface CreateDirectConnectGatewayAssociationProposalRequest {
   /**
    * <p>The Amazon VPC prefixes to no longer advertise to the Direct Connect gateway.</p>
    */
-  removeAllowedPrefixesToDirectConnectGateway?: Array<RouteFilterPrefix>;
+  removeAllowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[];
 }
 
 export namespace CreateDirectConnectGatewayAssociationProposalRequest {
@@ -961,7 +961,7 @@ export interface CreateDirectConnectGatewayAssociationRequest {
    *          <p>This parameter is required when you create an association to a transit gateway.</p>
    *          <p>For information about how to set the prefixes, see <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/multi-account-associate-vgw.html#allowed-prefixes">Allowed Prefixes</a> in the <i>AWS Direct Connect User Guide</i>.</p>
    */
-  addAllowedPrefixesToDirectConnectGateway?: Array<RouteFilterPrefix>;
+  addAllowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[];
 
   /**
    * <p>The ID of the Direct Connect gateway.</p>
@@ -1064,7 +1064,7 @@ export interface CreateInterconnectRequest {
   /**
    * <p>The tags to associate with the interconnect.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace CreateInterconnectRequest {
@@ -1077,7 +1077,7 @@ export interface CreateLagRequest {
   /**
    * <p>The tags to associate with the automtically created LAGs.</p>
    */
-  childConnectionTags?: Array<Tag>;
+  childConnectionTags?: Tag[];
 
   /**
    * <p>The ID of an existing connection to migrate to the LAG.</p>
@@ -1112,7 +1112,7 @@ export interface CreateLagRequest {
   /**
    * <p>The tags to associate with the LAG.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace CreateLagRequest {
@@ -1577,9 +1577,7 @@ export interface DescribeDirectConnectGatewayAssociationProposalsResult {
   /**
    * <p>Describes the Direct Connect gateway association proposals.</p>
    */
-  directConnectGatewayAssociationProposals?: Array<
-    DirectConnectGatewayAssociationProposal
-  >;
+  directConnectGatewayAssociationProposals?: DirectConnectGatewayAssociationProposal[];
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -1642,7 +1640,7 @@ export interface DescribeDirectConnectGatewayAssociationsResult {
   /**
    * <p>Information about the associations.</p>
    */
-  directConnectGatewayAssociations?: Array<DirectConnectGatewayAssociation>;
+  directConnectGatewayAssociations?: DirectConnectGatewayAssociation[];
 
   /**
    * <p>The token to retrieve the next page.</p>
@@ -1695,7 +1693,7 @@ export interface DescribeDirectConnectGatewayAttachmentsResult {
   /**
    * <p>The attachments.</p>
    */
-  directConnectGatewayAttachments?: Array<DirectConnectGatewayAttachment>;
+  directConnectGatewayAttachments?: DirectConnectGatewayAttachment[];
 
   /**
    * <p>The token to retrieve the next page.</p>
@@ -1741,7 +1739,7 @@ export interface DescribeDirectConnectGatewaysResult {
   /**
    * <p>The Direct Connect gateways.</p>
    */
-  directConnectGateways?: Array<DirectConnectGateway>;
+  directConnectGateways?: DirectConnectGateway[];
 
   /**
    * <p>The token to retrieve the next page.</p>
@@ -1858,7 +1856,7 @@ export interface DescribeTagsRequest {
   /**
    * <p>The Amazon Resource Names (ARNs) of the resources.</p>
    */
-  resourceArns: Array<string> | undefined;
+  resourceArns: string[] | undefined;
 }
 
 export namespace DescribeTagsRequest {
@@ -1871,7 +1869,7 @@ export interface DescribeTagsResponse {
   /**
    * <p>Information about the tags.</p>
    */
-  resourceTags?: Array<ResourceTag>;
+  resourceTags?: ResourceTag[];
 }
 
 export namespace DescribeTagsResponse {
@@ -1980,7 +1978,7 @@ export interface DirectConnectGatewayAssociation {
   /**
    * <p>The Amazon VPC prefixes to advertise to the Direct Connect gateway.</p>
    */
-  allowedPrefixesToDirectConnectGateway?: Array<RouteFilterPrefix>;
+  allowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[];
 
   /**
    * <p>Information about the associated gateway.</p>
@@ -2074,7 +2072,7 @@ export interface DirectConnectGatewayAssociationProposal {
   /**
    * <p>The existing Amazon VPC prefixes advertised to the Direct Connect gateway.</p>
    */
-  existingAllowedPrefixesToDirectConnectGateway?: Array<RouteFilterPrefix>;
+  existingAllowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[];
 
   /**
    * <p>The ID of the association proposal.</p>
@@ -2103,7 +2101,7 @@ export interface DirectConnectGatewayAssociationProposal {
   /**
    * <p>The Amazon VPC prefixes to advertise to the Direct Connect gateway.</p>
    */
-  requestedAllowedPrefixesToDirectConnectGateway?: Array<RouteFilterPrefix>;
+  requestedAllowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[];
 }
 
 export namespace DirectConnectGatewayAssociationProposal {
@@ -2368,7 +2366,7 @@ export interface Interconnect {
   /**
    * <p>The tags associated with the interconnect.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace Interconnect {
@@ -2389,7 +2387,7 @@ export interface Interconnects {
   /**
    * <p>The interconnects.</p>
    */
-  interconnects?: Array<Interconnect>;
+  interconnects?: Interconnect[];
 }
 
 export namespace Interconnects {
@@ -2419,7 +2417,7 @@ export interface Lag {
   /**
    * <p>The connections bundled by the LAG.</p>
    */
-  connections?: Array<Connection>;
+  connections?: Connection[];
 
   /**
    * <p>The individual bandwidth of the physical connections bundled by the LAG. The possible
@@ -2516,7 +2514,7 @@ export interface Lag {
   /**
    * <p>The tags associated with the LAG.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace Lag {
@@ -2537,7 +2535,7 @@ export interface Lags {
   /**
    * <p>The LAGs.</p>
    */
-  lags?: Array<Lag>;
+  lags?: Lag[];
 }
 
 export namespace Lags {
@@ -2576,12 +2574,12 @@ export interface Location {
   /**
    * <p>The available port speeds for the location.</p>
    */
-  availablePortSpeeds?: Array<string>;
+  availablePortSpeeds?: string[];
 
   /**
    * <p>The name of the service provider for the location.</p>
    */
-  availableProviders?: Array<string>;
+  availableProviders?: string[];
 
   /**
    * <p>The code for the location.</p>
@@ -2608,7 +2606,7 @@ export interface Locations {
   /**
    * <p>The locations.</p>
    */
-  locations?: Array<Location>;
+  locations?: Location[];
 }
 
 export namespace Locations {
@@ -2694,7 +2692,7 @@ export interface NewPrivateVirtualInterface {
   /**
    * <p>The tags associated with the private virtual interface.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 
   /**
    * <p>The ID of the virtual private gateway.</p>
@@ -2756,7 +2754,7 @@ export interface NewPrivateVirtualInterfaceAllocation {
   /**
    * <p>The tags associated with the private virtual interface.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 
   /**
    * <p>The name of the virtual interface assigned by the customer network.</p>
@@ -2808,12 +2806,12 @@ export interface NewPublicVirtualInterface {
   /**
    * <p>The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.</p>
    */
-  routeFilterPrefixes?: Array<RouteFilterPrefix>;
+  routeFilterPrefixes?: RouteFilterPrefix[];
 
   /**
    * <p>The tags associated with the public virtual interface.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 
   /**
    * <p>The name of the virtual interface assigned by the customer network.</p>
@@ -2865,12 +2863,12 @@ export interface NewPublicVirtualInterfaceAllocation {
   /**
    * <p>The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.</p>
    */
-  routeFilterPrefixes?: Array<RouteFilterPrefix>;
+  routeFilterPrefixes?: RouteFilterPrefix[];
 
   /**
    * <p>The tags associated with the public virtual interface.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 
   /**
    * <p>The name of the virtual interface assigned by the customer network.</p>
@@ -2932,7 +2930,7 @@ export interface NewTransitVirtualInterface {
   /**
    * <p>The tags associated with the transitive virtual interface.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 
   /**
    * <p>The name of the virtual interface assigned by the customer network.</p>
@@ -2989,7 +2987,7 @@ export interface NewTransitVirtualInterfaceAllocation {
   /**
    * <p>The tags associated with the transitive virtual interface.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 
   /**
    * <p>The name of the virtual interface assigned by the customer network.</p>
@@ -3020,7 +3018,7 @@ export interface ResourceTag {
   /**
    * <p>The tags.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace ResourceTag {
@@ -3074,7 +3072,7 @@ export interface TagResourceRequest {
   /**
    * <p>The tags to add.</p>
    */
-  tags: Array<Tag> | undefined;
+  tags: Tag[] | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -3117,7 +3115,7 @@ export interface UntagResourceRequest {
   /**
    * <p>The tag keys of the tags to remove.</p>
    */
-  tagKeys: Array<string> | undefined;
+  tagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -3139,7 +3137,7 @@ export interface UpdateDirectConnectGatewayAssociationRequest {
   /**
    * <p>The Amazon VPC prefixes to advertise to the Direct Connect gateway.</p>
    */
-  addAllowedPrefixesToDirectConnectGateway?: Array<RouteFilterPrefix>;
+  addAllowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[];
 
   /**
    * <p>The ID of the Direct Connect gateway association.</p>
@@ -3149,7 +3147,7 @@ export interface UpdateDirectConnectGatewayAssociationRequest {
   /**
    * <p>The Amazon VPC prefixes to no longer advertise to the Direct Connect gateway.</p>
    */
-  removeAllowedPrefixesToDirectConnectGateway?: Array<RouteFilterPrefix>;
+  removeAllowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[];
 }
 
 export namespace UpdateDirectConnectGatewayAssociationRequest {
@@ -3259,7 +3257,7 @@ export interface VirtualGateways {
   /**
    * <p>The virtual private gateways.</p>
    */
-  virtualGateways?: Array<VirtualGateway>;
+  virtualGateways?: VirtualGateway[];
 }
 
 export namespace VirtualGateways {
@@ -3307,7 +3305,7 @@ export interface VirtualInterface {
   /**
    * <p>The BGP peers configured on this virtual interface.</p>
    */
-  bgpPeers?: Array<BGPPeer>;
+  bgpPeers?: BGPPeer[];
 
   /**
    * <p>The ID of the connection.</p>
@@ -3357,12 +3355,12 @@ export interface VirtualInterface {
   /**
    * <p>The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.</p>
    */
-  routeFilterPrefixes?: Array<RouteFilterPrefix>;
+  routeFilterPrefixes?: RouteFilterPrefix[];
 
   /**
    * <p>The tags associated with the virtual interface.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 
   /**
    * <p>The ID of the virtual private gateway. Applies only to private virtual interfaces.</p>
@@ -3454,7 +3452,7 @@ export interface VirtualInterfaces {
   /**
    * <p>The virtual interfaces</p>
    */
-  virtualInterfaces?: Array<VirtualInterface>;
+  virtualInterfaces?: VirtualInterface[];
 }
 
 export namespace VirtualInterfaces {

@@ -975,7 +975,7 @@ const deserializeAws_restJson1_1JobExecutionSummary = (
 const deserializeAws_restJson1_1JobExecutionSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<JobExecutionSummary> => {
+): JobExecutionSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1JobExecutionSummary(entry, context)
   );

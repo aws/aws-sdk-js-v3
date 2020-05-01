@@ -83,7 +83,7 @@ export interface AssociateNodeRequest {
    *             </li>
    *          </ul>
    */
-  EngineAttributes: Array<EngineAttribute> | undefined;
+  EngineAttributes: EngineAttribute[] | undefined;
 
   /**
    * <p>The name of the node.
@@ -240,7 +240,7 @@ export interface Backup {
    *       The security group IDs that are obtained from the server when the backup is created.
    *     </p>
    */
-  SecurityGroupIds?: Array<string>;
+  SecurityGroupIds?: string[];
 
   /**
    * <p>
@@ -274,7 +274,7 @@ export interface Backup {
    *       The subnet IDs that are obtained from the server when the backup is created.
    *     </p>
    */
-  SubnetIds?: Array<string>;
+  SubnetIds?: string[];
 
   /**
    * <p>
@@ -344,7 +344,7 @@ export interface CreateBackupRequest {
    *             </li>
    *          </ul>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateBackupRequest {
@@ -487,7 +487,7 @@ export interface CreateServerRequest {
    *             </li>
    *          </ul>
    */
-  EngineAttributes?: Array<EngineAttribute>;
+  EngineAttributes?: EngineAttribute[];
 
   /**
    * <p>
@@ -578,7 +578,7 @@ export interface CreateServerRequest {
    *       0.0.0.0/0 (everyone).
    *     </p>
    */
-  SecurityGroupIds?: Array<string>;
+  SecurityGroupIds?: string[];
 
   /**
    * <p>
@@ -611,7 +611,7 @@ export interface CreateServerRequest {
    *          <p>For more information about supported Amazon EC2 platforms, see
    *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported Platforms</a>.</p>
    */
-  SubnetIds?: Array<string>;
+  SubnetIds?: string[];
 
   /**
    * <p>A map that contains tag keys and tag values to attach to an AWS OpsWorks for Chef Automate or AWS OpsWorks for Puppet Enterprise server.</p>
@@ -635,7 +635,7 @@ export interface CreateServerRequest {
    *             </li>
    *          </ul>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateServerRequest {
@@ -719,7 +719,7 @@ export interface DescribeAccountAttributesResponse {
    *       The attributes that are currently set for the account.
    *     </p>
    */
-  Attributes?: Array<AccountAttribute>;
+  Attributes?: AccountAttribute[];
 }
 
 export namespace DescribeAccountAttributesResponse {
@@ -763,7 +763,7 @@ export interface DescribeBackupsResponse {
    * <p>Contains the response to a <code>DescribeBackups</code> request.
    *     </p>
    */
-  Backups?: Array<Backup>;
+  Backups?: Backup[];
 
   /**
    * <p>This is not currently implemented for <code>DescribeBackups</code> requests.</p>
@@ -828,7 +828,7 @@ export interface DescribeEventsResponse {
    * <p>Contains the response to a <code>DescribeEvents</code> request.
    *     </p>
    */
-  ServerEvents?: Array<ServerEvent>;
+  ServerEvents?: ServerEvent[];
 }
 
 export namespace DescribeEventsResponse {
@@ -863,7 +863,7 @@ export interface DescribeNodeAssociationStatusResponse {
    *       In Puppet, the attibute PUPPET_NODE_CERT contains the signed certificate (the result of the CSR).
    *     </p>
    */
-  EngineAttributes?: Array<EngineAttribute>;
+  EngineAttributes?: EngineAttribute[];
 
   /**
    * <p>The status of the association or disassociation request.
@@ -939,7 +939,7 @@ export interface DescribeServersResponse {
    *       PUPPET_API_CA_CERT. This is the PEM-encoded CA certificate that is used by the Puppet API over TCP port number 8140.
    *       The CA certificate is also used to sign node certificates.</p>
    */
-  Servers?: Array<Server>;
+  Servers?: Server[];
 }
 
 export namespace DescribeServersResponse {
@@ -965,7 +965,7 @@ export interface DisassociateNodeRequest {
    *             </li>
    *          </ul>
    */
-  EngineAttributes?: Array<EngineAttribute>;
+  EngineAttributes?: EngineAttribute[];
 
   /**
    * <p>The name of the client node.
@@ -1061,7 +1061,7 @@ export interface ExportServerEngineAttributeRequest {
    *             </li>
    *          </ul>
    */
-  InputAttributes?: Array<EngineAttribute>;
+  InputAttributes?: EngineAttribute[];
 
   /**
    * <p>The name of the server from which you are exporting the attribute.</p>
@@ -1199,7 +1199,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>Tags that have been applied to the resource.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace ListTagsForResourceResponse {
@@ -1401,7 +1401,7 @@ export interface Server {
    *             </li>
    *          </ul>
    */
-  EngineAttributes?: Array<EngineAttribute>;
+  EngineAttributes?: EngineAttribute[];
 
   /**
    * <p>The engine model of the server. Valid values in this release include <code>Monolithic</code> for Puppet and <code>Single</code> for Chef.
@@ -1458,7 +1458,7 @@ export interface Server {
    *       These might not be the same security groups that are shown in the EC2 console.
    *     </p>
    */
-  SecurityGroupIds?: Array<string>;
+  SecurityGroupIds?: string[];
 
   /**
    * <p>The ARN of the server.
@@ -1499,7 +1499,7 @@ export interface Server {
    *       The subnet IDs specified in a CreateServer request.
    *     </p>
    */
-  SubnetIds?: Array<string>;
+  SubnetIds?: string[];
 }
 
 export namespace Server {
@@ -1560,7 +1560,7 @@ export interface StartMaintenanceRequest {
   /**
    * <p>Engine attributes that are specific to the server on which you want to run maintenance.</p>
    */
-  EngineAttributes?: Array<EngineAttribute>;
+  EngineAttributes?: EngineAttribute[];
 
   /**
    * <p>The name of the server on which to run maintenance.
@@ -1644,7 +1644,7 @@ export interface TagResourceRequest {
    *             </li>
    *          </ul>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -1672,7 +1672,7 @@ export interface UntagResourceRequest {
   /**
    * <p>The keys of tags that you want to remove.</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {

@@ -8988,7 +8988,7 @@ const serializeAws_json1_1AlarmConfiguration = (
 };
 
 const serializeAws_json1_1AlarmList = (
-  input: Array<Alarm>,
+  input: Alarm[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -9013,7 +9013,7 @@ const serializeAws_json1_1AppSpecContent = (
 };
 
 const serializeAws_json1_1ApplicationsList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -9041,7 +9041,7 @@ const serializeAws_json1_1AutoRollbackConfiguration = (
 };
 
 const serializeAws_json1_1AutoRollbackEventsList = (
-  input: Array<AutoRollbackEvent | string>,
+  input: (AutoRollbackEvent | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -9052,7 +9052,7 @@ const serializeAws_json1_1AutoRollbackEventsList = (
 };
 
 const serializeAws_json1_1AutoScalingGroupNameList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -9482,7 +9482,7 @@ const serializeAws_json1_1DeleteGitHubAccountTokenInput = (
 };
 
 const serializeAws_json1_1DeploymentGroupsList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -9507,7 +9507,7 @@ const serializeAws_json1_1DeploymentReadyOption = (
 };
 
 const serializeAws_json1_1DeploymentStatusList = (
-  input: Array<DeploymentStatus | string>,
+  input: (DeploymentStatus | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -9532,7 +9532,7 @@ const serializeAws_json1_1DeploymentStyle = (
 };
 
 const serializeAws_json1_1DeploymentsList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -9571,7 +9571,7 @@ const serializeAws_json1_1EC2TagFilter = (
 };
 
 const serializeAws_json1_1EC2TagFilterList = (
-  input: Array<EC2TagFilter>,
+  input: EC2TagFilter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -9596,7 +9596,7 @@ const serializeAws_json1_1EC2TagSet = (
 };
 
 const serializeAws_json1_1EC2TagSetList = (
-  input: Array<Array<EC2TagFilter>>,
+  input: EC2TagFilter[][],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -9621,7 +9621,7 @@ const serializeAws_json1_1ECSService = (
 };
 
 const serializeAws_json1_1ECSServiceList = (
-  input: Array<ECSService>,
+  input: ECSService[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -9643,7 +9643,7 @@ const serializeAws_json1_1ELBInfo = (
 };
 
 const serializeAws_json1_1ELBInfoList = (
-  input: Array<ELBInfo>,
+  input: ELBInfo[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -9654,7 +9654,7 @@ const serializeAws_json1_1ELBInfoList = (
 };
 
 const serializeAws_json1_1FilterValueList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -9793,7 +9793,7 @@ const serializeAws_json1_1GreenFleetProvisioningOption = (
 };
 
 const serializeAws_json1_1InstanceNameList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -9804,7 +9804,7 @@ const serializeAws_json1_1InstanceNameList = (
 };
 
 const serializeAws_json1_1InstanceStatusList = (
-  input: Array<InstanceStatus | string>,
+  input: (InstanceStatus | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -9815,7 +9815,7 @@ const serializeAws_json1_1InstanceStatusList = (
 };
 
 const serializeAws_json1_1InstanceTypeList = (
-  input: Array<_InstanceType | string>,
+  input: (_InstanceType | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -9826,7 +9826,7 @@ const serializeAws_json1_1InstanceTypeList = (
 };
 
 const serializeAws_json1_1InstancesList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -10024,7 +10024,7 @@ const serializeAws_json1_1ListTagsForResourceInput = (
 };
 
 const serializeAws_json1_1ListenerArnList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -10093,7 +10093,7 @@ const serializeAws_json1_1OnPremisesTagSet = (
 };
 
 const serializeAws_json1_1OnPremisesTagSetList = (
-  input: Array<Array<TagFilter>>,
+  input: TagFilter[][],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -10222,7 +10222,7 @@ const serializeAws_json1_1RevisionLocation = (
 };
 
 const serializeAws_json1_1RevisionLocationList = (
-  input: Array<RevisionLocation>,
+  input: RevisionLocation[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -10309,7 +10309,7 @@ const serializeAws_json1_1TagFilter = (
 };
 
 const serializeAws_json1_1TagFilterList = (
-  input: Array<TagFilter>,
+  input: TagFilter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -10320,7 +10320,7 @@ const serializeAws_json1_1TagFilterList = (
 };
 
 const serializeAws_json1_1TagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -10331,7 +10331,7 @@ const serializeAws_json1_1TagKeyList = (
 };
 
 const serializeAws_json1_1TagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -10356,7 +10356,7 @@ const serializeAws_json1_1TagResourceInput = (
 };
 
 const serializeAws_json1_1TargetFilters = (
-  input: { [key: string]: Array<string> },
+  input: { [key: string]: string[] },
   context: __SerdeContext
 ): any => {
   const mapParams: any = {};
@@ -10378,7 +10378,7 @@ const serializeAws_json1_1TargetGroupInfo = (
 };
 
 const serializeAws_json1_1TargetGroupInfoList = (
-  input: Array<TargetGroupInfo>,
+  input: TargetGroupInfo[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -10415,7 +10415,7 @@ const serializeAws_json1_1TargetGroupPairInfo = (
 };
 
 const serializeAws_json1_1TargetGroupPairInfoList = (
-  input: Array<TargetGroupPairInfo>,
+  input: TargetGroupPairInfo[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -10426,7 +10426,7 @@ const serializeAws_json1_1TargetGroupPairInfoList = (
 };
 
 const serializeAws_json1_1TargetIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -10564,7 +10564,7 @@ const serializeAws_json1_1TriggerConfig = (
 };
 
 const serializeAws_json1_1TriggerConfigList = (
-  input: Array<TriggerConfig>,
+  input: TriggerConfig[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -10575,7 +10575,7 @@ const serializeAws_json1_1TriggerConfigList = (
 };
 
 const serializeAws_json1_1TriggerEventTypeList = (
-  input: Array<TriggerEventType | string>,
+  input: (TriggerEventType | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -10761,7 +10761,7 @@ const deserializeAws_json1_1AlarmConfiguration = (
 const deserializeAws_json1_1AlarmList = (
   output: any,
   context: __SerdeContext
-): Array<Alarm> => {
+): Alarm[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Alarm(entry, context)
   );
@@ -10895,7 +10895,7 @@ const deserializeAws_json1_1ApplicationNameRequiredException = (
 const deserializeAws_json1_1ApplicationsInfoList = (
   output: any,
   context: __SerdeContext
-): Array<ApplicationInfo> => {
+): ApplicationInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ApplicationInfo(entry, context)
   );
@@ -10904,7 +10904,7 @@ const deserializeAws_json1_1ApplicationsInfoList = (
 const deserializeAws_json1_1ApplicationsList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -10946,7 +10946,7 @@ const deserializeAws_json1_1AutoRollbackConfiguration = (
 const deserializeAws_json1_1AutoRollbackEventsList = (
   output: any,
   context: __SerdeContext
-): Array<AutoRollbackEvent | string> => {
+): (AutoRollbackEvent | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -10971,7 +10971,7 @@ const deserializeAws_json1_1AutoScalingGroup = (
 const deserializeAws_json1_1AutoScalingGroupList = (
   output: any,
   context: __SerdeContext
-): Array<AutoScalingGroup> => {
+): AutoScalingGroup[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AutoScalingGroup(entry, context)
   );
@@ -10980,7 +10980,7 @@ const deserializeAws_json1_1AutoScalingGroupList = (
 const deserializeAws_json1_1AutoScalingGroupNameList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -11455,7 +11455,7 @@ const deserializeAws_json1_1DeploymentConfigNameRequiredException = (
 const deserializeAws_json1_1DeploymentConfigsList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -11682,7 +11682,7 @@ const deserializeAws_json1_1DeploymentGroupInfo = (
 const deserializeAws_json1_1DeploymentGroupInfoList = (
   output: any,
   context: __SerdeContext
-): Array<DeploymentGroupInfo> => {
+): DeploymentGroupInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DeploymentGroupInfo(entry, context)
   );
@@ -11719,7 +11719,7 @@ const deserializeAws_json1_1DeploymentGroupNameRequiredException = (
 const deserializeAws_json1_1DeploymentGroupsList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -12033,7 +12033,7 @@ const deserializeAws_json1_1DeploymentReadyOption = (
 const deserializeAws_json1_1DeploymentStatusMessageList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -12127,7 +12127,7 @@ const deserializeAws_json1_1DeploymentTargetIdRequiredException = (
 const deserializeAws_json1_1DeploymentTargetList = (
   output: any,
   context: __SerdeContext
-): Array<DeploymentTarget> => {
+): DeploymentTarget[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DeploymentTarget(entry, context)
   );
@@ -12150,7 +12150,7 @@ const deserializeAws_json1_1DeploymentTargetListSizeExceededException = (
 const deserializeAws_json1_1DeploymentsInfoList = (
   output: any,
   context: __SerdeContext
-): Array<DeploymentInfo> => {
+): DeploymentInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DeploymentInfo(entry, context)
   );
@@ -12159,7 +12159,7 @@ const deserializeAws_json1_1DeploymentsInfoList = (
 const deserializeAws_json1_1DeploymentsList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -12228,7 +12228,7 @@ const deserializeAws_json1_1EC2TagFilter = (
 const deserializeAws_json1_1EC2TagFilterList = (
   output: any,
   context: __SerdeContext
-): Array<EC2TagFilter> => {
+): EC2TagFilter[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EC2TagFilter(entry, context)
   );
@@ -12254,7 +12254,7 @@ const deserializeAws_json1_1EC2TagSet = (
 const deserializeAws_json1_1EC2TagSetList = (
   output: any,
   context: __SerdeContext
-): Array<Array<EC2TagFilter>> => {
+): EC2TagFilter[][] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EC2TagFilterList(entry, context)
   );
@@ -12281,7 +12281,7 @@ const deserializeAws_json1_1ECSService = (
 const deserializeAws_json1_1ECSServiceList = (
   output: any,
   context: __SerdeContext
-): Array<ECSService> => {
+): ECSService[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ECSService(entry, context)
   );
@@ -12393,7 +12393,7 @@ const deserializeAws_json1_1ECSTaskSet = (
 const deserializeAws_json1_1ECSTaskSetList = (
   output: any,
   context: __SerdeContext
-): Array<ECSTaskSet> => {
+): ECSTaskSet[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ECSTaskSet(entry, context)
   );
@@ -12416,7 +12416,7 @@ const deserializeAws_json1_1ELBInfo = (
 const deserializeAws_json1_1ELBInfoList = (
   output: any,
   context: __SerdeContext
-): Array<ELBInfo> => {
+): ELBInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ELBInfo(entry, context)
   );
@@ -12649,7 +12649,7 @@ const deserializeAws_json1_1GitHubAccountTokenDoesNotExistException = (
 const deserializeAws_json1_1GitHubAccountTokenNameList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -12826,7 +12826,7 @@ const deserializeAws_json1_1InstanceInfo = (
 const deserializeAws_json1_1InstanceInfoList = (
   output: any,
   context: __SerdeContext
-): Array<InstanceInfo> => {
+): InstanceInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1InstanceInfo(entry, context)
   );
@@ -12863,7 +12863,7 @@ const deserializeAws_json1_1InstanceNameAlreadyRegisteredException = (
 const deserializeAws_json1_1InstanceNameList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -12935,7 +12935,7 @@ const deserializeAws_json1_1InstanceSummary = (
 const deserializeAws_json1_1InstanceSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<InstanceSummary> => {
+): InstanceSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1InstanceSummary(entry, context)
   );
@@ -12985,7 +12985,7 @@ const deserializeAws_json1_1InstanceTarget = (
 const deserializeAws_json1_1InstancesList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -13890,7 +13890,7 @@ const deserializeAws_json1_1LifecycleEventAlreadyCompletedException = (
 const deserializeAws_json1_1LifecycleEventList = (
   output: any,
   context: __SerdeContext
-): Array<LifecycleEvent> => {
+): LifecycleEvent[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1LifecycleEvent(entry, context)
   );
@@ -14130,7 +14130,7 @@ const deserializeAws_json1_1ListTagsForResourceOutput = (
 const deserializeAws_json1_1ListenerArnList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -14226,7 +14226,7 @@ const deserializeAws_json1_1OnPremisesTagSet = (
 const deserializeAws_json1_1OnPremisesTagSetList = (
   output: any,
   context: __SerdeContext
-): Array<Array<TagFilter>> => {
+): TagFilter[][] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1TagFilterList(entry, context)
   );
@@ -14357,7 +14357,7 @@ const deserializeAws_json1_1RevisionInfo = (
 const deserializeAws_json1_1RevisionInfoList = (
   output: any,
   context: __SerdeContext
-): Array<RevisionInfo> => {
+): RevisionInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RevisionInfo(entry, context)
   );
@@ -14405,7 +14405,7 @@ const deserializeAws_json1_1RevisionLocation = (
 const deserializeAws_json1_1RevisionLocationList = (
   output: any,
   context: __SerdeContext
-): Array<RevisionLocation> => {
+): RevisionLocation[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RevisionLocation(entry, context)
   );
@@ -14559,7 +14559,7 @@ const deserializeAws_json1_1TagFilter = (
 const deserializeAws_json1_1TagFilterList = (
   output: any,
   context: __SerdeContext
-): Array<TagFilter> => {
+): TagFilter[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1TagFilter(entry, context)
   );
@@ -14582,7 +14582,7 @@ const deserializeAws_json1_1TagLimitExceededException = (
 const deserializeAws_json1_1TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );
@@ -14643,7 +14643,7 @@ const deserializeAws_json1_1TargetGroupInfo = (
 const deserializeAws_json1_1TargetGroupInfoList = (
   output: any,
   context: __SerdeContext
-): Array<TargetGroupInfo> => {
+): TargetGroupInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1TargetGroupInfo(entry, context)
   );
@@ -14689,7 +14689,7 @@ const deserializeAws_json1_1TargetGroupPairInfo = (
 const deserializeAws_json1_1TargetGroupPairInfoList = (
   output: any,
   context: __SerdeContext
-): Array<TargetGroupPairInfo> => {
+): TargetGroupPairInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1TargetGroupPairInfo(entry, context)
   );
@@ -14698,7 +14698,7 @@ const deserializeAws_json1_1TargetGroupPairInfoList = (
 const deserializeAws_json1_1TargetIdList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -14868,7 +14868,7 @@ const deserializeAws_json1_1TriggerConfig = (
 const deserializeAws_json1_1TriggerConfigList = (
   output: any,
   context: __SerdeContext
-): Array<TriggerConfig> => {
+): TriggerConfig[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1TriggerConfig(entry, context)
   );
@@ -14877,7 +14877,7 @@ const deserializeAws_json1_1TriggerConfigList = (
 const deserializeAws_json1_1TriggerEventTypeList = (
   output: any,
   context: __SerdeContext
-): Array<TriggerEventType | string> => {
+): (TriggerEventType | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 

@@ -36,7 +36,7 @@ export interface AddFlowOutputsRequest {
   /**
    * A list of outputs that you want to add.
    */
-  Outputs: Array<AddOutputRequest> | undefined;
+  Outputs: AddOutputRequest[] | undefined;
 }
 
 export namespace AddFlowOutputsRequest {
@@ -54,7 +54,7 @@ export interface AddFlowOutputsResponse {
   /**
    * The details of the newly added outputs.
    */
-  Outputs?: Array<Output>;
+  Outputs?: Output[];
 }
 
 export namespace AddFlowOutputsResponse {
@@ -70,7 +70,7 @@ export interface AddOutputRequest {
   /**
    * The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
    */
-  CidrAllowList?: Array<string>;
+  CidrAllowList?: string[];
 
   /**
    * A description of the output. This description appears only on the AWS Elemental MediaConnect console and will not be seen by the end user.
@@ -185,7 +185,7 @@ export interface CreateFlowRequest {
   /**
    * The entitlements that you want to grant on a flow.
    */
-  Entitlements?: Array<GrantEntitlementRequest>;
+  Entitlements?: GrantEntitlementRequest[];
 
   /**
    * The name of the flow.
@@ -195,7 +195,7 @@ export interface CreateFlowRequest {
   /**
    * The outputs that you want to add to this flow.
    */
-  Outputs?: Array<AddOutputRequest>;
+  Outputs?: AddOutputRequest[];
 
   /**
    * The settings for the source of the flow.
@@ -371,7 +371,7 @@ export interface Entitlement {
   /**
    * The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.
    */
-  Subscribers: Array<string> | undefined;
+  Subscribers: string[] | undefined;
 }
 
 export namespace Entitlement {
@@ -401,7 +401,7 @@ export interface Flow {
   /**
    * The entitlements in this flow.
    */
-  Entitlements: Array<Entitlement> | undefined;
+  Entitlements: Entitlement[] | undefined;
 
   /**
    * The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
@@ -416,7 +416,7 @@ export interface Flow {
   /**
    * The outputs in this flow.
    */
-  Outputs: Array<Output> | undefined;
+  Outputs: Output[] | undefined;
 
   /**
    * The settings for the source of the flow.
@@ -478,7 +478,7 @@ export interface GrantEntitlementRequest {
   /**
    * The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flows using your content as the source.
    */
-  Subscribers: Array<string> | undefined;
+  Subscribers: string[] | undefined;
 }
 
 export namespace GrantEntitlementRequest {
@@ -513,7 +513,7 @@ export interface GrantFlowEntitlementsRequest {
   /**
    * The list of entitlements that you want to grant.
    */
-  Entitlements: Array<GrantEntitlementRequest> | undefined;
+  Entitlements: GrantEntitlementRequest[] | undefined;
 
   /**
    * The flow that you want to grant entitlements on.
@@ -531,7 +531,7 @@ export interface GrantFlowEntitlementsResponse {
   /**
    * The entitlements that were just granted.
    */
-  Entitlements?: Array<Entitlement>;
+  Entitlements?: Entitlement[];
 
   /**
    * The ARN of the flow that these entitlements were granted to.
@@ -591,7 +591,7 @@ export interface ListEntitlementsResponse {
   /**
    * A list of entitlements that have been granted to you from other AWS accounts.
    */
-  Entitlements?: Array<ListedEntitlement>;
+  Entitlements?: ListedEntitlement[];
 
   /**
    * The token that identifies which batch of results that you want to see. For example, you submit a ListEntitlements request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the ListEntitlements request a second time and specify the NextToken value.
@@ -627,7 +627,7 @@ export interface ListFlowsResponse {
   /**
    * A list of flow summaries.
    */
-  Flows?: Array<ListedFlow>;
+  Flows?: ListedFlow[];
 
   /**
    * The token that identifies which batch of results that you want to see. For example, you submit a ListFlows request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the ListFlows request a second time and specify the NextToken value.
@@ -740,7 +740,7 @@ export interface Messages {
   /**
    * A list of errors that might have been generated from processes on this flow.
    */
-  Errors: Array<string> | undefined;
+  Errors: string[] | undefined;
 }
 
 export namespace Messages {
@@ -1169,7 +1169,7 @@ export interface Transport {
   /**
    * The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
    */
-  CidrAllowList?: Array<string>;
+  CidrAllowList?: string[];
 
   /**
    * The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
@@ -1216,7 +1216,7 @@ export interface UntagResourceRequest {
   /**
    * The keys of the tags to be removed.
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -1308,7 +1308,7 @@ export interface UpdateFlowEntitlementRequest {
   /**
    * The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.
    */
-  Subscribers?: Array<string>;
+  Subscribers?: string[];
 }
 
 export namespace UpdateFlowEntitlementRequest {
@@ -1342,7 +1342,7 @@ export interface UpdateFlowOutputRequest {
   /**
    * The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
    */
-  CidrAllowList?: Array<string>;
+  CidrAllowList?: string[];
 
   /**
    * A description of the output. This description appears only on the AWS Elemental MediaConnect console and will not be seen by the end user.

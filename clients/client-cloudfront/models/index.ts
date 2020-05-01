@@ -29,7 +29,7 @@ export interface ActiveTrustedSigners {
    * <p>A complex type that contains one <code>Signer</code> complex type for each trusted
    * 			signer that is specified in the <code>TrustedSigners</code> complex type.</p>
    */
-  Items?: Array<Signer>;
+  Items?: Signer[];
 
   /**
    * <p>The number of trusted signers specified in the <code>TrustedSigners</code> complex type.</p>
@@ -99,7 +99,7 @@ export interface Aliases {
    * <p>A complex type that contains the CNAME aliases, if any, that you want to associate with
    * 			this distribution.</p>
    */
-  Items?: Array<string>;
+  Items?: string[];
 
   /**
    * <p>The number of CNAME aliases, if any, that you want to associate with this
@@ -157,7 +157,7 @@ export interface AllowedMethods {
    * <p>A complex type that contains the HTTP methods that you want CloudFront to process and forward
    * 			to your origin.</p>
    */
-  Items: Array<Method | string> | undefined;
+  Items: (Method | string)[] | undefined;
 
   /**
    * <p>The number of HTTP methods that you want CloudFront to forward to your origin. Valid values
@@ -380,7 +380,7 @@ export interface CacheBehaviors {
    * <p>Optional: A complex type that contains cache behaviors for this distribution. If
    * 				<code>Quantity</code> is <code>0</code>, you can omit <code>Items</code>.</p>
    */
-  Items?: Array<CacheBehavior>;
+  Items?: CacheBehavior[];
 
   /**
    * <p>The number of cache behaviors for this distribution. </p>
@@ -415,7 +415,7 @@ export interface CachedMethods {
    * <p>A complex type that contains the HTTP methods that you want CloudFront to cache responses
    * 			to.</p>
    */
-  Items: Array<Method | string> | undefined;
+  Items: (Method | string)[] | undefined;
 
   /**
    * <p>The number of HTTP methods for which you want CloudFront to cache responses. Valid values are
@@ -517,7 +517,7 @@ export interface CloudFrontOriginAccessIdentityList {
    * 			element for each origin access identity that was created by the current AWS
    * 			account.</p>
    */
-  Items?: Array<CloudFrontOriginAccessIdentitySummary>;
+  Items?: CloudFrontOriginAccessIdentitySummary[];
 
   /**
    * <p>Use this when paginating results to indicate where to begin in your list of origin
@@ -640,7 +640,7 @@ export interface ContentTypeProfiles {
   /**
    * <p>Items in a field-level encryption content type-profile mapping. </p>
    */
-  Items?: Array<ContentTypeProfile>;
+  Items?: ContentTypeProfile[];
 
   /**
    * <p>The number of field-level encryption content type-profile mappings. </p>
@@ -665,7 +665,7 @@ export interface CookieNames {
    * <p>A complex type that contains one <code>Name</code> element for each cookie that you
    * 			want CloudFront to forward to the origin for this cache behavior.</p>
    */
-  Items?: Array<string>;
+  Items?: string[];
 
   /**
    * <p>The number of different cookies that you want CloudFront to forward to the origin for this
@@ -1214,7 +1214,7 @@ export interface CustomErrorResponses {
    * 			status code for which you want to specify a custom error page and/or a caching duration.
    * 		</p>
    */
-  Items?: Array<CustomErrorResponse>;
+  Items?: CustomErrorResponse[];
 
   /**
    * <p>The number of HTTP status codes for which you want to specify a custom error page
@@ -1240,7 +1240,7 @@ export interface CustomHeaders {
    * 				<code>OriginCustomHeader</code> element for each custom header that you want CloudFront to forward
    * 			to the origin. If Quantity is <code>0</code>, omit <code>Items</code>.</p>
    */
-  Items?: Array<OriginCustomHeader>;
+  Items?: OriginCustomHeader[];
 
   /**
    * <p>The number of custom headers, if any, for this distribution.</p>
@@ -1665,7 +1665,7 @@ export interface Distribution {
    * 		       <p>For more information about ICP recordals, see  <a href="https://docs.amazonaws.cn/en_us/aws/latest/userguide/accounts-and-credentials.html">
    * 			Signup, Accounts, and Credentials</a> in <i>Getting Started with AWS services in China</i>.</p>
    */
-  AliasICPRecordals?: Array<AliasICPRecordal>;
+  AliasICPRecordals?: AliasICPRecordal[];
 
   /**
    * <p>The current configuration information for the distribution. Send a <code>GET</code>
@@ -1950,7 +1950,7 @@ export interface DistributionList {
    * <p>A complex type that contains one <code>DistributionSummary</code> element for each
    * 			distribution that was created by the current AWS account.</p>
    */
-  Items?: Array<DistributionSummary>;
+  Items?: DistributionSummary[];
 
   /**
    * <p>The value you provided for the <code>Marker</code> request parameter.</p>
@@ -1999,7 +1999,7 @@ export interface DistributionSummary {
    * 		       <p>For more information about ICP recordals, see  <a href="https://docs.amazonaws.cn/en_us/aws/latest/userguide/accounts-and-credentials.html">
    * 			Signup, Accounts, and Credentials</a> in <i>Getting Started with AWS services in China</i>.</p>
    */
-  AliasICPRecordals?: Array<AliasICPRecordal>;
+  AliasICPRecordals?: AliasICPRecordal[];
 
   /**
    * <p>A complex type that contains information about CNAMEs (alternate domain names), if any,
@@ -2121,7 +2121,7 @@ export interface EncryptionEntities {
   /**
    * <p>An array of field patterns in a field-level encryption content type-profile mapping. </p>
    */
-  Items?: Array<EncryptionEntity>;
+  Items?: EncryptionEntity[];
 
   /**
    * <p>Number of field pattern items in a field-level encryption content type-profile mapping. </p>
@@ -2238,7 +2238,7 @@ export interface FieldLevelEncryptionList {
   /**
    * <p>An array of field-level encryption items.</p>
    */
-  Items?: Array<FieldLevelEncryptionSummary>;
+  Items?: FieldLevelEncryptionSummary[];
 
   /**
    * <p>The maximum number of elements you want in the response body. </p>
@@ -2332,7 +2332,7 @@ export interface FieldLevelEncryptionProfileList {
   /**
    * <p>The field-level encryption profile items.</p>
    */
-  Items?: Array<FieldLevelEncryptionProfileSummary>;
+  Items?: FieldLevelEncryptionProfileSummary[];
 
   /**
    * <p>The maximum number of field-level encryption profiles you want in the response body. </p>
@@ -2442,7 +2442,7 @@ export interface FieldPatterns {
   /**
    * <p>An array of the field-level encryption field patterns.</p>
    */
-  Items?: Array<string>;
+  Items?: string[];
 
   /**
    * <p>The number of field-level encryption field patterns.</p>
@@ -2529,7 +2529,7 @@ export interface GeoRestriction {
    * 			can also refer to the country list on the CloudFront console, which includes both country names and
    * 			codes.</p>
    */
-  Items?: Array<string>;
+  Items?: string[];
 
   /**
    * <p>When geo restriction is <code>enabled</code>, this is the number of countries in your
@@ -3045,7 +3045,7 @@ export interface Headers {
    * <p>A list that contains one <code>Name</code> element for each header that you want CloudFront to use for caching
    * 			in this cache behavior. If <code>Quantity</code> is <code>0</code>, omit <code>Items</code>.</p>
    */
-  Items?: Array<string>;
+  Items?: string[];
 
   /**
    * <p>The number of different headers that you want CloudFront to base caching on for this cache behavior. You can configure each
@@ -3186,7 +3186,7 @@ export interface InvalidationList {
    * <p>A complex type that contains one <code>InvalidationSummary</code> element for each
    * 			invalidation batch created by the current AWS account.</p>
    */
-  Items?: Array<InvalidationSummary>;
+  Items?: InvalidationSummary[];
 
   /**
    * <p>The value that you provided for the <code>Marker</code> request parameter.</p>
@@ -3257,7 +3257,7 @@ export interface KeyPairIds {
    * 		       <p>For more information, see
    * 			<a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ActiveTrustedSigners.html">ActiveTrustedSigners</a>.</p>
    */
-  Items?: Array<string>;
+  Items?: string[];
 
   /**
    * <p>The number of active CloudFront key pairs for <code>AwsAccountNumber</code>.</p>
@@ -3345,7 +3345,7 @@ export interface LambdaFunctionAssociations {
    *             <b>Optional</b>: A complex type that contains <code>LambdaFunctionAssociation</code> items
    * 			for this cache behavior. If <code>Quantity</code> is <code>0</code>, you can omit <code>Items</code>.</p>
    */
-  Items?: Array<LambdaFunctionAssociation>;
+  Items?: LambdaFunctionAssociation[];
 
   /**
    * <p>The number of Lambda function associations for this cache behavior.</p>
@@ -3990,7 +3990,7 @@ export interface OriginGroupMembers {
   /**
    * <p>Items (origins) in an origin group.</p>
    */
-  Items: Array<OriginGroupMember> | undefined;
+  Items: OriginGroupMember[] | undefined;
 
   /**
    * <p>The number of origins in an origin group.</p>
@@ -4011,7 +4011,7 @@ export interface OriginGroups {
   /**
    * <p>The items (origin groups) in a distribution.</p>
    */
-  Items?: Array<OriginGroup>;
+  Items?: OriginGroup[];
 
   /**
    * <p>The number of origin groups.</p>
@@ -4034,7 +4034,7 @@ export interface OriginSslProtocols {
   /**
    * <p>A list that contains allowed SSL/TLS protocols for this distribution.</p>
    */
-  Items: Array<SslProtocol | string> | undefined;
+  Items: (SslProtocol | string)[] | undefined;
 
   /**
    * <p>The number of SSL/TLS protocols that you want to allow CloudFront to use when establishing an
@@ -4057,7 +4057,7 @@ export interface Origins {
   /**
    * <p>A complex type that contains origins or origin groups for this distribution.</p>
    */
-  Items: Array<Origin> | undefined;
+  Items: Origin[] | undefined;
 
   /**
    * <p>The number of origins or origin groups for this distribution.</p>
@@ -4079,7 +4079,7 @@ export interface Paths {
   /**
    * <p>A complex type that contains a list of the paths that you want to invalidate.</p>
    */
-  Items?: Array<string>;
+  Items?: string[];
 
   /**
    * <p>The number of invalidation paths specified for the objects that you want to invalidate.</p>
@@ -4157,7 +4157,7 @@ export interface PublicKeyList {
   /**
    * <p>An array of information about a public key you add to CloudFront to use with features like field-level encryption.</p>
    */
-  Items?: Array<PublicKeySummary>;
+  Items?: PublicKeySummary[];
 
   /**
    * <p>The maximum number of public keys you want in the response body. </p>
@@ -4280,7 +4280,7 @@ export interface QueryArgProfiles {
   /**
    * <p>Number of items for query argument-profile mapping for field-level encryption.</p>
    */
-  Items?: Array<QueryArgProfile>;
+  Items?: QueryArgProfile[];
 
   /**
    * <p>Number of profiles for query argument-profile mapping for field-level encryption.</p>
@@ -4305,7 +4305,7 @@ export interface QueryStringCacheKeys {
    * 			as a basis for caching for a cache behavior. If <code>Quantity</code> is 0, you can omit
    * 			<code>Items</code>. </p>
    */
-  Items?: Array<string>;
+  Items?: string[];
 
   /**
    * <p>The number of <code>whitelisted</code> query string parameters for a cache
@@ -4449,7 +4449,7 @@ export interface StatusCodes {
   /**
    * <p>The items (status codes) for an origin group.</p>
    */
-  Items: Array<number> | undefined;
+  Items: number[] | undefined;
 
   /**
    * <p>The number of status codes.</p>
@@ -4624,7 +4624,7 @@ export interface StreamingDistributionList {
    * <p>A complex type that contains one <code>StreamingDistributionSummary</code> element for
    * 			each distribution that was created by the current AWS account.</p>
    */
-  Items?: Array<StreamingDistributionSummary>;
+  Items?: StreamingDistributionSummary[];
 
   /**
    * <p>The value you provided for the <code>Marker</code> request parameter. </p>
@@ -4808,7 +4808,7 @@ export interface TagKeys {
   /**
    * <p> A complex type that contains <code>Tag</code> key elements.</p>
    */
-  Items?: Array<string>;
+  Items?: string[];
 }
 
 export namespace TagKeys {
@@ -4844,7 +4844,7 @@ export interface Tags {
   /**
    * <p> A complex type that contains <code>Tag</code> elements.</p>
    */
-  Items?: Array<Tag>;
+  Items?: Tag[];
 }
 
 export namespace Tags {
@@ -4883,7 +4883,7 @@ export interface TrustedSigners {
    * 			for this cache behavior. If <code>Quantity</code> is <code>0</code>, you can omit
    * 				<code>Items</code>.</p>
    */
-  Items?: Array<string>;
+  Items?: string[];
 
   /**
    * <p>The number of trusted signers for this cache behavior.</p>

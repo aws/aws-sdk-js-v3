@@ -168,7 +168,7 @@ export interface BatchAssociateUserStackRequest {
   /**
    * <p>The list of UserStackAssociation objects.</p>
    */
-  UserStackAssociations: Array<UserStackAssociation> | undefined;
+  UserStackAssociations: UserStackAssociation[] | undefined;
 }
 
 export namespace BatchAssociateUserStackRequest {
@@ -181,7 +181,7 @@ export interface BatchAssociateUserStackResult {
   /**
    * <p>The list of UserStackAssociationError objects.</p>
    */
-  errors?: Array<UserStackAssociationError>;
+  errors?: UserStackAssociationError[];
 }
 
 export namespace BatchAssociateUserStackResult {
@@ -194,7 +194,7 @@ export interface BatchDisassociateUserStackRequest {
   /**
    * <p>The list of UserStackAssociation objects.</p>
    */
-  UserStackAssociations: Array<UserStackAssociation> | undefined;
+  UserStackAssociations: UserStackAssociation[] | undefined;
 }
 
 export namespace BatchDisassociateUserStackRequest {
@@ -207,7 +207,7 @@ export interface BatchDisassociateUserStackResult {
   /**
    * <p>The list of UserStackAssociationError objects.</p>
    */
-  errors?: Array<UserStackAssociationError>;
+  errors?: UserStackAssociationError[];
 }
 
 export namespace BatchDisassociateUserStackResult {
@@ -333,7 +333,7 @@ export interface CreateDirectoryConfigRequest {
   /**
    * <p>The distinguished names of the organizational units for computer accounts.</p>
    */
-  OrganizationalUnitDistinguishedNames: Array<string> | undefined;
+  OrganizationalUnitDistinguishedNames: string[] | undefined;
 
   /**
    * <p>The credentials for the service account used by the fleet or image builder to connect to the directory.</p>
@@ -564,7 +564,7 @@ export interface CreateImageBuilderRequest {
   /**
    * <p>The list of interface VPC endpoint (interface endpoint) objects. Administrators can connect to the image builder only through the specified endpoints.</p>
    */
-  AccessEndpoints?: Array<AccessEndpoint>;
+  AccessEndpoints?: AccessEndpoint[];
 
   /**
    * <p>The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST]. </p>
@@ -758,7 +758,7 @@ export interface CreateStackRequest {
   /**
    * <p>The list of interface VPC endpoint (interface endpoint) objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.</p>
    */
-  AccessEndpoints?: Array<AccessEndpoint>;
+  AccessEndpoints?: AccessEndpoint[];
 
   /**
    * <p>The persistent application settings for users of a stack. When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.</p>
@@ -778,7 +778,7 @@ export interface CreateStackRequest {
   /**
    * <p>The domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.</p>
    */
-  EmbedHostDomains?: Array<string>;
+  EmbedHostDomains?: string[];
 
   /**
    * <p>The URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.</p>
@@ -798,7 +798,7 @@ export interface CreateStackRequest {
   /**
    * <p>The storage connectors to enable.</p>
    */
-  StorageConnectors?: Array<StorageConnector>;
+  StorageConnectors?: StorageConnector[];
 
   /**
    * <p>The tags to associate with the stack. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=. </p>
@@ -815,7 +815,7 @@ export interface CreateStackRequest {
   /**
    * <p>The actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled. </p>
    */
-  UserSettings?: Array<UserSetting>;
+  UserSettings?: UserSetting[];
 }
 
 export namespace CreateStackRequest {
@@ -1176,7 +1176,7 @@ export interface DescribeDirectoryConfigsRequest {
   /**
    * <p>The directory names.</p>
    */
-  DirectoryNames?: Array<string>;
+  DirectoryNames?: string[];
 
   /**
    * <p>The maximum size of each page of results.</p>
@@ -1199,7 +1199,7 @@ export interface DescribeDirectoryConfigsResult {
   /**
    * <p>Information about the directory configurations. Note that although the response syntax in this topic includes the account password, this password is not returned in the actual response. </p>
    */
-  DirectoryConfigs?: Array<DirectoryConfig>;
+  DirectoryConfigs?: DirectoryConfig[];
 
   /**
    * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
@@ -1217,7 +1217,7 @@ export interface DescribeFleetsRequest {
   /**
    * <p>The names of the fleets to describe.</p>
    */
-  Names?: Array<string>;
+  Names?: string[];
 
   /**
    * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
@@ -1235,7 +1235,7 @@ export interface DescribeFleetsResult {
   /**
    * <p>Information about the fleets.</p>
    */
-  Fleets?: Array<Fleet>;
+  Fleets?: Fleet[];
 
   /**
    * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
@@ -1258,7 +1258,7 @@ export interface DescribeImageBuildersRequest {
   /**
    * <p>The names of the image builders to describe.</p>
    */
-  Names?: Array<string>;
+  Names?: string[];
 
   /**
    * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
@@ -1276,7 +1276,7 @@ export interface DescribeImageBuildersResult {
   /**
    * <p>Information about the image builders.</p>
    */
-  ImageBuilders?: Array<ImageBuilder>;
+  ImageBuilders?: ImageBuilder[];
 
   /**
    * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
@@ -1309,7 +1309,7 @@ export interface DescribeImagePermissionsRequest {
   /**
    * <p>The 12-digit identifier of one or more AWS accounts with which the image is shared.</p>
    */
-  SharedAwsAccountIds?: Array<string>;
+  SharedAwsAccountIds?: string[];
 }
 
 export namespace DescribeImagePermissionsRequest {
@@ -1332,7 +1332,7 @@ export interface DescribeImagePermissionsResult {
   /**
    * <p>The permissions for a private image that you own. </p>
    */
-  SharedImagePermissionsList?: Array<SharedImagePermissions>;
+  SharedImagePermissionsList?: SharedImagePermissions[];
 }
 
 export namespace DescribeImagePermissionsResult {
@@ -1345,7 +1345,7 @@ export interface DescribeImagesRequest {
   /**
    * <p>The ARNs of the public, private, and shared images to describe.</p>
    */
-  Arns?: Array<string>;
+  Arns?: string[];
 
   /**
    * <p>The maximum size of each page of results.</p>
@@ -1355,7 +1355,7 @@ export interface DescribeImagesRequest {
   /**
    * <p>The names of the public or private images to describe.</p>
    */
-  Names?: Array<string>;
+  Names?: string[];
 
   /**
    * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
@@ -1378,7 +1378,7 @@ export interface DescribeImagesResult {
   /**
    * <p>Information about the images.</p>
    */
-  Images?: Array<Image>;
+  Images?: Image[];
 
   /**
    * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
@@ -1441,7 +1441,7 @@ export interface DescribeSessionsResult {
   /**
    * <p>Information about the streaming sessions.</p>
    */
-  Sessions?: Array<Session>;
+  Sessions?: Session[];
 }
 
 export namespace DescribeSessionsResult {
@@ -1454,7 +1454,7 @@ export interface DescribeStacksRequest {
   /**
    * <p>The names of the stacks to describe.</p>
    */
-  Names?: Array<string>;
+  Names?: string[];
 
   /**
    * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
@@ -1477,7 +1477,7 @@ export interface DescribeStacksResult {
   /**
    * <p>Information about the stacks.</p>
    */
-  Stacks?: Array<Stack>;
+  Stacks?: Stack[];
 }
 
 export namespace DescribeStacksResult {
@@ -1513,7 +1513,7 @@ export interface DescribeUsageReportSubscriptionsResult {
   /**
    * <p>Information about the usage report subscription.</p>
    */
-  UsageReportSubscriptions?: Array<UsageReportSubscription>;
+  UsageReportSubscriptions?: UsageReportSubscription[];
 }
 
 export namespace DescribeUsageReportSubscriptionsResult {
@@ -1568,7 +1568,7 @@ export interface DescribeUserStackAssociationsResult {
   /**
    * <p>The UserStackAssociation objects.</p>
    */
-  UserStackAssociations?: Array<UserStackAssociation>;
+  UserStackAssociations?: UserStackAssociation[];
 }
 
 export namespace DescribeUserStackAssociationsResult {
@@ -1609,7 +1609,7 @@ export interface DescribeUsersResult {
   /**
    * <p>Information about users in the user pool.</p>
    */
-  Users?: Array<User>;
+  Users?: User[];
 }
 
 export namespace DescribeUsersResult {
@@ -1635,7 +1635,7 @@ export interface DirectoryConfig {
   /**
    * <p>The distinguished names of the organizational units for computer accounts.</p>
    */
-  OrganizationalUnitDistinguishedNames?: Array<string>;
+  OrganizationalUnitDistinguishedNames?: string[];
 
   /**
    * <p>The credentials for the service account used by the fleet or image builder to connect to the directory.</p>
@@ -1829,7 +1829,7 @@ export interface Fleet {
   /**
    * <p>The fleet errors.</p>
    */
-  FleetErrors?: Array<FleetError>;
+  FleetErrors?: FleetError[];
 
   /**
    * <p>The fleet type.</p>
@@ -2056,7 +2056,7 @@ export interface Image {
   /**
    * <p>The applications associated with the image.</p>
    */
-  Applications?: Array<Application>;
+  Applications?: Application[];
 
   /**
    * <p>The version of the AppStream 2.0 agent to use for instances that are launched from this image. </p>
@@ -2148,7 +2148,7 @@ export interface ImageBuilder {
   /**
    * <p>The list of virtual private cloud (VPC) interface endpoint objects. Administrators can connect to the image builder only through the specified endpoints.</p>
    */
-  AccessEndpoints?: Array<AccessEndpoint>;
+  AccessEndpoints?: AccessEndpoint[];
 
   /**
    * <p>The version of the AppStream 2.0 agent that is currently being used by the image builder. </p>
@@ -2200,7 +2200,7 @@ export interface ImageBuilder {
   /**
    * <p>The image builder errors.</p>
    */
-  ImageBuilderErrors?: Array<ResourceError>;
+  ImageBuilderErrors?: ResourceError[];
 
   /**
    * <p>The instance type for the image builder. The following instance types are available:</p>
@@ -2537,7 +2537,7 @@ export interface ListAssociatedFleetsResult {
   /**
    * <p>The name of the fleet.</p>
    */
-  Names?: Array<string>;
+  Names?: string[];
 
   /**
    * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
@@ -2573,7 +2573,7 @@ export interface ListAssociatedStacksResult {
   /**
    * <p>The name of the stack.</p>
    */
-  Names?: Array<string>;
+  Names?: string[];
 
   /**
    * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
@@ -2892,7 +2892,7 @@ export interface Stack {
   /**
    * <p>The list of virtual private cloud (VPC) interface endpoint objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. </p>
    */
-  AccessEndpoints?: Array<AccessEndpoint>;
+  AccessEndpoints?: AccessEndpoint[];
 
   /**
    * <p>The persistent application settings for users of the stack.</p>
@@ -2922,7 +2922,7 @@ export interface Stack {
   /**
    * <p>The domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.</p>
    */
-  EmbedHostDomains?: Array<string>;
+  EmbedHostDomains?: string[];
 
   /**
    * <p>The URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.</p>
@@ -2942,17 +2942,17 @@ export interface Stack {
   /**
    * <p>The errors for the stack.</p>
    */
-  StackErrors?: Array<StackError>;
+  StackErrors?: StackError[];
 
   /**
    * <p>The storage connectors to enable.</p>
    */
-  StorageConnectors?: Array<StorageConnector>;
+  StorageConnectors?: StorageConnector[];
 
   /**
    * <p>The actions that are enabled or disabled for users during their streaming sessions. By default these actions are enabled.</p>
    */
-  UserSettings?: Array<UserSetting>;
+  UserSettings?: UserSetting[];
 }
 
 export namespace Stack {
@@ -3112,7 +3112,7 @@ export interface StorageConnector {
   /**
    * <p>The names of the domains for the account.</p>
    */
-  Domains?: Array<string>;
+  Domains?: string[];
 
   /**
    * <p>The ARN of the storage connector.</p>
@@ -3173,7 +3173,7 @@ export interface UntagResourceRequest {
   /**
    * <p>The tag keys for the tags to disassociate.</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -3200,7 +3200,7 @@ export interface UpdateDirectoryConfigRequest {
   /**
    * <p>The distinguished names of the organizational units for computer accounts.</p>
    */
-  OrganizationalUnitDistinguishedNames?: Array<string>;
+  OrganizationalUnitDistinguishedNames?: string[];
 
   /**
    * <p>The credentials for the service account used by the fleet or image builder to connect to the directory.</p>
@@ -3231,7 +3231,7 @@ export interface UpdateFleetRequest {
   /**
    * <p>The fleet attributes to delete.</p>
    */
-  AttributesToDelete?: Array<FleetAttribute | string>;
+  AttributesToDelete?: (FleetAttribute | string)[];
 
   /**
    * <p>The desired capacity for the fleet.</p>
@@ -3444,7 +3444,7 @@ export interface UpdateStackRequest {
   /**
    * <p>The list of interface VPC endpoint (interface endpoint) objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.</p>
    */
-  AccessEndpoints?: Array<AccessEndpoint>;
+  AccessEndpoints?: AccessEndpoint[];
 
   /**
    * <p>The persistent application settings for users of a stack. When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.</p>
@@ -3454,7 +3454,7 @@ export interface UpdateStackRequest {
   /**
    * <p>The stack attributes to delete.</p>
    */
-  AttributesToDelete?: Array<StackAttribute | string>;
+  AttributesToDelete?: (StackAttribute | string)[];
 
   /**
    * <p>Deletes the storage connectors currently enabled for the stack.</p>
@@ -3474,7 +3474,7 @@ export interface UpdateStackRequest {
   /**
    * <p>The domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.</p>
    */
-  EmbedHostDomains?: Array<string>;
+  EmbedHostDomains?: string[];
 
   /**
    * <p>The URL that users are redirected to after they choose the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.</p>
@@ -3494,12 +3494,12 @@ export interface UpdateStackRequest {
   /**
    * <p>The storage connectors to enable.</p>
    */
-  StorageConnectors?: Array<StorageConnector>;
+  StorageConnectors?: StorageConnector[];
 
   /**
    * <p>The actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.</p>
    */
-  UserSettings?: Array<UserSetting>;
+  UserSettings?: UserSetting[];
 }
 
 export namespace UpdateStackRequest {
@@ -3559,7 +3559,7 @@ export interface UsageReportSubscription {
   /**
    * <p>The errors that were returned if usage reports couldn't be generated.</p>
    */
-  SubscriptionErrors?: Array<LastReportGenerationExecutionError>;
+  SubscriptionErrors?: LastReportGenerationExecutionError[];
 }
 
 export namespace UsageReportSubscription {
@@ -3739,12 +3739,12 @@ export interface VpcConfig {
   /**
    * <p>The identifiers of the security groups for the fleet or image builder.</p>
    */
-  SecurityGroupIds?: Array<string>;
+  SecurityGroupIds?: string[];
 
   /**
    * <p>The identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance. Fleet instances use one or more subnets. Image builder instances use one subnet.</p>
    */
-  SubnetIds?: Array<string>;
+  SubnetIds?: string[];
 }
 
 export namespace VpcConfig {

@@ -3734,7 +3734,7 @@ const serializeAws_queryDomainEndpointOptions = (
 };
 
 const serializeAws_queryDomainNameList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -3796,7 +3796,7 @@ const serializeAws_queryDoubleOptions = (
 };
 
 const serializeAws_queryDynamicFieldNameList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -4099,7 +4099,7 @@ const serializeAws_queryScalingParameters = (
 };
 
 const serializeAws_queryStandardNameList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -4378,7 +4378,7 @@ const deserializeAws_queryAnalysisSchemeStatus = (
 const deserializeAws_queryAnalysisSchemeStatusList = (
   output: any,
   context: __SerdeContext
-): Array<AnalysisSchemeStatus> => {
+): AnalysisSchemeStatus[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryAnalysisSchemeStatus(entry, context));
@@ -5151,7 +5151,7 @@ const deserializeAws_queryDomainStatus = (
 const deserializeAws_queryDomainStatusList = (
   output: any,
   context: __SerdeContext
-): Array<DomainStatus> => {
+): DomainStatus[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryDomainStatus(entry, context));
@@ -5309,7 +5309,7 @@ const deserializeAws_queryExpressionStatus = (
 const deserializeAws_queryExpressionStatusList = (
   output: any,
   context: __SerdeContext
-): Array<ExpressionStatus> => {
+): ExpressionStatus[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryExpressionStatus(entry, context));
@@ -5320,7 +5320,7 @@ const deserializeAws_queryExpressionStatusList = (
 const deserializeAws_queryFieldNameList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -5483,7 +5483,7 @@ const deserializeAws_queryIndexFieldStatus = (
 const deserializeAws_queryIndexFieldStatusList = (
   output: any,
   context: __SerdeContext
-): Array<IndexFieldStatus> => {
+): IndexFieldStatus[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryIndexFieldStatus(entry, context));
@@ -6053,7 +6053,7 @@ const deserializeAws_querySuggesterStatus = (
 const deserializeAws_querySuggesterStatusList = (
   output: any,
   context: __SerdeContext
-): Array<SuggesterStatus> => {
+): SuggesterStatus[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_querySuggesterStatus(entry, context));

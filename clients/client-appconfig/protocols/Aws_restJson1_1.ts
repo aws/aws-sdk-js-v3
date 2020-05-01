@@ -4568,7 +4568,7 @@ const serializeAws_restJson1_1Monitor = (
 };
 
 const serializeAws_restJson1_1MonitorList = (
-  input: Array<Monitor>,
+  input: Monitor[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4604,7 +4604,7 @@ const serializeAws_restJson1_1Validator = (
 };
 
 const serializeAws_restJson1_1ValidatorList = (
-  input: Array<Validator>,
+  input: Validator[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4639,7 +4639,7 @@ const deserializeAws_restJson1_1Application = (
 const deserializeAws_restJson1_1ApplicationList = (
   output: any,
   context: __SerdeContext
-): Array<Application> => {
+): Application[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Application(entry, context)
   );
@@ -4681,7 +4681,7 @@ const deserializeAws_restJson1_1ConfigurationProfileSummary = (
 const deserializeAws_restJson1_1ConfigurationProfileSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<ConfigurationProfileSummary> => {
+): ConfigurationProfileSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ConfigurationProfileSummary(entry, context)
   );
@@ -4690,7 +4690,7 @@ const deserializeAws_restJson1_1ConfigurationProfileSummaryList = (
 const deserializeAws_restJson1_1DeploymentList = (
   output: any,
   context: __SerdeContext
-): Array<DeploymentSummary> => {
+): DeploymentSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DeploymentSummary(entry, context)
   );
@@ -4747,7 +4747,7 @@ const deserializeAws_restJson1_1DeploymentStrategy = (
 const deserializeAws_restJson1_1DeploymentStrategyList = (
   output: any,
   context: __SerdeContext
-): Array<DeploymentStrategy> => {
+): DeploymentStrategy[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DeploymentStrategy(entry, context)
   );
@@ -4865,7 +4865,7 @@ const deserializeAws_restJson1_1Environment = (
 const deserializeAws_restJson1_1EnvironmentList = (
   output: any,
   context: __SerdeContext
-): Array<Environment> => {
+): Environment[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Environment(entry, context)
   );
@@ -4892,7 +4892,7 @@ const deserializeAws_restJson1_1Monitor = (
 const deserializeAws_restJson1_1MonitorList = (
   output: any,
   context: __SerdeContext
-): Array<Monitor> => {
+): Monitor[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Monitor(entry, context)
   );
@@ -4930,7 +4930,7 @@ const deserializeAws_restJson1_1Validator = (
 const deserializeAws_restJson1_1ValidatorList = (
   output: any,
   context: __SerdeContext
-): Array<Validator> => {
+): Validator[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Validator(entry, context)
   );
@@ -4939,7 +4939,7 @@ const deserializeAws_restJson1_1ValidatorList = (
 const deserializeAws_restJson1_1ValidatorTypeList = (
   output: any,
   context: __SerdeContext
-): Array<ValidatorType | string> => {
+): (ValidatorType | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 

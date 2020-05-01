@@ -4636,7 +4636,7 @@ const serializeAws_json1_1AuthorizeIpRulesRequest = (
 };
 
 const serializeAws_json1_1BundleIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4963,7 +4963,7 @@ const serializeAws_json1_1DescribeWorkspacesRequest = (
 };
 
 const serializeAws_json1_1DirectoryIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5014,7 +5014,7 @@ const serializeAws_json1_1ImportWorkspaceImageRequest = (
 };
 
 const serializeAws_json1_1IpGroupIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5025,7 +5025,7 @@ const serializeAws_json1_1IpGroupIdList = (
 };
 
 const serializeAws_json1_1IpRevokedRuleList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5050,7 +5050,7 @@ const serializeAws_json1_1IpRuleItem = (
 };
 
 const serializeAws_json1_1IpRuleList = (
-  input: Array<IpRuleItem>,
+  input: IpRuleItem[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5224,7 +5224,7 @@ const serializeAws_json1_1RebootRequest = (
 };
 
 const serializeAws_json1_1RebootWorkspaceRequests = (
-  input: Array<RebootRequest>,
+  input: RebootRequest[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5262,7 +5262,7 @@ const serializeAws_json1_1RebuildRequest = (
 };
 
 const serializeAws_json1_1RebuildWorkspaceRequests = (
-  input: Array<RebuildRequest>,
+  input: RebuildRequest[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5318,7 +5318,7 @@ const serializeAws_json1_1RegisterWorkspaceDirectoryRequest = (
 };
 
 const serializeAws_json1_1ResourceIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5391,7 +5391,7 @@ const serializeAws_json1_1StartRequest = (
 };
 
 const serializeAws_json1_1StartWorkspaceRequests = (
-  input: Array<StartRequest>,
+  input: StartRequest[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5429,7 +5429,7 @@ const serializeAws_json1_1StopRequest = (
 };
 
 const serializeAws_json1_1StopWorkspaceRequests = (
-  input: Array<StopRequest>,
+  input: StopRequest[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5456,7 +5456,7 @@ const serializeAws_json1_1StopWorkspacesRequest = (
 };
 
 const serializeAws_json1_1SubnetIds = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5478,7 +5478,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_json1_1TagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5489,7 +5489,7 @@ const serializeAws_json1_1TagKeyList = (
 };
 
 const serializeAws_json1_1TagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5511,7 +5511,7 @@ const serializeAws_json1_1TerminateRequest = (
 };
 
 const serializeAws_json1_1TerminateWorkspaceRequests = (
-  input: Array<TerminateRequest>,
+  input: TerminateRequest[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5608,7 +5608,7 @@ const serializeAws_json1_1WorkspaceCreationProperties = (
 };
 
 const serializeAws_json1_1WorkspaceIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5619,7 +5619,7 @@ const serializeAws_json1_1WorkspaceIdList = (
 };
 
 const serializeAws_json1_1WorkspaceImageIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5691,7 +5691,7 @@ const serializeAws_json1_1WorkspaceRequest = (
 };
 
 const serializeAws_json1_1WorkspaceRequestList = (
-  input: Array<WorkspaceRequest>,
+  input: WorkspaceRequest[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5762,7 +5762,7 @@ const deserializeAws_json1_1AccountModification = (
 const deserializeAws_json1_1AccountModificationList = (
   output: any,
   context: __SerdeContext
-): Array<AccountModification> => {
+): AccountModification[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AccountModification(entry, context)
   );
@@ -5791,7 +5791,7 @@ const deserializeAws_json1_1AuthorizeIpRulesResult = (
 const deserializeAws_json1_1BundleList = (
   output: any,
   context: __SerdeContext
-): Array<WorkspaceBundle> => {
+): WorkspaceBundle[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1WorkspaceBundle(entry, context)
   );
@@ -5817,7 +5817,7 @@ const deserializeAws_json1_1ClientProperties = (
 const deserializeAws_json1_1ClientPropertiesList = (
   output: any,
   context: __SerdeContext
-): Array<ClientPropertiesResult> => {
+): ClientPropertiesResult[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ClientPropertiesResult(entry, context)
   );
@@ -5926,7 +5926,7 @@ const deserializeAws_json1_1CreateWorkspacesResult = (
 const deserializeAws_json1_1DedicatedTenancyCidrRangeList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -6262,7 +6262,7 @@ const deserializeAws_json1_1DescribeWorkspacesResult = (
 const deserializeAws_json1_1DirectoryList = (
   output: any,
   context: __SerdeContext
-): Array<WorkspaceDirectory> => {
+): WorkspaceDirectory[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1WorkspaceDirectory(entry, context)
   );
@@ -6281,7 +6281,7 @@ const deserializeAws_json1_1DisassociateIpGroupsResult = (
 const deserializeAws_json1_1DnsIpAddresses = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -6316,7 +6316,7 @@ const deserializeAws_json1_1FailedCreateWorkspaceRequest = (
 const deserializeAws_json1_1FailedCreateWorkspaceRequests = (
   output: any,
   context: __SerdeContext
-): Array<FailedCreateWorkspaceRequest> => {
+): FailedCreateWorkspaceRequest[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1FailedCreateWorkspaceRequest(entry, context)
   );
@@ -6325,7 +6325,7 @@ const deserializeAws_json1_1FailedCreateWorkspaceRequests = (
 const deserializeAws_json1_1FailedRebootWorkspaceRequests = (
   output: any,
   context: __SerdeContext
-): Array<FailedWorkspaceChangeRequest> => {
+): FailedWorkspaceChangeRequest[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1FailedWorkspaceChangeRequest(entry, context)
   );
@@ -6334,7 +6334,7 @@ const deserializeAws_json1_1FailedRebootWorkspaceRequests = (
 const deserializeAws_json1_1FailedRebuildWorkspaceRequests = (
   output: any,
   context: __SerdeContext
-): Array<FailedWorkspaceChangeRequest> => {
+): FailedWorkspaceChangeRequest[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1FailedWorkspaceChangeRequest(entry, context)
   );
@@ -6343,7 +6343,7 @@ const deserializeAws_json1_1FailedRebuildWorkspaceRequests = (
 const deserializeAws_json1_1FailedStartWorkspaceRequests = (
   output: any,
   context: __SerdeContext
-): Array<FailedWorkspaceChangeRequest> => {
+): FailedWorkspaceChangeRequest[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1FailedWorkspaceChangeRequest(entry, context)
   );
@@ -6352,7 +6352,7 @@ const deserializeAws_json1_1FailedStartWorkspaceRequests = (
 const deserializeAws_json1_1FailedStopWorkspaceRequests = (
   output: any,
   context: __SerdeContext
-): Array<FailedWorkspaceChangeRequest> => {
+): FailedWorkspaceChangeRequest[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1FailedWorkspaceChangeRequest(entry, context)
   );
@@ -6361,7 +6361,7 @@ const deserializeAws_json1_1FailedStopWorkspaceRequests = (
 const deserializeAws_json1_1FailedTerminateWorkspaceRequests = (
   output: any,
   context: __SerdeContext
-): Array<FailedWorkspaceChangeRequest> => {
+): FailedWorkspaceChangeRequest[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1FailedWorkspaceChangeRequest(entry, context)
   );
@@ -6434,7 +6434,7 @@ const deserializeAws_json1_1InvalidResourceStateException = (
 const deserializeAws_json1_1IpGroupIdList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -6459,7 +6459,7 @@ const deserializeAws_json1_1IpRuleItem = (
 const deserializeAws_json1_1IpRuleList = (
   output: any,
   context: __SerdeContext
-): Array<IpRuleItem> => {
+): IpRuleItem[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1IpRuleItem(entry, context)
   );
@@ -6534,7 +6534,7 @@ const deserializeAws_json1_1ModificationState = (
 const deserializeAws_json1_1ModificationStateList = (
   output: any,
   context: __SerdeContext
-): Array<ModificationState> => {
+): ModificationState[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ModificationState(entry, context)
   );
@@ -6884,7 +6884,7 @@ const deserializeAws_json1_1Snapshot = (
 const deserializeAws_json1_1SnapshotList = (
   output: any,
   context: __SerdeContext
-): Array<Snapshot> => {
+): Snapshot[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Snapshot(entry, context)
   );
@@ -6927,7 +6927,7 @@ const deserializeAws_json1_1StopWorkspacesResult = (
 const deserializeAws_json1_1SubnetIds = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -6952,7 +6952,7 @@ const deserializeAws_json1_1Tag = (
 const deserializeAws_json1_1TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );
@@ -7264,7 +7264,7 @@ const deserializeAws_json1_1WorkspaceConnectionStatus = (
 const deserializeAws_json1_1WorkspaceConnectionStatusList = (
   output: any,
   context: __SerdeContext
-): Array<WorkspaceConnectionStatus> => {
+): WorkspaceConnectionStatus[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1WorkspaceConnectionStatus(entry, context)
   );
@@ -7428,7 +7428,7 @@ const deserializeAws_json1_1WorkspaceImage = (
 const deserializeAws_json1_1WorkspaceImageList = (
   output: any,
   context: __SerdeContext
-): Array<WorkspaceImage> => {
+): WorkspaceImage[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1WorkspaceImage(entry, context)
   );
@@ -7437,7 +7437,7 @@ const deserializeAws_json1_1WorkspaceImageList = (
 const deserializeAws_json1_1WorkspaceList = (
   output: any,
   context: __SerdeContext
-): Array<Workspace> => {
+): Workspace[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Workspace(entry, context)
   );
@@ -7586,7 +7586,7 @@ const deserializeAws_json1_1WorkspacesIpGroup = (
 const deserializeAws_json1_1WorkspacesIpGroupsList = (
   output: any,
   context: __SerdeContext
-): Array<WorkspacesIpGroup> => {
+): WorkspacesIpGroup[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1WorkspacesIpGroup(entry, context)
   );

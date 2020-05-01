@@ -226,7 +226,7 @@ export interface AwsCloudFrontDistributionOrigins {
   /**
    * <p>A complex type that contains origins or origin groups for this distribution.</p>
    */
-  Items?: Array<AwsCloudFrontDistributionOriginItem>;
+  Items?: AwsCloudFrontDistributionOriginItem[];
 }
 
 export namespace AwsCloudFrontDistributionOrigins {
@@ -252,12 +252,12 @@ export interface AwsEc2InstanceDetails {
   /**
    * <p>The IPv4 addresses associated with the instance.</p>
    */
-  IpV4Addresses?: Array<string>;
+  IpV4Addresses?: string[];
 
   /**
    * <p>The IPv6 addresses associated with the instance.</p>
    */
-  IpV6Addresses?: Array<string>;
+  IpV6Addresses?: string[];
 
   /**
    * <p>The key name associated with the instance.</p>
@@ -298,7 +298,7 @@ export interface AwsElbv2LoadBalancerDetails {
   /**
    * <p>The Availability Zones for the load balancer.</p>
    */
-  AvailabilityZones?: Array<AvailabilityZone>;
+  AvailabilityZones?: AvailabilityZone[];
 
   /**
    * <p>The ID of the Amazon Route 53 hosted zone associated with the load balancer.</p>
@@ -328,7 +328,7 @@ export interface AwsElbv2LoadBalancerDetails {
   /**
    * <p>The IDs of the security groups for the load balancer.</p>
    */
-  SecurityGroups?: Array<string>;
+  SecurityGroups?: string[];
 
   /**
    * <p>The state of the load balancer.</p>
@@ -575,7 +575,7 @@ export interface AwsLambdaFunctionDetails {
   /**
    * <p>The function's layers.</p>
    */
-  Layers?: Array<AwsLambdaFunctionLayer>;
+  Layers?: AwsLambdaFunctionLayer[];
 
   /**
    * <p>For Lambda@Edge functions, the ARN of the master function.</p>
@@ -715,12 +715,12 @@ export interface AwsLambdaFunctionVpcConfig {
   /**
    * <p>A list of VPC security groups IDs.</p>
    */
-  SecurityGroupIds?: Array<string>;
+  SecurityGroupIds?: string[];
 
   /**
    * <p>A list of VPC subnet IDs.</p>
    */
-  SubnetIds?: Array<string>;
+  SubnetIds?: string[];
 
   /**
    * <p>The ID of the VPC.</p>
@@ -834,7 +834,7 @@ export interface AwsSecurityFinding {
   /**
    * <p>A list of malware related to a finding.</p>
    */
-  Malware?: Array<Malware>;
+  Malware?: Malware[];
 
   /**
    * <p>The details of network-related information about a finding.</p>
@@ -872,7 +872,7 @@ export interface AwsSecurityFinding {
   /**
    * <p>A list of related findings.</p>
    */
-  RelatedFindings?: Array<RelatedFinding>;
+  RelatedFindings?: RelatedFinding[];
 
   /**
    * <p>A data type that describes the remediation options for a finding.</p>
@@ -883,7 +883,7 @@ export interface AwsSecurityFinding {
    * <p>A set of resource data types that describe the resources that the finding refers
    *          to.</p>
    */
-  Resources: Array<Resource> | undefined;
+  Resources: Resource[] | undefined;
 
   /**
    * <p>The schema version that a finding is formatted for.</p>
@@ -904,7 +904,7 @@ export interface AwsSecurityFinding {
   /**
    * <p>Threat intel details related to a finding.</p>
    */
-  ThreatIntelIndicators?: Array<ThreatIntelIndicator>;
+  ThreatIntelIndicators?: ThreatIntelIndicator[];
 
   /**
    * <p>A finding's title.</p>
@@ -920,7 +920,7 @@ export interface AwsSecurityFinding {
    *          <p>Valid namespace values are: Software and Configuration Checks | TTPs | Effects | Unusual
    *          Behaviors | Sensitive Data Identifications</p>
    */
-  Types: Array<string> | undefined;
+  Types: string[] | undefined;
 
   /**
    * <p>An ISO8601-formatted timestamp that indicates when the security-findings provider last
@@ -959,20 +959,20 @@ export interface AwsSecurityFindingFilters {
   /**
    * <p>The AWS account ID that a finding is generated in.</p>
    */
-  AwsAccountId?: Array<StringFilter>;
+  AwsAccountId?: StringFilter[];
 
   /**
    * <p>The name of the findings provider (company) that owns the solution (product) that
    *          generates findings.</p>
    */
-  CompanyName?: Array<StringFilter>;
+  CompanyName?: StringFilter[];
 
   /**
    * <p>Exclusive to findings that are generated as the result of a check run against a specific
    *          rule in a supported standard (for example, CIS AWS Foundations). Contains
    *          compliance-related finding details.</p>
    */
-  ComplianceStatus?: Array<StringFilter>;
+  ComplianceStatus?: StringFilter[];
 
   /**
    * <p>A finding's confidence. Confidence is defined as the likelihood that a finding
@@ -980,420 +980,420 @@ export interface AwsSecurityFindingFilters {
    *          scored on a 0-100 basis using a ratio scale, where 0 means zero percent confidence and 100
    *          means 100 percent confidence.</p>
    */
-  Confidence?: Array<NumberFilter>;
+  Confidence?: NumberFilter[];
 
   /**
    * <p>An ISO8601-formatted timestamp that indicates when the security-findings provider
    *          captured the potential security issue that a finding captured.</p>
    */
-  CreatedAt?: Array<DateFilter>;
+  CreatedAt?: DateFilter[];
 
   /**
    * <p>The level of importance assigned to the resources associated with the finding. A score
    *          of 0 means that the underlying resources have no criticality, and a score of 100 is
    *          reserved for the most critical resources.</p>
    */
-  Criticality?: Array<NumberFilter>;
+  Criticality?: NumberFilter[];
 
   /**
    * <p>A finding's description.</p>
    */
-  Description?: Array<StringFilter>;
+  Description?: StringFilter[];
 
   /**
    * <p>An ISO8601-formatted timestamp that indicates when the security-findings provider first
    *          observed the potential security issue that a finding captured.</p>
    */
-  FirstObservedAt?: Array<DateFilter>;
+  FirstObservedAt?: DateFilter[];
 
   /**
    * <p>The identifier for the solution-specific component (a discrete unit of logic) that
    *          generated a finding. In various security-findings providers' solutions, this generator can
    *          be called a rule, a check, a detector, a plug-in, etc.</p>
    */
-  GeneratorId?: Array<StringFilter>;
+  GeneratorId?: StringFilter[];
 
   /**
    * <p>The security findings provider-specific identifier for a finding.</p>
    */
-  Id?: Array<StringFilter>;
+  Id?: StringFilter[];
 
   /**
    * <p>A keyword for a finding.</p>
    */
-  Keyword?: Array<KeywordFilter>;
+  Keyword?: KeywordFilter[];
 
   /**
    * <p>An ISO8601-formatted timestamp that indicates when the security-findings provider most
    *          recently observed the potential security issue that a finding captured.</p>
    */
-  LastObservedAt?: Array<DateFilter>;
+  LastObservedAt?: DateFilter[];
 
   /**
    * <p>The name of the malware that was observed.</p>
    */
-  MalwareName?: Array<StringFilter>;
+  MalwareName?: StringFilter[];
 
   /**
    * <p>The filesystem path of the malware that was observed.</p>
    */
-  MalwarePath?: Array<StringFilter>;
+  MalwarePath?: StringFilter[];
 
   /**
    * <p>The state of the malware that was observed.</p>
    */
-  MalwareState?: Array<StringFilter>;
+  MalwareState?: StringFilter[];
 
   /**
    * <p>The type of the malware that was observed.</p>
    */
-  MalwareType?: Array<StringFilter>;
+  MalwareType?: StringFilter[];
 
   /**
    * <p>The destination domain of network-related information about a finding.</p>
    */
-  NetworkDestinationDomain?: Array<StringFilter>;
+  NetworkDestinationDomain?: StringFilter[];
 
   /**
    * <p>The destination IPv4 address of network-related information about a finding.</p>
    */
-  NetworkDestinationIpV4?: Array<IpFilter>;
+  NetworkDestinationIpV4?: IpFilter[];
 
   /**
    * <p>The destination IPv6 address of network-related information about a finding.</p>
    */
-  NetworkDestinationIpV6?: Array<IpFilter>;
+  NetworkDestinationIpV6?: IpFilter[];
 
   /**
    * <p>The destination port of network-related information about a finding.</p>
    */
-  NetworkDestinationPort?: Array<NumberFilter>;
+  NetworkDestinationPort?: NumberFilter[];
 
   /**
    * <p>Indicates the direction of network traffic associated with a finding.</p>
    */
-  NetworkDirection?: Array<StringFilter>;
+  NetworkDirection?: StringFilter[];
 
   /**
    * <p>The protocol of network-related information about a finding.</p>
    */
-  NetworkProtocol?: Array<StringFilter>;
+  NetworkProtocol?: StringFilter[];
 
   /**
    * <p>The source domain of network-related information about a finding.</p>
    */
-  NetworkSourceDomain?: Array<StringFilter>;
+  NetworkSourceDomain?: StringFilter[];
 
   /**
    * <p>The source IPv4 address of network-related information about a finding.</p>
    */
-  NetworkSourceIpV4?: Array<IpFilter>;
+  NetworkSourceIpV4?: IpFilter[];
 
   /**
    * <p>The source IPv6 address of network-related information about a finding.</p>
    */
-  NetworkSourceIpV6?: Array<IpFilter>;
+  NetworkSourceIpV6?: IpFilter[];
 
   /**
    * <p>The source media access control (MAC) address of network-related information about a
    *          finding.</p>
    */
-  NetworkSourceMac?: Array<StringFilter>;
+  NetworkSourceMac?: StringFilter[];
 
   /**
    * <p>The source port of network-related information about a finding.</p>
    */
-  NetworkSourcePort?: Array<NumberFilter>;
+  NetworkSourcePort?: NumberFilter[];
 
   /**
    * <p>The text of a note.</p>
    */
-  NoteText?: Array<StringFilter>;
+  NoteText?: StringFilter[];
 
   /**
    * <p>The timestamp of when the note was updated.</p>
    */
-  NoteUpdatedAt?: Array<DateFilter>;
+  NoteUpdatedAt?: DateFilter[];
 
   /**
    * <p>The principal that created a note.</p>
    */
-  NoteUpdatedBy?: Array<StringFilter>;
+  NoteUpdatedBy?: StringFilter[];
 
   /**
    * <p>The date/time that the process was launched.</p>
    */
-  ProcessLaunchedAt?: Array<DateFilter>;
+  ProcessLaunchedAt?: DateFilter[];
 
   /**
    * <p>The name of the process.</p>
    */
-  ProcessName?: Array<StringFilter>;
+  ProcessName?: StringFilter[];
 
   /**
    * <p>The parent process ID.</p>
    */
-  ProcessParentPid?: Array<NumberFilter>;
+  ProcessParentPid?: NumberFilter[];
 
   /**
    * <p>The path to the process executable.</p>
    */
-  ProcessPath?: Array<StringFilter>;
+  ProcessPath?: StringFilter[];
 
   /**
    * <p>The process ID.</p>
    */
-  ProcessPid?: Array<NumberFilter>;
+  ProcessPid?: NumberFilter[];
 
   /**
    * <p>The date/time that the process was terminated.</p>
    */
-  ProcessTerminatedAt?: Array<DateFilter>;
+  ProcessTerminatedAt?: DateFilter[];
 
   /**
    * <p>The ARN generated by Security Hub that uniquely identifies a third-party company
    *          (security findings provider) after this provider's product (solution that generates
    *          findings) is registered with Security Hub.</p>
    */
-  ProductArn?: Array<StringFilter>;
+  ProductArn?: StringFilter[];
 
   /**
    * <p>A data type where security-findings providers can include additional solution-specific
    *          details that aren't part of the defined <code>AwsSecurityFinding</code> format.</p>
    */
-  ProductFields?: Array<MapFilter>;
+  ProductFields?: MapFilter[];
 
   /**
    * <p>The name of the solution (product) that generates findings.</p>
    */
-  ProductName?: Array<StringFilter>;
+  ProductName?: StringFilter[];
 
   /**
    * <p>The recommendation of what to do about the issue described in a finding.</p>
    */
-  RecommendationText?: Array<StringFilter>;
+  RecommendationText?: StringFilter[];
 
   /**
    * <p>The updated record state for the finding.</p>
    */
-  RecordState?: Array<StringFilter>;
+  RecordState?: StringFilter[];
 
   /**
    * <p>The solution-generated identifier for a related finding.</p>
    */
-  RelatedFindingsId?: Array<StringFilter>;
+  RelatedFindingsId?: StringFilter[];
 
   /**
    * <p>The ARN of the solution that generated a related finding.</p>
    */
-  RelatedFindingsProductArn?: Array<StringFilter>;
+  RelatedFindingsProductArn?: StringFilter[];
 
   /**
    * <p>The IAM profile ARN of the instance.</p>
    */
-  ResourceAwsEc2InstanceIamInstanceProfileArn?: Array<StringFilter>;
+  ResourceAwsEc2InstanceIamInstanceProfileArn?: StringFilter[];
 
   /**
    * <p>The Amazon Machine Image (AMI) ID of the instance.</p>
    */
-  ResourceAwsEc2InstanceImageId?: Array<StringFilter>;
+  ResourceAwsEc2InstanceImageId?: StringFilter[];
 
   /**
    * <p>The IPv4 addresses associated with the instance.</p>
    */
-  ResourceAwsEc2InstanceIpV4Addresses?: Array<IpFilter>;
+  ResourceAwsEc2InstanceIpV4Addresses?: IpFilter[];
 
   /**
    * <p>The IPv6 addresses associated with the instance.</p>
    */
-  ResourceAwsEc2InstanceIpV6Addresses?: Array<IpFilter>;
+  ResourceAwsEc2InstanceIpV6Addresses?: IpFilter[];
 
   /**
    * <p>The key name associated with the instance.</p>
    */
-  ResourceAwsEc2InstanceKeyName?: Array<StringFilter>;
+  ResourceAwsEc2InstanceKeyName?: StringFilter[];
 
   /**
    * <p>The date/time the instance was launched.</p>
    */
-  ResourceAwsEc2InstanceLaunchedAt?: Array<DateFilter>;
+  ResourceAwsEc2InstanceLaunchedAt?: DateFilter[];
 
   /**
    * <p>The identifier of the subnet that the instance was launched in.</p>
    */
-  ResourceAwsEc2InstanceSubnetId?: Array<StringFilter>;
+  ResourceAwsEc2InstanceSubnetId?: StringFilter[];
 
   /**
    * <p>The instance type of the instance.</p>
    */
-  ResourceAwsEc2InstanceType?: Array<StringFilter>;
+  ResourceAwsEc2InstanceType?: StringFilter[];
 
   /**
    * <p>The identifier of the VPC that the instance was launched in.</p>
    */
-  ResourceAwsEc2InstanceVpcId?: Array<StringFilter>;
+  ResourceAwsEc2InstanceVpcId?: StringFilter[];
 
   /**
    * <p>The creation date/time of the IAM access key related to a finding.</p>
    */
-  ResourceAwsIamAccessKeyCreatedAt?: Array<DateFilter>;
+  ResourceAwsIamAccessKeyCreatedAt?: DateFilter[];
 
   /**
    * <p>The status of the IAM access key related to a finding.</p>
    */
-  ResourceAwsIamAccessKeyStatus?: Array<StringFilter>;
+  ResourceAwsIamAccessKeyStatus?: StringFilter[];
 
   /**
    * <p>The user associated with the IAM access key related to a finding.</p>
    */
-  ResourceAwsIamAccessKeyUserName?: Array<StringFilter>;
+  ResourceAwsIamAccessKeyUserName?: StringFilter[];
 
   /**
    * <p>The canonical user ID of the owner of the S3 bucket.</p>
    */
-  ResourceAwsS3BucketOwnerId?: Array<StringFilter>;
+  ResourceAwsS3BucketOwnerId?: StringFilter[];
 
   /**
    * <p>The display name of the owner of the S3 bucket.</p>
    */
-  ResourceAwsS3BucketOwnerName?: Array<StringFilter>;
+  ResourceAwsS3BucketOwnerName?: StringFilter[];
 
   /**
    * <p>The identifier of the image related to a finding.</p>
    */
-  ResourceContainerImageId?: Array<StringFilter>;
+  ResourceContainerImageId?: StringFilter[];
 
   /**
    * <p>The name of the image related to a finding.</p>
    */
-  ResourceContainerImageName?: Array<StringFilter>;
+  ResourceContainerImageName?: StringFilter[];
 
   /**
    * <p>The date/time that the container was started.</p>
    */
-  ResourceContainerLaunchedAt?: Array<DateFilter>;
+  ResourceContainerLaunchedAt?: DateFilter[];
 
   /**
    * <p>The name of the container related to a finding.</p>
    */
-  ResourceContainerName?: Array<StringFilter>;
+  ResourceContainerName?: StringFilter[];
 
   /**
    * <p>The details of a resource that doesn't have a specific subfield for the resource type
    *          defined.</p>
    */
-  ResourceDetailsOther?: Array<MapFilter>;
+  ResourceDetailsOther?: MapFilter[];
 
   /**
    * <p>The canonical identifier for the given resource type.</p>
    */
-  ResourceId?: Array<StringFilter>;
+  ResourceId?: StringFilter[];
 
   /**
    * <p>The canonical AWS partition name that the Region is assigned to.</p>
    */
-  ResourcePartition?: Array<StringFilter>;
+  ResourcePartition?: StringFilter[];
 
   /**
    * <p>The canonical AWS external Region name where this resource is located.</p>
    */
-  ResourceRegion?: Array<StringFilter>;
+  ResourceRegion?: StringFilter[];
 
   /**
    * <p>A list of AWS tags associated with a resource at the time the finding was
    *          processed.</p>
    */
-  ResourceTags?: Array<MapFilter>;
+  ResourceTags?: MapFilter[];
 
   /**
    * <p>Specifies the type of the resource that details are provided for.</p>
    */
-  ResourceType?: Array<StringFilter>;
+  ResourceType?: StringFilter[];
 
   /**
    * <p>The label of a finding's severity.</p>
    */
-  SeverityLabel?: Array<StringFilter>;
+  SeverityLabel?: StringFilter[];
 
   /**
    * <p>The normalized severity of a finding.</p>
    */
-  SeverityNormalized?: Array<NumberFilter>;
+  SeverityNormalized?: NumberFilter[];
 
   /**
    * <p>The native severity as defined by the security-findings provider's solution that
    *          generated the finding.</p>
    */
-  SeverityProduct?: Array<NumberFilter>;
+  SeverityProduct?: NumberFilter[];
 
   /**
    * <p>A URL that links to a page about the current finding in the security-findings provider's
    *          solution.</p>
    */
-  SourceUrl?: Array<StringFilter>;
+  SourceUrl?: StringFilter[];
 
   /**
    * <p>The category of a threat intel indicator.</p>
    */
-  ThreatIntelIndicatorCategory?: Array<StringFilter>;
+  ThreatIntelIndicatorCategory?: StringFilter[];
 
   /**
    * <p>The date/time of the last observation of a threat intel indicator.</p>
    */
-  ThreatIntelIndicatorLastObservedAt?: Array<DateFilter>;
+  ThreatIntelIndicatorLastObservedAt?: DateFilter[];
 
   /**
    * <p>The source of the threat intel.</p>
    */
-  ThreatIntelIndicatorSource?: Array<StringFilter>;
+  ThreatIntelIndicatorSource?: StringFilter[];
 
   /**
    * <p>The URL for more details from the source of the threat intel.</p>
    */
-  ThreatIntelIndicatorSourceUrl?: Array<StringFilter>;
+  ThreatIntelIndicatorSourceUrl?: StringFilter[];
 
   /**
    * <p>The type of a threat intel indicator.</p>
    */
-  ThreatIntelIndicatorType?: Array<StringFilter>;
+  ThreatIntelIndicatorType?: StringFilter[];
 
   /**
    * <p>The value of a threat intel indicator.</p>
    */
-  ThreatIntelIndicatorValue?: Array<StringFilter>;
+  ThreatIntelIndicatorValue?: StringFilter[];
 
   /**
    * <p>A finding's title.</p>
    */
-  Title?: Array<StringFilter>;
+  Title?: StringFilter[];
 
   /**
    * <p>A finding type in the format of <code>namespace/category/classifier</code> that
    *          classifies a finding.</p>
    */
-  Type?: Array<StringFilter>;
+  Type?: StringFilter[];
 
   /**
    * <p>An ISO8601-formatted timestamp that indicates when the security-findings provider last
    *          updated the finding record. </p>
    */
-  UpdatedAt?: Array<DateFilter>;
+  UpdatedAt?: DateFilter[];
 
   /**
    * <p>A list of name/value string pairs associated with the finding. These are custom,
    *          user-defined fields added to a finding. </p>
    */
-  UserDefinedFields?: Array<MapFilter>;
+  UserDefinedFields?: MapFilter[];
 
   /**
    * <p>The veracity of a finding.</p>
    */
-  VerificationState?: Array<StringFilter>;
+  VerificationState?: StringFilter[];
 
   /**
    * <p>The workflow state of a finding.</p>
    */
-  WorkflowState?: Array<StringFilter>;
+  WorkflowState?: StringFilter[];
 }
 
 export namespace AwsSecurityFindingFilters {
@@ -1419,7 +1419,7 @@ export interface AwsSnsTopicDetails {
   /**
    * <p>Subscription is an embedded property that describes the subscription endpoints of an Amazon SNS topic.</p>
    */
-  Subscription?: Array<AwsSnsTopicSubscription>;
+  Subscription?: AwsSnsTopicSubscription[];
 
   /**
    * <p>The name of the topic.</p>
@@ -1489,7 +1489,7 @@ export interface BatchDisableStandardsRequest {
   /**
    * <p>The ARNs of the standards subscriptions to disable.</p>
    */
-  StandardsSubscriptionArns: Array<string> | undefined;
+  StandardsSubscriptionArns: string[] | undefined;
 }
 
 export namespace BatchDisableStandardsRequest {
@@ -1502,7 +1502,7 @@ export interface BatchDisableStandardsResponse {
   /**
    * <p>The details of the standards subscriptions that were disabled.</p>
    */
-  StandardsSubscriptions?: Array<StandardsSubscription>;
+  StandardsSubscriptions?: StandardsSubscription[];
 }
 
 export namespace BatchDisableStandardsResponse {
@@ -1520,9 +1520,7 @@ export interface BatchEnableStandardsRequest {
    *                <code>arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0</code>.</p>
    *          </important>
    */
-  StandardsSubscriptionRequests:
-    | Array<StandardsSubscriptionRequest>
-    | undefined;
+  StandardsSubscriptionRequests: StandardsSubscriptionRequest[] | undefined;
 }
 
 export namespace BatchEnableStandardsRequest {
@@ -1535,7 +1533,7 @@ export interface BatchEnableStandardsResponse {
   /**
    * <p>The details of the standards subscriptions that were enabled.</p>
    */
-  StandardsSubscriptions?: Array<StandardsSubscription>;
+  StandardsSubscriptions?: StandardsSubscription[];
 }
 
 export namespace BatchEnableStandardsResponse {
@@ -1549,7 +1547,7 @@ export interface BatchImportFindingsRequest {
    * <p>A list of findings to import. To successfully import a finding, it must follow the
    *             <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html">AWS Security Finding Format</a>. Maximum of 100 findings per request.</p>
    */
-  Findings: Array<AwsSecurityFinding> | undefined;
+  Findings: AwsSecurityFinding[] | undefined;
 }
 
 export namespace BatchImportFindingsRequest {
@@ -1567,7 +1565,7 @@ export interface BatchImportFindingsResponse {
   /**
    * <p>The list of the findings that failed to import.</p>
    */
-  FailedFindings?: Array<ImportFindingsError>;
+  FailedFindings?: ImportFindingsError[];
 
   /**
    * <p>The number of findings that were successfully imported.</p>
@@ -1743,7 +1741,7 @@ export interface CreateMembersRequest {
    * <p>A list of account ID and email address pairs of the accounts to associate with the Security Hub
    *          master account.</p>
    */
-  AccountDetails?: Array<AccountDetails>;
+  AccountDetails?: AccountDetails[];
 }
 
 export namespace CreateMembersRequest {
@@ -1757,7 +1755,7 @@ export interface CreateMembersResponse {
    * <p>A list of account ID and email address pairs of the AWS accounts that weren't
    *          processed.</p>
    */
-  UnprocessedAccounts?: Array<Result>;
+  UnprocessedAccounts?: Result[];
 }
 
 export namespace CreateMembersResponse {
@@ -1820,7 +1818,7 @@ export interface DeclineInvitationsRequest {
    * <p>A list of account IDs that specify the accounts that invitations to Security Hub are declined
    *          from.</p>
    */
-  AccountIds: Array<string> | undefined;
+  AccountIds: string[] | undefined;
 }
 
 export namespace DeclineInvitationsRequest {
@@ -1834,7 +1832,7 @@ export interface DeclineInvitationsResponse {
    * <p>A list of account ID and email address pairs of the AWS accounts that weren't
    *          processed.</p>
    */
-  UnprocessedAccounts?: Array<Result>;
+  UnprocessedAccounts?: Result[];
 }
 
 export namespace DeclineInvitationsResponse {
@@ -1899,7 +1897,7 @@ export interface DeleteInvitationsRequest {
   /**
    * <p>A list of the account IDs that sent the invitations to delete.</p>
    */
-  AccountIds: Array<string> | undefined;
+  AccountIds: string[] | undefined;
 }
 
 export namespace DeleteInvitationsRequest {
@@ -1913,7 +1911,7 @@ export interface DeleteInvitationsResponse {
    * <p>A list of account ID and email address pairs of the AWS accounts that invitations
    *          weren't deleted for.</p>
    */
-  UnprocessedAccounts?: Array<Result>;
+  UnprocessedAccounts?: Result[];
 }
 
 export namespace DeleteInvitationsResponse {
@@ -1926,7 +1924,7 @@ export interface DeleteMembersRequest {
   /**
    * <p>A list of account IDs of the member accounts to delete.</p>
    */
-  AccountIds?: Array<string>;
+  AccountIds?: string[];
 }
 
 export namespace DeleteMembersRequest {
@@ -1940,7 +1938,7 @@ export interface DeleteMembersResponse {
    * <p>A list of account ID and email address pairs of the AWS accounts that weren't
    *          deleted.</p>
    */
-  UnprocessedAccounts?: Array<Result>;
+  UnprocessedAccounts?: Result[];
 }
 
 export namespace DeleteMembersResponse {
@@ -1953,7 +1951,7 @@ export interface DescribeActionTargetsRequest {
   /**
    * <p>A list of custom action target ARNs for the custom action targets to retrieve.</p>
    */
-  ActionTargetArns?: Array<string>;
+  ActionTargetArns?: string[];
 
   /**
    * <p>The maximum number of results to return.</p>
@@ -1978,7 +1976,7 @@ export interface DescribeActionTargetsResponse {
    *             <code>Description</code>, and <code>Name</code> of a custom action target available in
    *          Security Hub.</p>
    */
-  ActionTargets: Array<ActionTarget> | undefined;
+  ActionTargets: ActionTarget[] | undefined;
 
   /**
    * <p>The token that is required for pagination.</p>
@@ -2050,7 +2048,7 @@ export interface DescribeProductsResponse {
   /**
    * <p>A list of products, including details for each product.</p>
    */
-  Products: Array<Product> | undefined;
+  Products: Product[] | undefined;
 }
 
 export namespace DescribeProductsResponse {
@@ -2088,7 +2086,7 @@ export interface DescribeStandardsControlsResponse {
   /**
    * <p>A list of compliance standards controls.</p>
    */
-  Controls?: Array<StandardsControl>;
+  Controls?: StandardsControl[];
 
   /**
    * <p>If there are more compliance standards control remaining in the results, then this is
@@ -2166,7 +2164,7 @@ export interface DisassociateMembersRequest {
   /**
    * <p>The account IDs of the member accounts to disassociate from the master account.</p>
    */
-  AccountIds?: Array<string>;
+  AccountIds?: string[];
 }
 
 export namespace DisassociateMembersRequest {
@@ -2249,7 +2247,7 @@ export interface GetEnabledStandardsRequest {
   /**
    * <p>A list of the standards subscription ARNs for the standards to retrieve.</p>
    */
-  StandardsSubscriptionArns?: Array<string>;
+  StandardsSubscriptionArns?: string[];
 }
 
 export namespace GetEnabledStandardsRequest {
@@ -2267,7 +2265,7 @@ export interface GetEnabledStandardsResponse {
   /**
    * <p>A list of <code>StandardsSubscriptions</code> objects that include information about the enabled standards.</p>
    */
-  StandardsSubscriptions?: Array<StandardsSubscription>;
+  StandardsSubscriptions?: StandardsSubscription[];
 }
 
 export namespace GetEnabledStandardsResponse {
@@ -2298,7 +2296,7 @@ export interface GetFindingsRequest {
   /**
    * <p>Findings attributes used to sort the list of findings returned.</p>
    */
-  SortCriteria?: Array<SortCriterion>;
+  SortCriteria?: SortCriterion[];
 }
 
 export namespace GetFindingsRequest {
@@ -2311,7 +2309,7 @@ export interface GetFindingsResponse {
   /**
    * <p>The findings that matched the filters specified in the request.</p>
    */
-  Findings: Array<AwsSecurityFinding> | undefined;
+  Findings: AwsSecurityFinding[] | undefined;
 
   /**
    * <p>The token that is required for pagination.</p>
@@ -2355,7 +2353,7 @@ export interface GetInsightsRequest {
   /**
    * <p>The ARNs of the insights that you want to describe.</p>
    */
-  InsightArns?: Array<string>;
+  InsightArns?: string[];
 
   /**
    * <p>The maximum number of items that you want in the response.</p>
@@ -2381,7 +2379,7 @@ export interface GetInsightsResponse {
   /**
    * <p>The insights returned by the operation.</p>
    */
-  Insights: Array<Insight> | undefined;
+  Insights: Insight[] | undefined;
 
   /**
    * <p>The token that is required for pagination.</p>
@@ -2446,7 +2444,7 @@ export interface GetMembersRequest {
    * <p>A list of account IDs for the Security Hub member accounts that you want to return the
    *          details for. </p>
    */
-  AccountIds: Array<string> | undefined;
+  AccountIds: string[] | undefined;
 }
 
 export namespace GetMembersRequest {
@@ -2459,13 +2457,13 @@ export interface GetMembersResponse {
   /**
    * <p>A list of details about the Security Hub member accounts.</p>
    */
-  Members?: Array<Member>;
+  Members?: Member[];
 
   /**
    * <p>A list of account ID and email address pairs of the AWS accounts that couldn't be
    *          processed.</p>
    */
-  UnprocessedAccounts?: Array<Result>;
+  UnprocessedAccounts?: Result[];
 }
 
 export namespace GetMembersResponse {
@@ -2576,7 +2574,7 @@ export interface InsightResults {
    * <p>The list of insight result values returned by the <code>GetInsightResults</code>
    *          operation.</p>
    */
-  ResultValues: Array<InsightResultValue> | undefined;
+  ResultValues: InsightResultValue[] | undefined;
 }
 
 export namespace InsightResults {
@@ -2670,7 +2668,7 @@ export interface InviteMembersRequest {
    * <p>A list of IDs of the AWS accounts that you want to invite to Security Hub as members.
    *       </p>
    */
-  AccountIds?: Array<string>;
+  AccountIds?: string[];
 }
 
 export namespace InviteMembersRequest {
@@ -2684,7 +2682,7 @@ export interface InviteMembersResponse {
    * <p>A list of account ID and email address pairs of the AWS accounts that couldn't be
    *          processed. </p>
    */
-  UnprocessedAccounts?: Array<Result>;
+  UnprocessedAccounts?: Result[];
 }
 
 export namespace InviteMembersResponse {
@@ -2771,7 +2769,7 @@ export interface ListEnabledProductsForImportResponse {
   /**
    * <p>A list of ARNs for the resources that represent your subscriptions to products. </p>
    */
-  ProductSubscriptions?: Array<string>;
+  ProductSubscriptions?: string[];
 }
 
 export namespace ListEnabledProductsForImportResponse {
@@ -2805,7 +2803,7 @@ export interface ListInvitationsResponse {
   /**
    * <p>The details of the invitations returned by the operation.</p>
    */
-  Invitations?: Array<Invitation>;
+  Invitations?: Invitation[];
 
   /**
    * <p>The token that is required for pagination.</p>
@@ -2854,7 +2852,7 @@ export interface ListMembersResponse {
   /**
    * <p>Member details returned by the operation.</p>
    */
-  Members?: Array<Member>;
+  Members?: Member[];
 
   /**
    * <p>The token that is required for pagination.</p>
@@ -3244,7 +3242,7 @@ export interface Product {
   /**
    * <p>The categories assigned to the product.</p>
    */
-  Categories?: Array<string>;
+  Categories?: string[];
 
   /**
    * <p>The name of the company that provides the product.</p>
@@ -3820,7 +3818,7 @@ export interface UntagResourceRequest {
   /**
    * <p>The tag keys associated with the tags to remove from the resource.</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {

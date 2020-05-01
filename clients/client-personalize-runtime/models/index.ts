@@ -24,7 +24,7 @@ export interface GetPersonalizedRankingRequest {
    * <p>A list of items (itemId's) to rank. If an item was not included in the training dataset,
    *       the item is appended to the end of the reranked list. The maximum is 500.</p>
    */
-  inputList: Array<string> | undefined;
+  inputList: string[] | undefined;
 
   /**
    * <p>The user for which you want the campaign to provide a personalized ranking.</p>
@@ -42,7 +42,7 @@ export interface GetPersonalizedRankingResponse {
   /**
    * <p>A list of items in order of most likely interest to the user. The maximum is 500.</p>
    */
-  personalizedRanking?: Array<PredictedItem>;
+  personalizedRanking?: PredictedItem[];
 }
 
 export namespace GetPersonalizedRankingResponse {
@@ -94,7 +94,7 @@ export interface GetRecommendationsResponse {
    * <p>A list of recommendations sorted in ascending order by prediction score. There can be a
    *       maximum of 500 items in the list.</p>
    */
-  itemList?: Array<PredictedItem>;
+  itemList?: PredictedItem[];
 }
 
 export namespace GetRecommendationsResponse {

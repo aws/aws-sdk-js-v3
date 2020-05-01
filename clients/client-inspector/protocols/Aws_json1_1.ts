@@ -4674,7 +4674,7 @@ const serializeAws_json1_1AddAttributesToFindingsRequest = (
 };
 
 const serializeAws_json1_1AddRemoveAttributesFindingArnList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4705,7 +4705,7 @@ const serializeAws_json1_1AgentFilter = (
 };
 
 const serializeAws_json1_1AgentHealthCodeList = (
-  input: Array<AgentHealthCode | string>,
+  input: (AgentHealthCode | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4716,7 +4716,7 @@ const serializeAws_json1_1AgentHealthCodeList = (
 };
 
 const serializeAws_json1_1AgentHealthList = (
-  input: Array<AgentHealth | string>,
+  input: (AgentHealth | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4727,7 +4727,7 @@ const serializeAws_json1_1AgentHealthList = (
 };
 
 const serializeAws_json1_1AgentIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4787,7 +4787,7 @@ const serializeAws_json1_1AssessmentRunFilter = (
 };
 
 const serializeAws_json1_1AssessmentRunStateList = (
-  input: Array<AssessmentRunState | string>,
+  input: (AssessmentRunState | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4835,7 +4835,7 @@ const serializeAws_json1_1AssessmentTemplateFilter = (
 };
 
 const serializeAws_json1_1AssessmentTemplateRulesPackageArnList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4860,7 +4860,7 @@ const serializeAws_json1_1Attribute = (
 };
 
 const serializeAws_json1_1AttributeList = (
-  input: Array<Attribute>,
+  input: Attribute[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4871,7 +4871,7 @@ const serializeAws_json1_1AttributeList = (
 };
 
 const serializeAws_json1_1AutoScalingGroupList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4882,7 +4882,7 @@ const serializeAws_json1_1AutoScalingGroupList = (
 };
 
 const serializeAws_json1_1BatchDescribeArnList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4893,7 +4893,7 @@ const serializeAws_json1_1BatchDescribeArnList = (
 };
 
 const serializeAws_json1_1BatchDescribeExclusionsArnList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5136,7 +5136,7 @@ const serializeAws_json1_1DurationRange = (
 };
 
 const serializeAws_json1_1FilterRulesPackageArnList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5413,7 +5413,7 @@ const serializeAws_json1_1ListFindingsRequest = (
 };
 
 const serializeAws_json1_1ListParentArnList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5513,7 +5513,7 @@ const serializeAws_json1_1ResourceGroupTag = (
 };
 
 const serializeAws_json1_1ResourceGroupTags = (
-  input: Array<ResourceGroupTag>,
+  input: ResourceGroupTag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5524,7 +5524,7 @@ const serializeAws_json1_1ResourceGroupTags = (
 };
 
 const serializeAws_json1_1RuleNameList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5549,7 +5549,7 @@ const serializeAws_json1_1SetTagsForResourceRequest = (
 };
 
 const serializeAws_json1_1SeverityList = (
-  input: Array<Severity | string>,
+  input: (Severity | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5616,7 +5616,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_json1_1TagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5675,7 +5675,7 @@ const serializeAws_json1_1UpdateAssessmentTargetRequest = (
 };
 
 const serializeAws_json1_1UserAttributeKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5686,7 +5686,7 @@ const serializeAws_json1_1UserAttributeKeyList = (
 };
 
 const serializeAws_json1_1UserAttributeList = (
-  input: Array<Attribute>,
+  input: Attribute[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5759,7 +5759,7 @@ const deserializeAws_json1_1AgentAlreadyRunningAssessment = (
 const deserializeAws_json1_1AgentAlreadyRunningAssessmentList = (
   output: any,
   context: __SerdeContext
-): Array<AgentAlreadyRunningAssessment> => {
+): AgentAlreadyRunningAssessment[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AgentAlreadyRunningAssessment(entry, context)
   );
@@ -5813,7 +5813,7 @@ const deserializeAws_json1_1AgentPreview = (
 const deserializeAws_json1_1AgentPreviewList = (
   output: any,
   context: __SerdeContext
-): Array<AgentPreview> => {
+): AgentPreview[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AgentPreview(entry, context)
   );
@@ -5851,7 +5851,7 @@ const deserializeAws_json1_1AgentsAlreadyRunningAssessmentException = (
 const deserializeAws_json1_1AssessmentRulesPackageArnList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -6010,7 +6010,7 @@ const deserializeAws_json1_1AssessmentRunAgent = (
 const deserializeAws_json1_1AssessmentRunAgentList = (
   output: any,
   context: __SerdeContext
-): Array<AssessmentRunAgent> => {
+): AssessmentRunAgent[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AssessmentRunAgent(entry, context)
   );
@@ -6030,7 +6030,7 @@ const deserializeAws_json1_1AssessmentRunFindingCounts = (
 const deserializeAws_json1_1AssessmentRunInProgressArnList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -6072,7 +6072,7 @@ const deserializeAws_json1_1AssessmentRunInProgressException = (
 const deserializeAws_json1_1AssessmentRunList = (
   output: any,
   context: __SerdeContext
-): Array<AssessmentRun> => {
+): AssessmentRun[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AssessmentRun(entry, context)
   );
@@ -6118,7 +6118,7 @@ const deserializeAws_json1_1AssessmentRunNotification = (
 const deserializeAws_json1_1AssessmentRunNotificationList = (
   output: any,
   context: __SerdeContext
-): Array<AssessmentRunNotification> => {
+): AssessmentRunNotification[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AssessmentRunNotification(entry, context)
   );
@@ -6147,7 +6147,7 @@ const deserializeAws_json1_1AssessmentRunStateChange = (
 const deserializeAws_json1_1AssessmentRunStateChangeList = (
   output: any,
   context: __SerdeContext
-): Array<AssessmentRunStateChange> => {
+): AssessmentRunStateChange[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AssessmentRunStateChange(entry, context)
   );
@@ -6189,7 +6189,7 @@ const deserializeAws_json1_1AssessmentTarget = (
 const deserializeAws_json1_1AssessmentTargetList = (
   output: any,
   context: __SerdeContext
-): Array<AssessmentTarget> => {
+): AssessmentTarget[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AssessmentTarget(entry, context)
   );
@@ -6268,7 +6268,7 @@ const deserializeAws_json1_1AssessmentTemplate = (
 const deserializeAws_json1_1AssessmentTemplateList = (
   output: any,
   context: __SerdeContext
-): Array<AssessmentTemplate> => {
+): AssessmentTemplate[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AssessmentTemplate(entry, context)
   );
@@ -6277,7 +6277,7 @@ const deserializeAws_json1_1AssessmentTemplateList = (
 const deserializeAws_json1_1AssessmentTemplateRulesPackageArnList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -6356,7 +6356,7 @@ const deserializeAws_json1_1Attribute = (
 const deserializeAws_json1_1AttributeList = (
   output: any,
   context: __SerdeContext
-): Array<Attribute> => {
+): Attribute[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Attribute(entry, context)
   );
@@ -6644,7 +6644,7 @@ const deserializeAws_json1_1EventSubscription = (
 const deserializeAws_json1_1EventSubscriptionList = (
   output: any,
   context: __SerdeContext
-): Array<EventSubscription> => {
+): EventSubscription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EventSubscription(entry, context)
   );
@@ -6734,7 +6734,7 @@ const deserializeAws_json1_1ExclusionPreview = (
 const deserializeAws_json1_1ExclusionPreviewList = (
   output: any,
   context: __SerdeContext
-): Array<ExclusionPreview> => {
+): ExclusionPreview[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ExclusionPreview(entry, context)
   );
@@ -6875,7 +6875,7 @@ const deserializeAws_json1_1Finding = (
 const deserializeAws_json1_1FindingList = (
   output: any,
   context: __SerdeContext
-): Array<Finding> => {
+): Finding[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Finding(entry, context)
   );
@@ -7037,14 +7037,14 @@ const deserializeAws_json1_1InvalidInputException = (
 const deserializeAws_json1_1Ipv4AddressList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1Ipv6Addresses = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -7232,7 +7232,7 @@ const deserializeAws_json1_1ListFindingsResponse = (
 const deserializeAws_json1_1ListReturnedArnList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -7345,7 +7345,7 @@ const deserializeAws_json1_1NetworkInterface = (
 const deserializeAws_json1_1NetworkInterfaces = (
   output: any,
   context: __SerdeContext
-): Array<NetworkInterface> => {
+): NetworkInterface[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1NetworkInterface(entry, context)
   );
@@ -7432,7 +7432,7 @@ const deserializeAws_json1_1PrivateIp = (
 const deserializeAws_json1_1PrivateIpAddresses = (
   output: any,
   context: __SerdeContext
-): Array<PrivateIp> => {
+): PrivateIp[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PrivateIp(entry, context)
   );
@@ -7483,7 +7483,7 @@ const deserializeAws_json1_1ResourceGroup = (
 const deserializeAws_json1_1ResourceGroupList = (
   output: any,
   context: __SerdeContext
-): Array<ResourceGroup> => {
+): ResourceGroup[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ResourceGroup(entry, context)
   );
@@ -7510,7 +7510,7 @@ const deserializeAws_json1_1ResourceGroupTag = (
 const deserializeAws_json1_1ResourceGroupTags = (
   output: any,
   context: __SerdeContext
-): Array<ResourceGroupTag> => {
+): ResourceGroupTag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ResourceGroupTag(entry, context)
   );
@@ -7549,7 +7549,7 @@ const deserializeAws_json1_1RulesPackage = (
 const deserializeAws_json1_1RulesPackageList = (
   output: any,
   context: __SerdeContext
-): Array<RulesPackage> => {
+): RulesPackage[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RulesPackage(entry, context)
   );
@@ -7576,7 +7576,7 @@ const deserializeAws_json1_1Scope = (
 const deserializeAws_json1_1ScopeList = (
   output: any,
   context: __SerdeContext
-): Array<Scope> => {
+): Scope[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Scope(entry, context)
   );
@@ -7603,7 +7603,7 @@ const deserializeAws_json1_1SecurityGroup = (
 const deserializeAws_json1_1SecurityGroups = (
   output: any,
   context: __SerdeContext
-): Array<SecurityGroup> => {
+): SecurityGroup[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SecurityGroup(entry, context)
   );
@@ -7675,7 +7675,7 @@ const deserializeAws_json1_1Subscription = (
 const deserializeAws_json1_1SubscriptionList = (
   output: any,
   context: __SerdeContext
-): Array<Subscription> => {
+): Subscription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Subscription(entry, context)
   );
@@ -7702,7 +7702,7 @@ const deserializeAws_json1_1Tag = (
 const deserializeAws_json1_1TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );
@@ -7711,7 +7711,7 @@ const deserializeAws_json1_1TagList = (
 const deserializeAws_json1_1Tags = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );
@@ -7742,7 +7742,7 @@ const deserializeAws_json1_1TelemetryMetadata = (
 const deserializeAws_json1_1TelemetryMetadataList = (
   output: any,
   context: __SerdeContext
-): Array<TelemetryMetadata> => {
+): TelemetryMetadata[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1TelemetryMetadata(entry, context)
   );
@@ -7769,7 +7769,7 @@ const deserializeAws_json1_1UnsupportedFeatureException = (
 const deserializeAws_json1_1UserAttributeList = (
   output: any,
   context: __SerdeContext
-): Array<Attribute> => {
+): Attribute[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Attribute(entry, context)
   );

@@ -4852,7 +4852,7 @@ const serializeAws_restJson1_1ParticipantDetails = (
 };
 
 const serializeAws_restJson1_1Channels = (
-  input: Array<Channel | string>,
+  input: (Channel | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4877,7 +4877,7 @@ const serializeAws_restJson1_1CurrentMetric = (
 };
 
 const serializeAws_restJson1_1CurrentMetrics = (
-  input: Array<CurrentMetric>,
+  input: CurrentMetric[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4908,7 +4908,7 @@ const serializeAws_restJson1_1Filters = (
 };
 
 const serializeAws_restJson1_1Groupings = (
-  input: Array<Grouping | string>,
+  input: (Grouping | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4942,7 +4942,7 @@ const serializeAws_restJson1_1HistoricalMetric = (
 };
 
 const serializeAws_restJson1_1HistoricalMetrics = (
-  input: Array<HistoricalMetric>,
+  input: HistoricalMetric[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4953,7 +4953,7 @@ const serializeAws_restJson1_1HistoricalMetrics = (
 };
 
 const serializeAws_restJson1_1Queues = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4978,7 +4978,7 @@ const serializeAws_restJson1_1Threshold = (
 };
 
 const serializeAws_restJson1_1SecurityProfileIds = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5089,7 +5089,7 @@ const deserializeAws_restJson1_1CurrentMetricData = (
 const deserializeAws_restJson1_1CurrentMetricDataCollections = (
   output: any,
   context: __SerdeContext
-): Array<CurrentMetricData> => {
+): CurrentMetricData[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1CurrentMetricData(entry, context)
   );
@@ -5122,7 +5122,7 @@ const deserializeAws_restJson1_1CurrentMetricResult = (
 const deserializeAws_restJson1_1CurrentMetricResults = (
   output: any,
   context: __SerdeContext
-): Array<CurrentMetricResult> => {
+): CurrentMetricResult[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1CurrentMetricResult(entry, context)
   );
@@ -5202,7 +5202,7 @@ const deserializeAws_restJson1_1HistoricalMetricData = (
 const deserializeAws_restJson1_1HistoricalMetricDataCollections = (
   output: any,
   context: __SerdeContext
-): Array<HistoricalMetricData> => {
+): HistoricalMetricData[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1HistoricalMetricData(entry, context)
   );
@@ -5235,7 +5235,7 @@ const deserializeAws_restJson1_1HistoricalMetricResult = (
 const deserializeAws_restJson1_1HistoricalMetricResults = (
   output: any,
   context: __SerdeContext
-): Array<HistoricalMetricResult> => {
+): HistoricalMetricResult[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1HistoricalMetricResult(entry, context)
   );
@@ -5306,7 +5306,7 @@ const deserializeAws_restJson1_1ContactFlowSummary = (
 const deserializeAws_restJson1_1ContactFlowSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<ContactFlowSummary> => {
+): ContactFlowSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ContactFlowSummary(entry, context)
   );
@@ -5406,7 +5406,7 @@ const deserializeAws_restJson1_1HierarchyGroupSummary = (
 const deserializeAws_restJson1_1HierarchyGroupSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<HierarchyGroupSummary> => {
+): HierarchyGroupSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1HierarchyGroupSummary(entry, context)
   );
@@ -5549,7 +5549,7 @@ const deserializeAws_restJson1_1HoursOfOperationSummary = (
 const deserializeAws_restJson1_1HoursOfOperationSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<HoursOfOperationSummary> => {
+): HoursOfOperationSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1HoursOfOperationSummary(entry, context)
   );
@@ -5591,7 +5591,7 @@ const deserializeAws_restJson1_1PhoneNumberSummary = (
 const deserializeAws_restJson1_1PhoneNumberSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<PhoneNumberSummary> => {
+): PhoneNumberSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1PhoneNumberSummary(entry, context)
   );
@@ -5626,7 +5626,7 @@ const deserializeAws_restJson1_1QueueSummary = (
 const deserializeAws_restJson1_1QueueSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<QueueSummary> => {
+): QueueSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1QueueSummary(entry, context)
   );
@@ -5657,7 +5657,7 @@ const deserializeAws_restJson1_1RoutingProfileSummary = (
 const deserializeAws_restJson1_1RoutingProfileSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<RoutingProfileSummary> => {
+): RoutingProfileSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1RoutingProfileSummary(entry, context)
   );
@@ -5666,7 +5666,7 @@ const deserializeAws_restJson1_1RoutingProfileSummaryList = (
 const deserializeAws_restJson1_1SecurityProfileIds = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -5695,7 +5695,7 @@ const deserializeAws_restJson1_1SecurityProfileSummary = (
 const deserializeAws_restJson1_1SecurityProfileSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<SecurityProfileSummary> => {
+): SecurityProfileSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SecurityProfileSummary(entry, context)
   );
@@ -5856,7 +5856,7 @@ const deserializeAws_restJson1_1UserSummary = (
 const deserializeAws_restJson1_1UserSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<UserSummary> => {
+): UserSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1UserSummary(entry, context)
   );

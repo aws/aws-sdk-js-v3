@@ -13235,7 +13235,7 @@ const serializeAws_restJson1_1AttributeKeyAndValue = (
 };
 
 const serializeAws_restJson1_1AttributeKeyAndValueList = (
-  input: Array<AttributeKeyAndValue>,
+  input: AttributeKeyAndValue[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -13246,7 +13246,7 @@ const serializeAws_restJson1_1AttributeKeyAndValueList = (
 };
 
 const serializeAws_restJson1_1AttributeKeyList = (
-  input: Array<AttributeKey>,
+  input: AttributeKey[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -13274,7 +13274,7 @@ const serializeAws_restJson1_1AttributeNameAndValue = (
 };
 
 const serializeAws_restJson1_1AttributeNameAndValueList = (
-  input: Array<AttributeNameAndValue>,
+  input: AttributeNameAndValue[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -13287,7 +13287,7 @@ const serializeAws_restJson1_1AttributeNameAndValueList = (
 };
 
 const serializeAws_restJson1_1AttributeNameList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -14028,7 +14028,7 @@ const serializeAws_restJson1_1BatchReadOperation = (
 };
 
 const serializeAws_restJson1_1BatchReadOperationList = (
-  input: Array<BatchReadOperation>,
+  input: BatchReadOperation[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -14217,7 +14217,7 @@ const serializeAws_restJson1_1BatchWriteOperation = (
 };
 
 const serializeAws_restJson1_1BatchWriteOperationList = (
-  input: Array<BatchWriteOperation>,
+  input: BatchWriteOperation[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -14281,7 +14281,7 @@ const serializeAws_restJson1_1FacetAttributeDefinition = (
 };
 
 const serializeAws_restJson1_1FacetAttributeList = (
-  input: Array<FacetAttribute>,
+  input: FacetAttribute[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -14323,7 +14323,7 @@ const serializeAws_restJson1_1FacetAttributeUpdate = (
 };
 
 const serializeAws_restJson1_1FacetAttributeUpdateList = (
-  input: Array<FacetAttributeUpdate>,
+  input: FacetAttributeUpdate[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -14373,7 +14373,7 @@ const serializeAws_restJson1_1LinkAttributeUpdate = (
 };
 
 const serializeAws_restJson1_1LinkAttributeUpdateList = (
-  input: Array<LinkAttributeUpdate>,
+  input: LinkAttributeUpdate[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -14423,7 +14423,7 @@ const serializeAws_restJson1_1ObjectAttributeRange = (
 };
 
 const serializeAws_restJson1_1ObjectAttributeRangeList = (
-  input: Array<ObjectAttributeRange>,
+  input: ObjectAttributeRange[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -14456,7 +14456,7 @@ const serializeAws_restJson1_1ObjectAttributeUpdate = (
 };
 
 const serializeAws_restJson1_1ObjectAttributeUpdateList = (
-  input: Array<ObjectAttributeUpdate>,
+  input: ObjectAttributeUpdate[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -14533,7 +14533,7 @@ const serializeAws_restJson1_1SchemaFacet = (
 };
 
 const serializeAws_restJson1_1SchemaFacetList = (
-  input: Array<SchemaFacet>,
+  input: SchemaFacet[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -14558,7 +14558,7 @@ const serializeAws_restJson1_1Tag = (
 };
 
 const serializeAws_restJson1_1TagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -14569,7 +14569,7 @@ const serializeAws_restJson1_1TagKeyList = (
 };
 
 const serializeAws_restJson1_1TagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -14660,7 +14660,7 @@ const serializeAws_restJson1_1TypedLinkAttributeDefinition = (
 };
 
 const serializeAws_restJson1_1TypedLinkAttributeDefinitionList = (
-  input: Array<TypedLinkAttributeDefinition>,
+  input: TypedLinkAttributeDefinition[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -14690,7 +14690,7 @@ const serializeAws_restJson1_1TypedLinkAttributeRange = (
 };
 
 const serializeAws_restJson1_1TypedLinkAttributeRangeList = (
-  input: Array<TypedLinkAttributeRange>,
+  input: TypedLinkAttributeRange[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -14749,7 +14749,7 @@ const serializeAws_restJson1_1TypedLinkFacetAttributeUpdate = (
 };
 
 const serializeAws_restJson1_1TypedLinkFacetAttributeUpdateList = (
-  input: Array<TypedLinkFacetAttributeUpdate>,
+  input: TypedLinkFacetAttributeUpdate[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -14818,7 +14818,7 @@ const serializeAws_restJson1_1TypedLinkSpecifier = (
 const deserializeAws_restJson1_1Arns = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -14868,7 +14868,7 @@ const deserializeAws_restJson1_1AttributeKeyAndValue = (
 const deserializeAws_restJson1_1AttributeKeyAndValueList = (
   output: any,
   context: __SerdeContext
-): Array<AttributeKeyAndValue> => {
+): AttributeKeyAndValue[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1AttributeKeyAndValue(entry, context)
   );
@@ -14898,7 +14898,7 @@ const deserializeAws_restJson1_1AttributeNameAndValue = (
 const deserializeAws_restJson1_1AttributeNameAndValueList = (
   output: any,
   context: __SerdeContext
-): Array<AttributeNameAndValue> => {
+): AttributeNameAndValue[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1AttributeNameAndValue(entry, context)
   );
@@ -14907,7 +14907,7 @@ const deserializeAws_restJson1_1AttributeNameAndValueList = (
 const deserializeAws_restJson1_1AttributeNameList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -15444,7 +15444,7 @@ const deserializeAws_restJson1_1BatchReadOperationResponse = (
 const deserializeAws_restJson1_1BatchReadOperationResponseList = (
   output: any,
   context: __SerdeContext
-): Array<BatchReadOperationResponse> => {
+): BatchReadOperationResponse[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1BatchReadOperationResponse(entry, context)
   );
@@ -15761,7 +15761,7 @@ const deserializeAws_restJson1_1BatchWriteOperationResponse = (
 const deserializeAws_restJson1_1BatchWriteOperationResponseList = (
   output: any,
   context: __SerdeContext
-): Array<BatchWriteOperationResponse> => {
+): BatchWriteOperationResponse[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1BatchWriteOperationResponse(entry, context)
   );
@@ -15801,7 +15801,7 @@ const deserializeAws_restJson1_1Directory = (
 const deserializeAws_restJson1_1DirectoryList = (
   output: any,
   context: __SerdeContext
-): Array<Directory> => {
+): Directory[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Directory(entry, context)
   );
@@ -15902,7 +15902,7 @@ const deserializeAws_restJson1_1FacetAttributeDefinition = (
 const deserializeAws_restJson1_1FacetAttributeList = (
   output: any,
   context: __SerdeContext
-): Array<FacetAttribute> => {
+): FacetAttribute[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1FacetAttribute(entry, context)
   );
@@ -15932,7 +15932,7 @@ const deserializeAws_restJson1_1FacetAttributeReference = (
 const deserializeAws_restJson1_1FacetNameList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -15966,7 +15966,7 @@ const deserializeAws_restJson1_1IndexAttachment = (
 const deserializeAws_restJson1_1IndexAttachmentList = (
   output: any,
   context: __SerdeContext
-): Array<IndexAttachment> => {
+): IndexAttachment[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1IndexAttachment(entry, context)
   );
@@ -15986,7 +15986,7 @@ const deserializeAws_restJson1_1LinkNameToObjectIdentifierMap = (
 const deserializeAws_restJson1_1ObjectIdentifierAndLinkNameList = (
   output: any,
   context: __SerdeContext
-): Array<ObjectIdentifierAndLinkNameTuple> => {
+): ObjectIdentifierAndLinkNameTuple[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ObjectIdentifierAndLinkNameTuple(entry, context)
   );
@@ -16016,7 +16016,7 @@ const deserializeAws_restJson1_1ObjectIdentifierAndLinkNameTuple = (
 const deserializeAws_restJson1_1ObjectIdentifierList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -16072,7 +16072,7 @@ const deserializeAws_restJson1_1PathToObjectIdentifiers = (
 const deserializeAws_restJson1_1PathToObjectIdentifiersList = (
   output: any,
   context: __SerdeContext
-): Array<PathToObjectIdentifiers> => {
+): PathToObjectIdentifiers[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1PathToObjectIdentifiers(entry, context)
   );
@@ -16106,7 +16106,7 @@ const deserializeAws_restJson1_1PolicyAttachment = (
 const deserializeAws_restJson1_1PolicyAttachmentList = (
   output: any,
   context: __SerdeContext
-): Array<PolicyAttachment> => {
+): PolicyAttachment[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1PolicyAttachment(entry, context)
   );
@@ -16136,7 +16136,7 @@ const deserializeAws_restJson1_1PolicyToPath = (
 const deserializeAws_restJson1_1PolicyToPathList = (
   output: any,
   context: __SerdeContext
-): Array<PolicyToPath> => {
+): PolicyToPath[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1PolicyToPath(entry, context)
   );
@@ -16206,7 +16206,7 @@ const deserializeAws_restJson1_1SchemaFacet = (
 const deserializeAws_restJson1_1SchemaFacetList = (
   output: any,
   context: __SerdeContext
-): Array<SchemaFacet> => {
+): SchemaFacet[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SchemaFacet(entry, context)
   );
@@ -16233,7 +16233,7 @@ const deserializeAws_restJson1_1Tag = (
 const deserializeAws_restJson1_1TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Tag(entry, context)
   );
@@ -16312,7 +16312,7 @@ const deserializeAws_restJson1_1TypedLinkAttributeDefinition = (
 const deserializeAws_restJson1_1TypedLinkAttributeDefinitionList = (
   output: any,
   context: __SerdeContext
-): Array<TypedLinkAttributeDefinition> => {
+): TypedLinkAttributeDefinition[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1TypedLinkAttributeDefinition(entry, context)
   );
@@ -16321,7 +16321,7 @@ const deserializeAws_restJson1_1TypedLinkAttributeDefinitionList = (
 const deserializeAws_restJson1_1TypedLinkNameList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -16393,7 +16393,7 @@ const deserializeAws_restJson1_1TypedLinkSpecifier = (
 const deserializeAws_restJson1_1TypedLinkSpecifierList = (
   output: any,
   context: __SerdeContext
-): Array<TypedLinkSpecifier> => {
+): TypedLinkSpecifier[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1TypedLinkSpecifier(entry, context)
   );

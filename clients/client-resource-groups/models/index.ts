@@ -233,7 +233,7 @@ export interface GroupFilter {
   /**
    * <p>One or more filter values. Allowed filter values vary by group filter name, and are case-sensitive.</p>
    */
-  Values: Array<string> | undefined;
+  Values: string[] | undefined;
 }
 
 export namespace GroupFilter {
@@ -312,7 +312,7 @@ export interface ListGroupResourcesInput {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<ResourceFilter>;
+  Filters?: ResourceFilter[];
 
   /**
    * <p>The name of the resource group.</p>
@@ -348,12 +348,12 @@ export interface ListGroupResourcesOutput {
    *        <code>ErrorCode</code> and <code>Message</code> structures. Possible values
    *        for <code>ErrorCode</code> are <code>CLOUDFORMATION_STACK_INACTIVE</code> and <code>CLOUDFORMATION_STACK_NOT_EXISTING</code>.</p>
    */
-  QueryErrors?: Array<QueryError>;
+  QueryErrors?: QueryError[];
 
   /**
    * <p>The ARNs and resource types of resources that are members of the group that you specified.</p>
    */
-  ResourceIdentifiers?: Array<ResourceIdentifier>;
+  ResourceIdentifiers?: ResourceIdentifier[];
 }
 
 export namespace ListGroupResourcesOutput {
@@ -372,7 +372,7 @@ export interface ListGroupsInput {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<GroupFilter>;
+  Filters?: GroupFilter[];
 
   /**
    * <p>The maximum number of resource group results that are returned by ListGroups in paginated output. By default, this number is 50.</p>
@@ -396,12 +396,12 @@ export interface ListGroupsOutput {
   /**
    * <p>A list of GroupIdentifier objects. Each identifier is an object that contains both the GroupName and the GroupArn.</p>
    */
-  GroupIdentifiers?: Array<GroupIdentifier>;
+  GroupIdentifiers?: GroupIdentifier[];
 
   /**
    * <p>A list of resource groups.</p>
    */
-  Groups?: Array<Group>;
+  Groups?: Group[];
 
   /**
    * <p>The NextToken value to include in a subsequent <code>ListGroups</code> request, to get more results.</p>
@@ -496,7 +496,7 @@ export interface ResourceFilter {
   /**
    * <p>One or more filter values. Allowed filter values vary by resource filter name, and are case-sensitive.</p>
    */
-  Values: Array<string> | undefined;
+  Values: string[] | undefined;
 }
 
 export namespace ResourceFilter {
@@ -619,12 +619,12 @@ export interface SearchResourcesOutput {
    *        for <code>ErrorCode</code> are <code>CLOUDFORMATION_STACK_INACTIVE</code> and
    *        <code>CLOUDFORMATION_STACK_NOT_EXISTING</code>.</p>
    */
-  QueryErrors?: Array<QueryError>;
+  QueryErrors?: QueryError[];
 
   /**
    * <p>The ARNs and resource types of resources that are members of the group that you specified.</p>
    */
-  ResourceIdentifiers?: Array<ResourceIdentifier>;
+  ResourceIdentifiers?: ResourceIdentifier[];
 }
 
 export namespace SearchResourcesOutput {
@@ -709,7 +709,7 @@ export interface UntagInput {
   /**
    * <p>The keys of the tags to be removed.</p>
    */
-  Keys: Array<string> | undefined;
+  Keys: string[] | undefined;
 }
 
 export namespace UntagInput {
@@ -726,7 +726,7 @@ export interface UntagOutput {
   /**
    * <p>The keys of tags that have been removed.</p>
    */
-  Keys?: Array<string>;
+  Keys?: string[];
 }
 
 export namespace UntagOutput {

@@ -466,7 +466,7 @@ const deserializeAws_restJson1_1BucketInfo = (
 const deserializeAws_restJson1_1BucketList = (
   output: any,
   context: __SerdeContext
-): Array<Bucket> => {
+): Bucket[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Bucket(entry, context)
   );
@@ -489,7 +489,7 @@ const deserializeAws_restJson1_1DocumentServiceWarning = (
 const deserializeAws_restJson1_1DocumentServiceWarnings = (
   output: any,
   context: __SerdeContext
-): Array<DocumentServiceWarning> => {
+): DocumentServiceWarning[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DocumentServiceWarning(entry, context)
   );
@@ -562,14 +562,14 @@ const deserializeAws_restJson1_1FieldStats = (
 const deserializeAws_restJson1_1FieldValue = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1Fields = (
   output: any,
   context: __SerdeContext
-): { [key: string]: Array<string> } => {
+): { [key: string]: string[] } => {
   const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_restJson1_1FieldValue(output[key], context);
@@ -620,7 +620,7 @@ const deserializeAws_restJson1_1Hit = (
 const deserializeAws_restJson1_1HitList = (
   output: any,
   context: __SerdeContext
-): Array<Hit> => {
+): Hit[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Hit(entry, context)
   );
@@ -749,7 +749,7 @@ const deserializeAws_restJson1_1SuggestionMatch = (
 const deserializeAws_restJson1_1Suggestions = (
   output: any,
   context: __SerdeContext
-): Array<SuggestionMatch> => {
+): SuggestionMatch[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SuggestionMatch(entry, context)
   );

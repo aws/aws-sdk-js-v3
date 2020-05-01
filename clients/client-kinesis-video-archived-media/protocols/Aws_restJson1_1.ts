@@ -869,7 +869,7 @@ const serializeAws_restJson1_1DASHTimestampRange = (
 };
 
 const serializeAws_restJson1_1FragmentNumberList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -995,7 +995,7 @@ const deserializeAws_restJson1_1Fragment = (
 const deserializeAws_restJson1_1FragmentList = (
   output: any,
   context: __SerdeContext
-): Array<Fragment> => {
+): Fragment[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Fragment(entry, context)
   );

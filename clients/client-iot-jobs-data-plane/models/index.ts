@@ -209,12 +209,12 @@ export interface GetPendingJobExecutionsResponse {
   /**
    * <p>A list of JobExecutionSummary objects with status IN_PROGRESS.</p>
    */
-  inProgressJobs?: Array<JobExecutionSummary>;
+  inProgressJobs?: JobExecutionSummary[];
 
   /**
    * <p>A list of JobExecutionSummary objects with status QUEUED.</p>
    */
-  queuedJobs?: Array<JobExecutionSummary>;
+  queuedJobs?: JobExecutionSummary[];
 }
 
 export namespace GetPendingJobExecutionsResponse {

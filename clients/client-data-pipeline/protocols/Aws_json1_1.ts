@@ -2441,7 +2441,7 @@ const serializeAws_json1_1ParameterAttribute = (
 };
 
 const serializeAws_json1_1ParameterAttributeList = (
-  input: Array<ParameterAttribute>,
+  input: ParameterAttribute[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2469,7 +2469,7 @@ const serializeAws_json1_1ParameterObject = (
 };
 
 const serializeAws_json1_1ParameterObjectList = (
-  input: Array<ParameterObject>,
+  input: ParameterObject[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2494,7 +2494,7 @@ const serializeAws_json1_1ParameterValue = (
 };
 
 const serializeAws_json1_1ParameterValueList = (
-  input: Array<ParameterValue>,
+  input: ParameterValue[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2522,7 +2522,7 @@ const serializeAws_json1_1PipelineObject = (
 };
 
 const serializeAws_json1_1PipelineObjectList = (
-  input: Array<PipelineObject>,
+  input: PipelineObject[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2684,7 +2684,7 @@ const serializeAws_json1_1Selector = (
 };
 
 const serializeAws_json1_1SelectorList = (
-  input: Array<Selector>,
+  input: Selector[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2778,7 +2778,7 @@ const serializeAws_json1_1ValidatePipelineDefinitionInput = (
 };
 
 const serializeAws_json1_1fieldList = (
-  input: Array<Field>,
+  input: Field[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2789,7 +2789,7 @@ const serializeAws_json1_1fieldList = (
 };
 
 const serializeAws_json1_1idList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2800,7 +2800,7 @@ const serializeAws_json1_1idList = (
 };
 
 const serializeAws_json1_1stringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2811,7 +2811,7 @@ const serializeAws_json1_1stringList = (
 };
 
 const serializeAws_json1_1tagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3057,7 +3057,7 @@ const deserializeAws_json1_1ParameterAttribute = (
 const deserializeAws_json1_1ParameterAttributeList = (
   output: any,
   context: __SerdeContext
-): Array<ParameterAttribute> => {
+): ParameterAttribute[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ParameterAttribute(entry, context)
   );
@@ -3087,7 +3087,7 @@ const deserializeAws_json1_1ParameterObject = (
 const deserializeAws_json1_1ParameterObjectList = (
   output: any,
   context: __SerdeContext
-): Array<ParameterObject> => {
+): ParameterObject[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ParameterObject(entry, context)
   );
@@ -3114,7 +3114,7 @@ const deserializeAws_json1_1ParameterValue = (
 const deserializeAws_json1_1ParameterValueList = (
   output: any,
   context: __SerdeContext
-): Array<ParameterValue> => {
+): ParameterValue[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ParameterValue(entry, context)
   );
@@ -3167,7 +3167,7 @@ const deserializeAws_json1_1PipelineDescription = (
 const deserializeAws_json1_1PipelineDescriptionList = (
   output: any,
   context: __SerdeContext
-): Array<PipelineDescription> => {
+): PipelineDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PipelineDescription(entry, context)
   );
@@ -3230,7 +3230,7 @@ const deserializeAws_json1_1PipelineObject = (
 const deserializeAws_json1_1PipelineObjectList = (
   output: any,
   context: __SerdeContext
-): Array<PipelineObject> => {
+): PipelineObject[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PipelineObject(entry, context)
   );
@@ -3487,7 +3487,7 @@ const deserializeAws_json1_1ValidationError = (
 const deserializeAws_json1_1ValidationErrors = (
   output: any,
   context: __SerdeContext
-): Array<ValidationError> => {
+): ValidationError[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ValidationError(entry, context)
   );
@@ -3517,7 +3517,7 @@ const deserializeAws_json1_1ValidationWarning = (
 const deserializeAws_json1_1ValidationWarnings = (
   output: any,
   context: __SerdeContext
-): Array<ValidationWarning> => {
+): ValidationWarning[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ValidationWarning(entry, context)
   );
@@ -3526,7 +3526,7 @@ const deserializeAws_json1_1ValidationWarnings = (
 const deserializeAws_json1_1fieldList = (
   output: any,
   context: __SerdeContext
-): Array<Field> => {
+): Field[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Field(entry, context)
   );
@@ -3535,14 +3535,14 @@ const deserializeAws_json1_1fieldList = (
 const deserializeAws_json1_1idList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1pipelineList = (
   output: any,
   context: __SerdeContext
-): Array<PipelineIdName> => {
+): PipelineIdName[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PipelineIdName(entry, context)
   );
@@ -3551,7 +3551,7 @@ const deserializeAws_json1_1pipelineList = (
 const deserializeAws_json1_1tagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );
@@ -3560,7 +3560,7 @@ const deserializeAws_json1_1tagList = (
 const deserializeAws_json1_1validationMessages = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 

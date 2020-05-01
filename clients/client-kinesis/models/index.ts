@@ -393,7 +393,7 @@ export interface DisableEnhancedMonitoringInput {
    *                 Kinesis Data Streams Service with Amazon CloudWatch</a> in the <i>Amazon
    *                 Kinesis Data Streams Developer Guide</i>.</p>
    */
-  ShardLevelMetrics: Array<MetricsName | string> | undefined;
+  ShardLevelMetrics: (MetricsName | string)[] | undefined;
 
   /**
    * <p>The name of the Kinesis data stream for which to disable enhanced
@@ -462,7 +462,7 @@ export interface EnableEnhancedMonitoringInput {
    *                 Kinesis Data Streams Service with Amazon CloudWatch</a> in the <i>Amazon
    *                 Kinesis Data Streams Developer Guide</i>.</p>
    */
-  ShardLevelMetrics: Array<MetricsName | string> | undefined;
+  ShardLevelMetrics: (MetricsName | string)[] | undefined;
 
   /**
    * <p>The name of the stream for which to enable enhanced monitoring.</p>
@@ -535,7 +535,7 @@ export interface EnhancedMetrics {
    *                 Kinesis Data Streams Service with Amazon CloudWatch</a> in the <i>Amazon
    *                 Kinesis Data Streams Developer Guide</i>.</p>
    */
-  ShardLevelMetrics?: Array<MetricsName | string>;
+  ShardLevelMetrics?: (MetricsName | string)[];
 }
 
 export namespace EnhancedMetrics {
@@ -552,12 +552,12 @@ export interface EnhancedMonitoringOutput {
   /**
    * <p>Represents the current state of the metrics that are in the enhanced state before the operation.</p>
    */
-  CurrentShardLevelMetrics?: Array<MetricsName | string>;
+  CurrentShardLevelMetrics?: (MetricsName | string)[];
 
   /**
    * <p>Represents the list of all the metrics that would be in the enhanced state after the operation.</p>
    */
-  DesiredShardLevelMetrics?: Array<MetricsName | string>;
+  DesiredShardLevelMetrics?: (MetricsName | string)[];
 
   /**
    * <p>The name of the Kinesis data stream.</p>
@@ -651,7 +651,7 @@ export interface GetRecordsOutput {
   /**
    * <p>The data records retrieved from the shard.</p>
    */
-  Records: Array<_Record> | undefined;
+  Records: _Record[] | undefined;
 }
 
 export namespace GetRecordsOutput {
@@ -1037,7 +1037,7 @@ export interface ListShardsOutput {
    * <p>An array of JSON objects. Each object represents one shard and specifies the IDs of the shard, the shard's parent,
    *             and the shard that's adjacent to the shard's parent. Each object also contains the starting and ending hash keys and the starting and ending sequence numbers for the shard.</p>
    */
-  Shards?: Array<Shard>;
+  Shards?: Shard[];
 }
 
 export namespace ListShardsOutput {
@@ -1104,7 +1104,7 @@ export interface ListStreamConsumersOutput {
   /**
    * <p>An array of JSON objects. Each object represents one registered consumer.</p>
    */
-  Consumers?: Array<Consumer>;
+  Consumers?: Consumer[];
 
   /**
    * <p>When the number of consumers that are registered with the data stream is greater than the default value for
@@ -1164,7 +1164,7 @@ export interface ListStreamsOutput {
    * <p>The names of the streams that are associated with the AWS account making the
    *                 <code>ListStreams</code> request.</p>
    */
-  StreamNames: Array<string> | undefined;
+  StreamNames: string[] | undefined;
 }
 
 export namespace ListStreamsOutput {
@@ -1218,7 +1218,7 @@ export interface ListTagsForStreamOutput {
    * <p>A list of tags associated with <code>StreamName</code>, starting with the first tag after
    *                 <code>ExclusiveStartTagKey</code> and up to the specified <code>Limit</code>. </p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace ListTagsForStreamOutput {
@@ -1378,7 +1378,7 @@ export interface PutRecordsInput {
   /**
    * <p>The records associated with the request.</p>
    */
-  Records: Array<PutRecordsRequestEntry> | undefined;
+  Records: PutRecordsRequestEntry[] | undefined;
 
   /**
    * <p>The stream name associated with the request.</p>
@@ -1425,7 +1425,7 @@ export interface PutRecordsOutput {
    *             fails to be added to a stream includes <code>ErrorCode</code> and
    *                 <code>ErrorMessage</code> in the result.</p>
    */
-  Records: Array<PutRecordsResultEntry> | undefined;
+  Records: PutRecordsResultEntry[] | undefined;
 }
 
 export namespace PutRecordsOutput {
@@ -1601,7 +1601,7 @@ export interface RemoveTagsFromStreamInput {
   /**
    * <p>A list of tag keys. Each corresponding tag is removed from the stream.</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace RemoveTagsFromStreamInput {
@@ -1887,7 +1887,7 @@ export interface StreamDescription {
   /**
    * <p>Represents the current enhanced monitoring settings of the stream.</p>
    */
-  EnhancedMonitoring: Array<EnhancedMetrics> | undefined;
+  EnhancedMonitoring: EnhancedMetrics[] | undefined;
 
   /**
    * <p>If set to <code>true</code>, more shards in the stream are available to describe.</p>
@@ -1934,7 +1934,7 @@ export interface StreamDescription {
   /**
    * <p>The shards that comprise the stream.</p>
    */
-  Shards: Array<Shard> | undefined;
+  Shards: Shard[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the stream being described.</p>
@@ -2019,7 +2019,7 @@ export interface StreamDescriptionSummary {
   /**
    * <p>Represents the current enhanced monitoring settings of the stream.</p>
    */
-  EnhancedMonitoring: Array<EnhancedMetrics> | undefined;
+  EnhancedMonitoring: EnhancedMetrics[] | undefined;
 
   /**
    * <p>The GUID for the customer-managed AWS KMS key to use for encryption. This value can
@@ -2141,7 +2141,7 @@ export interface SubscribeToShardEvent {
   /**
    * <p></p>
    */
-  Records: Array<_Record> | undefined;
+  Records: _Record[] | undefined;
 }
 
 export namespace SubscribeToShardEvent {

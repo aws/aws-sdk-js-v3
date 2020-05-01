@@ -4446,7 +4446,7 @@ const deserializeAws_restJson1_1UnknownResourceExceptionResponse = async (
 };
 
 const serializeAws_restJson1_1PermissionArnList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4457,7 +4457,7 @@ const serializeAws_restJson1_1PermissionArnList = (
 };
 
 const serializeAws_restJson1_1PrincipalArnOrIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4468,7 +4468,7 @@ const serializeAws_restJson1_1PrincipalArnOrIdList = (
 };
 
 const serializeAws_restJson1_1ResourceArnList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4479,7 +4479,7 @@ const serializeAws_restJson1_1ResourceArnList = (
 };
 
 const serializeAws_restJson1_1ResourceShareArnList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4490,7 +4490,7 @@ const serializeAws_restJson1_1ResourceShareArnList = (
 };
 
 const serializeAws_restJson1_1ResourceShareInvitationArnList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4532,7 +4532,7 @@ const serializeAws_restJson1_1TagFilter = (
 };
 
 const serializeAws_restJson1_1TagFilters = (
-  input: Array<TagFilter>,
+  input: TagFilter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4543,7 +4543,7 @@ const serializeAws_restJson1_1TagFilters = (
 };
 
 const serializeAws_restJson1_1TagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4554,7 +4554,7 @@ const serializeAws_restJson1_1TagKeyList = (
 };
 
 const serializeAws_restJson1_1TagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4565,7 +4565,7 @@ const serializeAws_restJson1_1TagList = (
 };
 
 const serializeAws_restJson1_1TagValueList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4578,7 +4578,7 @@ const serializeAws_restJson1_1TagValueList = (
 const deserializeAws_restJson1_1PolicyList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -4620,7 +4620,7 @@ const deserializeAws_restJson1_1Principal = (
 const deserializeAws_restJson1_1PrincipalList = (
   output: any,
   context: __SerdeContext
-): Array<Principal> => {
+): Principal[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Principal(entry, context)
   );
@@ -4679,7 +4679,7 @@ const deserializeAws_restJson1_1Resource = (
 const deserializeAws_restJson1_1ResourceList = (
   output: any,
   context: __SerdeContext
-): Array<Resource> => {
+): Resource[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Resource(entry, context)
   );
@@ -4803,7 +4803,7 @@ const deserializeAws_restJson1_1ResourceShareAssociation = (
 const deserializeAws_restJson1_1ResourceShareAssociationList = (
   output: any,
   context: __SerdeContext
-): Array<ResourceShareAssociation> => {
+): ResourceShareAssociation[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ResourceShareAssociation(entry, context)
   );
@@ -4877,7 +4877,7 @@ const deserializeAws_restJson1_1ResourceShareInvitation = (
 const deserializeAws_restJson1_1ResourceShareInvitationList = (
   output: any,
   context: __SerdeContext
-): Array<ResourceShareInvitation> => {
+): ResourceShareInvitation[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ResourceShareInvitation(entry, context)
   );
@@ -4886,7 +4886,7 @@ const deserializeAws_restJson1_1ResourceShareInvitationList = (
 const deserializeAws_restJson1_1ResourceShareList = (
   output: any,
   context: __SerdeContext
-): Array<ResourceShare> => {
+): ResourceShare[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ResourceShare(entry, context)
   );
@@ -4939,7 +4939,7 @@ const deserializeAws_restJson1_1ResourceSharePermissionDetail = (
 const deserializeAws_restJson1_1ResourceSharePermissionList = (
   output: any,
   context: __SerdeContext
-): Array<ResourceSharePermissionSummary> => {
+): ResourceSharePermissionSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ResourceSharePermissionSummary(entry, context)
   );
@@ -5010,7 +5010,7 @@ const deserializeAws_restJson1_1Tag = (
 const deserializeAws_restJson1_1TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Tag(entry, context)
   );

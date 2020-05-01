@@ -5482,7 +5482,7 @@ const serializeAws_json1_0AttributeDefinition = (
 };
 
 const serializeAws_json1_0AttributeDefinitions = (
-  input: Array<AttributeDefinition>,
+  input: AttributeDefinition[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5493,7 +5493,7 @@ const serializeAws_json1_0AttributeDefinitions = (
 };
 
 const serializeAws_json1_0AttributeNameList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5565,7 +5565,7 @@ const serializeAws_json1_0AttributeValue = (
 };
 
 const serializeAws_json1_0AttributeValueList = (
-  input: Array<AttributeValue>,
+  input: AttributeValue[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5709,7 +5709,7 @@ const serializeAws_json1_0BatchWriteItemInput = (
 };
 
 const serializeAws_json1_0BatchWriteItemRequestMap = (
-  input: { [key: string]: Array<WriteRequest> },
+  input: { [key: string]: WriteRequest[] },
   context: __SerdeContext
 ): any => {
   const mapParams: any = {};
@@ -5720,7 +5720,7 @@ const serializeAws_json1_0BatchWriteItemRequestMap = (
 };
 
 const serializeAws_json1_0BinarySetAttributeValue = (
-  input: Array<Uint8Array>,
+  input: Uint8Array[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6391,7 +6391,7 @@ const serializeAws_json1_0GlobalSecondaryIndexAutoScalingUpdate = (
 };
 
 const serializeAws_json1_0GlobalSecondaryIndexAutoScalingUpdateList = (
-  input: Array<GlobalSecondaryIndexAutoScalingUpdate>,
+  input: GlobalSecondaryIndexAutoScalingUpdate[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6404,7 +6404,7 @@ const serializeAws_json1_0GlobalSecondaryIndexAutoScalingUpdateList = (
 };
 
 const serializeAws_json1_0GlobalSecondaryIndexList = (
-  input: Array<GlobalSecondaryIndex>,
+  input: GlobalSecondaryIndex[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6441,7 +6441,7 @@ const serializeAws_json1_0GlobalSecondaryIndexUpdate = (
 };
 
 const serializeAws_json1_0GlobalSecondaryIndexUpdateList = (
-  input: Array<GlobalSecondaryIndexUpdate>,
+  input: GlobalSecondaryIndexUpdate[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6477,7 +6477,7 @@ const serializeAws_json1_0GlobalTableGlobalSecondaryIndexSettingsUpdate = (
 };
 
 const serializeAws_json1_0GlobalTableGlobalSecondaryIndexSettingsUpdateList = (
-  input: Array<GlobalTableGlobalSecondaryIndexSettingsUpdate>,
+  input: GlobalTableGlobalSecondaryIndexSettingsUpdate[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6515,7 +6515,7 @@ const serializeAws_json1_0KeyConditions = (
 };
 
 const serializeAws_json1_0KeyList = (
-  input: Array<{ [key: string]: AttributeValue }>,
+  input: { [key: string]: AttributeValue }[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6526,7 +6526,7 @@ const serializeAws_json1_0KeyList = (
 };
 
 const serializeAws_json1_0KeySchema = (
-  input: Array<KeySchemaElement>,
+  input: KeySchemaElement[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6582,7 +6582,7 @@ const serializeAws_json1_0KeysAndAttributes = (
 };
 
 const serializeAws_json1_0ListAttributeValue = (
-  input: Array<AttributeValue>,
+  input: AttributeValue[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6709,7 +6709,7 @@ const serializeAws_json1_0LocalSecondaryIndex = (
 };
 
 const serializeAws_json1_0LocalSecondaryIndexList = (
-  input: Array<LocalSecondaryIndex>,
+  input: LocalSecondaryIndex[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6731,7 +6731,7 @@ const serializeAws_json1_0MapAttributeValue = (
 };
 
 const serializeAws_json1_0NonKeyAttributeNameList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6742,7 +6742,7 @@ const serializeAws_json1_0NonKeyAttributeNameList = (
 };
 
 const serializeAws_json1_0NumberSetAttributeValue = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7044,7 +7044,7 @@ const serializeAws_json1_0ReplicaAutoScalingUpdate = (
 };
 
 const serializeAws_json1_0ReplicaAutoScalingUpdateList = (
-  input: Array<ReplicaAutoScalingUpdate>,
+  input: ReplicaAutoScalingUpdate[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7093,7 +7093,7 @@ const serializeAws_json1_0ReplicaGlobalSecondaryIndexAutoScalingUpdate = (
 };
 
 const serializeAws_json1_0ReplicaGlobalSecondaryIndexAutoScalingUpdateList = (
-  input: Array<ReplicaGlobalSecondaryIndexAutoScalingUpdate>,
+  input: ReplicaGlobalSecondaryIndexAutoScalingUpdate[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7109,7 +7109,7 @@ const serializeAws_json1_0ReplicaGlobalSecondaryIndexAutoScalingUpdateList = (
 };
 
 const serializeAws_json1_0ReplicaGlobalSecondaryIndexList = (
-  input: Array<ReplicaGlobalSecondaryIndex>,
+  input: ReplicaGlobalSecondaryIndex[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7145,7 +7145,7 @@ const serializeAws_json1_0ReplicaGlobalSecondaryIndexSettingsUpdate = (
 };
 
 const serializeAws_json1_0ReplicaGlobalSecondaryIndexSettingsUpdateList = (
-  input: Array<ReplicaGlobalSecondaryIndexSettingsUpdate>,
+  input: ReplicaGlobalSecondaryIndexSettingsUpdate[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7161,7 +7161,7 @@ const serializeAws_json1_0ReplicaGlobalSecondaryIndexSettingsUpdateList = (
 };
 
 const serializeAws_json1_0ReplicaList = (
-  input: Array<Replica>,
+  input: Replica[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7205,7 +7205,7 @@ const serializeAws_json1_0ReplicaSettingsUpdate = (
 };
 
 const serializeAws_json1_0ReplicaSettingsUpdateList = (
-  input: Array<ReplicaSettingsUpdate>,
+  input: ReplicaSettingsUpdate[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7236,7 +7236,7 @@ const serializeAws_json1_0ReplicaUpdate = (
 };
 
 const serializeAws_json1_0ReplicaUpdateList = (
-  input: Array<ReplicaUpdate>,
+  input: ReplicaUpdate[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7279,7 +7279,7 @@ const serializeAws_json1_0ReplicationGroupUpdate = (
 };
 
 const serializeAws_json1_0ReplicationGroupUpdateList = (
-  input: Array<ReplicationGroupUpdate>,
+  input: ReplicationGroupUpdate[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7486,7 +7486,7 @@ const serializeAws_json1_0StreamSpecification = (
 };
 
 const serializeAws_json1_0StringSetAttributeValue = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7508,7 +7508,7 @@ const serializeAws_json1_0Tag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_json1_0TagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7519,7 +7519,7 @@ const serializeAws_json1_0TagKeyList = (
 };
 
 const serializeAws_json1_0TagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7569,7 +7569,7 @@ const serializeAws_json1_0TransactGetItem = (
 };
 
 const serializeAws_json1_0TransactGetItemList = (
-  input: Array<TransactGetItem>,
+  input: TransactGetItem[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7620,7 +7620,7 @@ const serializeAws_json1_0TransactWriteItem = (
 };
 
 const serializeAws_json1_0TransactWriteItemList = (
-  input: Array<TransactWriteItem>,
+  input: TransactWriteItem[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -8055,7 +8055,7 @@ const serializeAws_json1_0WriteRequest = (
 };
 
 const serializeAws_json1_0WriteRequests = (
-  input: Array<WriteRequest>,
+  input: WriteRequest[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -8106,7 +8106,7 @@ const deserializeAws_json1_0Endpoint = (
 const deserializeAws_json1_0Endpoints = (
   output: any,
   context: __SerdeContext
-): Array<Endpoint> => {
+): Endpoint[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0Endpoint(entry, context)
   );
@@ -8177,7 +8177,7 @@ const deserializeAws_json1_0AttributeDefinition = (
 const deserializeAws_json1_0AttributeDefinitions = (
   output: any,
   context: __SerdeContext
-): Array<AttributeDefinition> => {
+): AttributeDefinition[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0AttributeDefinition(entry, context)
   );
@@ -8197,7 +8197,7 @@ const deserializeAws_json1_0AttributeMap = (
 const deserializeAws_json1_0AttributeNameList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -8287,7 +8287,7 @@ const deserializeAws_json1_0AutoScalingPolicyDescription = (
 const deserializeAws_json1_0AutoScalingPolicyDescriptionList = (
   output: any,
   context: __SerdeContext
-): Array<AutoScalingPolicyDescription> => {
+): AutoScalingPolicyDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0AutoScalingPolicyDescription(entry, context)
   );
@@ -8477,7 +8477,7 @@ const deserializeAws_json1_0BackupNotFoundException = (
 const deserializeAws_json1_0BackupSummaries = (
   output: any,
   context: __SerdeContext
-): Array<BackupSummary> => {
+): BackupSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0BackupSummary(entry, context)
   );
@@ -8594,7 +8594,7 @@ const deserializeAws_json1_0BatchGetRequestMap = (
 const deserializeAws_json1_0BatchGetResponseMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: Array<{ [key: string]: AttributeValue }> } => {
+): { [key: string]: { [key: string]: AttributeValue }[] } => {
   const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_json1_0ItemList(output[key], context);
@@ -8645,7 +8645,7 @@ const deserializeAws_json1_0BatchWriteItemOutput = (
 const deserializeAws_json1_0BatchWriteItemRequestMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: Array<WriteRequest> } => {
+): { [key: string]: WriteRequest[] } => {
   const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_json1_0WriteRequests(output[key], context);
@@ -8679,7 +8679,7 @@ const deserializeAws_json1_0BillingModeSummary = (
 const deserializeAws_json1_0BinarySetAttributeValue = (
   output: any,
   context: __SerdeContext
-): Array<Uint8Array> => {
+): Uint8Array[] => {
   return (output || []).map((entry: any) => context.base64Decoder(entry));
 };
 
@@ -8708,7 +8708,7 @@ const deserializeAws_json1_0CancellationReason = (
 const deserializeAws_json1_0CancellationReasonList = (
   output: any,
   context: __SerdeContext
-): Array<CancellationReason> => {
+): CancellationReason[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0CancellationReason(entry, context)
   );
@@ -8815,7 +8815,7 @@ const deserializeAws_json1_0ConsumedCapacity = (
 const deserializeAws_json1_0ConsumedCapacityMultiple = (
   output: any,
   context: __SerdeContext
-): Array<ConsumedCapacity> => {
+): ConsumedCapacity[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0ConsumedCapacity(entry, context)
   );
@@ -8865,14 +8865,14 @@ const deserializeAws_json1_0ContinuousBackupsUnavailableException = (
 const deserializeAws_json1_0ContributorInsightsRuleList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_0ContributorInsightsSummaries = (
   output: any,
   context: __SerdeContext
-): Array<ContributorInsightsSummary> => {
+): ContributorInsightsSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0ContributorInsightsSummary(entry, context)
   );
@@ -9398,7 +9398,7 @@ const deserializeAws_json1_0GlobalSecondaryIndexDescription = (
 const deserializeAws_json1_0GlobalSecondaryIndexDescriptionList = (
   output: any,
   context: __SerdeContext
-): Array<GlobalSecondaryIndexDescription> => {
+): GlobalSecondaryIndexDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0GlobalSecondaryIndexDescription(entry, context)
   );
@@ -9445,7 +9445,7 @@ const deserializeAws_json1_0GlobalSecondaryIndexInfo = (
 const deserializeAws_json1_0GlobalSecondaryIndexes = (
   output: any,
   context: __SerdeContext
-): Array<GlobalSecondaryIndexInfo> => {
+): GlobalSecondaryIndexInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0GlobalSecondaryIndexInfo(entry, context)
   );
@@ -9536,7 +9536,7 @@ const deserializeAws_json1_0GlobalTableDescription = (
 const deserializeAws_json1_0GlobalTableList = (
   output: any,
   context: __SerdeContext
-): Array<GlobalTable> => {
+): GlobalTable[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0GlobalTable(entry, context)
   );
@@ -9656,7 +9656,7 @@ const deserializeAws_json1_0ItemCollectionMetrics = (
 const deserializeAws_json1_0ItemCollectionMetricsMultiple = (
   output: any,
   context: __SerdeContext
-): Array<ItemCollectionMetrics> => {
+): ItemCollectionMetrics[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0ItemCollectionMetrics(entry, context)
   );
@@ -9665,7 +9665,7 @@ const deserializeAws_json1_0ItemCollectionMetricsMultiple = (
 const deserializeAws_json1_0ItemCollectionMetricsPerTable = (
   output: any,
   context: __SerdeContext
-): { [key: string]: Array<ItemCollectionMetrics> } => {
+): { [key: string]: ItemCollectionMetrics[] } => {
   const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_json1_0ItemCollectionMetricsMultiple(
@@ -9679,7 +9679,7 @@ const deserializeAws_json1_0ItemCollectionMetricsPerTable = (
 const deserializeAws_json1_0ItemCollectionSizeEstimateRange = (
   output: any,
   context: __SerdeContext
-): Array<number> => {
+): number[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -9700,7 +9700,7 @@ const deserializeAws_json1_0ItemCollectionSizeLimitExceededException = (
 const deserializeAws_json1_0ItemList = (
   output: any,
   context: __SerdeContext
-): Array<{ [key: string]: AttributeValue }> => {
+): { [key: string]: AttributeValue }[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0AttributeMap(entry, context)
   );
@@ -9723,7 +9723,7 @@ const deserializeAws_json1_0ItemResponse = (
 const deserializeAws_json1_0ItemResponseList = (
   output: any,
   context: __SerdeContext
-): Array<ItemResponse> => {
+): ItemResponse[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0ItemResponse(entry, context)
   );
@@ -9743,7 +9743,7 @@ const deserializeAws_json1_0Key = (
 const deserializeAws_json1_0KeyList = (
   output: any,
   context: __SerdeContext
-): Array<{ [key: string]: AttributeValue }> => {
+): { [key: string]: AttributeValue }[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0Key(entry, context)
   );
@@ -9752,7 +9752,7 @@ const deserializeAws_json1_0KeyList = (
 const deserializeAws_json1_0KeySchema = (
   output: any,
   context: __SerdeContext
-): Array<KeySchemaElement> => {
+): KeySchemaElement[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0KeySchemaElement(entry, context)
   );
@@ -9835,7 +9835,7 @@ const deserializeAws_json1_0LimitExceededException = (
 const deserializeAws_json1_0ListAttributeValue = (
   output: any,
   context: __SerdeContext
-): Array<AttributeValue> => {
+): AttributeValue[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0AttributeValue(entry, context)
   );
@@ -9998,7 +9998,7 @@ const deserializeAws_json1_0LocalSecondaryIndexDescription = (
 const deserializeAws_json1_0LocalSecondaryIndexDescriptionList = (
   output: any,
   context: __SerdeContext
-): Array<LocalSecondaryIndexDescription> => {
+): LocalSecondaryIndexDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0LocalSecondaryIndexDescription(entry, context)
   );
@@ -10035,7 +10035,7 @@ const deserializeAws_json1_0LocalSecondaryIndexInfo = (
 const deserializeAws_json1_0LocalSecondaryIndexes = (
   output: any,
   context: __SerdeContext
-): Array<LocalSecondaryIndexInfo> => {
+): LocalSecondaryIndexInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0LocalSecondaryIndexInfo(entry, context)
   );
@@ -10055,14 +10055,14 @@ const deserializeAws_json1_0MapAttributeValue = (
 const deserializeAws_json1_0NonKeyAttributeNameList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_0NumberSetAttributeValue = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -10429,7 +10429,7 @@ const deserializeAws_json1_0ReplicaAutoScalingDescription = (
 const deserializeAws_json1_0ReplicaAutoScalingDescriptionList = (
   output: any,
   context: __SerdeContext
-): Array<ReplicaAutoScalingDescription> => {
+): ReplicaAutoScalingDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0ReplicaAutoScalingDescription(entry, context)
   );
@@ -10494,7 +10494,7 @@ const deserializeAws_json1_0ReplicaDescription = (
 const deserializeAws_json1_0ReplicaDescriptionList = (
   output: any,
   context: __SerdeContext
-): Array<ReplicaDescription> => {
+): ReplicaDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0ReplicaDescription(entry, context)
   );
@@ -10541,7 +10541,7 @@ const deserializeAws_json1_0ReplicaGlobalSecondaryIndexAutoScalingDescription = 
 const deserializeAws_json1_0ReplicaGlobalSecondaryIndexAutoScalingDescriptionList = (
   output: any,
   context: __SerdeContext
-): Array<ReplicaGlobalSecondaryIndexAutoScalingDescription> => {
+): ReplicaGlobalSecondaryIndexAutoScalingDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0ReplicaGlobalSecondaryIndexAutoScalingDescription(
       entry,
@@ -10577,7 +10577,7 @@ const deserializeAws_json1_0ReplicaGlobalSecondaryIndexDescription = (
 const deserializeAws_json1_0ReplicaGlobalSecondaryIndexDescriptionList = (
   output: any,
   context: __SerdeContext
-): Array<ReplicaGlobalSecondaryIndexDescription> => {
+): ReplicaGlobalSecondaryIndexDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0ReplicaGlobalSecondaryIndexDescription(entry, context)
   );
@@ -10639,7 +10639,7 @@ const deserializeAws_json1_0ReplicaGlobalSecondaryIndexSettingsDescription = (
 const deserializeAws_json1_0ReplicaGlobalSecondaryIndexSettingsDescriptionList = (
   output: any,
   context: __SerdeContext
-): Array<ReplicaGlobalSecondaryIndexSettingsDescription> => {
+): ReplicaGlobalSecondaryIndexSettingsDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0ReplicaGlobalSecondaryIndexSettingsDescription(
       entry,
@@ -10651,7 +10651,7 @@ const deserializeAws_json1_0ReplicaGlobalSecondaryIndexSettingsDescriptionList =
 const deserializeAws_json1_0ReplicaList = (
   output: any,
   context: __SerdeContext
-): Array<Replica> => {
+): Replica[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0Replica(entry, context)
   );
@@ -10748,7 +10748,7 @@ const deserializeAws_json1_0ReplicaSettingsDescription = (
 const deserializeAws_json1_0ReplicaSettingsDescriptionList = (
   output: any,
   context: __SerdeContext
-): Array<ReplicaSettingsDescription> => {
+): ReplicaSettingsDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0ReplicaSettingsDescription(entry, context)
   );
@@ -11089,7 +11089,7 @@ const deserializeAws_json1_0StreamSpecification = (
 const deserializeAws_json1_0StringSetAttributeValue = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -11305,7 +11305,7 @@ const deserializeAws_json1_0TableInUseException = (
 const deserializeAws_json1_0TableNameList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -11344,7 +11344,7 @@ const deserializeAws_json1_0Tag = (
 const deserializeAws_json1_0TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0Tag(entry, context)
   );
@@ -11708,7 +11708,7 @@ const deserializeAws_json1_0WriteRequest = (
 const deserializeAws_json1_0WriteRequests = (
   output: any,
   context: __SerdeContext
-): Array<WriteRequest> => {
+): WriteRequest[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0WriteRequest(entry, context)
   );

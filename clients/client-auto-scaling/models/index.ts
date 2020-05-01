@@ -10,7 +10,7 @@ export interface ActivitiesType {
    * <p>The scaling activities. Activities are sorted by start time. Activities still in
    *             progress are described first.</p>
    */
-  Activities: Array<Activity> | undefined;
+  Activities: Activity[] | undefined;
 
   /**
    * <p>A string that indicates that the response contains more items than can be returned in
@@ -163,7 +163,7 @@ export interface AttachInstancesQuery {
   /**
    * <p>The IDs of the instances. You can specify up to 20 instances.</p>
    */
-  InstanceIds?: Array<string>;
+  InstanceIds?: string[];
 }
 
 export namespace AttachInstancesQuery {
@@ -191,7 +191,7 @@ export interface AttachLoadBalancerTargetGroupsType {
    * <p>The Amazon Resource Names (ARN) of the target groups. You can specify up to 10 target
    *             groups.</p>
    */
-  TargetGroupARNs: Array<string> | undefined;
+  TargetGroupARNs: string[] | undefined;
 }
 
 export namespace AttachLoadBalancerTargetGroupsType {
@@ -218,7 +218,7 @@ export interface AttachLoadBalancersType {
   /**
    * <p>The names of the load balancers. You can specify up to 10 load balancers.</p>
    */
-  LoadBalancerNames: Array<string> | undefined;
+  LoadBalancerNames: string[] | undefined;
 }
 
 export namespace AttachLoadBalancersType {
@@ -244,7 +244,7 @@ export interface AutoScalingGroup {
   /**
    * <p>One or more Availability Zones for the group.</p>
    */
-  AvailabilityZones: Array<string> | undefined;
+  AvailabilityZones: string[] | undefined;
 
   /**
    * <p>The date and time the group was created.</p>
@@ -265,7 +265,7 @@ export interface AutoScalingGroup {
   /**
    * <p>The metrics enabled for the group.</p>
    */
-  EnabledMetrics?: Array<EnabledMetric>;
+  EnabledMetrics?: EnabledMetric[];
 
   /**
    * <p>The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status
@@ -284,7 +284,7 @@ export interface AutoScalingGroup {
   /**
    * <p>The EC2 instances associated with the group.</p>
    */
-  Instances?: Array<Instance>;
+  Instances?: Instance[];
 
   /**
    * <p>The name of the associated launch configuration.</p>
@@ -299,7 +299,7 @@ export interface AutoScalingGroup {
   /**
    * <p>One or more load balancers associated with the group.</p>
    */
-  LoadBalancerNames?: Array<string>;
+  LoadBalancerNames?: string[];
 
   /**
    * <p>The maximum amount of time, in seconds, that an instance can be in service.</p>
@@ -348,22 +348,22 @@ export interface AutoScalingGroup {
   /**
    * <p>The suspended processes associated with the group.</p>
    */
-  SuspendedProcesses?: Array<SuspendedProcess>;
+  SuspendedProcesses?: SuspendedProcess[];
 
   /**
    * <p>The tags for the group.</p>
    */
-  Tags?: Array<TagDescription>;
+  Tags?: TagDescription[];
 
   /**
    * <p>The Amazon Resource Names (ARN) of the target groups for your load balancer.</p>
    */
-  TargetGroupARNs?: Array<string>;
+  TargetGroupARNs?: string[];
 
   /**
    * <p>The termination policies for the group.</p>
    */
-  TerminationPolicies?: Array<string>;
+  TerminationPolicies?: string[];
 
   /**
    * <p>One or more subnet IDs, if applicable, separated by commas.</p>
@@ -384,7 +384,7 @@ export interface AutoScalingGroupNamesType {
    *             using the <code>MaxRecords</code> parameter.</p>
    *         <p>If you omit this parameter, all Auto Scaling groups are described.</p>
    */
-  AutoScalingGroupNames?: Array<string>;
+  AutoScalingGroupNames?: string[];
 
   /**
    * <p>The maximum number of items to return with this call. The default value is
@@ -409,7 +409,7 @@ export interface AutoScalingGroupsType {
   /**
    * <p>The groups.</p>
    */
-  AutoScalingGroups: Array<AutoScalingGroup> | undefined;
+  AutoScalingGroups: AutoScalingGroup[] | undefined;
 
   /**
    * <p>A string that indicates that the response contains more items than can be returned in
@@ -496,7 +496,7 @@ export interface AutoScalingInstancesType {
   /**
    * <p>The instances.</p>
    */
-  AutoScalingInstances?: Array<AutoScalingInstanceDetails>;
+  AutoScalingInstances?: AutoScalingInstanceDetails[];
 
   /**
    * <p>A string that indicates that the response contains more items than can be returned in
@@ -518,7 +518,7 @@ export interface BatchDeleteScheduledActionAnswer {
    * <p>The names of the scheduled actions that could not be deleted, including an error
    *             message.</p>
    */
-  FailedScheduledActions?: Array<FailedScheduledUpdateGroupActionRequest>;
+  FailedScheduledActions?: FailedScheduledUpdateGroupActionRequest[];
 }
 
 export namespace BatchDeleteScheduledActionAnswer {
@@ -537,7 +537,7 @@ export interface BatchDeleteScheduledActionType {
    * <p>The names of the scheduled actions to delete. The maximum number allowed is 50.
    *         </p>
    */
-  ScheduledActionNames: Array<string> | undefined;
+  ScheduledActionNames: string[] | undefined;
 }
 
 export namespace BatchDeleteScheduledActionType {
@@ -551,9 +551,7 @@ export interface BatchPutScheduledUpdateGroupActionAnswer {
    * <p>The names of the scheduled actions that could not be created or updated, including an
    *             error message.</p>
    */
-  FailedScheduledUpdateGroupActions?: Array<
-    FailedScheduledUpdateGroupActionRequest
-  >;
+  FailedScheduledUpdateGroupActions?: FailedScheduledUpdateGroupActionRequest[];
 }
 
 export namespace BatchPutScheduledUpdateGroupActionAnswer {
@@ -571,9 +569,7 @@ export interface BatchPutScheduledUpdateGroupActionType {
   /**
    * <p>One or more scheduled actions. The maximum number allowed is 50.</p>
    */
-  ScheduledUpdateGroupActions:
-    | Array<ScheduledUpdateGroupActionRequest>
-    | undefined;
+  ScheduledUpdateGroupActions: ScheduledUpdateGroupActionRequest[] | undefined;
 }
 
 export namespace BatchPutScheduledUpdateGroupActionType {
@@ -675,7 +671,7 @@ export interface CreateAutoScalingGroupType {
    *         <p>Conditional: If your account supports EC2-Classic and VPC, this parameter is required
    *             to launch instances into EC2-Classic.</p>
    */
-  AvailabilityZones?: Array<string>;
+  AvailabilityZones?: string[];
 
   /**
    * <p>The amount of time, in seconds, after a scaling activity completes before another
@@ -750,7 +746,7 @@ export interface CreateAutoScalingGroupType {
   /**
    * <p>One or more lifecycle hooks.</p>
    */
-  LifecycleHookSpecificationList?: Array<LifecycleHookSpecification>;
+  LifecycleHookSpecificationList?: LifecycleHookSpecification[];
 
   /**
    * <p>A list of Classic Load Balancers associated with this Auto Scaling group. For Application Load
@@ -759,7 +755,7 @@ export interface CreateAutoScalingGroupType {
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Using a Load Balancer
    *                 with an Auto Scaling Group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    */
-  LoadBalancerNames?: Array<string>;
+  LoadBalancerNames?: string[];
 
   /**
    * <p>The maximum amount of time, in seconds, that an instance can be in service.</p>
@@ -828,7 +824,7 @@ export interface CreateAutoScalingGroupType {
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-tagging.html">Tagging Auto Scaling Groups and
    *                 Instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The Amazon Resource Names (ARN) of the target groups to associate with the Auto Scaling group.
@@ -837,7 +833,7 @@ export interface CreateAutoScalingGroupType {
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Using a Load Balancer
    *                 with an Auto Scaling Group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    */
-  TargetGroupARNs?: Array<string>;
+  TargetGroupARNs?: string[];
 
   /**
    * <p>One or more termination policies used to select the instance to terminate. These
@@ -846,7 +842,7 @@ export interface CreateAutoScalingGroupType {
    *                 Instances Auto Scaling Terminates During Scale In</a> in the
    *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    */
-  TerminationPolicies?: Array<string>;
+  TerminationPolicies?: string[];
 
   /**
    * <p>A comma-separated list of subnet IDs for your virtual private cloud (VPC).</p>
@@ -890,7 +886,7 @@ export interface CreateLaunchConfigurationType {
    *                 Mapping</a> in the <i>Amazon EC2 User Guide for Linux
    *                 Instances</i>.</p>
    */
-  BlockDeviceMappings?: Array<BlockDeviceMapping>;
+  BlockDeviceMappings?: BlockDeviceMapping[];
 
   /**
    * <p>The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to. For more
@@ -909,7 +905,7 @@ export interface CreateLaunchConfigurationType {
    *         <p>If you specify the <code>ClassicLinkVPCId</code> parameter, you must specify this
    *             parameter.</p>
    */
-  ClassicLinkVPCSecurityGroups?: Array<string>;
+  ClassicLinkVPCSecurityGroups?: string[];
 
   /**
    * <p>Specifies whether the launch configuration is optimized for EBS I/O
@@ -1026,7 +1022,7 @@ export interface CreateLaunchConfigurationType {
    *                 Groups</a> in the <i>Amazon EC2 User Guide for Linux
    *             Instances</i>.</p>
    */
-  SecurityGroups?: Array<string>;
+  SecurityGroups?: string[];
 
   /**
    * <p>The maximum hourly price to be paid for any Spot Instance launched to fulfill the
@@ -1060,7 +1056,7 @@ export interface CreateOrUpdateTagsType {
   /**
    * <p>One or more tags.</p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace CreateOrUpdateTagsType {
@@ -1097,7 +1093,7 @@ export interface CustomizedMetricSpecification {
    *         <p>Conditional: If you published your metric with dimensions, you must specify the same
    *             dimensions in your scaling policy.</p>
    */
-  Dimensions?: Array<MetricDimension>;
+  Dimensions?: MetricDimension[];
 
   /**
    * <p>The name of the metric.</p>
@@ -1232,7 +1228,7 @@ export interface DeleteTagsType {
   /**
    * <p>One or more tags.</p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace DeleteTagsType {
@@ -1275,7 +1271,7 @@ export interface DescribeAdjustmentTypesAnswer {
   /**
    * <p>The policy adjustment types.</p>
    */
-  AdjustmentTypes?: Array<AdjustmentType>;
+  AdjustmentTypes?: AdjustmentType[];
 }
 
 export namespace DescribeAdjustmentTypesAnswer {
@@ -1290,7 +1286,7 @@ export interface DescribeAutoScalingInstancesType {
    *             omit this parameter, all Auto Scaling instances are described. If you specify an ID that does
    *             not exist, it is ignored with no error.</p>
    */
-  InstanceIds?: Array<string>;
+  InstanceIds?: string[];
 
   /**
    * <p>The maximum number of items to return with this call. The default value is
@@ -1315,7 +1311,7 @@ export interface DescribeAutoScalingNotificationTypesAnswer {
   /**
    * <p>The notification types.</p>
    */
-  AutoScalingNotificationTypes?: Array<string>;
+  AutoScalingNotificationTypes?: string[];
 }
 
 export namespace DescribeAutoScalingNotificationTypesAnswer {
@@ -1330,7 +1326,7 @@ export interface DescribeLifecycleHookTypesAnswer {
   /**
    * <p>The lifecycle hook types.</p>
    */
-  LifecycleHookTypes?: Array<string>;
+  LifecycleHookTypes?: string[];
 }
 
 export namespace DescribeLifecycleHookTypesAnswer {
@@ -1343,7 +1339,7 @@ export interface DescribeLifecycleHooksAnswer {
   /**
    * <p>The lifecycle hooks for the specified group.</p>
    */
-  LifecycleHooks?: Array<LifecycleHook>;
+  LifecycleHooks?: LifecycleHook[];
 }
 
 export namespace DescribeLifecycleHooksAnswer {
@@ -1362,7 +1358,7 @@ export interface DescribeLifecycleHooksType {
    * <p>The names of one or more lifecycle hooks. If you omit this parameter, all lifecycle
    *             hooks are described.</p>
    */
-  LifecycleHookNames?: Array<string>;
+  LifecycleHookNames?: string[];
 }
 
 export namespace DescribeLifecycleHooksType {
@@ -1400,7 +1396,7 @@ export interface DescribeLoadBalancerTargetGroupsResponse {
   /**
    * <p>Information about the target groups.</p>
    */
-  LoadBalancerTargetGroups?: Array<LoadBalancerTargetGroupState>;
+  LoadBalancerTargetGroups?: LoadBalancerTargetGroupState[];
 
   /**
    * <p>A string that indicates that the response contains more items than can be returned in
@@ -1446,7 +1442,7 @@ export interface DescribeLoadBalancersResponse {
   /**
    * <p>The load balancers.</p>
    */
-  LoadBalancers?: Array<LoadBalancerState>;
+  LoadBalancers?: LoadBalancerState[];
 
   /**
    * <p>A string that indicates that the response contains more items than can be returned in
@@ -1467,12 +1463,12 @@ export interface DescribeMetricCollectionTypesAnswer {
   /**
    * <p>The granularities for the metrics.</p>
    */
-  Granularities?: Array<MetricGranularityType>;
+  Granularities?: MetricGranularityType[];
 
   /**
    * <p>One or more metrics.</p>
    */
-  Metrics?: Array<MetricCollectionType>;
+  Metrics?: MetricCollectionType[];
 }
 
 export namespace DescribeMetricCollectionTypesAnswer {
@@ -1493,7 +1489,7 @@ export interface DescribeNotificationConfigurationsAnswer {
   /**
    * <p>The notification configurations.</p>
    */
-  NotificationConfigurations: Array<NotificationConfiguration> | undefined;
+  NotificationConfigurations: NotificationConfiguration[] | undefined;
 }
 
 export namespace DescribeNotificationConfigurationsAnswer {
@@ -1506,7 +1502,7 @@ export interface DescribeNotificationConfigurationsType {
   /**
    * <p>The name of the Auto Scaling group.</p>
    */
-  AutoScalingGroupNames?: Array<string>;
+  AutoScalingGroupNames?: string[];
 
   /**
    * <p>The maximum number of items to return with this call. The default value is
@@ -1551,13 +1547,13 @@ export interface DescribePoliciesType {
    *             is limited to 50 items. If you specify an unknown policy name, it is ignored with no
    *             error.</p>
    */
-  PolicyNames?: Array<string>;
+  PolicyNames?: string[];
 
   /**
    * <p>One or more policy types. The valid values are <code>SimpleScaling</code>,
    *                 <code>StepScaling</code>, and <code>TargetTrackingScaling</code>.</p>
    */
-  PolicyTypes?: Array<string>;
+  PolicyTypes?: string[];
 }
 
 export namespace DescribePoliciesType {
@@ -1573,7 +1569,7 @@ export interface DescribeScalingActivitiesType {
    *             activities are requested, they are ignored with no error. If you specify an Auto Scaling group,
    *             the results are limited to that group.</p>
    */
-  ActivityIds?: Array<string>;
+  ActivityIds?: string[];
 
   /**
    * <p>The name of the Auto Scaling group.</p>
@@ -1628,7 +1624,7 @@ export interface DescribeScheduledActionsType {
    *             omit this parameter, all scheduled actions are described. If you specify an unknown
    *             scheduled action, it is ignored with no error.</p>
    */
-  ScheduledActionNames?: Array<string>;
+  ScheduledActionNames?: string[];
 
   /**
    * <p>The earliest scheduled start time to return. If scheduled action names are provided,
@@ -1648,7 +1644,7 @@ export interface DescribeTagsType {
    * <p>One or more filters to scope the tags to return. The maximum number of filters per
    *             filter type (for example, <code>auto-scaling-group</code>) is 1000.</p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of items to return with this call. The default value is
@@ -1676,7 +1672,7 @@ export interface DescribeTerminationPolicyTypesAnswer {
    *                 <code>ClosestToNextInstanceHour</code>, <code>Default</code>,
    *                 <code>OldestLaunchTemplate</code>, and <code>AllocationStrategy</code>.</p>
    */
-  TerminationPolicyTypes?: Array<string>;
+  TerminationPolicyTypes?: string[];
 }
 
 export namespace DescribeTerminationPolicyTypesAnswer {
@@ -1689,7 +1685,7 @@ export interface DetachInstancesAnswer {
   /**
    * <p>The activities related to detaching the instances from the Auto Scaling group.</p>
    */
-  Activities?: Array<Activity>;
+  Activities?: Activity[];
 }
 
 export namespace DetachInstancesAnswer {
@@ -1707,7 +1703,7 @@ export interface DetachInstancesQuery {
   /**
    * <p>The IDs of the instances. You can specify up to 20 instances.</p>
    */
-  InstanceIds?: Array<string>;
+  InstanceIds?: string[];
 
   /**
    * <p>Indicates whether the Auto Scaling group decrements the desired capacity value by the number
@@ -1741,7 +1737,7 @@ export interface DetachLoadBalancerTargetGroupsType {
    * <p>The Amazon Resource Names (ARN) of the target groups. You can specify up to 10 target
    *             groups.</p>
    */
-  TargetGroupARNs: Array<string> | undefined;
+  TargetGroupARNs: string[] | undefined;
 }
 
 export namespace DetachLoadBalancerTargetGroupsType {
@@ -1768,7 +1764,7 @@ export interface DetachLoadBalancersType {
   /**
    * <p>The names of the load balancers. You can specify up to 10 load balancers.</p>
    */
-  LoadBalancerNames: Array<string> | undefined;
+  LoadBalancerNames: string[] | undefined;
 }
 
 export namespace DetachLoadBalancersType {
@@ -1829,7 +1825,7 @@ export interface DisableMetricsCollectionQuery {
    *             </li>
    *          </ul>
    */
-  Metrics?: Array<string>;
+  Metrics?: string[];
 }
 
 export namespace DisableMetricsCollectionQuery {
@@ -1983,7 +1979,7 @@ export interface EnableMetricsCollectionQuery {
    *             </li>
    *          </ul>
    */
-  Metrics?: Array<string>;
+  Metrics?: string[];
 }
 
 export namespace EnableMetricsCollectionQuery {
@@ -2058,7 +2054,7 @@ export interface EnterStandbyAnswer {
   /**
    * <p>The activities related to moving instances into <code>Standby</code> mode.</p>
    */
-  Activities?: Array<Activity>;
+  Activities?: Activity[];
 }
 
 export namespace EnterStandbyAnswer {
@@ -2076,7 +2072,7 @@ export interface EnterStandbyQuery {
   /**
    * <p>The IDs of the instances. You can specify up to 20 instances.</p>
    */
-  InstanceIds?: Array<string>;
+  InstanceIds?: string[];
 
   /**
    * <p>Indicates whether to decrement the desired capacity of the Auto Scaling group by the number of
@@ -2143,7 +2139,7 @@ export interface ExitStandbyAnswer {
   /**
    * <p>The activities related to moving instances out of <code>Standby</code> mode.</p>
    */
-  Activities?: Array<Activity>;
+  Activities?: Activity[];
 }
 
 export namespace ExitStandbyAnswer {
@@ -2161,7 +2157,7 @@ export interface ExitStandbyQuery {
   /**
    * <p>The IDs of the instances. You can specify up to 20 instances.</p>
    */
-  InstanceIds?: Array<string>;
+  InstanceIds?: string[];
 }
 
 export namespace ExitStandbyQuery {
@@ -2210,7 +2206,7 @@ export interface Filter {
   /**
    * <p>The value of the filter.</p>
    */
-  Values?: Array<string>;
+  Values?: string[];
 }
 
 export namespace Filter {
@@ -2425,7 +2421,7 @@ export interface LaunchConfiguration {
    *                 Mapping</a> in the <i>Amazon EC2 User Guide for Linux
    *                 Instances</i>.</p>
    */
-  BlockDeviceMappings?: Array<BlockDeviceMapping>;
+  BlockDeviceMappings?: BlockDeviceMapping[];
 
   /**
    * <p>The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.</p>
@@ -2442,7 +2438,7 @@ export interface LaunchConfiguration {
    *                 <i>Amazon EC2 User Guide for Linux Instances</i> and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-ClassicLink">Linking EC2-Classic Instances to a VPC</a> in the
    *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    */
-  ClassicLinkVPCSecurityGroups?: Array<string>;
+  ClassicLinkVPCSecurityGroups?: string[];
 
   /**
    * <p>The creation date and time for the launch configuration.</p>
@@ -2533,7 +2529,7 @@ export interface LaunchConfiguration {
    *                 VPC</a> in the <i>Amazon Virtual Private Cloud User
    *             Guide</i>.</p>
    */
-  SecurityGroups?: Array<string>;
+  SecurityGroups?: string[];
 
   /**
    * <p>The maximum hourly price to be paid for any Spot Instance launched to fulfill the
@@ -2577,7 +2573,7 @@ export interface LaunchConfigurationNamesType {
    * <p>The launch configuration names. If you omit this parameter, all launch configurations
    *             are described.</p>
    */
-  LaunchConfigurationNames?: Array<string>;
+  LaunchConfigurationNames?: string[];
 
   /**
    * <p>The maximum number of items to return with this call. The default value is
@@ -2602,7 +2598,7 @@ export interface LaunchConfigurationsType {
   /**
    * <p>The launch configurations.</p>
    */
-  LaunchConfigurations: Array<LaunchConfiguration> | undefined;
+  LaunchConfigurations: LaunchConfiguration[] | undefined;
 
   /**
    * <p>A string that indicates that the response contains more items than can be returned in
@@ -2641,7 +2637,7 @@ export interface LaunchTemplate {
    *             the launch template. Currently, the only supported override is instance type. You can
    *             specify between 1 and 20 instance types.</p>
    */
-  Overrides?: Array<LaunchTemplateOverrides>;
+  Overrides?: LaunchTemplateOverrides[];
 }
 
 export namespace LaunchTemplate {
@@ -3248,7 +3244,7 @@ export interface PoliciesType {
   /**
    * <p>The scaling policies.</p>
    */
-  ScalingPolicies?: Array<ScalingPolicy>;
+  ScalingPolicies?: ScalingPolicy[];
 }
 
 export namespace PoliciesType {
@@ -3263,7 +3259,7 @@ export interface PolicyARNType {
   /**
    * <p>The CloudWatch alarms created for the target tracking scaling policy.</p>
    */
-  Alarms?: Array<Alarm>;
+  Alarms?: Alarm[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the policy.</p>
@@ -3399,7 +3395,7 @@ export interface ProcessesType {
   /**
    * <p>The names of the process types.</p>
    */
-  Processes?: Array<ProcessType>;
+  Processes?: ProcessType[];
 }
 
 export namespace ProcessesType {
@@ -3505,7 +3501,7 @@ export interface PutNotificationConfigurationType {
    * <p>The type of event that causes the notification to be sent. For more information about
    *             notification types supported by Amazon EC2 Auto Scaling, see <a>DescribeAutoScalingNotificationTypes</a>.</p>
    */
-  NotificationTypes: Array<string> | undefined;
+  NotificationTypes: string[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (Amazon SNS)
@@ -3614,7 +3610,7 @@ export interface PutScalingPolicyType {
    *         <p>Conditional: If you specify <code>StepScaling</code> for the policy type, you must
    *             specify this parameter. (Not used with any other policy type.) </p>
    */
-  StepAdjustments?: Array<StepAdjustment>;
+  StepAdjustments?: StepAdjustment[];
 
   /**
    * <p>A target tracking scaling policy. Includes support for predefined or customized
@@ -3824,7 +3820,7 @@ export interface ScalingPolicy {
   /**
    * <p>The CloudWatch alarms related to the policy.</p>
    */
-  Alarms?: Array<Alarm>;
+  Alarms?: Alarm[];
 
   /**
    * <p>The name of the Auto Scaling group.</p>
@@ -3890,7 +3886,7 @@ export interface ScalingPolicy {
    * <p>A set of adjustments that enable you to scale based on the size of the alarm
    *             breach.</p>
    */
-  StepAdjustments?: Array<StepAdjustment>;
+  StepAdjustments?: StepAdjustment[];
 
   /**
    * <p>A target tracking scaling policy.</p>
@@ -3955,7 +3951,7 @@ export interface ScalingProcessQuery {
    *             </li>
    *          </ul>
    */
-  ScalingProcesses?: Array<string>;
+  ScalingProcesses?: string[];
 }
 
 export namespace ScalingProcessQuery {
@@ -3976,7 +3972,7 @@ export interface ScheduledActionsType {
   /**
    * <p>The scheduled actions.</p>
    */
-  ScheduledUpdateGroupActions?: Array<ScheduledUpdateGroupAction>;
+  ScheduledUpdateGroupActions?: ScheduledUpdateGroupAction[];
 }
 
 export namespace ScheduledActionsType {
@@ -4203,7 +4199,7 @@ export interface SetInstanceProtectionQuery {
   /**
    * <p>One or more instance IDs.</p>
    */
-  InstanceIds: Array<string> | undefined;
+  InstanceIds: string[] | undefined;
 
   /**
    * <p>Indicates whether the instance is protected from termination by Amazon EC2 Auto Scaling when scaling
@@ -4397,7 +4393,7 @@ export interface TagsType {
   /**
    * <p>One or more tags.</p>
    */
-  Tags?: Array<TagDescription>;
+  Tags?: TagDescription[];
 }
 
 export namespace TagsType {
@@ -4469,7 +4465,7 @@ export interface UpdateAutoScalingGroupType {
   /**
    * <p>One or more Availability Zones for the group.</p>
    */
-  AvailabilityZones?: Array<string>;
+  AvailabilityZones?: string[];
 
   /**
    * <p>The amount of time, in seconds, after a scaling activity completes before another
@@ -4584,7 +4580,7 @@ export interface UpdateAutoScalingGroupType {
    *                 Instances Auto Scaling Terminates During Scale In</a> in the
    *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    */
-  TerminationPolicies?: Array<string>;
+  TerminationPolicies?: string[];
 
   /**
    * <p>A comma-separated list of subnet IDs for virtual private cloud (VPC).</p>

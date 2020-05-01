@@ -3091,7 +3091,7 @@ const serializeAws_json1_1CognitoIdentityProvider = (
 };
 
 const serializeAws_json1_1CognitoIdentityProviderList = (
-  input: Array<CognitoIdentityProvider>,
+  input: CognitoIdentityProvider[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3285,7 +3285,7 @@ const serializeAws_json1_1GetOpenIdTokenInput = (
 };
 
 const serializeAws_json1_1IdentityIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3356,7 +3356,7 @@ const serializeAws_json1_1IdentityPool = (
 };
 
 const serializeAws_json1_1IdentityPoolTagsListType = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3434,7 +3434,7 @@ const serializeAws_json1_1ListTagsForResourceInput = (
 };
 
 const serializeAws_json1_1LoginsList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3499,7 +3499,7 @@ const serializeAws_json1_1MappingRule = (
 };
 
 const serializeAws_json1_1MappingRulesList = (
-  input: Array<MappingRule>,
+  input: MappingRule[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3530,7 +3530,7 @@ const serializeAws_json1_1MergeDeveloperIdentitiesInput = (
 };
 
 const serializeAws_json1_1OIDCProviderList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3599,7 +3599,7 @@ const serializeAws_json1_1RulesConfigurationType = (
 };
 
 const serializeAws_json1_1SAMLProviderList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3731,7 +3731,7 @@ const deserializeAws_json1_1CognitoIdentityProvider = (
 const deserializeAws_json1_1CognitoIdentityProviderList = (
   output: any,
   context: __SerdeContext
-): Array<CognitoIdentityProvider> => {
+): CognitoIdentityProvider[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1CognitoIdentityProvider(entry, context)
   );
@@ -3814,7 +3814,7 @@ const deserializeAws_json1_1DeveloperUserAlreadyRegisteredException = (
 const deserializeAws_json1_1DeveloperUserIdentifierList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -3931,7 +3931,7 @@ const deserializeAws_json1_1GetOpenIdTokenResponse = (
 const deserializeAws_json1_1IdentitiesList = (
   output: any,
   context: __SerdeContext
-): Array<IdentityDescription> => {
+): IdentityDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1IdentityDescription(entry, context)
   );
@@ -4096,7 +4096,7 @@ const deserializeAws_json1_1IdentityPoolTagsType = (
 const deserializeAws_json1_1IdentityPoolsList = (
   output: any,
   context: __SerdeContext
-): Array<IdentityPoolShortDescription> => {
+): IdentityPoolShortDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1IdentityPoolShortDescription(entry, context)
   );
@@ -4235,7 +4235,7 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
 const deserializeAws_json1_1LoginsList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -4296,7 +4296,7 @@ const deserializeAws_json1_1MappingRule = (
 const deserializeAws_json1_1MappingRulesList = (
   output: any,
   context: __SerdeContext
-): Array<MappingRule> => {
+): MappingRule[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1MappingRule(entry, context)
   );
@@ -4333,7 +4333,7 @@ const deserializeAws_json1_1NotAuthorizedException = (
 const deserializeAws_json1_1OIDCProviderList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -4438,7 +4438,7 @@ const deserializeAws_json1_1RulesConfigurationType = (
 const deserializeAws_json1_1SAMLProviderList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -4487,7 +4487,7 @@ const deserializeAws_json1_1UnprocessedIdentityId = (
 const deserializeAws_json1_1UnprocessedIdentityIdList = (
   output: any,
   context: __SerdeContext
-): Array<UnprocessedIdentityId> => {
+): UnprocessedIdentityId[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1UnprocessedIdentityId(entry, context)
   );

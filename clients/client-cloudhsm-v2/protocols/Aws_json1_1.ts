@@ -1954,7 +1954,7 @@ const serializeAws_json1_1DescribeClustersRequest = (
 };
 
 const serializeAws_json1_1Filters = (
-  input: { [key: string]: Array<string> },
+  input: { [key: string]: string[] },
   context: __SerdeContext
 ): any => {
   const mapParams: any = {};
@@ -2010,7 +2010,7 @@ const serializeAws_json1_1RestoreBackupRequest = (
 };
 
 const serializeAws_json1_1Strings = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2021,7 +2021,7 @@ const serializeAws_json1_1Strings = (
 };
 
 const serializeAws_json1_1SubnetIds = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2043,7 +2043,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_json1_1TagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2054,7 +2054,7 @@ const serializeAws_json1_1TagKeyList = (
 };
 
 const serializeAws_json1_1TagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2152,7 +2152,7 @@ const deserializeAws_json1_1Backup = (
 const deserializeAws_json1_1Backups = (
   output: any,
   context: __SerdeContext
-): Array<Backup> => {
+): Backup[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Backup(entry, context)
   );
@@ -2275,7 +2275,7 @@ const deserializeAws_json1_1Cluster = (
 const deserializeAws_json1_1Clusters = (
   output: any,
   context: __SerdeContext
-): Array<Cluster> => {
+): Cluster[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Cluster(entry, context)
   );
@@ -2497,7 +2497,7 @@ const deserializeAws_json1_1Hsm = (
 const deserializeAws_json1_1Hsms = (
   output: any,
   context: __SerdeContext
-): Array<Hsm> => {
+): Hsm[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Hsm(entry, context)
   );
@@ -2574,7 +2574,7 @@ const deserializeAws_json1_1Tag = (
 const deserializeAws_json1_1TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );

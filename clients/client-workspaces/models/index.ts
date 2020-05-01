@@ -79,7 +79,7 @@ export interface AssociateIpGroupsRequest {
   /**
    * <p>The identifiers of one or more IP access control groups.</p>
    */
-  GroupIds: Array<string> | undefined;
+  GroupIds: string[] | undefined;
 }
 
 export namespace AssociateIpGroupsRequest {
@@ -106,7 +106,7 @@ export interface AuthorizeIpRulesRequest {
   /**
    * <p>The rules to add to the group.</p>
    */
-  UserRules: Array<IpRuleItem> | undefined;
+  UserRules: IpRuleItem[] | undefined;
 }
 
 export namespace AuthorizeIpRulesRequest {
@@ -218,7 +218,7 @@ export interface CopyWorkspaceImageRequest {
   /**
    * <p>The tags for the image.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CopyWorkspaceImageRequest {
@@ -254,12 +254,12 @@ export interface CreateIpGroupRequest {
   /**
    * <p>The tags. Each WorkSpaces resource can have a maximum of 50 tags.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The rules to add to the group.</p>
    */
-  UserRules?: Array<IpRuleItem>;
+  UserRules?: IpRuleItem[];
 }
 
 export namespace CreateIpGroupRequest {
@@ -292,7 +292,7 @@ export interface CreateTagsRequest {
    * <p>The tags. Each WorkSpaces resource can have a maximum of 50 tags. If you want to add new tags
    *          to a set of existing tags, you must submit all of the existing tags along with the new ones.</p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace CreateTagsRequest {
@@ -314,7 +314,7 @@ export interface CreateWorkspacesRequest {
   /**
    * <p>The WorkSpaces to create. You can specify up to 25 WorkSpaces.</p>
    */
-  Workspaces: Array<WorkspaceRequest> | undefined;
+  Workspaces: WorkspaceRequest[] | undefined;
 }
 
 export namespace CreateWorkspacesRequest {
@@ -327,7 +327,7 @@ export interface CreateWorkspacesResult {
   /**
    * <p>Information about the WorkSpaces that could not be created.</p>
    */
-  FailedRequests?: Array<FailedCreateWorkspaceRequest>;
+  FailedRequests?: FailedCreateWorkspaceRequest[];
 
   /**
    * <p>Information about the WorkSpaces that were created.</p>
@@ -335,7 +335,7 @@ export interface CreateWorkspacesResult {
    *          available for use with other operations. For example, if you call <a>DescribeWorkspaces</a> before the WorkSpace is created, the information returned
    *          can be incomplete.</p>
    */
-  PendingRequests?: Array<Workspace>;
+  PendingRequests?: Workspace[];
 }
 
 export namespace CreateWorkspacesResult {
@@ -442,7 +442,7 @@ export interface DeleteTagsRequest {
   /**
    * <p>The tag keys.</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace DeleteTagsRequest {
@@ -524,7 +524,7 @@ export interface DescribeAccountModificationsResult {
   /**
    * <p>The list of modifications to the configuration of BYOL.</p>
    */
-  AccountModifications?: Array<AccountModification>;
+  AccountModifications?: AccountModification[];
 
   /**
    * <p>The token to use to retrieve the next set of results, or null if no more results are
@@ -574,7 +574,7 @@ export interface DescribeClientPropertiesRequest {
   /**
    * <p>The resource identifier, in the form of directory IDs.</p>
    */
-  ResourceIds: Array<string> | undefined;
+  ResourceIds: string[] | undefined;
 }
 
 export namespace DescribeClientPropertiesRequest {
@@ -587,7 +587,7 @@ export interface DescribeClientPropertiesResult {
   /**
    * <p>Information about the specified Amazon WorkSpaces clients.</p>
    */
-  ClientPropertiesList?: Array<ClientPropertiesResult>;
+  ClientPropertiesList?: ClientPropertiesResult[];
 }
 
 export namespace DescribeClientPropertiesResult {
@@ -600,7 +600,7 @@ export interface DescribeIpGroupsRequest {
   /**
    * <p>The identifiers of one or more IP access control groups.</p>
    */
-  GroupIds?: Array<string>;
+  GroupIds?: string[];
 
   /**
    * <p>The maximum number of items to return.</p>
@@ -630,7 +630,7 @@ export interface DescribeIpGroupsResult {
   /**
    * <p>Information about the IP access control groups.</p>
    */
-  Result?: Array<WorkspacesIpGroup>;
+  Result?: WorkspacesIpGroup[];
 }
 
 export namespace DescribeIpGroupsResult {
@@ -657,7 +657,7 @@ export interface DescribeTagsResult {
   /**
    * <p>The tags.</p>
    */
-  TagList?: Array<Tag>;
+  TagList?: Tag[];
 }
 
 export namespace DescribeTagsResult {
@@ -670,7 +670,7 @@ export interface DescribeWorkspaceBundlesRequest {
   /**
    * <p>The identifiers of the bundles. You cannot combine this parameter with any other filter.</p>
    */
-  BundleIds?: Array<string>;
+  BundleIds?: string[];
 
   /**
    * <p>The token for the next set of results. (You received this token from a previous call.)</p>
@@ -695,7 +695,7 @@ export interface DescribeWorkspaceBundlesResult {
   /**
    * <p>Information about the bundles.</p>
    */
-  Bundles?: Array<WorkspaceBundle>;
+  Bundles?: WorkspaceBundle[];
 
   /**
    * <p>The token to use to retrieve the next set of results, or null if there are no more results available.
@@ -715,7 +715,7 @@ export interface DescribeWorkspaceDirectoriesRequest {
    * <p>The identifiers of the directories. If the value is null, all directories are
    *          retrieved.</p>
    */
-  DirectoryIds?: Array<string>;
+  DirectoryIds?: string[];
 
   /**
    * <p>The maximum number of directories to return.</p>
@@ -739,7 +739,7 @@ export interface DescribeWorkspaceDirectoriesResult {
   /**
    * <p>Information about the directories.</p>
    */
-  Directories?: Array<WorkspaceDirectory>;
+  Directories?: WorkspaceDirectory[];
 
   /**
    * <p>The token to use to retrieve the next set of results, or null if no more results are
@@ -758,7 +758,7 @@ export interface DescribeWorkspaceImagesRequest {
   /**
    * <p>The identifier of the image.</p>
    */
-  ImageIds?: Array<string>;
+  ImageIds?: string[];
 
   /**
    * <p>The maximum number of items to return.</p>
@@ -782,7 +782,7 @@ export interface DescribeWorkspaceImagesResult {
   /**
    * <p>Information about the images.</p>
    */
-  Images?: Array<WorkspaceImage>;
+  Images?: WorkspaceImage[];
 
   /**
    * <p>The token to use to retrieve the next set of results, or null if no more results are
@@ -815,13 +815,13 @@ export interface DescribeWorkspaceSnapshotsResult {
    * <p>Information about the snapshots that can be used to rebuild a WorkSpace. These snapshots include
    *          the user volume.</p>
    */
-  RebuildSnapshots?: Array<Snapshot>;
+  RebuildSnapshots?: Snapshot[];
 
   /**
    * <p>Information about the snapshots that can be used to restore a WorkSpace. These snapshots
    *          include both the root volume and the user volume.</p>
    */
-  RestoreSnapshots?: Array<Snapshot>;
+  RestoreSnapshots?: Snapshot[];
 }
 
 export namespace DescribeWorkspaceSnapshotsResult {
@@ -840,7 +840,7 @@ export interface DescribeWorkspacesConnectionStatusRequest {
   /**
    * <p>The identifiers of the WorkSpaces. You can specify up to 25 WorkSpaces.</p>
    */
-  WorkspaceIds?: Array<string>;
+  WorkspaceIds?: string[];
 }
 
 export namespace DescribeWorkspacesConnectionStatusRequest {
@@ -859,7 +859,7 @@ export interface DescribeWorkspacesConnectionStatusResult {
   /**
    * <p>Information about the connection status of the WorkSpace.</p>
    */
-  WorkspacesConnectionStatus?: Array<WorkspaceConnectionStatus>;
+  WorkspacesConnectionStatus?: WorkspaceConnectionStatus[];
 }
 
 export namespace DescribeWorkspacesConnectionStatusResult {
@@ -905,7 +905,7 @@ export interface DescribeWorkspacesRequest {
    *          <p>Because the <a>CreateWorkspaces</a> operation is asynchronous, the identifier
    *          it returns is not immediately available. If you immediately call <a>DescribeWorkspaces</a> with this identifier, no information is returned.</p>
    */
-  WorkspaceIds?: Array<string>;
+  WorkspaceIds?: string[];
 }
 
 export namespace DescribeWorkspacesRequest {
@@ -926,7 +926,7 @@ export interface DescribeWorkspacesResult {
    *          <p>Because <a>CreateWorkspaces</a> is an asynchronous operation, some of the
    *          returned information could be incomplete.</p>
    */
-  Workspaces?: Array<Workspace>;
+  Workspaces?: Workspace[];
 }
 
 export namespace DescribeWorkspacesResult {
@@ -944,7 +944,7 @@ export interface DisassociateIpGroupsRequest {
   /**
    * <p>The identifiers of one or more IP access control groups.</p>
    */
-  GroupIds: Array<string> | undefined;
+  GroupIds: string[] | undefined;
 }
 
 export namespace DisassociateIpGroupsRequest {
@@ -1042,7 +1042,7 @@ export interface ImportWorkspaceImageRequest {
   /**
    * <p>The tags. Each WorkSpaces resource can have a maximum of 50 tags.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace ImportWorkspaceImageRequest {
@@ -1148,7 +1148,7 @@ export interface ListAvailableManagementCidrRangesResult {
   /**
    * <p>The list of available IP address ranges, specified as IPv4 CIDR blocks.</p>
    */
-  ManagementCidrRanges?: Array<string>;
+  ManagementCidrRanges?: string[];
 
   /**
    * <p>The token to use to retrieve the next set of results, or null if no more results are
@@ -1497,7 +1497,7 @@ export interface RebootWorkspacesRequest {
   /**
    * <p>The WorkSpaces to reboot. You can specify up to 25 WorkSpaces.</p>
    */
-  RebootWorkspaceRequests: Array<RebootRequest> | undefined;
+  RebootWorkspaceRequests: RebootRequest[] | undefined;
 }
 
 export namespace RebootWorkspacesRequest {
@@ -1510,7 +1510,7 @@ export interface RebootWorkspacesResult {
   /**
    * <p>Information about the WorkSpaces that could not be rebooted.</p>
    */
-  FailedRequests?: Array<FailedWorkspaceChangeRequest>;
+  FailedRequests?: FailedWorkspaceChangeRequest[];
 }
 
 export namespace RebootWorkspacesResult {
@@ -1539,7 +1539,7 @@ export interface RebuildWorkspacesRequest {
   /**
    * <p>The WorkSpace to rebuild. You can specify a single WorkSpace.</p>
    */
-  RebuildWorkspaceRequests: Array<RebuildRequest> | undefined;
+  RebuildWorkspaceRequests: RebuildRequest[] | undefined;
 }
 
 export namespace RebuildWorkspacesRequest {
@@ -1552,7 +1552,7 @@ export interface RebuildWorkspacesResult {
   /**
    * <p>Information about the WorkSpace that could not be rebuilt.</p>
    */
-  FailedRequests?: Array<FailedWorkspaceChangeRequest>;
+  FailedRequests?: FailedWorkspaceChangeRequest[];
 }
 
 export namespace RebuildWorkspacesResult {
@@ -1593,12 +1593,12 @@ export interface RegisterWorkspaceDirectoryRequest {
    *          are in supported Availability Zones. The subnets must also be in separate Availability Zones. If these
    *          conditions are not met, you will receive an OperationNotSupportedException error.</p>
    */
-  SubnetIds?: Array<string>;
+  SubnetIds?: string[];
 
   /**
    * <p>The tags associated with the directory.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>Indicates whether your WorkSpace directory is dedicated or shared. To use Bring Your Own
@@ -1771,7 +1771,7 @@ export interface RevokeIpRulesRequest {
   /**
    * <p>The rules to remove from the group.</p>
    */
-  UserRules: Array<string> | undefined;
+  UserRules: string[] | undefined;
 }
 
 export namespace RevokeIpRulesRequest {
@@ -1881,7 +1881,7 @@ export interface StartWorkspacesRequest {
   /**
    * <p>The WorkSpaces to start. You can specify up to 25 WorkSpaces.</p>
    */
-  StartWorkspaceRequests: Array<StartRequest> | undefined;
+  StartWorkspaceRequests: StartRequest[] | undefined;
 }
 
 export namespace StartWorkspacesRequest {
@@ -1894,7 +1894,7 @@ export interface StartWorkspacesResult {
   /**
    * <p>Information about the WorkSpaces that could not be started.</p>
    */
-  FailedRequests?: Array<FailedWorkspaceChangeRequest>;
+  FailedRequests?: FailedWorkspaceChangeRequest[];
 }
 
 export namespace StartWorkspacesResult {
@@ -1922,7 +1922,7 @@ export interface StopWorkspacesRequest {
   /**
    * <p>The WorkSpaces to stop. You can specify up to 25 WorkSpaces.</p>
    */
-  StopWorkspaceRequests: Array<StopRequest> | undefined;
+  StopWorkspaceRequests: StopRequest[] | undefined;
 }
 
 export namespace StopWorkspacesRequest {
@@ -1935,7 +1935,7 @@ export interface StopWorkspacesResult {
   /**
    * <p>Information about the WorkSpaces that could not be stopped.</p>
    */
-  FailedRequests?: Array<FailedWorkspaceChangeRequest>;
+  FailedRequests?: FailedWorkspaceChangeRequest[];
 }
 
 export namespace StopWorkspacesResult {
@@ -1994,7 +1994,7 @@ export interface TerminateWorkspacesRequest {
   /**
    * <p>The WorkSpaces to terminate. You can specify up to 25 WorkSpaces.</p>
    */
-  TerminateWorkspaceRequests: Array<TerminateRequest> | undefined;
+  TerminateWorkspaceRequests: TerminateRequest[] | undefined;
 }
 
 export namespace TerminateWorkspacesRequest {
@@ -2007,7 +2007,7 @@ export interface TerminateWorkspacesResult {
   /**
    * <p>Information about the WorkSpaces that could not be terminated.</p>
    */
-  FailedRequests?: Array<FailedWorkspaceChangeRequest>;
+  FailedRequests?: FailedWorkspaceChangeRequest[];
 }
 
 export namespace TerminateWorkspacesResult {
@@ -2064,7 +2064,7 @@ export interface UpdateRulesOfIpGroupRequest {
   /**
    * <p>One or more rules.</p>
    */
-  UserRules: Array<IpRuleItem> | undefined;
+  UserRules: IpRuleItem[] | undefined;
 }
 
 export namespace UpdateRulesOfIpGroupRequest {
@@ -2135,7 +2135,7 @@ export interface Workspace {
   /**
    * <p>The modification states of the WorkSpace.</p>
    */
-  ModificationStates?: Array<ModificationState>;
+  ModificationStates?: ModificationState[];
 
   /**
    * <p>Indicates whether the data stored on the root volume is encrypted.</p>
@@ -2399,7 +2399,7 @@ export interface WorkspaceDirectory {
   /**
    * <p>The IP addresses of the DNS servers for the directory.</p>
    */
-  DnsIpAddresses?: Array<string>;
+  DnsIpAddresses?: string[];
 
   /**
    * <p>The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make
@@ -2426,7 +2426,7 @@ export interface WorkspaceDirectory {
   /**
    * <p>The identifiers of the subnets used with the directory.</p>
    */
-  SubnetIds?: Array<string>;
+  SubnetIds?: string[];
 
   /**
    * <p>Specifies whether the directory is dedicated or shared. To use Bring Your Own License
@@ -2453,7 +2453,7 @@ export interface WorkspaceDirectory {
   /**
    * <p>The identifiers of the IP access control groups associated with the directory.</p>
    */
-  ipGroupIds?: Array<string>;
+  ipGroupIds?: string[];
 }
 
 export namespace WorkspaceDirectory {
@@ -2607,7 +2607,7 @@ export interface WorkspaceRequest {
   /**
    * <p>The tags for the WorkSpace.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The user name of the user for the WorkSpace. This user name must exist in the AWS
@@ -2697,7 +2697,7 @@ export interface WorkspacesIpGroup {
   /**
    * <p>The rules.</p>
    */
-  userRules?: Array<IpRuleItem>;
+  userRules?: IpRuleItem[];
 }
 
 export namespace WorkspacesIpGroup {

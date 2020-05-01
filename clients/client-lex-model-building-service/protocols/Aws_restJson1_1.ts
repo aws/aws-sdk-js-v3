@@ -6361,7 +6361,7 @@ const serializeAws_restJson1_1EnumerationValue = (
 };
 
 const serializeAws_restJson1_1EnumerationValues = (
-  input: Array<EnumerationValue>,
+  input: EnumerationValue[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6423,7 +6423,7 @@ const serializeAws_restJson1_1Intent = (
 };
 
 const serializeAws_restJson1_1IntentList = (
-  input: Array<Intent>,
+  input: Intent[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6434,7 +6434,7 @@ const serializeAws_restJson1_1IntentList = (
 };
 
 const serializeAws_restJson1_1IntentUtteranceList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6465,7 +6465,7 @@ const serializeAws_restJson1_1LogSettingsRequest = (
 };
 
 const serializeAws_restJson1_1LogSettingsRequestList = (
-  input: Array<LogSettingsRequest>,
+  input: LogSettingsRequest[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6493,7 +6493,7 @@ const serializeAws_restJson1_1Message = (
 };
 
 const serializeAws_restJson1_1MessageList = (
-  input: Array<Message>,
+  input: Message[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6568,7 +6568,7 @@ const serializeAws_restJson1_1Slot = (
 };
 
 const serializeAws_restJson1_1SlotList = (
-  input: Array<Slot>,
+  input: Slot[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6579,7 +6579,7 @@ const serializeAws_restJson1_1SlotList = (
 };
 
 const serializeAws_restJson1_1SlotUtteranceList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6607,7 +6607,7 @@ const serializeAws_restJson1_1Statement = (
 };
 
 const serializeAws_restJson1_1SynonymList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6670,7 +6670,7 @@ const deserializeAws_restJson1_1BotAliasMetadata = (
 const deserializeAws_restJson1_1BotAliasMetadataList = (
   output: any,
   context: __SerdeContext
-): Array<BotAliasMetadata> => {
+): BotAliasMetadata[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1BotAliasMetadata(entry, context)
   );
@@ -6731,7 +6731,7 @@ const deserializeAws_restJson1_1BotChannelAssociation = (
 const deserializeAws_restJson1_1BotChannelAssociationList = (
   output: any,
   context: __SerdeContext
-): Array<BotChannelAssociation> => {
+): BotChannelAssociation[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1BotChannelAssociation(entry, context)
   );
@@ -6776,7 +6776,7 @@ const deserializeAws_restJson1_1BotMetadata = (
 const deserializeAws_restJson1_1BotMetadataList = (
   output: any,
   context: __SerdeContext
-): Array<BotMetadata> => {
+): BotMetadata[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1BotMetadata(entry, context)
   );
@@ -6809,7 +6809,7 @@ const deserializeAws_restJson1_1BuiltinIntentMetadata = (
 const deserializeAws_restJson1_1BuiltinIntentMetadataList = (
   output: any,
   context: __SerdeContext
-): Array<BuiltinIntentMetadata> => {
+): BuiltinIntentMetadata[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1BuiltinIntentMetadata(entry, context)
   );
@@ -6832,7 +6832,7 @@ const deserializeAws_restJson1_1BuiltinIntentSlot = (
 const deserializeAws_restJson1_1BuiltinIntentSlotList = (
   output: any,
   context: __SerdeContext
-): Array<BuiltinIntentSlot> => {
+): BuiltinIntentSlot[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1BuiltinIntentSlot(entry, context)
   );
@@ -6865,7 +6865,7 @@ const deserializeAws_restJson1_1BuiltinSlotTypeMetadata = (
 const deserializeAws_restJson1_1BuiltinSlotTypeMetadataList = (
   output: any,
   context: __SerdeContext
-): Array<BuiltinSlotTypeMetadata> => {
+): BuiltinSlotTypeMetadata[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1BuiltinSlotTypeMetadata(entry, context)
   );
@@ -6945,7 +6945,7 @@ const deserializeAws_restJson1_1EnumerationValue = (
 const deserializeAws_restJson1_1EnumerationValues = (
   output: any,
   context: __SerdeContext
-): Array<EnumerationValue> => {
+): EnumerationValue[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1EnumerationValue(entry, context)
   );
@@ -7017,7 +7017,7 @@ const deserializeAws_restJson1_1Intent = (
 const deserializeAws_restJson1_1IntentList = (
   output: any,
   context: __SerdeContext
-): Array<Intent> => {
+): Intent[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Intent(entry, context)
   );
@@ -7058,7 +7058,7 @@ const deserializeAws_restJson1_1IntentMetadata = (
 const deserializeAws_restJson1_1IntentMetadataList = (
   output: any,
   context: __SerdeContext
-): Array<IntentMetadata> => {
+): IntentMetadata[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1IntentMetadata(entry, context)
   );
@@ -7067,14 +7067,14 @@ const deserializeAws_restJson1_1IntentMetadataList = (
 const deserializeAws_restJson1_1IntentUtteranceList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1ListOfUtterance = (
   output: any,
   context: __SerdeContext
-): Array<UtteranceData> => {
+): UtteranceData[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1UtteranceData(entry, context)
   );
@@ -7083,7 +7083,7 @@ const deserializeAws_restJson1_1ListOfUtterance = (
 const deserializeAws_restJson1_1ListsOfUtterances = (
   output: any,
   context: __SerdeContext
-): Array<UtteranceList> => {
+): UtteranceList[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1UtteranceList(entry, context)
   );
@@ -7092,7 +7092,7 @@ const deserializeAws_restJson1_1ListsOfUtterances = (
 const deserializeAws_restJson1_1LocaleList = (
   output: any,
   context: __SerdeContext
-): Array<Locale | string> => {
+): (Locale | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -7129,7 +7129,7 @@ const deserializeAws_restJson1_1LogSettingsResponse = (
 const deserializeAws_restJson1_1LogSettingsResponseList = (
   output: any,
   context: __SerdeContext
-): Array<LogSettingsResponse> => {
+): LogSettingsResponse[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1LogSettingsResponse(entry, context)
   );
@@ -7160,7 +7160,7 @@ const deserializeAws_restJson1_1Message = (
 const deserializeAws_restJson1_1MessageList = (
   output: any,
   context: __SerdeContext
-): Array<Message> => {
+): Message[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Message(entry, context)
   );
@@ -7277,7 +7277,7 @@ const deserializeAws_restJson1_1Slot = (
 const deserializeAws_restJson1_1SlotList = (
   output: any,
   context: __SerdeContext
-): Array<Slot> => {
+): Slot[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Slot(entry, context)
   );
@@ -7318,7 +7318,7 @@ const deserializeAws_restJson1_1SlotTypeMetadata = (
 const deserializeAws_restJson1_1SlotTypeMetadataList = (
   output: any,
   context: __SerdeContext
-): Array<SlotTypeMetadata> => {
+): SlotTypeMetadata[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SlotTypeMetadata(entry, context)
   );
@@ -7327,7 +7327,7 @@ const deserializeAws_restJson1_1SlotTypeMetadataList = (
 const deserializeAws_restJson1_1SlotUtteranceList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -7355,14 +7355,14 @@ const deserializeAws_restJson1_1Statement = (
 const deserializeAws_restJson1_1StringList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1SynonymList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 

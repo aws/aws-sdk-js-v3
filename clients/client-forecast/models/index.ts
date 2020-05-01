@@ -25,7 +25,7 @@ export interface CategoricalParameterRange {
   /**
    * <p>A list of the tunable categories for the hyperparameter.</p>
    */
-  Values: Array<string> | undefined;
+  Values: string[] | undefined;
 }
 
 export namespace CategoricalParameterRange {
@@ -99,7 +99,7 @@ export interface CreateDatasetGroupRequest {
    * <p>An array of Amazon Resource Names (ARNs) of the datasets that you want to include in the
    *       dataset group.</p>
    */
-  DatasetArns?: Array<string>;
+  DatasetArns?: string[];
 
   /**
    * <p>A name for the dataset group.</p>
@@ -319,7 +319,7 @@ export interface CreateForecastRequest {
    *       is different from the median (0.50) when the distribution is not symmetric (for example, Beta
    *       and Negative Binomial). The default value is <code>["0.1", "0.5", "0.9"]</code>.</p>
    */
-  ForecastTypes?: Array<string>;
+  ForecastTypes?: string[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the predictor to use to generate the forecast.</p>
@@ -803,7 +803,7 @@ export interface DescribeDatasetGroupResponse {
    * <p>An array of Amazon Resource Names (ARNs) of the datasets contained in the dataset
    *       group.</p>
    */
-  DatasetArns?: Array<string>;
+  DatasetArns?: string[];
 
   /**
    * <p>The ARN of the dataset group.</p>
@@ -1232,7 +1232,7 @@ export interface DescribeForecastResponse {
   /**
    * <p>The quantiles at which probabilistic forecasts were generated.</p>
    */
-  ForecastTypes?: Array<string>;
+  ForecastTypes?: string[];
 
   /**
    * <p>Initially, the same as <code>CreationTime</code> (status is <code>CREATE_PENDING</code>).
@@ -1309,7 +1309,7 @@ export interface DescribePredictorResponse {
   /**
    * <p>When <code>PerformAutoML</code> is specified, the ARN of the chosen algorithm.</p>
    */
-  AutoMLAlgorithmArns?: Array<string>;
+  AutoMLAlgorithmArns?: string[];
 
   /**
    * <p>When the model training task was created.</p>
@@ -1320,7 +1320,7 @@ export interface DescribePredictorResponse {
    * <p>An array of the ARNs of the dataset import jobs used to import training data for the
    *       predictor.</p>
    */
-  DatasetImportJobArns?: Array<string>;
+  DatasetImportJobArns?: string[];
 
   /**
    * <p>An AWS Key Management Service (KMS) key and the AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to access
@@ -1525,7 +1525,7 @@ export interface EvaluationResult {
    *       <code>NumberOfBacktestWindows</code> from the <a>EvaluationParameters</a>
    *       object determines the number of windows in the array.</p>
    */
-  TestWindows?: Array<WindowSummary>;
+  TestWindows?: WindowSummary[];
 }
 
 export namespace EvaluationResult {
@@ -1580,7 +1580,7 @@ export interface Featurization {
    * <p>An array of one <code>FeaturizationMethod</code> object that specifies the feature
    *       transformation method.</p>
    */
-  FeaturizationPipeline?: Array<FeaturizationMethod>;
+  FeaturizationPipeline?: FeaturizationMethod[];
 }
 
 export namespace Featurization {
@@ -1607,7 +1607,7 @@ export interface FeaturizationConfig {
    * <p>An array of featurization (transformation) information for the fields of a dataset.
    *       Only a single featurization is supported.</p>
    */
-  Featurizations?: Array<Featurization>;
+  Featurizations?: Featurization[];
 
   /**
    * <p>An array of dimension (field) names that specify how to group the generated forecast.</p>
@@ -1619,7 +1619,7 @@ export interface FeaturizationConfig {
    *       All forecast dimensions specified in the <code>RELATED_TIME_SERIES</code> dataset must
    *       be specified in the <code>CreatePredictor</code> request.</p>
    */
-  ForecastDimensions?: Array<string>;
+  ForecastDimensions?: string[];
 
   /**
    * <p>The frequency of predictions in a forecast.</p>
@@ -1907,7 +1907,7 @@ export interface GetAccuracyMetricsResponse {
   /**
    * <p>An array of results from evaluating the predictor.</p>
    */
-  PredictorEvaluationResults?: Array<EvaluationResult>;
+  PredictorEvaluationResults?: EvaluationResult[];
 }
 
 export namespace GetAccuracyMetricsResponse {
@@ -1955,7 +1955,7 @@ export interface InputDataConfig {
    * <p>An array of supplementary features. The only supported feature is a holiday
    *       calendar.</p>
    */
-  SupplementaryFeatures?: Array<SupplementaryFeature>;
+  SupplementaryFeatures?: SupplementaryFeature[];
 }
 
 export namespace InputDataConfig {
@@ -2096,7 +2096,7 @@ export interface ListDatasetGroupsResponse {
   /**
    * <p>An array of objects that summarize each dataset group's properties.</p>
    */
-  DatasetGroups?: Array<DatasetGroupSummary>;
+  DatasetGroups?: DatasetGroupSummary[];
 
   /**
    * <p>If the response is truncated, Amazon Forecast returns this token. To retrieve the next set of
@@ -2144,7 +2144,7 @@ export interface ListDatasetImportJobsRequest {
    *       ]</code>
    *          </p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The number of items to return in the response.</p>
@@ -2169,7 +2169,7 @@ export interface ListDatasetImportJobsResponse {
   /**
    * <p>An array of objects that summarize each dataset import job's properties.</p>
    */
-  DatasetImportJobs?: Array<DatasetImportJobSummary>;
+  DatasetImportJobs?: DatasetImportJobSummary[];
 
   /**
    * <p>If the response is truncated, Amazon Forecast returns this token. To retrieve the next set of
@@ -2208,7 +2208,7 @@ export interface ListDatasetsResponse {
   /**
    * <p>An array of objects that summarize each dataset's properties.</p>
    */
-  Datasets?: Array<DatasetSummary>;
+  Datasets?: DatasetSummary[];
 
   /**
    * <p>If the response is truncated, Amazon Forecast returns this token. To retrieve the next set of
@@ -2257,7 +2257,7 @@ export interface ListForecastExportJobsRequest {
    *         "arn:aws:forecast:us-west-2:<acct-id>:forecast/electricityforecast" } ]</code>
    *          </p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The number of items to return in the response.</p>
@@ -2282,7 +2282,7 @@ export interface ListForecastExportJobsResponse {
   /**
    * <p>An array of objects that summarize each export job's properties.</p>
    */
-  ForecastExportJobs?: Array<ForecastExportJobSummary>;
+  ForecastExportJobs?: ForecastExportJobSummary[];
 
   /**
    * <p>If the response is truncated, Amazon Forecast returns this token. To retrieve the next set of
@@ -2329,7 +2329,7 @@ export interface ListForecastsRequest {
    *       ]</code>
    *          </p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The number of items to return in the response.</p>
@@ -2354,7 +2354,7 @@ export interface ListForecastsResponse {
   /**
    * <p>An array of objects that summarize each forecast's properties.</p>
    */
-  Forecasts?: Array<ForecastSummary>;
+  Forecasts?: ForecastSummary[];
 
   /**
    * <p>If the response is truncated, Amazon Forecast returns this token. To retrieve the next set
@@ -2401,7 +2401,7 @@ export interface ListPredictorsRequest {
    *       ]</code>
    *          </p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The number of items to return in the response.</p>
@@ -2432,7 +2432,7 @@ export interface ListPredictorsResponse {
   /**
    * <p>An array of objects that summarize each predictor's properties.</p>
    */
-  Predictors?: Array<PredictorSummary>;
+  Predictors?: PredictorSummary[];
 }
 
 export namespace ListPredictorsResponse {
@@ -2455,7 +2455,7 @@ export interface Metrics {
    * <p>An array of weighted quantile losses. Quantiles divide a probability distribution into
    *       regions of equal probability. The distribution in this case is the loss function.</p>
    */
-  WeightedQuantileLosses?: Array<WeightedQuantileLoss>;
+  WeightedQuantileLosses?: WeightedQuantileLoss[];
 }
 
 export namespace Metrics {
@@ -2473,17 +2473,17 @@ export interface ParameterRanges {
   /**
    * <p>Specifies the tunable range for each categorical hyperparameter.</p>
    */
-  CategoricalParameterRanges?: Array<CategoricalParameterRange>;
+  CategoricalParameterRanges?: CategoricalParameterRange[];
 
   /**
    * <p>Specifies the tunable range for each continuous hyperparameter.</p>
    */
-  ContinuousParameterRanges?: Array<ContinuousParameterRange>;
+  ContinuousParameterRanges?: ContinuousParameterRange[];
 
   /**
    * <p>Specifies the tunable range for each integer hyperparameter.</p>
    */
-  IntegerParameterRanges?: Array<IntegerParameterRange>;
+  IntegerParameterRanges?: IntegerParameterRange[];
 }
 
 export namespace ParameterRanges {
@@ -2506,7 +2506,7 @@ export interface PredictorExecution {
    *         <code>NumberOfBacktestWindows</code> from the
    *       object determines the number of windows in the array.</p>
    */
-  TestWindows?: Array<TestWindowSummary>;
+  TestWindows?: TestWindowSummary[];
 }
 
 export namespace PredictorExecution {
@@ -2526,7 +2526,7 @@ export interface PredictorExecutionDetails {
    *       particular algorithm. The <code>NumberOfBacktestWindows</code> from the  object determines the number of windows in the
    *       array.</p>
    */
-  PredictorExecutions?: Array<PredictorExecution>;
+  PredictorExecutions?: PredictorExecution[];
 }
 
 export namespace PredictorExecutionDetails {
@@ -2712,7 +2712,7 @@ export interface Schema {
   /**
    * <p>An array of attributes specifying the name and type of each field in a dataset.</p>
    */
-  Attributes?: Array<SchemaAttribute>;
+  Attributes?: SchemaAttribute[];
 }
 
 export namespace Schema {
@@ -2889,7 +2889,7 @@ export interface UpdateDatasetGroupRequest {
    * <p>An array of the Amazon Resource Names (ARNs) of the datasets to add to the dataset
    *       group.</p>
    */
-  DatasetArns: Array<string> | undefined;
+  DatasetArns: string[] | undefined;
 
   /**
    * <p>The ARN of the dataset group.</p>

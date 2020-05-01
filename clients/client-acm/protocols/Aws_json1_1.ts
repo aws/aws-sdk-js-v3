@@ -1702,7 +1702,7 @@ const serializeAws_json1_1CertificateOptions = (
 };
 
 const serializeAws_json1_1CertificateStatuses = (
-  input: Array<CertificateStatus | string>,
+  input: (CertificateStatus | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1735,7 +1735,7 @@ const serializeAws_json1_1DescribeCertificateRequest = (
 };
 
 const serializeAws_json1_1DomainList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1760,7 +1760,7 @@ const serializeAws_json1_1DomainValidationOption = (
 };
 
 const serializeAws_json1_1DomainValidationOptionList = (
-  input: Array<DomainValidationOption>,
+  input: DomainValidationOption[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1785,7 +1785,7 @@ const serializeAws_json1_1ExportCertificateRequest = (
 };
 
 const serializeAws_json1_1ExtendedKeyUsageFilterList = (
-  input: Array<ExtendedKeyUsageName | string>,
+  input: (ExtendedKeyUsageName | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1860,7 +1860,7 @@ const serializeAws_json1_1ImportCertificateRequest = (
 };
 
 const serializeAws_json1_1KeyAlgorithmList = (
-  input: Array<KeyAlgorithm | string>,
+  input: (KeyAlgorithm | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1871,7 +1871,7 @@ const serializeAws_json1_1KeyAlgorithmList = (
 };
 
 const serializeAws_json1_1KeyUsageFilterList = (
-  input: Array<KeyUsageName | string>,
+  input: (KeyUsageName | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2015,7 +2015,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_json1_1TagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2234,7 +2234,7 @@ const deserializeAws_json1_1CertificateSummary = (
 const deserializeAws_json1_1CertificateSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<CertificateSummary> => {
+): CertificateSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1CertificateSummary(entry, context)
   );
@@ -2260,7 +2260,7 @@ const deserializeAws_json1_1DescribeCertificateResponse = (
 const deserializeAws_json1_1DomainList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -2319,7 +2319,7 @@ const deserializeAws_json1_1DomainValidation = (
 const deserializeAws_json1_1DomainValidationList = (
   output: any,
   context: __SerdeContext
-): Array<DomainValidation> => {
+): DomainValidation[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DomainValidation(entry, context)
   );
@@ -2371,7 +2371,7 @@ const deserializeAws_json1_1ExtendedKeyUsage = (
 const deserializeAws_json1_1ExtendedKeyUsageList = (
   output: any,
   context: __SerdeContext
-): Array<ExtendedKeyUsage> => {
+): ExtendedKeyUsage[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ExtendedKeyUsage(entry, context)
   );
@@ -2415,7 +2415,7 @@ const deserializeAws_json1_1ImportCertificateResponse = (
 const deserializeAws_json1_1InUseList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -2520,7 +2520,7 @@ const deserializeAws_json1_1KeyUsage = (
 const deserializeAws_json1_1KeyUsageList = (
   output: any,
   context: __SerdeContext
-): Array<KeyUsage> => {
+): KeyUsage[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1KeyUsage(entry, context)
   );
@@ -2712,7 +2712,7 @@ const deserializeAws_json1_1Tag = (
 const deserializeAws_json1_1TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );
@@ -2749,7 +2749,7 @@ const deserializeAws_json1_1TooManyTagsException = (
 const deserializeAws_json1_1ValidationEmailList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 

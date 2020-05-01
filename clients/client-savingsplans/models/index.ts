@@ -9,7 +9,7 @@ export interface DescribeSavingsPlansOfferingRatesRequest {
   /**
    * <p>The filters.</p>
    */
-  filters?: Array<SavingsPlanOfferingRateFilterElement>;
+  filters?: SavingsPlanOfferingRateFilterElement[];
 
   /**
    * <p>The maximum number of results to return with a single call. To retrieve additional results, make another
@@ -25,37 +25,37 @@ export interface DescribeSavingsPlansOfferingRatesRequest {
   /**
    * <p>The specific AWS operation for the line item in the billing report.</p>
    */
-  operations?: Array<string>;
+  operations?: string[];
 
   /**
    * <p>The AWS products.</p>
    */
-  products?: Array<SavingsPlanProductType | string>;
+  products?: (SavingsPlanProductType | string)[];
 
   /**
    * <p>The IDs of the offerings.</p>
    */
-  savingsPlanOfferingIds?: Array<string>;
+  savingsPlanOfferingIds?: string[];
 
   /**
    * <p>The payment options.</p>
    */
-  savingsPlanPaymentOptions?: Array<SavingsPlanPaymentOption | string>;
+  savingsPlanPaymentOptions?: (SavingsPlanPaymentOption | string)[];
 
   /**
    * <p>The plan types.</p>
    */
-  savingsPlanTypes?: Array<SavingsPlanType | string>;
+  savingsPlanTypes?: (SavingsPlanType | string)[];
 
   /**
    * <p>The services.</p>
    */
-  serviceCodes?: Array<SavingsPlanRateServiceCode | string>;
+  serviceCodes?: (SavingsPlanRateServiceCode | string)[];
 
   /**
    * <p>The usage details of the line item in the billing report.</p>
    */
-  usageTypes?: Array<string>;
+  usageTypes?: string[];
 }
 
 export namespace DescribeSavingsPlansOfferingRatesRequest {
@@ -74,7 +74,7 @@ export interface DescribeSavingsPlansOfferingRatesResponse {
   /**
    * <p>Information about the Savings Plans offering rates.</p>
    */
-  searchResults?: Array<SavingsPlanOfferingRate>;
+  searchResults?: SavingsPlanOfferingRate[];
 }
 
 export namespace DescribeSavingsPlansOfferingRatesResponse {
@@ -87,22 +87,22 @@ export interface DescribeSavingsPlansOfferingsRequest {
   /**
    * <p>The currencies.</p>
    */
-  currencies?: Array<CurrencyCode | string>;
+  currencies?: (CurrencyCode | string)[];
 
   /**
    * <p>The descriptions.</p>
    */
-  descriptions?: Array<string>;
+  descriptions?: string[];
 
   /**
    * <p>The durations, in seconds.</p>
    */
-  durations?: Array<number>;
+  durations?: number[];
 
   /**
    * <p>The filters.</p>
    */
-  filters?: Array<SavingsPlanOfferingFilterElement>;
+  filters?: SavingsPlanOfferingFilterElement[];
 
   /**
    * <p>The maximum number of results to return with a single call. To retrieve additional results, make another
@@ -118,22 +118,22 @@ export interface DescribeSavingsPlansOfferingsRequest {
   /**
    * <p>The IDs of the offerings.</p>
    */
-  offeringIds?: Array<string>;
+  offeringIds?: string[];
 
   /**
    * <p>The specific AWS operation for the line item in the billing report.</p>
    */
-  operations?: Array<string>;
+  operations?: string[];
 
   /**
    * <p>The payment options.</p>
    */
-  paymentOptions?: Array<SavingsPlanPaymentOption | string>;
+  paymentOptions?: (SavingsPlanPaymentOption | string)[];
 
   /**
    * <p>The plan type.</p>
    */
-  planTypes?: Array<SavingsPlanType | string>;
+  planTypes?: (SavingsPlanType | string)[];
 
   /**
    * <p>The product type.</p>
@@ -143,12 +143,12 @@ export interface DescribeSavingsPlansOfferingsRequest {
   /**
    * <p>The services.</p>
    */
-  serviceCodes?: Array<string>;
+  serviceCodes?: string[];
 
   /**
    * <p>The usage details of the line item in the billing report.</p>
    */
-  usageTypes?: Array<string>;
+  usageTypes?: string[];
 }
 
 export namespace DescribeSavingsPlansOfferingsRequest {
@@ -167,7 +167,7 @@ export interface DescribeSavingsPlansOfferingsResponse {
   /**
    * <p>Information about the Savings Plans offerings.</p>
    */
-  searchResults?: Array<SavingsPlanOffering>;
+  searchResults?: SavingsPlanOffering[];
 }
 
 export namespace DescribeSavingsPlansOfferingsResponse {
@@ -259,12 +259,12 @@ export interface SavingsPlanOffering {
   /**
    * <p>The product type.</p>
    */
-  productTypes?: Array<SavingsPlanProductType | string>;
+  productTypes?: (SavingsPlanProductType | string)[];
 
   /**
    * <p>The properties.</p>
    */
-  properties?: Array<SavingsPlanOfferingProperty>;
+  properties?: SavingsPlanOfferingProperty[];
 
   /**
    * <p>The service.</p>
@@ -300,7 +300,7 @@ export interface SavingsPlanOfferingFilterElement {
   /**
    * <p>The filter values.</p>
    */
-  values?: Array<string>;
+  values?: string[];
 }
 
 export namespace SavingsPlanOfferingFilterElement {
@@ -352,7 +352,7 @@ export interface SavingsPlanOfferingRate {
   /**
    * <p>The properties.</p>
    */
-  properties?: Array<SavingsPlanOfferingRateProperty>;
+  properties?: SavingsPlanOfferingRateProperty[];
 
   /**
    * <p>The Savings Plan rate.</p>
@@ -398,7 +398,7 @@ export interface SavingsPlanOfferingRateFilterElement {
   /**
    * <p>The filter values.</p>
    */
-  values?: Array<string>;
+  values?: string[];
 }
 
 export namespace SavingsPlanOfferingRateFilterElement {
@@ -545,7 +545,7 @@ export interface DescribeSavingsPlanRatesRequest {
   /**
    * <p>The filters.</p>
    */
-  filters?: Array<SavingsPlanRateFilter>;
+  filters?: SavingsPlanRateFilter[];
 
   /**
    * <p>The maximum number of results to return with a single call. To retrieve additional results, make another
@@ -585,7 +585,7 @@ export interface DescribeSavingsPlanRatesResponse {
   /**
    * <p>Information about the Savings Plans rates.</p>
    */
-  searchResults?: Array<SavingsPlanRate>;
+  searchResults?: SavingsPlanRate[];
 }
 
 export namespace DescribeSavingsPlanRatesResponse {
@@ -598,7 +598,7 @@ export interface DescribeSavingsPlansRequest {
   /**
    * <p>The filters.</p>
    */
-  filters?: Array<SavingsPlanFilter>;
+  filters?: SavingsPlanFilter[];
 
   /**
    * <p>The maximum number of results to return with a single call. To retrieve additional results, make another
@@ -614,17 +614,17 @@ export interface DescribeSavingsPlansRequest {
   /**
    * <p>The Amazon Resource Names (ARN) of the Savings Plans.</p>
    */
-  savingsPlanArns?: Array<string>;
+  savingsPlanArns?: string[];
 
   /**
    * <p>The IDs of the Savings Plans.</p>
    */
-  savingsPlanIds?: Array<string>;
+  savingsPlanIds?: string[];
 
   /**
    * <p>The states.</p>
    */
-  states?: Array<SavingsPlanState | string>;
+  states?: (SavingsPlanState | string)[];
 }
 
 export namespace DescribeSavingsPlansRequest {
@@ -643,7 +643,7 @@ export interface DescribeSavingsPlansResponse {
   /**
    * <p>Information about the Savings Plans.</p>
    */
-  savingsPlans?: Array<SavingsPlan>;
+  savingsPlans?: SavingsPlan[];
 }
 
 export namespace DescribeSavingsPlansResponse {
@@ -752,7 +752,7 @@ export interface SavingsPlan {
   /**
    * <p>The product types.</p>
    */
-  productTypes?: Array<SavingsPlanProductType | string>;
+  productTypes?: (SavingsPlanProductType | string)[];
 
   /**
    * <p>The recurring payment amount.</p>
@@ -822,7 +822,7 @@ export interface SavingsPlanFilter {
   /**
    * <p>The filter value.</p>
    */
-  values?: Array<string>;
+  values?: string[];
 }
 
 export namespace SavingsPlanFilter {
@@ -853,7 +853,7 @@ export interface SavingsPlanRate {
   /**
    * <p>The properties.</p>
    */
-  properties?: Array<SavingsPlanRateProperty>;
+  properties?: SavingsPlanRateProperty[];
 
   /**
    * <p>The rate.</p>
@@ -894,7 +894,7 @@ export interface SavingsPlanRateFilter {
   /**
    * <p>The filter values.</p>
    */
-  values?: Array<string>;
+  values?: string[];
 }
 
 export namespace SavingsPlanRateFilter {
@@ -985,7 +985,7 @@ export interface UntagResourceRequest {
   /**
    * <p>The tag keys.</p>
    */
-  tagKeys: Array<string> | undefined;
+  tagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {

@@ -52,7 +52,7 @@ export interface App {
   /**
    * <p>The app's data sources.</p>
    */
-  DataSources?: Array<DataSource>;
+  DataSources?: DataSource[];
 
   /**
    * <p>A description of the app.</p>
@@ -64,7 +64,7 @@ export interface App {
    *         <code>'www.example.com, example.com'</code>
    *          </p>
    */
-  Domains?: Array<string>;
+  Domains?: string[];
 
   /**
    * <p>Whether to enable SSL for the app.</p>
@@ -79,7 +79,7 @@ export interface App {
    *             <p>There is no specific limit on the number of environment variables. However, the size of the associated data structure - which includes the variable names, values, and protected flag values - cannot exceed 20 KB. This limit should accommodate most if not all use cases, but if you do exceed it, you will cause an exception (API) with an "Environment: is too large (maximum is 20 KB)" message.</p>
    *          </note>
    */
-  Environment?: Array<EnvironmentVariable>;
+  Environment?: EnvironmentVariable[];
 
   /**
    * <p>The app name.</p>
@@ -138,7 +138,7 @@ export interface AssignInstanceRequest {
   /**
    * <p>The layer ID, which must correspond to a custom layer. You cannot assign a registered instance to a built-in layer.</p>
    */
-  LayerIds: Array<string> | undefined;
+  LayerIds: string[] | undefined;
 }
 
 export namespace AssignInstanceRequest {
@@ -215,7 +215,7 @@ export interface AutoScalingThresholds {
    *       see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-servicerole.html">Allowing AWS OpsWorks Stacks to Act on Your Behalf</a>.</p>
    *          </note>
    */
-  Alarms?: Array<string>;
+  Alarms?: string[];
 
   /**
    * <p>The CPU utilization threshold, as a percent of the available CPU. A value of -1 disables the threshold.</p>
@@ -354,7 +354,7 @@ export interface CloneStackRequest {
   /**
    * <p>A list of source stack app IDs to be included in the cloned stack.</p>
    */
-  CloneAppIds?: Array<string>;
+  CloneAppIds?: string[];
 
   /**
    * <p>Whether to clone the source stack's permissions.</p>
@@ -652,7 +652,7 @@ export interface CloudWatchLogsConfiguration {
   /**
    * <p>A list of configuration options for CloudWatch Logs.</p>
    */
-  LogStreams?: Array<CloudWatchLogsLogStream>;
+  LogStreams?: CloudWatchLogsLogStream[];
 }
 
 export namespace CloudWatchLogsConfiguration {
@@ -992,7 +992,7 @@ export interface CreateAppRequest {
   /**
    * <p>The app's data source.</p>
    */
-  DataSources?: Array<DataSource>;
+  DataSources?: DataSource[];
 
   /**
    * <p>A description of the app.</p>
@@ -1004,7 +1004,7 @@ export interface CreateAppRequest {
    *         <code>'www.example.com, example.com'</code>
    *          </p>
    */
-  Domains?: Array<string>;
+  Domains?: string[];
 
   /**
    * <p>Whether to enable SSL for the app.</p>
@@ -1020,7 +1020,7 @@ export interface CreateAppRequest {
    *             <p>If you have specified one or more environment variables, you cannot modify the stack's Chef version.</p>
    *          </note>
    */
-  Environment?: Array<EnvironmentVariable>;
+  Environment?: EnvironmentVariable[];
 
   /**
    * <p>The app name.</p>
@@ -1104,12 +1104,12 @@ export interface CreateDeploymentRequest {
   /**
    * <p>The instance IDs for the deployment targets.</p>
    */
-  InstanceIds?: Array<string>;
+  InstanceIds?: string[];
 
   /**
    * <p>The layer IDs for the deployment targets.</p>
    */
-  LayerIds?: Array<string>;
+  LayerIds?: string[];
 
   /**
    * <p>The stack ID.</p>
@@ -1196,7 +1196,7 @@ export interface CreateInstanceRequest {
    *       devices. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html">Block
    *         Device Mapping</a>. Note that block device mappings are not supported for custom AMIs.</p>
    */
-  BlockDeviceMappings?: Array<BlockDeviceMapping>;
+  BlockDeviceMappings?: BlockDeviceMapping[];
 
   /**
    * <p>Whether to create an Amazon EBS-optimized instance.</p>
@@ -1234,7 +1234,7 @@ export interface CreateInstanceRequest {
   /**
    * <p>An array that contains the instance's layer IDs.</p>
    */
-  LayerIds: Array<string> | undefined;
+  LayerIds: string[] | undefined;
 
   /**
    * <p>The instance's operating system, which must be set to one of the following.</p>
@@ -1376,7 +1376,7 @@ export interface CreateLayerRequest {
   /**
    * <p>An array containing the layer custom security group IDs.</p>
    */
-  CustomSecurityGroupIds?: Array<string>;
+  CustomSecurityGroupIds?: string[];
 
   /**
    * <p>Whether to disable auto healing for the layer.</p>
@@ -1412,7 +1412,7 @@ export interface CreateLayerRequest {
   /**
    * <p>An array of <code>Package</code> objects that describes the layer packages.</p>
    */
-  Packages?: Array<string>;
+  Packages?: string[];
 
   /**
    * <p>For custom layers only, use this parameter to specify the layer's short name, which is used internally by AWS OpsWorks Stacks and by Chef recipes. The short name is also used as the name for the directory where your app files are installed. It can have a maximum of 200 characters, which are limited to the alphanumeric characters, '-', '_', and '.'.</p>
@@ -1438,7 +1438,7 @@ export interface CreateLayerRequest {
   /**
    * <p>A <code>VolumeConfigurations</code> object that describes the layer's Amazon EBS volumes.</p>
    */
-  VolumeConfigurations?: Array<VolumeConfiguration>;
+  VolumeConfigurations?: VolumeConfiguration[];
 }
 
 export namespace CreateLayerRequest {
@@ -1992,7 +1992,7 @@ export interface Deployment {
   /**
    * <p>The IDs of the target instances.</p>
    */
-  InstanceIds?: Array<string>;
+  InstanceIds?: string[];
 
   /**
    * <p>The stack ID.</p>
@@ -2052,7 +2052,7 @@ export interface DeploymentCommand {
    *             <code> { "upgrade_os_to":["Amazon Linux 2016.09"], "allow_reboot":["true"] } </code>
    *          </p>
    */
-  Args?: { [key: string]: Array<string> };
+  Args?: { [key: string]: string[] };
 
   /**
    * <p>Specifies the operation. You can specify only one command.</p>
@@ -2226,7 +2226,7 @@ export interface DescribeAgentVersionsResult {
   /**
    * <p>The agent versions for the specified stack or configuration manager. Note that this value is the complete version number, not the abbreviated number used by the console.</p>
    */
-  AgentVersions?: Array<AgentVersion>;
+  AgentVersions?: AgentVersion[];
 }
 
 export namespace DescribeAgentVersionsResult {
@@ -2241,7 +2241,7 @@ export interface DescribeAppsRequest {
    *         <code>DescribeApps</code> returns a description of the specified apps. Otherwise, it returns
    *       a description of every app.</p>
    */
-  AppIds?: Array<string>;
+  AppIds?: string[];
 
   /**
    * <p>The app stack ID. If you use this parameter, <code>DescribeApps</code> returns a description
@@ -2263,7 +2263,7 @@ export interface DescribeAppsResult {
   /**
    * <p>An array of <code>App</code> objects that describe the specified apps. </p>
    */
-  Apps?: Array<App>;
+  Apps?: App[];
 }
 
 export namespace DescribeAppsResult {
@@ -2278,7 +2278,7 @@ export interface DescribeCommandsRequest {
    *       a description of the specified commands. Otherwise, it returns a description of every
    *       command.</p>
    */
-  CommandIds?: Array<string>;
+  CommandIds?: string[];
 
   /**
    * <p>The deployment ID. If you include this parameter, <code>DescribeCommands</code> returns a
@@ -2306,7 +2306,7 @@ export interface DescribeCommandsResult {
   /**
    * <p>An array of <code>Command</code> objects that describe each of the specified commands.</p>
    */
-  Commands?: Array<Command>;
+  Commands?: Command[];
 }
 
 export namespace DescribeCommandsResult {
@@ -2327,7 +2327,7 @@ export interface DescribeDeploymentsRequest {
    *         the command returns a description of the specified deployments.
    *       Otherwise, it returns a description of every deployment.</p>
    */
-  DeploymentIds?: Array<string>;
+  DeploymentIds?: string[];
 
   /**
    * <p>The stack ID. If you include this parameter, the command returns a
@@ -2349,7 +2349,7 @@ export interface DescribeDeploymentsResult {
   /**
    * <p>An array of <code>Deployment</code> objects that describe the deployments.</p>
    */
-  Deployments?: Array<Deployment>;
+  Deployments?: Deployment[];
 }
 
 export namespace DescribeDeploymentsResult {
@@ -2362,7 +2362,7 @@ export interface DescribeEcsClustersRequest {
   /**
    * <p>A list of ARNs, one for each cluster to be described.</p>
    */
-  EcsClusterArns?: Array<string>;
+  EcsClusterArns?: string[];
 
   /**
    * <p>To receive a paginated response, use this parameter to specify the maximum number
@@ -2402,7 +2402,7 @@ export interface DescribeEcsClustersResult {
   /**
    * <p>A list of <code>EcsCluster</code> objects containing the cluster descriptions.</p>
    */
-  EcsClusters?: Array<EcsCluster>;
+  EcsClusters?: EcsCluster[];
 
   /**
    * <p>If a paginated request does not return all of the remaining results, this parameter is set to a token that
@@ -2431,7 +2431,7 @@ export interface DescribeElasticIpsRequest {
    *         <code>DescribeElasticIps</code> returns a description of the specified Elastic IP addresses.
    *       Otherwise, it returns a description of every Elastic IP address.</p>
    */
-  Ips?: Array<string>;
+  Ips?: string[];
 
   /**
    * <p>A stack ID. If you include this parameter, <code>DescribeElasticIps</code> returns a
@@ -2453,7 +2453,7 @@ export interface DescribeElasticIpsResult {
   /**
    * <p>An <code>ElasticIps</code> object that describes the specified Elastic IP addresses.</p>
    */
-  ElasticIps?: Array<ElasticIp>;
+  ElasticIps?: ElasticIp[];
 }
 
 export namespace DescribeElasticIpsResult {
@@ -2466,7 +2466,7 @@ export interface DescribeElasticLoadBalancersRequest {
   /**
    * <p>A list of layer IDs. The action describes the Elastic Load Balancing instances for the specified layers.</p>
    */
-  LayerIds?: Array<string>;
+  LayerIds?: string[];
 
   /**
    * <p>A stack ID. The action describes the stack's Elastic Load Balancing instances.</p>
@@ -2488,7 +2488,7 @@ export interface DescribeElasticLoadBalancersResult {
    * <p>A list of <code>ElasticLoadBalancer</code> objects that describe the specified Elastic Load Balancing
    *       instances.</p>
    */
-  ElasticLoadBalancers?: Array<ElasticLoadBalancer>;
+  ElasticLoadBalancers?: ElasticLoadBalancer[];
 }
 
 export namespace DescribeElasticLoadBalancersResult {
@@ -2503,7 +2503,7 @@ export interface DescribeInstancesRequest {
    *         <code>DescribeInstances</code> returns a description of the specified instances. Otherwise,
    *       it returns a description of every instance.</p>
    */
-  InstanceIds?: Array<string>;
+  InstanceIds?: string[];
 
   /**
    * <p>A layer ID. If you use this parameter, <code>DescribeInstances</code> returns descriptions of
@@ -2531,7 +2531,7 @@ export interface DescribeInstancesResult {
   /**
    * <p>An array of <code>Instance</code> objects that describe the instances.</p>
    */
-  Instances?: Array<Instance>;
+  Instances?: Instance[];
 }
 
 export namespace DescribeInstancesResult {
@@ -2545,7 +2545,7 @@ export interface DescribeLayersRequest {
    * <p>An array of layer IDs that specify the layers to be described. If you omit this parameter,
    *         <code>DescribeLayers</code> returns a description of every layer in the specified stack.</p>
    */
-  LayerIds?: Array<string>;
+  LayerIds?: string[];
 
   /**
    * <p>The stack ID.</p>
@@ -2566,7 +2566,7 @@ export interface DescribeLayersResult {
   /**
    * <p>An array of <code>Layer</code> objects that describe the layers.</p>
    */
-  Layers?: Array<Layer>;
+  Layers?: Layer[];
 }
 
 export namespace DescribeLayersResult {
@@ -2579,7 +2579,7 @@ export interface DescribeLoadBasedAutoScalingRequest {
   /**
    * <p>An array of layer IDs.</p>
    */
-  LayerIds: Array<string> | undefined;
+  LayerIds: string[] | undefined;
 }
 
 export namespace DescribeLoadBasedAutoScalingRequest {
@@ -2596,7 +2596,7 @@ export interface DescribeLoadBasedAutoScalingResult {
    * <p>An array of <code>LoadBasedAutoScalingConfiguration</code> objects that describe each layer's
    *       configuration.</p>
    */
-  LoadBasedAutoScalingConfigurations?: Array<LoadBasedAutoScalingConfiguration>;
+  LoadBasedAutoScalingConfigurations?: LoadBasedAutoScalingConfiguration[];
 }
 
 export namespace DescribeLoadBasedAutoScalingResult {
@@ -2628,7 +2628,7 @@ export interface DescribeOperatingSystemsResponse {
   /**
    * <p>Contains information in response to a <code>DescribeOperatingSystems</code> request.</p>
    */
-  OperatingSystems?: Array<OperatingSystem>;
+  OperatingSystems?: OperatingSystem[];
 }
 
 export namespace DescribeOperatingSystemsResponse {
@@ -2677,7 +2677,7 @@ export interface DescribePermissionsResult {
    *             </li>
    *          </ul>
    */
-  Permissions?: Array<Permission>;
+  Permissions?: Permission[];
 }
 
 export namespace DescribePermissionsResult {
@@ -2698,7 +2698,7 @@ export interface DescribeRaidArraysRequest {
    *       returns descriptions of the specified arrays. Otherwise, it returns a description of every
    *       array.</p>
    */
-  RaidArrayIds?: Array<string>;
+  RaidArrayIds?: string[];
 
   /**
    * <p>The stack ID.</p>
@@ -2719,7 +2719,7 @@ export interface DescribeRaidArraysResult {
   /**
    * <p>A <code>RaidArrays</code> object that describes the specified RAID arrays.</p>
    */
-  RaidArrays?: Array<RaidArray>;
+  RaidArrays?: RaidArray[];
 }
 
 export namespace DescribeRaidArraysResult {
@@ -2732,7 +2732,7 @@ export interface DescribeRdsDbInstancesRequest {
   /**
    * <p>An array containing the ARNs of the instances to be described.</p>
    */
-  RdsDbInstanceArns?: Array<string>;
+  RdsDbInstanceArns?: string[];
 
   /**
    * <p>The ID of the stack with which the instances are registered. The operation returns descriptions of all registered Amazon RDS instances.</p>
@@ -2753,7 +2753,7 @@ export interface DescribeRdsDbInstancesResult {
   /**
    * <p>An a array of <code>RdsDbInstance</code> objects that describe the instances.</p>
    */
-  RdsDbInstances?: Array<RdsDbInstance>;
+  RdsDbInstances?: RdsDbInstance[];
 }
 
 export namespace DescribeRdsDbInstancesResult {
@@ -2774,7 +2774,7 @@ export interface DescribeServiceErrorsRequest {
    *       returns descriptions of the specified errors. Otherwise, it returns a description of every
    *       error.</p>
    */
-  ServiceErrorIds?: Array<string>;
+  ServiceErrorIds?: string[];
 
   /**
    * <p>The stack ID. If you use this parameter, <code>DescribeServiceErrors</code> returns
@@ -2796,7 +2796,7 @@ export interface DescribeServiceErrorsResult {
   /**
    * <p>An array of <code>ServiceError</code> objects that describe the specified service errors.</p>
    */
-  ServiceErrors?: Array<ServiceError>;
+  ServiceErrors?: ServiceError[];
 }
 
 export namespace DescribeServiceErrorsResult {
@@ -2875,7 +2875,7 @@ export interface DescribeStacksRequest {
    * <p>An array of stack IDs that specify the stacks to be described. If you omit this parameter,
    *         <code>DescribeStacks</code> returns a description of every stack.</p>
    */
-  StackIds?: Array<string>;
+  StackIds?: string[];
 }
 
 export namespace DescribeStacksRequest {
@@ -2891,7 +2891,7 @@ export interface DescribeStacksResult {
   /**
    * <p>An array of <code>Stack</code> objects that describe the stacks.</p>
    */
-  Stacks?: Array<Stack>;
+  Stacks?: Stack[];
 }
 
 export namespace DescribeStacksResult {
@@ -2904,7 +2904,7 @@ export interface DescribeTimeBasedAutoScalingRequest {
   /**
    * <p>An array of instance IDs.</p>
    */
-  InstanceIds: Array<string> | undefined;
+  InstanceIds: string[] | undefined;
 }
 
 export namespace DescribeTimeBasedAutoScalingRequest {
@@ -2921,7 +2921,7 @@ export interface DescribeTimeBasedAutoScalingResult {
    * <p>An array of <code>TimeBasedAutoScalingConfiguration</code> objects that describe the
    *       configuration for the specified instances.</p>
    */
-  TimeBasedAutoScalingConfigurations?: Array<TimeBasedAutoScalingConfiguration>;
+  TimeBasedAutoScalingConfigurations?: TimeBasedAutoScalingConfiguration[];
 }
 
 export namespace DescribeTimeBasedAutoScalingResult {
@@ -2934,7 +2934,7 @@ export interface DescribeUserProfilesRequest {
   /**
    * <p>An array of IAM or federated user ARNs that identify the users to be described.</p>
    */
-  IamUserArns?: Array<string>;
+  IamUserArns?: string[];
 }
 
 export namespace DescribeUserProfilesRequest {
@@ -2950,7 +2950,7 @@ export interface DescribeUserProfilesResult {
   /**
    * <p>A <code>Users</code> object that describes the specified users.</p>
    */
-  UserProfiles?: Array<UserProfile>;
+  UserProfiles?: UserProfile[];
 }
 
 export namespace DescribeUserProfilesResult {
@@ -2982,7 +2982,7 @@ export interface DescribeVolumesRequest {
    *       descriptions of the specified volumes. Otherwise, it returns a description of every
    *       volume.</p>
    */
-  VolumeIds?: Array<string>;
+  VolumeIds?: string[];
 }
 
 export namespace DescribeVolumesRequest {
@@ -2998,7 +2998,7 @@ export interface DescribeVolumesResult {
   /**
    * <p>An array of volume IDs.</p>
    */
-  Volumes?: Array<Volume>;
+  Volumes?: Volume[];
 }
 
 export namespace DescribeVolumesResult {
@@ -3152,7 +3152,7 @@ export interface ElasticLoadBalancer {
   /**
    * <p>A list of Availability Zones.</p>
    */
-  AvailabilityZones?: Array<string>;
+  AvailabilityZones?: string[];
 
   /**
    * <p>The instance's public DNS name.</p>
@@ -3162,7 +3162,7 @@ export interface ElasticLoadBalancer {
   /**
    * <p>A list of the EC2 instances that the Elastic Load Balancing instance is managing traffic for.</p>
    */
-  Ec2InstanceIds?: Array<string>;
+  Ec2InstanceIds?: string[];
 
   /**
    * <p>The Elastic Load Balancing instance's name.</p>
@@ -3187,7 +3187,7 @@ export interface ElasticLoadBalancer {
   /**
    * <p>A list of subnet IDs, if the stack is running in a VPC.</p>
    */
-  SubnetIds?: Array<string>;
+  SubnetIds?: string[];
 
   /**
    * <p>The VPC ID.</p>
@@ -3341,7 +3341,7 @@ export interface Instance {
    * <p>An array of <code>BlockDeviceMapping</code> objects that specify the instance's block device
    *       mappings.</p>
    */
-  BlockDeviceMappings?: Array<BlockDeviceMapping>;
+  BlockDeviceMappings?: BlockDeviceMapping[];
 
   /**
    * <p>The time that the instance was created.</p>
@@ -3423,7 +3423,7 @@ export interface Instance {
   /**
    * <p>An array containing the instance layer IDs.</p>
    */
-  LayerIds?: Array<string>;
+  LayerIds?: string[];
 
   /**
    * <p>The instance's operating system.</p>
@@ -3483,7 +3483,7 @@ export interface Instance {
   /**
    * <p>An array containing the instance security group IDs.</p>
    */
-  SecurityGroupIds?: Array<string>;
+  SecurityGroupIds?: string[];
 
   /**
    * <p>The SSH key's Deep Security Agent (DSA) fingerprint.</p>
@@ -3803,7 +3803,7 @@ export interface Layer {
   /**
    * <p>An array containing the layer's custom security group IDs.</p>
    */
-  CustomSecurityGroupIds?: Array<string>;
+  CustomSecurityGroupIds?: string[];
 
   /**
    * <p>AWS OpsWorks Stacks supports five lifecycle events: <b>setup</b>, <b>configuration</b>,
@@ -3821,7 +3821,7 @@ export interface Layer {
   /**
    * <p>An array containing the layer's security group names.</p>
    */
-  DefaultSecurityGroupNames?: Array<string>;
+  DefaultSecurityGroupNames?: string[];
 
   /**
    * <p>Whether auto healing is disabled for the layer.</p>
@@ -3860,7 +3860,7 @@ export interface Layer {
   /**
    * <p>An array of <code>Package</code> objects that describe the layer's packages.</p>
    */
-  Packages?: Array<string>;
+  Packages?: string[];
 
   /**
    * <p>The layer short name.</p>
@@ -3885,7 +3885,7 @@ export interface Layer {
   /**
    * <p>A <code>VolumeConfigurations</code> object that describes the layer's Amazon EBS volumes.</p>
    */
-  VolumeConfigurations?: Array<VolumeConfiguration>;
+  VolumeConfigurations?: VolumeConfiguration[];
 }
 
 export namespace Layer {
@@ -4041,7 +4041,7 @@ export interface OperatingSystem {
   /**
    * <p>Supported configuration manager name and versions for an AWS OpsWorks Stacks operating system.</p>
    */
-  ConfigurationManagers?: Array<OperatingSystemConfigurationManager>;
+  ConfigurationManagers?: OperatingSystemConfigurationManager[];
 
   /**
    * <p>The ID of a supported operating system, such as <code>Amazon Linux 2018.03</code>.</p>
@@ -4327,27 +4327,27 @@ export interface Recipes {
   /**
    * <p>An array of custom recipe names to be run following a <code>configure</code> event.</p>
    */
-  Configure?: Array<string>;
+  Configure?: string[];
 
   /**
    * <p>An array of custom recipe names to be run following a <code>deploy</code> event.</p>
    */
-  Deploy?: Array<string>;
+  Deploy?: string[];
 
   /**
    * <p>An array of custom recipe names to be run following a <code>setup</code> event.</p>
    */
-  Setup?: Array<string>;
+  Setup?: string[];
 
   /**
    * <p>An array of custom recipe names to be run following a <code>shutdown</code> event.</p>
    */
-  Shutdown?: Array<string>;
+  Shutdown?: string[];
 
   /**
    * <p>An array of custom recipe names to be run following a <code>undeploy</code> event.</p>
    */
-  Undeploy?: Array<string>;
+  Undeploy?: string[];
 }
 
 export namespace Recipes {
@@ -5265,7 +5265,7 @@ export interface UntagResourceRequest {
   /**
    * <p>A list of the keys of tags to be removed from a stack or layer.</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -5293,7 +5293,7 @@ export interface UpdateAppRequest {
   /**
    * <p>The app's data sources.</p>
    */
-  DataSources?: Array<DataSource>;
+  DataSources?: DataSource[];
 
   /**
    * <p>A description of the app.</p>
@@ -5305,7 +5305,7 @@ export interface UpdateAppRequest {
    *         <code>'www.example.com, example.com'</code>
    *          </p>
    */
-  Domains?: Array<string>;
+  Domains?: string[];
 
   /**
    * <p>Whether SSL is enabled for the app.</p>
@@ -5321,7 +5321,7 @@ export interface UpdateAppRequest {
    *             <p>If you have specified one or more environment variables, you cannot modify the stack's Chef version.</p>
    *          </note>
    */
-  Environment?: Array<EnvironmentVariable>;
+  Environment?: EnvironmentVariable[];
 
   /**
    * <p>The app name.</p>
@@ -5447,7 +5447,7 @@ export interface UpdateInstanceRequest {
   /**
    * <p>The instance's layer IDs.</p>
    */
-  LayerIds?: Array<string>;
+  LayerIds?: string[];
 
   /**
    * <p>The instance's operating system, which must be set to one of the following. You cannot update an instance that is using a custom AMI.</p>
@@ -5548,7 +5548,7 @@ export interface UpdateLayerRequest {
   /**
    * <p>An array containing the layer's custom security group IDs.</p>
    */
-  CustomSecurityGroupIds?: Array<string>;
+  CustomSecurityGroupIds?: string[];
 
   /**
    * <p>Whether to disable auto healing for the layer.</p>
@@ -5587,7 +5587,7 @@ export interface UpdateLayerRequest {
   /**
    * <p>An array of <code>Package</code> objects that describe the layer's packages.</p>
    */
-  Packages?: Array<string>;
+  Packages?: string[];
 
   /**
    * <p>For custom layers only, use this parameter to specify the layer's short name, which is used internally by AWS OpsWorks Stacks and by Chef. The short name is also used as the name for the directory where your app files are installed. It can have a maximum of 200 characters and must be in the following format: /\A[a-z0-9\-\_\.]+\Z/.</p>
@@ -5604,7 +5604,7 @@ export interface UpdateLayerRequest {
   /**
    * <p>A <code>VolumeConfigurations</code> object that describes the layer's Amazon EBS volumes.</p>
    */
-  VolumeConfigurations?: Array<VolumeConfiguration>;
+  VolumeConfigurations?: VolumeConfiguration[];
 }
 
 export namespace UpdateLayerRequest {

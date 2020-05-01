@@ -2131,7 +2131,7 @@ const serializeAws_json1_1ListWorkGroupsInput = (
 };
 
 const serializeAws_json1_1NamedQueryIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2153,7 +2153,7 @@ const serializeAws_json1_1QueryExecutionContext = (
 };
 
 const serializeAws_json1_1QueryExecutionIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2268,7 +2268,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_json1_1TagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2279,7 +2279,7 @@ const serializeAws_json1_1TagKeyList = (
 };
 
 const serializeAws_json1_1TagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2514,7 +2514,7 @@ const deserializeAws_json1_1ColumnInfo = (
 const deserializeAws_json1_1ColumnInfoList = (
   output: any,
   context: __SerdeContext
-): Array<ColumnInfo> => {
+): ColumnInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ColumnInfo(entry, context)
   );
@@ -2828,14 +2828,14 @@ const deserializeAws_json1_1NamedQuery = (
 const deserializeAws_json1_1NamedQueryIdList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1NamedQueryList = (
   output: any,
   context: __SerdeContext
-): Array<NamedQuery> => {
+): NamedQuery[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1NamedQuery(entry, context)
   );
@@ -2921,14 +2921,14 @@ const deserializeAws_json1_1QueryExecutionContext = (
 const deserializeAws_json1_1QueryExecutionIdList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1QueryExecutionList = (
   output: any,
   context: __SerdeContext
-): Array<QueryExecution> => {
+): QueryExecution[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1QueryExecution(entry, context)
   );
@@ -3133,7 +3133,7 @@ const deserializeAws_json1_1Row = (
 const deserializeAws_json1_1RowList = (
   output: any,
   context: __SerdeContext
-): Array<Row> => {
+): Row[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Row(entry, context)
   );
@@ -3187,7 +3187,7 @@ const deserializeAws_json1_1Tag = (
 const deserializeAws_json1_1TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );
@@ -3246,7 +3246,7 @@ const deserializeAws_json1_1UnprocessedNamedQueryId = (
 const deserializeAws_json1_1UnprocessedNamedQueryIdList = (
   output: any,
   context: __SerdeContext
-): Array<UnprocessedNamedQueryId> => {
+): UnprocessedNamedQueryId[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1UnprocessedNamedQueryId(entry, context)
   );
@@ -3280,7 +3280,7 @@ const deserializeAws_json1_1UnprocessedQueryExecutionId = (
 const deserializeAws_json1_1UnprocessedQueryExecutionIdList = (
   output: any,
   context: __SerdeContext
-): Array<UnprocessedQueryExecutionId> => {
+): UnprocessedQueryExecutionId[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1UnprocessedQueryExecutionId(entry, context)
   );
@@ -3418,7 +3418,7 @@ const deserializeAws_json1_1WorkGroupSummary = (
 const deserializeAws_json1_1WorkGroupsList = (
   output: any,
   context: __SerdeContext
-): Array<WorkGroupSummary> => {
+): WorkGroupSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1WorkGroupSummary(entry, context)
   );
@@ -3427,7 +3427,7 @@ const deserializeAws_json1_1WorkGroupsList = (
 const deserializeAws_json1_1datumList = (
   output: any,
   context: __SerdeContext
-): Array<Datum> => {
+): Datum[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Datum(entry, context)
   );

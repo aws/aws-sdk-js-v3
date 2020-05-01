@@ -7793,7 +7793,7 @@ const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
 };
 
 const serializeAws_restJson1_1AccountList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7832,7 +7832,7 @@ const serializeAws_restJson1_1AmiDistributionConfiguration = (
 };
 
 const serializeAws_restJson1_1ArnList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7854,7 +7854,7 @@ const serializeAws_restJson1_1ComponentConfiguration = (
 };
 
 const serializeAws_restJson1_1ComponentConfigurationList = (
-  input: Array<ComponentConfiguration>,
+  input: ComponentConfiguration[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7892,7 +7892,7 @@ const serializeAws_restJson1_1Distribution = (
 };
 
 const serializeAws_restJson1_1DistributionList = (
-  input: Array<Distribution>,
+  input: Distribution[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7949,7 +7949,7 @@ const serializeAws_restJson1_1Filter = (
 };
 
 const serializeAws_restJson1_1FilterList = (
-  input: Array<Filter>,
+  input: Filter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7960,7 +7960,7 @@ const serializeAws_restJson1_1FilterList = (
 };
 
 const serializeAws_restJson1_1FilterValues = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -8010,7 +8010,7 @@ const serializeAws_restJson1_1InstanceBlockDeviceMapping = (
 };
 
 const serializeAws_restJson1_1InstanceBlockDeviceMappings = (
-  input: Array<InstanceBlockDeviceMapping>,
+  input: InstanceBlockDeviceMapping[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -8023,7 +8023,7 @@ const serializeAws_restJson1_1InstanceBlockDeviceMappings = (
 };
 
 const serializeAws_restJson1_1InstanceTypeList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -8097,7 +8097,7 @@ const serializeAws_restJson1_1Schedule = (
 };
 
 const serializeAws_restJson1_1SecurityGroupIds = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -8108,7 +8108,7 @@ const serializeAws_restJson1_1SecurityGroupIds = (
 };
 
 const serializeAws_restJson1_1StringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -8132,7 +8132,7 @@ const serializeAws_restJson1_1TagMap = (
 const deserializeAws_restJson1_1AccountList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -8207,7 +8207,7 @@ const deserializeAws_restJson1_1AmiDistributionConfiguration = (
 const deserializeAws_restJson1_1AmiList = (
   output: any,
   context: __SerdeContext
-): Array<Ami> => {
+): Ami[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Ami(entry, context)
   );
@@ -8216,7 +8216,7 @@ const deserializeAws_restJson1_1AmiList = (
 const deserializeAws_restJson1_1ArnList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -8302,7 +8302,7 @@ const deserializeAws_restJson1_1ComponentConfiguration = (
 const deserializeAws_restJson1_1ComponentConfigurationList = (
   output: any,
   context: __SerdeContext
-): Array<ComponentConfiguration> => {
+): ComponentConfiguration[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ComponentConfiguration(entry, context)
   );
@@ -8364,7 +8364,7 @@ const deserializeAws_restJson1_1ComponentSummary = (
 const deserializeAws_restJson1_1ComponentSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<ComponentSummary> => {
+): ComponentSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ComponentSummary(entry, context)
   );
@@ -8415,7 +8415,7 @@ const deserializeAws_restJson1_1ComponentVersion = (
 const deserializeAws_restJson1_1ComponentVersionList = (
   output: any,
   context: __SerdeContext
-): Array<ComponentVersion> => {
+): ComponentVersion[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ComponentVersion(entry, context)
   );
@@ -8537,7 +8537,7 @@ const deserializeAws_restJson1_1DistributionConfigurationSummary = (
 const deserializeAws_restJson1_1DistributionConfigurationSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<DistributionConfigurationSummary> => {
+): DistributionConfigurationSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DistributionConfigurationSummary(entry, context)
   );
@@ -8546,7 +8546,7 @@ const deserializeAws_restJson1_1DistributionConfigurationSummaryList = (
 const deserializeAws_restJson1_1DistributionList = (
   output: any,
   context: __SerdeContext
-): Array<Distribution> => {
+): Distribution[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Distribution(entry, context)
   );
@@ -8781,7 +8781,7 @@ const deserializeAws_restJson1_1ImagePipeline = (
 const deserializeAws_restJson1_1ImagePipelineList = (
   output: any,
   context: __SerdeContext
-): Array<ImagePipeline> => {
+): ImagePipeline[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ImagePipeline(entry, context)
   );
@@ -8891,7 +8891,7 @@ const deserializeAws_restJson1_1ImageRecipeSummary = (
 const deserializeAws_restJson1_1ImageRecipeSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<ImageRecipeSummary> => {
+): ImageRecipeSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ImageRecipeSummary(entry, context)
   );
@@ -8970,7 +8970,7 @@ const deserializeAws_restJson1_1ImageSummary = (
 const deserializeAws_restJson1_1ImageSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<ImageSummary> => {
+): ImageSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ImageSummary(entry, context)
   );
@@ -9034,7 +9034,7 @@ const deserializeAws_restJson1_1ImageVersion = (
 const deserializeAws_restJson1_1ImageVersionList = (
   output: any,
   context: __SerdeContext
-): Array<ImageVersion> => {
+): ImageVersion[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ImageVersion(entry, context)
   );
@@ -9161,7 +9161,7 @@ const deserializeAws_restJson1_1InfrastructureConfigurationSummary = (
 const deserializeAws_restJson1_1InfrastructureConfigurationSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<InfrastructureConfigurationSummary> => {
+): InfrastructureConfigurationSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1InfrastructureConfigurationSummary(entry, context)
   );
@@ -9199,7 +9199,7 @@ const deserializeAws_restJson1_1InstanceBlockDeviceMapping = (
 const deserializeAws_restJson1_1InstanceBlockDeviceMappings = (
   output: any,
   context: __SerdeContext
-): Array<InstanceBlockDeviceMapping> => {
+): InstanceBlockDeviceMapping[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1InstanceBlockDeviceMapping(entry, context)
   );
@@ -9208,7 +9208,7 @@ const deserializeAws_restJson1_1InstanceBlockDeviceMappings = (
 const deserializeAws_restJson1_1InstanceTypeList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -9310,14 +9310,14 @@ const deserializeAws_restJson1_1Schedule = (
 const deserializeAws_restJson1_1SecurityGroupIds = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1StringList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 

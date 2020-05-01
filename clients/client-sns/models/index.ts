@@ -11,13 +11,13 @@ export interface AddPermissionInput {
    *             specified actions. The users must have AWS accounts, but do not need to be signed up for
    *             this service.</p>
    */
-  AWSAccountId: Array<string> | undefined;
+  AWSAccountId: string[] | undefined;
 
   /**
    * <p>The action you want to allow for the specified principal(s).</p>
    *         <p>Valid values: Any Amazon SNS action name, for example <code>Publish</code>.</p>
    */
-  ActionName: Array<string> | undefined;
+  ActionName: string[] | undefined;
 
   /**
    * <p>A unique identifier for the new policy statement.</p>
@@ -311,7 +311,7 @@ export interface CreateTopicInput {
    *             <p>To be able to tag a topic on creation, you must have the <code>sns:CreateTopic</code> and <code>sns:TagResource</code> permissions.</p>
    *         </note>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateTopicInput {
@@ -560,7 +560,7 @@ export interface GetSMSAttributesInput {
    *         <p>For all attribute names, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetSMSAttributes.html">SetSMSAttributes</a>.</p>
    *         <p>If you don't use this parameter, Amazon SNS returns all SMS attributes.</p>
    */
-  attributes?: Array<string>;
+  attributes?: string[];
 }
 
 export namespace GetSMSAttributesInput {
@@ -964,7 +964,7 @@ export interface ListEndpointsByPlatformApplicationResponse {
   /**
    * <p>Endpoints returned for ListEndpointsByPlatformApplication action.</p>
    */
-  Endpoints?: Array<Endpoint>;
+  Endpoints?: Endpoint[];
 
   /**
    * <p>NextToken string is returned when calling ListEndpointsByPlatformApplication action if
@@ -1014,7 +1014,7 @@ export interface ListPhoneNumbersOptedOutResponse {
    * <p>A list of phone numbers that are opted out of receiving SMS messages. The list is
    *             paginated, and each page can contain up to 100 phone numbers.</p>
    */
-  phoneNumbers?: Array<string>;
+  phoneNumbers?: string[];
 }
 
 export namespace ListPhoneNumbersOptedOutResponse {
@@ -1053,7 +1053,7 @@ export interface ListPlatformApplicationsResponse {
   /**
    * <p>Platform applications returned when calling ListPlatformApplications action.</p>
    */
-  PlatformApplications?: Array<PlatformApplication>;
+  PlatformApplications?: PlatformApplication[];
 }
 
 export namespace ListPlatformApplicationsResponse {
@@ -1096,7 +1096,7 @@ export interface ListSubscriptionsByTopicResponse {
   /**
    * <p>A list of subscriptions.</p>
    */
-  Subscriptions?: Array<Subscription>;
+  Subscriptions?: Subscription[];
 }
 
 export namespace ListSubscriptionsByTopicResponse {
@@ -1134,7 +1134,7 @@ export interface ListSubscriptionsResponse {
   /**
    * <p>A list of subscriptions.</p>
    */
-  Subscriptions?: Array<Subscription>;
+  Subscriptions?: Subscription[];
 }
 
 export namespace ListSubscriptionsResponse {
@@ -1160,7 +1160,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>The tags associated with the specified topic.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace ListTagsForResourceResponse {
@@ -1195,7 +1195,7 @@ export interface ListTopicsResponse {
   /**
    * <p>A list of topic ARNs.</p>
    */
-  Topics?: Array<Topic>;
+  Topics?: Topic[];
 }
 
 export namespace ListTopicsResponse {
@@ -2156,7 +2156,7 @@ export interface TagResourceRequest {
    * <p>The tags to be added to the specified topic. A tag consists of a required key
    *             and an optional value.</p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -2249,7 +2249,7 @@ export interface UntagResourceRequest {
   /**
    * <p>The list of tag keys to remove from the specified topic.</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {

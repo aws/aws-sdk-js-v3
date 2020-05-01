@@ -304,7 +304,7 @@ const serializeAws_restJson1_1Context = (
 };
 
 const serializeAws_restJson1_1InputList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -317,7 +317,7 @@ const serializeAws_restJson1_1InputList = (
 const deserializeAws_restJson1_1ItemList = (
   output: any,
   context: __SerdeContext
-): Array<PredictedItem> => {
+): PredictedItem[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1PredictedItem(entry, context)
   );

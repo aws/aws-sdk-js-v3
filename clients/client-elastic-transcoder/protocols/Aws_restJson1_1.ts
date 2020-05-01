@@ -2800,7 +2800,7 @@ const deserializeAws_restJson1_1ValidationExceptionResponse = async (
 };
 
 const serializeAws_restJson1_1AccessControls = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2843,7 +2843,7 @@ const serializeAws_restJson1_1Artwork = (
 };
 
 const serializeAws_restJson1_1Artworks = (
-  input: Array<Artwork>,
+  input: Artwork[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2923,7 +2923,7 @@ const serializeAws_restJson1_1CaptionFormat = (
 };
 
 const serializeAws_restJson1_1CaptionFormats = (
-  input: Array<CaptionFormat>,
+  input: CaptionFormat[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2960,7 +2960,7 @@ const serializeAws_restJson1_1CaptionSource = (
 };
 
 const serializeAws_restJson1_1CaptionSources = (
-  input: Array<CaptionSource>,
+  input: CaptionSource[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3019,7 +3019,7 @@ const serializeAws_restJson1_1CodecOptions = (
 };
 
 const serializeAws_restJson1_1Composition = (
-  input: Array<Clip>,
+  input: Clip[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3089,7 +3089,7 @@ const serializeAws_restJson1_1CreateJobOutput = (
 };
 
 const serializeAws_restJson1_1CreateJobOutputs = (
-  input: Array<CreateJobOutput>,
+  input: CreateJobOutput[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3134,7 +3134,7 @@ const serializeAws_restJson1_1CreateJobPlaylist = (
 };
 
 const serializeAws_restJson1_1CreateJobPlaylists = (
-  input: Array<CreateJobPlaylist>,
+  input: CreateJobPlaylist[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3300,7 +3300,7 @@ const serializeAws_restJson1_1JobInput = (
 };
 
 const serializeAws_restJson1_1JobInputs = (
-  input: Array<JobInput>,
+  input: JobInput[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3331,7 +3331,7 @@ const serializeAws_restJson1_1JobWatermark = (
 };
 
 const serializeAws_restJson1_1JobWatermarks = (
-  input: Array<JobWatermark>,
+  input: JobWatermark[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3362,7 +3362,7 @@ const serializeAws_restJson1_1Notifications = (
 };
 
 const serializeAws_restJson1_1OutputKeys = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3393,7 +3393,7 @@ const serializeAws_restJson1_1Permission = (
 };
 
 const serializeAws_restJson1_1Permissions = (
-  input: Array<Permission>,
+  input: Permission[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3488,7 +3488,7 @@ const serializeAws_restJson1_1PresetWatermark = (
 };
 
 const serializeAws_restJson1_1PresetWatermarks = (
-  input: Array<PresetWatermark>,
+  input: PresetWatermark[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3499,7 +3499,7 @@ const serializeAws_restJson1_1PresetWatermarks = (
 };
 
 const serializeAws_restJson1_1SnsTopics = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3628,7 +3628,7 @@ const serializeAws_restJson1_1VideoParameters = (
 const deserializeAws_restJson1_1AccessControls = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -3676,7 +3676,7 @@ const deserializeAws_restJson1_1Artwork = (
 const deserializeAws_restJson1_1Artworks = (
   output: any,
   context: __SerdeContext
-): Array<Artwork> => {
+): Artwork[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Artwork(entry, context)
   );
@@ -3776,7 +3776,7 @@ const deserializeAws_restJson1_1CaptionFormat = (
 const deserializeAws_restJson1_1CaptionFormats = (
   output: any,
   context: __SerdeContext
-): Array<CaptionFormat> => {
+): CaptionFormat[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1CaptionFormat(entry, context)
   );
@@ -3818,7 +3818,7 @@ const deserializeAws_restJson1_1CaptionSource = (
 const deserializeAws_restJson1_1CaptionSources = (
   output: any,
   context: __SerdeContext
-): Array<CaptionSource> => {
+): CaptionSource[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1CaptionSource(entry, context)
   );
@@ -3883,7 +3883,7 @@ const deserializeAws_restJson1_1CodecOptions = (
 const deserializeAws_restJson1_1Composition = (
   output: any,
   context: __SerdeContext
-): Array<Clip> => {
+): Clip[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Clip(entry, context)
   );
@@ -3951,7 +3951,7 @@ const deserializeAws_restJson1_1Encryption = (
 const deserializeAws_restJson1_1ExceptionMessages = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -4181,7 +4181,7 @@ const deserializeAws_restJson1_1JobInput = (
 const deserializeAws_restJson1_1JobInputs = (
   output: any,
   context: __SerdeContext
-): Array<JobInput> => {
+): JobInput[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1JobInput(entry, context)
   );
@@ -4311,7 +4311,7 @@ const deserializeAws_restJson1_1JobOutput = (
 const deserializeAws_restJson1_1JobOutputs = (
   output: any,
   context: __SerdeContext
-): Array<JobOutput> => {
+): JobOutput[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1JobOutput(entry, context)
   );
@@ -4348,7 +4348,7 @@ const deserializeAws_restJson1_1JobWatermark = (
 const deserializeAws_restJson1_1JobWatermarks = (
   output: any,
   context: __SerdeContext
-): Array<JobWatermark> => {
+): JobWatermark[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1JobWatermark(entry, context)
   );
@@ -4357,7 +4357,7 @@ const deserializeAws_restJson1_1JobWatermarks = (
 const deserializeAws_restJson1_1Jobs = (
   output: any,
   context: __SerdeContext
-): Array<Job> => {
+): Job[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Job(entry, context)
   );
@@ -4392,7 +4392,7 @@ const deserializeAws_restJson1_1Notifications = (
 const deserializeAws_restJson1_1OutputKeys = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -4424,7 +4424,7 @@ const deserializeAws_restJson1_1Permission = (
 const deserializeAws_restJson1_1Permissions = (
   output: any,
   context: __SerdeContext
-): Array<Permission> => {
+): Permission[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Permission(entry, context)
   );
@@ -4521,7 +4521,7 @@ const deserializeAws_restJson1_1PipelineOutputConfig = (
 const deserializeAws_restJson1_1Pipelines = (
   output: any,
   context: __SerdeContext
-): Array<Pipeline> => {
+): Pipeline[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Pipeline(entry, context)
   );
@@ -4620,7 +4620,7 @@ const deserializeAws_restJson1_1Playlist = (
 const deserializeAws_restJson1_1Playlists = (
   output: any,
   context: __SerdeContext
-): Array<Playlist> => {
+): Playlist[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Playlist(entry, context)
   );
@@ -4737,7 +4737,7 @@ const deserializeAws_restJson1_1PresetWatermark = (
 const deserializeAws_restJson1_1PresetWatermarks = (
   output: any,
   context: __SerdeContext
-): Array<PresetWatermark> => {
+): PresetWatermark[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1PresetWatermark(entry, context)
   );
@@ -4746,7 +4746,7 @@ const deserializeAws_restJson1_1PresetWatermarks = (
 const deserializeAws_restJson1_1Presets = (
   output: any,
   context: __SerdeContext
-): Array<Preset> => {
+): Preset[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Preset(entry, context)
   );
@@ -4954,7 +4954,7 @@ const deserializeAws_restJson1_1Warning = (
 const deserializeAws_restJson1_1Warnings = (
   output: any,
   context: __SerdeContext
-): Array<Warning> => {
+): Warning[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Warning(entry, context)
   );

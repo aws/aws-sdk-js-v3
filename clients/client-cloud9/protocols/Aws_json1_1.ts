@@ -1657,7 +1657,7 @@ const deserializeAws_json1_1TooManyRequestsExceptionResponse = async (
 };
 
 const serializeAws_json1_1BoundedEnvironmentIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1804,7 +1804,7 @@ const serializeAws_json1_1ListEnvironmentsRequest = (
 };
 
 const serializeAws_json1_1PermissionsList = (
-  input: Array<Permissions | string>,
+  input: (Permissions | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2043,7 +2043,7 @@ const deserializeAws_json1_1Environment = (
 const deserializeAws_json1_1EnvironmentIdList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -2072,7 +2072,7 @@ const deserializeAws_json1_1EnvironmentLifecycle = (
 const deserializeAws_json1_1EnvironmentList = (
   output: any,
   context: __SerdeContext
-): Array<Environment> => {
+): Environment[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Environment(entry, context)
   );
@@ -2111,7 +2111,7 @@ const deserializeAws_json1_1EnvironmentMember = (
 const deserializeAws_json1_1EnvironmentMembersList = (
   output: any,
   context: __SerdeContext
-): Array<EnvironmentMember> => {
+): EnvironmentMember[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EnvironmentMember(entry, context)
   );

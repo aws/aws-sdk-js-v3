@@ -7256,7 +7256,7 @@ const serializeAws_json1_1EntityRecognizerInputDataConfig = (
 };
 
 const serializeAws_json1_1EntityTypesList = (
-  input: Array<EntityTypesListItem>,
+  input: EntityTypesListItem[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7523,7 +7523,7 @@ const serializeAws_json1_1OutputDataConfig = (
 };
 
 const serializeAws_json1_1SecurityGroupIds = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7888,7 +7888,7 @@ const serializeAws_json1_1StopTrainingEntityRecognizerRequest = (
 };
 
 const serializeAws_json1_1StringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7899,7 +7899,7 @@ const serializeAws_json1_1StringList = (
 };
 
 const serializeAws_json1_1Subnets = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7921,7 +7921,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_json1_1TagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7932,7 +7932,7 @@ const serializeAws_json1_1TagKeyList = (
 };
 
 const serializeAws_json1_1TagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -8282,7 +8282,7 @@ const deserializeAws_json1_1BatchItemError = (
 const deserializeAws_json1_1BatchItemErrorList = (
   output: any,
   context: __SerdeContext
-): Array<BatchItemError> => {
+): BatchItemError[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1BatchItemError(entry, context)
   );
@@ -8864,7 +8864,7 @@ const deserializeAws_json1_1DocumentClassificationJobProperties = (
 const deserializeAws_json1_1DocumentClassificationJobPropertiesList = (
   output: any,
   context: __SerdeContext
-): Array<DocumentClassificationJobProperties> => {
+): DocumentClassificationJobProperties[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DocumentClassificationJobProperties(entry, context)
   );
@@ -9010,7 +9010,7 @@ const deserializeAws_json1_1DocumentClassifierProperties = (
 const deserializeAws_json1_1DocumentClassifierPropertiesList = (
   output: any,
   context: __SerdeContext
-): Array<DocumentClassifierProperties> => {
+): DocumentClassifierProperties[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DocumentClassifierProperties(entry, context)
   );
@@ -9124,7 +9124,7 @@ const deserializeAws_json1_1DominantLanguageDetectionJobProperties = (
 const deserializeAws_json1_1DominantLanguageDetectionJobPropertiesList = (
   output: any,
   context: __SerdeContext
-): Array<DominantLanguageDetectionJobProperties> => {
+): DominantLanguageDetectionJobProperties[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DominantLanguageDetectionJobProperties(entry, context)
   );
@@ -9186,7 +9186,7 @@ const deserializeAws_json1_1EndpointProperties = (
 const deserializeAws_json1_1EndpointPropertiesList = (
   output: any,
   context: __SerdeContext
-): Array<EndpointProperties> => {
+): EndpointProperties[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EndpointProperties(entry, context)
   );
@@ -9275,7 +9275,7 @@ const deserializeAws_json1_1EntitiesDetectionJobProperties = (
 const deserializeAws_json1_1EntitiesDetectionJobPropertiesList = (
   output: any,
   context: __SerdeContext
-): Array<EntitiesDetectionJobProperties> => {
+): EntitiesDetectionJobProperties[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EntitiesDetectionJobProperties(entry, context)
   );
@@ -9457,7 +9457,7 @@ const deserializeAws_json1_1EntityRecognizerMetadata = (
 const deserializeAws_json1_1EntityRecognizerMetadataEntityTypesList = (
   output: any,
   context: __SerdeContext
-): Array<EntityRecognizerMetadataEntityTypesListItem> => {
+): EntityRecognizerMetadataEntityTypesListItem[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EntityRecognizerMetadataEntityTypesListItem(
       entry,
@@ -9587,7 +9587,7 @@ const deserializeAws_json1_1EntityRecognizerProperties = (
 const deserializeAws_json1_1EntityRecognizerPropertiesList = (
   output: any,
   context: __SerdeContext
-): Array<EntityRecognizerProperties> => {
+): EntityRecognizerProperties[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EntityRecognizerProperties(entry, context)
   );
@@ -9618,7 +9618,7 @@ const deserializeAws_json1_1EntityTypesEvaluationMetrics = (
 const deserializeAws_json1_1EntityTypesList = (
   output: any,
   context: __SerdeContext
-): Array<EntityTypesListItem> => {
+): EntityTypesListItem[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EntityTypesListItem(entry, context)
   );
@@ -9814,7 +9814,7 @@ const deserializeAws_json1_1KeyPhrasesDetectionJobProperties = (
 const deserializeAws_json1_1KeyPhrasesDetectionJobPropertiesList = (
   output: any,
   context: __SerdeContext
-): Array<KeyPhrasesDetectionJobProperties> => {
+): KeyPhrasesDetectionJobProperties[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1KeyPhrasesDetectionJobProperties(entry, context)
   );
@@ -10005,7 +10005,7 @@ const deserializeAws_json1_1ListKeyPhrasesDetectionJobsResponse = (
 const deserializeAws_json1_1ListOfClasses = (
   output: any,
   context: __SerdeContext
-): Array<DocumentClass> => {
+): DocumentClass[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DocumentClass(entry, context)
   );
@@ -10014,7 +10014,7 @@ const deserializeAws_json1_1ListOfClasses = (
 const deserializeAws_json1_1ListOfDetectDominantLanguageResult = (
   output: any,
   context: __SerdeContext
-): Array<BatchDetectDominantLanguageItemResult> => {
+): BatchDetectDominantLanguageItemResult[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1BatchDetectDominantLanguageItemResult(entry, context)
   );
@@ -10023,7 +10023,7 @@ const deserializeAws_json1_1ListOfDetectDominantLanguageResult = (
 const deserializeAws_json1_1ListOfDetectEntitiesResult = (
   output: any,
   context: __SerdeContext
-): Array<BatchDetectEntitiesItemResult> => {
+): BatchDetectEntitiesItemResult[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1BatchDetectEntitiesItemResult(entry, context)
   );
@@ -10032,7 +10032,7 @@ const deserializeAws_json1_1ListOfDetectEntitiesResult = (
 const deserializeAws_json1_1ListOfDetectKeyPhrasesResult = (
   output: any,
   context: __SerdeContext
-): Array<BatchDetectKeyPhrasesItemResult> => {
+): BatchDetectKeyPhrasesItemResult[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1BatchDetectKeyPhrasesItemResult(entry, context)
   );
@@ -10041,7 +10041,7 @@ const deserializeAws_json1_1ListOfDetectKeyPhrasesResult = (
 const deserializeAws_json1_1ListOfDetectSentimentResult = (
   output: any,
   context: __SerdeContext
-): Array<BatchDetectSentimentItemResult> => {
+): BatchDetectSentimentItemResult[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1BatchDetectSentimentItemResult(entry, context)
   );
@@ -10050,7 +10050,7 @@ const deserializeAws_json1_1ListOfDetectSentimentResult = (
 const deserializeAws_json1_1ListOfDetectSyntaxResult = (
   output: any,
   context: __SerdeContext
-): Array<BatchDetectSyntaxItemResult> => {
+): BatchDetectSyntaxItemResult[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1BatchDetectSyntaxItemResult(entry, context)
   );
@@ -10059,7 +10059,7 @@ const deserializeAws_json1_1ListOfDetectSyntaxResult = (
 const deserializeAws_json1_1ListOfDominantLanguages = (
   output: any,
   context: __SerdeContext
-): Array<DominantLanguage> => {
+): DominantLanguage[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DominantLanguage(entry, context)
   );
@@ -10068,7 +10068,7 @@ const deserializeAws_json1_1ListOfDominantLanguages = (
 const deserializeAws_json1_1ListOfEntities = (
   output: any,
   context: __SerdeContext
-): Array<Entity> => {
+): Entity[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Entity(entry, context)
   );
@@ -10077,7 +10077,7 @@ const deserializeAws_json1_1ListOfEntities = (
 const deserializeAws_json1_1ListOfKeyPhrases = (
   output: any,
   context: __SerdeContext
-): Array<KeyPhrase> => {
+): KeyPhrase[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1KeyPhrase(entry, context)
   );
@@ -10086,7 +10086,7 @@ const deserializeAws_json1_1ListOfKeyPhrases = (
 const deserializeAws_json1_1ListOfLabels = (
   output: any,
   context: __SerdeContext
-): Array<DocumentLabel> => {
+): DocumentLabel[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DocumentLabel(entry, context)
   );
@@ -10095,7 +10095,7 @@ const deserializeAws_json1_1ListOfLabels = (
 const deserializeAws_json1_1ListOfSyntaxTokens = (
   output: any,
   context: __SerdeContext
-): Array<SyntaxToken> => {
+): SyntaxToken[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SyntaxToken(entry, context)
   );
@@ -10262,7 +10262,7 @@ const deserializeAws_json1_1ResourceUnavailableException = (
 const deserializeAws_json1_1SecurityGroupIds = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -10342,7 +10342,7 @@ const deserializeAws_json1_1SentimentDetectionJobProperties = (
 const deserializeAws_json1_1SentimentDetectionJobPropertiesList = (
   output: any,
   context: __SerdeContext
-): Array<SentimentDetectionJobProperties> => {
+): SentimentDetectionJobProperties[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SentimentDetectionJobProperties(entry, context)
   );
@@ -10577,7 +10577,7 @@ const deserializeAws_json1_1StopTrainingEntityRecognizerResponse = (
 const deserializeAws_json1_1Subnets = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -10635,7 +10635,7 @@ const deserializeAws_json1_1Tag = (
 const deserializeAws_json1_1TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );
@@ -10783,7 +10783,7 @@ const deserializeAws_json1_1TopicsDetectionJobProperties = (
 const deserializeAws_json1_1TopicsDetectionJobPropertiesList = (
   output: any,
   context: __SerdeContext
-): Array<TopicsDetectionJobProperties> => {
+): TopicsDetectionJobProperties[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1TopicsDetectionJobProperties(entry, context)
   );

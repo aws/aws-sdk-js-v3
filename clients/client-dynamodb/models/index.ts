@@ -18,7 +18,7 @@ export interface DescribeEndpointsResponse {
   /**
    * <p>List of endpoints.</p>
    */
-  Endpoints: Array<Endpoint> | undefined;
+  Endpoints: Endpoint[] | undefined;
 }
 
 export namespace DescribeEndpointsResponse {
@@ -167,7 +167,7 @@ export interface AttributeValue {
    *             <code>"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]</code>
    *          </p>
    */
-  BS?: Array<Uint8Array>;
+  BS?: Uint8Array[];
 
   /**
    * <p>An attribute of type List.  For example:</p>
@@ -175,7 +175,7 @@ export interface AttributeValue {
    *             <code>"L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]</code>
    *          </p>
    */
-  L?: Array<AttributeValue>;
+  L?: AttributeValue[];
 
   /**
    * <p>An attribute of type Map.  For example:</p>
@@ -201,7 +201,7 @@ export interface AttributeValue {
    *          </p>
    *          <p>Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.</p>
    */
-  NS?: Array<string>;
+  NS?: string[];
 
   /**
    * <p>An attribute of type Null.  For example:</p>
@@ -225,7 +225,7 @@ export interface AttributeValue {
    *             <code>"SS": ["Giraffe", "Hippo" ,"Zebra"]</code>
    *          </p>
    */
-  SS?: Array<string>;
+  SS?: string[];
 }
 
 export namespace AttributeValue {
@@ -425,7 +425,7 @@ export interface AutoScalingSettingsDescription {
   /**
    * <p>Information about the scaling policies.</p>
    */
-  ScalingPolicies?: Array<AutoScalingPolicyDescription>;
+  ScalingPolicies?: AutoScalingPolicyDescription[];
 }
 
 export namespace AutoScalingSettingsDescription {
@@ -909,13 +909,13 @@ export interface BatchGetItemOutput {
    *             </li>
    *          </ul>
    */
-  ConsumedCapacity?: Array<ConsumedCapacity>;
+  ConsumedCapacity?: ConsumedCapacity[];
 
   /**
    * <p>A map of table name to a list of items. Each object in <code>Responses</code> consists of a table
    *       name, along with a map of attribute data consisting of the data type and attribute value.</p>
    */
-  Responses?: { [key: string]: Array<{ [key: string]: AttributeValue }> };
+  Responses?: { [key: string]: { [key: string]: AttributeValue }[] };
 
   /**
    * <p>A map of tables and their respective keys that were not processed with the current response.
@@ -997,7 +997,7 @@ export interface BatchWriteItemInput {
    *             </li>
    *          </ul>
    */
-  RequestItems: { [key: string]: Array<WriteRequest> } | undefined;
+  RequestItems: { [key: string]: WriteRequest[] } | undefined;
 
   /**
    * <p>Determines the level of detail about provisioned throughput consumption that is returned in the response:</p>
@@ -1050,7 +1050,7 @@ export interface BatchWriteItemOutput {
    *             </li>
    *          </ul>
    */
-  ConsumedCapacity?: Array<ConsumedCapacity>;
+  ConsumedCapacity?: ConsumedCapacity[];
 
   /**
    * <p>A list of tables that were processed by <code>BatchWriteItem</code> and, for each table,
@@ -1074,7 +1074,7 @@ export interface BatchWriteItemOutput {
    *             </li>
    *          </ul>
    */
-  ItemCollectionMetrics?: { [key: string]: Array<ItemCollectionMetrics> };
+  ItemCollectionMetrics?: { [key: string]: ItemCollectionMetrics[] };
 
   /**
    * <p>A map of tables and requests against those tables that were not processed. The
@@ -1116,7 +1116,7 @@ export interface BatchWriteItemOutput {
    *          <p>If there are no unprocessed items remaining, the response contains an empty
    *         <code>UnprocessedItems</code> map.</p>
    */
-  UnprocessedItems?: { [key: string]: Array<WriteRequest> };
+  UnprocessedItems?: { [key: string]: WriteRequest[] };
 }
 
 export namespace BatchWriteItemOutput {
@@ -1259,7 +1259,7 @@ export interface Condition {
    *       is greater than <code>B</code>. For a list of code values, see <a href="http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters">http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters</a>.</p>
    *          <p>For Binary, DynamoDB treats each byte of the binary data as unsigned when it compares binary values.</p>
    */
-  AttributeValueList?: Array<AttributeValue>;
+  AttributeValueList?: AttributeValue[];
 
   /**
    * <p>A comparator for evaluating attributes. For example, equals, greater than, less than, etc.</p>
@@ -1657,7 +1657,7 @@ export interface CreateGlobalSecondaryIndexAction {
   /**
    * <p>The key schema for the global secondary index.</p>
    */
-  KeySchema: Array<KeySchemaElement> | undefined;
+  KeySchema: KeySchemaElement[] | undefined;
 
   /**
    * <p>Represents attributes that are copied (projected) from the table into an index. These
@@ -1688,7 +1688,7 @@ export interface CreateGlobalTableInput {
   /**
    * <p>The Regions where the global table needs to be created.</p>
    */
-  ReplicationGroup: Array<Replica> | undefined;
+  ReplicationGroup: Replica[] | undefined;
 }
 
 export namespace CreateGlobalTableInput {
@@ -1733,7 +1733,7 @@ export interface CreateReplicationGroupMemberAction {
   /**
    * <p>Replica-specific global secondary index settings.</p>
    */
-  GlobalSecondaryIndexes?: Array<ReplicaGlobalSecondaryIndex>;
+  GlobalSecondaryIndexes?: ReplicaGlobalSecondaryIndex[];
 
   /**
    * <p>The AWS KMS customer master key (CMK) that should be used for AWS KMS encryption
@@ -1768,7 +1768,7 @@ export interface CreateTableInput {
   /**
    * <p>An array of attributes that describe the key schema for the table and indexes.</p>
    */
-  AttributeDefinitions: Array<AttributeDefinition> | undefined;
+  AttributeDefinitions: AttributeDefinition[] | undefined;
 
   /**
    * <p>Controls how you are charged for read and write throughput and how you manage capacity. This setting can be changed later.</p>
@@ -1843,7 +1843,7 @@ export interface CreateTableInput {
    *             </li>
    *          </ul>
    */
-  GlobalSecondaryIndexes?: Array<GlobalSecondaryIndex>;
+  GlobalSecondaryIndexes?: GlobalSecondaryIndex[];
 
   /**
    * <p>Specifies the attributes that make up the primary key for a table or an index. The attributes
@@ -1889,7 +1889,7 @@ export interface CreateTableInput {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#WorkingWithTables.primary.key">Working with Tables</a> in the <i>Amazon DynamoDB Developer
    *                 Guide</i>.</p>
    */
-  KeySchema: Array<KeySchemaElement> | undefined;
+  KeySchema: KeySchemaElement[] | undefined;
 
   /**
    * <p>One or more local secondary indexes (the maximum is 5) to be created on the table. Each index is scoped to a given partition key value. There is a 10 GB size limit per partition key value; otherwise, the size of a local secondary index is unconstrained.</p>
@@ -1949,7 +1949,7 @@ export interface CreateTableInput {
    *             </li>
    *          </ul>
    */
-  LocalSecondaryIndexes?: Array<LocalSecondaryIndex>;
+  LocalSecondaryIndexes?: LocalSecondaryIndex[];
 
   /**
    * <p>Represents the provisioned throughput settings for a specified table or index. The settings
@@ -2016,7 +2016,7 @@ export interface CreateTableInput {
   /**
    * <p>A list of key-value pairs to label the table. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html">Tagging for DynamoDB</a>.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateTableInput {
@@ -2514,7 +2514,7 @@ export interface DescribeContributorInsightsOutput {
   /**
    * <p>List of names of the associated Alpine rules.</p>
    */
-  ContributorInsightsRuleList?: Array<string>;
+  ContributorInsightsRuleList?: string[];
 
   /**
    * <p>Current Status contributor insights.</p>
@@ -2612,7 +2612,7 @@ export interface DescribeGlobalTableSettingsOutput {
   /**
    * <p>The Region-specific settings for the global table.</p>
    */
-  ReplicaSettings?: Array<ReplicaSettingsDescription>;
+  ReplicaSettings?: ReplicaSettingsDescription[];
 }
 
 export namespace DescribeGlobalTableSettingsOutput {
@@ -2791,7 +2791,7 @@ export interface ExpectedAttributeValue {
    *          <p>For Binary, DynamoDB treats each byte of the binary data as unsigned when it compares binary values.</p>
    *          <p>For information on specifying data types in JSON, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataFormat.html">JSON Data Format</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
    */
-  AttributeValueList?: Array<AttributeValue>;
+  AttributeValueList?: AttributeValue[];
 
   /**
    * <p>A comparator for evaluating attributes in the <code>AttributeValueList</code>. For example, equals,
@@ -3058,7 +3058,7 @@ export interface GetItemInput {
    * <p>This is a legacy parameter.  Use <code>ProjectionExpression</code> instead.  For more information, see
    *           <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html">AttributesToGet</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
    */
-  AttributesToGet?: Array<string>;
+  AttributesToGet?: string[];
 
   /**
    * <p>Determines the read consistency model:  If set to <code>true</code>, then the operation uses strongly consistent reads; otherwise, the operation uses eventually consistent reads.</p>
@@ -3213,7 +3213,7 @@ export interface GlobalSecondaryIndex {
    *         partition key physically close together, in sorted order by the sort key value.</p>
    *          </note>
    */
-  KeySchema: Array<KeySchemaElement> | undefined;
+  KeySchema: KeySchemaElement[] | undefined;
 
   /**
    * <p>Represents attributes that are copied (projected) from the table into the global
@@ -3341,7 +3341,7 @@ export interface GlobalSecondaryIndexDescription {
    *         partition key physically close together, in sorted order by the sort key value.</p>
    *          </note>
    */
-  KeySchema?: Array<KeySchemaElement>;
+  KeySchema?: KeySchemaElement[];
 
   /**
    * <p>Represents attributes that are copied (projected) from the table into the global
@@ -3394,7 +3394,7 @@ export interface GlobalSecondaryIndexInfo {
    *         partition key physically close together, in sorted order by the sort key value.</p>
    *          </note>
    */
-  KeySchema?: Array<KeySchemaElement>;
+  KeySchema?: KeySchemaElement[];
 
   /**
    * <p>Represents attributes that are copied (projected) from the table into
@@ -3492,7 +3492,7 @@ export interface GlobalTable {
   /**
    * <p>The Regions where the global table has replicas.</p>
    */
-  ReplicationGroup?: Array<Replica>;
+  ReplicationGroup?: Replica[];
 }
 
 export namespace GlobalTable {
@@ -3561,7 +3561,7 @@ export interface GlobalTableDescription {
   /**
    * <p>The Regions where the global table has replicas.</p>
    */
-  ReplicationGroup?: Array<ReplicaDescription>;
+  ReplicationGroup?: ReplicaDescription[];
 }
 
 export namespace GlobalTableDescription {
@@ -3703,7 +3703,7 @@ export interface ItemCollectionMetrics {
    * <p>An estimate of item collection size, in gigabytes. This value is a two-element array containing a lower bound and an upper bound for the estimate. The estimate includes the size of all the items in the table, plus the size of all attributes projected into all of the local secondary indexes on that table. Use this estimate to measure whether a local secondary index is approaching its size limit.</p>
    *          <p>The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.</p>
    */
-  SizeEstimateRangeGB?: Array<number>;
+  SizeEstimateRangeGB?: number[];
 }
 
 export namespace ItemCollectionMetrics {
@@ -3804,7 +3804,7 @@ export interface KeysAndAttributes {
    * <p>This is a legacy parameter.  Use <code>ProjectionExpression</code> instead.  For more information, see
    *          <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html">Legacy Conditional Parameters</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
    */
-  AttributesToGet?: Array<string>;
+  AttributesToGet?: string[];
 
   /**
    * <p>The consistency of a read operation. If set to <code>true</code>, then a strongly consistent
@@ -3859,7 +3859,7 @@ export interface KeysAndAttributes {
   /**
    * <p>The primary key attribute values that define the items and the attributes associated with the items.</p>
    */
-  Keys: Array<{ [key: string]: AttributeValue }> | undefined;
+  Keys: { [key: string]: AttributeValue }[] | undefined;
 
   /**
    * <p>A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars,
@@ -3966,7 +3966,7 @@ export interface ListBackupsOutput {
   /**
    * <p>List of <code>BackupSummary</code> objects.</p>
    */
-  BackupSummaries?: Array<BackupSummary>;
+  BackupSummaries?: BackupSummary[];
 
   /**
    * <p>
@@ -4018,7 +4018,7 @@ export interface ListContributorInsightsOutput {
   /**
    * <p>A list of ContributorInsightsSummary.</p>
    */
-  ContributorInsightsSummaries?: Array<ContributorInsightsSummary>;
+  ContributorInsightsSummaries?: ContributorInsightsSummary[];
 
   /**
    * <p>A token to go to the next page if there is one.</p>
@@ -4059,7 +4059,7 @@ export interface ListGlobalTablesOutput {
   /**
    * <p>List of global table names.</p>
    */
-  GlobalTables?: Array<GlobalTable>;
+  GlobalTables?: GlobalTable[];
 
   /**
    * <p>Last evaluated global table name.</p>
@@ -4115,7 +4115,7 @@ export interface ListTablesOutput {
    *         <code>ExclusiveStartTableName</code> parameter in a subsequent <code>ListTables</code> request and
    *       obtain the next page of results.</p>
    */
-  TableNames?: Array<string>;
+  TableNames?: string[];
 }
 
 export namespace ListTablesOutput {
@@ -4153,7 +4153,7 @@ export interface ListTagsOfResourceOutput {
   /**
    * <p>The tags currently associated with the Amazon DynamoDB resource.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace ListTagsOfResourceOutput {
@@ -4192,7 +4192,7 @@ export interface LocalSecondaryIndex {
    *         partition key physically close together, in sorted order by the sort key value.</p>
    *          </note>
    */
-  KeySchema: Array<KeySchemaElement> | undefined;
+  KeySchema: KeySchemaElement[] | undefined;
 
   /**
    * <p>Represents attributes that are copied (projected) from the table into the local
@@ -4253,7 +4253,7 @@ export interface LocalSecondaryIndexDescription {
    *         partition key physically close together, in sorted order by the sort key value.</p>
    *          </note>
    */
-  KeySchema?: Array<KeySchemaElement>;
+  KeySchema?: KeySchemaElement[];
 
   /**
    * <p>Represents attributes that are copied (projected) from the table into the global
@@ -4300,7 +4300,7 @@ export interface LocalSecondaryIndexInfo {
    *         partition key physically close together, in sorted order by the sort key value.</p>
    *          </note>
    */
-  KeySchema?: Array<KeySchemaElement>;
+  KeySchema?: KeySchemaElement[];
 
   /**
    * <p>Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. </p>
@@ -4401,7 +4401,7 @@ export interface Projection {
    *       must not exceed 20. If you project the same attribute into two
    *       different indexes, this counts as two distinct attributes when determining the total.</p>
    */
-  NonKeyAttributes?: Array<string>;
+  NonKeyAttributes?: string[];
 
   /**
    * <p>The set of attributes that are projected into the index:</p>
@@ -4851,7 +4851,7 @@ export interface QueryInput {
    * <p>This is a legacy parameter.  Use <code>ProjectionExpression</code> instead.  For more information, see
    *           <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html">AttributesToGet</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
    */
-  AttributesToGet?: Array<string>;
+  AttributesToGet?: string[];
 
   /**
    * <p>This is a legacy parameter.  Use <code>FilterExpression</code> instead.  For more information, see
@@ -5235,7 +5235,7 @@ export interface QueryOutput {
   /**
    * <p>An array of item attributes that match the query criteria. Each element in this array consists of an attribute name and the value for that attribute.</p>
    */
-  Items?: Array<{ [key: string]: AttributeValue }>;
+  Items?: { [key: string]: AttributeValue }[];
 
   /**
    * <p>The primary key of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.</p>
@@ -5298,9 +5298,7 @@ export interface ReplicaAutoScalingDescription {
   /**
    * <p>Replica-specific global secondary index auto scaling settings.</p>
    */
-  GlobalSecondaryIndexes?: Array<
-    ReplicaGlobalSecondaryIndexAutoScalingDescription
-  >;
+  GlobalSecondaryIndexes?: ReplicaGlobalSecondaryIndexAutoScalingDescription[];
 
   /**
    * <p>The Region where the replica exists.</p>
@@ -5362,9 +5360,7 @@ export interface ReplicaAutoScalingUpdate {
    * <p>Represents the auto scaling settings of global secondary indexes that will
    *          be modified.</p>
    */
-  ReplicaGlobalSecondaryIndexUpdates?: Array<
-    ReplicaGlobalSecondaryIndexAutoScalingUpdate
-  >;
+  ReplicaGlobalSecondaryIndexUpdates?: ReplicaGlobalSecondaryIndexAutoScalingUpdate[];
 
   /**
    * <p>Represents the auto scaling settings to be modified for a global table or global
@@ -5386,7 +5382,7 @@ export interface ReplicaDescription {
   /**
    * <p>Replica-specific global secondary index settings.</p>
    */
-  GlobalSecondaryIndexes?: Array<ReplicaGlobalSecondaryIndexDescription>;
+  GlobalSecondaryIndexes?: ReplicaGlobalSecondaryIndexDescription[];
 
   /**
    * <p>The AWS KMS customer master key (CMK) of the replica that will be used for AWS KMS
@@ -5690,9 +5686,7 @@ export interface ReplicaSettingsDescription {
   /**
    * <p>Replica global secondary index settings for the global table.</p>
    */
-  ReplicaGlobalSecondaryIndexSettings?: Array<
-    ReplicaGlobalSecondaryIndexSettingsDescription
-  >;
+  ReplicaGlobalSecondaryIndexSettings?: ReplicaGlobalSecondaryIndexSettingsDescription[];
 
   /**
    * <p>Auto scaling settings for a global table replica's read capacity units.</p>
@@ -5761,9 +5755,7 @@ export interface ReplicaSettingsUpdate {
   /**
    * <p>Represents the settings of a global secondary index for a global table that will be modified.</p>
    */
-  ReplicaGlobalSecondaryIndexSettingsUpdate?: Array<
-    ReplicaGlobalSecondaryIndexSettingsUpdate
-  >;
+  ReplicaGlobalSecondaryIndexSettingsUpdate?: ReplicaGlobalSecondaryIndexSettingsUpdate[];
 
   /**
    * <p>Auto scaling settings for managing a global table replica's read capacity units.</p>
@@ -5969,14 +5961,14 @@ export interface RestoreTableFromBackupInput {
    *         provided should match existing secondary indexes. You can choose to exclude
    *         some or all of the indexes at the time of restore.</p>
    */
-  GlobalSecondaryIndexOverride?: Array<GlobalSecondaryIndex>;
+  GlobalSecondaryIndexOverride?: GlobalSecondaryIndex[];
 
   /**
    * <p>List of local secondary indexes for the restored table. The indexes
    *         provided should match existing secondary indexes. You can choose to exclude
    *         some or all of the indexes at the time of restore.</p>
    */
-  LocalSecondaryIndexOverride?: Array<LocalSecondaryIndex>;
+  LocalSecondaryIndexOverride?: LocalSecondaryIndex[];
 
   /**
    * <p>Provisioned throughput settings for the restored table.</p>
@@ -6019,14 +6011,14 @@ export interface RestoreTableToPointInTimeInput {
    *         provided should match existing secondary indexes. You can choose to exclude
    *         some or all of the indexes at the time of restore.</p>
    */
-  GlobalSecondaryIndexOverride?: Array<GlobalSecondaryIndex>;
+  GlobalSecondaryIndexOverride?: GlobalSecondaryIndex[];
 
   /**
    * <p>List of local secondary indexes for the restored table. The indexes
    *         provided should match existing secondary indexes. You can choose to exclude
    *         some or all of the indexes at the time of restore.</p>
    */
-  LocalSecondaryIndexOverride?: Array<LocalSecondaryIndex>;
+  LocalSecondaryIndexOverride?: LocalSecondaryIndex[];
 
   /**
    * <p>Provisioned throughput settings for the restored table.</p>
@@ -6198,7 +6190,7 @@ export interface ScanInput {
    * <p>This is a legacy parameter.  Use <code>ProjectionExpression</code> instead.  For more information, see
    *           <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html">AttributesToGet</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
    */
-  AttributesToGet?: Array<string>;
+  AttributesToGet?: string[];
 
   /**
    * <p>This is a legacy parameter.  Use <code>FilterExpression</code> instead.   For more information, see
@@ -6490,7 +6482,7 @@ export interface ScanOutput {
   /**
    * <p>An array of item attributes that match the scan criteria. Each element in this array consists of an attribute name and the value for that attribute.</p>
    */
-  Items?: Array<{ [key: string]: AttributeValue }>;
+  Items?: { [key: string]: AttributeValue }[];
 
   /**
    * <p>The primary key of the item where the operation stopped, inclusive of the previous
@@ -6555,7 +6547,7 @@ export interface SourceTableDetails {
   /**
    * <p>Schema of the table. </p>
    */
-  KeySchema: Array<KeySchemaElement> | undefined;
+  KeySchema: KeySchemaElement[] | undefined;
 
   /**
    * <p>Read IOPs and Write IOPS on the table when the backup was created.</p>
@@ -6603,12 +6595,12 @@ export interface SourceTableFeatureDetails {
    *          IndexName, KeySchema, Projection, and ProvisionedThroughput for the GSIs on the table at
    *          the time of backup. </p>
    */
-  GlobalSecondaryIndexes?: Array<GlobalSecondaryIndexInfo>;
+  GlobalSecondaryIndexes?: GlobalSecondaryIndexInfo[];
 
   /**
    * <p>Represents the LSI properties for the table when the backup was created. It includes the IndexName, KeySchema and Projection for the LSIs on the table at the time of backup. </p>
    */
-  LocalSecondaryIndexes?: Array<LocalSecondaryIndexInfo>;
+  LocalSecondaryIndexes?: LocalSecondaryIndexInfo[];
 
   /**
    * <p>The description of the server-side encryption status on the table when the backup was created.</p>
@@ -6706,7 +6698,7 @@ export interface TableAutoScalingDescription {
   /**
    * <p>Represents replicas of the global table.</p>
    */
-  Replicas?: Array<ReplicaAutoScalingDescription>;
+  Replicas?: ReplicaAutoScalingDescription[];
 
   /**
    * <p>The name of the table.</p>
@@ -6767,7 +6759,7 @@ export interface TableDescription {
    *             </li>
    *          </ul>
    */
-  AttributeDefinitions?: Array<AttributeDefinition>;
+  AttributeDefinitions?: AttributeDefinition[];
 
   /**
    * <p>Contains the details for the read/write capacity mode.</p>
@@ -6888,7 +6880,7 @@ export interface TableDescription {
    *          <p>If the table is in the <code>DELETING</code> state, no information about indexes will be
    *       returned.</p>
    */
-  GlobalSecondaryIndexes?: Array<GlobalSecondaryIndexDescription>;
+  GlobalSecondaryIndexes?: GlobalSecondaryIndexDescription[];
 
   /**
    * <p>Represents the version of <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html">global tables</a> in use, if the table is replicated across AWS Regions.</p>
@@ -6934,7 +6926,7 @@ export interface TableDescription {
    *          <p>For more information about primary keys, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html#DataModelPrimaryKey">Primary Key</a> in the
    *       <i>Amazon DynamoDB Developer Guide</i>.</p>
    */
-  KeySchema?: Array<KeySchemaElement>;
+  KeySchema?: KeySchemaElement[];
 
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the latest stream for this table.</p>
@@ -7027,7 +7019,7 @@ export interface TableDescription {
    *          <p>If the table is in the <code>DELETING</code> state, no information about indexes will be
    *       returned.</p>
    */
-  LocalSecondaryIndexes?: Array<LocalSecondaryIndexDescription>;
+  LocalSecondaryIndexes?: LocalSecondaryIndexDescription[];
 
   /**
    * <p>The provisioned throughput settings for the table, consisting of read and write capacity units, along with data about increases and decreases.</p>
@@ -7037,7 +7029,7 @@ export interface TableDescription {
   /**
    * <p>Represents replicas of the table.</p>
    */
-  Replicas?: Array<ReplicaDescription>;
+  Replicas?: ReplicaDescription[];
 
   /**
    * <p>Contains details for the restore.</p>
@@ -7205,7 +7197,7 @@ export interface TagResourceInput {
   /**
    * <p>The tags to be assigned to the Amazon DynamoDB resource.</p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace TagResourceInput {
@@ -7294,7 +7286,7 @@ export interface TransactGetItemsInput {
    * <p>An ordered array of up to 25 <code>TransactGetItem</code> objects,
    *          each of which contains a <code>Get</code> structure.</p>
    */
-  TransactItems: Array<TransactGetItem> | undefined;
+  TransactItems: TransactGetItem[] | undefined;
 }
 
 export namespace TransactGetItemsInput {
@@ -7311,7 +7303,7 @@ export interface TransactGetItemsOutput {
    *          parameter. These <code>ConsumedCapacity</code> objects report the read-capacity
    *          units consumed by the <code>TransactGetItems</code> call in that table.</p>
    */
-  ConsumedCapacity?: Array<ConsumedCapacity>;
+  ConsumedCapacity?: ConsumedCapacity[];
 
   /**
    * <p>An ordered array of up to 25 <code>ItemResponse</code> objects, each of which corresponds
@@ -7323,7 +7315,7 @@ export interface TransactGetItemsOutput {
    *        object is Null, or if the requested item has no projected attributes, the corresponding
    *        <code>ItemResponse</code> object is an empty Map. </p>
    */
-  Responses?: Array<ItemResponse>;
+  Responses?: ItemResponse[];
 }
 
 export namespace TransactGetItemsOutput {
@@ -7420,7 +7412,7 @@ export interface TransactWriteItemsInput {
    *             tables must reside in the same AWS account and Region, and no two of them can operate on
    *             the same item. </p>
    */
-  TransactItems: Array<TransactWriteItem> | undefined;
+  TransactItems: TransactWriteItem[] | undefined;
 }
 
 export namespace TransactWriteItemsInput {
@@ -7436,7 +7428,7 @@ export interface TransactWriteItemsOutput {
    *       the ordering of the <code>TransactItems</code> request parameter.
    *      </p>
    */
-  ConsumedCapacity?: Array<ConsumedCapacity>;
+  ConsumedCapacity?: ConsumedCapacity[];
 
   /**
    * <p>A list of tables that were processed by <code>TransactWriteItems</code> and, for each
@@ -7444,7 +7436,7 @@ export interface TransactWriteItemsOutput {
    *                 <code>UpdateItem</code>, <code>PutItem</code>, or <code>DeleteItem</code>
    *             operations. </p>
    */
-  ItemCollectionMetrics?: { [key: string]: Array<ItemCollectionMetrics> };
+  ItemCollectionMetrics?: { [key: string]: ItemCollectionMetrics[] };
 }
 
 export namespace TransactWriteItemsOutput {
@@ -7665,7 +7657,7 @@ export interface TransactionCanceledException
   /**
    * <p>A list of cancellation reasons.</p>
    */
-  CancellationReasons?: Array<CancellationReason>;
+  CancellationReasons?: CancellationReason[];
 
   Message?: string;
 }
@@ -7719,7 +7711,7 @@ export interface UntagResourceInput {
    * <p>A list of tag keys. Existing tags of the resource whose keys are members of this list
    *             will be removed from the DynamoDB resource.</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceInput {
@@ -7891,7 +7883,7 @@ export interface UpdateGlobalTableInput {
   /**
    * <p>A list of Regions that should be added or removed from the global table.</p>
    */
-  ReplicaUpdates: Array<ReplicaUpdate> | undefined;
+  ReplicaUpdates: ReplicaUpdate[] | undefined;
 }
 
 export namespace UpdateGlobalTableInput {
@@ -7933,9 +7925,7 @@ export interface UpdateGlobalTableSettingsInput {
   /**
    * <p>Represents the settings of a global secondary index for a global table that will be modified.</p>
    */
-  GlobalTableGlobalSecondaryIndexSettingsUpdate?: Array<
-    GlobalTableGlobalSecondaryIndexSettingsUpdate
-  >;
+  GlobalTableGlobalSecondaryIndexSettingsUpdate?: GlobalTableGlobalSecondaryIndexSettingsUpdate[];
 
   /**
    * <p>The name of the global table</p>
@@ -7957,7 +7947,7 @@ export interface UpdateGlobalTableSettingsInput {
   /**
    * <p>Represents the settings for a global table in a Region that will be modified.</p>
    */
-  ReplicaSettingsUpdate?: Array<ReplicaSettingsUpdate>;
+  ReplicaSettingsUpdate?: ReplicaSettingsUpdate[];
 }
 
 export namespace UpdateGlobalTableSettingsInput {
@@ -7975,7 +7965,7 @@ export interface UpdateGlobalTableSettingsOutput {
   /**
    * <p>The Region-specific settings for the global table.</p>
    */
-  ReplicaSettings?: Array<ReplicaSettingsDescription>;
+  ReplicaSettings?: ReplicaSettingsDescription[];
 }
 
 export namespace UpdateGlobalTableSettingsOutput {
@@ -8337,7 +8327,7 @@ export interface UpdateReplicationGroupMemberAction {
   /**
    * <p>Replica-specific global secondary index settings.</p>
    */
-  GlobalSecondaryIndexes?: Array<ReplicaGlobalSecondaryIndex>;
+  GlobalSecondaryIndexes?: ReplicaGlobalSecondaryIndex[];
 
   /**
    * <p>The AWS KMS customer master key (CMK) of the replica that should be used for AWS KMS encryption.
@@ -8372,7 +8362,7 @@ export interface UpdateTableInput {
   /**
    * <p>An array of attributes that describe the key schema for the table and indexes. If you are adding a new global secondary index to the table, <code>AttributeDefinitions</code> must include the key element(s) of the new index.</p>
    */
-  AttributeDefinitions?: Array<AttributeDefinition>;
+  AttributeDefinitions?: AttributeDefinition[];
 
   /**
    * <p>Controls how you are charged for read and write throughput and how you manage capacity.
@@ -8413,7 +8403,7 @@ export interface UpdateTableInput {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html">Managing Global Secondary
    *         Indexes</a> in the <i>Amazon DynamoDB Developer Guide</i>. </p>
    */
-  GlobalSecondaryIndexUpdates?: Array<GlobalSecondaryIndexUpdate>;
+  GlobalSecondaryIndexUpdates?: GlobalSecondaryIndexUpdate[];
 
   /**
    * <p>The new provisioned throughput settings for the specified table or index.</p>
@@ -8426,7 +8416,7 @@ export interface UpdateTableInput {
    *             <p>This property only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version 2019.11.21</a> of global tables.</p>
    *          </note>
    */
-  ReplicaUpdates?: Array<ReplicationGroupUpdate>;
+  ReplicaUpdates?: ReplicationGroupUpdate[];
 
   /**
    * <p>The new server-side encryption settings for the specified table.</p>
@@ -8476,7 +8466,7 @@ export interface UpdateTableReplicaAutoScalingInput {
    * <p>Represents the auto scaling settings of the global secondary indexes of the replica
    *           to be updated.</p>
    */
-  GlobalSecondaryIndexUpdates?: Array<GlobalSecondaryIndexAutoScalingUpdate>;
+  GlobalSecondaryIndexUpdates?: GlobalSecondaryIndexAutoScalingUpdate[];
 
   /**
    * <p>Represents the auto scaling settings to be modified for a global table or global
@@ -8488,7 +8478,7 @@ export interface UpdateTableReplicaAutoScalingInput {
    * <p>Represents the auto scaling settings of replicas of the table that will be
    *            modified.</p>
    */
-  ReplicaUpdates?: Array<ReplicaAutoScalingUpdate>;
+  ReplicaUpdates?: ReplicaAutoScalingUpdate[];
 
   /**
    * <p>The name of the global table to be updated.</p>

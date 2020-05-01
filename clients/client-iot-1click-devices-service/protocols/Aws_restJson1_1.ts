@@ -2018,7 +2018,7 @@ const deserializeAws_restJson1_1DeviceMethod = (
 const deserializeAws_restJson1_1__listOfDeviceDescription = (
   output: any,
   context: __SerdeContext
-): Array<DeviceDescription> => {
+): DeviceDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DeviceDescription(entry, context)
   );
@@ -2027,7 +2027,7 @@ const deserializeAws_restJson1_1__listOfDeviceDescription = (
 const deserializeAws_restJson1_1__listOfDeviceEvent = (
   output: any,
   context: __SerdeContext
-): Array<DeviceEvent> => {
+): DeviceEvent[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DeviceEvent(entry, context)
   );
@@ -2036,7 +2036,7 @@ const deserializeAws_restJson1_1__listOfDeviceEvent = (
 const deserializeAws_restJson1_1__listOfDeviceMethod = (
   output: any,
   context: __SerdeContext
-): Array<DeviceMethod> => {
+): DeviceMethod[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DeviceMethod(entry, context)
   );

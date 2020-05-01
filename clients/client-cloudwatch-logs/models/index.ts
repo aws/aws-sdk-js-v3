@@ -291,7 +291,7 @@ export interface DescribeDestinationsResponse {
   /**
    * <p>The destinations.</p>
    */
-  destinations?: Array<Destination>;
+  destinations?: Destination[];
 
   /**
    * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
@@ -337,7 +337,7 @@ export interface DescribeExportTasksResponse {
   /**
    * <p>The export tasks.</p>
    */
-  exportTasks?: Array<ExportTask>;
+  exportTasks?: ExportTask[];
 
   /**
    * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
@@ -378,7 +378,7 @@ export interface DescribeLogGroupsResponse {
   /**
    * <p>The log groups.</p>
    */
-  logGroups?: Array<LogGroup>;
+  logGroups?: LogGroup[];
 
   /**
    * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
@@ -446,7 +446,7 @@ export interface DescribeLogStreamsResponse {
   /**
    * <p>The log streams.</p>
    */
-  logStreams?: Array<LogStream>;
+  logStreams?: LogStream[];
 
   /**
    * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
@@ -504,7 +504,7 @@ export interface DescribeMetricFiltersResponse {
   /**
    * <p>The metric filters.</p>
    */
-  metricFilters?: Array<MetricFilter>;
+  metricFilters?: MetricFilter[];
 
   /**
    * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
@@ -556,7 +556,7 @@ export interface DescribeQueriesResponse {
   /**
    * <p>The list of queries that match the request.</p>
    */
-  queries?: Array<QueryInfo>;
+  queries?: QueryInfo[];
 }
 
 export namespace DescribeQueriesResponse {
@@ -592,7 +592,7 @@ export interface DescribeResourcePoliciesResponse {
   /**
    * <p>The resource policies that exist in this account.</p>
    */
-  resourcePolicies?: Array<ResourcePolicy>;
+  resourcePolicies?: ResourcePolicy[];
 }
 
 export namespace DescribeResourcePoliciesResponse {
@@ -638,7 +638,7 @@ export interface DescribeSubscriptionFiltersResponse {
   /**
    * <p>The subscription filters.</p>
    */
-  subscriptionFilters?: Array<SubscriptionFilter>;
+  subscriptionFilters?: SubscriptionFilter[];
 }
 
 export namespace DescribeSubscriptionFiltersResponse {
@@ -866,7 +866,7 @@ export interface FilterLogEventsRequest {
    *          <p>If you specify a value for both <code>logStreamNamePrefix</code> and <code>logStreamNames</code>, the action
    *       returns an <code>InvalidParameterException</code> error.</p>
    */
-  logStreamNames?: Array<string>;
+  logStreamNames?: string[];
 
   /**
    * <p>The token for the next set of events to return. (You received this token from a previous call.)</p>
@@ -890,7 +890,7 @@ export interface FilterLogEventsResponse {
   /**
    * <p>The matched events.</p>
    */
-  events?: Array<FilteredLogEvent>;
+  events?: FilteredLogEvent[];
 
   /**
    * <p>The token to use when requesting the next set of items. The token expires after 24 hours.</p>
@@ -900,7 +900,7 @@ export interface FilterLogEventsResponse {
   /**
    * <p>Indicates which log streams have been searched and whether each has been searched completely.</p>
    */
-  searchedLogStreams?: Array<SearchedLogStream>;
+  searchedLogStreams?: SearchedLogStream[];
 }
 
 export namespace FilterLogEventsResponse {
@@ -1003,7 +1003,7 @@ export interface GetLogEventsResponse {
   /**
    * <p>The events.</p>
    */
-  events?: Array<OutputLogEvent>;
+  events?: OutputLogEvent[];
 
   /**
    * <p>The token for the next set of items in the backward direction. The token expires after 24 hours. This token will never be null. If you
@@ -1051,7 +1051,7 @@ export interface GetLogGroupFieldsResponse {
    * <p>The array of fields found in the query. Each object in the array contains the name of the field, along with the
    *     percentage of time it appeared in the log events that were queried.</p>
    */
-  logGroupFields?: Array<LogGroupField>;
+  logGroupFields?: LogGroupField[];
 }
 
 export namespace GetLogGroupFieldsResponse {
@@ -1109,7 +1109,7 @@ export interface GetQueryResultsResponse {
    *       top-level array. Each of these log event objects is an array of
    *         <code>field</code>/<code>value</code> pairs.</p>
    */
-  results?: Array<Array<ResultField>>;
+  results?: ResultField[][];
 
   /**
    * <p>Includes the number of log events scanned by the query, the number of log events that matched the
@@ -1434,7 +1434,7 @@ export interface MetricFilter {
   /**
    * <p>The metric transformations.</p>
    */
-  metricTransformations?: Array<MetricTransformation>;
+  metricTransformations?: MetricTransformation[];
 }
 
 export namespace MetricFilter {
@@ -1610,7 +1610,7 @@ export interface PutLogEventsRequest {
   /**
    * <p>The log events.</p>
    */
-  logEvents: Array<InputLogEvent> | undefined;
+  logEvents: InputLogEvent[] | undefined;
 
   /**
    * <p>The name of the log group.</p>
@@ -1675,7 +1675,7 @@ export interface PutMetricFilterRequest {
   /**
    * <p>A collection of information that defines how metric data gets emitted.</p>
    */
-  metricTransformations: Array<MetricTransformation> | undefined;
+  metricTransformations: MetricTransformation[] | undefined;
 }
 
 export namespace PutMetricFilterRequest {
@@ -2102,7 +2102,7 @@ export interface StartQueryRequest {
    *          <p>A <code>StartQuery</code> operation must include a <code>logGroupNames</code> or a <code>logGroupName</code> parameter, but
    *     not both.</p>
    */
-  logGroupNames?: Array<string>;
+  logGroupNames?: string[];
 
   /**
    * <p>The query string to use.
@@ -2243,7 +2243,7 @@ export interface TestMetricFilterRequest {
   /**
    * <p>The log event messages to test.</p>
    */
-  logEventMessages: Array<string> | undefined;
+  logEventMessages: string[] | undefined;
 }
 
 export namespace TestMetricFilterRequest {
@@ -2256,7 +2256,7 @@ export interface TestMetricFilterResponse {
   /**
    * <p>The matched events.</p>
    */
-  matches?: Array<MetricFilterMatchRecord>;
+  matches?: MetricFilterMatchRecord[];
 }
 
 export namespace TestMetricFilterResponse {
@@ -2290,7 +2290,7 @@ export interface UntagLogGroupRequest {
   /**
    * <p>The tag keys. The corresponding tags are removed from the log group.</p>
    */
-  tags: Array<string> | undefined;
+  tags: string[] | undefined;
 }
 
 export namespace UntagLogGroupRequest {

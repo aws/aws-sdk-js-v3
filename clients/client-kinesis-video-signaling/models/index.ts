@@ -104,7 +104,7 @@ export interface GetIceServerConfigResponse {
   /**
    * <p>The list of ICE server information objects.</p>
    */
-  IceServerList?: Array<IceServer>;
+  IceServerList?: IceServer[];
 }
 
 export namespace GetIceServerConfigResponse {
@@ -132,7 +132,7 @@ export interface IceServer {
    * <p>An array of URIs, in the form specified in the <a href="https://tools.ietf.org/html/draft-petithuguenin-behave-turn-uris-03">I-D.petithuguenin-behave-turn-uris</a> spec. These URIs provide the different
    *             addresses and/or protocols that can be used to reach the TURN server.</p>
    */
-  Uris?: Array<string>;
+  Uris?: string[];
 
   /**
    * <p>A username to login to the ICE server.</p>

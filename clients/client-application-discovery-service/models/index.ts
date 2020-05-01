@@ -51,7 +51,7 @@ export interface AgentInfo {
   /**
    * <p>Network details about the host where the agent or connector resides.</p>
    */
-  agentNetworkInfoList?: Array<AgentNetworkInfo>;
+  agentNetworkInfoList?: AgentNetworkInfo[];
 
   /**
    * <p>Type of agent.</p>
@@ -139,7 +139,7 @@ export interface AssociateConfigurationItemsToApplicationRequest {
   /**
    * <p>The ID of each configuration item to be associated with an application.</p>
    */
-  configurationIds: Array<string> | undefined;
+  configurationIds: string[] | undefined;
 }
 
 export namespace AssociateConfigurationItemsToApplicationRequest {
@@ -215,7 +215,7 @@ export interface BatchDeleteImportDataRequest {
   /**
    * <p>The IDs for the import tasks that you want to delete.</p>
    */
-  importTaskIds: Array<string> | undefined;
+  importTaskIds: string[] | undefined;
 }
 
 export namespace BatchDeleteImportDataRequest {
@@ -229,7 +229,7 @@ export interface BatchDeleteImportDataResponse {
    * <p>Error messages returned for each import task that you deleted as a response for this
    *       command.</p>
    */
-  errors?: Array<BatchDeleteImportDataError>;
+  errors?: BatchDeleteImportDataError[];
 }
 
 export namespace BatchDeleteImportDataResponse {
@@ -475,7 +475,7 @@ export interface CreateTagsRequest {
   /**
    * <p>A list of configuration items that you want to tag.</p>
    */
-  configurationIds: Array<string> | undefined;
+  configurationIds: string[] | undefined;
 
   /**
    * <p>Tags that you want to associate with one or more configuration items. Specify the tags
@@ -485,7 +485,7 @@ export interface CreateTagsRequest {
    *             <code>{"key": "serverType", "value": "webServer"}</code>
    *          </p>
    */
-  tags: Array<Tag> | undefined;
+  tags: Tag[] | undefined;
 }
 
 export namespace CreateTagsRequest {
@@ -603,7 +603,7 @@ export interface DeleteApplicationsRequest {
   /**
    * <p>Configuration ID of an application to be deleted.</p>
    */
-  configurationIds: Array<string> | undefined;
+  configurationIds: string[] | undefined;
 }
 
 export namespace DeleteApplicationsRequest {
@@ -625,7 +625,7 @@ export interface DeleteTagsRequest {
   /**
    * <p>A list of configuration items with tags that you want to delete.</p>
    */
-  configurationIds: Array<string> | undefined;
+  configurationIds: string[] | undefined;
 
   /**
    * <p>Tags that you want to delete from one or more configuration items. Specify the tags
@@ -635,7 +635,7 @@ export interface DeleteTagsRequest {
    *             <code>{"key": "serverType", "value": "webServer"}</code>
    *          </p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace DeleteTagsRequest {
@@ -659,7 +659,7 @@ export interface DescribeAgentsRequest {
    *       the system returns information about all agents/Connectors associated with your AWS user
    *       account.</p>
    */
-  agentIds?: Array<string>;
+  agentIds?: string[];
 
   /**
    * <p>You can filter the request using various logical operators and a
@@ -668,7 +668,7 @@ export interface DescribeAgentsRequest {
    *             <code>{"key": "collectionStatus", "value": "STARTED"}</code>
    *          </p>
    */
-  filters?: Array<Filter>;
+  filters?: Filter[];
 
   /**
    * <p>The total number of agents/Connectors to return in a single page of output. The maximum
@@ -698,7 +698,7 @@ export interface DescribeAgentsResponse {
    *       IDs, IP addresses, media access control (MAC) addresses, agent/Connector health, host name
    *       where the agent/Connector resides, and the version number of each agent/Connector.</p>
    */
-  agentsInfo?: Array<AgentInfo>;
+  agentsInfo?: AgentInfo[];
 
   /**
    * <p>Token to retrieve the next set of results. For example, if you specified 100 IDs for
@@ -719,7 +719,7 @@ export interface DescribeConfigurationsRequest {
   /**
    * <p>One or more configuration IDs.</p>
    */
-  configurationIds: Array<string> | undefined;
+  configurationIds: string[] | undefined;
 }
 
 export namespace DescribeConfigurationsRequest {
@@ -732,7 +732,7 @@ export interface DescribeConfigurationsResponse {
   /**
    * <p>A key in the response map. The value is an array of data.</p>
    */
-  configurations?: Array<{ [key: string]: string }>;
+  configurations?: { [key: string]: string }[];
 }
 
 export namespace DescribeConfigurationsResponse {
@@ -745,7 +745,7 @@ export interface DescribeContinuousExportsRequest {
   /**
    * <p>The unique IDs assigned to the exports.</p>
    */
-  exportIds?: Array<string>;
+  exportIds?: string[];
 
   /**
    * <p>A number between 1 and 100 specifying the maximum number of continuous export
@@ -769,7 +769,7 @@ export interface DescribeContinuousExportsResponse {
   /**
    * <p>A list of continuous export descriptions.</p>
    */
-  descriptions?: Array<ContinuousExportDescription>;
+  descriptions?: ContinuousExportDescription[];
 
   /**
    * <p>The token from the previous call to <code>DescribeExportTasks</code>.</p>
@@ -787,7 +787,7 @@ export interface DescribeExportConfigurationsRequest {
   /**
    * <p>A list of continuous export IDs to search for.</p>
    */
-  exportIds?: Array<string>;
+  exportIds?: string[];
 
   /**
    * <p>A number between 1 and 100 specifying the maximum number of continuous export
@@ -811,7 +811,7 @@ export interface DescribeExportConfigurationsResponse {
   /**
    * <p></p>
    */
-  exportsInfo?: Array<ExportInfo>;
+  exportsInfo?: ExportInfo[];
 
   /**
    * <p>The token from the previous call to describe-export-tasks.</p>
@@ -829,7 +829,7 @@ export interface DescribeExportTasksRequest {
   /**
    * <p>One or more unique identifiers used to query the status of an export request.</p>
    */
-  exportIds?: Array<string>;
+  exportIds?: string[];
 
   /**
    * <p>One or more filters.</p>
@@ -841,7 +841,7 @@ export interface DescribeExportTasksRequest {
    *             </li>
    *          </ul>
    */
-  filters?: Array<ExportFilter>;
+  filters?: ExportFilter[];
 
   /**
    * <p>The maximum number of volume results returned by <code>DescribeExportTasks</code> in
@@ -873,7 +873,7 @@ export interface DescribeExportTasksResponse {
    *         <code>SUCCEEDED</code>, the response includes a URL for an Amazon S3 bucket where you can
    *       view the data in a CSV file.</p>
    */
-  exportsInfo?: Array<ExportInfo>;
+  exportsInfo?: ExportInfo[];
 
   /**
    * <p>The <code>nextToken</code> value to include in a future
@@ -897,7 +897,7 @@ export interface DescribeImportTasksRequest {
    *         <code>DescribeImportTask</code> request to a specific subset of results. Currently, wildcard
    *       values aren't supported for filters.</p>
    */
-  filters?: Array<ImportTaskFilter>;
+  filters?: ImportTaskFilter[];
 
   /**
    * <p>The maximum number of results that you want this request to return, up to 100.</p>
@@ -926,7 +926,7 @@ export interface DescribeImportTasksResponse {
    * <p>A returned array of import tasks that match any applied filters, up to the specified
    *       number of maximum results.</p>
    */
-  tasks?: Array<ImportTask>;
+  tasks?: ImportTask[];
 }
 
 export namespace DescribeImportTasksResponse {
@@ -941,7 +941,7 @@ export interface DescribeTagsRequest {
    *       format. You can separate these items by using logical operators. Allowed filters include
    *         <code>tagKey</code>, <code>tagValue</code>, and <code>configurationId</code>. </p>
    */
-  filters?: Array<TagFilter>;
+  filters?: TagFilter[];
 
   /**
    * <p>The total number of items to return in a single page of output. The maximum value is
@@ -971,7 +971,7 @@ export interface DescribeTagsResponse {
    * <p>Depending on the input, this is a list of configuration items tagged with a specific
    *       tag, or a list of tags for a specific configuration item.</p>
    */
-  tags?: Array<ConfigurationTag>;
+  tags?: ConfigurationTag[];
 }
 
 export namespace DescribeTagsResponse {
@@ -989,7 +989,7 @@ export interface DisassociateConfigurationItemsFromApplicationRequest {
   /**
    * <p>Configuration ID of each item to be disassociated from an application.</p>
    */
-  configurationIds: Array<string> | undefined;
+  configurationIds: string[] | undefined;
 }
 
 export namespace DisassociateConfigurationItemsFromApplicationRequest {
@@ -1051,7 +1051,7 @@ export interface ExportFilter {
    *       found using the <a href="http://docs.aws.amazon.com/application-discovery/latest/APIReference/API_DescribeExportTasks.html">DescribeAgents</a> action. Typically an ADS <code>agentId</code> is in the form
    *         <code>o-0123456789abcdef0</code>.</p>
    */
-  values: Array<string> | undefined;
+  values: string[] | undefined;
 }
 
 export namespace ExportFilter {
@@ -1151,7 +1151,7 @@ export interface Filter {
    *         <code>destinationServer.osVersion</code> filter name, you could specify <code>Ubuntu</code>
    *       for the value.</p>
    */
-  values: Array<string> | undefined;
+  values: string[] | undefined;
 }
 
 export namespace Filter {
@@ -1355,7 +1355,7 @@ export interface ImportTaskFilter {
    * <p>An array of strings that you can provide to match against a specific name, status, or
    *       import task ID to filter the results for your import task queries.</p>
    */
-  values?: Array<string>;
+  values?: string[];
 }
 
 export namespace ImportTaskFilter {
@@ -1419,7 +1419,7 @@ export interface ListConfigurationsRequest {
    *       see <a href="https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#ListConfigurations">Using the ListConfigurations Action</a> in the <i>AWS Application Discovery
    *         Service User Guide</i>.</p>
    */
-  filters?: Array<Filter>;
+  filters?: Filter[];
 
   /**
    * <p>The total number of items to return. The maximum value is 100.</p>
@@ -1439,7 +1439,7 @@ export interface ListConfigurationsRequest {
    *       order. For a list of output characteristics for each filter, see <a href="https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#ListConfigurations">Using the ListConfigurations Action</a> in the <i>AWS Application Discovery
    *         Service User Guide</i>.</p>
    */
-  orderBy?: Array<OrderByElement>;
+  orderBy?: OrderByElement[];
 }
 
 export namespace ListConfigurationsRequest {
@@ -1453,7 +1453,7 @@ export interface ListConfigurationsResponse {
    * <p>Returns configuration details, including the configuration ID, attribute names, and
    *       attribute values.</p>
    */
-  configurations?: Array<{ [key: string]: string }>;
+  configurations?: { [key: string]: string }[];
 
   /**
    * <p>Token to retrieve the next set of results. For example, if your call to
@@ -1485,7 +1485,7 @@ export interface ListServerNeighborsRequest {
   /**
    * <p>List of configuration IDs to test for one-hop-away.</p>
    */
-  neighborConfigurationIds?: Array<string>;
+  neighborConfigurationIds?: string[];
 
   /**
    * <p>Token to retrieve the next set of results. For example, if you previously specified 100
@@ -1517,7 +1517,7 @@ export interface ListServerNeighborsResponse {
   /**
    * <p>List of distinct servers that are one hop away from the given server.</p>
    */
-  neighbors: Array<NeighborConnectionDetail> | undefined;
+  neighbors: NeighborConnectionDetail[] | undefined;
 
   /**
    * <p>Token to retrieve the next set of results. For example, if you specified 100 IDs for
@@ -1721,7 +1721,7 @@ export interface StartDataCollectionByAgentIdsRequest {
    *       throw an exception. Instead, the system shows <code>Failed</code> in the
    *         <i>Description</i> field.</p>
    */
-  agentIds: Array<string> | undefined;
+  agentIds: string[] | undefined;
 }
 
 export namespace StartDataCollectionByAgentIdsRequest {
@@ -1736,7 +1736,7 @@ export interface StartDataCollectionByAgentIdsResponse {
    *       data. Information includes the agent/connector ID, a description of the operation performed,
    *       and whether the agent/connector configuration was updated.</p>
    */
-  agentsConfigurationStatus?: Array<AgentConfigurationStatus>;
+  agentsConfigurationStatus?: AgentConfigurationStatus[];
 }
 
 export namespace StartDataCollectionByAgentIdsResponse {
@@ -1761,7 +1761,7 @@ export interface StartExportTaskRequest {
    *             <i>option has been deprecated.</i>
    *          </p>
    */
-  exportDataFormat?: Array<ExportDataFormat | string>;
+  exportDataFormat?: (ExportDataFormat | string)[];
 
   /**
    * <p>If a filter is present, it selects the single <code>agentId</code> of the Application
@@ -1771,7 +1771,7 @@ export interface StartExportTaskRequest {
    *       Agentless Discovery Connector data and summary data from Application Discovery agents.
    *     </p>
    */
-  filters?: Array<ExportFilter>;
+  filters?: ExportFilter[];
 
   /**
    * <p>The start timestamp for exported data from the single Application Discovery Agent
@@ -1887,7 +1887,7 @@ export interface StopDataCollectionByAgentIdsRequest {
   /**
    * <p>The IDs of the agents or connectors from which to stop collecting data.</p>
    */
-  agentIds: Array<string> | undefined;
+  agentIds: string[] | undefined;
 }
 
 export namespace StopDataCollectionByAgentIdsRequest {
@@ -1902,7 +1902,7 @@ export interface StopDataCollectionByAgentIdsResponse {
    *       Information includes the agent/connector ID, a description of the operation performed, and
    *       whether the agent/connector configuration was updated.</p>
    */
-  agentsConfigurationStatus?: Array<AgentConfigurationStatus>;
+  agentsConfigurationStatus?: AgentConfigurationStatus[];
 }
 
 export namespace StopDataCollectionByAgentIdsResponse {
@@ -1944,7 +1944,7 @@ export interface TagFilter {
   /**
    * <p>Values for the tag filter.</p>
    */
-  values: Array<string> | undefined;
+  values: string[] | undefined;
 }
 
 export namespace TagFilter {

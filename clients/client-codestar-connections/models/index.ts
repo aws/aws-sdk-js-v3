@@ -188,7 +188,7 @@ export interface ListConnectionsOutput {
    * <p>A list of connections and the details for each connection, such as status, owner, and
    *       provider type.</p>
    */
-  Connections?: Array<Connection>;
+  Connections?: Connection[];
 
   /**
    * <p>A token that can be used in the next <code>ListConnections</code> call. To view all

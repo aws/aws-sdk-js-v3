@@ -5895,7 +5895,7 @@ const serializeAws_restJson1_1AutoBranchCreationConfig = (
 };
 
 const serializeAws_restJson1_1AutoBranchCreationPatterns = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5926,7 +5926,7 @@ const serializeAws_restJson1_1CustomRule = (
 };
 
 const serializeAws_restJson1_1CustomRules = (
-  input: Array<CustomRule>,
+  input: CustomRule[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5973,7 +5973,7 @@ const serializeAws_restJson1_1SubDomainSetting = (
 };
 
 const serializeAws_restJson1_1SubDomainSettings = (
-  input: Array<SubDomainSetting>,
+  input: SubDomainSetting[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6130,7 +6130,7 @@ const deserializeAws_restJson1_1App = (
 const deserializeAws_restJson1_1Apps = (
   output: any,
   context: __SerdeContext
-): Array<App> => {
+): App[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1App(entry, context)
   );
@@ -6160,7 +6160,7 @@ const deserializeAws_restJson1_1Artifact = (
 const deserializeAws_restJson1_1Artifacts = (
   output: any,
   context: __SerdeContext
-): Array<Artifact> => {
+): Artifact[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Artifact(entry, context)
   );
@@ -6169,7 +6169,7 @@ const deserializeAws_restJson1_1Artifacts = (
 const deserializeAws_restJson1_1AssociatedResources = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -6237,7 +6237,7 @@ const deserializeAws_restJson1_1AutoBranchCreationConfig = (
 const deserializeAws_restJson1_1AutoBranchCreationPatterns = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -6284,7 +6284,7 @@ const deserializeAws_restJson1_1BackendEnvironment = (
 const deserializeAws_restJson1_1BackendEnvironments = (
   output: any,
   context: __SerdeContext
-): Array<BackendEnvironment> => {
+): BackendEnvironment[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1BackendEnvironment(entry, context)
   );
@@ -6443,7 +6443,7 @@ const deserializeAws_restJson1_1Branch = (
 const deserializeAws_restJson1_1Branches = (
   output: any,
   context: __SerdeContext
-): Array<Branch> => {
+): Branch[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Branch(entry, context)
   );
@@ -6452,7 +6452,7 @@ const deserializeAws_restJson1_1Branches = (
 const deserializeAws_restJson1_1CustomDomains = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -6485,7 +6485,7 @@ const deserializeAws_restJson1_1CustomRule = (
 const deserializeAws_restJson1_1CustomRules = (
   output: any,
   context: __SerdeContext
-): Array<CustomRule> => {
+): CustomRule[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1CustomRule(entry, context)
   );
@@ -6545,7 +6545,7 @@ const deserializeAws_restJson1_1DomainAssociation = (
 const deserializeAws_restJson1_1DomainAssociations = (
   output: any,
   context: __SerdeContext
-): Array<DomainAssociation> => {
+): DomainAssociation[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DomainAssociation(entry, context)
   );
@@ -6597,7 +6597,7 @@ const deserializeAws_restJson1_1Job = (
 const deserializeAws_restJson1_1JobSummaries = (
   output: any,
   context: __SerdeContext
-): Array<JobSummary> => {
+): JobSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1JobSummary(entry, context)
   );
@@ -6751,7 +6751,7 @@ const deserializeAws_restJson1_1Step = (
 const deserializeAws_restJson1_1Steps = (
   output: any,
   context: __SerdeContext
-): Array<Step> => {
+): Step[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Step(entry, context)
   );
@@ -6806,7 +6806,7 @@ const deserializeAws_restJson1_1SubDomainSetting = (
 const deserializeAws_restJson1_1SubDomains = (
   output: any,
   context: __SerdeContext
-): Array<SubDomain> => {
+): SubDomain[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SubDomain(entry, context)
   );
@@ -6864,7 +6864,7 @@ const deserializeAws_restJson1_1Webhook = (
 const deserializeAws_restJson1_1Webhooks = (
   output: any,
   context: __SerdeContext
-): Array<Webhook> => {
+): Webhook[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Webhook(entry, context)
   );

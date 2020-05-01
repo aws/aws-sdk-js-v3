@@ -2081,7 +2081,7 @@ const deserializeAws_restJson1_1JournalS3ExportDescription = (
 const deserializeAws_restJson1_1JournalS3ExportList = (
   output: any,
   context: __SerdeContext
-): Array<JournalS3ExportDescription> => {
+): JournalS3ExportDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1JournalS3ExportDescription(entry, context)
   );
@@ -2090,7 +2090,7 @@ const deserializeAws_restJson1_1JournalS3ExportList = (
 const deserializeAws_restJson1_1LedgerList = (
   output: any,
   context: __SerdeContext
-): Array<LedgerSummary> => {
+): LedgerSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1LedgerSummary(entry, context)
   );

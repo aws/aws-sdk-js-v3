@@ -6165,7 +6165,7 @@ const serializeAws_restJson1_1AccountDetail = (
 };
 
 const serializeAws_restJson1_1AccountDetails = (
-  input: Array<AccountDetail>,
+  input: AccountDetail[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6176,7 +6176,7 @@ const serializeAws_restJson1_1AccountDetails = (
 };
 
 const serializeAws_restJson1_1AccountIds = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6262,7 +6262,7 @@ const serializeAws_restJson1_1DestinationProperties = (
 };
 
 const serializeAws_restJson1_1Eq = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6273,7 +6273,7 @@ const serializeAws_restJson1_1Eq = (
 };
 
 const serializeAws_restJson1_1Equals = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6298,7 +6298,7 @@ const serializeAws_restJson1_1FindingCriteria = (
 };
 
 const serializeAws_restJson1_1FindingIds = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6309,7 +6309,7 @@ const serializeAws_restJson1_1FindingIds = (
 };
 
 const serializeAws_restJson1_1FindingStatisticTypes = (
-  input: Array<FindingStatisticType | string>,
+  input: (FindingStatisticType | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6320,7 +6320,7 @@ const serializeAws_restJson1_1FindingStatisticTypes = (
 };
 
 const serializeAws_restJson1_1FindingTypes = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6331,7 +6331,7 @@ const serializeAws_restJson1_1FindingTypes = (
 };
 
 const serializeAws_restJson1_1Neq = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6342,7 +6342,7 @@ const serializeAws_restJson1_1Neq = (
 };
 
 const serializeAws_restJson1_1NotEquals = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6651,7 +6651,7 @@ const deserializeAws_restJson1_1DestinationProperties = (
 const deserializeAws_restJson1_1Destinations = (
   output: any,
   context: __SerdeContext
-): Array<Destination> => {
+): Destination[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Destination(entry, context)
   );
@@ -6660,7 +6660,7 @@ const deserializeAws_restJson1_1Destinations = (
 const deserializeAws_restJson1_1DetectorIds = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -6695,14 +6695,14 @@ const deserializeAws_restJson1_1DomainDetails = (
 const deserializeAws_restJson1_1Eq = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1Equals = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -6729,7 +6729,7 @@ const deserializeAws_restJson1_1Evidence = (
 const deserializeAws_restJson1_1FilterNames = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -6829,7 +6829,7 @@ const deserializeAws_restJson1_1FindingCriteria = (
 const deserializeAws_restJson1_1FindingIds = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -6853,7 +6853,7 @@ const deserializeAws_restJson1_1FindingStatistics = (
 const deserializeAws_restJson1_1Findings = (
   output: any,
   context: __SerdeContext
-): Array<Finding> => {
+): Finding[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Finding(entry, context)
   );
@@ -7006,7 +7006,7 @@ const deserializeAws_restJson1_1Invitation = (
 const deserializeAws_restJson1_1Invitations = (
   output: any,
   context: __SerdeContext
-): Array<Invitation> => {
+): Invitation[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Invitation(entry, context)
   );
@@ -7015,14 +7015,14 @@ const deserializeAws_restJson1_1Invitations = (
 const deserializeAws_restJson1_1IpSetIds = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1Ipv6Addresses = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -7117,7 +7117,7 @@ const deserializeAws_restJson1_1Member = (
 const deserializeAws_restJson1_1Members = (
   output: any,
   context: __SerdeContext
-): Array<Member> => {
+): Member[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Member(entry, context)
   );
@@ -7126,7 +7126,7 @@ const deserializeAws_restJson1_1Members = (
 const deserializeAws_restJson1_1Neq = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -7253,7 +7253,7 @@ const deserializeAws_restJson1_1NetworkInterface = (
 const deserializeAws_restJson1_1NetworkInterfaces = (
   output: any,
   context: __SerdeContext
-): Array<NetworkInterface> => {
+): NetworkInterface[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1NetworkInterface(entry, context)
   );
@@ -7262,7 +7262,7 @@ const deserializeAws_restJson1_1NetworkInterfaces = (
 const deserializeAws_restJson1_1NotEquals = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -7346,7 +7346,7 @@ const deserializeAws_restJson1_1PortProbeDetail = (
 const deserializeAws_restJson1_1PortProbeDetails = (
   output: any,
   context: __SerdeContext
-): Array<PortProbeDetail> => {
+): PortProbeDetail[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1PortProbeDetail(entry, context)
   );
@@ -7376,7 +7376,7 @@ const deserializeAws_restJson1_1PrivateIpAddressDetails = (
 const deserializeAws_restJson1_1PrivateIpAddresses = (
   output: any,
   context: __SerdeContext
-): Array<PrivateIpAddressDetails> => {
+): PrivateIpAddressDetails[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1PrivateIpAddressDetails(entry, context)
   );
@@ -7403,7 +7403,7 @@ const deserializeAws_restJson1_1ProductCode = (
 const deserializeAws_restJson1_1ProductCodes = (
   output: any,
   context: __SerdeContext
-): Array<ProductCode> => {
+): ProductCode[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ProductCode(entry, context)
   );
@@ -7518,7 +7518,7 @@ const deserializeAws_restJson1_1SecurityGroup = (
 const deserializeAws_restJson1_1SecurityGroups = (
   output: any,
   context: __SerdeContext
-): Array<SecurityGroup> => {
+): SecurityGroup[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SecurityGroup(entry, context)
   );
@@ -7609,7 +7609,7 @@ const deserializeAws_restJson1_1TagMap = (
 const deserializeAws_restJson1_1Tags = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Tag(entry, context)
   );
@@ -7618,7 +7618,7 @@ const deserializeAws_restJson1_1Tags = (
 const deserializeAws_restJson1_1ThreatIntelSetIds = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -7646,7 +7646,7 @@ const deserializeAws_restJson1_1ThreatIntelligenceDetail = (
 const deserializeAws_restJson1_1ThreatIntelligenceDetails = (
   output: any,
   context: __SerdeContext
-): Array<ThreatIntelligenceDetail> => {
+): ThreatIntelligenceDetail[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ThreatIntelligenceDetail(entry, context)
   );
@@ -7655,7 +7655,7 @@ const deserializeAws_restJson1_1ThreatIntelligenceDetails = (
 const deserializeAws_restJson1_1ThreatNames = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -7680,7 +7680,7 @@ const deserializeAws_restJson1_1UnprocessedAccount = (
 const deserializeAws_restJson1_1UnprocessedAccounts = (
   output: any,
   context: __SerdeContext
-): Array<UnprocessedAccount> => {
+): UnprocessedAccount[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1UnprocessedAccount(entry, context)
   );

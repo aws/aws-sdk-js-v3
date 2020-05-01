@@ -5033,7 +5033,7 @@ const serializeAws_restJson1_1Tags = (
 };
 
 const serializeAws_restJson1_1__listOfGetDiscoveredSchemaVersionItemInput = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5208,7 +5208,7 @@ const deserializeAws_restJson1_1Tags = (
 const deserializeAws_restJson1_1__listOfDiscovererSummary = (
   output: any,
   context: __SerdeContext
-): Array<DiscovererSummary> => {
+): DiscovererSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DiscovererSummary(entry, context)
   );
@@ -5217,7 +5217,7 @@ const deserializeAws_restJson1_1__listOfDiscovererSummary = (
 const deserializeAws_restJson1_1__listOfRegistrySummary = (
   output: any,
   context: __SerdeContext
-): Array<RegistrySummary> => {
+): RegistrySummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1RegistrySummary(entry, context)
   );
@@ -5226,7 +5226,7 @@ const deserializeAws_restJson1_1__listOfRegistrySummary = (
 const deserializeAws_restJson1_1__listOfSchemaSummary = (
   output: any,
   context: __SerdeContext
-): Array<SchemaSummary> => {
+): SchemaSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SchemaSummary(entry, context)
   );
@@ -5235,7 +5235,7 @@ const deserializeAws_restJson1_1__listOfSchemaSummary = (
 const deserializeAws_restJson1_1__listOfSchemaVersionSummary = (
   output: any,
   context: __SerdeContext
-): Array<SchemaVersionSummary> => {
+): SchemaVersionSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SchemaVersionSummary(entry, context)
   );
@@ -5244,7 +5244,7 @@ const deserializeAws_restJson1_1__listOfSchemaVersionSummary = (
 const deserializeAws_restJson1_1__listOfSearchSchemaSummary = (
   output: any,
   context: __SerdeContext
-): Array<SearchSchemaSummary> => {
+): SearchSchemaSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SearchSchemaSummary(entry, context)
   );
@@ -5253,7 +5253,7 @@ const deserializeAws_restJson1_1__listOfSearchSchemaSummary = (
 const deserializeAws_restJson1_1__listOfSearchSchemaVersionSummary = (
   output: any,
   context: __SerdeContext
-): Array<SearchSchemaVersionSummary> => {
+): SearchSchemaVersionSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SearchSchemaVersionSummary(entry, context)
   );

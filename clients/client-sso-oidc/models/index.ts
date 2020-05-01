@@ -82,7 +82,7 @@ export interface CreateTokenRequest {
    * <p>The list of scopes that is defined by the client. Upon authorization, this list is used to
    *       restrict permissions when granting an access token.</p>
    */
-  scope?: Array<string>;
+  scope?: string[];
 }
 
 export namespace CreateTokenRequest {
@@ -263,7 +263,7 @@ export interface RegisterClientRequest {
    * <p>The list of scopes that are defined by the client. Upon authorization, this list is used
    *       to restrict permissions when granting an access token.</p>
    */
-  scopes?: Array<string>;
+  scopes?: string[];
 }
 
 export namespace RegisterClientRequest {

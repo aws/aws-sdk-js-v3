@@ -2930,7 +2930,7 @@ const serializeAws_restJson1_1ChannelNameCondition = (
 };
 
 const serializeAws_restJson1_1ListOfProtocols = (
-  input: Array<ChannelProtocol | string>,
+  input: (ChannelProtocol | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3008,7 +3008,7 @@ const serializeAws_restJson1_1Tag = (
 };
 
 const serializeAws_restJson1_1TagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3019,7 +3019,7 @@ const serializeAws_restJson1_1TagKeyList = (
 };
 
 const serializeAws_restJson1_1TagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3030,7 +3030,7 @@ const serializeAws_restJson1_1TagList = (
 };
 
 const serializeAws_restJson1_1TagOnCreateList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3087,7 +3087,7 @@ const deserializeAws_restJson1_1ChannelInfo = (
 const deserializeAws_restJson1_1ChannelInfoList = (
   output: any,
   context: __SerdeContext
-): Array<ChannelInfo> => {
+): ChannelInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ChannelInfo(entry, context)
   );
@@ -3096,7 +3096,7 @@ const deserializeAws_restJson1_1ChannelInfoList = (
 const deserializeAws_restJson1_1ResourceEndpointList = (
   output: any,
   context: __SerdeContext
-): Array<ResourceEndpointListItem> => {
+): ResourceEndpointListItem[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ResourceEndpointListItem(entry, context)
   );
@@ -3203,7 +3203,7 @@ const deserializeAws_restJson1_1StreamInfo = (
 const deserializeAws_restJson1_1StreamInfoList = (
   output: any,
   context: __SerdeContext
-): Array<StreamInfo> => {
+): StreamInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1StreamInfo(entry, context)
   );

@@ -94,7 +94,7 @@ export interface AccessControlPolicy {
   /**
    * <p>A list of grants.</p>
    */
-  Grants?: Array<Grant>;
+  Grants?: Grant[];
 
   /**
    * <p>Container for the bucket owner's display name and ID.</p>
@@ -137,7 +137,7 @@ export interface AnalyticsAndOperator {
   /**
    * <p>The list of tags to use when evaluating an AND predicate.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace AnalyticsAndOperator {
@@ -321,7 +321,7 @@ export interface BucketLifecycleConfiguration {
   /**
    * <p>A lifecycle rule for individual objects in an Amazon S3 bucket.</p>
    */
-  Rules: Array<LifecycleRule> | undefined;
+  Rules: LifecycleRule[] | undefined;
 }
 
 export namespace BucketLifecycleConfiguration {
@@ -374,7 +374,7 @@ export interface CORSConfiguration {
   /**
    * <p>A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.</p>
    */
-  CORSRules: Array<CORSRule> | undefined;
+  CORSRules: CORSRule[] | undefined;
 }
 
 export namespace CORSConfiguration {
@@ -393,24 +393,24 @@ export interface CORSRule {
    *       any preflight OPTIONS request, Amazon S3 returns any requested headers that are
    *       allowed.</p>
    */
-  AllowedHeaders?: Array<string>;
+  AllowedHeaders?: string[];
 
   /**
    * <p>An HTTP method that you allow the origin to execute. Valid values are
    *       <code>GET</code>, <code>PUT</code>, <code>HEAD</code>, <code>POST</code>, and
    *       <code>DELETE</code>.</p>
    */
-  AllowedMethods: Array<string> | undefined;
+  AllowedMethods: string[] | undefined;
 
   /**
    * <p>One or more origins you want customers to be able to access the bucket from.</p>
    */
-  AllowedOrigins: Array<string> | undefined;
+  AllowedOrigins: string[] | undefined;
 
   /**
    * <p>One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript <code>XMLHttpRequest</code> object).</p>
    */
-  ExposeHeaders?: Array<string>;
+  ExposeHeaders?: string[];
 
   /**
    * <p>The time in seconds that your browser is to cache the preflight response for the specified resource.</p>
@@ -660,7 +660,7 @@ export interface CompletedMultipartUpload {
   /**
    * <p>Array of CompletedPart data types.</p>
    */
-  Parts?: Array<CompletedPart>;
+  Parts?: CompletedPart[];
 }
 
 export namespace CompletedMultipartUpload {
@@ -1389,7 +1389,7 @@ export interface Delete {
   /**
    * <p>The objects to delete.</p>
    */
-  Objects: Array<ObjectIdentifier> | undefined;
+  Objects: ObjectIdentifier[] | undefined;
 
   /**
    * <p>Element to enable quiet mode for the request. When you add this element, you must set its value to true.</p>
@@ -1735,12 +1735,12 @@ export interface DeleteObjectsOutput {
   /**
    * <p>Container element for a successful delete. It identifies the object that was successfully deleted.</p>
    */
-  Deleted?: Array<DeletedObject>;
+  Deleted?: DeletedObject[];
 
   /**
    * <p>Container for a failed delete operation that describes the object that Amazon S3 attempted to delete and the error it encountered.</p>
    */
-  Errors?: Array<_Error>;
+  Errors?: _Error[];
 
   /**
    * <p>If present, indicates that the requester was successfully charged for the request.</p>
@@ -3925,7 +3925,7 @@ export interface GetBucketAclOutput {
   /**
    * <p>A list of grants.</p>
    */
-  Grants?: Array<Grant>;
+  Grants?: Grant[];
 
   /**
    * <p>Container for the bucket owner's display name and ID.</p>
@@ -3987,7 +3987,7 @@ export interface GetBucketCorsOutput {
   /**
    * <p>A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.</p>
    */
-  CORSRules?: Array<CORSRule>;
+  CORSRules?: CORSRule[];
 }
 
 export namespace GetBucketCorsOutput {
@@ -4070,7 +4070,7 @@ export interface GetBucketLifecycleConfigurationOutput {
   /**
    * <p>Container for a lifecycle rule.</p>
    */
-  Rules?: Array<LifecycleRule>;
+  Rules?: LifecycleRule[];
 }
 
 export namespace GetBucketLifecycleConfigurationOutput {
@@ -4301,7 +4301,7 @@ export interface GetBucketTaggingOutput {
   /**
    * <p>Contains the tag set.</p>
    */
-  TagSet: Array<Tag> | undefined;
+  TagSet: Tag[] | undefined;
 }
 
 export namespace GetBucketTaggingOutput {
@@ -4373,7 +4373,7 @@ export interface GetBucketWebsiteOutput {
   /**
    * <p>Rules that define when a redirect is applied and the redirect behavior.</p>
    */
-  RoutingRules?: Array<RoutingRule>;
+  RoutingRules?: RoutingRule[];
 }
 
 export namespace GetBucketWebsiteOutput {
@@ -4399,7 +4399,7 @@ export interface GetObjectAclOutput {
   /**
    * <p>A list of grants.</p>
    */
-  Grants?: Array<Grant>;
+  Grants?: Grant[];
 
   /**
    * <p>
@@ -4859,7 +4859,7 @@ export interface GetObjectTaggingOutput {
   /**
    * <p>Contains the tag set.</p>
    */
-  TagSet: Array<Tag> | undefined;
+  TagSet: Tag[] | undefined;
 
   /**
    * <p>The versionId of the object for which you got the tagging information.</p>
@@ -5437,7 +5437,7 @@ export interface InventoryConfiguration {
   /**
    * <p>Contains the optional fields that are included in the inventory results.</p>
    */
-  OptionalFields?: Array<InventoryOptionalField | string>;
+  OptionalFields?: (InventoryOptionalField | string)[];
 
   /**
    * <p>Specifies the schedule for generating inventory results.</p>
@@ -5620,7 +5620,7 @@ export interface LambdaFunctionConfiguration {
    *          For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Supported Event Types</a> in the
    *          <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    */
-  Events: Array<Event | string> | undefined;
+  Events: (Event | string)[] | undefined;
 
   /**
    * <p>Specifies object key name filtering rules. For information about key name filtering, see
@@ -5716,7 +5716,7 @@ export interface LifecycleRule {
    *          noncurrent object versions to a specific storage class at a set period in the object's
    *          lifetime. </p>
    */
-  NoncurrentVersionTransitions?: Array<NoncurrentVersionTransition>;
+  NoncurrentVersionTransitions?: NoncurrentVersionTransition[];
 
   /**
    * <p>Prefix identifying one or more objects to which the rule applies. This is
@@ -5732,7 +5732,7 @@ export interface LifecycleRule {
   /**
    * <p>Specifies when an Amazon S3 object transitions to a specified storage class.</p>
    */
-  Transitions?: Array<Transition>;
+  Transitions?: Transition[];
 }
 
 export namespace LifecycleRule {
@@ -5752,7 +5752,7 @@ export interface LifecycleRuleAndOperator {
   /**
    * <p>All of these tags must exist in the object's tag set in order for the rule to apply.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace LifecycleRuleAndOperator {
@@ -5793,7 +5793,7 @@ export interface ListBucketAnalyticsConfigurationsOutput {
   /**
    * <p>The list of analytics configurations for a bucket.</p>
    */
-  AnalyticsConfigurationList?: Array<AnalyticsConfiguration>;
+  AnalyticsConfigurationList?: AnalyticsConfiguration[];
 
   /**
    * <p>The marker that is used as a starting point for this analytics configuration list response. This value is present if it was sent in the request.</p>
@@ -5848,7 +5848,7 @@ export interface ListBucketInventoryConfigurationsOutput {
   /**
    * <p>The list of inventory configurations for a bucket.</p>
    */
-  InventoryConfigurationList?: Array<InventoryConfiguration>;
+  InventoryConfigurationList?: InventoryConfiguration[];
 
   /**
    * <p>Tells whether the returned list of inventory configurations is complete. A value of true indicates that the list is not complete and the NextContinuationToken is provided for a subsequent request.</p>
@@ -5902,7 +5902,7 @@ export interface ListBucketMetricsConfigurationsOutput {
   /**
    * <p>The list of metrics configurations for a bucket.</p>
    */
-  MetricsConfigurationList?: Array<MetricsConfiguration>;
+  MetricsConfigurationList?: MetricsConfiguration[];
 
   /**
    * <p>The marker used to continue a metrics configuration listing that has been truncated. Use the
@@ -5940,7 +5940,7 @@ export interface ListBucketsOutput {
   /**
    * <p>The list of buckets owned by the requestor.</p>
    */
-  Buckets?: Array<Bucket>;
+  Buckets?: Bucket[];
 
   /**
    * <p>The owner of the buckets listed.</p>
@@ -5965,7 +5965,7 @@ export interface ListMultipartUploadsOutput {
    *          prefix containing the delimiter in a <code>CommonPrefixes</code> element. The distinct key
    *          prefixes are returned in the <code>Prefix</code> child element.</p>
    */
-  CommonPrefixes?: Array<CommonPrefix>;
+  CommonPrefixes?: CommonPrefix[];
 
   /**
    * <p>Contains the delimiter you specified in the request. If you don't specify a delimiter in your request, this element is absent from the response.</p>
@@ -6021,7 +6021,7 @@ export interface ListMultipartUploadsOutput {
    * <p>Container for elements related to a particular multipart upload. A response can contain
    *          zero or more <code>Upload</code> elements.</p>
    */
-  Uploads?: Array<MultipartUpload>;
+  Uploads?: MultipartUpload[];
 }
 
 export namespace ListMultipartUploadsOutput {
@@ -6086,12 +6086,12 @@ export interface ListObjectVersionsOutput {
   /**
    * <p>All of the keys rolled up into a common prefix count as a single return when calculating the number of returns.</p>
    */
-  CommonPrefixes?: Array<CommonPrefix>;
+  CommonPrefixes?: CommonPrefix[];
 
   /**
    * <p>Container for an object that is a delete marker.</p>
    */
-  DeleteMarkers?: Array<DeleteMarkerEntry>;
+  DeleteMarkers?: DeleteMarkerEntry[];
 
   /**
    * <p>The delimiter grouping the included keys. A delimiter is a character that you specify to
@@ -6165,7 +6165,7 @@ export interface ListObjectVersionsOutput {
   /**
    * <p>Container for version information.</p>
    */
-  Versions?: Array<ObjectVersion>;
+  Versions?: ObjectVersion[];
 }
 
 export namespace ListObjectVersionsOutput {
@@ -6230,12 +6230,12 @@ export interface ListObjectsOutput {
    *
    *          <p>For example, if the prefix is notes/ and the delimiter is a slash (/) as in notes/summer/july, the common prefix is notes/summer/. All of the keys that roll up into a common prefix count as a single return when calculating the number of returns.</p>
    */
-  CommonPrefixes?: Array<CommonPrefix>;
+  CommonPrefixes?: CommonPrefix[];
 
   /**
    * <p>Metadata about each object returned.</p>
    */
-  Contents?: Array<_Object>;
+  Contents?: _Object[];
 
   /**
    * <p>Causes keys that contain the same string between the prefix and the first occurrence of
@@ -6346,12 +6346,12 @@ export interface ListObjectsV2Output {
    *
    *          <p>For example, if the prefix is <code>notes/</code> and the delimiter is a slash (<code>/</code>) as in <code>notes/summer/july</code>, the common prefix is <code>notes/summer/</code>. All of the keys that roll up into a common prefix count as a single return when calculating the number of returns. </p>
    */
-  CommonPrefixes?: Array<CommonPrefix>;
+  CommonPrefixes?: CommonPrefix[];
 
   /**
    * <p>Metadata about each object returned.</p>
    */
-  Contents?: Array<_Object>;
+  Contents?: _Object[];
 
   /**
    * <p>
@@ -6545,7 +6545,7 @@ export interface ListPartsOutput {
    * <p> Container for elements related to a particular part. A response can contain zero or
    *          more <code>Part</code> elements.</p>
    */
-  Parts?: Array<Part>;
+  Parts?: Part[];
 
   /**
    * <p>If present, indicates that the requester was successfully charged for the request.</p>
@@ -6629,7 +6629,7 @@ export interface LoggingEnabled {
   /**
    * <p>Container for granting information.</p>
    */
-  TargetGrants?: Array<TargetGrant>;
+  TargetGrants?: TargetGrant[];
 
   /**
    * <p>A prefix for all log object keys. If you store log files from multiple Amazon S3
@@ -6711,7 +6711,7 @@ export interface MetricsAndOperator {
   /**
    * <p>The list of tags used when evaluating an AND predicate.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace MetricsAndOperator {
@@ -6902,17 +6902,17 @@ export interface NotificationConfiguration {
   /**
    * <p>Describes the AWS Lambda functions to invoke and the events for which to invoke them.</p>
    */
-  LambdaFunctionConfigurations?: Array<LambdaFunctionConfiguration>;
+  LambdaFunctionConfigurations?: LambdaFunctionConfiguration[];
 
   /**
    * <p>The Amazon Simple Queue Service queues to publish messages to and the events for which to publish messages.</p>
    */
-  QueueConfigurations?: Array<QueueConfiguration>;
+  QueueConfigurations?: QueueConfiguration[];
 
   /**
    * <p>The topic to which notifications are sent and the events for which notifications are generated.</p>
    */
-  TopicConfigurations?: Array<TopicConfiguration>;
+  TopicConfigurations?: TopicConfiguration[];
 }
 
 export namespace NotificationConfiguration {
@@ -8407,7 +8407,7 @@ export interface QueueConfiguration {
   /**
    * <p>A collection of bucket events for which to send notifications</p>
    */
-  Events: Array<Event | string> | undefined;
+  Events: (Event | string)[] | undefined;
 
   /**
    * <p>Specifies object key name filtering rules. For information about key name filtering, see
@@ -8527,7 +8527,7 @@ export interface ReplicationConfiguration {
    * <p>A container for one or more replication rules. A replication configuration must have at
    *       least one rule and can contain a maximum of 1,000 rules. </p>
    */
-  Rules: Array<ReplicationRule> | undefined;
+  Rules: ReplicationRule[] | undefined;
 }
 
 export namespace ReplicationConfiguration {
@@ -8646,7 +8646,7 @@ export interface ReplicationRuleAndOperator {
   /**
    * <p>An array of tags containing key and value pairs.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace ReplicationRuleAndOperator {
@@ -8925,7 +8925,7 @@ export interface S3KeyFilter {
    * <p>A list of containers for the key-value pair that defines the criteria for the filter
    *          rule.</p>
    */
-  FilterRules?: Array<FilterRule>;
+  FilterRules?: FilterRule[];
 }
 
 export namespace S3KeyFilter {
@@ -8940,7 +8940,7 @@ export interface S3Location {
   /**
    * <p>A list of grants that control access to the staged results.</p>
    */
-  AccessControlList?: Array<Grant>;
+  AccessControlList?: Grant[];
 
   /**
    * <p>The name of the bucket where the restore results will be placed.</p>
@@ -8975,7 +8975,7 @@ export interface S3Location {
   /**
    * <p>A list of metadata to store with the restore results in S3.</p>
    */
-  UserMetadata?: Array<MetadataEntry>;
+  UserMetadata?: MetadataEntry[];
 }
 
 export namespace S3Location {
@@ -9299,7 +9299,7 @@ export interface ServerSideEncryptionConfiguration {
   /**
    * <p>Container for information about a particular server-side encryption configuration rule.</p>
    */
-  Rules: Array<ServerSideEncryptionRule> | undefined;
+  Rules: ServerSideEncryptionRule[] | undefined;
 }
 
 export namespace ServerSideEncryptionConfiguration {
@@ -9479,7 +9479,7 @@ export interface Tagging {
   /**
    * <p>A collection for a set of tags</p>
    */
-  TagSet: Array<Tag> | undefined;
+  TagSet: Tag[] | undefined;
 }
 
 export namespace Tagging {
@@ -9521,7 +9521,7 @@ export interface TopicConfiguration {
    *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Supported Event
    *             Types</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    */
-  Events: Array<Event | string> | undefined;
+  Events: (Event | string)[] | undefined;
 
   /**
    * <p>Specifies object key name filtering rules. For information about key name filtering, see
@@ -9901,7 +9901,7 @@ export interface WebsiteConfiguration {
   /**
    * <p>Rules that define when a redirect is applied and the redirect behavior.</p>
    */
-  RoutingRules?: Array<RoutingRule>;
+  RoutingRules?: RoutingRule[];
 }
 
 export namespace WebsiteConfiguration {

@@ -547,7 +547,7 @@ export interface CreateFunctionRequest {
    * <p>A list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">function layers</a>
    *       to add to the function's execution environment. Specify each layer by its ARN, including the version.</p>
    */
-  Layers?: Array<string>;
+  Layers?: string[];
 
   /**
    * <p>The amount of memory that your function has access to. Increasing the function's memory also increases its CPU
@@ -1199,7 +1199,7 @@ export interface FunctionConfiguration {
    * <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">
    *       layers</a>.</p>
    */
-  Layers?: Array<Layer>;
+  Layers?: Layer[];
 
   /**
    * <p>For Lambda@Edge functions, the ARN of the master function.</p>
@@ -1661,7 +1661,7 @@ export interface GetLayerVersionResponse {
   /**
    * <p>The layer's compatible runtimes.</p>
    */
-  CompatibleRuntimes?: Array<Runtime | string>;
+  CompatibleRuntimes?: (Runtime | string)[];
 
   /**
    * <p>Details about the layer version.</p>
@@ -2290,7 +2290,7 @@ export interface LayerVersionsListItem {
   /**
    * <p>The layer's compatible runtimes.</p>
    */
-  CompatibleRuntimes?: Array<Runtime | string>;
+  CompatibleRuntimes?: (Runtime | string)[];
 
   /**
    * <p>The date that the version was created, in ISO 8601 format. For example, <code>2018-11-27T15:10:45.123+0000</code>.</p>
@@ -2402,7 +2402,7 @@ export interface ListAliasesResponse {
   /**
    * <p>A list of aliases.</p>
    */
-  Aliases?: Array<AliasConfiguration>;
+  Aliases?: AliasConfiguration[];
 
   /**
    * <p>The pagination token that's included if more results are available.</p>
@@ -2485,7 +2485,7 @@ export interface ListEventSourceMappingsResponse {
   /**
    * <p>A list of event source mappings.</p>
    */
-  EventSourceMappings?: Array<EventSourceMappingConfiguration>;
+  EventSourceMappings?: EventSourceMappingConfiguration[];
 
   /**
    * <p>A pagination token that's returned when the response doesn't contain all event source mappings.</p>
@@ -2545,7 +2545,7 @@ export interface ListFunctionEventInvokeConfigsResponse {
   /**
    * <p>A list of configurations.</p>
    */
-  FunctionEventInvokeConfigs?: Array<FunctionEventInvokeConfig>;
+  FunctionEventInvokeConfigs?: FunctionEventInvokeConfig[];
 
   /**
    * <p>The pagination token that's included if more results are available.</p>
@@ -2596,7 +2596,7 @@ export interface ListFunctionsResponse {
   /**
    * <p>A list of Lambda functions.</p>
    */
-  Functions?: Array<FunctionConfiguration>;
+  Functions?: FunctionConfiguration[];
 
   /**
    * <p>The pagination token that's included if more results are available.</p>
@@ -2642,7 +2642,7 @@ export interface ListLayerVersionsResponse {
   /**
    * <p>A list of versions.</p>
    */
-  LayerVersions?: Array<LayerVersionsListItem>;
+  LayerVersions?: LayerVersionsListItem[];
 
   /**
    * <p>A pagination token returned when the response doesn't contain all versions.</p>
@@ -2683,7 +2683,7 @@ export interface ListLayersResponse {
   /**
    * <p>A list of function layers.</p>
    */
-  Layers?: Array<LayersListItem>;
+  Layers?: LayersListItem[];
 
   /**
    * <p>A pagination token returned when the response doesn't contain all layers.</p>
@@ -2748,7 +2748,7 @@ export interface ListProvisionedConcurrencyConfigsResponse {
   /**
    * <p>A list of provisioned concurrency configurations.</p>
    */
-  ProvisionedConcurrencyConfigs?: Array<ProvisionedConcurrencyConfigListItem>;
+  ProvisionedConcurrencyConfigs?: ProvisionedConcurrencyConfigListItem[];
 }
 
 export namespace ListProvisionedConcurrencyConfigsResponse {
@@ -2834,7 +2834,7 @@ export interface ListVersionsByFunctionResponse {
   /**
    * <p>A list of Lambda function versions.</p>
    */
-  Versions?: Array<FunctionConfiguration>;
+  Versions?: FunctionConfiguration[];
 }
 
 export namespace ListVersionsByFunctionResponse {
@@ -2998,7 +2998,7 @@ export interface PublishLayerVersionRequest {
    * <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">function
    *         runtimes</a>. Used for filtering with <a>ListLayers</a> and <a>ListLayerVersions</a>.</p>
    */
-  CompatibleRuntimes?: Array<Runtime | string>;
+  CompatibleRuntimes?: (Runtime | string)[];
 
   /**
    * <p>The function layer archive.</p>
@@ -3044,7 +3044,7 @@ export interface PublishLayerVersionResponse {
   /**
    * <p>The layer's compatible runtimes.</p>
    */
-  CompatibleRuntimes?: Array<Runtime | string>;
+  CompatibleRuntimes?: (Runtime | string)[];
 
   /**
    * <p>Details about the layer version.</p>
@@ -3693,7 +3693,7 @@ export interface UntagResourceRequest {
   /**
    * <p>A list of tag keys to remove from the function.</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -3985,7 +3985,7 @@ export interface UpdateFunctionConfigurationRequest {
    * <p>A list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">function layers</a>
    *       to add to the function's execution environment. Specify each layer by its ARN, including the version.</p>
    */
-  Layers?: Array<string>;
+  Layers?: string[];
 
   /**
    * <p>The amount of memory that your function has access to. Increasing the function's memory also increases its CPU
@@ -4115,12 +4115,12 @@ export interface VpcConfig {
   /**
    * <p>A list of VPC security groups IDs.</p>
    */
-  SecurityGroupIds?: Array<string>;
+  SecurityGroupIds?: string[];
 
   /**
    * <p>A list of VPC subnet IDs.</p>
    */
-  SubnetIds?: Array<string>;
+  SubnetIds?: string[];
 }
 
 export namespace VpcConfig {
@@ -4135,12 +4135,12 @@ export interface VpcConfigResponse {
   /**
    * <p>A list of VPC security groups IDs.</p>
    */
-  SecurityGroupIds?: Array<string>;
+  SecurityGroupIds?: string[];
 
   /**
    * <p>A list of VPC subnet IDs.</p>
    */
-  SubnetIds?: Array<string>;
+  SubnetIds?: string[];
 
   /**
    * <p>The ID of the VPC.</p>

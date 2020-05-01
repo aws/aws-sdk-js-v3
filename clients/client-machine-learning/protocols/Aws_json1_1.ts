@@ -3504,7 +3504,7 @@ const serializeAws_json1_1DescribeTagsInput = (
 };
 
 const serializeAws_json1_1EDPSecurityGroupIds = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3769,7 +3769,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_json1_1TagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3780,7 +3780,7 @@ const serializeAws_json1_1TagKeyList = (
 };
 
 const serializeAws_json1_1TagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3973,7 +3973,7 @@ const deserializeAws_json1_1BatchPrediction = (
 const deserializeAws_json1_1BatchPredictions = (
   output: any,
   context: __SerdeContext
-): Array<BatchPrediction> => {
+): BatchPrediction[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1BatchPrediction(entry, context)
   );
@@ -4193,7 +4193,7 @@ const deserializeAws_json1_1DataSource = (
 const deserializeAws_json1_1DataSources = (
   output: any,
   context: __SerdeContext
-): Array<DataSource> => {
+): DataSource[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DataSource(entry, context)
   );
@@ -4498,7 +4498,7 @@ const deserializeAws_json1_1Evaluation = (
 const deserializeAws_json1_1Evaluations = (
   output: any,
   context: __SerdeContext
-): Array<Evaluation> => {
+): Evaluation[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Evaluation(entry, context)
   );
@@ -5111,7 +5111,7 @@ const deserializeAws_json1_1MLModel = (
 const deserializeAws_json1_1MLModels = (
   output: any,
   context: __SerdeContext
-): Array<MLModel> => {
+): MLModel[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1MLModel(entry, context)
   );
@@ -5414,7 +5414,7 @@ const deserializeAws_json1_1TagLimitExceededException = (
 const deserializeAws_json1_1TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );

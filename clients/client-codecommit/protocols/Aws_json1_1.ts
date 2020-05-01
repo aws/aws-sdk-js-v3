@@ -20546,7 +20546,7 @@ const serializeAws_json1_1BatchGetRepositoriesInput = (
 };
 
 const serializeAws_json1_1BranchNameList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -20557,7 +20557,7 @@ const serializeAws_json1_1BranchNameList = (
 };
 
 const serializeAws_json1_1CommitIdsInputList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -20817,7 +20817,7 @@ const serializeAws_json1_1DeleteCommentContentInput = (
 };
 
 const serializeAws_json1_1DeleteFileEntries = (
-  input: Array<DeleteFileEntry>,
+  input: DeleteFileEntry[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -20982,7 +20982,7 @@ const serializeAws_json1_1EvaluatePullRequestApprovalRulesInput = (
 };
 
 const serializeAws_json1_1FilePaths = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -21752,7 +21752,7 @@ const serializeAws_json1_1PostCommentReplyInput = (
 };
 
 const serializeAws_json1_1PutFileEntries = (
-  input: Array<PutFileEntry>,
+  input: PutFileEntry[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -21838,7 +21838,7 @@ const serializeAws_json1_1PutRepositoryTriggersInput = (
 };
 
 const serializeAws_json1_1ReplaceContentEntries = (
-  input: Array<ReplaceContentEntry>,
+  input: ReplaceContentEntry[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -21869,7 +21869,7 @@ const serializeAws_json1_1ReplaceContentEntry = (
 };
 
 const serializeAws_json1_1RepositoryNameList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -21909,7 +21909,7 @@ const serializeAws_json1_1RepositoryTrigger = (
 };
 
 const serializeAws_json1_1RepositoryTriggerEventList = (
-  input: Array<RepositoryTriggerEventEnum | string>,
+  input: (RepositoryTriggerEventEnum | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -21920,7 +21920,7 @@ const serializeAws_json1_1RepositoryTriggerEventList = (
 };
 
 const serializeAws_json1_1RepositoryTriggersList = (
-  input: Array<RepositoryTrigger>,
+  input: RepositoryTrigger[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -21931,7 +21931,7 @@ const serializeAws_json1_1RepositoryTriggersList = (
 };
 
 const serializeAws_json1_1SetFileModeEntries = (
-  input: Array<SetFileModeEntry>,
+  input: SetFileModeEntry[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -21970,7 +21970,7 @@ const serializeAws_json1_1SourceFileSpecifier = (
 };
 
 const serializeAws_json1_1TagKeysList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -22023,7 +22023,7 @@ const serializeAws_json1_1Target = (
 };
 
 const serializeAws_json1_1TargetList = (
-  input: Array<Target>,
+  input: Target[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -22285,7 +22285,7 @@ const deserializeAws_json1_1Approval = (
 const deserializeAws_json1_1ApprovalList = (
   output: any,
   context: __SerdeContext
-): Array<Approval> => {
+): Approval[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Approval(entry, context)
   );
@@ -22583,7 +22583,7 @@ const deserializeAws_json1_1ApprovalRuleTemplateNameAlreadyExistsException = (
 const deserializeAws_json1_1ApprovalRuleTemplateNameList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -22604,7 +22604,7 @@ const deserializeAws_json1_1ApprovalRuleTemplateNameRequiredException = (
 const deserializeAws_json1_1ApprovalRulesList = (
   output: any,
   context: __SerdeContext
-): Array<ApprovalRule> => {
+): ApprovalRule[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ApprovalRule(entry, context)
   );
@@ -22613,14 +22613,14 @@ const deserializeAws_json1_1ApprovalRulesList = (
 const deserializeAws_json1_1ApprovalRulesNotSatisfiedList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1ApprovalRulesSatisfiedList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -22695,7 +22695,7 @@ const deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesEr
 const deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesErrorsList = (
   output: any,
   context: __SerdeContext
-): Array<BatchAssociateApprovalRuleTemplateWithRepositoriesError> => {
+): BatchAssociateApprovalRuleTemplateWithRepositoriesError[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesError(
       entry,
@@ -22756,7 +22756,7 @@ const deserializeAws_json1_1BatchDescribeMergeConflictsError = (
 const deserializeAws_json1_1BatchDescribeMergeConflictsErrors = (
   output: any,
   context: __SerdeContext
-): Array<BatchDescribeMergeConflictsError> => {
+): BatchDescribeMergeConflictsError[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1BatchDescribeMergeConflictsError(entry, context)
   );
@@ -22830,7 +22830,7 @@ const deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositorie
 const deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesErrorsList = (
   output: any,
   context: __SerdeContext
-): Array<BatchDisassociateApprovalRuleTemplateFromRepositoriesError> => {
+): BatchDisassociateApprovalRuleTemplateFromRepositoriesError[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesError(
       entry,
@@ -22891,7 +22891,7 @@ const deserializeAws_json1_1BatchGetCommitsError = (
 const deserializeAws_json1_1BatchGetCommitsErrorsList = (
   output: any,
   context: __SerdeContext
-): Array<BatchGetCommitsError> => {
+): BatchGetCommitsError[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1BatchGetCommitsError(entry, context)
   );
@@ -23075,7 +23075,7 @@ const deserializeAws_json1_1BranchNameIsTagNameException = (
 const deserializeAws_json1_1BranchNameList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -23272,7 +23272,7 @@ const deserializeAws_json1_1CommentNotCreatedByCallerException = (
 const deserializeAws_json1_1Comments = (
   output: any,
   context: __SerdeContext
-): Array<Comment> => {
+): Comment[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Comment(entry, context)
   );
@@ -23325,7 +23325,7 @@ const deserializeAws_json1_1CommentsForComparedCommit = (
 const deserializeAws_json1_1CommentsForComparedCommitData = (
   output: any,
   context: __SerdeContext
-): Array<CommentsForComparedCommit> => {
+): CommentsForComparedCommit[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1CommentsForComparedCommit(entry, context)
   );
@@ -23382,7 +23382,7 @@ const deserializeAws_json1_1CommentsForPullRequest = (
 const deserializeAws_json1_1CommentsForPullRequestData = (
   output: any,
   context: __SerdeContext
-): Array<CommentsForPullRequest> => {
+): CommentsForPullRequest[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1CommentsForPullRequest(entry, context)
   );
@@ -23519,7 +23519,7 @@ const deserializeAws_json1_1CommitMessageLengthExceededException = (
 const deserializeAws_json1_1CommitObjectsList = (
   output: any,
   context: __SerdeContext
-): Array<Commit> => {
+): Commit[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Commit(entry, context)
   );
@@ -23657,7 +23657,7 @@ const deserializeAws_json1_1ConflictMetadata = (
 const deserializeAws_json1_1ConflictMetadataList = (
   output: any,
   context: __SerdeContext
-): Array<ConflictMetadata> => {
+): ConflictMetadata[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ConflictMetadata(entry, context)
   );
@@ -23666,7 +23666,7 @@ const deserializeAws_json1_1ConflictMetadataList = (
 const deserializeAws_json1_1Conflicts = (
   output: any,
   context: __SerdeContext
-): Array<Conflict> => {
+): Conflict[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Conflict(entry, context)
   );
@@ -24020,7 +24020,7 @@ const deserializeAws_json1_1Difference = (
 const deserializeAws_json1_1DifferenceList = (
   output: any,
   context: __SerdeContext
-): Array<Difference> => {
+): Difference[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Difference(entry, context)
   );
@@ -24264,7 +24264,7 @@ const deserializeAws_json1_1FileEntryRequiredException = (
 const deserializeAws_json1_1FileList = (
   output: any,
   context: __SerdeContext
-): Array<File> => {
+): File[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1File(entry, context)
   );
@@ -24395,7 +24395,7 @@ const deserializeAws_json1_1FileTooLargeException = (
 const deserializeAws_json1_1FilesMetadata = (
   output: any,
   context: __SerdeContext
-): Array<FileMetadata> => {
+): FileMetadata[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1FileMetadata(entry, context)
   );
@@ -24454,7 +24454,7 @@ const deserializeAws_json1_1FolderDoesNotExistException = (
 const deserializeAws_json1_1FolderList = (
   output: any,
   context: __SerdeContext
-): Array<Folder> => {
+): Folder[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Folder(entry, context)
   );
@@ -26213,7 +26213,7 @@ const deserializeAws_json1_1MergeHunkDetail = (
 const deserializeAws_json1_1MergeHunks = (
   output: any,
   context: __SerdeContext
-): Array<MergeHunk> => {
+): MergeHunk[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1MergeHunk(entry, context)
   );
@@ -26280,7 +26280,7 @@ const deserializeAws_json1_1MergeOptionRequiredException = (
 const deserializeAws_json1_1MergeOptions = (
   output: any,
   context: __SerdeContext
-): Array<MergeOptionTypeEnum | string> => {
+): (MergeOptionTypeEnum | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -26538,7 +26538,7 @@ const deserializeAws_json1_1ParentCommitIdRequiredException = (
 const deserializeAws_json1_1ParentList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -26931,7 +26931,7 @@ const deserializeAws_json1_1PullRequestEvent = (
 const deserializeAws_json1_1PullRequestEventList = (
   output: any,
   context: __SerdeContext
-): Array<PullRequestEvent> => {
+): PullRequestEvent[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PullRequestEvent(entry, context)
   );
@@ -26940,7 +26940,7 @@ const deserializeAws_json1_1PullRequestEventList = (
 const deserializeAws_json1_1PullRequestIdList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -27093,7 +27093,7 @@ const deserializeAws_json1_1PullRequestTarget = (
 const deserializeAws_json1_1PullRequestTargetList = (
   output: any,
   context: __SerdeContext
-): Array<PullRequestTarget> => {
+): PullRequestTarget[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PullRequestTarget(entry, context)
   );
@@ -27308,7 +27308,7 @@ const deserializeAws_json1_1RepositoryMetadata = (
 const deserializeAws_json1_1RepositoryMetadataList = (
   output: any,
   context: __SerdeContext
-): Array<RepositoryMetadata> => {
+): RepositoryMetadata[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RepositoryMetadata(entry, context)
   );
@@ -27349,7 +27349,7 @@ const deserializeAws_json1_1RepositoryNameIdPair = (
 const deserializeAws_json1_1RepositoryNameIdPairList = (
   output: any,
   context: __SerdeContext
-): Array<RepositoryNameIdPair> => {
+): RepositoryNameIdPair[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RepositoryNameIdPair(entry, context)
   );
@@ -27358,7 +27358,7 @@ const deserializeAws_json1_1RepositoryNameIdPairList = (
 const deserializeAws_json1_1RepositoryNameList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -27407,7 +27407,7 @@ const deserializeAws_json1_1RepositoryNotAssociatedWithPullRequestException = (
 const deserializeAws_json1_1RepositoryNotFoundList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -27478,7 +27478,7 @@ const deserializeAws_json1_1RepositoryTriggerDestinationArnRequiredException = (
 const deserializeAws_json1_1RepositoryTriggerEventList = (
   output: any,
   context: __SerdeContext
-): Array<RepositoryTriggerEventEnum | string> => {
+): (RepositoryTriggerEventEnum | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -27517,7 +27517,7 @@ const deserializeAws_json1_1RepositoryTriggerExecutionFailure = (
 const deserializeAws_json1_1RepositoryTriggerExecutionFailureList = (
   output: any,
   context: __SerdeContext
-): Array<RepositoryTriggerExecutionFailure> => {
+): RepositoryTriggerExecutionFailure[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RepositoryTriggerExecutionFailure(entry, context)
   );
@@ -27526,7 +27526,7 @@ const deserializeAws_json1_1RepositoryTriggerExecutionFailureList = (
 const deserializeAws_json1_1RepositoryTriggerNameList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -27547,7 +27547,7 @@ const deserializeAws_json1_1RepositoryTriggerNameRequiredException = (
 const deserializeAws_json1_1RepositoryTriggersList = (
   output: any,
   context: __SerdeContext
-): Array<RepositoryTrigger> => {
+): RepositoryTrigger[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RepositoryTrigger(entry, context)
   );
@@ -27704,7 +27704,7 @@ const deserializeAws_json1_1SubModule = (
 const deserializeAws_json1_1SubModuleList = (
   output: any,
   context: __SerdeContext
-): Array<SubModule> => {
+): SubModule[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SubModule(entry, context)
   );
@@ -27739,7 +27739,7 @@ const deserializeAws_json1_1SymbolicLink = (
 const deserializeAws_json1_1SymbolicLinkList = (
   output: any,
   context: __SerdeContext
-): Array<SymbolicLink> => {
+): SymbolicLink[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SymbolicLink(entry, context)
   );

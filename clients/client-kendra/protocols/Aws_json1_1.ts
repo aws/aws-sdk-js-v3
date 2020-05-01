@@ -2975,7 +2975,7 @@ const serializeAws_json1_1AttributeFilter = (
 };
 
 const serializeAws_json1_1AttributeFilterList = (
-  input: Array<AttributeFilter>,
+  input: AttributeFilter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3023,7 +3023,7 @@ const serializeAws_json1_1BatchPutDocumentRequest = (
 };
 
 const serializeAws_json1_1ChangeDetectingColumns = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3048,7 +3048,7 @@ const serializeAws_json1_1ClickFeedback = (
 };
 
 const serializeAws_json1_1ClickFeedbackList = (
-  input: Array<ClickFeedback>,
+  input: ClickFeedback[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3227,7 +3227,7 @@ const serializeAws_json1_1DataSourceConfiguration = (
 };
 
 const serializeAws_json1_1DataSourceInclusionsExclusionsStrings = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3255,7 +3255,7 @@ const serializeAws_json1_1DataSourceToIndexFieldMapping = (
 };
 
 const serializeAws_json1_1DataSourceToIndexFieldMappingList = (
-  input: Array<DataSourceToIndexFieldMapping>,
+  input: DataSourceToIndexFieldMapping[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3443,7 +3443,7 @@ const serializeAws_json1_1DocumentAttribute = (
 };
 
 const serializeAws_json1_1DocumentAttributeKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3454,7 +3454,7 @@ const serializeAws_json1_1DocumentAttributeKeyList = (
 };
 
 const serializeAws_json1_1DocumentAttributeList = (
-  input: Array<DocumentAttribute>,
+  input: DocumentAttribute[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3465,7 +3465,7 @@ const serializeAws_json1_1DocumentAttributeList = (
 };
 
 const serializeAws_json1_1DocumentAttributeStringListValue = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3501,7 +3501,7 @@ const serializeAws_json1_1DocumentAttributeValue = (
 };
 
 const serializeAws_json1_1DocumentIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3512,7 +3512,7 @@ const serializeAws_json1_1DocumentIdList = (
 };
 
 const serializeAws_json1_1DocumentList = (
-  input: Array<Document>,
+  input: Document[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3546,7 +3546,7 @@ const serializeAws_json1_1DocumentMetadataConfiguration = (
 };
 
 const serializeAws_json1_1DocumentMetadataConfigurationList = (
-  input: Array<DocumentMetadataConfiguration>,
+  input: DocumentMetadataConfiguration[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3581,7 +3581,7 @@ const serializeAws_json1_1Facet = (
 };
 
 const serializeAws_json1_1FacetList = (
-  input: Array<Facet>,
+  input: Facet[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3686,7 +3686,7 @@ const serializeAws_json1_1Principal = (
 };
 
 const serializeAws_json1_1PrincipalList = (
-  input: Array<Principal>,
+  input: Principal[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3777,7 +3777,7 @@ const serializeAws_json1_1RelevanceFeedback = (
 };
 
 const serializeAws_json1_1RelevanceFeedbackList = (
-  input: Array<RelevanceFeedback>,
+  input: RelevanceFeedback[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3862,7 +3862,7 @@ const serializeAws_json1_1Search = (
 };
 
 const serializeAws_json1_1SecurityGroupIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3926,7 +3926,7 @@ const serializeAws_json1_1SharePointConfiguration = (
 };
 
 const serializeAws_json1_1SharePointUrlList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3993,7 +3993,7 @@ const serializeAws_json1_1SubmitFeedbackRequest = (
 };
 
 const serializeAws_json1_1SubnetIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4161,7 +4161,7 @@ const deserializeAws_json1_1AdditionalResultAttribute = (
 const deserializeAws_json1_1AdditionalResultAttributeList = (
   output: any,
   context: __SerdeContext
-): Array<AdditionalResultAttribute> => {
+): AdditionalResultAttribute[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AdditionalResultAttribute(entry, context)
   );
@@ -4229,7 +4229,7 @@ const deserializeAws_json1_1BatchDeleteDocumentResponseFailedDocument = (
 const deserializeAws_json1_1BatchDeleteDocumentResponseFailedDocuments = (
   output: any,
   context: __SerdeContext
-): Array<BatchDeleteDocumentResponseFailedDocument> => {
+): BatchDeleteDocumentResponseFailedDocument[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1BatchDeleteDocumentResponseFailedDocument(
       entry,
@@ -4280,7 +4280,7 @@ const deserializeAws_json1_1BatchPutDocumentResponseFailedDocument = (
 const deserializeAws_json1_1BatchPutDocumentResponseFailedDocuments = (
   output: any,
   context: __SerdeContext
-): Array<BatchPutDocumentResponseFailedDocument> => {
+): BatchPutDocumentResponseFailedDocument[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1BatchPutDocumentResponseFailedDocument(entry, context)
   );
@@ -4289,7 +4289,7 @@ const deserializeAws_json1_1BatchPutDocumentResponseFailedDocuments = (
 const deserializeAws_json1_1ChangeDetectingColumns = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -4467,7 +4467,7 @@ const deserializeAws_json1_1DataSourceConfiguration = (
 const deserializeAws_json1_1DataSourceInclusionsExclusionsStrings = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -4508,7 +4508,7 @@ const deserializeAws_json1_1DataSourceSummary = (
 const deserializeAws_json1_1DataSourceSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<DataSourceSummary> => {
+): DataSourceSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DataSourceSummary(entry, context)
   );
@@ -4558,7 +4558,7 @@ const deserializeAws_json1_1DataSourceSyncJob = (
 const deserializeAws_json1_1DataSourceSyncJobHistoryList = (
   output: any,
   context: __SerdeContext
-): Array<DataSourceSyncJob> => {
+): DataSourceSyncJob[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DataSourceSyncJob(entry, context)
   );
@@ -4592,7 +4592,7 @@ const deserializeAws_json1_1DataSourceToIndexFieldMapping = (
 const deserializeAws_json1_1DataSourceToIndexFieldMappingList = (
   output: any,
   context: __SerdeContext
-): Array<DataSourceToIndexFieldMapping> => {
+): DataSourceToIndexFieldMapping[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DataSourceToIndexFieldMapping(entry, context)
   );
@@ -4886,7 +4886,7 @@ const deserializeAws_json1_1DocumentAttribute = (
 const deserializeAws_json1_1DocumentAttributeList = (
   output: any,
   context: __SerdeContext
-): Array<DocumentAttribute> => {
+): DocumentAttribute[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DocumentAttribute(entry, context)
   );
@@ -4895,7 +4895,7 @@ const deserializeAws_json1_1DocumentAttributeList = (
 const deserializeAws_json1_1DocumentAttributeStringListValue = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -4955,7 +4955,7 @@ const deserializeAws_json1_1DocumentAttributeValueCountPair = (
 const deserializeAws_json1_1DocumentAttributeValueCountPairList = (
   output: any,
   context: __SerdeContext
-): Array<DocumentAttributeValueCountPair> => {
+): DocumentAttributeValueCountPair[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DocumentAttributeValueCountPair(entry, context)
   );
@@ -4993,7 +4993,7 @@ const deserializeAws_json1_1DocumentMetadataConfiguration = (
 const deserializeAws_json1_1DocumentMetadataConfigurationList = (
   output: any,
   context: __SerdeContext
-): Array<DocumentMetadataConfiguration> => {
+): DocumentMetadataConfiguration[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DocumentMetadataConfiguration(entry, context)
   );
@@ -5043,7 +5043,7 @@ const deserializeAws_json1_1FacetResult = (
 const deserializeAws_json1_1FacetResultList = (
   output: any,
   context: __SerdeContext
-): Array<FacetResult> => {
+): FacetResult[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1FacetResult(entry, context)
   );
@@ -5099,7 +5099,7 @@ const deserializeAws_json1_1FaqSummary = (
 const deserializeAws_json1_1FaqSummaryItems = (
   output: any,
   context: __SerdeContext
-): Array<FaqSummary> => {
+): FaqSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1FaqSummary(entry, context)
   );
@@ -5130,7 +5130,7 @@ const deserializeAws_json1_1Highlight = (
 const deserializeAws_json1_1HighlightList = (
   output: any,
   context: __SerdeContext
-): Array<Highlight> => {
+): Highlight[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Highlight(entry, context)
   );
@@ -5169,7 +5169,7 @@ const deserializeAws_json1_1IndexConfigurationSummary = (
 const deserializeAws_json1_1IndexConfigurationSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<IndexConfigurationSummary> => {
+): IndexConfigurationSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1IndexConfigurationSummary(entry, context)
   );
@@ -5401,7 +5401,7 @@ const deserializeAws_json1_1QueryResultItem = (
 const deserializeAws_json1_1QueryResultItemList = (
   output: any,
   context: __SerdeContext
-): Array<QueryResultItem> => {
+): QueryResultItem[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1QueryResultItem(entry, context)
   );
@@ -5596,7 +5596,7 @@ const deserializeAws_json1_1Search = (
 const deserializeAws_json1_1SecurityGroupIdList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -5690,7 +5690,7 @@ const deserializeAws_json1_1SharePointConfiguration = (
 const deserializeAws_json1_1SharePointUrlList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -5711,7 +5711,7 @@ const deserializeAws_json1_1StartDataSourceSyncJobResponse = (
 const deserializeAws_json1_1SubnetIdList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 

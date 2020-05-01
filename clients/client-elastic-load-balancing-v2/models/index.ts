@@ -81,7 +81,7 @@ export interface AddListenerCertificatesInput {
    * <p>The certificate to add. You can specify one certificate per call.
    *       Set <code>CertificateArn</code> to the certificate ARN but do not set <code>IsDefault</code>.</p>
    */
-  Certificates: Array<Certificate> | undefined;
+  Certificates: Certificate[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the listener.</p>
@@ -99,7 +99,7 @@ export interface AddListenerCertificatesOutput {
   /**
    * <p>Information about the certificates in the certificate list.</p>
    */
-  Certificates?: Array<Certificate>;
+  Certificates?: Certificate[];
 }
 
 export namespace AddListenerCertificatesOutput {
@@ -112,12 +112,12 @@ export interface AddTagsInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
-  ResourceArns: Array<string> | undefined;
+  ResourceArns: string[] | undefined;
 
   /**
    * <p>The tags. Each resource can have a maximum of 10 tags.</p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace AddTagsInput {
@@ -325,7 +325,7 @@ export interface AvailabilityZone {
    *       internal-facing load balancer. For internal load balancers, you can specify a private
    *       IP address from the IPv4 range of the subnet.</p>
    */
-  LoadBalancerAddresses?: Array<LoadBalancerAddress>;
+  LoadBalancerAddresses?: LoadBalancerAddress[];
 
   /**
    * <p>The ID of the subnet. You can specify one subnet per Availability Zone.</p>
@@ -424,7 +424,7 @@ export interface CreateListenerInput {
    *       Set <code>CertificateArn</code> to the certificate ARN but do not set <code>IsDefault</code>.</p>
    *          <p>To create a certificate list for the listener, use <a>AddListenerCertificates</a>.</p>
    */
-  Certificates?: Array<Certificate>;
+  Certificates?: Certificate[];
 
   /**
    * <p>The actions for the default rule. The rule must include one forward action or one or more fixed-response actions.</p>
@@ -440,7 +440,7 @@ export interface CreateListenerInput {
    *          <p>[Application Load Balancer] If the action type is <code>fixed-response</code>, you drop specified client requests
    *       and return a custom HTTP response.</p>
    */
-  DefaultActions: Array<Action> | undefined;
+  DefaultActions: Action[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
@@ -476,7 +476,7 @@ export interface CreateListenerOutput {
   /**
    * <p>Information about the listener.</p>
    */
-  Listeners?: Array<Listener>;
+  Listeners?: Listener[];
 }
 
 export namespace CreateListenerOutput {
@@ -518,7 +518,7 @@ export interface CreateLoadBalancerInput {
   /**
    * <p>[Application Load Balancers] The IDs of the security groups for the load balancer.</p>
    */
-  SecurityGroups?: Array<string>;
+  SecurityGroups?: string[];
 
   /**
    * <p>The IDs of the public subnets. You can specify only one subnet per Availability Zone.
@@ -530,7 +530,7 @@ export interface CreateLoadBalancerInput {
    *       your internet-facing load balancer. For internal load balancers, you can specify one
    *       private IP address per subnet from the IPv4 range of the subnet.</p>
    */
-  SubnetMappings?: Array<SubnetMapping>;
+  SubnetMappings?: SubnetMapping[];
 
   /**
    * <p>The IDs of the public subnets. You can specify only one subnet per Availability Zone.
@@ -540,12 +540,12 @@ export interface CreateLoadBalancerInput {
    *          <p>[Network Load Balancers] You can specify subnets from one or more Availability
    *       Zones.</p>
    */
-  Subnets?: Array<string>;
+  Subnets?: string[];
 
   /**
    * <p>One or more tags to assign to the load balancer.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The type of load balancer. The default is <code>application</code>.</p>
@@ -563,7 +563,7 @@ export interface CreateLoadBalancerOutput {
   /**
    * <p>Information about the load balancer.</p>
    */
-  LoadBalancers?: Array<LoadBalancer>;
+  LoadBalancers?: LoadBalancer[];
 }
 
 export namespace CreateLoadBalancerOutput {
@@ -589,7 +589,7 @@ export interface CreateRuleInput {
    *          <p>[Application Load Balancer] If the action type is <code>fixed-response</code>, you drop specified client requests
    *       and return a custom HTTP response.</p>
    */
-  Actions: Array<Action> | undefined;
+  Actions: Action[] | undefined;
 
   /**
    * <p>The conditions. Each rule can include zero or one of the following conditions:
@@ -597,7 +597,7 @@ export interface CreateRuleInput {
    *       and <code>source-ip</code>, and zero or more of the following conditions:
    *       <code>http-header</code> and <code>query-string</code>.</p>
    */
-  Conditions: Array<RuleCondition> | undefined;
+  Conditions: RuleCondition[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the listener.</p>
@@ -620,7 +620,7 @@ export interface CreateRuleOutput {
   /**
    * <p>Information about the rule.</p>
    */
-  Rules?: Array<Rule>;
+  Rules?: Rule[];
 }
 
 export namespace CreateRuleOutput {
@@ -761,7 +761,7 @@ export interface CreateTargetGroupOutput {
   /**
    * <p>Information about the target group.</p>
    */
-  TargetGroups?: Array<TargetGroup>;
+  TargetGroups?: TargetGroup[];
 }
 
 export namespace CreateTargetGroupOutput {
@@ -868,7 +868,7 @@ export interface DeregisterTargetsInput {
    * <p>The targets. If you specified a port override when you registered a target, you must
    *       specify both the target ID and the port when you deregister it.</p>
    */
-  Targets: Array<TargetDescription> | undefined;
+  Targets: TargetDescription[] | undefined;
 }
 
 export namespace DeregisterTargetsInput {
@@ -909,7 +909,7 @@ export interface DescribeAccountLimitsOutput {
   /**
    * <p>Information about the limits.</p>
    */
-  Limits?: Array<Limit>;
+  Limits?: Limit[];
 
   /**
    * <p>If there are additional results, this is the marker for the next set of results.
@@ -952,7 +952,7 @@ export interface DescribeListenerCertificatesOutput {
   /**
    * <p>Information about the certificates.</p>
    */
-  Certificates?: Array<Certificate>;
+  Certificates?: Certificate[];
 
   /**
    * <p>If there are additional results, this is the marker for the next set of results.
@@ -971,7 +971,7 @@ export interface DescribeListenersInput {
   /**
    * <p>The Amazon Resource Names (ARN) of the listeners.</p>
    */
-  ListenerArns?: Array<string>;
+  ListenerArns?: string[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
@@ -1000,7 +1000,7 @@ export interface DescribeListenersOutput {
   /**
    * <p>Information about the listeners.</p>
    */
-  Listeners?: Array<Listener>;
+  Listeners?: Listener[];
 
   /**
    * <p>If there are additional results, this is the marker for the next set of results.
@@ -1032,7 +1032,7 @@ export interface DescribeLoadBalancerAttributesOutput {
   /**
    * <p>Information about the load balancer attributes.</p>
    */
-  Attributes?: Array<LoadBalancerAttribute>;
+  Attributes?: LoadBalancerAttribute[];
 }
 
 export namespace DescribeLoadBalancerAttributesOutput {
@@ -1046,7 +1046,7 @@ export interface DescribeLoadBalancersInput {
    * <p>The Amazon Resource Names (ARN) of the load balancers. You can specify up to 20 load
    *       balancers in a single call.</p>
    */
-  LoadBalancerArns?: Array<string>;
+  LoadBalancerArns?: string[];
 
   /**
    * <p>The marker for the next set of results. (You received this marker from a previous
@@ -1057,7 +1057,7 @@ export interface DescribeLoadBalancersInput {
   /**
    * <p>The names of the load balancers.</p>
    */
-  Names?: Array<string>;
+  Names?: string[];
 
   /**
    * <p>The maximum number of results to return with this call.</p>
@@ -1075,7 +1075,7 @@ export interface DescribeLoadBalancersOutput {
   /**
    * <p>Information about the load balancers.</p>
    */
-  LoadBalancers?: Array<LoadBalancer>;
+  LoadBalancers?: LoadBalancer[];
 
   /**
    * <p>If there are additional results, this is the marker for the next set of results.
@@ -1110,7 +1110,7 @@ export interface DescribeRulesInput {
   /**
    * <p>The Amazon Resource Names (ARN) of the rules.</p>
    */
-  RuleArns?: Array<string>;
+  RuleArns?: string[];
 }
 
 export namespace DescribeRulesInput {
@@ -1129,7 +1129,7 @@ export interface DescribeRulesOutput {
   /**
    * <p>Information about the rules.</p>
    */
-  Rules?: Array<Rule>;
+  Rules?: Rule[];
 }
 
 export namespace DescribeRulesOutput {
@@ -1148,7 +1148,7 @@ export interface DescribeSSLPoliciesInput {
   /**
    * <p>The names of the policies.</p>
    */
-  Names?: Array<string>;
+  Names?: string[];
 
   /**
    * <p>The maximum number of results to return with this call.</p>
@@ -1172,7 +1172,7 @@ export interface DescribeSSLPoliciesOutput {
   /**
    * <p>Information about the policies.</p>
    */
-  SslPolicies?: Array<SslPolicy>;
+  SslPolicies?: SslPolicy[];
 }
 
 export namespace DescribeSSLPoliciesOutput {
@@ -1185,7 +1185,7 @@ export interface DescribeTagsInput {
   /**
    * <p>The Amazon Resource Names (ARN) of the resources.</p>
    */
-  ResourceArns: Array<string> | undefined;
+  ResourceArns: string[] | undefined;
 }
 
 export namespace DescribeTagsInput {
@@ -1198,7 +1198,7 @@ export interface DescribeTagsOutput {
   /**
    * <p>Information about the tags.</p>
    */
-  TagDescriptions?: Array<TagDescription>;
+  TagDescriptions?: TagDescription[];
 }
 
 export namespace DescribeTagsOutput {
@@ -1224,7 +1224,7 @@ export interface DescribeTargetGroupAttributesOutput {
   /**
    * <p>Information about the target group attributes</p>
    */
-  Attributes?: Array<TargetGroupAttribute>;
+  Attributes?: TargetGroupAttribute[];
 }
 
 export namespace DescribeTargetGroupAttributesOutput {
@@ -1248,7 +1248,7 @@ export interface DescribeTargetGroupsInput {
   /**
    * <p>The names of the target groups.</p>
    */
-  Names?: Array<string>;
+  Names?: string[];
 
   /**
    * <p>The maximum number of results to return with this call.</p>
@@ -1258,7 +1258,7 @@ export interface DescribeTargetGroupsInput {
   /**
    * <p>The Amazon Resource Names (ARN) of the target groups.</p>
    */
-  TargetGroupArns?: Array<string>;
+  TargetGroupArns?: string[];
 }
 
 export namespace DescribeTargetGroupsInput {
@@ -1277,7 +1277,7 @@ export interface DescribeTargetGroupsOutput {
   /**
    * <p>Information about the target groups.</p>
    */
-  TargetGroups?: Array<TargetGroup>;
+  TargetGroups?: TargetGroup[];
 }
 
 export namespace DescribeTargetGroupsOutput {
@@ -1295,7 +1295,7 @@ export interface DescribeTargetHealthInput {
   /**
    * <p>The targets.</p>
    */
-  Targets?: Array<TargetDescription>;
+  Targets?: TargetDescription[];
 }
 
 export namespace DescribeTargetHealthInput {
@@ -1308,7 +1308,7 @@ export interface DescribeTargetHealthOutput {
   /**
    * <p>Information about the health of the targets.</p>
    */
-  TargetHealthDescriptions?: Array<TargetHealthDescription>;
+  TargetHealthDescriptions?: TargetHealthDescription[];
 }
 
 export namespace DescribeTargetHealthOutput {
@@ -1420,7 +1420,7 @@ export interface ForwardActionConfig {
   /**
    * <p>One or more target groups. For Network Load Balancers, you can specify a single target group.</p>
    */
-  TargetGroups?: Array<TargetGroupTuple>;
+  TargetGroups?: TargetGroupTuple[];
 }
 
 export namespace ForwardActionConfig {
@@ -1457,7 +1457,7 @@ export interface HostHeaderConditionConfig {
    *          <p>If you specify multiple strings, the condition is satisfied if one of the strings matches the
    *       host name.</p>
    */
-  Values?: Array<string>;
+  Values?: string[];
 }
 
 export namespace HostHeaderConditionConfig {
@@ -1487,7 +1487,7 @@ export interface HttpHeaderConditionConfig {
    *          <p>If you specify multiple strings, the condition is satisfied if one of the strings matches the value of the HTTP header.
    *       To require that all of the strings are a match, create one condition per string.</p>
    */
-  Values?: Array<string>;
+  Values?: string[];
 }
 
 export namespace HttpHeaderConditionConfig {
@@ -1511,7 +1511,7 @@ export interface HttpRequestMethodConditionConfig {
    *       HTTP request method. We recommend that you route GET and HEAD requests in the same way, because the
    *       response to a HEAD request may be cached.</p>
    */
-  Values?: Array<string>;
+  Values?: string[];
 }
 
 export namespace HttpRequestMethodConditionConfig {
@@ -1704,12 +1704,12 @@ export interface Listener {
   /**
    * <p>[HTTPS or TLS listener] The default certificate for the listener.</p>
    */
-  Certificates?: Array<Certificate>;
+  Certificates?: Certificate[];
 
   /**
    * <p>The default actions for the listener.</p>
    */
-  DefaultActions?: Array<Action>;
+  DefaultActions?: Action[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the listener.</p>
@@ -1766,7 +1766,7 @@ export interface LoadBalancer {
   /**
    * <p>The Availability Zones for the load balancer.</p>
    */
-  AvailabilityZones?: Array<AvailabilityZone>;
+  AvailabilityZones?: AvailabilityZone[];
 
   /**
    * <p>The ID of the Amazon Route 53 hosted zone associated with the load balancer.</p>
@@ -1815,7 +1815,7 @@ export interface LoadBalancer {
   /**
    * <p>The IDs of the security groups for the load balancer.</p>
    */
-  SecurityGroups?: Array<string>;
+  SecurityGroups?: string[];
 
   /**
    * <p>The state of the load balancer.</p>
@@ -2018,7 +2018,7 @@ export interface ModifyListenerInput {
    *       Set <code>CertificateArn</code> to the certificate ARN but do not set <code>IsDefault</code>.</p>
    *          <p>To create a certificate list, use <a>AddListenerCertificates</a>.</p>
    */
-  Certificates?: Array<Certificate>;
+  Certificates?: Certificate[];
 
   /**
    * <p>The actions for the default rule. The rule must include one forward action or one or more fixed-response actions.</p>
@@ -2034,7 +2034,7 @@ export interface ModifyListenerInput {
    *          <p>[Application Load Balancer] If the action type is <code>fixed-response</code>, you drop specified client requests
    *       and return a custom HTTP response.</p>
    */
-  DefaultActions?: Array<Action>;
+  DefaultActions?: Action[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the listener.</p>
@@ -2071,7 +2071,7 @@ export interface ModifyListenerOutput {
   /**
    * <p>Information about the modified listener.</p>
    */
-  Listeners?: Array<Listener>;
+  Listeners?: Listener[];
 }
 
 export namespace ModifyListenerOutput {
@@ -2084,7 +2084,7 @@ export interface ModifyLoadBalancerAttributesInput {
   /**
    * <p>The load balancer attributes.</p>
    */
-  Attributes: Array<LoadBalancerAttribute> | undefined;
+  Attributes: LoadBalancerAttribute[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
@@ -2102,7 +2102,7 @@ export interface ModifyLoadBalancerAttributesOutput {
   /**
    * <p>Information about the load balancer attributes.</p>
    */
-  Attributes?: Array<LoadBalancerAttribute>;
+  Attributes?: LoadBalancerAttribute[];
 }
 
 export namespace ModifyLoadBalancerAttributesOutput {
@@ -2128,7 +2128,7 @@ export interface ModifyRuleInput {
    *          <p>[Application Load Balancer] If the action type is <code>fixed-response</code>, you drop specified client requests
    *       and return a custom HTTP response.</p>
    */
-  Actions?: Array<Action>;
+  Actions?: Action[];
 
   /**
    * <p>The conditions. Each rule can include zero or one of the following conditions:
@@ -2136,7 +2136,7 @@ export interface ModifyRuleInput {
    *       and <code>source-ip</code>, and zero or more of the following conditions:
    *       <code>http-header</code> and <code>query-string</code>.</p>
    */
-  Conditions?: Array<RuleCondition>;
+  Conditions?: RuleCondition[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the rule.</p>
@@ -2154,7 +2154,7 @@ export interface ModifyRuleOutput {
   /**
    * <p>Information about the modified rule.</p>
    */
-  Rules?: Array<Rule>;
+  Rules?: Rule[];
 }
 
 export namespace ModifyRuleOutput {
@@ -2167,7 +2167,7 @@ export interface ModifyTargetGroupAttributesInput {
   /**
    * <p>The attributes.</p>
    */
-  Attributes: Array<TargetGroupAttribute> | undefined;
+  Attributes: TargetGroupAttribute[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the target group.</p>
@@ -2185,7 +2185,7 @@ export interface ModifyTargetGroupAttributesOutput {
   /**
    * <p>Information about the attributes.</p>
    */
-  Attributes?: Array<TargetGroupAttribute>;
+  Attributes?: TargetGroupAttribute[];
 }
 
 export namespace ModifyTargetGroupAttributesOutput {
@@ -2270,7 +2270,7 @@ export interface ModifyTargetGroupOutput {
   /**
    * <p>Information about the modified target group.</p>
    */
-  TargetGroups?: Array<TargetGroup>;
+  TargetGroups?: TargetGroup[];
 }
 
 export namespace ModifyTargetGroupOutput {
@@ -2308,7 +2308,7 @@ export interface PathPatternConditionConfig {
    *       matches the request URL. The path pattern is compared only to the path of the URL,
    *       not to its query string. To compare against the query string, use <a>QueryStringConditionConfig</a>.</p>
    */
-  Values?: Array<string>;
+  Values?: string[];
 }
 
 export namespace PathPatternConditionConfig {
@@ -2352,7 +2352,7 @@ export interface QueryStringConditionConfig {
    *          <p>If you specify multiple key/value pairs or values, the condition is satisfied if one of
    *       them is found in the query string.</p>
    */
-  Values?: Array<QueryStringKeyValuePair>;
+  Values?: QueryStringKeyValuePair[];
 }
 
 export namespace QueryStringConditionConfig {
@@ -2467,7 +2467,7 @@ export interface RegisterTargetsInput {
    *       To register a target by IP address, specify the IP address.
    *       To register a Lambda function, specify the ARN of the Lambda function.</p>
    */
-  Targets: Array<TargetDescription> | undefined;
+  Targets: TargetDescription[] | undefined;
 }
 
 export namespace RegisterTargetsInput {
@@ -2490,7 +2490,7 @@ export interface RemoveListenerCertificatesInput {
    * <p>The certificate to remove. You can specify one certificate per call.
    *       Set <code>CertificateArn</code> to the certificate ARN but do not set <code>IsDefault</code>.</p>
    */
-  Certificates: Array<Certificate> | undefined;
+  Certificates: Certificate[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the listener.</p>
@@ -2517,12 +2517,12 @@ export interface RemoveTagsInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
-  ResourceArns: Array<string> | undefined;
+  ResourceArns: string[] | undefined;
 
   /**
    * <p>The tag keys for the tags to remove.</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace RemoveTagsInput {
@@ -2564,7 +2564,7 @@ export interface Rule {
    * <p>The actions. Each rule must include exactly one of the following types of actions: <code>forward</code>,
    *       <code>redirect</code>, or <code>fixed-response</code>, and it must be the last action to be performed.</p>
    */
-  Actions?: Array<Action>;
+  Actions?: Action[];
 
   /**
    * <p>The conditions. Each rule can include zero or one of the following conditions:
@@ -2572,7 +2572,7 @@ export interface Rule {
    *       and <code>source-ip</code>, and zero or more of the following conditions:
    *       <code>http-header</code> and <code>query-string</code>.</p>
    */
-  Conditions?: Array<RuleCondition>;
+  Conditions?: RuleCondition[];
 
   /**
    * <p>Indicates whether this is the default rule.</p>
@@ -2715,7 +2715,7 @@ export interface RuleCondition {
    *             </li>
    *          </ul>
    */
-  Values?: Array<string>;
+  Values?: string[];
 }
 
 export namespace RuleCondition {
@@ -2813,7 +2813,7 @@ export interface SetRulePrioritiesInput {
   /**
    * <p>The rule priorities.</p>
    */
-  RulePriorities: Array<RulePriorityPair> | undefined;
+  RulePriorities: RulePriorityPair[] | undefined;
 }
 
 export namespace SetRulePrioritiesInput {
@@ -2826,7 +2826,7 @@ export interface SetRulePrioritiesOutput {
   /**
    * <p>Information about the rules.</p>
    */
-  Rules?: Array<Rule>;
+  Rules?: Rule[];
 }
 
 export namespace SetRulePrioritiesOutput {
@@ -2844,7 +2844,7 @@ export interface SetSecurityGroupsInput {
   /**
    * <p>The IDs of the security groups.</p>
    */
-  SecurityGroups: Array<string> | undefined;
+  SecurityGroups: string[] | undefined;
 }
 
 export namespace SetSecurityGroupsInput {
@@ -2857,7 +2857,7 @@ export interface SetSecurityGroupsOutput {
   /**
    * <p>The IDs of the security groups associated with the load balancer.</p>
    */
-  SecurityGroupIds?: Array<string>;
+  SecurityGroupIds?: string[];
 }
 
 export namespace SetSecurityGroupsOutput {
@@ -2882,14 +2882,14 @@ export interface SetSubnetsInput {
    *       address per subnet. For internal load balancers, you can specify one private IP address per
    *       subnet from the IPv4 range of the subnet.</p>
    */
-  SubnetMappings?: Array<SubnetMapping>;
+  SubnetMappings?: SubnetMapping[];
 
   /**
    * <p>The IDs of the public subnets. You must specify subnets from at least two Availability Zones.
    *       You can specify only one subnet per Availability Zone. You must specify either subnets or
    *       subnet mappings.</p>
    */
-  Subnets?: Array<string>;
+  Subnets?: string[];
 }
 
 export namespace SetSubnetsInput {
@@ -2902,7 +2902,7 @@ export interface SetSubnetsOutput {
   /**
    * <p>Information about the subnet and Availability Zone.</p>
    */
-  AvailabilityZones?: Array<AvailabilityZone>;
+  AvailabilityZones?: AvailabilityZone[];
 }
 
 export namespace SetSubnetsOutput {
@@ -2925,7 +2925,7 @@ export interface SourceIpConditionConfig {
    *       request matches one of the CIDR blocks. This condition is not satisfied by the addresses in the
    *       X-Forwarded-For header. To search for addresses in the X-Forwarded-For header, use <a>HttpHeaderConditionConfig</a>.</p>
    */
-  Values?: Array<string>;
+  Values?: string[];
 }
 
 export namespace SourceIpConditionConfig {
@@ -2941,7 +2941,7 @@ export interface SslPolicy {
   /**
    * <p>The ciphers.</p>
    */
-  Ciphers?: Array<Cipher>;
+  Ciphers?: Cipher[];
 
   /**
    * <p>The name of the policy.</p>
@@ -2951,7 +2951,7 @@ export interface SslPolicy {
   /**
    * <p>The protocols.</p>
    */
-  SslProtocols?: Array<string>;
+  SslProtocols?: string[];
 }
 
 export namespace SslPolicy {
@@ -3032,7 +3032,7 @@ export interface TagDescription {
   /**
    * <p>Information about the tags.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace TagDescription {
@@ -3124,7 +3124,7 @@ export interface TargetGroup {
    * <p>The Amazon Resource Names (ARN) of the load balancers that route traffic to this target
    *       group.</p>
    */
-  LoadBalancerArns?: Array<string>;
+  LoadBalancerArns?: string[];
 
   /**
    * <p>The HTTP codes to use when checking for a successful response from a target.</p>

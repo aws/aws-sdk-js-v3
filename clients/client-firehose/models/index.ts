@@ -211,7 +211,7 @@ export interface CreateDeliveryStreamInput {
    *
    *          <p>You can specify up to 50 tags when creating a delivery stream.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateDeliveryStreamInput {
@@ -355,7 +355,7 @@ export interface DeliveryStreamDescription {
   /**
    * <p>The destinations.</p>
    */
-  Destinations: Array<DestinationDescription> | undefined;
+  Destinations: DestinationDescription[] | undefined;
 
   /**
    * <p>Provides details in case one of the following operations fails due to an error related
@@ -1219,7 +1219,7 @@ export interface HiveJsonSerDe {
    *          parse timestamps in epoch milliseconds. If you don't specify a format, Kinesis Data
    *          Firehose uses <code>java.sql.Timestamp::valueOf</code> by default.</p>
    */
-  TimestampFormats?: Array<string>;
+  TimestampFormats?: string[];
 }
 
 export namespace HiveJsonSerDe {
@@ -1420,7 +1420,7 @@ export interface ListDeliveryStreamsOutput {
   /**
    * <p>The names of the delivery streams.</p>
    */
-  DeliveryStreamNames: Array<string> | undefined;
+  DeliveryStreamNames: string[] | undefined;
 
   /**
    * <p>Indicates whether there are more delivery streams available to list.</p>
@@ -1473,7 +1473,7 @@ export interface ListTagsForDeliveryStreamOutput {
    *          first tag after <code>ExclusiveStartTagKey</code> and up to the specified
    *             <code>Limit</code>.</p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace ListTagsForDeliveryStreamOutput {
@@ -1551,7 +1551,7 @@ export interface OrcSerDe {
    * <p>The column names for which you want Kinesis Data Firehose to create bloom filters. The
    *          default is <code>null</code>.</p>
    */
-  BloomFilterColumns?: Array<string>;
+  BloomFilterColumns?: string[];
 
   /**
    * <p>The Bloom filter false positive probability (FPP). The lower the FPP, the bigger the Bloom filter. The default value is 0.05, the minimum is 0, and the maximum is 1.</p>
@@ -1699,7 +1699,7 @@ export interface ProcessingConfiguration {
   /**
    * <p>The data processors.</p>
    */
-  Processors?: Array<Processor>;
+  Processors?: Processor[];
 }
 
 export namespace ProcessingConfiguration {
@@ -1715,7 +1715,7 @@ export interface Processor {
   /**
    * <p>The processor parameters.</p>
    */
-  Parameters?: Array<ProcessorParameter>;
+  Parameters?: ProcessorParameter[];
 
   /**
    * <p>The type of processor.</p>
@@ -1768,7 +1768,7 @@ export interface PutRecordBatchInput {
   /**
    * <p>One or more records.</p>
    */
-  Records: Array<_Record> | undefined;
+  Records: _Record[] | undefined;
 }
 
 export namespace PutRecordBatchInput {
@@ -1795,7 +1795,7 @@ export interface PutRecordBatchOutput {
    * <p>The results array. For each record, the index of the response element is the same
    *          as the index used in the request array.</p>
    */
-  RequestResponses: Array<PutRecordBatchResponseEntry> | undefined;
+  RequestResponses: PutRecordBatchResponseEntry[] | undefined;
 }
 
 export namespace PutRecordBatchOutput {
@@ -2761,7 +2761,7 @@ export interface TagDeliveryStreamInput {
   /**
    * <p>A set of key-value pairs to use to create the tags.</p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace TagDeliveryStreamInput {
@@ -2788,7 +2788,7 @@ export interface UntagDeliveryStreamInput {
   /**
    * <p>A list of tag keys. Each corresponding tag is removed from the delivery stream.</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagDeliveryStreamInput {

@@ -1136,7 +1136,7 @@ const deserializeAws_restJson1_1PlaybackConfiguration = (
 const deserializeAws_restJson1_1__listOfPlaybackConfigurations = (
   output: any,
   context: __SerdeContext
-): Array<PlaybackConfiguration> => {
+): PlaybackConfiguration[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1PlaybackConfiguration(entry, context)
   );

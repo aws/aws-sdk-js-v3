@@ -3354,7 +3354,7 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
 };
 
 const serializeAws_json1_1ResourceList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3376,7 +3376,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_json1_1TagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3387,7 +3387,7 @@ const serializeAws_json1_1TagKeyList = (
 };
 
 const serializeAws_json1_1TagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3546,7 +3546,7 @@ const deserializeAws_json1_1ApplicationComponent = (
 const deserializeAws_json1_1ApplicationComponentList = (
   output: any,
   context: __SerdeContext
-): Array<ApplicationComponent> => {
+): ApplicationComponent[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ApplicationComponent(entry, context)
   );
@@ -3594,7 +3594,7 @@ const deserializeAws_json1_1ApplicationInfo = (
 const deserializeAws_json1_1ApplicationInfoList = (
   output: any,
   context: __SerdeContext
-): Array<ApplicationInfo> => {
+): ApplicationInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ApplicationInfo(entry, context)
   );
@@ -3660,7 +3660,7 @@ const deserializeAws_json1_1ConfigurationEvent = (
 const deserializeAws_json1_1ConfigurationEventList = (
   output: any,
   context: __SerdeContext
-): Array<ConfigurationEvent> => {
+): ConfigurationEvent[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ConfigurationEvent(entry, context)
   );
@@ -4122,7 +4122,7 @@ const deserializeAws_json1_1LogPattern = (
 const deserializeAws_json1_1LogPatternList = (
   output: any,
   context: __SerdeContext
-): Array<LogPattern> => {
+): LogPattern[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1LogPattern(entry, context)
   );
@@ -4131,7 +4131,7 @@ const deserializeAws_json1_1LogPatternList = (
 const deserializeAws_json1_1LogPatternSetList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -4200,7 +4200,7 @@ const deserializeAws_json1_1Observation = (
 const deserializeAws_json1_1ObservationList = (
   output: any,
   context: __SerdeContext
-): Array<Observation> => {
+): Observation[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Observation(entry, context)
   );
@@ -4268,7 +4268,7 @@ const deserializeAws_json1_1Problem = (
 const deserializeAws_json1_1ProblemList = (
   output: any,
   context: __SerdeContext
-): Array<Problem> => {
+): Problem[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Problem(entry, context)
   );
@@ -4308,7 +4308,7 @@ const deserializeAws_json1_1ResourceInUseException = (
 const deserializeAws_json1_1ResourceList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -4347,7 +4347,7 @@ const deserializeAws_json1_1Tag = (
 const deserializeAws_json1_1TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );

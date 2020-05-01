@@ -2060,7 +2060,7 @@ const deserializeAws_queryUnsupportedOperationResponse = async (
 };
 
 const serializeAws_queryAWSAccountIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -2073,7 +2073,7 @@ const serializeAws_queryAWSAccountIdList = (
 };
 
 const serializeAws_queryActionNameList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -2120,7 +2120,7 @@ const serializeAws_queryAddPermissionRequest = (
 };
 
 const serializeAws_queryAttributeNameList = (
-  input: Array<QueueAttributeName | string>,
+  input: (QueueAttributeName | string)[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -2133,7 +2133,7 @@ const serializeAws_queryAttributeNameList = (
 };
 
 const serializeAws_queryBinaryList = (
-  input: Array<Uint8Array>,
+  input: Uint8Array[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -2186,7 +2186,7 @@ const serializeAws_queryChangeMessageVisibilityBatchRequestEntry = (
 };
 
 const serializeAws_queryChangeMessageVisibilityBatchRequestEntryList = (
-  input: Array<ChangeMessageVisibilityBatchRequestEntry>,
+  input: ChangeMessageVisibilityBatchRequestEntry[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -2287,7 +2287,7 @@ const serializeAws_queryDeleteMessageBatchRequestEntry = (
 };
 
 const serializeAws_queryDeleteMessageBatchRequestEntryList = (
-  input: Array<DeleteMessageBatchRequestEntry>,
+  input: DeleteMessageBatchRequestEntry[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -2399,7 +2399,7 @@ const serializeAws_queryListQueuesRequest = (
 };
 
 const serializeAws_queryMessageAttributeNameList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -2676,7 +2676,7 @@ const serializeAws_querySendMessageBatchRequestEntry = (
 };
 
 const serializeAws_querySendMessageBatchRequestEntryList = (
-  input: Array<SendMessageBatchRequestEntry>,
+  input: SendMessageBatchRequestEntry[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -2761,7 +2761,7 @@ const serializeAws_querySetQueueAttributesRequest = (
 };
 
 const serializeAws_queryStringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -2774,7 +2774,7 @@ const serializeAws_queryStringList = (
 };
 
 const serializeAws_queryTagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -2897,7 +2897,7 @@ const deserializeAws_queryBatchResultErrorEntry = (
 const deserializeAws_queryBatchResultErrorEntryList = (
   output: any,
   context: __SerdeContext
-): Array<BatchResultErrorEntry> => {
+): BatchResultErrorEntry[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryBatchResultErrorEntry(entry, context));
@@ -2908,7 +2908,7 @@ const deserializeAws_queryBatchResultErrorEntryList = (
 const deserializeAws_queryBinaryList = (
   output: any,
   context: __SerdeContext
-): Array<Uint8Array> => {
+): Uint8Array[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -2978,7 +2978,7 @@ const deserializeAws_queryChangeMessageVisibilityBatchResultEntry = (
 const deserializeAws_queryChangeMessageVisibilityBatchResultEntryList = (
   output: any,
   context: __SerdeContext
-): Array<ChangeMessageVisibilityBatchResultEntry> => {
+): ChangeMessageVisibilityBatchResultEntry[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -3066,7 +3066,7 @@ const deserializeAws_queryDeleteMessageBatchResultEntry = (
 const deserializeAws_queryDeleteMessageBatchResultEntryList = (
   output: any,
   context: __SerdeContext
-): Array<DeleteMessageBatchResultEntry> => {
+): DeleteMessageBatchResultEntry[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -3378,7 +3378,7 @@ const deserializeAws_queryMessageBodyAttributeMap = (
 const deserializeAws_queryMessageList = (
   output: any,
   context: __SerdeContext
-): Array<Message> => {
+): Message[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryMessage(entry, context));
@@ -3477,7 +3477,7 @@ const deserializeAws_queryQueueNameExists = (
 const deserializeAws_queryQueueUrlList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -3609,7 +3609,7 @@ const deserializeAws_querySendMessageBatchResultEntry = (
 const deserializeAws_querySendMessageBatchResultEntryList = (
   output: any,
   context: __SerdeContext
-): Array<SendMessageBatchResultEntry> => {
+): SendMessageBatchResultEntry[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -3667,7 +3667,7 @@ const deserializeAws_querySendMessageResult = (
 const deserializeAws_queryStringList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);

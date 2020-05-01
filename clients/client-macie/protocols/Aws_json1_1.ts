@@ -976,7 +976,7 @@ const serializeAws_json1_1S3ResourceClassificationUpdate = (
 };
 
 const serializeAws_json1_1S3Resources = (
-  input: Array<S3Resource>,
+  input: S3Resource[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -987,7 +987,7 @@ const serializeAws_json1_1S3Resources = (
 };
 
 const serializeAws_json1_1S3ResourcesClassification = (
-  input: Array<S3ResourceClassification>,
+  input: S3ResourceClassification[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -998,7 +998,7 @@ const serializeAws_json1_1S3ResourcesClassification = (
 };
 
 const serializeAws_json1_1S3ResourcesClassificationUpdate = (
-  input: Array<S3ResourceClassificationUpdate>,
+  input: S3ResourceClassificationUpdate[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1133,7 +1133,7 @@ const deserializeAws_json1_1FailedS3Resource = (
 const deserializeAws_json1_1FailedS3Resources = (
   output: any,
   context: __SerdeContext
-): Array<FailedS3Resource> => {
+): FailedS3Resource[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1FailedS3Resource(entry, context)
   );
@@ -1260,7 +1260,7 @@ const deserializeAws_json1_1MemberAccount = (
 const deserializeAws_json1_1MemberAccounts = (
   output: any,
   context: __SerdeContext
-): Array<MemberAccount> => {
+): MemberAccount[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1MemberAccount(entry, context)
   );
@@ -1315,7 +1315,7 @@ const deserializeAws_json1_1S3ResourceClassification = (
 const deserializeAws_json1_1S3ResourcesClassification = (
   output: any,
   context: __SerdeContext
-): Array<S3ResourceClassification> => {
+): S3ResourceClassification[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1S3ResourceClassification(entry, context)
   );

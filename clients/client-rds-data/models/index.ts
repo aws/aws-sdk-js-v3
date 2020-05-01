@@ -23,7 +23,7 @@ export namespace ArrayValue {
    * <p>An array of arrays.</p>
    */
   export interface ArrayValuesMember extends $Base {
-    arrayValues: Array<ArrayValue>;
+    arrayValues: ArrayValue[];
     booleanValues?: never;
     doubleValues?: never;
     longValues?: never;
@@ -35,7 +35,7 @@ export namespace ArrayValue {
    */
   export interface BooleanValuesMember extends $Base {
     arrayValues?: never;
-    booleanValues: Array<boolean>;
+    booleanValues: boolean[];
     doubleValues?: never;
     longValues?: never;
     stringValues?: never;
@@ -47,7 +47,7 @@ export namespace ArrayValue {
   export interface DoubleValuesMember extends $Base {
     arrayValues?: never;
     booleanValues?: never;
-    doubleValues: Array<number>;
+    doubleValues: number[];
     longValues?: never;
     stringValues?: never;
     $unknown?: never;
@@ -59,7 +59,7 @@ export namespace ArrayValue {
     arrayValues?: never;
     booleanValues?: never;
     doubleValues?: never;
-    longValues: Array<number>;
+    longValues: number[];
     stringValues?: never;
     $unknown?: never;
   }
@@ -71,7 +71,7 @@ export namespace ArrayValue {
     booleanValues?: never;
     doubleValues?: never;
     longValues?: never;
-    stringValues: Array<string>;
+    stringValues: string[];
     $unknown?: never;
   }
   export interface $UnknownMember extends $Base {
@@ -83,11 +83,11 @@ export namespace ArrayValue {
     $unknown: [string, any];
   }
   export interface Visitor<T> {
-    arrayValues: (value: Array<ArrayValue>) => T;
-    booleanValues: (value: Array<boolean>) => T;
-    doubleValues: (value: Array<number>) => T;
-    longValues: (value: Array<number>) => T;
-    stringValues: (value: Array<string>) => T;
+    arrayValues: (value: ArrayValue[]) => T;
+    booleanValues: (value: boolean[]) => T;
+    doubleValues: (value: number[]) => T;
+    longValues: (value: number[]) => T;
+    stringValues: (value: string[]) => T;
     _: (name: string, value: any) => T;
   }
   export function visit<T>(value: ArrayValue, visitor: Visitor<T>): T {
@@ -138,7 +138,7 @@ export interface BatchExecuteStatementRequest {
   /**
    * <p>The parameter set for the batch operation.</p>
    */
-  parameterSets?: Array<Array<SqlParameter>>;
+  parameterSets?: SqlParameter[][];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.</p>
@@ -184,7 +184,7 @@ export interface BatchExecuteStatementResponse {
   /**
    * <p>The execution results of each batch entry.</p>
    */
-  updateResults?: Array<UpdateResult>;
+  updateResults?: UpdateResult[];
 }
 
 export namespace BatchExecuteStatementResponse {
@@ -413,7 +413,7 @@ export interface ExecuteSqlResponse {
   /**
    * <p>The results of the SQL statement or statements.</p>
    */
-  sqlStatementResults?: Array<SqlStatementResult>;
+  sqlStatementResults?: SqlStatementResult[];
 }
 
 export namespace ExecuteSqlResponse {
@@ -452,7 +452,7 @@ export interface ExecuteStatementRequest {
   /**
    * <p>The parameters for the SQL statement.</p>
    */
-  parameters?: Array<SqlParameter>;
+  parameters?: SqlParameter[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.</p>
@@ -497,12 +497,12 @@ export interface ExecuteStatementResponse {
   /**
    * <p>Metadata for the columns included in the results.</p>
    */
-  columnMetadata?: Array<ColumnMetadata>;
+  columnMetadata?: ColumnMetadata[];
 
   /**
    * <p>Values for fields generated during the request.</p>
    */
-  generatedFields?: Array<Field>;
+  generatedFields?: Field[];
 
   /**
    * <p>The number of records updated by the request.</p>
@@ -512,7 +512,7 @@ export interface ExecuteStatementResponse {
   /**
    * <p>The records returned by the SQL statement.</p>
    */
-  records?: Array<Array<Field>>;
+  records?: Field[][];
 }
 
 export namespace ExecuteStatementResponse {
@@ -723,7 +723,7 @@ export interface _Record {
   /**
    * <p>The values returned in the record.</p>
    */
-  values?: Array<Value>;
+  values?: Value[];
 }
 
 export namespace _Record {
@@ -738,7 +738,7 @@ export interface ResultFrame {
   /**
    * <p>The records in the result set.</p>
    */
-  records?: Array<_Record>;
+  records?: _Record[];
 
   /**
    * <p>The result-set metadata in the result set.</p>
@@ -763,7 +763,7 @@ export interface ResultSetMetadata {
   /**
    * <p>The metadata of the columns in the result set.</p>
    */
-  columnMetadata?: Array<ColumnMetadata>;
+  columnMetadata?: ColumnMetadata[];
 }
 
 export namespace ResultSetMetadata {
@@ -904,7 +904,7 @@ export interface StructValue {
   /**
    * <p>The attributes returned in the record.</p>
    */
-  attributes?: Array<Value>;
+  attributes?: Value[];
 }
 
 export namespace StructValue {
@@ -919,7 +919,7 @@ export interface UpdateResult {
   /**
    * <p>Values for fields generated during the request.</p>
    */
-  generatedFields?: Array<Field>;
+  generatedFields?: Field[];
 }
 
 export namespace UpdateResult {
@@ -950,7 +950,7 @@ export namespace Value {
    * <p>An array of column values.</p>
    */
   export interface ArrayValuesMember extends $Base {
-    arrayValues: Array<Value>;
+    arrayValues: Value[];
     bigIntValue?: never;
     bitValue?: never;
     blobValue?: never;
@@ -1120,7 +1120,7 @@ export namespace Value {
     $unknown: [string, any];
   }
   export interface Visitor<T> {
-    arrayValues: (value: Array<Value>) => T;
+    arrayValues: (value: Value[]) => T;
     bigIntValue: (value: number) => T;
     bitValue: (value: boolean) => T;
     blobValue: (value: Uint8Array) => T;

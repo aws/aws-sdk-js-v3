@@ -50,7 +50,7 @@ export interface Attribute {
   /**
    * <p> Contextual information for this attribute. </p>
    */
-  Traits?: Array<Trait>;
+  Traits?: Trait[];
 
   /**
    * <p> The type of attribute. </p>
@@ -268,7 +268,7 @@ export interface DetectEntitiesResponse {
    *    the entity text begins and ends, and the level of confidence that Amazon Comprehend Medical has in the detection and
    *    analysis. Attributes and traits of the entity are also returned.</p>
    */
-  Entities: Array<Entity> | undefined;
+  Entities: Entity[] | undefined;
 
   /**
    * <p>The version of the model used to analyze the documents. The version number looks like X.X.X.
@@ -285,7 +285,7 @@ export interface DetectEntitiesResponse {
   /**
    * <p> Attributes extracted from the input text that we were unable to relate to an entity.</p>
    */
-  UnmappedAttributes?: Array<UnmappedAttribute>;
+  UnmappedAttributes?: UnmappedAttribute[];
 }
 
 export namespace DetectEntitiesResponse {
@@ -315,7 +315,7 @@ export interface DetectEntitiesV2Response {
    *    the entity text begins and ends, and the level of confidence in the detection and analysis.
    *    Attributes and traits of the entity are also returned.</p>
    */
-  Entities: Array<Entity> | undefined;
+  Entities: Entity[] | undefined;
 
   /**
    * <p>The version of the model used to analyze the documents. The version number looks like X.X.X.
@@ -332,7 +332,7 @@ export interface DetectEntitiesV2Response {
   /**
    * <p>Attributes extracted from the input text that couldn't be related to an entity.</p>
    */
-  UnmappedAttributes?: Array<UnmappedAttribute>;
+  UnmappedAttributes?: UnmappedAttribute[];
 }
 
 export namespace DetectEntitiesV2Response {
@@ -362,7 +362,7 @@ export interface DetectPHIResponse {
    *    the entity text begins and ends, and the level of confidence that Amazon Comprehend Medical has in its detection.
    *   </p>
    */
-  Entities: Array<Entity> | undefined;
+  Entities: Entity[] | undefined;
 
   /**
    * <p>The version of the model used to analyze the documents. The version number looks like X.X.X.
@@ -390,7 +390,7 @@ export interface Entity {
   /**
    * <p> The extracted attributes that relate to this entity.</p>
    */
-  Attributes?: Array<Attribute>;
+  Attributes?: Attribute[];
 
   /**
    * <p> The 0-based character offset in the input text that shows where the entity begins. The
@@ -428,7 +428,7 @@ export interface Entity {
   /**
    * <p>Contextual information for the entity.</p>
    */
-  Traits?: Array<Trait>;
+  Traits?: Trait[];
 
   /**
    * <p> Describes the specific type of entity with category of entities.</p>
@@ -526,7 +526,7 @@ export interface ICD10CMAttribute {
    * <p>The contextual information for the attribute. The traits recognized by InferICD10CM are
    *     <code>DIAGNOSIS</code>, <code>SIGN</code>, <code>SYMPTOM</code>, and <code>NEGATION</code>.</p>
    */
-  Traits?: Array<ICD10CMTrait>;
+  Traits?: ICD10CMTrait[];
 
   /**
    * <p>The type of attribute. InferICD10CM detects entities of the type <code>DX_NAME</code>.
@@ -589,7 +589,7 @@ export interface ICD10CMEntity {
    *    is an attribute of an entity, or otherwise related to an entity, such as the nature of a medical
    *    condition.</p>
    */
-  Attributes?: Array<ICD10CMAttribute>;
+  Attributes?: ICD10CMAttribute[];
 
   /**
    * <p>The 0-based character offset in the input text that shows where the entity begins. The
@@ -614,7 +614,7 @@ export interface ICD10CMEntity {
    * <p>The ICD-10-CM concepts that the entity could refer to, along with a score indicating the
    *    likelihood of the match.</p>
    */
-  ICD10CMConcepts?: Array<ICD10CMConcept>;
+  ICD10CMConcepts?: ICD10CMConcept[];
 
   /**
    * <p>The numeric identifier for the entity. This is a monotonically increasing id unique within
@@ -637,7 +637,7 @@ export interface ICD10CMEntity {
    *    <code>DIAGNOSIS</code>, <code>SIGN</code>, <code>SYMPTOM</code>, and <code>NEGATION.</code>
    *          </p>
    */
-  Traits?: Array<ICD10CMTrait>;
+  Traits?: ICD10CMTrait[];
 
   /**
    * <p>Describes the specific type of entity with category of entities. InferICD10CM detects
@@ -708,7 +708,7 @@ export interface InferICD10CMResponse {
    * <p>The medical conditions detected in the text linked to ICD-10-CM concepts. If the action is
    *    successful, the service sends back an HTTP 200 response, as well as the entities detected.</p>
    */
-  Entities: Array<ICD10CMEntity> | undefined;
+  Entities: ICD10CMEntity[] | undefined;
 
   /**
    * <p>The version of the model used to analyze the documents, in the format
@@ -749,7 +749,7 @@ export interface InferRxNormResponse {
    * <p>The medication entities detected in the text linked to RxNorm concepts. If the action is
    *    successful, the service sends back an HTTP 200 response, as well as the entities detected.</p>
    */
-  Entities: Array<RxNormEntity> | undefined;
+  Entities: RxNormEntity[] | undefined;
 
   /**
    * <p>The version of the model used to analyze the documents, in the format
@@ -887,9 +887,7 @@ export interface ListEntitiesDetectionV2JobsResponse {
   /**
    * <p>A list containing the properties of each job returned.</p>
    */
-  ComprehendMedicalAsyncJobPropertiesList?: Array<
-    ComprehendMedicalAsyncJobProperties
-  >;
+  ComprehendMedicalAsyncJobPropertiesList?: ComprehendMedicalAsyncJobProperties[];
 
   /**
    * <p>Identifies the next page of results to return.</p>
@@ -931,9 +929,7 @@ export interface ListPHIDetectionJobsResponse {
   /**
    * <p>A list containing the properties of each job returned.</p>
    */
-  ComprehendMedicalAsyncJobPropertiesList?: Array<
-    ComprehendMedicalAsyncJobProperties
-  >;
+  ComprehendMedicalAsyncJobPropertiesList?: ComprehendMedicalAsyncJobProperties[];
 
   /**
    * <p>Identifies the next page of results to return.</p>
@@ -1034,7 +1030,7 @@ export interface RxNormAttribute {
    * <p>Contextual information for the attribute. InferRxNorm recognizes the trait
    *      <code>NEGATION</code> for attributes, i.e. that the patient is not taking a specific dose or form of a medication.</p>
    */
-  Traits?: Array<RxNormTrait>;
+  Traits?: RxNormTrait[];
 
   /**
    * <p>The type of attribute. The types of attributes recognized by InferRxNorm are
@@ -1099,7 +1095,7 @@ export interface RxNormEntity {
    *     <code>FREQUENCY</code>, <code>RATE</code>, <code>ROUTE_OR_MODE</code>, and
    *    <code>STRENGTH</code>.</p>
    */
-  Attributes?: Array<RxNormAttribute>;
+  Attributes?: RxNormAttribute[];
 
   /**
    * <p>The 0-based character offset in the input text that shows where the entity begins. The
@@ -1129,7 +1125,7 @@ export interface RxNormEntity {
    * <p> The RxNorm concepts that the entity could refer to, along with a score indicating the
    *    likelihood of the match.</p>
    */
-  RxNormConcepts?: Array<RxNormConcept>;
+  RxNormConcepts?: RxNormConcept[];
 
   /**
    * <p>The level of confidence that Amazon Comprehend Medical has in the accuracy of the detected entity.</p>
@@ -1144,7 +1140,7 @@ export interface RxNormEntity {
   /**
    * <p> Contextual information for the entity.</p>
    */
-  Traits?: Array<RxNormTrait>;
+  Traits?: RxNormTrait[];
 
   /**
    * <p> Describes the specific type of entity. For InferRxNorm, the

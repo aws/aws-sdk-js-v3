@@ -40,7 +40,7 @@ export interface AnalyzeDocumentRequest {
    *             <code>FeatureTypes</code>. All lines and words detected in the document are included in
    *          the response (including text that isn't related to the value of <code>FeatureTypes</code>). </p>
    */
-  FeatureTypes: Array<FeatureType | string> | undefined;
+  FeatureTypes: (FeatureType | string)[] | undefined;
 
   /**
    * <p>Sets the configuration for the human in the loop workflow for analyzing documents.</p>
@@ -63,7 +63,7 @@ export interface AnalyzeDocumentResponse {
   /**
    * <p>The items that are detected and analyzed by <code>AnalyzeDocument</code>.</p>
    */
-  Blocks?: Array<Block>;
+  Blocks?: Block[];
 
   /**
    * <p>Metadata about the analyzed document. An example is the number of pages.</p>
@@ -216,7 +216,7 @@ export interface Block {
    *             <code>EntityTypes</code> isn't returned by <code>DetectDocumentText</code> and
    *             <code>GetDocumentTextDetection</code>.</p>
    */
-  EntityTypes?: Array<EntityType | string>;
+  EntityTypes?: (EntityType | string)[];
 
   /**
    * <p>The location of the recognized text on the image. It includes an axis-aligned, coarse
@@ -255,7 +255,7 @@ export interface Block {
    *             </li>
    *          </ul>
    */
-  Relationships?: Array<Relationship>;
+  Relationships?: Relationship[];
 
   /**
    * <p>The row in which a table cell is located. The first row position is 1.
@@ -369,7 +369,7 @@ export interface DetectDocumentTextResponse {
    * <p>An array of <code>Block</code> objects that contain the text that's detected in the
    *          document.</p>
    */
-  Blocks?: Array<Block>;
+  Blocks?: Block[];
 
   /**
    * <p></p>
@@ -507,7 +507,7 @@ export interface Geometry {
   /**
    * <p>Within the bounding box, a fine-grained polygon around the recognized item.</p>
    */
-  Polygon?: Array<Point>;
+  Polygon?: Point[];
 }
 
 export namespace Geometry {
@@ -551,7 +551,7 @@ export interface GetDocumentAnalysisResponse {
   /**
    * <p>The results of the text-analysis operation.</p>
    */
-  Blocks?: Array<Block>;
+  Blocks?: Block[];
 
   /**
    * <p>Information about a document that Amazon Textract processed. <code>DocumentMetadata</code> is
@@ -578,7 +578,7 @@ export interface GetDocumentAnalysisResponse {
   /**
    * <p>A list of warnings that occurred during the document-analysis operation.</p>
    */
-  Warnings?: Array<Warning>;
+  Warnings?: Warning[];
 }
 
 export namespace GetDocumentAnalysisResponse {
@@ -618,7 +618,7 @@ export interface GetDocumentTextDetectionResponse {
   /**
    * <p>The results of the text-detection operation.</p>
    */
-  Blocks?: Array<Block>;
+  Blocks?: Block[];
 
   /**
    * <p></p>
@@ -651,7 +651,7 @@ export interface GetDocumentTextDetectionResponse {
    * <p>A list of warnings that occurred during the text-detection operation for the
    *          document.</p>
    */
-  Warnings?: Array<Warning>;
+  Warnings?: Warning[];
 }
 
 export namespace GetDocumentTextDetectionResponse {
@@ -673,7 +673,7 @@ export interface HumanLoopActivationOutput {
   /**
    * <p>Shows if and why human review was needed.</p>
    */
-  HumanLoopActivationReasons?: Array<string>;
+  HumanLoopActivationReasons?: string[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the HumanLoop created.</p>
@@ -722,7 +722,7 @@ export interface HumanLoopDataAttributes {
   /**
    * <p>Sets whether the input image is free of personally identifiable information or adult content.</p>
    */
-  ContentClassifiers?: Array<ContentClassifier | string>;
+  ContentClassifiers?: (ContentClassifier | string)[];
 }
 
 export namespace HumanLoopDataAttributes {
@@ -952,7 +952,7 @@ export interface Relationship {
    *          array of IDs for related blocks. You can get the type of the relationship from the
    *             <code>Type</code> element.</p>
    */
-  Ids?: Array<string>;
+  Ids?: string[];
 
   /**
    * <p>The type of relationship that the blocks in the IDs array have with the current block.
@@ -1034,7 +1034,7 @@ export interface StartDocumentAnalysisRequest {
    *          included in the response (including text that isn't related to the value of
    *             <code>FeatureTypes</code>). </p>
    */
-  FeatureTypes: Array<FeatureType | string> | undefined;
+  FeatureTypes: (FeatureType | string)[] | undefined;
 
   /**
    * <p>An identifier that you specify that's included in the completion notification published
@@ -1170,7 +1170,7 @@ export interface Warning {
   /**
    * <p>A list of the pages that the warning applies to.</p>
    */
-  Pages?: Array<number>;
+  Pages?: number[];
 }
 
 export namespace Warning {

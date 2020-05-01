@@ -68,7 +68,7 @@ export interface CreateRule {
   /**
    * <p>The time, in UTC, to start the operation. The supported format is hh:mm.</p> <p>The operation occurs within a one-hour window following the specified time.</p>
    */
-  Times?: Array<string>;
+  Times?: string[];
 }
 
 export namespace CreateRule {
@@ -162,7 +162,7 @@ export interface FastRestoreRule {
   /**
    * <p>The Availability Zones in which to enable fast snapshot restore.</p>
    */
-  AvailabilityZones: Array<string> | undefined;
+  AvailabilityZones: string[] | undefined;
 
   /**
    * <p>The number of snapshots to be enabled with fast snapshot restore.</p>
@@ -190,12 +190,12 @@ export interface GetLifecyclePoliciesRequest {
   /**
    * <p>The identifiers of the data lifecycle policies.</p>
    */
-  PolicyIds?: Array<string>;
+  PolicyIds?: string[];
 
   /**
    * <p>The resource type.</p>
    */
-  ResourceTypes?: Array<ResourceTypeValues | string>;
+  ResourceTypes?: (ResourceTypeValues | string)[];
 
   /**
    * <p>The activation state.</p>
@@ -205,12 +205,12 @@ export interface GetLifecyclePoliciesRequest {
   /**
    * <p>The tags to add to objects created by the policy.</p> <p>Tags are strings in the format <code>key=value</code>.</p> <p>These user-defined tags are added in addition to the AWS-added lifecycle tags.</p>
    */
-  TagsToAdd?: Array<string>;
+  TagsToAdd?: string[];
 
   /**
    * <p>The target tag for a policy.</p> <p>Tags are strings in the format <code>key=value</code>.</p>
    */
-  TargetTags?: Array<string>;
+  TargetTags?: string[];
 }
 
 export namespace GetLifecyclePoliciesRequest {
@@ -223,7 +223,7 @@ export interface GetLifecyclePoliciesResponse {
   /**
    * <p>Summary information about the lifecycle policies.</p>
    */
-  Policies?: Array<LifecyclePolicySummary>;
+  Policies?: LifecyclePolicySummary[];
 }
 
 export namespace GetLifecyclePoliciesResponse {
@@ -297,12 +297,12 @@ export interface InvalidRequestException
   /**
    * <p>The request included parameters that cannot be provided together.</p>
    */
-  MutuallyExclusiveParameters?: Array<string>;
+  MutuallyExclusiveParameters?: string[];
 
   /**
    * <p>The request omitted one or more required parameters.</p>
    */
-  RequiredParameters?: Array<string>;
+  RequiredParameters?: string[];
 }
 
 export namespace InvalidRequestException {
@@ -482,17 +482,17 @@ export interface PolicyDetails {
   /**
    * <p>The resource type.</p>
    */
-  ResourceTypes?: Array<ResourceTypeValues | string>;
+  ResourceTypes?: (ResourceTypeValues | string)[];
 
   /**
    * <p>The schedule of policy-defined actions.</p>
    */
-  Schedules?: Array<Schedule>;
+  Schedules?: Schedule[];
 
   /**
    * <p>The single tag that identifies targeted resources for this policy.</p>
    */
-  TargetTags?: Array<Tag>;
+  TargetTags?: Tag[];
 }
 
 export namespace PolicyDetails {
@@ -516,7 +516,7 @@ export interface ResourceNotFoundException
   /**
    * <p>Value is a list of resource IDs that were not found.</p>
    */
-  ResourceIds?: Array<string>;
+  ResourceIds?: string[];
 
   /**
    * <p>Value is the type of resource that was not found.</p>
@@ -584,7 +584,7 @@ export interface Schedule {
   /**
    * <p>The rule for cross-Region snapshot copies.</p>
    */
-  CrossRegionCopyRules?: Array<CrossRegionCopyRule>;
+  CrossRegionCopyRules?: CrossRegionCopyRule[];
 
   /**
    * <p>The rule for enabling fast snapshot restore.</p>
@@ -604,12 +604,12 @@ export interface Schedule {
   /**
    * <p>The tags to apply to policy-created resources. These user-defined tags are in addition to the AWS-added lifecycle tags.</p>
    */
-  TagsToAdd?: Array<Tag>;
+  TagsToAdd?: Tag[];
 
   /**
    * <p>A collection of key/value pairs with values determined dynamically when the policy is executed. Keys may be any valid Amazon EC2 tag key. Values must be in one of the two following formats: <code>$(instance-id)</code> or <code>$(timestamp)</code>. Variable tags are only valid for EBS Snapshot Management – Instance policies.</p>
    */
-  VariableTags?: Array<Tag>;
+  VariableTags?: Tag[];
 }
 
 export namespace Schedule {
@@ -678,7 +678,7 @@ export interface UntagResourceRequest {
   /**
    * <p>The tag keys.</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {

@@ -4094,7 +4094,7 @@ const serializeAws_json1_0Decision = (
 };
 
 const serializeAws_json1_0DecisionList = (
-  input: Array<Decision>,
+  input: Decision[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4189,7 +4189,7 @@ const serializeAws_json1_0ResourceTag = (
 };
 
 const serializeAws_json1_0ResourceTagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4200,7 +4200,7 @@ const serializeAws_json1_0ResourceTagKeyList = (
 };
 
 const serializeAws_json1_0ResourceTagList = (
-  input: Array<ResourceTag>,
+  input: ResourceTag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4377,7 +4377,7 @@ const serializeAws_json1_0TagFilter = (
 };
 
 const serializeAws_json1_0TagList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5740,7 +5740,7 @@ const deserializeAws_json1_0ActivityTypeInfo = (
 const deserializeAws_json1_0ActivityTypeInfoList = (
   output: any,
   context: __SerdeContext
-): Array<ActivityTypeInfo> => {
+): ActivityTypeInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0ActivityTypeInfo(entry, context)
   );
@@ -6367,7 +6367,7 @@ const deserializeAws_json1_0DomainInfo = (
 const deserializeAws_json1_0DomainInfoList = (
   output: any,
   context: __SerdeContext
-): Array<DomainInfo> => {
+): DomainInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0DomainInfo(entry, context)
   );
@@ -7062,7 +7062,7 @@ const deserializeAws_json1_0HistoryEvent = (
 const deserializeAws_json1_0HistoryEventList = (
   output: any,
   context: __SerdeContext
-): Array<HistoryEvent> => {
+): HistoryEvent[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0HistoryEvent(entry, context)
   );
@@ -7415,7 +7415,7 @@ const deserializeAws_json1_0ResourceTag = (
 const deserializeAws_json1_0ResourceTagList = (
   output: any,
   context: __SerdeContext
-): Array<ResourceTag> => {
+): ResourceTag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0ResourceTag(entry, context)
   );
@@ -7728,7 +7728,7 @@ const deserializeAws_json1_0StartTimerFailedEventAttributes = (
 const deserializeAws_json1_0TagList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -8252,7 +8252,7 @@ const deserializeAws_json1_0WorkflowExecutionInfo = (
 const deserializeAws_json1_0WorkflowExecutionInfoList = (
   output: any,
   context: __SerdeContext
-): Array<WorkflowExecutionInfo> => {
+): WorkflowExecutionInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0WorkflowExecutionInfo(entry, context)
   );
@@ -8616,7 +8616,7 @@ const deserializeAws_json1_0WorkflowTypeInfo = (
 const deserializeAws_json1_0WorkflowTypeInfoList = (
   output: any,
   context: __SerdeContext
-): Array<WorkflowTypeInfo> => {
+): WorkflowTypeInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0WorkflowTypeInfo(entry, context)
   );

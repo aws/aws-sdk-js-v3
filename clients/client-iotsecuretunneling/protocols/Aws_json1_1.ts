@@ -698,7 +698,7 @@ const serializeAws_json1_1OpenTunnelRequest = (
 };
 
 const serializeAws_json1_1ServiceList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -720,7 +720,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_json1_1TagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -731,7 +731,7 @@ const serializeAws_json1_1TagKeyList = (
 };
 
 const serializeAws_json1_1TagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -944,7 +944,7 @@ const deserializeAws_json1_1ResourceNotFoundException = (
 const deserializeAws_json1_1ServiceList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -969,7 +969,7 @@ const deserializeAws_json1_1Tag = (
 const deserializeAws_json1_1TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );
@@ -1114,7 +1114,7 @@ const deserializeAws_json1_1TunnelSummary = (
 const deserializeAws_json1_1TunnelSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<TunnelSummary> => {
+): TunnelSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1TunnelSummary(entry, context)
   );

@@ -259,7 +259,7 @@ export interface BulkEmailDestination {
    *             using <code>SendBulkTemplatedEmail</code>. Tags correspond to characteristics of the
    *             email that you define, so that you can publish email sending events.</p>
    */
-  ReplacementTags?: Array<MessageTag>;
+  ReplacementTags?: MessageTag[];
 
   /**
    * <p>A list of replacement values to apply to the template. This parameter is a JSON
@@ -479,7 +479,7 @@ export interface CloudWatchDestination {
    * <p>A list of dimensions upon which to categorize your emails when you publish email
    *             sending events to Amazon CloudWatch.</p>
    */
-  DimensionConfigurations: Array<CloudWatchDimensionConfiguration> | undefined;
+  DimensionConfigurations: CloudWatchDimensionConfiguration[] | undefined;
 }
 
 export namespace CloudWatchDestination {
@@ -1464,7 +1464,7 @@ export interface DescribeActiveReceiptRuleSetResponse {
   /**
    * <p>The receipt rules that belong to the active rule set.</p>
    */
-  Rules?: Array<ReceiptRule>;
+  Rules?: ReceiptRule[];
 }
 
 export namespace DescribeActiveReceiptRuleSetResponse {
@@ -1483,7 +1483,7 @@ export interface DescribeConfigurationSetRequest {
   /**
    * <p>A list of configuration set attributes to return.</p>
    */
-  ConfigurationSetAttributeNames?: Array<ConfigurationSetAttribute | string>;
+  ConfigurationSetAttributeNames?: (ConfigurationSetAttribute | string)[];
 
   /**
    * <p>The name of the configuration set to describe.</p>
@@ -1518,7 +1518,7 @@ export interface DescribeConfigurationSetResponse {
   /**
    * <p>A list of event destinations associated with the configuration set. </p>
    */
-  EventDestinations?: Array<EventDestination>;
+  EventDestinations?: EventDestination[];
 
   /**
    * <p>An object that represents the reputation settings for the configuration set. </p>
@@ -1608,7 +1608,7 @@ export interface DescribeReceiptRuleSetResponse {
   /**
    * <p>A list of the receipt rules that belong to the specified receipt rule set.</p>
    */
-  Rules?: Array<ReceiptRule>;
+  Rules?: ReceiptRule[];
 }
 
 export namespace DescribeReceiptRuleSetResponse {
@@ -1633,17 +1633,17 @@ export interface Destination {
   /**
    * <p>The recipients to place on the BCC: line of the message.</p>
    */
-  BccAddresses?: Array<string>;
+  BccAddresses?: string[];
 
   /**
    * <p>The recipients to place on the CC: line of the message.</p>
    */
-  CcAddresses?: Array<string>;
+  CcAddresses?: string[];
 
   /**
    * <p>The recipients to place on the To: line of the message.</p>
    */
-  ToAddresses?: Array<string>;
+  ToAddresses?: string[];
 }
 
 export namespace Destination {
@@ -1701,7 +1701,7 @@ export interface EventDestination {
   /**
    * <p>The type of email sending events to publish to the event destination.</p>
    */
-  MatchingEventTypes: Array<EventType | string> | undefined;
+  MatchingEventTypes: (EventType | string)[] | undefined;
 
   /**
    * <p>The name of the event destination. The name must:</p>
@@ -1933,7 +1933,7 @@ export interface GetIdentityDkimAttributesRequest {
   /**
    * <p>A list of one or more verified identities - email addresses, domains, or both.</p>
    */
-  Identities: Array<string> | undefined;
+  Identities: string[] | undefined;
 }
 
 export namespace GetIdentityDkimAttributesRequest {
@@ -1970,7 +1970,7 @@ export interface GetIdentityMailFromDomainAttributesRequest {
   /**
    * <p>A list of one or more identities.</p>
    */
-  Identities: Array<string> | undefined;
+  Identities: string[] | undefined;
 }
 
 export namespace GetIdentityMailFromDomainAttributesRequest {
@@ -2013,7 +2013,7 @@ export interface GetIdentityNotificationAttributesRequest {
    *                 <code>example.com</code>,
    *                 <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>.</p>
    */
-  Identities: Array<string> | undefined;
+  Identities: string[] | undefined;
 }
 
 export namespace GetIdentityNotificationAttributesRequest {
@@ -2061,7 +2061,7 @@ export interface GetIdentityPoliciesRequest {
    *             policies at a time. If you do not know the names of the policies that are attached to
    *             the identity, you can use <code>ListIdentityPolicies</code>.</p>
    */
-  PolicyNames: Array<string> | undefined;
+  PolicyNames: string[] | undefined;
 }
 
 export namespace GetIdentityPoliciesRequest {
@@ -2096,7 +2096,7 @@ export interface GetIdentityVerificationAttributesRequest {
   /**
    * <p>A list of identities.</p>
    */
-  Identities: Array<string> | undefined;
+  Identities: string[] | undefined;
 }
 
 export namespace GetIdentityVerificationAttributesRequest {
@@ -2165,7 +2165,7 @@ export interface GetSendStatisticsResponse {
   /**
    * <p>A list of data points, each of which represents 15 minutes of activity.</p>
    */
-  SendDataPoints?: Array<SendDataPoint>;
+  SendDataPoints?: SendDataPoint[];
 }
 
 export namespace GetSendStatisticsResponse {
@@ -2221,7 +2221,7 @@ export interface IdentityDkimAttributes {
    *         <p>For more information about creating DNS records using DKIM tokens, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Amazon SES Developer
    *                 Guide</a>.</p>
    */
-  DkimTokens?: Array<string>;
+  DkimTokens?: string[];
 
   /**
    * <p>Describes whether Amazon SES has successfully verified the DKIM DNS records (tokens)
@@ -2759,7 +2759,7 @@ export interface ListConfigurationSetsResponse {
   /**
    * <p>A list of configuration sets.</p>
    */
-  ConfigurationSets?: Array<ConfigurationSet>;
+  ConfigurationSets?: ConfigurationSet[];
 
   /**
    * <p>A token indicating that there are additional configuration sets available to be
@@ -2813,7 +2813,7 @@ export interface ListCustomVerificationEmailTemplatesResponse {
   /**
    * <p>A list of the custom verification email templates that exist in your account.</p>
    */
-  CustomVerificationEmailTemplates?: Array<CustomVerificationEmailTemplate>;
+  CustomVerificationEmailTemplates?: CustomVerificationEmailTemplate[];
 
   /**
    * <p>A token indicating that there are additional custom verification email templates
@@ -2870,7 +2870,7 @@ export interface ListIdentitiesResponse {
   /**
    * <p>A list of identities.</p>
    */
-  Identities: Array<string> | undefined;
+  Identities: string[] | undefined;
 
   /**
    * <p>The token used for pagination.</p>
@@ -2913,7 +2913,7 @@ export interface ListIdentityPoliciesResponse {
   /**
    * <p>A list of names of policies that apply to the specified identity.</p>
    */
-  PolicyNames: Array<string> | undefined;
+  PolicyNames: string[] | undefined;
 }
 
 export namespace ListIdentityPoliciesResponse {
@@ -2945,7 +2945,7 @@ export interface ListReceiptFiltersResponse {
    * <p>A list of IP address filter data structures, which each consist of a name, an IP
    *             address range, and whether to allow or block mail from it.</p>
    */
-  Filters?: Array<ReceiptFilter>;
+  Filters?: ReceiptFilter[];
 }
 
 export namespace ListReceiptFiltersResponse {
@@ -2989,7 +2989,7 @@ export interface ListReceiptRuleSetsResponse {
    * <p>The metadata for the currently active receipt rule set. The metadata consists of the
    *             rule set name and the timestamp of when the rule set was created.</p>
    */
-  RuleSets?: Array<ReceiptRuleSetMetadata>;
+  RuleSets?: ReceiptRuleSetMetadata[];
 }
 
 export namespace ListReceiptRuleSetsResponse {
@@ -3031,7 +3031,7 @@ export interface ListTemplatesResponse {
    * <p>An array the contains the name and creation time stamp for each template in your Amazon SES
    *             account.</p>
    */
-  TemplatesMetadata?: Array<TemplateMetadata>;
+  TemplatesMetadata?: TemplateMetadata[];
 }
 
 export namespace ListTemplatesResponse {
@@ -3048,7 +3048,7 @@ export interface ListVerifiedEmailAddressesResponse {
   /**
    * <p>A list of email addresses that have been verified.</p>
    */
-  VerifiedEmailAddresses?: Array<string>;
+  VerifiedEmailAddresses?: string[];
 }
 
 export namespace ListVerifiedEmailAddressesResponse {
@@ -3112,7 +3112,7 @@ export interface MessageDsn {
   /**
    * <p>Additional X-headers to include in the DSN.</p>
    */
-  ExtensionFields?: Array<ExtensionField>;
+  ExtensionFields?: ExtensionField[];
 
   /**
    * <p>The reporting MTA that attempted to deliver the message, formatted as specified in
@@ -3430,7 +3430,7 @@ export interface ReceiptRule {
    * <p>An ordered list of actions to perform on messages that match at least one of the
    *             recipient email addresses or domains specified in the receipt rule.</p>
    */
-  Actions?: Array<ReceiptAction>;
+  Actions?: ReceiptAction[];
 
   /**
    * <p>If <code>true</code>, the receipt rule is active. The default value is
@@ -3460,7 +3460,7 @@ export interface ReceiptRule {
    *             field is not specified, this rule will match all recipients under all verified
    *             domains.</p>
    */
-  Recipients?: Array<string>;
+  Recipients?: string[];
 
   /**
    * <p>If <code>true</code>, then messages that this receipt rule applies to are scanned for
@@ -3542,7 +3542,7 @@ export interface RecipientDsnFields {
   /**
    * <p>Additional X-headers to include in the DSN.</p>
    */
-  ExtensionFields?: Array<ExtensionField>;
+  ExtensionFields?: ExtensionField[];
 
   /**
    * <p>The email address that the message was ultimately delivered to. This corresponds to
@@ -3592,7 +3592,7 @@ export interface ReorderReceiptRuleSetRequest {
    * <p>A list of the specified receipt rule set's receipt rules in the order that you want to
    *             put them.</p>
    */
-  RuleNames: Array<string> | undefined;
+  RuleNames: string[] | undefined;
 
   /**
    * <p>The name of the receipt rule set to reorder.</p>
@@ -3868,7 +3868,7 @@ export interface SendBounceRequest {
    *             create the Delivery Status Notifications (DSNs) for the recipients. You must specify at
    *             least one <code>BouncedRecipientInfo</code> in the list.</p>
    */
-  BouncedRecipientInfoList: Array<BouncedRecipientInfo> | undefined;
+  BouncedRecipientInfoList: BouncedRecipientInfo[] | undefined;
 
   /**
    * <p>Human-readable text for the bounce message to explain the failure. If not specified,
@@ -3925,7 +3925,7 @@ export interface SendBulkTemplatedEmailRequest {
    * <p>A list of tags, in the form of name/value pairs, to apply to an email that you send to
    *             a destination using <code>SendBulkTemplatedEmail</code>.</p>
    */
-  DefaultTags?: Array<MessageTag>;
+  DefaultTags?: MessageTag[];
 
   /**
    * <p>A list of replacement values to apply to the template when replacement data is not
@@ -3942,13 +3942,13 @@ export interface SendBulkTemplatedEmailRequest {
    *             up to 50 <code>Destination</code> objects within a <code>Destinations</code>
    *             array.</p>
    */
-  Destinations: Array<BulkEmailDestination> | undefined;
+  Destinations: BulkEmailDestination[] | undefined;
 
   /**
    * <p>The reply-to email address(es) for the message. If the recipient replies to the
    *             message, each reply-to address will receive the reply.</p>
    */
-  ReplyToAddresses?: Array<string>;
+  ReplyToAddresses?: string[];
 
   /**
    * <p>The email address that bounces and complaints will be forwarded to when feedback
@@ -4036,7 +4036,7 @@ export interface SendBulkTemplatedEmailResponse {
    * <p>The unique message identifier returned from the <code>SendBulkTemplatedEmail</code>
    *             action.</p>
    */
-  Status: Array<BulkEmailDestinationStatus> | undefined;
+  Status: BulkEmailDestinationStatus[] | undefined;
 }
 
 export namespace SendBulkTemplatedEmailResponse {
@@ -4152,7 +4152,7 @@ export interface SendEmailRequest {
    * <p>The reply-to email address(es) for the message. If the recipient replies to the
    *             message, each reply-to address will receive the reply.</p>
    */
-  ReplyToAddresses?: Array<string>;
+  ReplyToAddresses?: string[];
 
   /**
    * <p>The email address that bounces and complaints will be forwarded to when feedback
@@ -4223,7 +4223,7 @@ export interface SendEmailRequest {
    *             using <code>SendEmail</code>. Tags correspond to characteristics of the email that you
    *             define, so that you can publish email sending events.</p>
    */
-  Tags?: Array<MessageTag>;
+  Tags?: MessageTag[];
 }
 
 export namespace SendEmailRequest {
@@ -4263,7 +4263,7 @@ export interface SendRawEmailRequest {
    * <p>A list of destinations for the message, consisting of To:, CC:, and BCC:
    *             addresses.</p>
    */
-  Destinations?: Array<string>;
+  Destinations?: string[];
 
   /**
    * <p>This parameter is used only for sending authorization. It is the ARN of the identity
@@ -4387,7 +4387,7 @@ export interface SendRawEmailRequest {
    *             using <code>SendRawEmail</code>. Tags correspond to characteristics of the email that
    *             you define, so that you can publish email sending events.</p>
    */
-  Tags?: Array<MessageTag>;
+  Tags?: MessageTag[];
 }
 
 export namespace SendRawEmailRequest {
@@ -4435,7 +4435,7 @@ export interface SendTemplatedEmailRequest {
    * <p>The reply-to email address(es) for the message. If the recipient replies to the
    *             message, each reply-to address will receive the reply.</p>
    */
-  ReplyToAddresses?: Array<string>;
+  ReplyToAddresses?: string[];
 
   /**
    * <p>The email address that bounces and complaints will be forwarded to when feedback
@@ -4506,7 +4506,7 @@ export interface SendTemplatedEmailRequest {
    *             using <code>SendTemplatedEmail</code>. Tags correspond to characteristics of the email
    *             that you define, so that you can publish email sending events.</p>
    */
-  Tags?: Array<MessageTag>;
+  Tags?: MessageTag[];
 
   /**
    * <p>The template to use when sending this email.</p>
@@ -5360,7 +5360,7 @@ export interface VerifyDomainDkimResponse {
    *         <p>For more information about creating DNS records using DKIM tokens, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Amazon SES Developer
    *                 Guide</a>.</p>
    */
-  DkimTokens: Array<string> | undefined;
+  DkimTokens: string[] | undefined;
 }
 
 export namespace VerifyDomainDkimResponse {

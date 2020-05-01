@@ -106,7 +106,7 @@ export interface CmafPackage {
   /**
    * A list of HLS manifest configurations
    */
-  HlsManifests?: Array<HlsManifest>;
+  HlsManifests?: HlsManifest[];
 
   /**
    * Duration (in seconds) of each segment. Actual segments will be
@@ -142,7 +142,7 @@ export interface CmafPackageCreateOrUpdateParameters {
   /**
    * A list of HLS manifest configurations
    */
-  HlsManifests?: Array<HlsManifestCreateOrUpdateParameters>;
+  HlsManifests?: HlsManifestCreateOrUpdateParameters[];
 
   /**
    * Duration (in seconds) of each segment. Actual segments will be
@@ -400,7 +400,7 @@ export interface CreateOriginEndpointRequest {
   /**
    * A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
    */
-  Whitelist?: Array<string>;
+  Whitelist?: string[];
 }
 
 export namespace CreateOriginEndpointRequest {
@@ -492,7 +492,7 @@ export interface CreateOriginEndpointResponse {
   /**
    * A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
    */
-  Whitelist?: Array<string>;
+  Whitelist?: string[];
 }
 
 export namespace CreateOriginEndpointResponse {
@@ -531,7 +531,7 @@ export interface DashPackage {
    * ad markers are output.  Specify multiple items to create ad markers for all of the included
    * message types.
    */
-  AdTriggers?: Array<__AdTriggersElement | string>;
+  AdTriggers?: (__AdTriggersElement | string)[];
 
   /**
    * This setting allows the delivery restriction flags on SCTE-35 segmentation descriptors to
@@ -576,7 +576,7 @@ export interface DashPackage {
    * be partitioned into more than one period. If the list contains "ADS", new periods will be created where
    * the Channel source contains SCTE-35 ad markers.
    */
-  PeriodTriggers?: Array<__PeriodTriggersElement | string>;
+  PeriodTriggers?: (__PeriodTriggersElement | string)[];
 
   /**
    * The Dynamic Adaptive Streaming over HTTP (DASH) profile type.  When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
@@ -866,7 +866,7 @@ export interface DescribeOriginEndpointResponse {
   /**
    * A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
    */
-  Whitelist?: Array<string>;
+  Whitelist?: string[];
 }
 
 export namespace DescribeOriginEndpointResponse {
@@ -996,7 +996,7 @@ export interface HlsIngest {
   /**
    * A list of endpoints to which the source stream should be sent.
    */
-  IngestEndpoints?: Array<IngestEndpoint>;
+  IngestEndpoints?: IngestEndpoint[];
 }
 
 export namespace HlsIngest {
@@ -1088,7 +1088,7 @@ export interface HlsManifestCreateOrUpdateParameters {
    * ad markers are output.  Specify multiple items to create ad markers for all of the included
    * message types.
    */
-  AdTriggers?: Array<__AdTriggersElement | string>;
+  AdTriggers?: (__AdTriggersElement | string)[];
 
   /**
    * This setting allows the delivery restriction flags on SCTE-35 segmentation descriptors to
@@ -1168,7 +1168,7 @@ export interface HlsPackage {
    * ad markers are output.  Specify multiple items to create ad markers for all of the included
    * message types.
    */
-  AdTriggers?: Array<__AdTriggersElement | string>;
+  AdTriggers?: (__AdTriggersElement | string)[];
 
   /**
    * This setting allows the delivery restriction flags on SCTE-35 segmentation descriptors to
@@ -1308,7 +1308,7 @@ export interface ListChannelsResponse {
   /**
    * A list of Channel records.
    */
-  Channels?: Array<Channel>;
+  Channels?: Channel[];
 
   /**
    * A token that can be used to resume pagination from the end of the collection.
@@ -1354,7 +1354,7 @@ export interface ListHarvestJobsResponse {
   /**
    * A list of HarvestJob records.
    */
-  HarvestJobs?: Array<HarvestJob>;
+  HarvestJobs?: HarvestJob[];
 
   /**
    * A token that can be used to resume pagination from the end of the collection.
@@ -1400,7 +1400,7 @@ export interface ListOriginEndpointsResponse {
   /**
    * A list of OriginEndpoint records.
    */
-  OriginEndpoints?: Array<OriginEndpoint>;
+  OriginEndpoints?: OriginEndpoint[];
 }
 
 export namespace ListOriginEndpointsResponse {
@@ -1579,7 +1579,7 @@ export interface OriginEndpoint {
   /**
    * A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
    */
-  Whitelist?: Array<string>;
+  Whitelist?: string[];
 }
 
 export namespace OriginEndpoint {
@@ -1773,7 +1773,7 @@ export interface SpekeKeyProvider {
   /**
    * The system IDs to include in key requests.
    */
-  SystemIds: Array<string> | undefined;
+  SystemIds: string[] | undefined;
 
   /**
    * The URL of the external key provider service.
@@ -1873,7 +1873,7 @@ export interface UntagResourceRequest {
   /**
    * The key(s) of tag to be deleted
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -2002,7 +2002,7 @@ export interface UpdateOriginEndpointRequest {
   /**
    * A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
    */
-  Whitelist?: Array<string>;
+  Whitelist?: string[];
 }
 
 export namespace UpdateOriginEndpointRequest {
@@ -2094,7 +2094,7 @@ export interface UpdateOriginEndpointResponse {
   /**
    * A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
    */
-  Whitelist?: Array<string>;
+  Whitelist?: string[];
 }
 
 export namespace UpdateOriginEndpointResponse {

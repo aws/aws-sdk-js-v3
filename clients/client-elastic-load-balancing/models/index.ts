@@ -60,7 +60,7 @@ export interface AddAvailabilityZonesInput {
   /**
    * <p>The Availability Zones. These must be in the same region as the load balancer.</p>
    */
-  AvailabilityZones: Array<string> | undefined;
+  AvailabilityZones: string[] | undefined;
 
   /**
    * <p>The name of the load balancer.</p>
@@ -81,7 +81,7 @@ export interface AddAvailabilityZonesOutput {
   /**
    * <p>The updated list of Availability Zones for the load balancer.</p>
    */
-  AvailabilityZones?: Array<string>;
+  AvailabilityZones?: string[];
 }
 
 export namespace AddAvailabilityZonesOutput {
@@ -97,12 +97,12 @@ export interface AddTagsInput {
   /**
    * <p>The name of the load balancer. You can specify one load balancer only.</p>
    */
-  LoadBalancerNames: Array<string> | undefined;
+  LoadBalancerNames: string[] | undefined;
 
   /**
    * <p>The tags.</p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace AddTagsInput {
@@ -175,7 +175,7 @@ export interface ApplySecurityGroupsToLoadBalancerInput {
   /**
    * <p>The IDs of the security groups to associate with the load balancer. Note that you cannot specify the name of the security group.</p>
    */
-  SecurityGroups: Array<string> | undefined;
+  SecurityGroups: string[] | undefined;
 }
 
 export namespace ApplySecurityGroupsToLoadBalancerInput {
@@ -191,7 +191,7 @@ export interface ApplySecurityGroupsToLoadBalancerOutput {
   /**
    * <p>The IDs of the security groups associated with the load balancer.</p>
    */
-  SecurityGroups?: Array<string>;
+  SecurityGroups?: string[];
 }
 
 export namespace ApplySecurityGroupsToLoadBalancerOutput {
@@ -212,7 +212,7 @@ export interface AttachLoadBalancerToSubnetsInput {
   /**
    * <p>The IDs of the subnets to add. You can add only one subnet per Availability Zone.</p>
    */
-  Subnets: Array<string> | undefined;
+  Subnets: string[] | undefined;
 }
 
 export namespace AttachLoadBalancerToSubnetsInput {
@@ -228,7 +228,7 @@ export interface AttachLoadBalancerToSubnetsOutput {
   /**
    * <p>The IDs of the subnets attached to the load balancer.</p>
    */
-  Subnets?: Array<string>;
+  Subnets?: string[];
 }
 
 export namespace AttachLoadBalancerToSubnetsOutput {
@@ -249,7 +249,7 @@ export interface BackendServerDescription {
   /**
    * <p>The names of the policies enabled for the EC2 instance.</p>
    */
-  PolicyNames?: Array<string>;
+  PolicyNames?: string[];
 }
 
 export namespace BackendServerDescription {
@@ -360,14 +360,14 @@ export interface CreateAccessPointInput {
    *         <p>You can add more Availability Zones after you create the load balancer using
    *             <a>EnableAvailabilityZonesForLoadBalancer</a>.</p>
    */
-  AvailabilityZones?: Array<string>;
+  AvailabilityZones?: string[];
 
   /**
    * <p>The listeners.</p>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html">Listeners for Your Classic Load Balancer</a>
    *             in the <i>Classic Load Balancers Guide</i>.</p>
    */
-  Listeners: Array<Listener> | undefined;
+  Listeners: Listener[] | undefined;
 
   /**
    * <p>The name of the load balancer.</p>
@@ -387,20 +387,20 @@ export interface CreateAccessPointInput {
   /**
    * <p>The IDs of the security groups to assign to the load balancer.</p>
    */
-  SecurityGroups?: Array<string>;
+  SecurityGroups?: string[];
 
   /**
    * <p>The IDs of the subnets in your VPC to attach to the load balancer.
    *             Specify one subnet per Availability Zone specified in <code>AvailabilityZones</code>.</p>
    */
-  Subnets?: Array<string>;
+  Subnets?: string[];
 
   /**
    * <p>A list of tags to assign to the load balancer.</p>
    *         <p>For more information about tagging your load balancer, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/add-remove-tags.html">Tag Your Classic Load Balancer</a>
    *             in the <i>Classic Load Balancers Guide</i>.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateAccessPointInput {
@@ -508,7 +508,7 @@ export interface CreateLoadBalancerListenerInput {
   /**
    * <p>The listeners.</p>
    */
-  Listeners: Array<Listener> | undefined;
+  Listeners: Listener[] | undefined;
 
   /**
    * <p>The name of the load balancer.</p>
@@ -546,7 +546,7 @@ export interface CreateLoadBalancerPolicyInput {
   /**
    * <p>The policy attributes.</p>
    */
-  PolicyAttributes?: Array<PolicyAttribute>;
+  PolicyAttributes?: PolicyAttribute[];
 
   /**
    * <p>The name of the load balancer policy to be created. This name must be unique within the set of policies for this load balancer.</p>
@@ -634,7 +634,7 @@ export interface DeleteLoadBalancerListenerInput {
   /**
    * <p>The client port numbers of the listeners.</p>
    */
-  LoadBalancerPorts: Array<number> | undefined;
+  LoadBalancerPorts: number[] | undefined;
 }
 
 export namespace DeleteLoadBalancerListenerInput {
@@ -711,7 +711,7 @@ export interface DeregisterEndPointsInput {
   /**
    * <p>The IDs of the instances.</p>
    */
-  Instances: Array<Instance> | undefined;
+  Instances: Instance[] | undefined;
 
   /**
    * <p>The name of the load balancer.</p>
@@ -732,7 +732,7 @@ export interface DeregisterEndPointsOutput {
   /**
    * <p>The remaining instances registered with the load balancer.</p>
    */
-  Instances?: Array<Instance>;
+  Instances?: Instance[];
 }
 
 export namespace DeregisterEndPointsOutput {
@@ -748,7 +748,7 @@ export interface DescribeAccessPointsInput {
   /**
    * <p>The names of the load balancers.</p>
    */
-  LoadBalancerNames?: Array<string>;
+  LoadBalancerNames?: string[];
 
   /**
    * <p>The marker for the next set of results. (You received this marker from a previous call.)</p>
@@ -774,7 +774,7 @@ export interface DescribeAccessPointsOutput {
   /**
    * <p>Information about the load balancers.</p>
    */
-  LoadBalancerDescriptions?: Array<LoadBalancerDescription>;
+  LoadBalancerDescriptions?: LoadBalancerDescription[];
 
   /**
    * <p>The marker to use when requesting the next set of results. If there are no additional results, the string is empty.</p>
@@ -810,7 +810,7 @@ export interface DescribeAccountLimitsOutput {
   /**
    * <p>Information about the limits.</p>
    */
-  Limits?: Array<Limit>;
+  Limits?: Limit[];
 
   /**
    * <p>The marker to use when requesting the next set of results. If there are no additional results, the string is empty.</p>
@@ -831,7 +831,7 @@ export interface DescribeEndPointStateInput {
   /**
    * <p>The IDs of the instances.</p>
    */
-  Instances?: Array<Instance>;
+  Instances?: Instance[];
 
   /**
    * <p>The name of the load balancer.</p>
@@ -852,7 +852,7 @@ export interface DescribeEndPointStateOutput {
   /**
    * <p>Information about the health of the instances.</p>
    */
-  InstanceStates?: Array<InstanceState>;
+  InstanceStates?: InstanceState[];
 }
 
 export namespace DescribeEndPointStateOutput {
@@ -905,7 +905,7 @@ export interface DescribeLoadBalancerPoliciesInput {
   /**
    * <p>The names of the policies.</p>
    */
-  PolicyNames?: Array<string>;
+  PolicyNames?: string[];
 }
 
 export namespace DescribeLoadBalancerPoliciesInput {
@@ -921,7 +921,7 @@ export interface DescribeLoadBalancerPoliciesOutput {
   /**
    * <p>Information about the policies.</p>
    */
-  PolicyDescriptions?: Array<PolicyDescription>;
+  PolicyDescriptions?: PolicyDescription[];
 }
 
 export namespace DescribeLoadBalancerPoliciesOutput {
@@ -937,7 +937,7 @@ export interface DescribeLoadBalancerPolicyTypesInput {
   /**
    * <p>The names of the policy types. If no names are specified, describes all policy types defined by Elastic Load Balancing.</p>
    */
-  PolicyTypeNames?: Array<string>;
+  PolicyTypeNames?: string[];
 }
 
 export namespace DescribeLoadBalancerPolicyTypesInput {
@@ -953,7 +953,7 @@ export interface DescribeLoadBalancerPolicyTypesOutput {
   /**
    * <p>Information about the policy types.</p>
    */
-  PolicyTypeDescriptions?: Array<PolicyTypeDescription>;
+  PolicyTypeDescriptions?: PolicyTypeDescription[];
 }
 
 export namespace DescribeLoadBalancerPolicyTypesOutput {
@@ -969,7 +969,7 @@ export interface DescribeTagsInput {
   /**
    * <p>The names of the load balancers.</p>
    */
-  LoadBalancerNames: Array<string> | undefined;
+  LoadBalancerNames: string[] | undefined;
 }
 
 export namespace DescribeTagsInput {
@@ -985,7 +985,7 @@ export interface DescribeTagsOutput {
   /**
    * <p>Information about the tags.</p>
    */
-  TagDescriptions?: Array<TagDescription>;
+  TagDescriptions?: TagDescription[];
 }
 
 export namespace DescribeTagsOutput {
@@ -1006,7 +1006,7 @@ export interface DetachLoadBalancerFromSubnetsInput {
   /**
    * <p>The IDs of the subnets.</p>
    */
-  Subnets: Array<string> | undefined;
+  Subnets: string[] | undefined;
 }
 
 export namespace DetachLoadBalancerFromSubnetsInput {
@@ -1022,7 +1022,7 @@ export interface DetachLoadBalancerFromSubnetsOutput {
   /**
    * <p>The IDs of the remaining subnets for the load balancer.</p>
    */
-  Subnets?: Array<string>;
+  Subnets?: string[];
 }
 
 export namespace DetachLoadBalancerFromSubnetsOutput {
@@ -1433,7 +1433,7 @@ export interface ListenerDescription {
   /**
    * <p>The policies. If there are no policies enabled, the list is empty.</p>
    */
-  PolicyNames?: Array<string>;
+  PolicyNames?: string[];
 }
 
 export namespace ListenerDescription {
@@ -1488,7 +1488,7 @@ export interface LoadBalancerAttributes {
   /**
    * <p>This parameter is reserved.</p>
    */
-  AdditionalAttributes?: Array<AdditionalAttribute>;
+  AdditionalAttributes?: AdditionalAttribute[];
 
   /**
    * <p>If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy instance.</p>
@@ -1526,12 +1526,12 @@ export interface LoadBalancerDescription {
   /**
    * <p>The Availability Zones for the load balancer.</p>
    */
-  AvailabilityZones?: Array<string>;
+  AvailabilityZones?: string[];
 
   /**
    * <p>Information about your EC2 instances.</p>
    */
-  BackendServerDescriptions?: Array<BackendServerDescription>;
+  BackendServerDescriptions?: BackendServerDescription[];
 
   /**
    * <p>The DNS name of the load balancer.</p>
@@ -1563,12 +1563,12 @@ export interface LoadBalancerDescription {
   /**
    * <p>The IDs of the instances for the load balancer.</p>
    */
-  Instances?: Array<Instance>;
+  Instances?: Instance[];
 
   /**
    * <p>The listeners for the load balancer.</p>
    */
-  ListenerDescriptions?: Array<ListenerDescription>;
+  ListenerDescriptions?: ListenerDescription[];
 
   /**
    * <p>The name of the load balancer.</p>
@@ -1592,7 +1592,7 @@ export interface LoadBalancerDescription {
   /**
    * <p>The security groups for the load balancer. Valid only for load balancers in a VPC.</p>
    */
-  SecurityGroups?: Array<string>;
+  SecurityGroups?: string[];
 
   /**
    * <p>The security group for the load balancer, which you can use as part of your inbound rules for your registered instances.
@@ -1603,7 +1603,7 @@ export interface LoadBalancerDescription {
   /**
    * <p>The IDs of the subnets for the load balancer.</p>
    */
-  Subnets?: Array<string>;
+  Subnets?: string[];
 
   /**
    * <p>The ID of the VPC for the load balancer.</p>
@@ -1682,17 +1682,17 @@ export interface Policies {
   /**
    * <p>The stickiness policies created using <a>CreateAppCookieStickinessPolicy</a>.</p>
    */
-  AppCookieStickinessPolicies?: Array<AppCookieStickinessPolicy>;
+  AppCookieStickinessPolicies?: AppCookieStickinessPolicy[];
 
   /**
    * <p>The stickiness policies created using <a>CreateLBCookieStickinessPolicy</a>.</p>
    */
-  LBCookieStickinessPolicies?: Array<LBCookieStickinessPolicy>;
+  LBCookieStickinessPolicies?: LBCookieStickinessPolicy[];
 
   /**
    * <p>The policies other than the stickiness policies.</p>
    */
-  OtherPolicies?: Array<string>;
+  OtherPolicies?: string[];
 }
 
 export namespace Policies {
@@ -1800,7 +1800,7 @@ export interface PolicyDescription {
   /**
    * <p>The policy attributes.</p>
    */
-  PolicyAttributeDescriptions?: Array<PolicyAttributeDescription>;
+  PolicyAttributeDescriptions?: PolicyAttributeDescription[];
 
   /**
    * <p>The name of the policy.</p>
@@ -1847,7 +1847,7 @@ export interface PolicyTypeDescription {
   /**
    * <p>The description of the policy attributes associated with the policies defined by Elastic Load Balancing.</p>
    */
-  PolicyAttributeTypeDescriptions?: Array<PolicyAttributeTypeDescription>;
+  PolicyAttributeTypeDescriptions?: PolicyAttributeTypeDescription[];
 
   /**
    * <p>The name of the policy type.</p>
@@ -1884,7 +1884,7 @@ export interface RegisterEndPointsInput {
   /**
    * <p>The IDs of the instances.</p>
    */
-  Instances: Array<Instance> | undefined;
+  Instances: Instance[] | undefined;
 
   /**
    * <p>The name of the load balancer.</p>
@@ -1905,7 +1905,7 @@ export interface RegisterEndPointsOutput {
   /**
    * <p>The updated list of instances for the load balancer.</p>
    */
-  Instances?: Array<Instance>;
+  Instances?: Instance[];
 }
 
 export namespace RegisterEndPointsOutput {
@@ -1921,7 +1921,7 @@ export interface RemoveAvailabilityZonesInput {
   /**
    * <p>The Availability Zones.</p>
    */
-  AvailabilityZones: Array<string> | undefined;
+  AvailabilityZones: string[] | undefined;
 
   /**
    * <p>The name of the load balancer.</p>
@@ -1942,7 +1942,7 @@ export interface RemoveAvailabilityZonesOutput {
   /**
    * <p>The remaining Availability Zones for the load balancer.</p>
    */
-  AvailabilityZones?: Array<string>;
+  AvailabilityZones?: string[];
 }
 
 export namespace RemoveAvailabilityZonesOutput {
@@ -1958,12 +1958,12 @@ export interface RemoveTagsInput {
   /**
    * <p>The name of the load balancer. You can specify a maximum of one load balancer name.</p>
    */
-  LoadBalancerNames: Array<string> | undefined;
+  LoadBalancerNames: string[] | undefined;
 
   /**
    * <p>The list of tag keys to remove.</p>
    */
-  Tags: Array<TagKeyOnly> | undefined;
+  Tags: TagKeyOnly[] | undefined;
 }
 
 export namespace RemoveTagsInput {
@@ -2043,7 +2043,7 @@ export interface SetLoadBalancerPoliciesForBackendServerInput {
   /**
    * <p>The names of the policies. If the list is empty, then all current polices are removed from the EC2 instance.</p>
    */
-  PolicyNames: Array<string> | undefined;
+  PolicyNames: string[] | undefined;
 }
 
 export namespace SetLoadBalancerPoliciesForBackendServerInput {
@@ -2085,7 +2085,7 @@ export interface SetLoadBalancerPoliciesOfListenerInput {
   /**
    * <p>The names of the policies. This list must include all policies to be enabled. If you omit a policy that is currently enabled, it is disabled. If the list is empty, all current policies are disabled.</p>
    */
-  PolicyNames: Array<string> | undefined;
+  PolicyNames: string[] | undefined;
 }
 
 export namespace SetLoadBalancerPoliciesOfListenerInput {
@@ -2175,7 +2175,7 @@ export interface TagDescription {
   /**
    * <p>The tags.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace TagDescription {

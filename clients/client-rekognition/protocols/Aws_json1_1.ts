@@ -6711,7 +6711,7 @@ const serializeAws_json1_1Asset = (
 };
 
 const serializeAws_json1_1Assets = (
-  input: Array<Asset>,
+  input: Asset[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6722,7 +6722,7 @@ const serializeAws_json1_1Assets = (
 };
 
 const serializeAws_json1_1Attributes = (
-  input: Array<Attribute | string>,
+  input: (Attribute | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6759,7 +6759,7 @@ const serializeAws_json1_1CompareFacesRequest = (
 };
 
 const serializeAws_json1_1ContentClassifiers = (
-  input: Array<ContentClassifier | string>,
+  input: (ContentClassifier | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7039,7 +7039,7 @@ const serializeAws_json1_1DetectTextRequest = (
 };
 
 const serializeAws_json1_1FaceIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7719,7 +7719,7 @@ const serializeAws_json1_1TrainingData = (
 };
 
 const serializeAws_json1_1VersionNames = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7806,7 +7806,7 @@ const deserializeAws_json1_1Asset = (
 const deserializeAws_json1_1Assets = (
   output: any,
   context: __SerdeContext
-): Array<Asset> => {
+): Asset[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Asset(entry, context)
   );
@@ -7926,7 +7926,7 @@ const deserializeAws_json1_1CelebrityDetail = (
 const deserializeAws_json1_1CelebrityList = (
   output: any,
   context: __SerdeContext
-): Array<Celebrity> => {
+): Celebrity[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Celebrity(entry, context)
   );
@@ -7956,7 +7956,7 @@ const deserializeAws_json1_1CelebrityRecognition = (
 const deserializeAws_json1_1CelebrityRecognitions = (
   output: any,
   context: __SerdeContext
-): Array<CelebrityRecognition> => {
+): CelebrityRecognition[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1CelebrityRecognition(entry, context)
   );
@@ -7965,7 +7965,7 @@ const deserializeAws_json1_1CelebrityRecognitions = (
 const deserializeAws_json1_1CollectionIdList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -7990,7 +7990,7 @@ const deserializeAws_json1_1CompareFacesMatch = (
 const deserializeAws_json1_1CompareFacesMatchList = (
   output: any,
   context: __SerdeContext
-): Array<CompareFacesMatch> => {
+): CompareFacesMatch[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1CompareFacesMatch(entry, context)
   );
@@ -8046,7 +8046,7 @@ const deserializeAws_json1_1CompareFacesResponse = (
 const deserializeAws_json1_1CompareFacesUnmatchList = (
   output: any,
   context: __SerdeContext
-): Array<ComparedFace> => {
+): ComparedFace[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ComparedFace(entry, context)
   );
@@ -8094,7 +8094,7 @@ const deserializeAws_json1_1ComparedFace = (
 const deserializeAws_json1_1ComparedFaceList = (
   output: any,
   context: __SerdeContext
-): Array<ComparedFace> => {
+): ComparedFace[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ComparedFace(entry, context)
   );
@@ -8145,7 +8145,7 @@ const deserializeAws_json1_1ContentModerationDetection = (
 const deserializeAws_json1_1ContentModerationDetections = (
   output: any,
   context: __SerdeContext
-): Array<ContentModerationDetection> => {
+): ContentModerationDetection[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ContentModerationDetection(entry, context)
   );
@@ -8252,7 +8252,7 @@ const deserializeAws_json1_1CustomLabel = (
 const deserializeAws_json1_1CustomLabels = (
   output: any,
   context: __SerdeContext
-): Array<CustomLabel> => {
+): CustomLabel[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1CustomLabel(entry, context)
   );
@@ -8597,7 +8597,7 @@ const deserializeAws_json1_1Emotion = (
 const deserializeAws_json1_1Emotions = (
   output: any,
   context: __SerdeContext
-): Array<Emotion> => {
+): Emotion[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Emotion(entry, context)
   );
@@ -8790,7 +8790,7 @@ const deserializeAws_json1_1FaceDetail = (
 const deserializeAws_json1_1FaceDetailList = (
   output: any,
   context: __SerdeContext
-): Array<FaceDetail> => {
+): FaceDetail[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1FaceDetail(entry, context)
   );
@@ -8817,7 +8817,7 @@ const deserializeAws_json1_1FaceDetection = (
 const deserializeAws_json1_1FaceDetections = (
   output: any,
   context: __SerdeContext
-): Array<FaceDetection> => {
+): FaceDetection[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1FaceDetection(entry, context)
   );
@@ -8826,14 +8826,14 @@ const deserializeAws_json1_1FaceDetections = (
 const deserializeAws_json1_1FaceIdList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1FaceList = (
   output: any,
   context: __SerdeContext
-): Array<Face> => {
+): Face[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Face(entry, context)
   );
@@ -8860,7 +8860,7 @@ const deserializeAws_json1_1FaceMatch = (
 const deserializeAws_json1_1FaceMatchList = (
   output: any,
   context: __SerdeContext
-): Array<FaceMatch> => {
+): FaceMatch[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1FaceMatch(entry, context)
   );
@@ -8869,7 +8869,7 @@ const deserializeAws_json1_1FaceMatchList = (
 const deserializeAws_json1_1FaceModelVersionList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -8897,7 +8897,7 @@ const deserializeAws_json1_1FaceRecord = (
 const deserializeAws_json1_1FaceRecordList = (
   output: any,
   context: __SerdeContext
-): Array<FaceRecord> => {
+): FaceRecord[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1FaceRecord(entry, context)
   );
@@ -9267,7 +9267,7 @@ const deserializeAws_json1_1HumanLoopActivationOutput = (
 const deserializeAws_json1_1HumanLoopActivationReasons = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -9429,7 +9429,7 @@ const deserializeAws_json1_1Instance = (
 const deserializeAws_json1_1Instances = (
   output: any,
   context: __SerdeContext
-): Array<Instance> => {
+): Instance[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Instance(entry, context)
   );
@@ -9623,7 +9623,7 @@ const deserializeAws_json1_1LabelDetection = (
 const deserializeAws_json1_1LabelDetections = (
   output: any,
   context: __SerdeContext
-): Array<LabelDetection> => {
+): LabelDetection[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1LabelDetection(entry, context)
   );
@@ -9632,7 +9632,7 @@ const deserializeAws_json1_1LabelDetections = (
 const deserializeAws_json1_1Labels = (
   output: any,
   context: __SerdeContext
-): Array<Label> => {
+): Label[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Label(entry, context)
   );
@@ -9663,7 +9663,7 @@ const deserializeAws_json1_1Landmark = (
 const deserializeAws_json1_1Landmarks = (
   output: any,
   context: __SerdeContext
-): Array<Landmark> => {
+): Landmark[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Landmark(entry, context)
   );
@@ -9796,7 +9796,7 @@ const deserializeAws_json1_1ModerationLabel = (
 const deserializeAws_json1_1ModerationLabels = (
   output: any,
   context: __SerdeContext
-): Array<ModerationLabel> => {
+): ModerationLabel[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ModerationLabel(entry, context)
   );
@@ -9873,7 +9873,7 @@ const deserializeAws_json1_1Parent = (
 const deserializeAws_json1_1Parents = (
   output: any,
   context: __SerdeContext
-): Array<Parent> => {
+): Parent[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Parent(entry, context)
   );
@@ -9928,7 +9928,7 @@ const deserializeAws_json1_1PersonDetection = (
 const deserializeAws_json1_1PersonDetections = (
   output: any,
   context: __SerdeContext
-): Array<PersonDetection> => {
+): PersonDetection[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PersonDetection(entry, context)
   );
@@ -9965,7 +9965,7 @@ const deserializeAws_json1_1PersonMatch = (
 const deserializeAws_json1_1PersonMatches = (
   output: any,
   context: __SerdeContext
-): Array<PersonMatch> => {
+): PersonMatch[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PersonMatch(entry, context)
   );
@@ -9992,7 +9992,7 @@ const deserializeAws_json1_1Point = (
 const deserializeAws_json1_1Polygon = (
   output: any,
   context: __SerdeContext
-): Array<Point> => {
+): Point[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Point(entry, context)
   );
@@ -10050,7 +10050,7 @@ const deserializeAws_json1_1ProjectDescription = (
 const deserializeAws_json1_1ProjectDescriptions = (
   output: any,
   context: __SerdeContext
-): Array<ProjectDescription> => {
+): ProjectDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ProjectDescription(entry, context)
   );
@@ -10154,7 +10154,7 @@ const deserializeAws_json1_1ProjectVersionDescription = (
 const deserializeAws_json1_1ProjectVersionDescriptions = (
   output: any,
   context: __SerdeContext
-): Array<ProjectVersionDescription> => {
+): ProjectVersionDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ProjectVersionDescription(entry, context)
   );
@@ -10185,7 +10185,7 @@ const deserializeAws_json1_1ProvisionedThroughputExceededException = (
 const deserializeAws_json1_1Reasons = (
   output: any,
   context: __SerdeContext
-): Array<Reason | string> => {
+): (Reason | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -10593,7 +10593,7 @@ const deserializeAws_json1_1StreamProcessorInput = (
 const deserializeAws_json1_1StreamProcessorList = (
   output: any,
   context: __SerdeContext
-): Array<StreamProcessor> => {
+): StreamProcessor[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1StreamProcessor(entry, context)
   );
@@ -10747,7 +10747,7 @@ const deserializeAws_json1_1TextDetection = (
 const deserializeAws_json1_1TextDetectionList = (
   output: any,
   context: __SerdeContext
-): Array<TextDetection> => {
+): TextDetection[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1TextDetection(entry, context)
   );
@@ -10834,7 +10834,7 @@ const deserializeAws_json1_1UnindexedFace = (
 const deserializeAws_json1_1UnindexedFaces = (
   output: any,
   context: __SerdeContext
-): Array<UnindexedFace> => {
+): UnindexedFace[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1UnindexedFace(entry, context)
   );
@@ -10843,7 +10843,7 @@ const deserializeAws_json1_1UnindexedFaces = (
 const deserializeAws_json1_1Urls = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 

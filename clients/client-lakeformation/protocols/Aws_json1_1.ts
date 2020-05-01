@@ -1573,7 +1573,7 @@ const serializeAws_json1_1BatchPermissionsRequestEntry = (
 };
 
 const serializeAws_json1_1BatchPermissionsRequestEntryList = (
-  input: Array<BatchPermissionsRequestEntry>,
+  input: BatchPermissionsRequestEntry[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1613,7 +1613,7 @@ const serializeAws_json1_1CatalogResource = (
 };
 
 const serializeAws_json1_1ColumnNames = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1650,7 +1650,7 @@ const serializeAws_json1_1DataLakePrincipal = (
 };
 
 const serializeAws_json1_1DataLakePrincipalList = (
-  input: Array<DataLakePrincipal>,
+  input: DataLakePrincipal[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1855,7 +1855,7 @@ const serializeAws_json1_1ListResourcesRequest = (
 };
 
 const serializeAws_json1_1PermissionList = (
-  input: Array<Permission | string>,
+  input: (Permission | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1886,7 +1886,7 @@ const serializeAws_json1_1PrincipalPermissions = (
 };
 
 const serializeAws_json1_1PrincipalPermissionsList = (
-  input: Array<PrincipalPermissions>,
+  input: PrincipalPermissions[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2082,7 +2082,7 @@ const serializeAws_json1_1FilterCondition = (
 };
 
 const serializeAws_json1_1FilterConditionList = (
-  input: Array<FilterCondition>,
+  input: FilterCondition[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2093,7 +2093,7 @@ const serializeAws_json1_1FilterConditionList = (
 };
 
 const serializeAws_json1_1StringValueList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2144,7 +2144,7 @@ const deserializeAws_json1_1BatchPermissionsFailureEntry = (
 const deserializeAws_json1_1BatchPermissionsFailureList = (
   output: any,
   context: __SerdeContext
-): Array<BatchPermissionsFailureEntry> => {
+): BatchPermissionsFailureEntry[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1BatchPermissionsFailureEntry(entry, context)
   );
@@ -2225,7 +2225,7 @@ const deserializeAws_json1_1CatalogResource = (
 const deserializeAws_json1_1ColumnNames = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -2269,7 +2269,7 @@ const deserializeAws_json1_1DataLakePrincipal = (
 const deserializeAws_json1_1DataLakePrincipalList = (
   output: any,
   context: __SerdeContext
-): Array<DataLakePrincipal> => {
+): DataLakePrincipal[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DataLakePrincipal(entry, context)
   );
@@ -2469,7 +2469,7 @@ const deserializeAws_json1_1ListResourcesResponse = (
 const deserializeAws_json1_1PermissionList = (
   output: any,
   context: __SerdeContext
-): Array<Permission | string> => {
+): (Permission | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -2500,7 +2500,7 @@ const deserializeAws_json1_1PrincipalPermissions = (
 const deserializeAws_json1_1PrincipalPermissionsList = (
   output: any,
   context: __SerdeContext
-): Array<PrincipalPermissions> => {
+): PrincipalPermissions[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PrincipalPermissions(entry, context)
   );
@@ -2550,7 +2550,7 @@ const deserializeAws_json1_1PrincipalResourcePermissions = (
 const deserializeAws_json1_1PrincipalResourcePermissionsList = (
   output: any,
   context: __SerdeContext
-): Array<PrincipalResourcePermissions> => {
+): PrincipalResourcePermissions[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PrincipalResourcePermissions(entry, context)
   );
@@ -2818,7 +2818,7 @@ const deserializeAws_json1_1ResourceInfo = (
 const deserializeAws_json1_1ResourceInfoList = (
   output: any,
   context: __SerdeContext
-): Array<ResourceInfo> => {
+): ResourceInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ResourceInfo(entry, context)
   );

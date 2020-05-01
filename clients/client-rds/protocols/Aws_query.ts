@@ -17088,7 +17088,7 @@ const serializeAws_queryApplyPendingMaintenanceActionMessage = (
 };
 
 const serializeAws_queryAttributeValueList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -17124,7 +17124,7 @@ const serializeAws_queryAuthorizeDBSecurityGroupIngressMessage = (
 };
 
 const serializeAws_queryAvailabilityZones = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -18169,7 +18169,7 @@ const serializeAws_queryCreateOptionGroupMessage = (
 };
 
 const serializeAws_queryDBSecurityGroupNameList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -19437,7 +19437,7 @@ const serializeAws_queryDownloadDBLogFilePortionMessage = (
 };
 
 const serializeAws_queryEngineModeList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -19450,7 +19450,7 @@ const serializeAws_queryEngineModeList = (
 };
 
 const serializeAws_queryEventCategoriesList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -19498,7 +19498,7 @@ const serializeAws_queryFilter = (
 };
 
 const serializeAws_queryFilterList = (
-  input: Array<Filter>,
+  input: Filter[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -19514,7 +19514,7 @@ const serializeAws_queryFilterList = (
 };
 
 const serializeAws_queryFilterValueList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -19550,7 +19550,7 @@ const serializeAws_queryImportInstallationMediaMessage = (
 };
 
 const serializeAws_queryKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -19581,7 +19581,7 @@ const serializeAws_queryListTagsForResourceMessage = (
 };
 
 const serializeAws_queryLogTypeList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -20272,7 +20272,7 @@ const serializeAws_queryOptionConfiguration = (
 };
 
 const serializeAws_queryOptionConfigurationList = (
-  input: Array<OptionConfiguration>,
+  input: OptionConfiguration[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -20288,7 +20288,7 @@ const serializeAws_queryOptionConfigurationList = (
 };
 
 const serializeAws_queryOptionNamesList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -20336,7 +20336,7 @@ const serializeAws_queryOptionSetting = (
 };
 
 const serializeAws_queryOptionSettingsList = (
-  input: Array<OptionSetting>,
+  input: OptionSetting[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -20400,7 +20400,7 @@ const serializeAws_queryParameter = (
 };
 
 const serializeAws_queryParametersList = (
-  input: Array<Parameter>,
+  input: Parameter[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -20430,7 +20430,7 @@ const serializeAws_queryProcessorFeature = (
 };
 
 const serializeAws_queryProcessorFeatureList = (
-  input: Array<ProcessorFeature>,
+  input: ProcessorFeature[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -21439,7 +21439,7 @@ const serializeAws_queryScalingConfiguration = (
 };
 
 const serializeAws_querySourceIdsList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -21533,7 +21533,7 @@ const serializeAws_queryStopDBInstanceMessage = (
 };
 
 const serializeAws_queryStringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -21546,7 +21546,7 @@ const serializeAws_queryStringList = (
 };
 
 const serializeAws_querySubnetIdentifierList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -21570,7 +21570,7 @@ const serializeAws_queryTag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_queryTagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -21609,7 +21609,7 @@ const serializeAws_queryUserAuthConfig = (
 };
 
 const serializeAws_queryUserAuthConfigList = (
-  input: Array<UserAuthConfig>,
+  input: UserAuthConfig[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -21625,7 +21625,7 @@ const serializeAws_queryUserAuthConfigList = (
 };
 
 const serializeAws_queryVpcSecurityGroupIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -23485,7 +23485,7 @@ const deserializeAws_queryAccountQuota = (
 const deserializeAws_queryAccountQuotaList = (
   output: any,
   context: __SerdeContext
-): Array<AccountQuota> => {
+): AccountQuota[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryAccountQuota(entry, context));
@@ -23530,7 +23530,7 @@ const deserializeAws_queryApplyPendingMaintenanceActionResult = (
 const deserializeAws_queryAttributeValueList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -23575,7 +23575,7 @@ const deserializeAws_queryAvailabilityZone = (
 const deserializeAws_queryAvailabilityZoneList = (
   output: any,
   context: __SerdeContext
-): Array<AvailabilityZone> => {
+): AvailabilityZone[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryAvailabilityZone(entry, context));
@@ -23586,7 +23586,7 @@ const deserializeAws_queryAvailabilityZoneList = (
 const deserializeAws_queryAvailabilityZones = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -23628,7 +23628,7 @@ const deserializeAws_queryAvailableProcessorFeature = (
 const deserializeAws_queryAvailableProcessorFeatureList = (
   output: any,
   context: __SerdeContext
-): Array<AvailableProcessorFeature> => {
+): AvailableProcessorFeature[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -23700,7 +23700,7 @@ const deserializeAws_queryCertificate = (
 const deserializeAws_queryCertificateList = (
   output: any,
   context: __SerdeContext
-): Array<Certificate> => {
+): Certificate[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryCertificate(entry, context));
@@ -24185,7 +24185,7 @@ const deserializeAws_queryCustomAvailabilityZone = (
 const deserializeAws_queryCustomAvailabilityZoneList = (
   output: any,
   context: __SerdeContext
-): Array<CustomAvailabilityZone> => {
+): CustomAvailabilityZone[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryCustomAvailabilityZone(entry, context));
@@ -24722,7 +24722,7 @@ const deserializeAws_queryDBClusterBacktrack = (
 const deserializeAws_queryDBClusterBacktrackList = (
   output: any,
   context: __SerdeContext
-): Array<DBClusterBacktrack> => {
+): DBClusterBacktrack[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryDBClusterBacktrack(entry, context));
@@ -24915,7 +24915,7 @@ const deserializeAws_queryDBClusterEndpoint = (
 const deserializeAws_queryDBClusterEndpointList = (
   output: any,
   context: __SerdeContext
-): Array<DBClusterEndpoint> => {
+): DBClusterEndpoint[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryDBClusterEndpoint(entry, context));
@@ -24960,7 +24960,7 @@ const deserializeAws_queryDBClusterEndpointMessage = (
 const deserializeAws_queryDBClusterList = (
   output: any,
   context: __SerdeContext
-): Array<DBCluster> => {
+): DBCluster[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryDBCluster(entry, context));
@@ -25010,7 +25010,7 @@ const deserializeAws_queryDBClusterMember = (
 const deserializeAws_queryDBClusterMemberList = (
   output: any,
   context: __SerdeContext
-): Array<DBClusterMember> => {
+): DBClusterMember[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryDBClusterMember(entry, context));
@@ -25055,7 +25055,7 @@ const deserializeAws_queryDBClusterMessage = (
 const deserializeAws_queryDBClusterOptionGroupMemberships = (
   output: any,
   context: __SerdeContext
-): Array<DBClusterOptionGroupStatus> => {
+): DBClusterOptionGroupStatus[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -25164,7 +25164,7 @@ const deserializeAws_queryDBClusterParameterGroupDetails = (
 const deserializeAws_queryDBClusterParameterGroupList = (
   output: any,
   context: __SerdeContext
-): Array<DBClusterParameterGroup> => {
+): DBClusterParameterGroup[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryDBClusterParameterGroup(entry, context));
@@ -25258,7 +25258,7 @@ const deserializeAws_queryDBClusterRole = (
 const deserializeAws_queryDBClusterRoles = (
   output: any,
   context: __SerdeContext
-): Array<DBClusterRole> => {
+): DBClusterRole[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryDBClusterRole(entry, context));
@@ -25460,7 +25460,7 @@ const deserializeAws_queryDBClusterSnapshotAttribute = (
 const deserializeAws_queryDBClusterSnapshotAttributeList = (
   output: any,
   context: __SerdeContext
-): Array<DBClusterSnapshotAttribute> => {
+): DBClusterSnapshotAttribute[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -25510,7 +25510,7 @@ const deserializeAws_queryDBClusterSnapshotAttributesResult = (
 const deserializeAws_queryDBClusterSnapshotList = (
   output: any,
   context: __SerdeContext
-): Array<DBClusterSnapshot> => {
+): DBClusterSnapshot[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryDBClusterSnapshot(entry, context));
@@ -25730,7 +25730,7 @@ const deserializeAws_queryDBEngineVersion = (
 const deserializeAws_queryDBEngineVersionList = (
   output: any,
   context: __SerdeContext
-): Array<DBEngineVersion> => {
+): DBEngineVersion[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryDBEngineVersion(entry, context));
@@ -26494,7 +26494,7 @@ const deserializeAws_queryDBInstanceAutomatedBackup = (
 const deserializeAws_queryDBInstanceAutomatedBackupList = (
   output: any,
   context: __SerdeContext
-): Array<DBInstanceAutomatedBackup> => {
+): DBInstanceAutomatedBackup[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -26544,7 +26544,7 @@ const deserializeAws_queryDBInstanceAutomatedBackupMessage = (
 const deserializeAws_queryDBInstanceList = (
   output: any,
   context: __SerdeContext
-): Array<DBInstance> => {
+): DBInstance[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryDBInstance(entry, context));
@@ -26620,7 +26620,7 @@ const deserializeAws_queryDBInstanceRole = (
 const deserializeAws_queryDBInstanceRoles = (
   output: any,
   context: __SerdeContext
-): Array<DBInstanceRole> => {
+): DBInstanceRole[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryDBInstanceRole(entry, context));
@@ -26669,7 +26669,7 @@ const deserializeAws_queryDBInstanceStatusInfo = (
 const deserializeAws_queryDBInstanceStatusInfoList = (
   output: any,
   context: __SerdeContext
-): Array<DBInstanceStatusInfo> => {
+): DBInstanceStatusInfo[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryDBInstanceStatusInfo(entry, context));
@@ -26752,7 +26752,7 @@ const deserializeAws_queryDBParameterGroupDetails = (
 const deserializeAws_queryDBParameterGroupList = (
   output: any,
   context: __SerdeContext
-): Array<DBParameterGroup> => {
+): DBParameterGroup[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryDBParameterGroup(entry, context));
@@ -26804,7 +26804,7 @@ const deserializeAws_queryDBParameterGroupStatus = (
 const deserializeAws_queryDBParameterGroupStatusList = (
   output: any,
   context: __SerdeContext
-): Array<DBParameterGroupStatus> => {
+): DBParameterGroupStatus[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryDBParameterGroupStatus(entry, context));
@@ -26979,7 +26979,7 @@ const deserializeAws_queryDBProxy = (
 const deserializeAws_queryDBProxyList = (
   output: any,
   context: __SerdeContext
-): Array<DBProxy> => {
+): DBProxy[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryDBProxy(entry, context));
@@ -27203,7 +27203,7 @@ const deserializeAws_queryDBSecurityGroupMembership = (
 const deserializeAws_queryDBSecurityGroupMembershipList = (
   output: any,
   context: __SerdeContext
-): Array<DBSecurityGroupMembership> => {
+): DBSecurityGroupMembership[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -27250,7 +27250,7 @@ const deserializeAws_queryDBSecurityGroupMessage = (
 const deserializeAws_queryDBSecurityGroups = (
   output: any,
   context: __SerdeContext
-): Array<DBSecurityGroup> => {
+): DBSecurityGroup[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryDBSecurityGroup(entry, context));
@@ -27509,7 +27509,7 @@ const deserializeAws_queryDBSnapshotAttribute = (
 const deserializeAws_queryDBSnapshotAttributeList = (
   output: any,
   context: __SerdeContext
-): Array<DBSnapshotAttribute> => {
+): DBSnapshotAttribute[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryDBSnapshotAttribute(entry, context));
@@ -27554,7 +27554,7 @@ const deserializeAws_queryDBSnapshotAttributesResult = (
 const deserializeAws_queryDBSnapshotList = (
   output: any,
   context: __SerdeContext
-): Array<DBSnapshot> => {
+): DBSnapshot[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryDBSnapshot(entry, context));
@@ -27692,7 +27692,7 @@ const deserializeAws_queryDBSubnetGroupMessage = (
 const deserializeAws_queryDBSubnetGroups = (
   output: any,
   context: __SerdeContext
-): Array<DBSubnetGroup> => {
+): DBSubnetGroup[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryDBSubnetGroup(entry, context));
@@ -27913,7 +27913,7 @@ const deserializeAws_queryDescribeDBLogFilesDetails = (
 const deserializeAws_queryDescribeDBLogFilesList = (
   output: any,
   context: __SerdeContext
-): Array<DescribeDBLogFilesDetails> => {
+): DescribeDBLogFilesDetails[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -28162,7 +28162,7 @@ const deserializeAws_queryDomainMembership = (
 const deserializeAws_queryDomainMembershipList = (
   output: any,
   context: __SerdeContext
-): Array<DomainMembership> => {
+): DomainMembership[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryDomainMembership(entry, context));
@@ -28197,7 +28197,7 @@ const deserializeAws_queryDoubleRange = (
 const deserializeAws_queryDoubleRangeList = (
   output: any,
   context: __SerdeContext
-): Array<DoubleRange> => {
+): DoubleRange[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryDoubleRange(entry, context));
@@ -28277,7 +28277,7 @@ const deserializeAws_queryEC2SecurityGroup = (
 const deserializeAws_queryEC2SecurityGroupList = (
   output: any,
   context: __SerdeContext
-): Array<EC2SecurityGroup> => {
+): EC2SecurityGroup[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryEC2SecurityGroup(entry, context));
@@ -28361,7 +28361,7 @@ const deserializeAws_queryEngineDefaults = (
 const deserializeAws_queryEngineModeList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -28431,7 +28431,7 @@ const deserializeAws_queryEvent = (
 const deserializeAws_queryEventCategoriesList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -28476,7 +28476,7 @@ const deserializeAws_queryEventCategoriesMap = (
 const deserializeAws_queryEventCategoriesMapList = (
   output: any,
   context: __SerdeContext
-): Array<EventCategoriesMap> => {
+): EventCategoriesMap[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryEventCategoriesMap(entry, context));
@@ -28514,7 +28514,7 @@ const deserializeAws_queryEventCategoriesMessage = (
 const deserializeAws_queryEventList = (
   output: any,
   context: __SerdeContext
-): Array<Event> => {
+): Event[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryEvent(entry, context));
@@ -28625,7 +28625,7 @@ const deserializeAws_queryEventSubscription = (
 const deserializeAws_queryEventSubscriptionsList = (
   output: any,
   context: __SerdeContext
-): Array<EventSubscription> => {
+): EventSubscription[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryEventSubscription(entry, context));
@@ -28718,7 +28718,7 @@ const deserializeAws_queryFailoverDBClusterResult = (
 const deserializeAws_queryFeatureNameList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -28819,7 +28819,7 @@ const deserializeAws_queryGlobalCluster = (
 const deserializeAws_queryGlobalClusterList = (
   output: any,
   context: __SerdeContext
-): Array<GlobalCluster> => {
+): GlobalCluster[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryGlobalCluster(entry, context));
@@ -28868,7 +28868,7 @@ const deserializeAws_queryGlobalClusterMember = (
 const deserializeAws_queryGlobalClusterMemberList = (
   output: any,
   context: __SerdeContext
-): Array<GlobalClusterMember> => {
+): GlobalClusterMember[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryGlobalClusterMember(entry, context));
@@ -28937,7 +28937,7 @@ const deserializeAws_queryIPRange = (
 const deserializeAws_queryIPRangeList = (
   output: any,
   context: __SerdeContext
-): Array<IPRange> => {
+): IPRange[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryIPRange(entry, context));
@@ -29031,7 +29031,7 @@ const deserializeAws_queryInstallationMediaFailureCause = (
 const deserializeAws_queryInstallationMediaList = (
   output: any,
   context: __SerdeContext
-): Array<InstallationMedia> => {
+): InstallationMedia[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryInstallationMedia(entry, context));
@@ -29076,7 +29076,7 @@ const deserializeAws_queryInstallationMediaMessage = (
 const deserializeAws_queryLogTypeList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -29111,7 +29111,7 @@ const deserializeAws_queryMinimumEngineVersionPerAllowedValue = (
 const deserializeAws_queryMinimumEngineVersionPerAllowedValueList = (
   output: any,
   context: __SerdeContext
-): Array<MinimumEngineVersionPerAllowedValue> => {
+): MinimumEngineVersionPerAllowedValue[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -29529,7 +29529,7 @@ const deserializeAws_queryOptionGroupMembership = (
 const deserializeAws_queryOptionGroupMembershipList = (
   output: any,
   context: __SerdeContext
-): Array<OptionGroupMembership> => {
+): OptionGroupMembership[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryOptionGroupMembership(entry, context));
@@ -29791,7 +29791,7 @@ const deserializeAws_queryOptionGroupOptionSetting = (
 const deserializeAws_queryOptionGroupOptionSettingsList = (
   output: any,
   context: __SerdeContext
-): Array<OptionGroupOptionSetting> => {
+): OptionGroupOptionSetting[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryOptionGroupOptionSetting(entry, context));
@@ -29802,7 +29802,7 @@ const deserializeAws_queryOptionGroupOptionSettingsList = (
 const deserializeAws_queryOptionGroupOptionVersionsList = (
   output: any,
   context: __SerdeContext
-): Array<OptionVersion> => {
+): OptionVersion[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryOptionVersion(entry, context));
@@ -29813,7 +29813,7 @@ const deserializeAws_queryOptionGroupOptionVersionsList = (
 const deserializeAws_queryOptionGroupOptionsList = (
   output: any,
   context: __SerdeContext
-): Array<OptionGroupOption> => {
+): OptionGroupOption[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryOptionGroupOption(entry, context));
@@ -29892,7 +29892,7 @@ const deserializeAws_queryOptionGroups = (
 const deserializeAws_queryOptionGroupsList = (
   output: any,
   context: __SerdeContext
-): Array<OptionGroup> => {
+): OptionGroup[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryOptionGroup(entry, context));
@@ -29976,7 +29976,7 @@ const deserializeAws_queryOptionSetting = (
 const deserializeAws_queryOptionSettingConfigurationList = (
   output: any,
   context: __SerdeContext
-): Array<OptionSetting> => {
+): OptionSetting[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryOptionSetting(entry, context));
@@ -30011,7 +30011,7 @@ const deserializeAws_queryOptionVersion = (
 const deserializeAws_queryOptionsConflictsWith = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -30022,7 +30022,7 @@ const deserializeAws_queryOptionsConflictsWith = (
 const deserializeAws_queryOptionsDependedOn = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -30033,7 +30033,7 @@ const deserializeAws_queryOptionsDependedOn = (
 const deserializeAws_queryOptionsList = (
   output: any,
   context: __SerdeContext
-): Array<Option> => {
+): Option[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryOption(entry, context));
@@ -30261,7 +30261,7 @@ const deserializeAws_queryOrderableDBInstanceOption = (
 const deserializeAws_queryOrderableDBInstanceOptionsList = (
   output: any,
   context: __SerdeContext
-): Array<OrderableDBInstanceOption> => {
+): OrderableDBInstanceOption[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -30408,7 +30408,7 @@ const deserializeAws_queryParameter = (
 const deserializeAws_queryParametersList = (
   output: any,
   context: __SerdeContext
-): Array<Parameter> => {
+): Parameter[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryParameter(entry, context));
@@ -30506,7 +30506,7 @@ const deserializeAws_queryPendingMaintenanceAction = (
 const deserializeAws_queryPendingMaintenanceActionDetails = (
   output: any,
   context: __SerdeContext
-): Array<PendingMaintenanceAction> => {
+): PendingMaintenanceAction[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryPendingMaintenanceAction(entry, context));
@@ -30517,7 +30517,7 @@ const deserializeAws_queryPendingMaintenanceActionDetails = (
 const deserializeAws_queryPendingMaintenanceActions = (
   output: any,
   context: __SerdeContext
-): Array<ResourcePendingMaintenanceActions> => {
+): ResourcePendingMaintenanceActions[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -30726,7 +30726,7 @@ const deserializeAws_queryProcessorFeature = (
 const deserializeAws_queryProcessorFeatureList = (
   output: any,
   context: __SerdeContext
-): Array<ProcessorFeature> => {
+): ProcessorFeature[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryProcessorFeature(entry, context));
@@ -30820,7 +30820,7 @@ const deserializeAws_queryRange = (
 const deserializeAws_queryRangeList = (
   output: any,
   context: __SerdeContext
-): Array<Range> => {
+): Range[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryRange(entry, context));
@@ -30831,7 +30831,7 @@ const deserializeAws_queryRangeList = (
 const deserializeAws_queryReadReplicaDBClusterIdentifierList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -30842,7 +30842,7 @@ const deserializeAws_queryReadReplicaDBClusterIdentifierList = (
 const deserializeAws_queryReadReplicaDBInstanceIdentifierList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -30853,7 +30853,7 @@ const deserializeAws_queryReadReplicaDBInstanceIdentifierList = (
 const deserializeAws_queryReadReplicaIdentifierList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -30864,7 +30864,7 @@ const deserializeAws_queryReadReplicaIdentifierList = (
 const deserializeAws_queryReadersArnList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -30917,7 +30917,7 @@ const deserializeAws_queryRecurringCharge = (
 const deserializeAws_queryRecurringChargeList = (
   output: any,
   context: __SerdeContext
-): Array<RecurringCharge> => {
+): RecurringCharge[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryRecurringCharge(entry, context));
@@ -31122,7 +31122,7 @@ const deserializeAws_queryReservedDBInstance = (
 const deserializeAws_queryReservedDBInstanceList = (
   output: any,
   context: __SerdeContext
-): Array<ReservedDBInstance> => {
+): ReservedDBInstance[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryReservedDBInstance(entry, context));
@@ -31260,7 +31260,7 @@ const deserializeAws_queryReservedDBInstancesOffering = (
 const deserializeAws_queryReservedDBInstancesOfferingList = (
   output: any,
   context: __SerdeContext
-): Array<ReservedDBInstancesOffering> => {
+): ReservedDBInstancesOffering[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -31540,7 +31540,7 @@ const deserializeAws_queryScalingConfigurationInfo = (
 const deserializeAws_querySourceIdsList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -31582,7 +31582,7 @@ const deserializeAws_querySourceRegion = (
 const deserializeAws_querySourceRegionList = (
   output: any,
   context: __SerdeContext
-): Array<SourceRegion> => {
+): SourceRegion[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_querySourceRegion(entry, context));
@@ -31771,7 +31771,7 @@ const deserializeAws_queryStopDBInstanceResult = (
 const deserializeAws_queryStringList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -31813,7 +31813,7 @@ const deserializeAws_querySubnet = (
 const deserializeAws_querySubnetList = (
   output: any,
   context: __SerdeContext
-): Array<Subnet> => {
+): Subnet[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_querySubnet(entry, context));
@@ -31824,7 +31824,7 @@ const deserializeAws_querySubnetList = (
 const deserializeAws_querySupportedCharacterSetsList = (
   output: any,
   context: __SerdeContext
-): Array<CharacterSet> => {
+): CharacterSet[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryCharacterSet(entry, context));
@@ -31835,7 +31835,7 @@ const deserializeAws_querySupportedCharacterSetsList = (
 const deserializeAws_querySupportedTimezonesList = (
   output: any,
   context: __SerdeContext
-): Array<Timezone> => {
+): Timezone[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryTimezone(entry, context));
@@ -31867,7 +31867,7 @@ const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
 const deserializeAws_queryTagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryTag(entry, context));
@@ -31902,7 +31902,7 @@ const deserializeAws_queryTagListMessage = (
 const deserializeAws_queryTargetGroupList = (
   output: any,
   context: __SerdeContext
-): Array<DBProxyTargetGroup> => {
+): DBProxyTargetGroup[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryDBProxyTargetGroup(entry, context));
@@ -31913,7 +31913,7 @@ const deserializeAws_queryTargetGroupList = (
 const deserializeAws_queryTargetList = (
   output: any,
   context: __SerdeContext
-): Array<DBProxyTarget> => {
+): DBProxyTarget[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryDBProxyTarget(entry, context));
@@ -32031,7 +32031,7 @@ const deserializeAws_queryUserAuthConfigInfo = (
 const deserializeAws_queryUserAuthConfigInfoList = (
   output: any,
   context: __SerdeContext
-): Array<UserAuthConfigInfo> => {
+): UserAuthConfigInfo[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryUserAuthConfigInfo(entry, context));
@@ -32159,7 +32159,7 @@ const deserializeAws_queryValidStorageOptions = (
 const deserializeAws_queryValidStorageOptionsList = (
   output: any,
   context: __SerdeContext
-): Array<ValidStorageOptions> => {
+): ValidStorageOptions[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryValidStorageOptions(entry, context));
@@ -32170,7 +32170,7 @@ const deserializeAws_queryValidStorageOptionsList = (
 const deserializeAws_queryValidUpgradeTargetList = (
   output: any,
   context: __SerdeContext
-): Array<UpgradeTarget> => {
+): UpgradeTarget[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryUpgradeTarget(entry, context));
@@ -32205,7 +32205,7 @@ const deserializeAws_queryVpcSecurityGroupMembership = (
 const deserializeAws_queryVpcSecurityGroupMembershipList = (
   output: any,
   context: __SerdeContext
-): Array<VpcSecurityGroupMembership> => {
+): VpcSecurityGroupMembership[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(

@@ -5301,7 +5301,7 @@ const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
 };
 
 const serializeAws_restJson1_1AccessControlPolicyList = (
-  input: Array<Grant>,
+  input: Grant[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5566,7 +5566,7 @@ const serializeAws_restJson1_1DataRetrievalRule = (
 };
 
 const serializeAws_restJson1_1DataRetrievalRulesList = (
-  input: Array<DataRetrievalRule>,
+  input: DataRetrievalRule[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5646,7 +5646,7 @@ const serializeAws_restJson1_1JobParameters = (
 };
 
 const serializeAws_restJson1_1NotificationEventList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5657,7 +5657,7 @@ const serializeAws_restJson1_1NotificationEventList = (
 };
 
 const serializeAws_restJson1_1TagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5720,7 +5720,7 @@ const serializeAws_restJson1_1VaultNotificationConfig = (
 const deserializeAws_restJson1_1AccessControlPolicyList = (
   output: any,
   context: __SerdeContext
-): Array<Grant> => {
+): Grant[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Grant(entry, context)
   );
@@ -6206,7 +6206,7 @@ const deserializeAws_restJson1_1DataRetrievalRule = (
 const deserializeAws_restJson1_1DataRetrievalRulesList = (
   output: any,
   context: __SerdeContext
-): Array<DataRetrievalRule> => {
+): DataRetrievalRule[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DataRetrievalRule(entry, context)
   );
@@ -6255,7 +6255,7 @@ const deserializeAws_restJson1_1DescribeVaultOutput = (
 const deserializeAws_restJson1_1JobList = (
   output: any,
   context: __SerdeContext
-): Array<GlacierJobDescription> => {
+): GlacierJobDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1GlacierJobDescription(entry, context)
   );
@@ -6264,14 +6264,14 @@ const deserializeAws_restJson1_1JobList = (
 const deserializeAws_restJson1_1NotificationEventList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1PartList = (
   output: any,
   context: __SerdeContext
-): Array<PartListElement> => {
+): PartListElement[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1PartListElement(entry, context)
   );
@@ -6320,7 +6320,7 @@ const deserializeAws_restJson1_1ProvisionedCapacityDescription = (
 const deserializeAws_restJson1_1ProvisionedCapacityList = (
   output: any,
   context: __SerdeContext
-): Array<ProvisionedCapacityDescription> => {
+): ProvisionedCapacityDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ProvisionedCapacityDescription(entry, context)
   );
@@ -6376,7 +6376,7 @@ const deserializeAws_restJson1_1UploadListElement = (
 const deserializeAws_restJson1_1UploadsList = (
   output: any,
   context: __SerdeContext
-): Array<UploadListElement> => {
+): UploadListElement[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1UploadListElement(entry, context)
   );
@@ -6399,7 +6399,7 @@ const deserializeAws_restJson1_1VaultAccessPolicy = (
 const deserializeAws_restJson1_1VaultList = (
   output: any,
   context: __SerdeContext
-): Array<DescribeVaultOutput> => {
+): DescribeVaultOutput[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DescribeVaultOutput(entry, context)
   );

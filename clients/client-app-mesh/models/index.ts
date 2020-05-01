@@ -69,7 +69,7 @@ export interface AwsCloudMapServiceDiscovery {
    *          by any custom attribute that you specified when you registered the instance. Only instances
    *          that match all of the specified key/value pairs will be returned.</p>
    */
-  attributes?: Array<AwsCloudMapInstanceAttribute>;
+  attributes?: AwsCloudMapInstanceAttribute[];
 
   /**
    * <p>The name of the AWS Cloud Map namespace to use.</p>
@@ -177,7 +177,7 @@ export interface CreateMeshInput {
    *          define. Tag keys can have a maximum character length of 128 characters, and tag values can have
    *             a maximum length of 256 characters.</p>
    */
-  tags?: Array<TagRef>;
+  tags?: TagRef[];
 }
 
 export namespace CreateMeshInput {
@@ -233,7 +233,7 @@ export interface CreateRouteInput {
    *          Tag keys can have a maximum character length of 128 characters, and tag values can have
    *             a maximum length of 256 characters.</p>
    */
-  tags?: Array<TagRef>;
+  tags?: TagRef[];
 
   /**
    * <p>The name of the virtual router in which to create the route.</p>
@@ -289,7 +289,7 @@ export interface CreateVirtualNodeInput {
    *          define. Tag keys can have a maximum character length of 128 characters, and tag values can have
    *             a maximum length of 256 characters.</p>
    */
-  tags?: Array<TagRef>;
+  tags?: TagRef[];
 
   /**
    * <p>The name to use for the virtual node.</p>
@@ -345,7 +345,7 @@ export interface CreateVirtualRouterInput {
    *          define. Tag keys can have a maximum character length of 128 characters, and tag values can have
    *             a maximum length of 256 characters.</p>
    */
-  tags?: Array<TagRef>;
+  tags?: TagRef[];
 
   /**
    * <p>The name to use for the virtual router.</p>
@@ -401,7 +401,7 @@ export interface CreateVirtualServiceInput {
    *          which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have
    *             a maximum length of 256 characters.</p>
    */
-  tags?: Array<TagRef>;
+  tags?: TagRef[];
 
   /**
    * <p>The name to use for the virtual service.</p>
@@ -911,7 +911,7 @@ export interface GrpcRetryPolicy {
   /**
    * <p>Specify at least one of the valid values.</p>
    */
-  grpcRetryEvents?: Array<GrpcRetryPolicyEvent | string>;
+  grpcRetryEvents?: (GrpcRetryPolicyEvent | string)[];
 
   /**
    * <p>Specify at least one of the following values.</p>
@@ -937,7 +937,7 @@ export interface GrpcRetryPolicy {
    *             </li>
    *          </ul>
    */
-  httpRetryEvents?: Array<string>;
+  httpRetryEvents?: string[];
 
   /**
    * <p>The maximum number of retry attempts.</p>
@@ -952,7 +952,7 @@ export interface GrpcRetryPolicy {
   /**
    * <p>Specify a valid value.</p>
    */
-  tcpRetryEvents?: Array<TcpRetryPolicyEvent | string>;
+  tcpRetryEvents?: (TcpRetryPolicyEvent | string)[];
 }
 
 export namespace GrpcRetryPolicy {
@@ -1001,7 +1001,7 @@ export interface GrpcRouteAction {
   /**
    * <p>An object that represents the targets that traffic is routed to when a request matches the route.</p>
    */
-  weightedTargets: Array<WeightedTarget> | undefined;
+  weightedTargets: WeightedTarget[] | undefined;
 }
 
 export namespace GrpcRouteAction {
@@ -1017,7 +1017,7 @@ export interface GrpcRouteMatch {
   /**
    * <p>An object that represents the data to match from the request.</p>
    */
-  metadata?: Array<GrpcRouteMetadata>;
+  metadata?: GrpcRouteMetadata[];
 
   /**
    * <p>The method name to match from the request. If you specify a name, you must also specify a <code>serviceName</code>.</p>
@@ -1349,7 +1349,7 @@ export interface HttpRetryPolicy {
    *             </li>
    *          </ul>
    */
-  httpRetryEvents?: Array<string>;
+  httpRetryEvents?: string[];
 
   /**
    * <p>The maximum number of retry attempts.</p>
@@ -1364,7 +1364,7 @@ export interface HttpRetryPolicy {
   /**
    * <p>Specify a valid value.</p>
    */
-  tcpRetryEvents?: Array<TcpRetryPolicyEvent | string>;
+  tcpRetryEvents?: (TcpRetryPolicyEvent | string)[];
 }
 
 export namespace HttpRetryPolicy {
@@ -1405,7 +1405,7 @@ export interface HttpRouteAction {
   /**
    * <p>An object that represents the targets that traffic is routed to when a request matches the route.</p>
    */
-  weightedTargets: Array<WeightedTarget> | undefined;
+  weightedTargets: WeightedTarget[] | undefined;
 }
 
 export namespace HttpRouteAction {
@@ -1448,7 +1448,7 @@ export interface HttpRouteMatch {
   /**
    * <p>An object that represents the client request headers to match on.</p>
    */
-  headers?: Array<HttpRouteHeader>;
+  headers?: HttpRouteHeader[];
 
   /**
    * <p>The client request method to match on. Specify only one.</p>
@@ -1558,7 +1558,7 @@ export interface ListMeshesOutput {
   /**
    * <p>The list of existing service meshes.</p>
    */
-  meshes: Array<MeshRef> | undefined;
+  meshes: MeshRef[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> value to include in a future <code>ListMeshes</code> request.
@@ -1631,7 +1631,7 @@ export interface ListRoutesOutput {
   /**
    * <p>The list of existing routes for the specified service mesh and virtual router.</p>
    */
-  routes: Array<RouteRef> | undefined;
+  routes: RouteRef[] | undefined;
 }
 
 export namespace ListRoutesOutput {
@@ -1691,7 +1691,7 @@ export interface ListTagsForResourceOutput {
   /**
    * <p>The tags for the resource.</p>
    */
-  tags: Array<TagRef> | undefined;
+  tags: TagRef[] | undefined;
 }
 
 export namespace ListTagsForResourceOutput {
@@ -1751,7 +1751,7 @@ export interface ListVirtualNodesOutput {
   /**
    * <p>The list of existing virtual nodes for the specified service mesh.</p>
    */
-  virtualNodes: Array<VirtualNodeRef> | undefined;
+  virtualNodes: VirtualNodeRef[] | undefined;
 }
 
 export namespace ListVirtualNodesOutput {
@@ -1811,7 +1811,7 @@ export interface ListVirtualRoutersOutput {
   /**
    * <p>The list of existing virtual routers for the specified service mesh.</p>
    */
-  virtualRouters: Array<VirtualRouterRef> | undefined;
+  virtualRouters: VirtualRouterRef[] | undefined;
 }
 
 export namespace ListVirtualRoutersOutput {
@@ -1871,7 +1871,7 @@ export interface ListVirtualServicesOutput {
   /**
    * <p>The list of existing virtual services for the specified service mesh.</p>
    */
-  virtualServices: Array<VirtualServiceRef> | undefined;
+  virtualServices: VirtualServiceRef[] | undefined;
 }
 
 export namespace ListVirtualServicesOutput {
@@ -2344,7 +2344,7 @@ export interface TagResourceInput {
    *          Tag keys can have a maximum character length of 128 characters, and tag values can have
    *             a maximum length of 256 characters.</p>
    */
-  tags: Array<TagRef> | undefined;
+  tags: TagRef[] | undefined;
 }
 
 export namespace TagResourceInput {
@@ -2391,7 +2391,7 @@ export interface TcpRouteAction {
   /**
    * <p>An object that represents the targets that traffic is routed to when a request matches the route.</p>
    */
-  weightedTargets: Array<WeightedTarget> | undefined;
+  weightedTargets: WeightedTarget[] | undefined;
 }
 
 export namespace TcpRouteAction {
@@ -2448,7 +2448,7 @@ export interface UntagResourceInput {
   /**
    * <p>The keys of the tags to be removed.</p>
    */
-  tagKeys: Array<string> | undefined;
+  tagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceInput {
@@ -2795,13 +2795,13 @@ export interface VirtualNodeSpec {
   /**
    * <p>The backends that the virtual node is expected to send outbound traffic to.</p>
    */
-  backends?: Array<Backend>;
+  backends?: Backend[];
 
   /**
    * <p>The listeners that the virtual node is expected to receive inbound traffic from.
    *          You can specify one listener.</p>
    */
-  listeners?: Array<Listener>;
+  listeners?: Listener[];
 
   /**
    * <p>The inbound and outbound access logging information for the virtual node.</p>
@@ -2945,7 +2945,7 @@ export interface VirtualRouterSpec {
    * <p>The listeners that the virtual router is expected to receive inbound traffic from.
    *          You can specify one listener.</p>
    */
-  listeners?: Array<VirtualRouterListener>;
+  listeners?: VirtualRouterListener[];
 }
 
 export namespace VirtualRouterSpec {

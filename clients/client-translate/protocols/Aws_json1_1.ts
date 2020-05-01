@@ -1427,7 +1427,7 @@ const serializeAws_json1_1OutputDataConfig = (
 };
 
 const serializeAws_json1_1ResourceNameList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1498,7 +1498,7 @@ const serializeAws_json1_1StopTextTranslationJobRequest = (
 };
 
 const serializeAws_json1_1TargetLanguageCodeStringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1590,7 +1590,7 @@ const deserializeAws_json1_1AppliedTerminology = (
 const deserializeAws_json1_1AppliedTerminologyList = (
   output: any,
   context: __SerdeContext
-): Array<AppliedTerminology> => {
+): AppliedTerminology[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AppliedTerminology(entry, context)
   );
@@ -1813,7 +1813,7 @@ const deserializeAws_json1_1JobDetails = (
 const deserializeAws_json1_1LanguageCodeStringList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -1896,7 +1896,7 @@ const deserializeAws_json1_1OutputDataConfig = (
 const deserializeAws_json1_1ResourceNameList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -1967,7 +1967,7 @@ const deserializeAws_json1_1StopTextTranslationJobResponse = (
 const deserializeAws_json1_1TargetLanguageCodeStringList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -1992,7 +1992,7 @@ const deserializeAws_json1_1Term = (
 const deserializeAws_json1_1TermList = (
   output: any,
   context: __SerdeContext
-): Array<Term> => {
+): Term[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Term(entry, context)
   );
@@ -2081,7 +2081,7 @@ const deserializeAws_json1_1TerminologyProperties = (
 const deserializeAws_json1_1TerminologyPropertiesList = (
   output: any,
   context: __SerdeContext
-): Array<TerminologyProperties> => {
+): TerminologyProperties[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1TerminologyProperties(entry, context)
   );
@@ -2196,7 +2196,7 @@ const deserializeAws_json1_1TextTranslationJobProperties = (
 const deserializeAws_json1_1TextTranslationJobPropertiesList = (
   output: any,
   context: __SerdeContext
-): Array<TextTranslationJobProperties> => {
+): TextTranslationJobProperties[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1TextTranslationJobProperties(entry, context)
   );

@@ -254,9 +254,7 @@ export interface ApplicationDetail {
    *             Analytics applications, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html">Working with Amazon
    *                 CloudWatch Logs</a>. </p>
    */
-  CloudWatchLoggingOptionDescriptions?: Array<
-    CloudWatchLoggingOptionDescription
-  >;
+  CloudWatchLoggingOptionDescriptions?: CloudWatchLoggingOptionDescription[];
 
   /**
    * <p>Time stamp when the application version was created.</p>
@@ -270,7 +268,7 @@ export interface ApplicationDetail {
    *
    *         </p>
    */
-  InputDescriptions?: Array<InputDescription>;
+  InputDescriptions?: InputDescription[];
 
   /**
    * <p>Time stamp when the application was last updated.</p>
@@ -284,7 +282,7 @@ export interface ApplicationDetail {
    *
    *         </p>
    */
-  OutputDescriptions?: Array<OutputDescription>;
+  OutputDescriptions?: OutputDescription[];
 
   /**
    * <p>Describes reference data sources configured for the application.
@@ -294,7 +292,7 @@ export interface ApplicationDetail {
    *
    *         </p>
    */
-  ReferenceDataSourceDescriptions?: Array<ReferenceDataSourceDescription>;
+  ReferenceDataSourceDescriptions?: ReferenceDataSourceDescription[];
 }
 
 export namespace ApplicationDetail {
@@ -353,22 +351,22 @@ export interface ApplicationUpdate {
   /**
    * <p>Describes application CloudWatch logging option updates.</p>
    */
-  CloudWatchLoggingOptionUpdates?: Array<CloudWatchLoggingOptionUpdate>;
+  CloudWatchLoggingOptionUpdates?: CloudWatchLoggingOptionUpdate[];
 
   /**
    * <p>Describes application input configuration updates.</p>
    */
-  InputUpdates?: Array<InputUpdate>;
+  InputUpdates?: InputUpdate[];
 
   /**
    * <p>Describes application output configuration updates.</p>
    */
-  OutputUpdates?: Array<OutputUpdate>;
+  OutputUpdates?: OutputUpdate[];
 
   /**
    * <p>Describes application reference data source updates.</p>
    */
-  ReferenceDataSourceUpdates?: Array<ReferenceDataSourceUpdate>;
+  ReferenceDataSourceUpdates?: ReferenceDataSourceUpdate[];
 }
 
 export namespace ApplicationUpdate {
@@ -562,7 +560,7 @@ export interface CreateApplicationRequest {
    *             configuration errors. For more information, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html">Working with Amazon
    *                 CloudWatch Logs</a>.</p>
    */
-  CloudWatchLoggingOptions?: Array<CloudWatchLoggingOption>;
+  CloudWatchLoggingOptions?: CloudWatchLoggingOption[];
 
   /**
    * <p>Use this parameter to configure the application input.</p>
@@ -572,7 +570,7 @@ export interface CreateApplicationRequest {
    *             that Amazon Kinesis Analytics can assume to read this stream on your behalf.</p>
    *         <p>To create the in-application stream, you need to specify a schema to transform your data into a schematized version used in SQL. In the schema, you provide the necessary mapping of the data elements in the streaming source to record columns in the in-app stream.</p>
    */
-  Inputs?: Array<Input>;
+  Inputs?: Input[];
 
   /**
    * <p>You can configure application output to write data from any of the in-application streams to up to three destinations.</p>
@@ -584,13 +582,13 @@ export interface CreateApplicationRequest {
    *             of data in the stream (for example, JSON, CSV). You also must provide an IAM role that
    *             Amazon Kinesis Analytics can assume to write to the stream or Lambda function on your behalf.</p>
    */
-  Outputs?: Array<Output>;
+  Outputs?: Output[];
 
   /**
    * <p>A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
    *         For more information, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-tagging.html">Using Tagging</a>.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateApplicationRequest {
@@ -917,17 +915,17 @@ export interface DiscoverInputSchemaResponse {
   /**
    * <p>An array of elements, where each element corresponds to a row in a stream record (a stream record can have more than one row).</p>
    */
-  ParsedInputRecords?: Array<Array<string>>;
+  ParsedInputRecords?: string[][];
 
   /**
    * <p>Stream data that was modified by the processor specified in the <code>InputProcessingConfiguration</code> parameter.</p>
    */
-  ProcessedInputRecords?: Array<string>;
+  ProcessedInputRecords?: string[];
 
   /**
    * <p>Raw stream data that was sampled to infer the schema.</p>
    */
-  RawInputRecords?: Array<string>;
+  RawInputRecords?: string[];
 }
 
 export namespace DiscoverInputSchemaResponse {
@@ -1032,7 +1030,7 @@ export interface InputDescription {
    * <p>Returns the in-application stream names that are mapped to the
    *             stream source.</p>
    */
-  InAppStreamNames?: Array<string>;
+  InAppStreamNames?: string[];
 
   /**
    * <p>Input ID associated with the application input.
@@ -1266,7 +1264,7 @@ export interface InputSchemaUpdate {
    * <p>A list of <code>RecordColumn</code> objects. Each object describes the mapping
    *             of the streaming source element to the corresponding column in the in-application stream. </p>
    */
-  RecordColumnUpdates?: Array<RecordColumn>;
+  RecordColumnUpdates?: RecordColumn[];
 
   /**
    * <p>Specifies the encoding of the records in the streaming source. For example, UTF-8.</p>
@@ -1845,7 +1843,7 @@ export interface ListApplicationsResponse {
   /**
    * <p>List of <code>ApplicationSummary</code> objects. </p>
    */
-  ApplicationSummaries: Array<ApplicationSummary> | undefined;
+  ApplicationSummaries: ApplicationSummary[] | undefined;
 
   /**
    * <p>Returns true if there are more applications to retrieve.</p>
@@ -1876,7 +1874,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>The key-value tags assigned to the application.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace ListTagsForResourceResponse {
@@ -2395,7 +2393,7 @@ export interface SourceSchema {
   /**
    * <p>A list of <code>RecordColumn</code> objects.</p>
    */
-  RecordColumns: Array<RecordColumn> | undefined;
+  RecordColumns: RecordColumn[] | undefined;
 
   /**
    * <p>Specifies the encoding of the records in the streaming source. For example, UTF-8.</p>
@@ -2425,7 +2423,7 @@ export interface StartApplicationRequest {
   /**
    * <p>Identifies the specific input, by ID, that the application starts consuming. Amazon Kinesis Analytics starts reading the streaming source associated with the input. You can also specify where in the streaming source you want Amazon Kinesis Analytics to start reading.</p>
    */
-  InputConfigurations: Array<InputConfiguration> | undefined;
+  InputConfigurations: InputConfiguration[] | undefined;
 }
 
 export namespace StartApplicationRequest {
@@ -2505,7 +2503,7 @@ export interface TagResourceRequest {
   /**
    * <p>The key-value tags to assign to the application.</p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -2547,8 +2545,8 @@ export interface UnableToDetectSchemaException
     $MetadataBearer {
   name: "UnableToDetectSchemaException";
   $fault: "client";
-  ProcessedInputRecords?: Array<string>;
-  RawInputRecords?: Array<string>;
+  ProcessedInputRecords?: string[];
+  RawInputRecords?: string[];
   message?: string;
 }
 
@@ -2583,7 +2581,7 @@ export interface UntagResourceRequest {
   /**
    * <p>A list of keys of tags to remove from the specified application.</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {

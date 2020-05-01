@@ -3770,7 +3770,7 @@ const serializeAws_json1_1DataResource = (
 };
 
 const serializeAws_json1_1DataResourceValues = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3781,7 +3781,7 @@ const serializeAws_json1_1DataResourceValues = (
 };
 
 const serializeAws_json1_1DataResources = (
-  input: Array<DataResource>,
+  input: DataResource[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3848,7 +3848,7 @@ const serializeAws_json1_1EventSelector = (
 };
 
 const serializeAws_json1_1EventSelectors = (
-  input: Array<EventSelector>,
+  input: EventSelector[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3859,7 +3859,7 @@ const serializeAws_json1_1EventSelectors = (
 };
 
 const serializeAws_json1_1ExcludeManagementEventSources = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3925,7 +3925,7 @@ const serializeAws_json1_1InsightSelector = (
 };
 
 const serializeAws_json1_1InsightSelectors = (
-  input: Array<InsightSelector>,
+  input: InsightSelector[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3995,7 +3995,7 @@ const serializeAws_json1_1LookupAttribute = (
 };
 
 const serializeAws_json1_1LookupAttributesList = (
-  input: Array<LookupAttribute>,
+  input: LookupAttribute[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4086,7 +4086,7 @@ const serializeAws_json1_1RemoveTagsRequest = (
 };
 
 const serializeAws_json1_1ResourceIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4130,7 +4130,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_json1_1TagsList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4141,7 +4141,7 @@ const serializeAws_json1_1TagsList = (
 };
 
 const serializeAws_json1_1TrailNameList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4348,14 +4348,14 @@ const deserializeAws_json1_1DataResource = (
 const deserializeAws_json1_1DataResourceValues = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1DataResources = (
   output: any,
   context: __SerdeContext
-): Array<DataResource> => {
+): DataResource[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DataResource(entry, context)
   );
@@ -4478,7 +4478,7 @@ const deserializeAws_json1_1EventSelector = (
 const deserializeAws_json1_1EventSelectors = (
   output: any,
   context: __SerdeContext
-): Array<EventSelector> => {
+): EventSelector[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EventSelector(entry, context)
   );
@@ -4487,7 +4487,7 @@ const deserializeAws_json1_1EventSelectors = (
 const deserializeAws_json1_1EventsList = (
   output: any,
   context: __SerdeContext
-): Array<Event> => {
+): Event[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Event(entry, context)
   );
@@ -4496,7 +4496,7 @@ const deserializeAws_json1_1EventsList = (
 const deserializeAws_json1_1ExcludeManagementEventSources = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -4729,7 +4729,7 @@ const deserializeAws_json1_1InsightSelector = (
 const deserializeAws_json1_1InsightSelectors = (
   output: any,
   context: __SerdeContext
-): Array<InsightSelector> => {
+): InsightSelector[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1InsightSelector(entry, context)
   );
@@ -5269,7 +5269,7 @@ const deserializeAws_json1_1PublicKey = (
 const deserializeAws_json1_1PublicKeyList = (
   output: any,
   context: __SerdeContext
-): Array<PublicKey> => {
+): PublicKey[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PublicKey(entry, context)
   );
@@ -5351,7 +5351,7 @@ const deserializeAws_json1_1Resource = (
 const deserializeAws_json1_1ResourceList = (
   output: any,
   context: __SerdeContext
-): Array<Resource> => {
+): Resource[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Resource(entry, context)
   );
@@ -5395,7 +5395,7 @@ const deserializeAws_json1_1ResourceTag = (
 const deserializeAws_json1_1ResourceTagList = (
   output: any,
   context: __SerdeContext
-): Array<ResourceTag> => {
+): ResourceTag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ResourceTag(entry, context)
   );
@@ -5484,7 +5484,7 @@ const deserializeAws_json1_1TagsLimitExceededException = (
 const deserializeAws_json1_1TagsList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );
@@ -5627,7 +5627,7 @@ const deserializeAws_json1_1TrailInfo = (
 const deserializeAws_json1_1TrailList = (
   output: any,
   context: __SerdeContext
-): Array<Trail> => {
+): Trail[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Trail(entry, context)
   );
@@ -5664,7 +5664,7 @@ const deserializeAws_json1_1TrailNotProvidedException = (
 const deserializeAws_json1_1Trails = (
   output: any,
   context: __SerdeContext
-): Array<TrailInfo> => {
+): TrailInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1TrailInfo(entry, context)
   );

@@ -6023,7 +6023,7 @@ const serializeAws_json1_1ElasticsearchSettings = (
 };
 
 const serializeAws_json1_1EventCategoriesList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6051,7 +6051,7 @@ const serializeAws_json1_1Filter = (
 };
 
 const serializeAws_json1_1FilterList = (
-  input: Array<Filter>,
+  input: Filter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6062,7 +6062,7 @@ const serializeAws_json1_1FilterList = (
 };
 
 const serializeAws_json1_1FilterValueList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6095,7 +6095,7 @@ const serializeAws_json1_1ImportCertificateMessage = (
 };
 
 const serializeAws_json1_1KeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6617,7 +6617,7 @@ const serializeAws_json1_1S3Settings = (
 };
 
 const serializeAws_json1_1SourceIdsList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6675,7 +6675,7 @@ const serializeAws_json1_1StopReplicationTaskMessage = (
 };
 
 const serializeAws_json1_1SubnetIdentifierList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6686,7 +6686,7 @@ const serializeAws_json1_1SubnetIdentifierList = (
 };
 
 const serializeAws_json1_1TableListToReload = (
-  input: Array<TableToReload>,
+  input: TableToReload[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6722,7 +6722,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_json1_1TagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6747,7 +6747,7 @@ const serializeAws_json1_1TestConnectionMessage = (
 };
 
 const serializeAws_json1_1VpcSecurityGroupIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7069,7 +7069,7 @@ const deserializeAws_json1_1AccountQuota = (
 const deserializeAws_json1_1AccountQuotaList = (
   output: any,
   context: __SerdeContext
-): Array<AccountQuota> => {
+): AccountQuota[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AccountQuota(entry, context)
   );
@@ -7122,7 +7122,7 @@ const deserializeAws_json1_1AvailabilityZone = (
 const deserializeAws_json1_1AvailabilityZonesList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -7198,7 +7198,7 @@ const deserializeAws_json1_1Certificate = (
 const deserializeAws_json1_1CertificateList = (
   output: any,
   context: __SerdeContext
-): Array<Certificate> => {
+): Certificate[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Certificate(entry, context)
   );
@@ -7254,7 +7254,7 @@ const deserializeAws_json1_1Connection = (
 const deserializeAws_json1_1ConnectionList = (
   output: any,
   context: __SerdeContext
-): Array<Connection> => {
+): Connection[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Connection(entry, context)
   );
@@ -8123,7 +8123,7 @@ const deserializeAws_json1_1Endpoint = (
 const deserializeAws_json1_1EndpointList = (
   output: any,
   context: __SerdeContext
-): Array<Endpoint> => {
+): Endpoint[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Endpoint(entry, context)
   );
@@ -8168,7 +8168,7 @@ const deserializeAws_json1_1Event = (
 const deserializeAws_json1_1EventCategoriesList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -8196,7 +8196,7 @@ const deserializeAws_json1_1EventCategoryGroup = (
 const deserializeAws_json1_1EventCategoryGroupList = (
   output: any,
   context: __SerdeContext
-): Array<EventCategoryGroup> => {
+): EventCategoryGroup[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EventCategoryGroup(entry, context)
   );
@@ -8205,7 +8205,7 @@ const deserializeAws_json1_1EventCategoryGroupList = (
 const deserializeAws_json1_1EventList = (
   output: any,
   context: __SerdeContext
-): Array<Event> => {
+): Event[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Event(entry, context)
   );
@@ -8275,7 +8275,7 @@ const deserializeAws_json1_1EventSubscription = (
 const deserializeAws_json1_1EventSubscriptionsList = (
   output: any,
   context: __SerdeContext
-): Array<EventSubscription> => {
+): EventSubscription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EventSubscription(entry, context)
   );
@@ -8562,7 +8562,7 @@ const deserializeAws_json1_1OrderableReplicationInstance = (
 const deserializeAws_json1_1OrderableReplicationInstanceList = (
   output: any,
   context: __SerdeContext
-): Array<OrderableReplicationInstance> => {
+): OrderableReplicationInstance[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1OrderableReplicationInstance(entry, context)
   );
@@ -8617,7 +8617,7 @@ const deserializeAws_json1_1PendingMaintenanceAction = (
 const deserializeAws_json1_1PendingMaintenanceActionDetails = (
   output: any,
   context: __SerdeContext
-): Array<PendingMaintenanceAction> => {
+): PendingMaintenanceAction[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PendingMaintenanceAction(entry, context)
   );
@@ -8626,7 +8626,7 @@ const deserializeAws_json1_1PendingMaintenanceActionDetails = (
 const deserializeAws_json1_1PendingMaintenanceActions = (
   output: any,
   context: __SerdeContext
-): Array<ResourcePendingMaintenanceActions> => {
+): ResourcePendingMaintenanceActions[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ResourcePendingMaintenanceActions(entry, context)
   );
@@ -9044,7 +9044,7 @@ const deserializeAws_json1_1ReplicationInstance = (
 const deserializeAws_json1_1ReplicationInstanceList = (
   output: any,
   context: __SerdeContext
-): Array<ReplicationInstance> => {
+): ReplicationInstance[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ReplicationInstance(entry, context)
   );
@@ -9053,14 +9053,14 @@ const deserializeAws_json1_1ReplicationInstanceList = (
 const deserializeAws_json1_1ReplicationInstancePrivateIpAddressList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1ReplicationInstancePublicIpAddressList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -9099,7 +9099,7 @@ const deserializeAws_json1_1ReplicationInstanceTaskLog = (
 const deserializeAws_json1_1ReplicationInstanceTaskLogsList = (
   output: any,
   context: __SerdeContext
-): Array<ReplicationInstanceTaskLog> => {
+): ReplicationInstanceTaskLog[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ReplicationInstanceTaskLog(entry, context)
   );
@@ -9184,7 +9184,7 @@ const deserializeAws_json1_1ReplicationSubnetGroup = (
 const deserializeAws_json1_1ReplicationSubnetGroups = (
   output: any,
   context: __SerdeContext
-): Array<ReplicationSubnetGroup> => {
+): ReplicationSubnetGroup[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ReplicationSubnetGroup(entry, context)
   );
@@ -9372,7 +9372,7 @@ const deserializeAws_json1_1ReplicationTaskAssessmentResult = (
 const deserializeAws_json1_1ReplicationTaskAssessmentResultList = (
   output: any,
   context: __SerdeContext
-): Array<ReplicationTaskAssessmentResult> => {
+): ReplicationTaskAssessmentResult[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ReplicationTaskAssessmentResult(entry, context)
   );
@@ -9381,7 +9381,7 @@ const deserializeAws_json1_1ReplicationTaskAssessmentResultList = (
 const deserializeAws_json1_1ReplicationTaskList = (
   output: any,
   context: __SerdeContext
-): Array<ReplicationTask> => {
+): ReplicationTask[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ReplicationTask(entry, context)
   );
@@ -9604,14 +9604,14 @@ const deserializeAws_json1_1S3Settings = (
 const deserializeAws_json1_1SchemaList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1SourceIdsList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -9700,7 +9700,7 @@ const deserializeAws_json1_1Subnet = (
 const deserializeAws_json1_1SubnetList = (
   output: any,
   context: __SerdeContext
-): Array<Subnet> => {
+): Subnet[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Subnet(entry, context)
   );
@@ -9738,7 +9738,7 @@ const deserializeAws_json1_1SupportedEndpointType = (
 const deserializeAws_json1_1SupportedEndpointTypeList = (
   output: any,
   context: __SerdeContext
-): Array<SupportedEndpointType> => {
+): SupportedEndpointType[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SupportedEndpointType(entry, context)
   );
@@ -9841,7 +9841,7 @@ const deserializeAws_json1_1TableStatistics = (
 const deserializeAws_json1_1TableStatisticsList = (
   output: any,
   context: __SerdeContext
-): Array<TableStatistics> => {
+): TableStatistics[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1TableStatistics(entry, context)
   );
@@ -9868,7 +9868,7 @@ const deserializeAws_json1_1Tag = (
 const deserializeAws_json1_1TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );
@@ -9915,7 +9915,7 @@ const deserializeAws_json1_1VpcSecurityGroupMembership = (
 const deserializeAws_json1_1VpcSecurityGroupMembershipList = (
   output: any,
   context: __SerdeContext
-): Array<VpcSecurityGroupMembership> => {
+): VpcSecurityGroupMembership[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1VpcSecurityGroupMembership(entry, context)
   );

@@ -1624,7 +1624,7 @@ const deserializeAws_restJson1_1BundleDetails = (
 const deserializeAws_restJson1_1BundleList = (
   output: any,
   context: __SerdeContext
-): Array<BundleDetails> => {
+): BundleDetails[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1BundleDetails(entry, context)
   );
@@ -1633,7 +1633,7 @@ const deserializeAws_restJson1_1BundleList = (
 const deserializeAws_restJson1_1Platforms = (
   output: any,
   context: __SerdeContext
-): Array<Platform | string> => {
+): (Platform | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -1687,7 +1687,7 @@ const deserializeAws_restJson1_1ProjectDetails = (
 const deserializeAws_restJson1_1ProjectSummaries = (
   output: any,
   context: __SerdeContext
-): Array<ProjectSummary> => {
+): ProjectSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ProjectSummary(entry, context)
   );
@@ -1747,7 +1747,7 @@ const deserializeAws_restJson1_1Resource = (
 const deserializeAws_restJson1_1Resources = (
   output: any,
   context: __SerdeContext
-): Array<Resource> => {
+): Resource[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Resource(entry, context)
   );

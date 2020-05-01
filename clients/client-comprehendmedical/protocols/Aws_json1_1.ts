@@ -2094,7 +2094,7 @@ const deserializeAws_json1_1Attribute = (
 const deserializeAws_json1_1AttributeList = (
   output: any,
   context: __SerdeContext
-): Array<Attribute> => {
+): Attribute[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Attribute(entry, context)
   );
@@ -2186,7 +2186,7 @@ const deserializeAws_json1_1ComprehendMedicalAsyncJobProperties = (
 const deserializeAws_json1_1ComprehendMedicalAsyncJobPropertiesList = (
   output: any,
   context: __SerdeContext
-): Array<ComprehendMedicalAsyncJobProperties> => {
+): ComprehendMedicalAsyncJobProperties[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ComprehendMedicalAsyncJobProperties(entry, context)
   );
@@ -2379,7 +2379,7 @@ const deserializeAws_json1_1Entity = (
 const deserializeAws_json1_1EntityList = (
   output: any,
   context: __SerdeContext
-): Array<Entity> => {
+): Entity[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Entity(entry, context)
   );
@@ -2436,7 +2436,7 @@ const deserializeAws_json1_1ICD10CMAttribute = (
 const deserializeAws_json1_1ICD10CMAttributeList = (
   output: any,
   context: __SerdeContext
-): Array<ICD10CMAttribute> => {
+): ICD10CMAttribute[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ICD10CMAttribute(entry, context)
   );
@@ -2467,7 +2467,7 @@ const deserializeAws_json1_1ICD10CMConcept = (
 const deserializeAws_json1_1ICD10CMConceptList = (
   output: any,
   context: __SerdeContext
-): Array<ICD10CMConcept> => {
+): ICD10CMConcept[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ICD10CMConcept(entry, context)
   );
@@ -2535,7 +2535,7 @@ const deserializeAws_json1_1ICD10CMEntity = (
 const deserializeAws_json1_1ICD10CMEntityList = (
   output: any,
   context: __SerdeContext
-): Array<ICD10CMEntity> => {
+): ICD10CMEntity[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ICD10CMEntity(entry, context)
   );
@@ -2562,7 +2562,7 @@ const deserializeAws_json1_1ICD10CMTrait = (
 const deserializeAws_json1_1ICD10CMTraitList = (
   output: any,
   context: __SerdeContext
-): Array<ICD10CMTrait> => {
+): ICD10CMTrait[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ICD10CMTrait(entry, context)
   );
@@ -2809,7 +2809,7 @@ const deserializeAws_json1_1RxNormAttribute = (
 const deserializeAws_json1_1RxNormAttributeList = (
   output: any,
   context: __SerdeContext
-): Array<RxNormAttribute> => {
+): RxNormAttribute[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RxNormAttribute(entry, context)
   );
@@ -2840,7 +2840,7 @@ const deserializeAws_json1_1RxNormConcept = (
 const deserializeAws_json1_1RxNormConceptList = (
   output: any,
   context: __SerdeContext
-): Array<RxNormConcept> => {
+): RxNormConcept[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RxNormConcept(entry, context)
   );
@@ -2908,7 +2908,7 @@ const deserializeAws_json1_1RxNormEntity = (
 const deserializeAws_json1_1RxNormEntityList = (
   output: any,
   context: __SerdeContext
-): Array<RxNormEntity> => {
+): RxNormEntity[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RxNormEntity(entry, context)
   );
@@ -2935,7 +2935,7 @@ const deserializeAws_json1_1RxNormTrait = (
 const deserializeAws_json1_1RxNormTraitList = (
   output: any,
   context: __SerdeContext
-): Array<RxNormTrait> => {
+): RxNormTrait[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RxNormTrait(entry, context)
   );
@@ -3060,7 +3060,7 @@ const deserializeAws_json1_1Trait = (
 const deserializeAws_json1_1TraitList = (
   output: any,
   context: __SerdeContext
-): Array<Trait> => {
+): Trait[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Trait(entry, context)
   );
@@ -3090,7 +3090,7 @@ const deserializeAws_json1_1UnmappedAttribute = (
 const deserializeAws_json1_1UnmappedAttributeList = (
   output: any,
   context: __SerdeContext
-): Array<UnmappedAttribute> => {
+): UnmappedAttribute[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1UnmappedAttribute(entry, context)
   );

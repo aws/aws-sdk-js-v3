@@ -3805,7 +3805,7 @@ const serializeAws_json1_1JsonKeyToVariableMap = (
 };
 
 const serializeAws_json1_1LabelMapper = (
-  input: { [key: string]: Array<string> },
+  input: { [key: string]: string[] },
   context: __SerdeContext
 ): any => {
   const mapParams: any = {};
@@ -3833,7 +3833,7 @@ const serializeAws_json1_1LabelSchema = (
 };
 
 const serializeAws_json1_1ListOfModelVersions = (
-  input: Array<ModelVersion>,
+  input: ModelVersion[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3844,7 +3844,7 @@ const serializeAws_json1_1ListOfModelVersions = (
 };
 
 const serializeAws_json1_1ListOfStrings = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3930,7 +3930,7 @@ const serializeAws_json1_1ModelVariable = (
 };
 
 const serializeAws_json1_1ModelVariablesList = (
-  input: Array<ModelVariable>,
+  input: ModelVariable[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3958,7 +3958,7 @@ const serializeAws_json1_1ModelVersion = (
 };
 
 const serializeAws_json1_1NameList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3969,7 +3969,7 @@ const serializeAws_json1_1NameList = (
 };
 
 const serializeAws_json1_1NonEmptyListOfStrings = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4110,7 +4110,7 @@ const serializeAws_json1_1Rule = (
 };
 
 const serializeAws_json1_1RuleList = (
-  input: Array<Rule>,
+  input: Rule[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4310,7 +4310,7 @@ const serializeAws_json1_1VariableEntry = (
 };
 
 const serializeAws_json1_1VariableEntryList = (
-  input: Array<VariableEntry>,
+  input: VariableEntry[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4345,7 +4345,7 @@ const deserializeAws_json1_1BatchCreateVariableError = (
 const deserializeAws_json1_1BatchCreateVariableErrorList = (
   output: any,
   context: __SerdeContext
-): Array<BatchCreateVariableError> => {
+): BatchCreateVariableError[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1BatchCreateVariableError(entry, context)
   );
@@ -4393,7 +4393,7 @@ const deserializeAws_json1_1BatchGetVariableError = (
 const deserializeAws_json1_1BatchGetVariableErrorList = (
   output: any,
   context: __SerdeContext
-): Array<BatchGetVariableError> => {
+): BatchGetVariableError[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1BatchGetVariableError(entry, context)
   );
@@ -4613,7 +4613,7 @@ const deserializeAws_json1_1Detector = (
 const deserializeAws_json1_1DetectorList = (
   output: any,
   context: __SerdeContext
-): Array<Detector> => {
+): Detector[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Detector(entry, context)
   );
@@ -4651,7 +4651,7 @@ const deserializeAws_json1_1DetectorVersionSummary = (
 const deserializeAws_json1_1DetectorVersionSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<DetectorVersionSummary> => {
+): DetectorVersionSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DetectorVersionSummary(entry, context)
   );
@@ -4717,7 +4717,7 @@ const deserializeAws_json1_1ExternalModel = (
 const deserializeAws_json1_1ExternalModelList = (
   output: any,
   context: __SerdeContext
-): Array<ExternalModel> => {
+): ExternalModel[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ExternalModel(entry, context)
   );
@@ -4975,7 +4975,7 @@ const deserializeAws_json1_1JsonKeyToVariableMap = (
 const deserializeAws_json1_1LabelMapper = (
   output: any,
   context: __SerdeContext
-): { [key: string]: Array<string> } => {
+): { [key: string]: string[] } => {
   const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_json1_1ListOfStrings(output[key], context);
@@ -5007,7 +5007,7 @@ const deserializeAws_json1_1LabelSchema = (
 const deserializeAws_json1_1ListOfModelScores = (
   output: any,
   context: __SerdeContext
-): Array<ModelScores> => {
+): ModelScores[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ModelScores(entry, context)
   );
@@ -5016,7 +5016,7 @@ const deserializeAws_json1_1ListOfModelScores = (
 const deserializeAws_json1_1ListOfModelVersions = (
   output: any,
   context: __SerdeContext
-): Array<ModelVersion> => {
+): ModelVersion[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ModelVersion(entry, context)
   );
@@ -5025,7 +5025,7 @@ const deserializeAws_json1_1ListOfModelVersions = (
 const deserializeAws_json1_1ListOfStrings = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -5129,7 +5129,7 @@ const deserializeAws_json1_1ModelInputConfiguration = (
 const deserializeAws_json1_1ModelList = (
   output: any,
   context: __SerdeContext
-): Array<Model> => {
+): Model[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Model(entry, context)
   );
@@ -5225,7 +5225,7 @@ const deserializeAws_json1_1ModelVariable = (
 const deserializeAws_json1_1ModelVariablesList = (
   output: any,
   context: __SerdeContext
-): Array<ModelVariable> => {
+): ModelVariable[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ModelVariable(entry, context)
   );
@@ -5341,7 +5341,7 @@ const deserializeAws_json1_1ModelVersionDetail = (
 const deserializeAws_json1_1ModelVersionDetailList = (
   output: any,
   context: __SerdeContext
-): Array<ModelVersionDetail> => {
+): ModelVersionDetail[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ModelVersionDetail(entry, context)
   );
@@ -5350,7 +5350,7 @@ const deserializeAws_json1_1ModelVersionDetailList = (
 const deserializeAws_json1_1NonEmptyListOfStrings = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -5383,7 +5383,7 @@ const deserializeAws_json1_1Outcome = (
 const deserializeAws_json1_1OutcomeList = (
   output: any,
   context: __SerdeContext
-): Array<Outcome> => {
+): Outcome[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Outcome(entry, context)
   );
@@ -5521,7 +5521,7 @@ const deserializeAws_json1_1RuleDetail = (
 const deserializeAws_json1_1RuleDetailList = (
   output: any,
   context: __SerdeContext
-): Array<RuleDetail> => {
+): RuleDetail[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RuleDetail(entry, context)
   );
@@ -5530,7 +5530,7 @@ const deserializeAws_json1_1RuleDetailList = (
 const deserializeAws_json1_1RuleList = (
   output: any,
   context: __SerdeContext
-): Array<Rule> => {
+): Rule[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Rule(entry, context)
   );
@@ -5676,7 +5676,7 @@ const deserializeAws_json1_1Variable = (
 const deserializeAws_json1_1VariableList = (
   output: any,
   context: __SerdeContext
-): Array<Variable> => {
+): Variable[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Variable(entry, context)
   );

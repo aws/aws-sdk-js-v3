@@ -525,7 +525,7 @@ const serializeAws_json1_1Filter = (
 };
 
 const serializeAws_json1_1Filters = (
-  input: Array<Filter>,
+  input: Filter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -581,7 +581,7 @@ const serializeAws_json1_1GetProductsRequest = (
 const deserializeAws_json1_1AttributeNameList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -602,7 +602,7 @@ const deserializeAws_json1_1AttributeValue = (
 const deserializeAws_json1_1AttributeValueList = (
   output: any,
   context: __SerdeContext
-): Array<AttributeValue> => {
+): AttributeValue[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AttributeValue(entry, context)
   );
@@ -752,7 +752,7 @@ const deserializeAws_json1_1NotFoundException = (
 const deserializeAws_json1_1PriceList = (
   output: any,
   context: __SerdeContext
-): Array<__LazyJsonString | string> => {
+): (__LazyJsonString | string)[] => {
   return (output || []).map((entry: any) => new __LazyJsonString(entry));
 };
 
@@ -780,7 +780,7 @@ const deserializeAws_json1_1Service = (
 const deserializeAws_json1_1ServiceList = (
   output: any,
   context: __SerdeContext
-): Array<Service> => {
+): Service[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Service(entry, context)
   );

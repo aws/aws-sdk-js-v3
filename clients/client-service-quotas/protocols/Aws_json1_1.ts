@@ -3579,7 +3579,7 @@ const deserializeAws_json1_1RequestedServiceQuotaChange = (
 const deserializeAws_json1_1RequestedServiceQuotaChangeHistoryListDefinition = (
   output: any,
   context: __SerdeContext
-): Array<RequestedServiceQuotaChange> => {
+): RequestedServiceQuotaChange[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RequestedServiceQuotaChange(entry, context)
   );
@@ -3634,7 +3634,7 @@ const deserializeAws_json1_1ServiceInfo = (
 const deserializeAws_json1_1ServiceInfoListDefinition = (
   output: any,
   context: __SerdeContext
-): Array<ServiceInfo> => {
+): ServiceInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ServiceInfo(entry, context)
   );
@@ -3749,7 +3749,7 @@ const deserializeAws_json1_1ServiceQuotaIncreaseRequestInTemplate = (
 const deserializeAws_json1_1ServiceQuotaIncreaseRequestInTemplateList = (
   output: any,
   context: __SerdeContext
-): Array<ServiceQuotaIncreaseRequestInTemplate> => {
+): ServiceQuotaIncreaseRequestInTemplate[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ServiceQuotaIncreaseRequestInTemplate(entry, context)
   );
@@ -3758,7 +3758,7 @@ const deserializeAws_json1_1ServiceQuotaIncreaseRequestInTemplateList = (
 const deserializeAws_json1_1ServiceQuotaListDefinition = (
   output: any,
   context: __SerdeContext
-): Array<ServiceQuota> => {
+): ServiceQuota[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ServiceQuota(entry, context)
   );

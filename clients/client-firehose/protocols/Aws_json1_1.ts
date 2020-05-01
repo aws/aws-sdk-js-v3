@@ -2101,7 +2101,7 @@ const serializeAws_json1_1ListDeliveryStreamsInput = (
 };
 
 const serializeAws_json1_1ListOfNonEmptyStrings = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2112,7 +2112,7 @@ const serializeAws_json1_1ListOfNonEmptyStrings = (
 };
 
 const serializeAws_json1_1ListOfNonEmptyStringsWithoutWhitespace = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2282,7 +2282,7 @@ const serializeAws_json1_1Processor = (
 };
 
 const serializeAws_json1_1ProcessorList = (
-  input: Array<Processor>,
+  input: Processor[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2307,7 +2307,7 @@ const serializeAws_json1_1ProcessorParameter = (
 };
 
 const serializeAws_json1_1ProcessorParameterList = (
-  input: Array<ProcessorParameter>,
+  input: ProcessorParameter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2335,7 +2335,7 @@ const serializeAws_json1_1PutRecordBatchInput = (
 };
 
 const serializeAws_json1_1PutRecordBatchRequestEntryList = (
-  input: Array<_Record>,
+  input: _Record[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2823,7 +2823,7 @@ const serializeAws_json1_1TagDeliveryStreamInput = (
 };
 
 const serializeAws_json1_1TagDeliveryStreamInputTagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2834,7 +2834,7 @@ const serializeAws_json1_1TagDeliveryStreamInputTagList = (
 };
 
 const serializeAws_json1_1TagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3214,7 +3214,7 @@ const deserializeAws_json1_1DeliveryStreamEncryptionConfiguration = (
 const deserializeAws_json1_1DeliveryStreamNameList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -3329,7 +3329,7 @@ const deserializeAws_json1_1DestinationDescription = (
 const deserializeAws_json1_1DestinationDescriptionList = (
   output: any,
   context: __SerdeContext
-): Array<DestinationDescription> => {
+): DestinationDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DestinationDescription(entry, context)
   );
@@ -3757,14 +3757,14 @@ const deserializeAws_json1_1ListDeliveryStreamsOutput = (
 const deserializeAws_json1_1ListOfNonEmptyStrings = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1ListOfNonEmptyStringsWithoutWhitespace = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -3792,7 +3792,7 @@ const deserializeAws_json1_1ListTagsForDeliveryStreamOutput = (
 const deserializeAws_json1_1ListTagsForDeliveryStreamOutputTagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );
@@ -3995,7 +3995,7 @@ const deserializeAws_json1_1Processor = (
 const deserializeAws_json1_1ProcessorList = (
   output: any,
   context: __SerdeContext
-): Array<Processor> => {
+): Processor[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Processor(entry, context)
   );
@@ -4022,7 +4022,7 @@ const deserializeAws_json1_1ProcessorParameter = (
 const deserializeAws_json1_1ProcessorParameterList = (
   output: any,
   context: __SerdeContext
-): Array<ProcessorParameter> => {
+): ProcessorParameter[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ProcessorParameter(entry, context)
   );
@@ -4081,7 +4081,7 @@ const deserializeAws_json1_1PutRecordBatchResponseEntry = (
 const deserializeAws_json1_1PutRecordBatchResponseEntryList = (
   output: any,
   context: __SerdeContext
-): Array<PutRecordBatchResponseEntry> => {
+): PutRecordBatchResponseEntry[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PutRecordBatchResponseEntry(entry, context)
   );

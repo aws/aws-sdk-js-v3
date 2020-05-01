@@ -1215,7 +1215,7 @@ const deserializeAws_json1_1UnsupportedLocaleResponse = async (
 };
 
 const serializeAws_json1_1availabilityZones = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1226,7 +1226,7 @@ const serializeAws_json1_1availabilityZones = (
 };
 
 const serializeAws_json1_1awsAccountIdsList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1237,7 +1237,7 @@ const serializeAws_json1_1awsAccountIdsList = (
 };
 
 const serializeAws_json1_1entityArnList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1248,7 +1248,7 @@ const serializeAws_json1_1entityArnList = (
 };
 
 const serializeAws_json1_1entityStatusCodeList = (
-  input: Array<EntityStatusCode | string>,
+  input: (EntityStatusCode | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1259,7 +1259,7 @@ const serializeAws_json1_1entityStatusCodeList = (
 };
 
 const serializeAws_json1_1entityValueList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1270,7 +1270,7 @@ const serializeAws_json1_1entityValueList = (
 };
 
 const serializeAws_json1_1eventArnList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1281,7 +1281,7 @@ const serializeAws_json1_1eventArnList = (
 };
 
 const serializeAws_json1_1eventStatusCodeList = (
-  input: Array<EventStatusCode | string>,
+  input: (EventStatusCode | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1292,7 +1292,7 @@ const serializeAws_json1_1eventStatusCodeList = (
 };
 
 const serializeAws_json1_1eventTypeCategoryList = (
-  input: Array<EventTypeCategory | string>,
+  input: (EventTypeCategory | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1303,7 +1303,7 @@ const serializeAws_json1_1eventTypeCategoryList = (
 };
 
 const serializeAws_json1_1eventTypeList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1314,7 +1314,7 @@ const serializeAws_json1_1eventTypeList = (
 };
 
 const serializeAws_json1_1regionList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1325,7 +1325,7 @@ const serializeAws_json1_1regionList = (
 };
 
 const serializeAws_json1_1serviceList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1336,7 +1336,7 @@ const serializeAws_json1_1serviceList = (
 };
 
 const serializeAws_json1_1tagFilter = (
-  input: Array<{ [key: string]: string }>,
+  input: { [key: string]: string }[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1565,7 +1565,7 @@ const serializeAws_json1_1DescribeEventsRequest = (
 };
 
 const serializeAws_json1_1EventArnsList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1576,7 +1576,7 @@ const serializeAws_json1_1EventArnsList = (
 };
 
 const serializeAws_json1_1OrganizationEntityFiltersList = (
-  input: Array<EventAccountFilter>,
+  input: EventAccountFilter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1587,7 +1587,7 @@ const serializeAws_json1_1OrganizationEntityFiltersList = (
 };
 
 const serializeAws_json1_1OrganizationEventDetailFiltersList = (
-  input: Array<EventAccountFilter>,
+  input: EventAccountFilter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1752,7 +1752,7 @@ const serializeAws_json1_1EventFilter = (
 };
 
 const serializeAws_json1_1EventTypeCategoryList = (
-  input: Array<EventTypeCategory | string>,
+  input: (EventTypeCategory | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1763,7 +1763,7 @@ const serializeAws_json1_1EventTypeCategoryList = (
 };
 
 const serializeAws_json1_1EventTypeCodeList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1878,7 +1878,7 @@ const serializeAws_json1_1OrganizationEventFilter = (
 };
 
 const serializeAws_json1_1dateTimeRangeList = (
-  input: Array<DateTimeRange>,
+  input: DateTimeRange[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1979,7 +1979,7 @@ const deserializeAws_json1_1DescribeAffectedAccountsForOrganizationResponse = (
 const deserializeAws_json1_1DescribeAffectedEntitiesForOrganizationFailedSet = (
   output: any,
   context: __SerdeContext
-): Array<OrganizationAffectedEntitiesErrorItem> => {
+): OrganizationAffectedEntitiesErrorItem[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1OrganizationAffectedEntitiesErrorItem(entry, context)
   );
@@ -2078,7 +2078,7 @@ const deserializeAws_json1_1DescribeEventAggregatesResponse = (
 const deserializeAws_json1_1DescribeEventDetailsFailedSet = (
   output: any,
   context: __SerdeContext
-): Array<EventDetailsErrorItem> => {
+): EventDetailsErrorItem[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EventDetailsErrorItem(entry, context)
   );
@@ -2087,7 +2087,7 @@ const deserializeAws_json1_1DescribeEventDetailsFailedSet = (
 const deserializeAws_json1_1DescribeEventDetailsForOrganizationFailedSet = (
   output: any,
   context: __SerdeContext
-): Array<OrganizationEventDetailsErrorItem> => {
+): OrganizationEventDetailsErrorItem[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1OrganizationEventDetailsErrorItem(entry, context)
   );
@@ -2120,7 +2120,7 @@ const deserializeAws_json1_1DescribeEventDetailsForOrganizationResponse = (
 const deserializeAws_json1_1DescribeEventDetailsForOrganizationSuccessfulSet = (
   output: any,
   context: __SerdeContext
-): Array<OrganizationEventDetails> => {
+): OrganizationEventDetails[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1OrganizationEventDetails(entry, context)
   );
@@ -2153,7 +2153,7 @@ const deserializeAws_json1_1DescribeEventDetailsResponse = (
 const deserializeAws_json1_1DescribeEventDetailsSuccessfulSet = (
   output: any,
   context: __SerdeContext
-): Array<EventDetails> => {
+): EventDetails[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EventDetails(entry, context)
   );
@@ -2240,7 +2240,7 @@ const deserializeAws_json1_1DescribeHealthServiceStatusForOrganizationResponse =
 const deserializeAws_json1_1EntityAggregateList = (
   output: any,
   context: __SerdeContext
-): Array<EntityAggregate> => {
+): EntityAggregate[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EntityAggregate(entry, context)
   );
@@ -2249,7 +2249,7 @@ const deserializeAws_json1_1EntityAggregateList = (
 const deserializeAws_json1_1EntityList = (
   output: any,
   context: __SerdeContext
-): Array<AffectedEntity> => {
+): AffectedEntity[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AffectedEntity(entry, context)
   );
@@ -2258,7 +2258,7 @@ const deserializeAws_json1_1EntityList = (
 const deserializeAws_json1_1EventAggregateList = (
   output: any,
   context: __SerdeContext
-): Array<EventAggregate> => {
+): EventAggregate[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EventAggregate(entry, context)
   );
@@ -2267,7 +2267,7 @@ const deserializeAws_json1_1EventAggregateList = (
 const deserializeAws_json1_1EventList = (
   output: any,
   context: __SerdeContext
-): Array<Event> => {
+): Event[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Event(entry, context)
   );
@@ -2276,7 +2276,7 @@ const deserializeAws_json1_1EventList = (
 const deserializeAws_json1_1EventTypeList = (
   output: any,
   context: __SerdeContext
-): Array<EventType> => {
+): EventType[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EventType(entry, context)
   );
@@ -2285,7 +2285,7 @@ const deserializeAws_json1_1EventTypeList = (
 const deserializeAws_json1_1OrganizationEventList = (
   output: any,
   context: __SerdeContext
-): Array<OrganizationEvent> => {
+): OrganizationEvent[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1OrganizationEvent(entry, context)
   );
@@ -2294,7 +2294,7 @@ const deserializeAws_json1_1OrganizationEventList = (
 const deserializeAws_json1_1affectedAccountsList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 

@@ -12,7 +12,7 @@ export interface AccountRecoverySettingType {
   /**
    * <p>The list of <code>RecoveryOptionTypes</code>.</p>
    */
-  RecoveryMechanisms?: Array<RecoveryOptionType>;
+  RecoveryMechanisms?: RecoveryOptionType[];
 }
 
 export namespace AccountRecoverySettingType {
@@ -124,7 +124,7 @@ export interface AddCustomAttributesRequest {
   /**
    * <p>An array of custom attributes, such as Mutable and Name.</p>
    */
-  CustomAttributes: Array<SchemaAttributeType> | undefined;
+  CustomAttributes: SchemaAttributeType[] | undefined;
 
   /**
    * <p>The user pool ID for the user pool where you want to add custom attributes.</p>
@@ -324,7 +324,7 @@ export interface AdminCreateUserRequest {
    *             Specify <code>"SMS"</code> if the phone number will be used. The default value is
    *                 <code>"SMS"</code>. More than one value can be specified.</p>
    */
-  DesiredDeliveryMediums?: Array<DeliveryMediumType | string>;
+  DesiredDeliveryMediums?: (DeliveryMediumType | string)[];
 
   /**
    * <p>This parameter is only used if the <code>phone_number_verified</code> or
@@ -399,7 +399,7 @@ export interface AdminCreateUserRequest {
    *             </li>
    *          </ul>
    */
-  UserAttributes?: Array<AttributeType>;
+  UserAttributes?: AttributeType[];
 
   /**
    * <p>The user pool ID for the user pool where the user will be created.</p>
@@ -423,7 +423,7 @@ export interface AdminCreateUserRequest {
    *             receives the validation data and uses it in the validation process.</p>
    *         <p>The user's validation data is not persisted.</p>
    */
-  ValidationData?: Array<AttributeType>;
+  ValidationData?: AttributeType[];
 }
 
 export namespace AdminCreateUserRequest {
@@ -457,7 +457,7 @@ export interface AdminDeleteUserAttributesRequest {
    *         <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the
    *             attribute name.</p>
    */
-  UserAttributeNames: Array<string> | undefined;
+  UserAttributeNames: string[] | undefined;
 
   /**
    * <p>The user pool ID for the user pool where you want to delete user attributes.</p>
@@ -713,7 +713,7 @@ export interface AdminGetUserResponse {
    *             configuration, use the <a>AdminGetUserResponse$UserMFASettingList</a>
    *             response instead.</p>
    */
-  MFAOptions?: Array<MFAOptionType>;
+  MFAOptions?: MFAOptionType[];
 
   /**
    * <p>The user's preferred MFA setting.</p>
@@ -723,7 +723,7 @@ export interface AdminGetUserResponse {
   /**
    * <p>An array of name-value pairs representing user attributes.</p>
    */
-  UserAttributes?: Array<AttributeType>;
+  UserAttributes?: AttributeType[];
 
   /**
    * <p>The date the user was created.</p>
@@ -739,7 +739,7 @@ export interface AdminGetUserResponse {
    * <p>The MFA options that are enabled for the user. The possible values in this list are
    *                 <code>SMS_MFA</code> and <code>SOFTWARE_TOKEN_MFA</code>.</p>
    */
-  UserMFASettingList?: Array<string>;
+  UserMFASettingList?: string[];
 
   /**
    * <p>The user status. Can be one of the following:</p>
@@ -1189,7 +1189,7 @@ export interface AdminListDevicesResponse {
   /**
    * <p>The devices in the list of devices response.</p>
    */
-  Devices?: Array<DeviceType>;
+  Devices?: DeviceType[];
 
   /**
    * <p>The pagination token.</p>
@@ -1236,7 +1236,7 @@ export interface AdminListGroupsForUserResponse {
   /**
    * <p>The groups that the user belongs to.</p>
    */
-  Groups?: Array<GroupType>;
+  Groups?: GroupType[];
 
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can be
@@ -1285,7 +1285,7 @@ export interface AdminListUserAuthEventsResponse {
    *                 <code>CreationDate</code>, <code>EventRisk</code>, and
    *             <code>EventResponse</code>.</p>
    */
-  AuthEvents?: Array<AuthEventType>;
+  AuthEvents?: AuthEventType[];
 
   /**
    * <p>A pagination token.</p>
@@ -1638,7 +1638,7 @@ export interface AdminSetUserSettingsRequest {
    * <p>You can use this parameter only to set an SMS configuration that uses SMS for
    *             delivery.</p>
    */
-  MFAOptions: Array<MFAOptionType> | undefined;
+  MFAOptions: MFAOptionType[] | undefined;
 
   /**
    * <p>The ID of the user pool that contains the user that you are setting options
@@ -1796,7 +1796,7 @@ export interface AdminUpdateUserAttributesRequest {
    *         <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the
    *             attribute name.</p>
    */
-  UserAttributes: Array<AttributeType> | undefined;
+  UserAttributes: AttributeType[] | undefined;
 
   /**
    * <p>The user pool ID for the user pool where you want to update user attributes.</p>
@@ -2019,7 +2019,7 @@ export interface AuthEventType {
   /**
    * <p>The challenge responses.</p>
    */
-  ChallengeResponses?: Array<ChallengeResponseType>;
+  ChallengeResponses?: ChallengeResponseType[];
 
   /**
    * <p>The creation date</p>
@@ -2297,7 +2297,7 @@ export interface CompromisedCredentialsRiskConfigurationType {
    * <p>Perform the action for these events. The default is to perform all events if no event
    *             filter is specified.</p>
    */
-  EventFilter?: Array<EventFilterType | string>;
+  EventFilter?: (EventFilterType | string)[];
 }
 
 export namespace CompromisedCredentialsRiskConfigurationType {
@@ -2592,7 +2592,7 @@ export interface ContextDataType {
   /**
    * <p>HttpHeaders received on your server in same order.</p>
    */
-  HttpHeaders: Array<HttpHeader> | undefined;
+  HttpHeaders: HttpHeader[] | undefined;
 
   /**
    * <p>Source IP address of your user.</p>
@@ -2685,7 +2685,7 @@ export interface CreateIdentityProviderRequest {
   /**
    * <p>A list of identity provider identifiers.</p>
    */
-  IdpIdentifiers?: Array<string>;
+  IdpIdentifiers?: string[];
 
   /**
    * <p>The identity provider details, such as <code>MetadataURL</code> and
@@ -2745,7 +2745,7 @@ export interface CreateResourceServerRequest {
    * <p>A list of scopes. Each scope is map, where the keys are <code>name</code> and
    *                 <code>description</code>.</p>
    */
-  Scopes?: Array<ResourceServerScopeType>;
+  Scopes?: ResourceServerScopeType[];
 
   /**
    * <p>The user pool ID for the user pool.</p>
@@ -2826,7 +2826,7 @@ export interface CreateUserPoolClientRequest {
    *         <p>Set to <code>token</code> to specify that the client should get the access token (and,
    *             optionally, ID token, based on scopes) directly.</p>
    */
-  AllowedOAuthFlows?: Array<OAuthFlowType | string>;
+  AllowedOAuthFlows?: (OAuthFlowType | string)[];
 
   /**
    * <p>Set to <code>True</code> if the client is allowed to follow the OAuth protocol when
@@ -2839,7 +2839,7 @@ export interface CreateUserPoolClientRequest {
    *                 <code>"phone"</code>, <code>"email"</code>, <code>"openid"</code>, and
    *           <code>"Cognito"</code>. In addition to these values, custom scopes created in Resource Servers are also supported.</p>
    */
-  AllowedOAuthScopes?: Array<string>;
+  AllowedOAuthScopes?: string[];
 
   /**
    * <p>The Amazon Pinpoint analytics configuration for collecting metrics for this user
@@ -2867,7 +2867,7 @@ export interface CreateUserPoolClientRequest {
    *             purposes only.</p>
    *         <p>App callback URLs such as myapp://example are also supported.</p>
    */
-  CallbackURLs?: Array<string>;
+  CallbackURLs?: string[];
 
   /**
    * <p>The client name for the user pool client you would like to create.</p>
@@ -2922,7 +2922,7 @@ export interface CreateUserPoolClientRequest {
    *             </li>
    *          </ul>
    */
-  ExplicitAuthFlows?: Array<ExplicitAuthFlowsType | string>;
+  ExplicitAuthFlows?: (ExplicitAuthFlowsType | string)[];
 
   /**
    * <p>Boolean to specify whether you want to generate a secret for the user pool client
@@ -2933,7 +2933,7 @@ export interface CreateUserPoolClientRequest {
   /**
    * <p>A list of allowed logout URLs for the identity providers.</p>
    */
-  LogoutURLs?: Array<string>;
+  LogoutURLs?: string[];
 
   /**
    * <p>Use this setting to choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to <code>ENABLED</code> and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to <code>LEGACY</code>, those APIs will return a <code>UserNotFoundException</code> exception if the user does not exist in the user pool.</p>
@@ -3001,7 +3001,7 @@ export interface CreateUserPoolClientRequest {
   /**
    * <p>The read attributes.</p>
    */
-  ReadAttributes?: Array<string>;
+  ReadAttributes?: string[];
 
   /**
    * <p>The time limit, in days, after which the refresh token is no longer valid and cannot
@@ -3014,7 +3014,7 @@ export interface CreateUserPoolClientRequest {
    *             The following are supported: <code>COGNITO</code>, <code>Facebook</code>,
    *                 <code>Google</code> and <code>LoginWithAmazon</code>.</p>
    */
-  SupportedIdentityProviders?: Array<string>;
+  SupportedIdentityProviders?: string[];
 
   /**
    * <p>The user pool ID for the user pool where you want to create a user pool client.</p>
@@ -3031,7 +3031,7 @@ export interface CreateUserPoolClientRequest {
    *             see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html">Specifying Identity Provider Attribute Mappings for Your User
    *                 Pool</a>.</p>
    */
-  WriteAttributes?: Array<string>;
+  WriteAttributes?: string[];
 }
 
 export namespace CreateUserPoolClientRequest {
@@ -3119,12 +3119,12 @@ export interface CreateUserPoolRequest {
    * <p>Attributes supported as an alias for this user pool. Possible values: <b>phone_number</b>, <b>email</b>, or
    *                 <b>preferred_username</b>.</p>
    */
-  AliasAttributes?: Array<AliasAttributeType | string>;
+  AliasAttributes?: (AliasAttributeType | string)[];
 
   /**
    * <p>The attributes to be auto-verified. Possible values: <b>email</b>, <b>phone_number</b>.</p>
    */
-  AutoVerifiedAttributes?: Array<VerifiedAttributeType | string>;
+  AutoVerifiedAttributes?: (VerifiedAttributeType | string)[];
 
   /**
    * <p>The device configuration.</p>
@@ -3180,7 +3180,7 @@ export interface CreateUserPoolRequest {
    * <p>An array of schema attributes for the new user pool. These attributes can be standard
    *             or custom attributes.</p>
    */
-  Schema?: Array<SchemaAttributeType>;
+  Schema?: SchemaAttributeType[];
 
   /**
    * <p>A string representing the SMS authentication message.</p>
@@ -3214,7 +3214,7 @@ export interface CreateUserPoolRequest {
    * <p>Specifies whether email addresses or phone numbers can be specified as usernames when
    *             a user signs up.</p>
    */
-  UsernameAttributes?: Array<UsernameAttributeType | string>;
+  UsernameAttributes?: (UsernameAttributeType | string)[];
 
   /**
    * <p>The template for the verification message that the user sees when the app requests
@@ -3336,7 +3336,7 @@ export interface DeleteUserAttributesRequest {
    *         <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the
    *             attribute name.</p>
    */
-  UserAttributeNames: Array<string> | undefined;
+  UserAttributeNames: string[] | undefined;
 }
 
 export namespace DeleteUserAttributesRequest {
@@ -3724,7 +3724,7 @@ export interface DeviceType {
   /**
    * <p>The device attributes.</p>
    */
-  DeviceAttributes?: Array<AttributeType>;
+  DeviceAttributes?: AttributeType[];
 
   /**
    * <p>The creation date of the device.</p>
@@ -4221,7 +4221,7 @@ export interface GetCSVHeaderResponse {
   /**
    * <p>The header information for the .csv file for the user import job.</p>
    */
-  CSVHeader?: Array<string>;
+  CSVHeader?: string[];
 
   /**
    * <p>The user pool ID for the user pool that the users are to be imported into.</p>
@@ -4554,7 +4554,7 @@ export interface GetUserResponse {
    *             configuration, use the use the <a>GetUserResponse$UserMFASettingList</a>
    *             response instead.</p>
    */
-  MFAOptions?: Array<MFAOptionType>;
+  MFAOptions?: MFAOptionType[];
 
   /**
    * <p>The user's preferred MFA setting.</p>
@@ -4566,13 +4566,13 @@ export interface GetUserResponse {
    *         <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the
    *             attribute name.</p>
    */
-  UserAttributes: Array<AttributeType> | undefined;
+  UserAttributes: AttributeType[] | undefined;
 
   /**
    * <p>The MFA options that are enabled for the user. The possible values in this list are
    *                 <code>SMS_MFA</code> and <code>SOFTWARE_TOKEN_MFA</code>.</p>
    */
-  UserMFASettingList?: Array<string>;
+  UserMFASettingList?: string[];
 
   /**
    * <p>The user name of the user you wish to retrieve from the get user request.</p>
@@ -4727,7 +4727,7 @@ export interface IdentityProviderType {
   /**
    * <p>A list of identity provider identifiers.</p>
    */
-  IdpIdentifiers?: Array<string>;
+  IdpIdentifiers?: string[];
 
   /**
    * <p>The date the identity provider was last modified.</p>
@@ -5335,7 +5335,7 @@ export interface ListDevicesResponse {
   /**
    * <p>The devices returned in the list devices response.</p>
    */
-  Devices?: Array<DeviceType>;
+  Devices?: DeviceType[];
 
   /**
    * <p>The pagination token for the list device response.</p>
@@ -5377,7 +5377,7 @@ export interface ListGroupsResponse {
   /**
    * <p>The group objects for the groups.</p>
    */
-  Groups?: Array<GroupType>;
+  Groups?: GroupType[];
 
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can be
@@ -5424,7 +5424,7 @@ export interface ListIdentityProvidersResponse {
   /**
    * <p>A list of identity provider objects.</p>
    */
-  Providers: Array<ProviderDescription> | undefined;
+  Providers: ProviderDescription[] | undefined;
 }
 
 export namespace ListIdentityProvidersResponse {
@@ -5465,7 +5465,7 @@ export interface ListResourceServersResponse {
   /**
    * <p>The resource servers.</p>
    */
-  ResourceServers: Array<ResourceServerType> | undefined;
+  ResourceServers: ResourceServerType[] | undefined;
 }
 
 export namespace ListResourceServersResponse {
@@ -5542,7 +5542,7 @@ export interface ListUserImportJobsResponse {
   /**
    * <p>The user import jobs.</p>
    */
-  UserImportJobs?: Array<UserImportJobType>;
+  UserImportJobs?: UserImportJobType[];
 }
 
 export namespace ListUserImportJobsResponse {
@@ -5592,7 +5592,7 @@ export interface ListUserPoolClientsResponse {
   /**
    * <p>The user pool clients in the response that lists user pool clients.</p>
    */
-  UserPoolClients?: Array<UserPoolClientDescription>;
+  UserPoolClients?: UserPoolClientDescription[];
 }
 
 export namespace ListUserPoolClientsResponse {
@@ -5637,7 +5637,7 @@ export interface ListUserPoolsResponse {
   /**
    * <p>The user pools from the response to list users.</p>
    */
-  UserPools?: Array<UserPoolDescriptionType>;
+  UserPools?: UserPoolDescriptionType[];
 }
 
 export namespace ListUserPoolsResponse {
@@ -5685,7 +5685,7 @@ export interface ListUsersInGroupResponse {
   /**
    * <p>The users returned in the request to list users.</p>
    */
-  Users?: Array<UserType>;
+  Users?: UserType[];
 }
 
 export namespace ListUsersInGroupResponse {
@@ -5703,7 +5703,7 @@ export interface ListUsersRequest {
    *             for each user in the search results. If the array is null, all attributes are
    *             returned.</p>
    */
-  AttributesToGet?: Array<string>;
+  AttributesToGet?: string[];
 
   /**
    * <p>A filter string of the form "<i>AttributeName</i>
@@ -5824,7 +5824,7 @@ export interface ListUsersResponse {
   /**
    * <p>The users returned in the request to list users.</p>
    */
-  Users?: Array<UserType>;
+  Users?: UserType[];
 }
 
 export namespace ListUsersResponse {
@@ -6385,7 +6385,7 @@ export interface ResourceServerType {
   /**
    * <p>A list of scopes that are defined for the resource server.</p>
    */
-  Scopes?: Array<ResourceServerScopeType>;
+  Scopes?: ResourceServerScopeType[];
 
   /**
    * <p>The user pool ID for the user pool that hosts the resource server.</p>
@@ -6622,13 +6622,13 @@ export interface RiskExceptionConfigurationType {
    *             range is in CIDR notation: a compact representation of an IP address and its associated
    *             routing prefix.</p>
    */
-  BlockedIPRangeList?: Array<string>;
+  BlockedIPRangeList?: string[];
 
   /**
    * <p>Risk detection is not performed on the IP addresses in the range list. The IP range is
    *             in CIDR notation.</p>
    */
-  SkippedIPRangeList?: Array<string>;
+  SkippedIPRangeList?: string[];
 }
 
 export namespace RiskExceptionConfigurationType {
@@ -6949,7 +6949,7 @@ export interface SetUserSettingsRequest {
    * <p>You can use this parameter only to set an SMS configuration that uses SMS for
    *             delivery.</p>
    */
-  MFAOptions: Array<MFAOptionType> | undefined;
+  MFAOptions: MFAOptionType[] | undefined;
 }
 
 export namespace SetUserSettingsRequest {
@@ -7037,7 +7037,7 @@ export interface SignUpRequest {
    *         <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the
    *             attribute name.</p>
    */
-  UserAttributes?: Array<AttributeType>;
+  UserAttributes?: AttributeType[];
 
   /**
    * <p>Contextual data such as the user's device fingerprint, IP address, or location used
@@ -7054,7 +7054,7 @@ export interface SignUpRequest {
   /**
    * <p>The validation data in the request to register a user.</p>
    */
-  ValidationData?: Array<AttributeType>;
+  ValidationData?: AttributeType[];
 }
 
 export namespace SignUpRequest {
@@ -7471,7 +7471,7 @@ export interface UntagResourceRequest {
   /**
    * <p>The keys of the tags to remove from the user pool.</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -7627,7 +7627,7 @@ export interface UpdateIdentityProviderRequest {
   /**
    * <p>A list of identity provider identifiers.</p>
    */
-  IdpIdentifiers?: Array<string>;
+  IdpIdentifiers?: string[];
 
   /**
    * <p>The identity provider details to be updated, such as <code>MetadataURL</code> and
@@ -7679,7 +7679,7 @@ export interface UpdateResourceServerRequest {
   /**
    * <p>The scope values to be set for the resource server.</p>
    */
-  Scopes?: Array<ResourceServerScopeType>;
+  Scopes?: ResourceServerScopeType[];
 
   /**
    * <p>The user pool ID for the user pool.</p>
@@ -7755,7 +7755,7 @@ export interface UpdateUserAttributesRequest {
    *         <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the
    *             attribute name.</p>
    */
-  UserAttributes: Array<AttributeType> | undefined;
+  UserAttributes: AttributeType[] | undefined;
 }
 
 export namespace UpdateUserAttributesRequest {
@@ -7773,7 +7773,7 @@ export interface UpdateUserAttributesResponse {
    * <p>The code delivery details list from the server for the request to update user
    *             attributes.</p>
    */
-  CodeDeliveryDetailsList?: Array<CodeDeliveryDetailsType>;
+  CodeDeliveryDetailsList?: CodeDeliveryDetailsType[];
 }
 
 export namespace UpdateUserAttributesResponse {
@@ -7791,7 +7791,7 @@ export interface UpdateUserPoolClientRequest {
    *             authorization code as the response. This code can be exchanged for access tokens with
    *             the token endpoint.</p>
    */
-  AllowedOAuthFlows?: Array<OAuthFlowType | string>;
+  AllowedOAuthFlows?: (OAuthFlowType | string)[];
 
   /**
    * <p>Set to TRUE if the client is allowed to follow the OAuth protocol when interacting
@@ -7804,7 +7804,7 @@ export interface UpdateUserPoolClientRequest {
    *                 <code>"phone"</code>, <code>"email"</code>, <code>"openid"</code>, and
    *                 <code>"Cognito"</code>. In addition to these values, custom scopes created in Resource Servers are also supported.</p>
    */
-  AllowedOAuthScopes?: Array<string>;
+  AllowedOAuthScopes?: string[];
 
   /**
    * <p>The Amazon Pinpoint analytics configuration for collecting metrics for this user
@@ -7832,7 +7832,7 @@ export interface UpdateUserPoolClientRequest {
    *             purposes only.</p>
    *         <p>App callback URLs such as myapp://example are also supported.</p>
    */
-  CallbackURLs?: Array<string>;
+  CallbackURLs?: string[];
 
   /**
    * <p>The ID of the client associated with the user pool.</p>
@@ -7892,12 +7892,12 @@ export interface UpdateUserPoolClientRequest {
    *             </li>
    *          </ul>
    */
-  ExplicitAuthFlows?: Array<ExplicitAuthFlowsType | string>;
+  ExplicitAuthFlows?: (ExplicitAuthFlowsType | string)[];
 
   /**
    * <p>A list of allowed logout URLs for the identity providers.</p>
    */
-  LogoutURLs?: Array<string>;
+  LogoutURLs?: string[];
 
   /**
    * <p>Use this setting to choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to <code>ENABLED</code> and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to <code>LEGACY</code>, those APIs will return a <code>UserNotFoundException</code> exception if the user does not exist in the user pool.</p>
@@ -7965,7 +7965,7 @@ export interface UpdateUserPoolClientRequest {
   /**
    * <p>The read-only attributes of the user pool.</p>
    */
-  ReadAttributes?: Array<string>;
+  ReadAttributes?: string[];
 
   /**
    * <p>The time limit, in days, after which the refresh token is no longer valid and cannot
@@ -7977,7 +7977,7 @@ export interface UpdateUserPoolClientRequest {
    * <p>A list of provider names for the identity providers that are supported on this
    *             client.</p>
    */
-  SupportedIdentityProviders?: Array<string>;
+  SupportedIdentityProviders?: string[];
 
   /**
    * <p>The user pool ID for the user pool where you want to update the user pool
@@ -7988,7 +7988,7 @@ export interface UpdateUserPoolClientRequest {
   /**
    * <p>The writeable attributes of the user pool.</p>
    */
-  WriteAttributes?: Array<string>;
+  WriteAttributes?: string[];
 }
 
 export namespace UpdateUserPoolClientRequest {
@@ -8082,7 +8082,7 @@ export interface UpdateUserPoolRequest {
    * <p>The attributes that are automatically verified when the Amazon Cognito service makes a
    *             request to update user pools.</p>
    */
-  AutoVerifiedAttributes?: Array<VerifiedAttributeType | string>;
+  AutoVerifiedAttributes?: (VerifiedAttributeType | string)[];
 
   /**
    * <p>Device configuration.</p>
@@ -8493,7 +8493,7 @@ export interface UserPoolClientType {
    *         <p>Set to <code>token</code> to specify that the client should get the access token (and,
    *             optionally, ID token, based on scopes) directly.</p>
    */
-  AllowedOAuthFlows?: Array<OAuthFlowType | string>;
+  AllowedOAuthFlows?: (OAuthFlowType | string)[];
 
   /**
    * <p>Set to TRUE if the client is allowed to follow the OAuth protocol when interacting
@@ -8506,7 +8506,7 @@ export interface UserPoolClientType {
    *                 <code>"phone"</code>, <code>"email"</code>, <code>"openid"</code>, and
    *           <code>"Cognito"</code>. In addition to these values, custom scopes created in Resource Servers are also supported.</p>
    */
-  AllowedOAuthScopes?: Array<string>;
+  AllowedOAuthScopes?: string[];
 
   /**
    * <p>The Amazon Pinpoint analytics configuration for the user pool client.</p>
@@ -8533,7 +8533,7 @@ export interface UserPoolClientType {
    *             purposes only.</p>
    *         <p>App callback URLs such as myapp://example are also supported.</p>
    */
-  CallbackURLs?: Array<string>;
+  CallbackURLs?: string[];
 
   /**
    * <p>The ID of the client associated with the user pool.</p>
@@ -8603,7 +8603,7 @@ export interface UserPoolClientType {
    *             </li>
    *          </ul>
    */
-  ExplicitAuthFlows?: Array<ExplicitAuthFlowsType | string>;
+  ExplicitAuthFlows?: (ExplicitAuthFlowsType | string)[];
 
   /**
    * <p>The date the user pool client was last modified.</p>
@@ -8613,7 +8613,7 @@ export interface UserPoolClientType {
   /**
    * <p>A list of allowed logout URLs for the identity providers.</p>
    */
-  LogoutURLs?: Array<string>;
+  LogoutURLs?: string[];
 
   /**
    * <p>Use this setting to choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to <code>ENABLED</code> and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to <code>LEGACY</code>, those APIs will return a <code>UserNotFoundException</code> exception if the user does not exist in the user pool.</p>
@@ -8681,7 +8681,7 @@ export interface UserPoolClientType {
   /**
    * <p>The Read-only attributes.</p>
    */
-  ReadAttributes?: Array<string>;
+  ReadAttributes?: string[];
 
   /**
    * <p>The time limit, in days, after which the refresh token is no longer valid and cannot
@@ -8693,7 +8693,7 @@ export interface UserPoolClientType {
    * <p>A list of provider names for the identity providers that are supported on this
    *             client.</p>
    */
-  SupportedIdentityProviders?: Array<string>;
+  SupportedIdentityProviders?: string[];
 
   /**
    * <p>The user pool ID for the user pool client.</p>
@@ -8703,7 +8703,7 @@ export interface UserPoolClientType {
   /**
    * <p>The writeable attributes.</p>
    */
-  WriteAttributes?: Array<string>;
+  WriteAttributes?: string[];
 }
 
 export namespace UserPoolClientType {
@@ -8808,7 +8808,7 @@ export interface UserPoolType {
   /**
    * <p>Specifies the attributes that are aliased in a user pool.</p>
    */
-  AliasAttributes?: Array<AliasAttributeType | string>;
+  AliasAttributes?: (AliasAttributeType | string)[];
 
   /**
    * <p>The Amazon Resource Name (ARN) for the user pool.</p>
@@ -8818,7 +8818,7 @@ export interface UserPoolType {
   /**
    * <p>Specifies the attributes that are auto-verified in a user pool.</p>
    */
-  AutoVerifiedAttributes?: Array<VerifiedAttributeType | string>;
+  AutoVerifiedAttributes?: (VerifiedAttributeType | string)[];
 
   /**
    * <p>The date the user pool was created.</p>
@@ -8918,7 +8918,7 @@ export interface UserPoolType {
   /**
    * <p>A container with the schema attributes of a user pool.</p>
    */
-  SchemaAttributes?: Array<SchemaAttributeType>;
+  SchemaAttributes?: SchemaAttributeType[];
 
   /**
    * <p>The contents of the SMS authentication message.</p>
@@ -8961,7 +8961,7 @@ export interface UserPoolType {
    * <p>Specifies whether email addresses or phone numbers can be specified as usernames when
    *             a user signs up.</p>
    */
-  UsernameAttributes?: Array<UsernameAttributeType | string>;
+  UsernameAttributes?: (UsernameAttributeType | string)[];
 
   /**
    * <p>The template for verification messages.</p>
@@ -8991,7 +8991,7 @@ export interface UserType {
   /**
    * <p>A container with information about the user type attributes.</p>
    */
-  Attributes?: Array<AttributeType>;
+  Attributes?: AttributeType[];
 
   /**
    * <p>Specifies whether the user is enabled.</p>
@@ -9001,7 +9001,7 @@ export interface UserType {
   /**
    * <p>The MFA options for the user.</p>
    */
-  MFAOptions?: Array<MFAOptionType>;
+  MFAOptions?: MFAOptionType[];
 
   /**
    * <p>The creation date of the user.</p>
