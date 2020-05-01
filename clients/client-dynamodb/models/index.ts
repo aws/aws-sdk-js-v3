@@ -1087,7 +1087,15 @@ export namespace BatchGetItemOutput {
           acc: any,
           [key, value]: [string, Array<{ [key: string]: AttributeValue }>]
         ) => {
-          acc[key] = value;
+          acc[key] = value.map(item =>
+            Object.entries(item).reduce(
+              (acc: any, [key, value]: [string, AttributeValue]) => {
+                acc[key] = AttributeValue.filterSensitiveLog(value);
+                return acc;
+              },
+              {}
+            )
+          );
           return acc;
         },
         {}
@@ -1186,7 +1194,7 @@ export namespace BatchWriteItemInput {
     ...(obj.RequestItems && {
       RequestItems: Object.entries(obj.RequestItems).reduce(
         (acc: any, [key, value]: [string, Array<WriteRequest>]) => {
-          acc[key] = value;
+          acc[key] = value.map(WriteRequest.filterSensitiveLog);
           return acc;
         },
         {}
@@ -1296,7 +1304,7 @@ export namespace BatchWriteItemOutput {
     ...(obj.ItemCollectionMetrics && {
       ItemCollectionMetrics: Object.entries(obj.ItemCollectionMetrics).reduce(
         (acc: any, [key, value]: [string, Array<ItemCollectionMetrics>]) => {
-          acc[key] = value;
+          acc[key] = value.map(ItemCollectionMetrics.filterSensitiveLog);
           return acc;
         },
         {}
@@ -1305,7 +1313,7 @@ export namespace BatchWriteItemOutput {
     ...(obj.UnprocessedItems && {
       UnprocessedItems: Object.entries(obj.UnprocessedItems).reduce(
         (acc: any, [key, value]: [string, Array<WriteRequest>]) => {
-          acc[key] = value;
+          acc[key] = value.map(WriteRequest.filterSensitiveLog);
           return acc;
         },
         {}
@@ -9014,7 +9022,7 @@ export namespace TransactWriteItemsOutput {
     ...(obj.ItemCollectionMetrics && {
       ItemCollectionMetrics: Object.entries(obj.ItemCollectionMetrics).reduce(
         (acc: any, [key, value]: [string, Array<ItemCollectionMetrics>]) => {
-          acc[key] = value;
+          acc[key] = value.map(ItemCollectionMetrics.filterSensitiveLog);
           return acc;
         },
         {}

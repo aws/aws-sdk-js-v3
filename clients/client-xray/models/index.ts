@@ -2615,7 +2615,7 @@ export namespace TraceSummary {
     ...(obj.Annotations && {
       Annotations: Object.entries(obj.Annotations).reduce(
         (acc: any, [key, value]: [string, Array<ValueWithServiceIds>]) => {
-          acc[key] = value;
+          acc[key] = value.map(ValueWithServiceIds.filterSensitiveLog);
           return acc;
         },
         {}

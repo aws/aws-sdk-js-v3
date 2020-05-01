@@ -7141,7 +7141,7 @@ export namespace SearchProductsOutput {
           acc: any,
           [key, value]: [string, Array<ProductViewAggregationValue>]
         ) => {
-          acc[key] = value;
+          acc[key] = value.map(ProductViewAggregationValue.filterSensitiveLog);
           return acc;
         },
         {}

@@ -59,7 +59,7 @@ export namespace Forecast {
     ...(obj.Predictions && {
       Predictions: Object.entries(obj.Predictions).reduce(
         (acc: any, [key, value]: [string, Array<DataPoint>]) => {
-          acc[key] = value;
+          acc[key] = value.map(DataPoint.filterSensitiveLog);
           return acc;
         },
         {}
