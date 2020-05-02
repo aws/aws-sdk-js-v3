@@ -28,10 +28,10 @@ export namespace AccessLog {
     file: (value: FileAccessLog) => T;
     _: (name: string, value: any) => T;
   }
-  export function visit<T>(value: AccessLog, visitor: Visitor<T>): T {
+  export const visit = <T>(value: AccessLog, visitor: Visitor<T>): T => {
     if (value.file !== undefined) return visitor.file(value.file);
     return visitor._(value.$unknown[0], value.$unknown[1]);
-  }
+  };
 }
 
 /**
@@ -112,11 +112,11 @@ export namespace Backend {
     virtualService: (value: VirtualServiceBackend) => T;
     _: (name: string, value: any) => T;
   }
-  export function visit<T>(value: Backend, visitor: Visitor<T>): T {
+  export const visit = <T>(value: Backend, visitor: Visitor<T>): T => {
     if (value.virtualService !== undefined)
       return visitor.virtualService(value.virtualService);
     return visitor._(value.$unknown[0], value.$unknown[1]);
-  }
+  };
 }
 
 /**
@@ -1147,17 +1147,17 @@ export namespace GrpcRouteMetadataMatchMethod {
     suffix: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-  export function visit<T>(
+  export const visit = <T>(
     value: GrpcRouteMetadataMatchMethod,
     visitor: Visitor<T>
-  ): T {
+  ): T => {
     if (value.exact !== undefined) return visitor.exact(value.exact);
     if (value.prefix !== undefined) return visitor.prefix(value.prefix);
     if (value.range !== undefined) return visitor.range(value.range);
     if (value.regex !== undefined) return visitor.regex(value.regex);
     if (value.suffix !== undefined) return visitor.suffix(value.suffix);
     return visitor._(value.$unknown[0], value.$unknown[1]);
-  }
+  };
 }
 
 /**
@@ -1247,14 +1247,17 @@ export namespace HeaderMatchMethod {
     suffix: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-  export function visit<T>(value: HeaderMatchMethod, visitor: Visitor<T>): T {
+  export const visit = <T>(
+    value: HeaderMatchMethod,
+    visitor: Visitor<T>
+  ): T => {
     if (value.exact !== undefined) return visitor.exact(value.exact);
     if (value.prefix !== undefined) return visitor.prefix(value.prefix);
     if (value.range !== undefined) return visitor.range(value.range);
     if (value.regex !== undefined) return visitor.regex(value.regex);
     if (value.suffix !== undefined) return visitor.suffix(value.suffix);
     return visitor._(value.$unknown[0], value.$unknown[1]);
-  }
+  };
 }
 
 /**
@@ -2280,12 +2283,12 @@ export namespace ServiceDiscovery {
     dns: (value: DnsServiceDiscovery) => T;
     _: (name: string, value: any) => T;
   }
-  export function visit<T>(value: ServiceDiscovery, visitor: Visitor<T>): T {
+  export const visit = <T>(value: ServiceDiscovery, visitor: Visitor<T>): T => {
     if (value.awsCloudMap !== undefined)
       return visitor.awsCloudMap(value.awsCloudMap);
     if (value.dns !== undefined) return visitor.dns(value.dns);
     return visitor._(value.$unknown[0], value.$unknown[1]);
-  }
+  };
 }
 
 /**
@@ -3065,16 +3068,16 @@ export namespace VirtualServiceProvider {
     virtualRouter: (value: VirtualRouterServiceProvider) => T;
     _: (name: string, value: any) => T;
   }
-  export function visit<T>(
+  export const visit = <T>(
     value: VirtualServiceProvider,
     visitor: Visitor<T>
-  ): T {
+  ): T => {
     if (value.virtualNode !== undefined)
       return visitor.virtualNode(value.virtualNode);
     if (value.virtualRouter !== undefined)
       return visitor.virtualRouter(value.virtualRouter);
     return visitor._(value.$unknown[0], value.$unknown[1]);
-  }
+  };
 }
 
 /**

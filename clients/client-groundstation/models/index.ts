@@ -251,7 +251,7 @@ export namespace ConfigTypeData {
     uplinkEchoConfig: (value: UplinkEchoConfig) => T;
     _: (name: string, value: any) => T;
   }
-  export function visit<T>(value: ConfigTypeData, visitor: Visitor<T>): T {
+  export const visit = <T>(value: ConfigTypeData, visitor: Visitor<T>): T => {
     if (value.antennaDownlinkConfig !== undefined)
       return visitor.antennaDownlinkConfig(value.antennaDownlinkConfig);
     if (value.antennaDownlinkDemodDecodeConfig !== undefined)
@@ -267,7 +267,7 @@ export namespace ConfigTypeData {
     if (value.uplinkEchoConfig !== undefined)
       return visitor.uplinkEchoConfig(value.uplinkEchoConfig);
     return visitor._(value.$unknown[0], value.$unknown[1]);
-  }
+  };
 }
 
 /**

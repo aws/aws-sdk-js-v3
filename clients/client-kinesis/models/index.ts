@@ -2355,10 +2355,10 @@ export namespace SubscribeToShardEventStream {
     SubscribeToShardEvent: (value: SubscribeToShardEvent) => T;
     _: (name: string, value: any) => T;
   }
-  export function visit<T>(
+  export const visit = <T>(
     value: SubscribeToShardEventStream,
     visitor: Visitor<T>
-  ): T {
+  ): T => {
     if (value.InternalFailureException !== undefined)
       return visitor.InternalFailureException(value.InternalFailureException);
     if (value.KMSAccessDeniedException !== undefined)
@@ -2380,7 +2380,7 @@ export namespace SubscribeToShardEventStream {
     if (value.SubscribeToShardEvent !== undefined)
       return visitor.SubscribeToShardEvent(value.SubscribeToShardEvent);
     return visitor._(value.$unknown[0], value.$unknown[1]);
-  }
+  };
 }
 
 export interface SubscribeToShardInput {
