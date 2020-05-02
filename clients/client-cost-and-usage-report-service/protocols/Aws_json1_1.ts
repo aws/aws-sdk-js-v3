@@ -44,10 +44,10 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_json1_1DeleteReportDefinitionCommand(
+export const serializeAws_json1_1DeleteReportDefinitionCommand = async (
   input: DeleteReportDefinitionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -57,12 +57,12 @@ export async function serializeAws_json1_1DeleteReportDefinitionCommand(
     serializeAws_json1_1DeleteReportDefinitionRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeReportDefinitionsCommand(
+export const serializeAws_json1_1DescribeReportDefinitionsCommand = async (
   input: DescribeReportDefinitionsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -72,12 +72,12 @@ export async function serializeAws_json1_1DescribeReportDefinitionsCommand(
     serializeAws_json1_1DescribeReportDefinitionsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ModifyReportDefinitionCommand(
+export const serializeAws_json1_1ModifyReportDefinitionCommand = async (
   input: ModifyReportDefinitionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -87,12 +87,12 @@ export async function serializeAws_json1_1ModifyReportDefinitionCommand(
     serializeAws_json1_1ModifyReportDefinitionRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1PutReportDefinitionCommand(
+export const serializeAws_json1_1PutReportDefinitionCommand = async (
   input: PutReportDefinitionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -102,12 +102,12 @@ export async function serializeAws_json1_1PutReportDefinitionCommand(
     serializeAws_json1_1PutReportDefinitionRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_1DeleteReportDefinitionCommand(
+export const deserializeAws_json1_1DeleteReportDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteReportDefinitionCommandOutput> {
+): Promise<DeleteReportDefinitionCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteReportDefinitionCommandError(
       output,
@@ -126,12 +126,12 @@ export async function deserializeAws_json1_1DeleteReportDefinitionCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteReportDefinitionCommandError(
+const deserializeAws_json1_1DeleteReportDefinitionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteReportDefinitionCommandOutput> {
+): Promise<DeleteReportDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -179,12 +179,12 @@ async function deserializeAws_json1_1DeleteReportDefinitionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeReportDefinitionsCommand(
+export const deserializeAws_json1_1DescribeReportDefinitionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeReportDefinitionsCommandOutput> {
+): Promise<DescribeReportDefinitionsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeReportDefinitionsCommandError(
       output,
@@ -203,12 +203,12 @@ export async function deserializeAws_json1_1DescribeReportDefinitionsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeReportDefinitionsCommandError(
+const deserializeAws_json1_1DescribeReportDefinitionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeReportDefinitionsCommandOutput> {
+): Promise<DescribeReportDefinitionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -245,12 +245,12 @@ async function deserializeAws_json1_1DescribeReportDefinitionsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ModifyReportDefinitionCommand(
+export const deserializeAws_json1_1ModifyReportDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ModifyReportDefinitionCommandOutput> {
+): Promise<ModifyReportDefinitionCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ModifyReportDefinitionCommandError(
       output,
@@ -269,12 +269,12 @@ export async function deserializeAws_json1_1ModifyReportDefinitionCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ModifyReportDefinitionCommandError(
+const deserializeAws_json1_1ModifyReportDefinitionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ModifyReportDefinitionCommandOutput> {
+): Promise<ModifyReportDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -322,12 +322,12 @@ async function deserializeAws_json1_1ModifyReportDefinitionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1PutReportDefinitionCommand(
+export const deserializeAws_json1_1PutReportDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutReportDefinitionCommandOutput> {
+): Promise<PutReportDefinitionCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1PutReportDefinitionCommandError(
       output,
@@ -343,12 +343,12 @@ export async function deserializeAws_json1_1PutReportDefinitionCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1PutReportDefinitionCommandError(
+const deserializeAws_json1_1PutReportDefinitionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutReportDefinitionCommandOutput> {
+): Promise<PutReportDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -418,7 +418,7 @@ async function deserializeAws_json1_1PutReportDefinitionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_1DuplicateReportNameExceptionResponse = async (
   parsedOutput: any,

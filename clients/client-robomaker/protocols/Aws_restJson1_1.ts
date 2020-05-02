@@ -201,10 +201,10 @@ import {
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
-export async function serializeAws_restJson1_1BatchDescribeSimulationJobCommand(
+export const serializeAws_restJson1_1BatchDescribeSimulationJobCommand = async (
   input: BatchDescribeSimulationJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/batchDescribeSimulationJob";
@@ -224,12 +224,12 @@ export async function serializeAws_restJson1_1BatchDescribeSimulationJobCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1CancelDeploymentJobCommand(
+export const serializeAws_restJson1_1CancelDeploymentJobCommand = async (
   input: CancelDeploymentJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/cancelDeploymentJob";
@@ -249,12 +249,12 @@ export async function serializeAws_restJson1_1CancelDeploymentJobCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1CancelSimulationJobCommand(
+export const serializeAws_restJson1_1CancelSimulationJobCommand = async (
   input: CancelSimulationJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/cancelSimulationJob";
@@ -274,12 +274,12 @@ export async function serializeAws_restJson1_1CancelSimulationJobCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1CreateDeploymentJobCommand(
+export const serializeAws_restJson1_1CreateDeploymentJobCommand = async (
   input: CreateDeploymentJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/createDeploymentJob";
@@ -322,12 +322,12 @@ export async function serializeAws_restJson1_1CreateDeploymentJobCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1CreateFleetCommand(
+export const serializeAws_restJson1_1CreateFleetCommand = async (
   input: CreateFleetCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/createFleet";
@@ -350,12 +350,12 @@ export async function serializeAws_restJson1_1CreateFleetCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1CreateRobotCommand(
+export const serializeAws_restJson1_1CreateRobotCommand = async (
   input: CreateRobotCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/createRobot";
@@ -384,12 +384,12 @@ export async function serializeAws_restJson1_1CreateRobotCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1CreateRobotApplicationCommand(
+export const serializeAws_restJson1_1CreateRobotApplicationCommand = async (
   input: CreateRobotApplicationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/createRobotApplication";
@@ -426,12 +426,12 @@ export async function serializeAws_restJson1_1CreateRobotApplicationCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1CreateRobotApplicationVersionCommand(
+export const serializeAws_restJson1_1CreateRobotApplicationVersionCommand = async (
   input: CreateRobotApplicationVersionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/createRobotApplicationVersion";
@@ -454,12 +454,12 @@ export async function serializeAws_restJson1_1CreateRobotApplicationVersionComma
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1CreateSimulationApplicationCommand(
+export const serializeAws_restJson1_1CreateSimulationApplicationCommand = async (
   input: CreateSimulationApplicationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/createSimulationApplication";
@@ -510,12 +510,12 @@ export async function serializeAws_restJson1_1CreateSimulationApplicationCommand
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1CreateSimulationApplicationVersionCommand(
+export const serializeAws_restJson1_1CreateSimulationApplicationVersionCommand = async (
   input: CreateSimulationApplicationVersionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/createSimulationApplicationVersion";
@@ -538,12 +538,12 @@ export async function serializeAws_restJson1_1CreateSimulationApplicationVersion
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1CreateSimulationJobCommand(
+export const serializeAws_restJson1_1CreateSimulationJobCommand = async (
   input: CreateSimulationJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/createSimulationJob";
@@ -618,12 +618,12 @@ export async function serializeAws_restJson1_1CreateSimulationJobCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeleteFleetCommand(
+export const serializeAws_restJson1_1DeleteFleetCommand = async (
   input: DeleteFleetCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/deleteFleet";
@@ -643,12 +643,12 @@ export async function serializeAws_restJson1_1DeleteFleetCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeleteRobotCommand(
+export const serializeAws_restJson1_1DeleteRobotCommand = async (
   input: DeleteRobotCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/deleteRobot";
@@ -668,12 +668,12 @@ export async function serializeAws_restJson1_1DeleteRobotCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeleteRobotApplicationCommand(
+export const serializeAws_restJson1_1DeleteRobotApplicationCommand = async (
   input: DeleteRobotApplicationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/deleteRobotApplication";
@@ -696,12 +696,12 @@ export async function serializeAws_restJson1_1DeleteRobotApplicationCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeleteSimulationApplicationCommand(
+export const serializeAws_restJson1_1DeleteSimulationApplicationCommand = async (
   input: DeleteSimulationApplicationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/deleteSimulationApplication";
@@ -724,12 +724,12 @@ export async function serializeAws_restJson1_1DeleteSimulationApplicationCommand
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeregisterRobotCommand(
+export const serializeAws_restJson1_1DeregisterRobotCommand = async (
   input: DeregisterRobotCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/deregisterRobot";
@@ -752,12 +752,12 @@ export async function serializeAws_restJson1_1DeregisterRobotCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribeDeploymentJobCommand(
+export const serializeAws_restJson1_1DescribeDeploymentJobCommand = async (
   input: DescribeDeploymentJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/describeDeploymentJob";
@@ -777,12 +777,12 @@ export async function serializeAws_restJson1_1DescribeDeploymentJobCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribeFleetCommand(
+export const serializeAws_restJson1_1DescribeFleetCommand = async (
   input: DescribeFleetCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/describeFleet";
@@ -802,12 +802,12 @@ export async function serializeAws_restJson1_1DescribeFleetCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribeRobotCommand(
+export const serializeAws_restJson1_1DescribeRobotCommand = async (
   input: DescribeRobotCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/describeRobot";
@@ -827,12 +827,12 @@ export async function serializeAws_restJson1_1DescribeRobotCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribeRobotApplicationCommand(
+export const serializeAws_restJson1_1DescribeRobotApplicationCommand = async (
   input: DescribeRobotApplicationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/describeRobotApplication";
@@ -855,12 +855,12 @@ export async function serializeAws_restJson1_1DescribeRobotApplicationCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribeSimulationApplicationCommand(
+export const serializeAws_restJson1_1DescribeSimulationApplicationCommand = async (
   input: DescribeSimulationApplicationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/describeSimulationApplication";
@@ -883,12 +883,12 @@ export async function serializeAws_restJson1_1DescribeSimulationApplicationComma
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribeSimulationJobCommand(
+export const serializeAws_restJson1_1DescribeSimulationJobCommand = async (
   input: DescribeSimulationJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/describeSimulationJob";
@@ -908,12 +908,12 @@ export async function serializeAws_restJson1_1DescribeSimulationJobCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListDeploymentJobsCommand(
+export const serializeAws_restJson1_1ListDeploymentJobsCommand = async (
   input: ListDeploymentJobsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/listDeploymentJobs";
@@ -942,12 +942,12 @@ export async function serializeAws_restJson1_1ListDeploymentJobsCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListFleetsCommand(
+export const serializeAws_restJson1_1ListFleetsCommand = async (
   input: ListFleetsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/listFleets";
@@ -976,12 +976,12 @@ export async function serializeAws_restJson1_1ListFleetsCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListRobotApplicationsCommand(
+export const serializeAws_restJson1_1ListRobotApplicationsCommand = async (
   input: ListRobotApplicationsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/listRobotApplications";
@@ -1013,12 +1013,12 @@ export async function serializeAws_restJson1_1ListRobotApplicationsCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListRobotsCommand(
+export const serializeAws_restJson1_1ListRobotsCommand = async (
   input: ListRobotsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/listRobots";
@@ -1047,12 +1047,12 @@ export async function serializeAws_restJson1_1ListRobotsCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListSimulationApplicationsCommand(
+export const serializeAws_restJson1_1ListSimulationApplicationsCommand = async (
   input: ListSimulationApplicationsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/listSimulationApplications";
@@ -1084,12 +1084,12 @@ export async function serializeAws_restJson1_1ListSimulationApplicationsCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListSimulationJobsCommand(
+export const serializeAws_restJson1_1ListSimulationJobsCommand = async (
   input: ListSimulationJobsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/listSimulationJobs";
@@ -1118,12 +1118,12 @@ export async function serializeAws_restJson1_1ListSimulationJobsCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListTagsForResourceCommand(
+export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{resourceArn}";
@@ -1152,12 +1152,12 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1RegisterRobotCommand(
+export const serializeAws_restJson1_1RegisterRobotCommand = async (
   input: RegisterRobotCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/registerRobot";
@@ -1180,12 +1180,12 @@ export async function serializeAws_restJson1_1RegisterRobotCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1RestartSimulationJobCommand(
+export const serializeAws_restJson1_1RestartSimulationJobCommand = async (
   input: RestartSimulationJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/restartSimulationJob";
@@ -1205,12 +1205,12 @@ export async function serializeAws_restJson1_1RestartSimulationJobCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1SyncDeploymentJobCommand(
+export const serializeAws_restJson1_1SyncDeploymentJobCommand = async (
   input: SyncDeploymentJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/syncDeploymentJob";
@@ -1236,12 +1236,12 @@ export async function serializeAws_restJson1_1SyncDeploymentJobCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1TagResourceCommand(
+export const serializeAws_restJson1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/tags/{resourceArn}";
@@ -1275,12 +1275,12 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UntagResourceCommand(
+export const serializeAws_restJson1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{resourceArn}";
@@ -1314,12 +1314,12 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UpdateRobotApplicationCommand(
+export const serializeAws_restJson1_1UpdateRobotApplicationCommand = async (
   input: UpdateRobotApplicationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/updateRobotApplication";
@@ -1356,12 +1356,12 @@ export async function serializeAws_restJson1_1UpdateRobotApplicationCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UpdateSimulationApplicationCommand(
+export const serializeAws_restJson1_1UpdateSimulationApplicationCommand = async (
   input: UpdateSimulationApplicationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/updateSimulationApplication";
@@ -1412,12 +1412,12 @@ export async function serializeAws_restJson1_1UpdateSimulationApplicationCommand
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1BatchDescribeSimulationJobCommand(
+export const deserializeAws_restJson1_1BatchDescribeSimulationJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchDescribeSimulationJobCommandOutput> {
+): Promise<BatchDescribeSimulationJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1BatchDescribeSimulationJobCommandError(
       output,
@@ -1444,12 +1444,12 @@ export async function deserializeAws_restJson1_1BatchDescribeSimulationJobComman
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1BatchDescribeSimulationJobCommandError(
+const deserializeAws_restJson1_1BatchDescribeSimulationJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchDescribeSimulationJobCommandOutput> {
+): Promise<BatchDescribeSimulationJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1517,12 +1517,12 @@ async function deserializeAws_restJson1_1BatchDescribeSimulationJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1CancelDeploymentJobCommand(
+export const deserializeAws_restJson1_1CancelDeploymentJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CancelDeploymentJobCommandOutput> {
+): Promise<CancelDeploymentJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CancelDeploymentJobCommandError(
       output,
@@ -1535,12 +1535,12 @@ export async function deserializeAws_restJson1_1CancelDeploymentJobCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CancelDeploymentJobCommandError(
+const deserializeAws_restJson1_1CancelDeploymentJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CancelDeploymentJobCommandOutput> {
+): Promise<CancelDeploymentJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1608,12 +1608,12 @@ async function deserializeAws_restJson1_1CancelDeploymentJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1CancelSimulationJobCommand(
+export const deserializeAws_restJson1_1CancelSimulationJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CancelSimulationJobCommandOutput> {
+): Promise<CancelSimulationJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CancelSimulationJobCommandError(
       output,
@@ -1626,12 +1626,12 @@ export async function deserializeAws_restJson1_1CancelSimulationJobCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CancelSimulationJobCommandError(
+const deserializeAws_restJson1_1CancelSimulationJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CancelSimulationJobCommandOutput> {
+): Promise<CancelSimulationJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1699,12 +1699,12 @@ async function deserializeAws_restJson1_1CancelSimulationJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1CreateDeploymentJobCommand(
+export const deserializeAws_restJson1_1CreateDeploymentJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateDeploymentJobCommandOutput> {
+): Promise<CreateDeploymentJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateDeploymentJobCommandError(
       output,
@@ -1762,12 +1762,12 @@ export async function deserializeAws_restJson1_1CreateDeploymentJobCommand(
     contents.tags = deserializeAws_restJson1_1TagMap(data.tags, context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreateDeploymentJobCommandError(
+const deserializeAws_restJson1_1CreateDeploymentJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateDeploymentJobCommandOutput> {
+): Promise<CreateDeploymentJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1868,12 +1868,12 @@ async function deserializeAws_restJson1_1CreateDeploymentJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1CreateFleetCommand(
+export const deserializeAws_restJson1_1CreateFleetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateFleetCommandOutput> {
+): Promise<CreateFleetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateFleetCommandError(output, context);
   }
@@ -1899,12 +1899,12 @@ export async function deserializeAws_restJson1_1CreateFleetCommand(
     contents.tags = deserializeAws_restJson1_1TagMap(data.tags, context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreateFleetCommandError(
+const deserializeAws_restJson1_1CreateFleetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateFleetCommandOutput> {
+): Promise<CreateFleetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1972,12 +1972,12 @@ async function deserializeAws_restJson1_1CreateFleetCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1CreateRobotCommand(
+export const deserializeAws_restJson1_1CreateRobotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateRobotCommandOutput> {
+): Promise<CreateRobotCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateRobotCommandError(output, context);
   }
@@ -2011,12 +2011,12 @@ export async function deserializeAws_restJson1_1CreateRobotCommand(
     contents.tags = deserializeAws_restJson1_1TagMap(data.tags, context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreateRobotCommandError(
+const deserializeAws_restJson1_1CreateRobotCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateRobotCommandOutput> {
+): Promise<CreateRobotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2095,12 +2095,12 @@ async function deserializeAws_restJson1_1CreateRobotCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1CreateRobotApplicationCommand(
+export const deserializeAws_restJson1_1CreateRobotApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateRobotApplicationCommandOutput> {
+): Promise<CreateRobotApplicationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateRobotApplicationCommandError(
       output,
@@ -2151,12 +2151,12 @@ export async function deserializeAws_restJson1_1CreateRobotApplicationCommand(
     contents.version = data.version;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreateRobotApplicationCommandError(
+const deserializeAws_restJson1_1CreateRobotApplicationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateRobotApplicationCommandOutput> {
+): Promise<CreateRobotApplicationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2246,12 +2246,12 @@ async function deserializeAws_restJson1_1CreateRobotApplicationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1CreateRobotApplicationVersionCommand(
+export const deserializeAws_restJson1_1CreateRobotApplicationVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateRobotApplicationVersionCommandOutput> {
+): Promise<CreateRobotApplicationVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateRobotApplicationVersionCommandError(
       output,
@@ -2298,12 +2298,12 @@ export async function deserializeAws_restJson1_1CreateRobotApplicationVersionCom
     contents.version = data.version;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreateRobotApplicationVersionCommandError(
+const deserializeAws_restJson1_1CreateRobotApplicationVersionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateRobotApplicationVersionCommandOutput> {
+): Promise<CreateRobotApplicationVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2382,12 +2382,12 @@ async function deserializeAws_restJson1_1CreateRobotApplicationVersionCommandErr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1CreateSimulationApplicationCommand(
+export const deserializeAws_restJson1_1CreateSimulationApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateSimulationApplicationCommandOutput> {
+): Promise<CreateSimulationApplicationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateSimulationApplicationCommandError(
       output,
@@ -2455,12 +2455,12 @@ export async function deserializeAws_restJson1_1CreateSimulationApplicationComma
     contents.version = data.version;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreateSimulationApplicationCommandError(
+const deserializeAws_restJson1_1CreateSimulationApplicationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateSimulationApplicationCommandOutput> {
+): Promise<CreateSimulationApplicationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2550,12 +2550,12 @@ async function deserializeAws_restJson1_1CreateSimulationApplicationCommandError
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1CreateSimulationApplicationVersionCommand(
+export const deserializeAws_restJson1_1CreateSimulationApplicationVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateSimulationApplicationVersionCommandOutput> {
+): Promise<CreateSimulationApplicationVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateSimulationApplicationVersionCommandError(
       output,
@@ -2619,12 +2619,12 @@ export async function deserializeAws_restJson1_1CreateSimulationApplicationVersi
     contents.version = data.version;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreateSimulationApplicationVersionCommandError(
+const deserializeAws_restJson1_1CreateSimulationApplicationVersionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateSimulationApplicationVersionCommandOutput> {
+): Promise<CreateSimulationApplicationVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2703,12 +2703,12 @@ async function deserializeAws_restJson1_1CreateSimulationApplicationVersionComma
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1CreateSimulationJobCommand(
+export const deserializeAws_restJson1_1CreateSimulationJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateSimulationJobCommandOutput> {
+): Promise<CreateSimulationJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateSimulationJobCommandError(
       output,
@@ -2819,12 +2819,12 @@ export async function deserializeAws_restJson1_1CreateSimulationJobCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreateSimulationJobCommandError(
+const deserializeAws_restJson1_1CreateSimulationJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateSimulationJobCommandOutput> {
+): Promise<CreateSimulationJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2925,12 +2925,12 @@ async function deserializeAws_restJson1_1CreateSimulationJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteFleetCommand(
+export const deserializeAws_restJson1_1DeleteFleetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteFleetCommandOutput> {
+): Promise<DeleteFleetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteFleetCommandError(output, context);
   }
@@ -2940,12 +2940,12 @@ export async function deserializeAws_restJson1_1DeleteFleetCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteFleetCommandError(
+const deserializeAws_restJson1_1DeleteFleetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteFleetCommandOutput> {
+): Promise<DeleteFleetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3002,12 +3002,12 @@ async function deserializeAws_restJson1_1DeleteFleetCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteRobotCommand(
+export const deserializeAws_restJson1_1DeleteRobotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteRobotCommandOutput> {
+): Promise<DeleteRobotCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteRobotCommandError(output, context);
   }
@@ -3017,12 +3017,12 @@ export async function deserializeAws_restJson1_1DeleteRobotCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteRobotCommandError(
+const deserializeAws_restJson1_1DeleteRobotCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteRobotCommandOutput> {
+): Promise<DeleteRobotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3079,12 +3079,12 @@ async function deserializeAws_restJson1_1DeleteRobotCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteRobotApplicationCommand(
+export const deserializeAws_restJson1_1DeleteRobotApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteRobotApplicationCommandOutput> {
+): Promise<DeleteRobotApplicationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteRobotApplicationCommandError(
       output,
@@ -3097,12 +3097,12 @@ export async function deserializeAws_restJson1_1DeleteRobotApplicationCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteRobotApplicationCommandError(
+const deserializeAws_restJson1_1DeleteRobotApplicationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteRobotApplicationCommandOutput> {
+): Promise<DeleteRobotApplicationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3159,12 +3159,12 @@ async function deserializeAws_restJson1_1DeleteRobotApplicationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteSimulationApplicationCommand(
+export const deserializeAws_restJson1_1DeleteSimulationApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteSimulationApplicationCommandOutput> {
+): Promise<DeleteSimulationApplicationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteSimulationApplicationCommandError(
       output,
@@ -3177,12 +3177,12 @@ export async function deserializeAws_restJson1_1DeleteSimulationApplicationComma
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteSimulationApplicationCommandError(
+const deserializeAws_restJson1_1DeleteSimulationApplicationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteSimulationApplicationCommandOutput> {
+): Promise<DeleteSimulationApplicationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3239,12 +3239,12 @@ async function deserializeAws_restJson1_1DeleteSimulationApplicationCommandError
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeregisterRobotCommand(
+export const deserializeAws_restJson1_1DeregisterRobotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeregisterRobotCommandOutput> {
+): Promise<DeregisterRobotCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeregisterRobotCommandError(
       output,
@@ -3265,12 +3265,12 @@ export async function deserializeAws_restJson1_1DeregisterRobotCommand(
     contents.robot = data.robot;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeregisterRobotCommandError(
+const deserializeAws_restJson1_1DeregisterRobotCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeregisterRobotCommandOutput> {
+): Promise<DeregisterRobotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3338,12 +3338,12 @@ async function deserializeAws_restJson1_1DeregisterRobotCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeDeploymentJobCommand(
+export const deserializeAws_restJson1_1DescribeDeploymentJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeDeploymentJobCommandOutput> {
+): Promise<DescribeDeploymentJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeDeploymentJobCommandError(
       output,
@@ -3411,12 +3411,12 @@ export async function deserializeAws_restJson1_1DescribeDeploymentJobCommand(
     contents.tags = deserializeAws_restJson1_1TagMap(data.tags, context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeDeploymentJobCommandError(
+const deserializeAws_restJson1_1DescribeDeploymentJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeDeploymentJobCommandOutput> {
+): Promise<DescribeDeploymentJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3484,12 +3484,12 @@ async function deserializeAws_restJson1_1DescribeDeploymentJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeFleetCommand(
+export const deserializeAws_restJson1_1DescribeFleetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeFleetCommandOutput> {
+): Promise<DescribeFleetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeFleetCommandError(output, context);
   }
@@ -3539,12 +3539,12 @@ export async function deserializeAws_restJson1_1DescribeFleetCommand(
     contents.tags = deserializeAws_restJson1_1TagMap(data.tags, context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeFleetCommandError(
+const deserializeAws_restJson1_1DescribeFleetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeFleetCommandOutput> {
+): Promise<DescribeFleetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3612,12 +3612,12 @@ async function deserializeAws_restJson1_1DescribeFleetCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeRobotCommand(
+export const deserializeAws_restJson1_1DescribeRobotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeRobotCommandOutput> {
+): Promise<DescribeRobotCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeRobotCommandError(output, context);
   }
@@ -3672,12 +3672,12 @@ export async function deserializeAws_restJson1_1DescribeRobotCommand(
     contents.tags = deserializeAws_restJson1_1TagMap(data.tags, context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeRobotCommandError(
+const deserializeAws_restJson1_1DescribeRobotCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeRobotCommandOutput> {
+): Promise<DescribeRobotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3745,12 +3745,12 @@ async function deserializeAws_restJson1_1DescribeRobotCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeRobotApplicationCommand(
+export const deserializeAws_restJson1_1DescribeRobotApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeRobotApplicationCommandOutput> {
+): Promise<DescribeRobotApplicationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeRobotApplicationCommandError(
       output,
@@ -3801,12 +3801,12 @@ export async function deserializeAws_restJson1_1DescribeRobotApplicationCommand(
     contents.version = data.version;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeRobotApplicationCommandError(
+const deserializeAws_restJson1_1DescribeRobotApplicationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeRobotApplicationCommandOutput> {
+): Promise<DescribeRobotApplicationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3874,12 +3874,12 @@ async function deserializeAws_restJson1_1DescribeRobotApplicationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeSimulationApplicationCommand(
+export const deserializeAws_restJson1_1DescribeSimulationApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeSimulationApplicationCommandOutput> {
+): Promise<DescribeSimulationApplicationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeSimulationApplicationCommandError(
       output,
@@ -3947,12 +3947,12 @@ export async function deserializeAws_restJson1_1DescribeSimulationApplicationCom
     contents.version = data.version;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeSimulationApplicationCommandError(
+const deserializeAws_restJson1_1DescribeSimulationApplicationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeSimulationApplicationCommandOutput> {
+): Promise<DescribeSimulationApplicationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4020,12 +4020,12 @@ async function deserializeAws_restJson1_1DescribeSimulationApplicationCommandErr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeSimulationJobCommand(
+export const deserializeAws_restJson1_1DescribeSimulationJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeSimulationJobCommandOutput> {
+): Promise<DescribeSimulationJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeSimulationJobCommandError(
       output,
@@ -4151,12 +4151,12 @@ export async function deserializeAws_restJson1_1DescribeSimulationJobCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeSimulationJobCommandError(
+const deserializeAws_restJson1_1DescribeSimulationJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeSimulationJobCommandOutput> {
+): Promise<DescribeSimulationJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4224,12 +4224,12 @@ async function deserializeAws_restJson1_1DescribeSimulationJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListDeploymentJobsCommand(
+export const deserializeAws_restJson1_1ListDeploymentJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListDeploymentJobsCommandOutput> {
+): Promise<ListDeploymentJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListDeploymentJobsCommandError(
       output,
@@ -4253,12 +4253,12 @@ export async function deserializeAws_restJson1_1ListDeploymentJobsCommand(
     contents.nextToken = data.nextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListDeploymentJobsCommandError(
+const deserializeAws_restJson1_1ListDeploymentJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListDeploymentJobsCommandOutput> {
+): Promise<ListDeploymentJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4326,12 +4326,12 @@ async function deserializeAws_restJson1_1ListDeploymentJobsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListFleetsCommand(
+export const deserializeAws_restJson1_1ListFleetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListFleetsCommandOutput> {
+): Promise<ListFleetsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListFleetsCommandError(output, context);
   }
@@ -4352,12 +4352,12 @@ export async function deserializeAws_restJson1_1ListFleetsCommand(
     contents.nextToken = data.nextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListFleetsCommandError(
+const deserializeAws_restJson1_1ListFleetsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListFleetsCommandOutput> {
+): Promise<ListFleetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4425,12 +4425,12 @@ async function deserializeAws_restJson1_1ListFleetsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListRobotApplicationsCommand(
+export const deserializeAws_restJson1_1ListRobotApplicationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListRobotApplicationsCommandOutput> {
+): Promise<ListRobotApplicationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListRobotApplicationsCommandError(
       output,
@@ -4457,12 +4457,12 @@ export async function deserializeAws_restJson1_1ListRobotApplicationsCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListRobotApplicationsCommandError(
+const deserializeAws_restJson1_1ListRobotApplicationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListRobotApplicationsCommandOutput> {
+): Promise<ListRobotApplicationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4519,12 +4519,12 @@ async function deserializeAws_restJson1_1ListRobotApplicationsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListRobotsCommand(
+export const deserializeAws_restJson1_1ListRobotsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListRobotsCommandOutput> {
+): Promise<ListRobotsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListRobotsCommandError(output, context);
   }
@@ -4542,12 +4542,12 @@ export async function deserializeAws_restJson1_1ListRobotsCommand(
     contents.robots = deserializeAws_restJson1_1Robots(data.robots, context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListRobotsCommandError(
+const deserializeAws_restJson1_1ListRobotsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListRobotsCommandOutput> {
+): Promise<ListRobotsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4615,12 +4615,12 @@ async function deserializeAws_restJson1_1ListRobotsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListSimulationApplicationsCommand(
+export const deserializeAws_restJson1_1ListSimulationApplicationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListSimulationApplicationsCommandOutput> {
+): Promise<ListSimulationApplicationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListSimulationApplicationsCommandError(
       output,
@@ -4647,12 +4647,12 @@ export async function deserializeAws_restJson1_1ListSimulationApplicationsComman
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListSimulationApplicationsCommandError(
+const deserializeAws_restJson1_1ListSimulationApplicationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListSimulationApplicationsCommandOutput> {
+): Promise<ListSimulationApplicationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4709,12 +4709,12 @@ async function deserializeAws_restJson1_1ListSimulationApplicationsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListSimulationJobsCommand(
+export const deserializeAws_restJson1_1ListSimulationJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListSimulationJobsCommandOutput> {
+): Promise<ListSimulationJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListSimulationJobsCommandError(
       output,
@@ -4741,12 +4741,12 @@ export async function deserializeAws_restJson1_1ListSimulationJobsCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListSimulationJobsCommandError(
+const deserializeAws_restJson1_1ListSimulationJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListSimulationJobsCommandOutput> {
+): Promise<ListSimulationJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4803,12 +4803,12 @@ async function deserializeAws_restJson1_1ListSimulationJobsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
+export const deserializeAws_restJson1_1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListTagsForResourceCommandError(
       output,
@@ -4825,12 +4825,12 @@ export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
     contents.tags = deserializeAws_restJson1_1TagMap(data.tags, context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
+const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4898,12 +4898,12 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1RegisterRobotCommand(
+export const deserializeAws_restJson1_1RegisterRobotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RegisterRobotCommandOutput> {
+): Promise<RegisterRobotCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1RegisterRobotCommandError(output, context);
   }
@@ -4921,12 +4921,12 @@ export async function deserializeAws_restJson1_1RegisterRobotCommand(
     contents.robot = data.robot;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1RegisterRobotCommandError(
+const deserializeAws_restJson1_1RegisterRobotCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RegisterRobotCommandOutput> {
+): Promise<RegisterRobotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5005,12 +5005,12 @@ async function deserializeAws_restJson1_1RegisterRobotCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1RestartSimulationJobCommand(
+export const deserializeAws_restJson1_1RestartSimulationJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RestartSimulationJobCommandOutput> {
+): Promise<RestartSimulationJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1RestartSimulationJobCommandError(
       output,
@@ -5023,12 +5023,12 @@ export async function deserializeAws_restJson1_1RestartSimulationJobCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1RestartSimulationJobCommandError(
+const deserializeAws_restJson1_1RestartSimulationJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RestartSimulationJobCommandOutput> {
+): Promise<RestartSimulationJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5107,12 +5107,12 @@ async function deserializeAws_restJson1_1RestartSimulationJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1SyncDeploymentJobCommand(
+export const deserializeAws_restJson1_1SyncDeploymentJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SyncDeploymentJobCommandOutput> {
+): Promise<SyncDeploymentJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1SyncDeploymentJobCommandError(
       output,
@@ -5166,12 +5166,12 @@ export async function deserializeAws_restJson1_1SyncDeploymentJobCommand(
     contents.status = data.status;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1SyncDeploymentJobCommandError(
+const deserializeAws_restJson1_1SyncDeploymentJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SyncDeploymentJobCommandOutput> {
+): Promise<SyncDeploymentJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5272,12 +5272,12 @@ async function deserializeAws_restJson1_1SyncDeploymentJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1TagResourceCommand(
+export const deserializeAws_restJson1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1TagResourceCommandError(output, context);
   }
@@ -5287,12 +5287,12 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1TagResourceCommandError(
+const deserializeAws_restJson1_1TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5360,12 +5360,12 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UntagResourceCommand(
+export const deserializeAws_restJson1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UntagResourceCommandError(output, context);
   }
@@ -5375,12 +5375,12 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UntagResourceCommandError(
+const deserializeAws_restJson1_1UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5448,12 +5448,12 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UpdateRobotApplicationCommand(
+export const deserializeAws_restJson1_1UpdateRobotApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateRobotApplicationCommandOutput> {
+): Promise<UpdateRobotApplicationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateRobotApplicationCommandError(
       output,
@@ -5500,12 +5500,12 @@ export async function deserializeAws_restJson1_1UpdateRobotApplicationCommand(
     contents.version = data.version;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UpdateRobotApplicationCommandError(
+const deserializeAws_restJson1_1UpdateRobotApplicationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateRobotApplicationCommandOutput> {
+): Promise<UpdateRobotApplicationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5584,12 +5584,12 @@ async function deserializeAws_restJson1_1UpdateRobotApplicationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UpdateSimulationApplicationCommand(
+export const deserializeAws_restJson1_1UpdateSimulationApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateSimulationApplicationCommandOutput> {
+): Promise<UpdateSimulationApplicationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateSimulationApplicationCommandError(
       output,
@@ -5653,12 +5653,12 @@ export async function deserializeAws_restJson1_1UpdateSimulationApplicationComma
     contents.version = data.version;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UpdateSimulationApplicationCommandError(
+const deserializeAws_restJson1_1UpdateSimulationApplicationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateSimulationApplicationCommandOutput> {
+): Promise<UpdateSimulationApplicationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5737,7 +5737,7 @@ async function deserializeAws_restJson1_1UpdateSimulationApplicationCommandError
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1ConcurrentDeploymentExceptionResponse = async (
   parsedOutput: any,

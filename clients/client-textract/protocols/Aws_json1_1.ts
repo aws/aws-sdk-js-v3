@@ -82,10 +82,10 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_json1_1AnalyzeDocumentCommand(
+export const serializeAws_json1_1AnalyzeDocumentCommand = async (
   input: AnalyzeDocumentCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Textract.AnalyzeDocument";
@@ -94,12 +94,12 @@ export async function serializeAws_json1_1AnalyzeDocumentCommand(
     serializeAws_json1_1AnalyzeDocumentRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DetectDocumentTextCommand(
+export const serializeAws_json1_1DetectDocumentTextCommand = async (
   input: DetectDocumentTextCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Textract.DetectDocumentText";
@@ -108,12 +108,12 @@ export async function serializeAws_json1_1DetectDocumentTextCommand(
     serializeAws_json1_1DetectDocumentTextRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetDocumentAnalysisCommand(
+export const serializeAws_json1_1GetDocumentAnalysisCommand = async (
   input: GetDocumentAnalysisCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Textract.GetDocumentAnalysis";
@@ -122,12 +122,12 @@ export async function serializeAws_json1_1GetDocumentAnalysisCommand(
     serializeAws_json1_1GetDocumentAnalysisRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetDocumentTextDetectionCommand(
+export const serializeAws_json1_1GetDocumentTextDetectionCommand = async (
   input: GetDocumentTextDetectionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Textract.GetDocumentTextDetection";
@@ -136,12 +136,12 @@ export async function serializeAws_json1_1GetDocumentTextDetectionCommand(
     serializeAws_json1_1GetDocumentTextDetectionRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1StartDocumentAnalysisCommand(
+export const serializeAws_json1_1StartDocumentAnalysisCommand = async (
   input: StartDocumentAnalysisCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Textract.StartDocumentAnalysis";
@@ -150,12 +150,12 @@ export async function serializeAws_json1_1StartDocumentAnalysisCommand(
     serializeAws_json1_1StartDocumentAnalysisRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1StartDocumentTextDetectionCommand(
+export const serializeAws_json1_1StartDocumentTextDetectionCommand = async (
   input: StartDocumentTextDetectionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Textract.StartDocumentTextDetection";
@@ -164,12 +164,12 @@ export async function serializeAws_json1_1StartDocumentTextDetectionCommand(
     serializeAws_json1_1StartDocumentTextDetectionRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_1AnalyzeDocumentCommand(
+export const deserializeAws_json1_1AnalyzeDocumentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AnalyzeDocumentCommandOutput> {
+): Promise<AnalyzeDocumentCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1AnalyzeDocumentCommandError(output, context);
   }
@@ -182,12 +182,12 @@ export async function deserializeAws_json1_1AnalyzeDocumentCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1AnalyzeDocumentCommandError(
+const deserializeAws_json1_1AnalyzeDocumentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AnalyzeDocumentCommandOutput> {
+): Promise<AnalyzeDocumentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -323,12 +323,12 @@ async function deserializeAws_json1_1AnalyzeDocumentCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DetectDocumentTextCommand(
+export const deserializeAws_json1_1DetectDocumentTextCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DetectDocumentTextCommandOutput> {
+): Promise<DetectDocumentTextCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DetectDocumentTextCommandError(
       output,
@@ -344,12 +344,12 @@ export async function deserializeAws_json1_1DetectDocumentTextCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DetectDocumentTextCommandError(
+const deserializeAws_json1_1DetectDocumentTextCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DetectDocumentTextCommandOutput> {
+): Promise<DetectDocumentTextCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -474,12 +474,12 @@ async function deserializeAws_json1_1DetectDocumentTextCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetDocumentAnalysisCommand(
+export const deserializeAws_json1_1GetDocumentAnalysisCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetDocumentAnalysisCommandOutput> {
+): Promise<GetDocumentAnalysisCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetDocumentAnalysisCommandError(
       output,
@@ -495,12 +495,12 @@ export async function deserializeAws_json1_1GetDocumentAnalysisCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetDocumentAnalysisCommandError(
+const deserializeAws_json1_1GetDocumentAnalysisCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetDocumentAnalysisCommandOutput> {
+): Promise<GetDocumentAnalysisCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -592,12 +592,12 @@ async function deserializeAws_json1_1GetDocumentAnalysisCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetDocumentTextDetectionCommand(
+export const deserializeAws_json1_1GetDocumentTextDetectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetDocumentTextDetectionCommandOutput> {
+): Promise<GetDocumentTextDetectionCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetDocumentTextDetectionCommandError(
       output,
@@ -616,12 +616,12 @@ export async function deserializeAws_json1_1GetDocumentTextDetectionCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetDocumentTextDetectionCommandError(
+const deserializeAws_json1_1GetDocumentTextDetectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetDocumentTextDetectionCommandOutput> {
+): Promise<GetDocumentTextDetectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -713,12 +713,12 @@ async function deserializeAws_json1_1GetDocumentTextDetectionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1StartDocumentAnalysisCommand(
+export const deserializeAws_json1_1StartDocumentAnalysisCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartDocumentAnalysisCommandOutput> {
+): Promise<StartDocumentAnalysisCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StartDocumentAnalysisCommandError(
       output,
@@ -734,12 +734,12 @@ export async function deserializeAws_json1_1StartDocumentAnalysisCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1StartDocumentAnalysisCommandError(
+const deserializeAws_json1_1StartDocumentAnalysisCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartDocumentAnalysisCommandOutput> {
+): Promise<StartDocumentAnalysisCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -886,12 +886,12 @@ async function deserializeAws_json1_1StartDocumentAnalysisCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1StartDocumentTextDetectionCommand(
+export const deserializeAws_json1_1StartDocumentTextDetectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartDocumentTextDetectionCommandOutput> {
+): Promise<StartDocumentTextDetectionCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StartDocumentTextDetectionCommandError(
       output,
@@ -910,12 +910,12 @@ export async function deserializeAws_json1_1StartDocumentTextDetectionCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1StartDocumentTextDetectionCommandError(
+const deserializeAws_json1_1StartDocumentTextDetectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartDocumentTextDetectionCommandOutput> {
+): Promise<StartDocumentTextDetectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1062,7 +1062,7 @@ async function deserializeAws_json1_1StartDocumentTextDetectionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
   parsedOutput: any,

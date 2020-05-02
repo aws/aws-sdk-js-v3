@@ -336,10 +336,10 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_json1_1AcceptDirectConnectGatewayAssociationProposalCommand(
+export const serializeAws_json1_1AcceptDirectConnectGatewayAssociationProposalCommand = async (
   input: AcceptDirectConnectGatewayAssociationProposalCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -352,12 +352,12 @@ export async function serializeAws_json1_1AcceptDirectConnectGatewayAssociationP
     )
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1AllocateConnectionOnInterconnectCommand(
+export const serializeAws_json1_1AllocateConnectionOnInterconnectCommand = async (
   input: AllocateConnectionOnInterconnectCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.AllocateConnectionOnInterconnect";
@@ -366,12 +366,12 @@ export async function serializeAws_json1_1AllocateConnectionOnInterconnectComman
     serializeAws_json1_1AllocateConnectionOnInterconnectRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1AllocateHostedConnectionCommand(
+export const serializeAws_json1_1AllocateHostedConnectionCommand = async (
   input: AllocateHostedConnectionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.AllocateHostedConnection";
@@ -380,12 +380,12 @@ export async function serializeAws_json1_1AllocateHostedConnectionCommand(
     serializeAws_json1_1AllocateHostedConnectionRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1AllocatePrivateVirtualInterfaceCommand(
+export const serializeAws_json1_1AllocatePrivateVirtualInterfaceCommand = async (
   input: AllocatePrivateVirtualInterfaceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.AllocatePrivateVirtualInterface";
@@ -394,12 +394,12 @@ export async function serializeAws_json1_1AllocatePrivateVirtualInterfaceCommand
     serializeAws_json1_1AllocatePrivateVirtualInterfaceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1AllocatePublicVirtualInterfaceCommand(
+export const serializeAws_json1_1AllocatePublicVirtualInterfaceCommand = async (
   input: AllocatePublicVirtualInterfaceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.AllocatePublicVirtualInterface";
@@ -408,12 +408,12 @@ export async function serializeAws_json1_1AllocatePublicVirtualInterfaceCommand(
     serializeAws_json1_1AllocatePublicVirtualInterfaceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1AllocateTransitVirtualInterfaceCommand(
+export const serializeAws_json1_1AllocateTransitVirtualInterfaceCommand = async (
   input: AllocateTransitVirtualInterfaceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.AllocateTransitVirtualInterface";
@@ -422,12 +422,12 @@ export async function serializeAws_json1_1AllocateTransitVirtualInterfaceCommand
     serializeAws_json1_1AllocateTransitVirtualInterfaceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1AssociateConnectionWithLagCommand(
+export const serializeAws_json1_1AssociateConnectionWithLagCommand = async (
   input: AssociateConnectionWithLagCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.AssociateConnectionWithLag";
@@ -436,12 +436,12 @@ export async function serializeAws_json1_1AssociateConnectionWithLagCommand(
     serializeAws_json1_1AssociateConnectionWithLagRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1AssociateHostedConnectionCommand(
+export const serializeAws_json1_1AssociateHostedConnectionCommand = async (
   input: AssociateHostedConnectionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.AssociateHostedConnection";
@@ -450,12 +450,12 @@ export async function serializeAws_json1_1AssociateHostedConnectionCommand(
     serializeAws_json1_1AssociateHostedConnectionRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1AssociateVirtualInterfaceCommand(
+export const serializeAws_json1_1AssociateVirtualInterfaceCommand = async (
   input: AssociateVirtualInterfaceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.AssociateVirtualInterface";
@@ -464,12 +464,12 @@ export async function serializeAws_json1_1AssociateVirtualInterfaceCommand(
     serializeAws_json1_1AssociateVirtualInterfaceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ConfirmConnectionCommand(
+export const serializeAws_json1_1ConfirmConnectionCommand = async (
   input: ConfirmConnectionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.ConfirmConnection";
@@ -478,12 +478,12 @@ export async function serializeAws_json1_1ConfirmConnectionCommand(
     serializeAws_json1_1ConfirmConnectionRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ConfirmPrivateVirtualInterfaceCommand(
+export const serializeAws_json1_1ConfirmPrivateVirtualInterfaceCommand = async (
   input: ConfirmPrivateVirtualInterfaceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.ConfirmPrivateVirtualInterface";
@@ -492,12 +492,12 @@ export async function serializeAws_json1_1ConfirmPrivateVirtualInterfaceCommand(
     serializeAws_json1_1ConfirmPrivateVirtualInterfaceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ConfirmPublicVirtualInterfaceCommand(
+export const serializeAws_json1_1ConfirmPublicVirtualInterfaceCommand = async (
   input: ConfirmPublicVirtualInterfaceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.ConfirmPublicVirtualInterface";
@@ -506,12 +506,12 @@ export async function serializeAws_json1_1ConfirmPublicVirtualInterfaceCommand(
     serializeAws_json1_1ConfirmPublicVirtualInterfaceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ConfirmTransitVirtualInterfaceCommand(
+export const serializeAws_json1_1ConfirmTransitVirtualInterfaceCommand = async (
   input: ConfirmTransitVirtualInterfaceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.ConfirmTransitVirtualInterface";
@@ -520,12 +520,12 @@ export async function serializeAws_json1_1ConfirmTransitVirtualInterfaceCommand(
     serializeAws_json1_1ConfirmTransitVirtualInterfaceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreateBGPPeerCommand(
+export const serializeAws_json1_1CreateBGPPeerCommand = async (
   input: CreateBGPPeerCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.CreateBGPPeer";
@@ -534,12 +534,12 @@ export async function serializeAws_json1_1CreateBGPPeerCommand(
     serializeAws_json1_1CreateBGPPeerRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreateConnectionCommand(
+export const serializeAws_json1_1CreateConnectionCommand = async (
   input: CreateConnectionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.CreateConnection";
@@ -548,12 +548,12 @@ export async function serializeAws_json1_1CreateConnectionCommand(
     serializeAws_json1_1CreateConnectionRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreateDirectConnectGatewayCommand(
+export const serializeAws_json1_1CreateDirectConnectGatewayCommand = async (
   input: CreateDirectConnectGatewayCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.CreateDirectConnectGateway";
@@ -562,12 +562,12 @@ export async function serializeAws_json1_1CreateDirectConnectGatewayCommand(
     serializeAws_json1_1CreateDirectConnectGatewayRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreateDirectConnectGatewayAssociationCommand(
+export const serializeAws_json1_1CreateDirectConnectGatewayAssociationCommand = async (
   input: CreateDirectConnectGatewayAssociationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -580,12 +580,12 @@ export async function serializeAws_json1_1CreateDirectConnectGatewayAssociationC
     )
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreateDirectConnectGatewayAssociationProposalCommand(
+export const serializeAws_json1_1CreateDirectConnectGatewayAssociationProposalCommand = async (
   input: CreateDirectConnectGatewayAssociationProposalCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -598,12 +598,12 @@ export async function serializeAws_json1_1CreateDirectConnectGatewayAssociationP
     )
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreateInterconnectCommand(
+export const serializeAws_json1_1CreateInterconnectCommand = async (
   input: CreateInterconnectCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.CreateInterconnect";
@@ -612,24 +612,24 @@ export async function serializeAws_json1_1CreateInterconnectCommand(
     serializeAws_json1_1CreateInterconnectRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreateLagCommand(
+export const serializeAws_json1_1CreateLagCommand = async (
   input: CreateLagCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.CreateLag";
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateLagRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreatePrivateVirtualInterfaceCommand(
+export const serializeAws_json1_1CreatePrivateVirtualInterfaceCommand = async (
   input: CreatePrivateVirtualInterfaceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.CreatePrivateVirtualInterface";
@@ -638,12 +638,12 @@ export async function serializeAws_json1_1CreatePrivateVirtualInterfaceCommand(
     serializeAws_json1_1CreatePrivateVirtualInterfaceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreatePublicVirtualInterfaceCommand(
+export const serializeAws_json1_1CreatePublicVirtualInterfaceCommand = async (
   input: CreatePublicVirtualInterfaceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.CreatePublicVirtualInterface";
@@ -652,12 +652,12 @@ export async function serializeAws_json1_1CreatePublicVirtualInterfaceCommand(
     serializeAws_json1_1CreatePublicVirtualInterfaceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreateTransitVirtualInterfaceCommand(
+export const serializeAws_json1_1CreateTransitVirtualInterfaceCommand = async (
   input: CreateTransitVirtualInterfaceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.CreateTransitVirtualInterface";
@@ -666,12 +666,12 @@ export async function serializeAws_json1_1CreateTransitVirtualInterfaceCommand(
     serializeAws_json1_1CreateTransitVirtualInterfaceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteBGPPeerCommand(
+export const serializeAws_json1_1DeleteBGPPeerCommand = async (
   input: DeleteBGPPeerCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.DeleteBGPPeer";
@@ -680,12 +680,12 @@ export async function serializeAws_json1_1DeleteBGPPeerCommand(
     serializeAws_json1_1DeleteBGPPeerRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteConnectionCommand(
+export const serializeAws_json1_1DeleteConnectionCommand = async (
   input: DeleteConnectionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.DeleteConnection";
@@ -694,12 +694,12 @@ export async function serializeAws_json1_1DeleteConnectionCommand(
     serializeAws_json1_1DeleteConnectionRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteDirectConnectGatewayCommand(
+export const serializeAws_json1_1DeleteDirectConnectGatewayCommand = async (
   input: DeleteDirectConnectGatewayCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.DeleteDirectConnectGateway";
@@ -708,12 +708,12 @@ export async function serializeAws_json1_1DeleteDirectConnectGatewayCommand(
     serializeAws_json1_1DeleteDirectConnectGatewayRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteDirectConnectGatewayAssociationCommand(
+export const serializeAws_json1_1DeleteDirectConnectGatewayAssociationCommand = async (
   input: DeleteDirectConnectGatewayAssociationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -726,12 +726,12 @@ export async function serializeAws_json1_1DeleteDirectConnectGatewayAssociationC
     )
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteDirectConnectGatewayAssociationProposalCommand(
+export const serializeAws_json1_1DeleteDirectConnectGatewayAssociationProposalCommand = async (
   input: DeleteDirectConnectGatewayAssociationProposalCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -744,12 +744,12 @@ export async function serializeAws_json1_1DeleteDirectConnectGatewayAssociationP
     )
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteInterconnectCommand(
+export const serializeAws_json1_1DeleteInterconnectCommand = async (
   input: DeleteInterconnectCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.DeleteInterconnect";
@@ -758,24 +758,24 @@ export async function serializeAws_json1_1DeleteInterconnectCommand(
     serializeAws_json1_1DeleteInterconnectRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteLagCommand(
+export const serializeAws_json1_1DeleteLagCommand = async (
   input: DeleteLagCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.DeleteLag";
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteLagRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteVirtualInterfaceCommand(
+export const serializeAws_json1_1DeleteVirtualInterfaceCommand = async (
   input: DeleteVirtualInterfaceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.DeleteVirtualInterface";
@@ -784,12 +784,12 @@ export async function serializeAws_json1_1DeleteVirtualInterfaceCommand(
     serializeAws_json1_1DeleteVirtualInterfaceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeConnectionLoaCommand(
+export const serializeAws_json1_1DescribeConnectionLoaCommand = async (
   input: DescribeConnectionLoaCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.DescribeConnectionLoa";
@@ -798,12 +798,12 @@ export async function serializeAws_json1_1DescribeConnectionLoaCommand(
     serializeAws_json1_1DescribeConnectionLoaRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeConnectionsCommand(
+export const serializeAws_json1_1DescribeConnectionsCommand = async (
   input: DescribeConnectionsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.DescribeConnections";
@@ -812,12 +812,12 @@ export async function serializeAws_json1_1DescribeConnectionsCommand(
     serializeAws_json1_1DescribeConnectionsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeConnectionsOnInterconnectCommand(
+export const serializeAws_json1_1DescribeConnectionsOnInterconnectCommand = async (
   input: DescribeConnectionsOnInterconnectCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.DescribeConnectionsOnInterconnect";
@@ -826,12 +826,12 @@ export async function serializeAws_json1_1DescribeConnectionsOnInterconnectComma
     serializeAws_json1_1DescribeConnectionsOnInterconnectRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeDirectConnectGatewayAssociationProposalsCommand(
+export const serializeAws_json1_1DescribeDirectConnectGatewayAssociationProposalsCommand = async (
   input: DescribeDirectConnectGatewayAssociationProposalsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -844,12 +844,12 @@ export async function serializeAws_json1_1DescribeDirectConnectGatewayAssociatio
     )
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeDirectConnectGatewayAssociationsCommand(
+export const serializeAws_json1_1DescribeDirectConnectGatewayAssociationsCommand = async (
   input: DescribeDirectConnectGatewayAssociationsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -862,12 +862,12 @@ export async function serializeAws_json1_1DescribeDirectConnectGatewayAssociatio
     )
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeDirectConnectGatewayAttachmentsCommand(
+export const serializeAws_json1_1DescribeDirectConnectGatewayAttachmentsCommand = async (
   input: DescribeDirectConnectGatewayAttachmentsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -880,12 +880,12 @@ export async function serializeAws_json1_1DescribeDirectConnectGatewayAttachment
     )
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeDirectConnectGatewaysCommand(
+export const serializeAws_json1_1DescribeDirectConnectGatewaysCommand = async (
   input: DescribeDirectConnectGatewaysCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.DescribeDirectConnectGateways";
@@ -894,12 +894,12 @@ export async function serializeAws_json1_1DescribeDirectConnectGatewaysCommand(
     serializeAws_json1_1DescribeDirectConnectGatewaysRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeHostedConnectionsCommand(
+export const serializeAws_json1_1DescribeHostedConnectionsCommand = async (
   input: DescribeHostedConnectionsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.DescribeHostedConnections";
@@ -908,12 +908,12 @@ export async function serializeAws_json1_1DescribeHostedConnectionsCommand(
     serializeAws_json1_1DescribeHostedConnectionsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeInterconnectLoaCommand(
+export const serializeAws_json1_1DescribeInterconnectLoaCommand = async (
   input: DescribeInterconnectLoaCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.DescribeInterconnectLoa";
@@ -922,12 +922,12 @@ export async function serializeAws_json1_1DescribeInterconnectLoaCommand(
     serializeAws_json1_1DescribeInterconnectLoaRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeInterconnectsCommand(
+export const serializeAws_json1_1DescribeInterconnectsCommand = async (
   input: DescribeInterconnectsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.DescribeInterconnects";
@@ -936,12 +936,12 @@ export async function serializeAws_json1_1DescribeInterconnectsCommand(
     serializeAws_json1_1DescribeInterconnectsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeLagsCommand(
+export const serializeAws_json1_1DescribeLagsCommand = async (
   input: DescribeLagsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.DescribeLags";
@@ -950,34 +950,34 @@ export async function serializeAws_json1_1DescribeLagsCommand(
     serializeAws_json1_1DescribeLagsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeLoaCommand(
+export const serializeAws_json1_1DescribeLoaCommand = async (
   input: DescribeLoaCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.DescribeLoa";
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeLoaRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeLocationsCommand(
+export const serializeAws_json1_1DescribeLocationsCommand = async (
   input: DescribeLocationsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.DescribeLocations";
   return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
-}
+};
 
-export async function serializeAws_json1_1DescribeTagsCommand(
+export const serializeAws_json1_1DescribeTagsCommand = async (
   input: DescribeTagsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.DescribeTags";
@@ -986,22 +986,22 @@ export async function serializeAws_json1_1DescribeTagsCommand(
     serializeAws_json1_1DescribeTagsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeVirtualGatewaysCommand(
+export const serializeAws_json1_1DescribeVirtualGatewaysCommand = async (
   input: DescribeVirtualGatewaysCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.DescribeVirtualGateways";
   return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
-}
+};
 
-export async function serializeAws_json1_1DescribeVirtualInterfacesCommand(
+export const serializeAws_json1_1DescribeVirtualInterfacesCommand = async (
   input: DescribeVirtualInterfacesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.DescribeVirtualInterfaces";
@@ -1010,12 +1010,12 @@ export async function serializeAws_json1_1DescribeVirtualInterfacesCommand(
     serializeAws_json1_1DescribeVirtualInterfacesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DisassociateConnectionFromLagCommand(
+export const serializeAws_json1_1DisassociateConnectionFromLagCommand = async (
   input: DisassociateConnectionFromLagCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.DisassociateConnectionFromLag";
@@ -1024,24 +1024,24 @@ export async function serializeAws_json1_1DisassociateConnectionFromLagCommand(
     serializeAws_json1_1DisassociateConnectionFromLagRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1TagResourceCommand(
+export const serializeAws_json1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.TagResource";
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UntagResourceCommand(
+export const serializeAws_json1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.UntagResource";
@@ -1050,12 +1050,12 @@ export async function serializeAws_json1_1UntagResourceCommand(
     serializeAws_json1_1UntagResourceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateDirectConnectGatewayAssociationCommand(
+export const serializeAws_json1_1UpdateDirectConnectGatewayAssociationCommand = async (
   input: UpdateDirectConnectGatewayAssociationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -1068,24 +1068,24 @@ export async function serializeAws_json1_1UpdateDirectConnectGatewayAssociationC
     )
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateLagCommand(
+export const serializeAws_json1_1UpdateLagCommand = async (
   input: UpdateLagCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.UpdateLag";
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateLagRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateVirtualInterfaceAttributesCommand(
+export const serializeAws_json1_1UpdateVirtualInterfaceAttributesCommand = async (
   input: UpdateVirtualInterfaceAttributesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.UpdateVirtualInterfaceAttributes";
@@ -1094,12 +1094,12 @@ export async function serializeAws_json1_1UpdateVirtualInterfaceAttributesComman
     serializeAws_json1_1UpdateVirtualInterfaceAttributesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_1AcceptDirectConnectGatewayAssociationProposalCommand(
+export const deserializeAws_json1_1AcceptDirectConnectGatewayAssociationProposalCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AcceptDirectConnectGatewayAssociationProposalCommandOutput> {
+): Promise<AcceptDirectConnectGatewayAssociationProposalCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1AcceptDirectConnectGatewayAssociationProposalCommandError(
       output,
@@ -1118,12 +1118,12 @@ export async function deserializeAws_json1_1AcceptDirectConnectGatewayAssociatio
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1AcceptDirectConnectGatewayAssociationProposalCommandError(
+const deserializeAws_json1_1AcceptDirectConnectGatewayAssociationProposalCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AcceptDirectConnectGatewayAssociationProposalCommandOutput> {
+): Promise<AcceptDirectConnectGatewayAssociationProposalCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1171,12 +1171,12 @@ async function deserializeAws_json1_1AcceptDirectConnectGatewayAssociationPropos
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1AllocateConnectionOnInterconnectCommand(
+export const deserializeAws_json1_1AllocateConnectionOnInterconnectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AllocateConnectionOnInterconnectCommandOutput> {
+): Promise<AllocateConnectionOnInterconnectCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1AllocateConnectionOnInterconnectCommandError(
       output,
@@ -1192,12 +1192,12 @@ export async function deserializeAws_json1_1AllocateConnectionOnInterconnectComm
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1AllocateConnectionOnInterconnectCommandError(
+const deserializeAws_json1_1AllocateConnectionOnInterconnectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AllocateConnectionOnInterconnectCommandOutput> {
+): Promise<AllocateConnectionOnInterconnectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1245,12 +1245,12 @@ async function deserializeAws_json1_1AllocateConnectionOnInterconnectCommandErro
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1AllocateHostedConnectionCommand(
+export const deserializeAws_json1_1AllocateHostedConnectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AllocateHostedConnectionCommandOutput> {
+): Promise<AllocateHostedConnectionCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1AllocateHostedConnectionCommandError(
       output,
@@ -1266,12 +1266,12 @@ export async function deserializeAws_json1_1AllocateHostedConnectionCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1AllocateHostedConnectionCommandError(
+const deserializeAws_json1_1AllocateHostedConnectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AllocateHostedConnectionCommandOutput> {
+): Promise<AllocateHostedConnectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1341,12 +1341,12 @@ async function deserializeAws_json1_1AllocateHostedConnectionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1AllocatePrivateVirtualInterfaceCommand(
+export const deserializeAws_json1_1AllocatePrivateVirtualInterfaceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AllocatePrivateVirtualInterfaceCommandOutput> {
+): Promise<AllocatePrivateVirtualInterfaceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1AllocatePrivateVirtualInterfaceCommandError(
       output,
@@ -1362,12 +1362,12 @@ export async function deserializeAws_json1_1AllocatePrivateVirtualInterfaceComma
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1AllocatePrivateVirtualInterfaceCommandError(
+const deserializeAws_json1_1AllocatePrivateVirtualInterfaceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AllocatePrivateVirtualInterfaceCommandOutput> {
+): Promise<AllocatePrivateVirtualInterfaceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1437,12 +1437,12 @@ async function deserializeAws_json1_1AllocatePrivateVirtualInterfaceCommandError
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1AllocatePublicVirtualInterfaceCommand(
+export const deserializeAws_json1_1AllocatePublicVirtualInterfaceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AllocatePublicVirtualInterfaceCommandOutput> {
+): Promise<AllocatePublicVirtualInterfaceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1AllocatePublicVirtualInterfaceCommandError(
       output,
@@ -1458,12 +1458,12 @@ export async function deserializeAws_json1_1AllocatePublicVirtualInterfaceComman
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1AllocatePublicVirtualInterfaceCommandError(
+const deserializeAws_json1_1AllocatePublicVirtualInterfaceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AllocatePublicVirtualInterfaceCommandOutput> {
+): Promise<AllocatePublicVirtualInterfaceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1533,12 +1533,12 @@ async function deserializeAws_json1_1AllocatePublicVirtualInterfaceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1AllocateTransitVirtualInterfaceCommand(
+export const deserializeAws_json1_1AllocateTransitVirtualInterfaceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AllocateTransitVirtualInterfaceCommandOutput> {
+): Promise<AllocateTransitVirtualInterfaceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1AllocateTransitVirtualInterfaceCommandError(
       output,
@@ -1557,12 +1557,12 @@ export async function deserializeAws_json1_1AllocateTransitVirtualInterfaceComma
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1AllocateTransitVirtualInterfaceCommandError(
+const deserializeAws_json1_1AllocateTransitVirtualInterfaceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AllocateTransitVirtualInterfaceCommandOutput> {
+): Promise<AllocateTransitVirtualInterfaceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1632,12 +1632,12 @@ async function deserializeAws_json1_1AllocateTransitVirtualInterfaceCommandError
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1AssociateConnectionWithLagCommand(
+export const deserializeAws_json1_1AssociateConnectionWithLagCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AssociateConnectionWithLagCommandOutput> {
+): Promise<AssociateConnectionWithLagCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1AssociateConnectionWithLagCommandError(
       output,
@@ -1653,12 +1653,12 @@ export async function deserializeAws_json1_1AssociateConnectionWithLagCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1AssociateConnectionWithLagCommandError(
+const deserializeAws_json1_1AssociateConnectionWithLagCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AssociateConnectionWithLagCommandOutput> {
+): Promise<AssociateConnectionWithLagCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1706,12 +1706,12 @@ async function deserializeAws_json1_1AssociateConnectionWithLagCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1AssociateHostedConnectionCommand(
+export const deserializeAws_json1_1AssociateHostedConnectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AssociateHostedConnectionCommandOutput> {
+): Promise<AssociateHostedConnectionCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1AssociateHostedConnectionCommandError(
       output,
@@ -1727,12 +1727,12 @@ export async function deserializeAws_json1_1AssociateHostedConnectionCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1AssociateHostedConnectionCommandError(
+const deserializeAws_json1_1AssociateHostedConnectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AssociateHostedConnectionCommandOutput> {
+): Promise<AssociateHostedConnectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1780,12 +1780,12 @@ async function deserializeAws_json1_1AssociateHostedConnectionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1AssociateVirtualInterfaceCommand(
+export const deserializeAws_json1_1AssociateVirtualInterfaceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AssociateVirtualInterfaceCommandOutput> {
+): Promise<AssociateVirtualInterfaceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1AssociateVirtualInterfaceCommandError(
       output,
@@ -1801,12 +1801,12 @@ export async function deserializeAws_json1_1AssociateVirtualInterfaceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1AssociateVirtualInterfaceCommandError(
+const deserializeAws_json1_1AssociateVirtualInterfaceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AssociateVirtualInterfaceCommandOutput> {
+): Promise<AssociateVirtualInterfaceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1854,12 +1854,12 @@ async function deserializeAws_json1_1AssociateVirtualInterfaceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ConfirmConnectionCommand(
+export const deserializeAws_json1_1ConfirmConnectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ConfirmConnectionCommandOutput> {
+): Promise<ConfirmConnectionCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ConfirmConnectionCommandError(output, context);
   }
@@ -1872,12 +1872,12 @@ export async function deserializeAws_json1_1ConfirmConnectionCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ConfirmConnectionCommandError(
+const deserializeAws_json1_1ConfirmConnectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ConfirmConnectionCommandOutput> {
+): Promise<ConfirmConnectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1925,12 +1925,12 @@ async function deserializeAws_json1_1ConfirmConnectionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ConfirmPrivateVirtualInterfaceCommand(
+export const deserializeAws_json1_1ConfirmPrivateVirtualInterfaceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ConfirmPrivateVirtualInterfaceCommandOutput> {
+): Promise<ConfirmPrivateVirtualInterfaceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ConfirmPrivateVirtualInterfaceCommandError(
       output,
@@ -1949,12 +1949,12 @@ export async function deserializeAws_json1_1ConfirmPrivateVirtualInterfaceComman
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ConfirmPrivateVirtualInterfaceCommandError(
+const deserializeAws_json1_1ConfirmPrivateVirtualInterfaceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ConfirmPrivateVirtualInterfaceCommandOutput> {
+): Promise<ConfirmPrivateVirtualInterfaceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2002,12 +2002,12 @@ async function deserializeAws_json1_1ConfirmPrivateVirtualInterfaceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ConfirmPublicVirtualInterfaceCommand(
+export const deserializeAws_json1_1ConfirmPublicVirtualInterfaceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ConfirmPublicVirtualInterfaceCommandOutput> {
+): Promise<ConfirmPublicVirtualInterfaceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ConfirmPublicVirtualInterfaceCommandError(
       output,
@@ -2026,12 +2026,12 @@ export async function deserializeAws_json1_1ConfirmPublicVirtualInterfaceCommand
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ConfirmPublicVirtualInterfaceCommandError(
+const deserializeAws_json1_1ConfirmPublicVirtualInterfaceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ConfirmPublicVirtualInterfaceCommandOutput> {
+): Promise<ConfirmPublicVirtualInterfaceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2079,12 +2079,12 @@ async function deserializeAws_json1_1ConfirmPublicVirtualInterfaceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ConfirmTransitVirtualInterfaceCommand(
+export const deserializeAws_json1_1ConfirmTransitVirtualInterfaceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ConfirmTransitVirtualInterfaceCommandOutput> {
+): Promise<ConfirmTransitVirtualInterfaceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ConfirmTransitVirtualInterfaceCommandError(
       output,
@@ -2103,12 +2103,12 @@ export async function deserializeAws_json1_1ConfirmTransitVirtualInterfaceComman
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ConfirmTransitVirtualInterfaceCommandError(
+const deserializeAws_json1_1ConfirmTransitVirtualInterfaceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ConfirmTransitVirtualInterfaceCommandOutput> {
+): Promise<ConfirmTransitVirtualInterfaceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2156,12 +2156,12 @@ async function deserializeAws_json1_1ConfirmTransitVirtualInterfaceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreateBGPPeerCommand(
+export const deserializeAws_json1_1CreateBGPPeerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateBGPPeerCommandOutput> {
+): Promise<CreateBGPPeerCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateBGPPeerCommandError(output, context);
   }
@@ -2174,12 +2174,12 @@ export async function deserializeAws_json1_1CreateBGPPeerCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateBGPPeerCommandError(
+const deserializeAws_json1_1CreateBGPPeerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateBGPPeerCommandOutput> {
+): Promise<CreateBGPPeerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2227,12 +2227,12 @@ async function deserializeAws_json1_1CreateBGPPeerCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreateConnectionCommand(
+export const deserializeAws_json1_1CreateConnectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateConnectionCommandOutput> {
+): Promise<CreateConnectionCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateConnectionCommandError(output, context);
   }
@@ -2245,12 +2245,12 @@ export async function deserializeAws_json1_1CreateConnectionCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateConnectionCommandError(
+const deserializeAws_json1_1CreateConnectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateConnectionCommandOutput> {
+): Promise<CreateConnectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2320,12 +2320,12 @@ async function deserializeAws_json1_1CreateConnectionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreateDirectConnectGatewayCommand(
+export const deserializeAws_json1_1CreateDirectConnectGatewayCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateDirectConnectGatewayCommandOutput> {
+): Promise<CreateDirectConnectGatewayCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateDirectConnectGatewayCommandError(
       output,
@@ -2344,12 +2344,12 @@ export async function deserializeAws_json1_1CreateDirectConnectGatewayCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateDirectConnectGatewayCommandError(
+const deserializeAws_json1_1CreateDirectConnectGatewayCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateDirectConnectGatewayCommandOutput> {
+): Promise<CreateDirectConnectGatewayCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2397,12 +2397,12 @@ async function deserializeAws_json1_1CreateDirectConnectGatewayCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreateDirectConnectGatewayAssociationCommand(
+export const deserializeAws_json1_1CreateDirectConnectGatewayAssociationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateDirectConnectGatewayAssociationCommandOutput> {
+): Promise<CreateDirectConnectGatewayAssociationCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateDirectConnectGatewayAssociationCommandError(
       output,
@@ -2421,12 +2421,12 @@ export async function deserializeAws_json1_1CreateDirectConnectGatewayAssociatio
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateDirectConnectGatewayAssociationCommandError(
+const deserializeAws_json1_1CreateDirectConnectGatewayAssociationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateDirectConnectGatewayAssociationCommandOutput> {
+): Promise<CreateDirectConnectGatewayAssociationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2474,12 +2474,12 @@ async function deserializeAws_json1_1CreateDirectConnectGatewayAssociationComman
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreateDirectConnectGatewayAssociationProposalCommand(
+export const deserializeAws_json1_1CreateDirectConnectGatewayAssociationProposalCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateDirectConnectGatewayAssociationProposalCommandOutput> {
+): Promise<CreateDirectConnectGatewayAssociationProposalCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateDirectConnectGatewayAssociationProposalCommandError(
       output,
@@ -2498,12 +2498,12 @@ export async function deserializeAws_json1_1CreateDirectConnectGatewayAssociatio
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateDirectConnectGatewayAssociationProposalCommandError(
+const deserializeAws_json1_1CreateDirectConnectGatewayAssociationProposalCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateDirectConnectGatewayAssociationProposalCommandOutput> {
+): Promise<CreateDirectConnectGatewayAssociationProposalCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2551,12 +2551,12 @@ async function deserializeAws_json1_1CreateDirectConnectGatewayAssociationPropos
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreateInterconnectCommand(
+export const deserializeAws_json1_1CreateInterconnectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateInterconnectCommandOutput> {
+): Promise<CreateInterconnectCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateInterconnectCommandError(
       output,
@@ -2572,12 +2572,12 @@ export async function deserializeAws_json1_1CreateInterconnectCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateInterconnectCommandError(
+const deserializeAws_json1_1CreateInterconnectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateInterconnectCommandOutput> {
+): Promise<CreateInterconnectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2647,12 +2647,12 @@ async function deserializeAws_json1_1CreateInterconnectCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreateLagCommand(
+export const deserializeAws_json1_1CreateLagCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateLagCommandOutput> {
+): Promise<CreateLagCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateLagCommandError(output, context);
   }
@@ -2665,12 +2665,12 @@ export async function deserializeAws_json1_1CreateLagCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateLagCommandError(
+const deserializeAws_json1_1CreateLagCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateLagCommandOutput> {
+): Promise<CreateLagCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2740,12 +2740,12 @@ async function deserializeAws_json1_1CreateLagCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreatePrivateVirtualInterfaceCommand(
+export const deserializeAws_json1_1CreatePrivateVirtualInterfaceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreatePrivateVirtualInterfaceCommandOutput> {
+): Promise<CreatePrivateVirtualInterfaceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreatePrivateVirtualInterfaceCommandError(
       output,
@@ -2761,12 +2761,12 @@ export async function deserializeAws_json1_1CreatePrivateVirtualInterfaceCommand
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreatePrivateVirtualInterfaceCommandError(
+const deserializeAws_json1_1CreatePrivateVirtualInterfaceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreatePrivateVirtualInterfaceCommandOutput> {
+): Promise<CreatePrivateVirtualInterfaceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2836,12 +2836,12 @@ async function deserializeAws_json1_1CreatePrivateVirtualInterfaceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreatePublicVirtualInterfaceCommand(
+export const deserializeAws_json1_1CreatePublicVirtualInterfaceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreatePublicVirtualInterfaceCommandOutput> {
+): Promise<CreatePublicVirtualInterfaceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreatePublicVirtualInterfaceCommandError(
       output,
@@ -2857,12 +2857,12 @@ export async function deserializeAws_json1_1CreatePublicVirtualInterfaceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreatePublicVirtualInterfaceCommandError(
+const deserializeAws_json1_1CreatePublicVirtualInterfaceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreatePublicVirtualInterfaceCommandOutput> {
+): Promise<CreatePublicVirtualInterfaceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2932,12 +2932,12 @@ async function deserializeAws_json1_1CreatePublicVirtualInterfaceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreateTransitVirtualInterfaceCommand(
+export const deserializeAws_json1_1CreateTransitVirtualInterfaceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateTransitVirtualInterfaceCommandOutput> {
+): Promise<CreateTransitVirtualInterfaceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateTransitVirtualInterfaceCommandError(
       output,
@@ -2956,12 +2956,12 @@ export async function deserializeAws_json1_1CreateTransitVirtualInterfaceCommand
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateTransitVirtualInterfaceCommandError(
+const deserializeAws_json1_1CreateTransitVirtualInterfaceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateTransitVirtualInterfaceCommandOutput> {
+): Promise<CreateTransitVirtualInterfaceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3031,12 +3031,12 @@ async function deserializeAws_json1_1CreateTransitVirtualInterfaceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteBGPPeerCommand(
+export const deserializeAws_json1_1DeleteBGPPeerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteBGPPeerCommandOutput> {
+): Promise<DeleteBGPPeerCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteBGPPeerCommandError(output, context);
   }
@@ -3049,12 +3049,12 @@ export async function deserializeAws_json1_1DeleteBGPPeerCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteBGPPeerCommandError(
+const deserializeAws_json1_1DeleteBGPPeerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteBGPPeerCommandOutput> {
+): Promise<DeleteBGPPeerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3102,12 +3102,12 @@ async function deserializeAws_json1_1DeleteBGPPeerCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteConnectionCommand(
+export const deserializeAws_json1_1DeleteConnectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteConnectionCommandOutput> {
+): Promise<DeleteConnectionCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteConnectionCommandError(output, context);
   }
@@ -3120,12 +3120,12 @@ export async function deserializeAws_json1_1DeleteConnectionCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteConnectionCommandError(
+const deserializeAws_json1_1DeleteConnectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteConnectionCommandOutput> {
+): Promise<DeleteConnectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3173,12 +3173,12 @@ async function deserializeAws_json1_1DeleteConnectionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteDirectConnectGatewayCommand(
+export const deserializeAws_json1_1DeleteDirectConnectGatewayCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteDirectConnectGatewayCommandOutput> {
+): Promise<DeleteDirectConnectGatewayCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteDirectConnectGatewayCommandError(
       output,
@@ -3197,12 +3197,12 @@ export async function deserializeAws_json1_1DeleteDirectConnectGatewayCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteDirectConnectGatewayCommandError(
+const deserializeAws_json1_1DeleteDirectConnectGatewayCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteDirectConnectGatewayCommandOutput> {
+): Promise<DeleteDirectConnectGatewayCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3250,12 +3250,12 @@ async function deserializeAws_json1_1DeleteDirectConnectGatewayCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteDirectConnectGatewayAssociationCommand(
+export const deserializeAws_json1_1DeleteDirectConnectGatewayAssociationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteDirectConnectGatewayAssociationCommandOutput> {
+): Promise<DeleteDirectConnectGatewayAssociationCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteDirectConnectGatewayAssociationCommandError(
       output,
@@ -3274,12 +3274,12 @@ export async function deserializeAws_json1_1DeleteDirectConnectGatewayAssociatio
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteDirectConnectGatewayAssociationCommandError(
+const deserializeAws_json1_1DeleteDirectConnectGatewayAssociationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteDirectConnectGatewayAssociationCommandOutput> {
+): Promise<DeleteDirectConnectGatewayAssociationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3327,12 +3327,12 @@ async function deserializeAws_json1_1DeleteDirectConnectGatewayAssociationComman
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteDirectConnectGatewayAssociationProposalCommand(
+export const deserializeAws_json1_1DeleteDirectConnectGatewayAssociationProposalCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteDirectConnectGatewayAssociationProposalCommandOutput> {
+): Promise<DeleteDirectConnectGatewayAssociationProposalCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteDirectConnectGatewayAssociationProposalCommandError(
       output,
@@ -3351,12 +3351,12 @@ export async function deserializeAws_json1_1DeleteDirectConnectGatewayAssociatio
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteDirectConnectGatewayAssociationProposalCommandError(
+const deserializeAws_json1_1DeleteDirectConnectGatewayAssociationProposalCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteDirectConnectGatewayAssociationProposalCommandOutput> {
+): Promise<DeleteDirectConnectGatewayAssociationProposalCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3404,12 +3404,12 @@ async function deserializeAws_json1_1DeleteDirectConnectGatewayAssociationPropos
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteInterconnectCommand(
+export const deserializeAws_json1_1DeleteInterconnectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteInterconnectCommandOutput> {
+): Promise<DeleteInterconnectCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteInterconnectCommandError(
       output,
@@ -3425,12 +3425,12 @@ export async function deserializeAws_json1_1DeleteInterconnectCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteInterconnectCommandError(
+const deserializeAws_json1_1DeleteInterconnectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteInterconnectCommandOutput> {
+): Promise<DeleteInterconnectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3478,12 +3478,12 @@ async function deserializeAws_json1_1DeleteInterconnectCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteLagCommand(
+export const deserializeAws_json1_1DeleteLagCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteLagCommandOutput> {
+): Promise<DeleteLagCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteLagCommandError(output, context);
   }
@@ -3496,12 +3496,12 @@ export async function deserializeAws_json1_1DeleteLagCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteLagCommandError(
+const deserializeAws_json1_1DeleteLagCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteLagCommandOutput> {
+): Promise<DeleteLagCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3549,12 +3549,12 @@ async function deserializeAws_json1_1DeleteLagCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteVirtualInterfaceCommand(
+export const deserializeAws_json1_1DeleteVirtualInterfaceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteVirtualInterfaceCommandOutput> {
+): Promise<DeleteVirtualInterfaceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteVirtualInterfaceCommandError(
       output,
@@ -3573,12 +3573,12 @@ export async function deserializeAws_json1_1DeleteVirtualInterfaceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteVirtualInterfaceCommandError(
+const deserializeAws_json1_1DeleteVirtualInterfaceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteVirtualInterfaceCommandOutput> {
+): Promise<DeleteVirtualInterfaceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3626,12 +3626,12 @@ async function deserializeAws_json1_1DeleteVirtualInterfaceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeConnectionLoaCommand(
+export const deserializeAws_json1_1DescribeConnectionLoaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeConnectionLoaCommandOutput> {
+): Promise<DescribeConnectionLoaCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeConnectionLoaCommandError(
       output,
@@ -3647,12 +3647,12 @@ export async function deserializeAws_json1_1DescribeConnectionLoaCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeConnectionLoaCommandError(
+const deserializeAws_json1_1DescribeConnectionLoaCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeConnectionLoaCommandOutput> {
+): Promise<DescribeConnectionLoaCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3700,12 +3700,12 @@ async function deserializeAws_json1_1DescribeConnectionLoaCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeConnectionsCommand(
+export const deserializeAws_json1_1DescribeConnectionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeConnectionsCommandOutput> {
+): Promise<DescribeConnectionsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeConnectionsCommandError(
       output,
@@ -3721,12 +3721,12 @@ export async function deserializeAws_json1_1DescribeConnectionsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeConnectionsCommandError(
+const deserializeAws_json1_1DescribeConnectionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeConnectionsCommandOutput> {
+): Promise<DescribeConnectionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3774,12 +3774,12 @@ async function deserializeAws_json1_1DescribeConnectionsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeConnectionsOnInterconnectCommand(
+export const deserializeAws_json1_1DescribeConnectionsOnInterconnectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeConnectionsOnInterconnectCommandOutput> {
+): Promise<DescribeConnectionsOnInterconnectCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeConnectionsOnInterconnectCommandError(
       output,
@@ -3795,12 +3795,12 @@ export async function deserializeAws_json1_1DescribeConnectionsOnInterconnectCom
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeConnectionsOnInterconnectCommandError(
+const deserializeAws_json1_1DescribeConnectionsOnInterconnectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeConnectionsOnInterconnectCommandOutput> {
+): Promise<DescribeConnectionsOnInterconnectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3848,12 +3848,12 @@ async function deserializeAws_json1_1DescribeConnectionsOnInterconnectCommandErr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeDirectConnectGatewayAssociationProposalsCommand(
+export const deserializeAws_json1_1DescribeDirectConnectGatewayAssociationProposalsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeDirectConnectGatewayAssociationProposalsCommandOutput> {
+): Promise<DescribeDirectConnectGatewayAssociationProposalsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeDirectConnectGatewayAssociationProposalsCommandError(
       output,
@@ -3872,12 +3872,12 @@ export async function deserializeAws_json1_1DescribeDirectConnectGatewayAssociat
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeDirectConnectGatewayAssociationProposalsCommandError(
+const deserializeAws_json1_1DescribeDirectConnectGatewayAssociationProposalsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeDirectConnectGatewayAssociationProposalsCommandOutput> {
+): Promise<DescribeDirectConnectGatewayAssociationProposalsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3925,12 +3925,12 @@ async function deserializeAws_json1_1DescribeDirectConnectGatewayAssociationProp
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeDirectConnectGatewayAssociationsCommand(
+export const deserializeAws_json1_1DescribeDirectConnectGatewayAssociationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeDirectConnectGatewayAssociationsCommandOutput> {
+): Promise<DescribeDirectConnectGatewayAssociationsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeDirectConnectGatewayAssociationsCommandError(
       output,
@@ -3949,12 +3949,12 @@ export async function deserializeAws_json1_1DescribeDirectConnectGatewayAssociat
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeDirectConnectGatewayAssociationsCommandError(
+const deserializeAws_json1_1DescribeDirectConnectGatewayAssociationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeDirectConnectGatewayAssociationsCommandOutput> {
+): Promise<DescribeDirectConnectGatewayAssociationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4002,12 +4002,12 @@ async function deserializeAws_json1_1DescribeDirectConnectGatewayAssociationsCom
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeDirectConnectGatewayAttachmentsCommand(
+export const deserializeAws_json1_1DescribeDirectConnectGatewayAttachmentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeDirectConnectGatewayAttachmentsCommandOutput> {
+): Promise<DescribeDirectConnectGatewayAttachmentsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeDirectConnectGatewayAttachmentsCommandError(
       output,
@@ -4026,12 +4026,12 @@ export async function deserializeAws_json1_1DescribeDirectConnectGatewayAttachme
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeDirectConnectGatewayAttachmentsCommandError(
+const deserializeAws_json1_1DescribeDirectConnectGatewayAttachmentsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeDirectConnectGatewayAttachmentsCommandOutput> {
+): Promise<DescribeDirectConnectGatewayAttachmentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4079,12 +4079,12 @@ async function deserializeAws_json1_1DescribeDirectConnectGatewayAttachmentsComm
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeDirectConnectGatewaysCommand(
+export const deserializeAws_json1_1DescribeDirectConnectGatewaysCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeDirectConnectGatewaysCommandOutput> {
+): Promise<DescribeDirectConnectGatewaysCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeDirectConnectGatewaysCommandError(
       output,
@@ -4103,12 +4103,12 @@ export async function deserializeAws_json1_1DescribeDirectConnectGatewaysCommand
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeDirectConnectGatewaysCommandError(
+const deserializeAws_json1_1DescribeDirectConnectGatewaysCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeDirectConnectGatewaysCommandOutput> {
+): Promise<DescribeDirectConnectGatewaysCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4156,12 +4156,12 @@ async function deserializeAws_json1_1DescribeDirectConnectGatewaysCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeHostedConnectionsCommand(
+export const deserializeAws_json1_1DescribeHostedConnectionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeHostedConnectionsCommandOutput> {
+): Promise<DescribeHostedConnectionsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeHostedConnectionsCommandError(
       output,
@@ -4177,12 +4177,12 @@ export async function deserializeAws_json1_1DescribeHostedConnectionsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeHostedConnectionsCommandError(
+const deserializeAws_json1_1DescribeHostedConnectionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeHostedConnectionsCommandOutput> {
+): Promise<DescribeHostedConnectionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4230,12 +4230,12 @@ async function deserializeAws_json1_1DescribeHostedConnectionsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeInterconnectLoaCommand(
+export const deserializeAws_json1_1DescribeInterconnectLoaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeInterconnectLoaCommandOutput> {
+): Promise<DescribeInterconnectLoaCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeInterconnectLoaCommandError(
       output,
@@ -4254,12 +4254,12 @@ export async function deserializeAws_json1_1DescribeInterconnectLoaCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeInterconnectLoaCommandError(
+const deserializeAws_json1_1DescribeInterconnectLoaCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeInterconnectLoaCommandOutput> {
+): Promise<DescribeInterconnectLoaCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4307,12 +4307,12 @@ async function deserializeAws_json1_1DescribeInterconnectLoaCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeInterconnectsCommand(
+export const deserializeAws_json1_1DescribeInterconnectsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeInterconnectsCommandOutput> {
+): Promise<DescribeInterconnectsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeInterconnectsCommandError(
       output,
@@ -4328,12 +4328,12 @@ export async function deserializeAws_json1_1DescribeInterconnectsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeInterconnectsCommandError(
+const deserializeAws_json1_1DescribeInterconnectsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeInterconnectsCommandOutput> {
+): Promise<DescribeInterconnectsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4381,12 +4381,12 @@ async function deserializeAws_json1_1DescribeInterconnectsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeLagsCommand(
+export const deserializeAws_json1_1DescribeLagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeLagsCommandOutput> {
+): Promise<DescribeLagsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeLagsCommandError(output, context);
   }
@@ -4399,12 +4399,12 @@ export async function deserializeAws_json1_1DescribeLagsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeLagsCommandError(
+const deserializeAws_json1_1DescribeLagsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeLagsCommandOutput> {
+): Promise<DescribeLagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4452,12 +4452,12 @@ async function deserializeAws_json1_1DescribeLagsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeLoaCommand(
+export const deserializeAws_json1_1DescribeLoaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeLoaCommandOutput> {
+): Promise<DescribeLoaCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeLoaCommandError(output, context);
   }
@@ -4470,12 +4470,12 @@ export async function deserializeAws_json1_1DescribeLoaCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeLoaCommandError(
+const deserializeAws_json1_1DescribeLoaCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeLoaCommandOutput> {
+): Promise<DescribeLoaCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4523,12 +4523,12 @@ async function deserializeAws_json1_1DescribeLoaCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeLocationsCommand(
+export const deserializeAws_json1_1DescribeLocationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeLocationsCommandOutput> {
+): Promise<DescribeLocationsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeLocationsCommandError(output, context);
   }
@@ -4541,12 +4541,12 @@ export async function deserializeAws_json1_1DescribeLocationsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeLocationsCommandError(
+const deserializeAws_json1_1DescribeLocationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeLocationsCommandOutput> {
+): Promise<DescribeLocationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4594,12 +4594,12 @@ async function deserializeAws_json1_1DescribeLocationsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeTagsCommand(
+export const deserializeAws_json1_1DescribeTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeTagsCommandOutput> {
+): Promise<DescribeTagsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeTagsCommandError(output, context);
   }
@@ -4612,12 +4612,12 @@ export async function deserializeAws_json1_1DescribeTagsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeTagsCommandError(
+const deserializeAws_json1_1DescribeTagsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeTagsCommandOutput> {
+): Promise<DescribeTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4665,12 +4665,12 @@ async function deserializeAws_json1_1DescribeTagsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeVirtualGatewaysCommand(
+export const deserializeAws_json1_1DescribeVirtualGatewaysCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeVirtualGatewaysCommandOutput> {
+): Promise<DescribeVirtualGatewaysCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeVirtualGatewaysCommandError(
       output,
@@ -4686,12 +4686,12 @@ export async function deserializeAws_json1_1DescribeVirtualGatewaysCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeVirtualGatewaysCommandError(
+const deserializeAws_json1_1DescribeVirtualGatewaysCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeVirtualGatewaysCommandOutput> {
+): Promise<DescribeVirtualGatewaysCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4739,12 +4739,12 @@ async function deserializeAws_json1_1DescribeVirtualGatewaysCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeVirtualInterfacesCommand(
+export const deserializeAws_json1_1DescribeVirtualInterfacesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeVirtualInterfacesCommandOutput> {
+): Promise<DescribeVirtualInterfacesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeVirtualInterfacesCommandError(
       output,
@@ -4760,12 +4760,12 @@ export async function deserializeAws_json1_1DescribeVirtualInterfacesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeVirtualInterfacesCommandError(
+const deserializeAws_json1_1DescribeVirtualInterfacesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeVirtualInterfacesCommandOutput> {
+): Promise<DescribeVirtualInterfacesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4813,12 +4813,12 @@ async function deserializeAws_json1_1DescribeVirtualInterfacesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DisassociateConnectionFromLagCommand(
+export const deserializeAws_json1_1DisassociateConnectionFromLagCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisassociateConnectionFromLagCommandOutput> {
+): Promise<DisassociateConnectionFromLagCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DisassociateConnectionFromLagCommandError(
       output,
@@ -4834,12 +4834,12 @@ export async function deserializeAws_json1_1DisassociateConnectionFromLagCommand
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DisassociateConnectionFromLagCommandError(
+const deserializeAws_json1_1DisassociateConnectionFromLagCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisassociateConnectionFromLagCommandOutput> {
+): Promise<DisassociateConnectionFromLagCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4887,12 +4887,12 @@ async function deserializeAws_json1_1DisassociateConnectionFromLagCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1TagResourceCommand(
+export const deserializeAws_json1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1TagResourceCommandError(output, context);
   }
@@ -4905,12 +4905,12 @@ export async function deserializeAws_json1_1TagResourceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1TagResourceCommandError(
+const deserializeAws_json1_1TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4980,12 +4980,12 @@ async function deserializeAws_json1_1TagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UntagResourceCommand(
+export const deserializeAws_json1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UntagResourceCommandError(output, context);
   }
@@ -4998,12 +4998,12 @@ export async function deserializeAws_json1_1UntagResourceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UntagResourceCommandError(
+const deserializeAws_json1_1UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5051,12 +5051,12 @@ async function deserializeAws_json1_1UntagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateDirectConnectGatewayAssociationCommand(
+export const deserializeAws_json1_1UpdateDirectConnectGatewayAssociationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateDirectConnectGatewayAssociationCommandOutput> {
+): Promise<UpdateDirectConnectGatewayAssociationCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateDirectConnectGatewayAssociationCommandError(
       output,
@@ -5075,12 +5075,12 @@ export async function deserializeAws_json1_1UpdateDirectConnectGatewayAssociatio
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateDirectConnectGatewayAssociationCommandError(
+const deserializeAws_json1_1UpdateDirectConnectGatewayAssociationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateDirectConnectGatewayAssociationCommandOutput> {
+): Promise<UpdateDirectConnectGatewayAssociationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5128,12 +5128,12 @@ async function deserializeAws_json1_1UpdateDirectConnectGatewayAssociationComman
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateLagCommand(
+export const deserializeAws_json1_1UpdateLagCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateLagCommandOutput> {
+): Promise<UpdateLagCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateLagCommandError(output, context);
   }
@@ -5146,12 +5146,12 @@ export async function deserializeAws_json1_1UpdateLagCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateLagCommandError(
+const deserializeAws_json1_1UpdateLagCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateLagCommandOutput> {
+): Promise<UpdateLagCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5199,12 +5199,12 @@ async function deserializeAws_json1_1UpdateLagCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateVirtualInterfaceAttributesCommand(
+export const deserializeAws_json1_1UpdateVirtualInterfaceAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateVirtualInterfaceAttributesCommandOutput> {
+): Promise<UpdateVirtualInterfaceAttributesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateVirtualInterfaceAttributesCommandError(
       output,
@@ -5220,12 +5220,12 @@ export async function deserializeAws_json1_1UpdateVirtualInterfaceAttributesComm
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateVirtualInterfaceAttributesCommandError(
+const deserializeAws_json1_1UpdateVirtualInterfaceAttributesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateVirtualInterfaceAttributesCommandOutput> {
+): Promise<UpdateVirtualInterfaceAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5273,7 +5273,7 @@ async function deserializeAws_json1_1UpdateVirtualInterfaceAttributesCommandErro
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_1DirectConnectClientExceptionResponse = async (
   parsedOutput: any,

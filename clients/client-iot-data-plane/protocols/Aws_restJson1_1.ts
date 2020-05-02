@@ -41,10 +41,10 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_restJson1_1DeleteThingShadowCommand(
+export const serializeAws_restJson1_1DeleteThingShadowCommand = async (
   input: DeleteThingShadowCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/things/{thingName}/shadow";
@@ -71,12 +71,12 @@ export async function serializeAws_restJson1_1DeleteThingShadowCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetThingShadowCommand(
+export const serializeAws_restJson1_1GetThingShadowCommand = async (
   input: GetThingShadowCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/things/{thingName}/shadow";
@@ -103,12 +103,12 @@ export async function serializeAws_restJson1_1GetThingShadowCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1PublishCommand(
+export const serializeAws_restJson1_1PublishCommand = async (
   input: PublishCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/octet-stream";
   let resolvedPath = "/topics/{topic}";
@@ -143,12 +143,12 @@ export async function serializeAws_restJson1_1PublishCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UpdateThingShadowCommand(
+export const serializeAws_restJson1_1UpdateThingShadowCommand = async (
   input: UpdateThingShadowCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/octet-stream";
   let resolvedPath = "/things/{thingName}/shadow";
@@ -178,12 +178,12 @@ export async function serializeAws_restJson1_1UpdateThingShadowCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteThingShadowCommand(
+export const deserializeAws_restJson1_1DeleteThingShadowCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteThingShadowCommandOutput> {
+): Promise<DeleteThingShadowCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteThingShadowCommandError(
       output,
@@ -198,12 +198,12 @@ export async function deserializeAws_restJson1_1DeleteThingShadowCommand(
   const data: any = await collectBody(output.body, context);
   contents.payload = data;
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteThingShadowCommandError(
+const deserializeAws_restJson1_1DeleteThingShadowCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteThingShadowCommandOutput> {
+): Promise<DeleteThingShadowCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -315,12 +315,12 @@ async function deserializeAws_restJson1_1DeleteThingShadowCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetThingShadowCommand(
+export const deserializeAws_restJson1_1GetThingShadowCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetThingShadowCommandOutput> {
+): Promise<GetThingShadowCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetThingShadowCommandError(
       output,
@@ -335,12 +335,12 @@ export async function deserializeAws_restJson1_1GetThingShadowCommand(
   const data: any = await collectBody(output.body, context);
   contents.payload = data;
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetThingShadowCommandError(
+const deserializeAws_restJson1_1GetThingShadowCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetThingShadowCommandOutput> {
+): Promise<GetThingShadowCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -452,12 +452,12 @@ async function deserializeAws_restJson1_1GetThingShadowCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1PublishCommand(
+export const deserializeAws_restJson1_1PublishCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PublishCommandOutput> {
+): Promise<PublishCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1PublishCommandError(output, context);
   }
@@ -466,12 +466,12 @@ export async function deserializeAws_restJson1_1PublishCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1PublishCommandError(
+const deserializeAws_restJson1_1PublishCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PublishCommandOutput> {
+): Promise<PublishCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -539,12 +539,12 @@ async function deserializeAws_restJson1_1PublishCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UpdateThingShadowCommand(
+export const deserializeAws_restJson1_1UpdateThingShadowCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateThingShadowCommandOutput> {
+): Promise<UpdateThingShadowCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateThingShadowCommandError(
       output,
@@ -559,12 +559,12 @@ export async function deserializeAws_restJson1_1UpdateThingShadowCommand(
   const data: any = await collectBody(output.body, context);
   contents.payload = data;
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UpdateThingShadowCommandError(
+const deserializeAws_restJson1_1UpdateThingShadowCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateThingShadowCommandOutput> {
+): Promise<UpdateThingShadowCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -687,7 +687,7 @@ async function deserializeAws_restJson1_1UpdateThingShadowCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1InternalFailureExceptionResponse = async (
   parsedOutput: any,

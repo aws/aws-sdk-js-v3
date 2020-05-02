@@ -115,10 +115,10 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_restJson1_1CancelJobCommand(
+export const serializeAws_restJson1_1CancelJobCommand = async (
   input: CancelJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/canceljob";
@@ -141,12 +141,12 @@ export async function serializeAws_restJson1_1CancelJobCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1CreateComputeEnvironmentCommand(
+export const serializeAws_restJson1_1CreateComputeEnvironmentCommand = async (
   input: CreateComputeEnvironmentCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/createcomputeenvironment";
@@ -181,12 +181,12 @@ export async function serializeAws_restJson1_1CreateComputeEnvironmentCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1CreateJobQueueCommand(
+export const serializeAws_restJson1_1CreateJobQueueCommand = async (
   input: CreateJobQueueCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/createjobqueue";
@@ -220,12 +220,12 @@ export async function serializeAws_restJson1_1CreateJobQueueCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeleteComputeEnvironmentCommand(
+export const serializeAws_restJson1_1DeleteComputeEnvironmentCommand = async (
   input: DeleteComputeEnvironmentCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/deletecomputeenvironment";
@@ -245,12 +245,12 @@ export async function serializeAws_restJson1_1DeleteComputeEnvironmentCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeleteJobQueueCommand(
+export const serializeAws_restJson1_1DeleteJobQueueCommand = async (
   input: DeleteJobQueueCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/deletejobqueue";
@@ -270,12 +270,12 @@ export async function serializeAws_restJson1_1DeleteJobQueueCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeregisterJobDefinitionCommand(
+export const serializeAws_restJson1_1DeregisterJobDefinitionCommand = async (
   input: DeregisterJobDefinitionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/deregisterjobdefinition";
@@ -295,12 +295,12 @@ export async function serializeAws_restJson1_1DeregisterJobDefinitionCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribeComputeEnvironmentsCommand(
+export const serializeAws_restJson1_1DescribeComputeEnvironmentsCommand = async (
   input: DescribeComputeEnvironmentsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/describecomputeenvironments";
@@ -329,12 +329,12 @@ export async function serializeAws_restJson1_1DescribeComputeEnvironmentsCommand
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribeJobDefinitionsCommand(
+export const serializeAws_restJson1_1DescribeJobDefinitionsCommand = async (
   input: DescribeJobDefinitionsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/describejobdefinitions";
@@ -369,12 +369,12 @@ export async function serializeAws_restJson1_1DescribeJobDefinitionsCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribeJobQueuesCommand(
+export const serializeAws_restJson1_1DescribeJobQueuesCommand = async (
   input: DescribeJobQueuesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/describejobqueues";
@@ -403,12 +403,12 @@ export async function serializeAws_restJson1_1DescribeJobQueuesCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribeJobsCommand(
+export const serializeAws_restJson1_1DescribeJobsCommand = async (
   input: DescribeJobsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/describejobs";
@@ -431,12 +431,12 @@ export async function serializeAws_restJson1_1DescribeJobsCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListJobsCommand(
+export const serializeAws_restJson1_1ListJobsCommand = async (
   input: ListJobsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/listjobs";
@@ -471,12 +471,12 @@ export async function serializeAws_restJson1_1ListJobsCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1RegisterJobDefinitionCommand(
+export const serializeAws_restJson1_1RegisterJobDefinitionCommand = async (
   input: RegisterJobDefinitionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/registerjobdefinition";
@@ -531,12 +531,12 @@ export async function serializeAws_restJson1_1RegisterJobDefinitionCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1SubmitJobCommand(
+export const serializeAws_restJson1_1SubmitJobCommand = async (
   input: SubmitJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/submitjob";
@@ -606,12 +606,12 @@ export async function serializeAws_restJson1_1SubmitJobCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1TerminateJobCommand(
+export const serializeAws_restJson1_1TerminateJobCommand = async (
   input: TerminateJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/terminatejob";
@@ -634,12 +634,12 @@ export async function serializeAws_restJson1_1TerminateJobCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UpdateComputeEnvironmentCommand(
+export const serializeAws_restJson1_1UpdateComputeEnvironmentCommand = async (
   input: UpdateComputeEnvironmentCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/updatecomputeenvironment";
@@ -673,12 +673,12 @@ export async function serializeAws_restJson1_1UpdateComputeEnvironmentCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UpdateJobQueueCommand(
+export const serializeAws_restJson1_1UpdateJobQueueCommand = async (
   input: UpdateJobQueueCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/updatejobqueue";
@@ -712,12 +712,12 @@ export async function serializeAws_restJson1_1UpdateJobQueueCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1CancelJobCommand(
+export const deserializeAws_restJson1_1CancelJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CancelJobCommandOutput> {
+): Promise<CancelJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CancelJobCommandError(output, context);
   }
@@ -727,12 +727,12 @@ export async function deserializeAws_restJson1_1CancelJobCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CancelJobCommandError(
+const deserializeAws_restJson1_1CancelJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CancelJobCommandOutput> {
+): Promise<CancelJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -778,12 +778,12 @@ async function deserializeAws_restJson1_1CancelJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1CreateComputeEnvironmentCommand(
+export const deserializeAws_restJson1_1CreateComputeEnvironmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateComputeEnvironmentCommandOutput> {
+): Promise<CreateComputeEnvironmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateComputeEnvironmentCommandError(
       output,
@@ -810,12 +810,12 @@ export async function deserializeAws_restJson1_1CreateComputeEnvironmentCommand(
     contents.computeEnvironmentName = data.computeEnvironmentName;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreateComputeEnvironmentCommandError(
+const deserializeAws_restJson1_1CreateComputeEnvironmentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateComputeEnvironmentCommandOutput> {
+): Promise<CreateComputeEnvironmentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -861,12 +861,12 @@ async function deserializeAws_restJson1_1CreateComputeEnvironmentCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1CreateJobQueueCommand(
+export const deserializeAws_restJson1_1CreateJobQueueCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateJobQueueCommandOutput> {
+): Promise<CreateJobQueueCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateJobQueueCommandError(
       output,
@@ -887,12 +887,12 @@ export async function deserializeAws_restJson1_1CreateJobQueueCommand(
     contents.jobQueueName = data.jobQueueName;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreateJobQueueCommandError(
+const deserializeAws_restJson1_1CreateJobQueueCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateJobQueueCommandOutput> {
+): Promise<CreateJobQueueCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -938,12 +938,12 @@ async function deserializeAws_restJson1_1CreateJobQueueCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteComputeEnvironmentCommand(
+export const deserializeAws_restJson1_1DeleteComputeEnvironmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteComputeEnvironmentCommandOutput> {
+): Promise<DeleteComputeEnvironmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteComputeEnvironmentCommandError(
       output,
@@ -956,12 +956,12 @@ export async function deserializeAws_restJson1_1DeleteComputeEnvironmentCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteComputeEnvironmentCommandError(
+const deserializeAws_restJson1_1DeleteComputeEnvironmentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteComputeEnvironmentCommandOutput> {
+): Promise<DeleteComputeEnvironmentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1007,12 +1007,12 @@ async function deserializeAws_restJson1_1DeleteComputeEnvironmentCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteJobQueueCommand(
+export const deserializeAws_restJson1_1DeleteJobQueueCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteJobQueueCommandOutput> {
+): Promise<DeleteJobQueueCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteJobQueueCommandError(
       output,
@@ -1025,12 +1025,12 @@ export async function deserializeAws_restJson1_1DeleteJobQueueCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteJobQueueCommandError(
+const deserializeAws_restJson1_1DeleteJobQueueCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteJobQueueCommandOutput> {
+): Promise<DeleteJobQueueCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1076,12 +1076,12 @@ async function deserializeAws_restJson1_1DeleteJobQueueCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeregisterJobDefinitionCommand(
+export const deserializeAws_restJson1_1DeregisterJobDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeregisterJobDefinitionCommandOutput> {
+): Promise<DeregisterJobDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeregisterJobDefinitionCommandError(
       output,
@@ -1094,12 +1094,12 @@ export async function deserializeAws_restJson1_1DeregisterJobDefinitionCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeregisterJobDefinitionCommandError(
+const deserializeAws_restJson1_1DeregisterJobDefinitionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeregisterJobDefinitionCommandOutput> {
+): Promise<DeregisterJobDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1145,12 +1145,12 @@ async function deserializeAws_restJson1_1DeregisterJobDefinitionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeComputeEnvironmentsCommand(
+export const deserializeAws_restJson1_1DescribeComputeEnvironmentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeComputeEnvironmentsCommandOutput> {
+): Promise<DescribeComputeEnvironmentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeComputeEnvironmentsCommandError(
       output,
@@ -1177,12 +1177,12 @@ export async function deserializeAws_restJson1_1DescribeComputeEnvironmentsComma
     contents.nextToken = data.nextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeComputeEnvironmentsCommandError(
+const deserializeAws_restJson1_1DescribeComputeEnvironmentsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeComputeEnvironmentsCommandOutput> {
+): Promise<DescribeComputeEnvironmentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1228,12 +1228,12 @@ async function deserializeAws_restJson1_1DescribeComputeEnvironmentsCommandError
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeJobDefinitionsCommand(
+export const deserializeAws_restJson1_1DescribeJobDefinitionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeJobDefinitionsCommandOutput> {
+): Promise<DescribeJobDefinitionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeJobDefinitionsCommandError(
       output,
@@ -1257,12 +1257,12 @@ export async function deserializeAws_restJson1_1DescribeJobDefinitionsCommand(
     contents.nextToken = data.nextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeJobDefinitionsCommandError(
+const deserializeAws_restJson1_1DescribeJobDefinitionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeJobDefinitionsCommandOutput> {
+): Promise<DescribeJobDefinitionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1308,12 +1308,12 @@ async function deserializeAws_restJson1_1DescribeJobDefinitionsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeJobQueuesCommand(
+export const deserializeAws_restJson1_1DescribeJobQueuesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeJobQueuesCommandOutput> {
+): Promise<DescribeJobQueuesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeJobQueuesCommandError(
       output,
@@ -1337,12 +1337,12 @@ export async function deserializeAws_restJson1_1DescribeJobQueuesCommand(
     contents.nextToken = data.nextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeJobQueuesCommandError(
+const deserializeAws_restJson1_1DescribeJobQueuesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeJobQueuesCommandOutput> {
+): Promise<DescribeJobQueuesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1388,12 +1388,12 @@ async function deserializeAws_restJson1_1DescribeJobQueuesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeJobsCommand(
+export const deserializeAws_restJson1_1DescribeJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeJobsCommandOutput> {
+): Promise<DescribeJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeJobsCommandError(output, context);
   }
@@ -1407,12 +1407,12 @@ export async function deserializeAws_restJson1_1DescribeJobsCommand(
     contents.jobs = deserializeAws_restJson1_1JobDetailList(data.jobs, context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeJobsCommandError(
+const deserializeAws_restJson1_1DescribeJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeJobsCommandOutput> {
+): Promise<DescribeJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1458,12 +1458,12 @@ async function deserializeAws_restJson1_1DescribeJobsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListJobsCommand(
+export const deserializeAws_restJson1_1ListJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListJobsCommandOutput> {
+): Promise<ListJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListJobsCommandError(output, context);
   }
@@ -1484,12 +1484,12 @@ export async function deserializeAws_restJson1_1ListJobsCommand(
     contents.nextToken = data.nextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListJobsCommandError(
+const deserializeAws_restJson1_1ListJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListJobsCommandOutput> {
+): Promise<ListJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1535,12 +1535,12 @@ async function deserializeAws_restJson1_1ListJobsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1RegisterJobDefinitionCommand(
+export const deserializeAws_restJson1_1RegisterJobDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RegisterJobDefinitionCommandOutput> {
+): Promise<RegisterJobDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1RegisterJobDefinitionCommandError(
       output,
@@ -1565,12 +1565,12 @@ export async function deserializeAws_restJson1_1RegisterJobDefinitionCommand(
     contents.revision = data.revision;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1RegisterJobDefinitionCommandError(
+const deserializeAws_restJson1_1RegisterJobDefinitionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RegisterJobDefinitionCommandOutput> {
+): Promise<RegisterJobDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1616,12 +1616,12 @@ async function deserializeAws_restJson1_1RegisterJobDefinitionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1SubmitJobCommand(
+export const deserializeAws_restJson1_1SubmitJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SubmitJobCommandOutput> {
+): Promise<SubmitJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1SubmitJobCommandError(output, context);
   }
@@ -1639,12 +1639,12 @@ export async function deserializeAws_restJson1_1SubmitJobCommand(
     contents.jobName = data.jobName;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1SubmitJobCommandError(
+const deserializeAws_restJson1_1SubmitJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SubmitJobCommandOutput> {
+): Promise<SubmitJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1690,12 +1690,12 @@ async function deserializeAws_restJson1_1SubmitJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1TerminateJobCommand(
+export const deserializeAws_restJson1_1TerminateJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TerminateJobCommandOutput> {
+): Promise<TerminateJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1TerminateJobCommandError(output, context);
   }
@@ -1705,12 +1705,12 @@ export async function deserializeAws_restJson1_1TerminateJobCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1TerminateJobCommandError(
+const deserializeAws_restJson1_1TerminateJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TerminateJobCommandOutput> {
+): Promise<TerminateJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1756,12 +1756,12 @@ async function deserializeAws_restJson1_1TerminateJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UpdateComputeEnvironmentCommand(
+export const deserializeAws_restJson1_1UpdateComputeEnvironmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateComputeEnvironmentCommandOutput> {
+): Promise<UpdateComputeEnvironmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateComputeEnvironmentCommandError(
       output,
@@ -1788,12 +1788,12 @@ export async function deserializeAws_restJson1_1UpdateComputeEnvironmentCommand(
     contents.computeEnvironmentName = data.computeEnvironmentName;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UpdateComputeEnvironmentCommandError(
+const deserializeAws_restJson1_1UpdateComputeEnvironmentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateComputeEnvironmentCommandOutput> {
+): Promise<UpdateComputeEnvironmentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1839,12 +1839,12 @@ async function deserializeAws_restJson1_1UpdateComputeEnvironmentCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UpdateJobQueueCommand(
+export const deserializeAws_restJson1_1UpdateJobQueueCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateJobQueueCommandOutput> {
+): Promise<UpdateJobQueueCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateJobQueueCommandError(
       output,
@@ -1865,12 +1865,12 @@ export async function deserializeAws_restJson1_1UpdateJobQueueCommand(
     contents.jobQueueName = data.jobQueueName;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UpdateJobQueueCommandError(
+const deserializeAws_restJson1_1UpdateJobQueueCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateJobQueueCommandOutput> {
+): Promise<UpdateJobQueueCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1916,7 +1916,7 @@ async function deserializeAws_restJson1_1UpdateJobQueueCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1ClientExceptionResponse = async (
   parsedOutput: any,

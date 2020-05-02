@@ -167,10 +167,10 @@ import {
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
-export async function serializeAws_json1_1CreateHttpNamespaceCommand(
+export const serializeAws_json1_1CreateHttpNamespaceCommand = async (
   input: CreateHttpNamespaceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.CreateHttpNamespace";
@@ -179,12 +179,12 @@ export async function serializeAws_json1_1CreateHttpNamespaceCommand(
     serializeAws_json1_1CreateHttpNamespaceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreatePrivateDnsNamespaceCommand(
+export const serializeAws_json1_1CreatePrivateDnsNamespaceCommand = async (
   input: CreatePrivateDnsNamespaceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -194,12 +194,12 @@ export async function serializeAws_json1_1CreatePrivateDnsNamespaceCommand(
     serializeAws_json1_1CreatePrivateDnsNamespaceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreatePublicDnsNamespaceCommand(
+export const serializeAws_json1_1CreatePublicDnsNamespaceCommand = async (
   input: CreatePublicDnsNamespaceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -209,12 +209,12 @@ export async function serializeAws_json1_1CreatePublicDnsNamespaceCommand(
     serializeAws_json1_1CreatePublicDnsNamespaceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreateServiceCommand(
+export const serializeAws_json1_1CreateServiceCommand = async (
   input: CreateServiceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.CreateService";
@@ -223,12 +223,12 @@ export async function serializeAws_json1_1CreateServiceCommand(
     serializeAws_json1_1CreateServiceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteNamespaceCommand(
+export const serializeAws_json1_1DeleteNamespaceCommand = async (
   input: DeleteNamespaceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.DeleteNamespace";
@@ -237,12 +237,12 @@ export async function serializeAws_json1_1DeleteNamespaceCommand(
     serializeAws_json1_1DeleteNamespaceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteServiceCommand(
+export const serializeAws_json1_1DeleteServiceCommand = async (
   input: DeleteServiceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.DeleteService";
@@ -251,12 +251,12 @@ export async function serializeAws_json1_1DeleteServiceCommand(
     serializeAws_json1_1DeleteServiceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeregisterInstanceCommand(
+export const serializeAws_json1_1DeregisterInstanceCommand = async (
   input: DeregisterInstanceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.DeregisterInstance";
@@ -265,12 +265,12 @@ export async function serializeAws_json1_1DeregisterInstanceCommand(
     serializeAws_json1_1DeregisterInstanceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DiscoverInstancesCommand(
+export const serializeAws_json1_1DiscoverInstancesCommand = async (
   input: DiscoverInstancesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.DiscoverInstances";
@@ -288,24 +288,24 @@ export async function serializeAws_json1_1DiscoverInstancesCommand(
     }
   }
   return buildHttpRpcRequest(context, headers, "/", resolvedHostname, body);
-}
+};
 
-export async function serializeAws_json1_1GetInstanceCommand(
+export const serializeAws_json1_1GetInstanceCommand = async (
   input: GetInstanceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.GetInstance";
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetInstanceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetInstancesHealthStatusCommand(
+export const serializeAws_json1_1GetInstancesHealthStatusCommand = async (
   input: GetInstancesHealthStatusCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -315,12 +315,12 @@ export async function serializeAws_json1_1GetInstancesHealthStatusCommand(
     serializeAws_json1_1GetInstancesHealthStatusRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetNamespaceCommand(
+export const serializeAws_json1_1GetNamespaceCommand = async (
   input: GetNamespaceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.GetNamespace";
@@ -329,12 +329,12 @@ export async function serializeAws_json1_1GetNamespaceCommand(
     serializeAws_json1_1GetNamespaceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetOperationCommand(
+export const serializeAws_json1_1GetOperationCommand = async (
   input: GetOperationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.GetOperation";
@@ -343,24 +343,24 @@ export async function serializeAws_json1_1GetOperationCommand(
     serializeAws_json1_1GetOperationRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetServiceCommand(
+export const serializeAws_json1_1GetServiceCommand = async (
   input: GetServiceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.GetService";
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetServiceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListInstancesCommand(
+export const serializeAws_json1_1ListInstancesCommand = async (
   input: ListInstancesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.ListInstances";
@@ -369,12 +369,12 @@ export async function serializeAws_json1_1ListInstancesCommand(
     serializeAws_json1_1ListInstancesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListNamespacesCommand(
+export const serializeAws_json1_1ListNamespacesCommand = async (
   input: ListNamespacesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.ListNamespaces";
@@ -383,12 +383,12 @@ export async function serializeAws_json1_1ListNamespacesCommand(
     serializeAws_json1_1ListNamespacesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListOperationsCommand(
+export const serializeAws_json1_1ListOperationsCommand = async (
   input: ListOperationsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.ListOperations";
@@ -397,12 +397,12 @@ export async function serializeAws_json1_1ListOperationsCommand(
     serializeAws_json1_1ListOperationsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListServicesCommand(
+export const serializeAws_json1_1ListServicesCommand = async (
   input: ListServicesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.ListServices";
@@ -411,12 +411,12 @@ export async function serializeAws_json1_1ListServicesCommand(
     serializeAws_json1_1ListServicesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1RegisterInstanceCommand(
+export const serializeAws_json1_1RegisterInstanceCommand = async (
   input: RegisterInstanceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.RegisterInstance";
@@ -425,12 +425,12 @@ export async function serializeAws_json1_1RegisterInstanceCommand(
     serializeAws_json1_1RegisterInstanceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateInstanceCustomHealthStatusCommand(
+export const serializeAws_json1_1UpdateInstanceCustomHealthStatusCommand = async (
   input: UpdateInstanceCustomHealthStatusCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -440,12 +440,12 @@ export async function serializeAws_json1_1UpdateInstanceCustomHealthStatusComman
     serializeAws_json1_1UpdateInstanceCustomHealthStatusRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateServiceCommand(
+export const serializeAws_json1_1UpdateServiceCommand = async (
   input: UpdateServiceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.UpdateService";
@@ -454,12 +454,12 @@ export async function serializeAws_json1_1UpdateServiceCommand(
     serializeAws_json1_1UpdateServiceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_1CreateHttpNamespaceCommand(
+export const deserializeAws_json1_1CreateHttpNamespaceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateHttpNamespaceCommandOutput> {
+): Promise<CreateHttpNamespaceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateHttpNamespaceCommandError(
       output,
@@ -475,12 +475,12 @@ export async function deserializeAws_json1_1CreateHttpNamespaceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateHttpNamespaceCommandError(
+const deserializeAws_json1_1CreateHttpNamespaceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateHttpNamespaceCommandOutput> {
+): Promise<CreateHttpNamespaceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -550,12 +550,12 @@ async function deserializeAws_json1_1CreateHttpNamespaceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreatePrivateDnsNamespaceCommand(
+export const deserializeAws_json1_1CreatePrivateDnsNamespaceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreatePrivateDnsNamespaceCommandOutput> {
+): Promise<CreatePrivateDnsNamespaceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreatePrivateDnsNamespaceCommandError(
       output,
@@ -574,12 +574,12 @@ export async function deserializeAws_json1_1CreatePrivateDnsNamespaceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreatePrivateDnsNamespaceCommandError(
+const deserializeAws_json1_1CreatePrivateDnsNamespaceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreatePrivateDnsNamespaceCommandOutput> {
+): Promise<CreatePrivateDnsNamespaceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -649,12 +649,12 @@ async function deserializeAws_json1_1CreatePrivateDnsNamespaceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreatePublicDnsNamespaceCommand(
+export const deserializeAws_json1_1CreatePublicDnsNamespaceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreatePublicDnsNamespaceCommandOutput> {
+): Promise<CreatePublicDnsNamespaceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreatePublicDnsNamespaceCommandError(
       output,
@@ -673,12 +673,12 @@ export async function deserializeAws_json1_1CreatePublicDnsNamespaceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreatePublicDnsNamespaceCommandError(
+const deserializeAws_json1_1CreatePublicDnsNamespaceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreatePublicDnsNamespaceCommandOutput> {
+): Promise<CreatePublicDnsNamespaceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -748,12 +748,12 @@ async function deserializeAws_json1_1CreatePublicDnsNamespaceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreateServiceCommand(
+export const deserializeAws_json1_1CreateServiceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateServiceCommandOutput> {
+): Promise<CreateServiceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateServiceCommandError(output, context);
   }
@@ -766,12 +766,12 @@ export async function deserializeAws_json1_1CreateServiceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateServiceCommandError(
+const deserializeAws_json1_1CreateServiceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateServiceCommandOutput> {
+): Promise<CreateServiceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -841,12 +841,12 @@ async function deserializeAws_json1_1CreateServiceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteNamespaceCommand(
+export const deserializeAws_json1_1DeleteNamespaceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteNamespaceCommandOutput> {
+): Promise<DeleteNamespaceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteNamespaceCommandError(output, context);
   }
@@ -859,12 +859,12 @@ export async function deserializeAws_json1_1DeleteNamespaceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteNamespaceCommandError(
+const deserializeAws_json1_1DeleteNamespaceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteNamespaceCommandOutput> {
+): Promise<DeleteNamespaceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -934,12 +934,12 @@ async function deserializeAws_json1_1DeleteNamespaceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteServiceCommand(
+export const deserializeAws_json1_1DeleteServiceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteServiceCommandOutput> {
+): Promise<DeleteServiceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteServiceCommandError(output, context);
   }
@@ -952,12 +952,12 @@ export async function deserializeAws_json1_1DeleteServiceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteServiceCommandError(
+const deserializeAws_json1_1DeleteServiceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteServiceCommandOutput> {
+): Promise<DeleteServiceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1016,12 +1016,12 @@ async function deserializeAws_json1_1DeleteServiceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeregisterInstanceCommand(
+export const deserializeAws_json1_1DeregisterInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeregisterInstanceCommandOutput> {
+): Promise<DeregisterInstanceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeregisterInstanceCommandError(
       output,
@@ -1037,12 +1037,12 @@ export async function deserializeAws_json1_1DeregisterInstanceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeregisterInstanceCommandError(
+const deserializeAws_json1_1DeregisterInstanceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeregisterInstanceCommandOutput> {
+): Promise<DeregisterInstanceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1123,12 +1123,12 @@ async function deserializeAws_json1_1DeregisterInstanceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DiscoverInstancesCommand(
+export const deserializeAws_json1_1DiscoverInstancesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DiscoverInstancesCommandOutput> {
+): Promise<DiscoverInstancesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DiscoverInstancesCommandError(output, context);
   }
@@ -1141,12 +1141,12 @@ export async function deserializeAws_json1_1DiscoverInstancesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DiscoverInstancesCommandError(
+const deserializeAws_json1_1DiscoverInstancesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DiscoverInstancesCommandOutput> {
+): Promise<DiscoverInstancesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1205,12 +1205,12 @@ async function deserializeAws_json1_1DiscoverInstancesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetInstanceCommand(
+export const deserializeAws_json1_1GetInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetInstanceCommandOutput> {
+): Promise<GetInstanceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetInstanceCommandError(output, context);
   }
@@ -1223,12 +1223,12 @@ export async function deserializeAws_json1_1GetInstanceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetInstanceCommandError(
+const deserializeAws_json1_1GetInstanceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetInstanceCommandOutput> {
+): Promise<GetInstanceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1287,12 +1287,12 @@ async function deserializeAws_json1_1GetInstanceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetInstancesHealthStatusCommand(
+export const deserializeAws_json1_1GetInstancesHealthStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetInstancesHealthStatusCommandOutput> {
+): Promise<GetInstancesHealthStatusCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetInstancesHealthStatusCommandError(
       output,
@@ -1311,12 +1311,12 @@ export async function deserializeAws_json1_1GetInstancesHealthStatusCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetInstancesHealthStatusCommandError(
+const deserializeAws_json1_1GetInstancesHealthStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetInstancesHealthStatusCommandOutput> {
+): Promise<GetInstancesHealthStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1375,12 +1375,12 @@ async function deserializeAws_json1_1GetInstancesHealthStatusCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetNamespaceCommand(
+export const deserializeAws_json1_1GetNamespaceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetNamespaceCommandOutput> {
+): Promise<GetNamespaceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetNamespaceCommandError(output, context);
   }
@@ -1393,12 +1393,12 @@ export async function deserializeAws_json1_1GetNamespaceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetNamespaceCommandError(
+const deserializeAws_json1_1GetNamespaceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetNamespaceCommandOutput> {
+): Promise<GetNamespaceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1446,12 +1446,12 @@ async function deserializeAws_json1_1GetNamespaceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetOperationCommand(
+export const deserializeAws_json1_1GetOperationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetOperationCommandOutput> {
+): Promise<GetOperationCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetOperationCommandError(output, context);
   }
@@ -1464,12 +1464,12 @@ export async function deserializeAws_json1_1GetOperationCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetOperationCommandError(
+const deserializeAws_json1_1GetOperationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetOperationCommandOutput> {
+): Promise<GetOperationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1517,12 +1517,12 @@ async function deserializeAws_json1_1GetOperationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetServiceCommand(
+export const deserializeAws_json1_1GetServiceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetServiceCommandOutput> {
+): Promise<GetServiceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetServiceCommandError(output, context);
   }
@@ -1535,12 +1535,12 @@ export async function deserializeAws_json1_1GetServiceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetServiceCommandError(
+const deserializeAws_json1_1GetServiceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetServiceCommandOutput> {
+): Promise<GetServiceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1588,12 +1588,12 @@ async function deserializeAws_json1_1GetServiceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListInstancesCommand(
+export const deserializeAws_json1_1ListInstancesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListInstancesCommandOutput> {
+): Promise<ListInstancesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListInstancesCommandError(output, context);
   }
@@ -1606,12 +1606,12 @@ export async function deserializeAws_json1_1ListInstancesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListInstancesCommandError(
+const deserializeAws_json1_1ListInstancesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListInstancesCommandOutput> {
+): Promise<ListInstancesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1659,12 +1659,12 @@ async function deserializeAws_json1_1ListInstancesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListNamespacesCommand(
+export const deserializeAws_json1_1ListNamespacesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListNamespacesCommandOutput> {
+): Promise<ListNamespacesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListNamespacesCommandError(output, context);
   }
@@ -1677,12 +1677,12 @@ export async function deserializeAws_json1_1ListNamespacesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListNamespacesCommandError(
+const deserializeAws_json1_1ListNamespacesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListNamespacesCommandOutput> {
+): Promise<ListNamespacesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1719,12 +1719,12 @@ async function deserializeAws_json1_1ListNamespacesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListOperationsCommand(
+export const deserializeAws_json1_1ListOperationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListOperationsCommandOutput> {
+): Promise<ListOperationsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListOperationsCommandError(output, context);
   }
@@ -1737,12 +1737,12 @@ export async function deserializeAws_json1_1ListOperationsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListOperationsCommandError(
+const deserializeAws_json1_1ListOperationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListOperationsCommandOutput> {
+): Promise<ListOperationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1779,12 +1779,12 @@ async function deserializeAws_json1_1ListOperationsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListServicesCommand(
+export const deserializeAws_json1_1ListServicesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListServicesCommandOutput> {
+): Promise<ListServicesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListServicesCommandError(output, context);
   }
@@ -1797,12 +1797,12 @@ export async function deserializeAws_json1_1ListServicesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListServicesCommandError(
+const deserializeAws_json1_1ListServicesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListServicesCommandOutput> {
+): Promise<ListServicesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1839,12 +1839,12 @@ async function deserializeAws_json1_1ListServicesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1RegisterInstanceCommand(
+export const deserializeAws_json1_1RegisterInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RegisterInstanceCommandOutput> {
+): Promise<RegisterInstanceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1RegisterInstanceCommandError(output, context);
   }
@@ -1857,12 +1857,12 @@ export async function deserializeAws_json1_1RegisterInstanceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1RegisterInstanceCommandError(
+const deserializeAws_json1_1RegisterInstanceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RegisterInstanceCommandOutput> {
+): Promise<RegisterInstanceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1943,12 +1943,12 @@ async function deserializeAws_json1_1RegisterInstanceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateInstanceCustomHealthStatusCommand(
+export const deserializeAws_json1_1UpdateInstanceCustomHealthStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateInstanceCustomHealthStatusCommandOutput> {
+): Promise<UpdateInstanceCustomHealthStatusCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateInstanceCustomHealthStatusCommandError(
       output,
@@ -1960,12 +1960,12 @@ export async function deserializeAws_json1_1UpdateInstanceCustomHealthStatusComm
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateInstanceCustomHealthStatusCommandError(
+const deserializeAws_json1_1UpdateInstanceCustomHealthStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateInstanceCustomHealthStatusCommandOutput> {
+): Promise<UpdateInstanceCustomHealthStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2035,12 +2035,12 @@ async function deserializeAws_json1_1UpdateInstanceCustomHealthStatusCommandErro
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateServiceCommand(
+export const deserializeAws_json1_1UpdateServiceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateServiceCommandOutput> {
+): Promise<UpdateServiceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateServiceCommandError(output, context);
   }
@@ -2053,12 +2053,12 @@ export async function deserializeAws_json1_1UpdateServiceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateServiceCommandError(
+const deserializeAws_json1_1UpdateServiceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateServiceCommandOutput> {
+): Promise<UpdateServiceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2117,7 +2117,7 @@ async function deserializeAws_json1_1UpdateServiceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_1CustomHealthNotFoundResponse = async (
   parsedOutput: any,

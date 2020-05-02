@@ -35,10 +35,10 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_json1_1DescribeDimensionKeysCommand(
+export const serializeAws_json1_1DescribeDimensionKeysCommand = async (
   input: DescribeDimensionKeysCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -48,12 +48,12 @@ export async function serializeAws_json1_1DescribeDimensionKeysCommand(
     serializeAws_json1_1DescribeDimensionKeysRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetResourceMetricsCommand(
+export const serializeAws_json1_1GetResourceMetricsCommand = async (
   input: GetResourceMetricsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "PerformanceInsightsv20180227.GetResourceMetrics";
@@ -62,12 +62,12 @@ export async function serializeAws_json1_1GetResourceMetricsCommand(
     serializeAws_json1_1GetResourceMetricsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_1DescribeDimensionKeysCommand(
+export const deserializeAws_json1_1DescribeDimensionKeysCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeDimensionKeysCommandOutput> {
+): Promise<DescribeDimensionKeysCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeDimensionKeysCommandError(
       output,
@@ -83,12 +83,12 @@ export async function deserializeAws_json1_1DescribeDimensionKeysCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeDimensionKeysCommandError(
+const deserializeAws_json1_1DescribeDimensionKeysCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeDimensionKeysCommandOutput> {
+): Promise<DescribeDimensionKeysCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -147,12 +147,12 @@ async function deserializeAws_json1_1DescribeDimensionKeysCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetResourceMetricsCommand(
+export const deserializeAws_json1_1GetResourceMetricsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetResourceMetricsCommandOutput> {
+): Promise<GetResourceMetricsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetResourceMetricsCommandError(
       output,
@@ -168,12 +168,12 @@ export async function deserializeAws_json1_1GetResourceMetricsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetResourceMetricsCommandError(
+const deserializeAws_json1_1GetResourceMetricsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetResourceMetricsCommandOutput> {
+): Promise<GetResourceMetricsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -232,7 +232,7 @@ async function deserializeAws_json1_1GetResourceMetricsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_1InternalServiceErrorResponse = async (
   parsedOutput: any,

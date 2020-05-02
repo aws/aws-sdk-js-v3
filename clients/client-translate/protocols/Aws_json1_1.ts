@@ -89,10 +89,10 @@ import {
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
-export async function serializeAws_json1_1DeleteTerminologyCommand(
+export const serializeAws_json1_1DeleteTerminologyCommand = async (
   input: DeleteTerminologyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -102,12 +102,12 @@ export async function serializeAws_json1_1DeleteTerminologyCommand(
     serializeAws_json1_1DeleteTerminologyRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeTextTranslationJobCommand(
+export const serializeAws_json1_1DescribeTextTranslationJobCommand = async (
   input: DescribeTextTranslationJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -117,12 +117,12 @@ export async function serializeAws_json1_1DescribeTextTranslationJobCommand(
     serializeAws_json1_1DescribeTextTranslationJobRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetTerminologyCommand(
+export const serializeAws_json1_1GetTerminologyCommand = async (
   input: GetTerminologyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSShineFrontendService_20170701.GetTerminology";
@@ -131,12 +131,12 @@ export async function serializeAws_json1_1GetTerminologyCommand(
     serializeAws_json1_1GetTerminologyRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ImportTerminologyCommand(
+export const serializeAws_json1_1ImportTerminologyCommand = async (
   input: ImportTerminologyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -146,12 +146,12 @@ export async function serializeAws_json1_1ImportTerminologyCommand(
     serializeAws_json1_1ImportTerminologyRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListTerminologiesCommand(
+export const serializeAws_json1_1ListTerminologiesCommand = async (
   input: ListTerminologiesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -161,12 +161,12 @@ export async function serializeAws_json1_1ListTerminologiesCommand(
     serializeAws_json1_1ListTerminologiesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListTextTranslationJobsCommand(
+export const serializeAws_json1_1ListTextTranslationJobsCommand = async (
   input: ListTextTranslationJobsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -176,12 +176,12 @@ export async function serializeAws_json1_1ListTextTranslationJobsCommand(
     serializeAws_json1_1ListTextTranslationJobsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1StartTextTranslationJobCommand(
+export const serializeAws_json1_1StartTextTranslationJobCommand = async (
   input: StartTextTranslationJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -191,12 +191,12 @@ export async function serializeAws_json1_1StartTextTranslationJobCommand(
     serializeAws_json1_1StartTextTranslationJobRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1StopTextTranslationJobCommand(
+export const serializeAws_json1_1StopTextTranslationJobCommand = async (
   input: StopTextTranslationJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -206,12 +206,12 @@ export async function serializeAws_json1_1StopTextTranslationJobCommand(
     serializeAws_json1_1StopTextTranslationJobRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1TranslateTextCommand(
+export const serializeAws_json1_1TranslateTextCommand = async (
   input: TranslateTextCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSShineFrontendService_20170701.TranslateText";
@@ -220,12 +220,12 @@ export async function serializeAws_json1_1TranslateTextCommand(
     serializeAws_json1_1TranslateTextRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_1DeleteTerminologyCommand(
+export const deserializeAws_json1_1DeleteTerminologyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteTerminologyCommandOutput> {
+): Promise<DeleteTerminologyCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteTerminologyCommandError(output, context);
   }
@@ -234,12 +234,12 @@ export async function deserializeAws_json1_1DeleteTerminologyCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteTerminologyCommandError(
+const deserializeAws_json1_1DeleteTerminologyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteTerminologyCommandOutput> {
+): Promise<DeleteTerminologyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -298,12 +298,12 @@ async function deserializeAws_json1_1DeleteTerminologyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeTextTranslationJobCommand(
+export const deserializeAws_json1_1DescribeTextTranslationJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeTextTranslationJobCommandOutput> {
+): Promise<DescribeTextTranslationJobCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeTextTranslationJobCommandError(
       output,
@@ -322,12 +322,12 @@ export async function deserializeAws_json1_1DescribeTextTranslationJobCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeTextTranslationJobCommandError(
+const deserializeAws_json1_1DescribeTextTranslationJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeTextTranslationJobCommandOutput> {
+): Promise<DescribeTextTranslationJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -386,12 +386,12 @@ async function deserializeAws_json1_1DescribeTextTranslationJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetTerminologyCommand(
+export const deserializeAws_json1_1GetTerminologyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetTerminologyCommandOutput> {
+): Promise<GetTerminologyCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetTerminologyCommandError(output, context);
   }
@@ -404,12 +404,12 @@ export async function deserializeAws_json1_1GetTerminologyCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetTerminologyCommandError(
+const deserializeAws_json1_1GetTerminologyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetTerminologyCommandOutput> {
+): Promise<GetTerminologyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -479,12 +479,12 @@ async function deserializeAws_json1_1GetTerminologyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ImportTerminologyCommand(
+export const deserializeAws_json1_1ImportTerminologyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ImportTerminologyCommandOutput> {
+): Promise<ImportTerminologyCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ImportTerminologyCommandError(output, context);
   }
@@ -497,12 +497,12 @@ export async function deserializeAws_json1_1ImportTerminologyCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ImportTerminologyCommandError(
+const deserializeAws_json1_1ImportTerminologyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ImportTerminologyCommandOutput> {
+): Promise<ImportTerminologyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -572,12 +572,12 @@ async function deserializeAws_json1_1ImportTerminologyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListTerminologiesCommand(
+export const deserializeAws_json1_1ListTerminologiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTerminologiesCommandOutput> {
+): Promise<ListTerminologiesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListTerminologiesCommandError(output, context);
   }
@@ -590,12 +590,12 @@ export async function deserializeAws_json1_1ListTerminologiesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListTerminologiesCommandError(
+const deserializeAws_json1_1ListTerminologiesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTerminologiesCommandOutput> {
+): Promise<ListTerminologiesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -654,12 +654,12 @@ async function deserializeAws_json1_1ListTerminologiesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListTextTranslationJobsCommand(
+export const deserializeAws_json1_1ListTextTranslationJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTextTranslationJobsCommandOutput> {
+): Promise<ListTextTranslationJobsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListTextTranslationJobsCommandError(
       output,
@@ -678,12 +678,12 @@ export async function deserializeAws_json1_1ListTextTranslationJobsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListTextTranslationJobsCommandError(
+const deserializeAws_json1_1ListTextTranslationJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTextTranslationJobsCommandOutput> {
+): Promise<ListTextTranslationJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -753,12 +753,12 @@ async function deserializeAws_json1_1ListTextTranslationJobsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1StartTextTranslationJobCommand(
+export const deserializeAws_json1_1StartTextTranslationJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartTextTranslationJobCommandOutput> {
+): Promise<StartTextTranslationJobCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StartTextTranslationJobCommandError(
       output,
@@ -777,12 +777,12 @@ export async function deserializeAws_json1_1StartTextTranslationJobCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1StartTextTranslationJobCommandError(
+const deserializeAws_json1_1StartTextTranslationJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartTextTranslationJobCommandOutput> {
+): Promise<StartTextTranslationJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -863,12 +863,12 @@ async function deserializeAws_json1_1StartTextTranslationJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1StopTextTranslationJobCommand(
+export const deserializeAws_json1_1StopTextTranslationJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StopTextTranslationJobCommandOutput> {
+): Promise<StopTextTranslationJobCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StopTextTranslationJobCommandError(
       output,
@@ -887,12 +887,12 @@ export async function deserializeAws_json1_1StopTextTranslationJobCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1StopTextTranslationJobCommandError(
+const deserializeAws_json1_1StopTextTranslationJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StopTextTranslationJobCommandOutput> {
+): Promise<StopTextTranslationJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -951,12 +951,12 @@ async function deserializeAws_json1_1StopTextTranslationJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1TranslateTextCommand(
+export const deserializeAws_json1_1TranslateTextCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TranslateTextCommandOutput> {
+): Promise<TranslateTextCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1TranslateTextCommandError(output, context);
   }
@@ -969,12 +969,12 @@ export async function deserializeAws_json1_1TranslateTextCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1TranslateTextCommandError(
+const deserializeAws_json1_1TranslateTextCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TranslateTextCommandOutput> {
+): Promise<TranslateTextCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1088,7 +1088,7 @@ async function deserializeAws_json1_1TranslateTextCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_1DetectedLanguageLowConfidenceExceptionResponse = async (
   parsedOutput: any,

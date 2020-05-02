@@ -41,10 +41,10 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_restJson1_1DescribeJobExecutionCommand(
+export const serializeAws_restJson1_1DescribeJobExecutionCommand = async (
   input: DescribeJobExecutionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/things/{thingName}/jobs/{jobId}";
@@ -91,12 +91,12 @@ export async function serializeAws_restJson1_1DescribeJobExecutionCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetPendingJobExecutionsCommand(
+export const serializeAws_restJson1_1GetPendingJobExecutionsCommand = async (
   input: GetPendingJobExecutionsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/things/{thingName}/jobs";
@@ -123,12 +123,12 @@ export async function serializeAws_restJson1_1GetPendingJobExecutionsCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1StartNextPendingJobExecutionCommand(
+export const serializeAws_restJson1_1StartNextPendingJobExecutionCommand = async (
   input: StartNextPendingJobExecutionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/things/{thingName}/jobs/$next";
@@ -166,12 +166,12 @@ export async function serializeAws_restJson1_1StartNextPendingJobExecutionComman
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UpdateJobExecutionCommand(
+export const serializeAws_restJson1_1UpdateJobExecutionCommand = async (
   input: UpdateJobExecutionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/things/{thingName}/jobs/{jobId}";
@@ -236,12 +236,12 @@ export async function serializeAws_restJson1_1UpdateJobExecutionCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeJobExecutionCommand(
+export const deserializeAws_restJson1_1DescribeJobExecutionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeJobExecutionCommandOutput> {
+): Promise<DescribeJobExecutionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeJobExecutionCommandError(
       output,
@@ -261,12 +261,12 @@ export async function deserializeAws_restJson1_1DescribeJobExecutionCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeJobExecutionCommandError(
+const deserializeAws_restJson1_1DescribeJobExecutionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeJobExecutionCommandOutput> {
+): Promise<DescribeJobExecutionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -356,12 +356,12 @@ async function deserializeAws_restJson1_1DescribeJobExecutionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetPendingJobExecutionsCommand(
+export const deserializeAws_restJson1_1GetPendingJobExecutionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetPendingJobExecutionsCommandOutput> {
+): Promise<GetPendingJobExecutionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetPendingJobExecutionsCommandError(
       output,
@@ -388,12 +388,12 @@ export async function deserializeAws_restJson1_1GetPendingJobExecutionsCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetPendingJobExecutionsCommandError(
+const deserializeAws_restJson1_1GetPendingJobExecutionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetPendingJobExecutionsCommandOutput> {
+): Promise<GetPendingJobExecutionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -472,12 +472,12 @@ async function deserializeAws_restJson1_1GetPendingJobExecutionsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1StartNextPendingJobExecutionCommand(
+export const deserializeAws_restJson1_1StartNextPendingJobExecutionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartNextPendingJobExecutionCommandOutput> {
+): Promise<StartNextPendingJobExecutionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1StartNextPendingJobExecutionCommandError(
       output,
@@ -497,12 +497,12 @@ export async function deserializeAws_restJson1_1StartNextPendingJobExecutionComm
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1StartNextPendingJobExecutionCommandError(
+const deserializeAws_restJson1_1StartNextPendingJobExecutionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartNextPendingJobExecutionCommandOutput> {
+): Promise<StartNextPendingJobExecutionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -581,12 +581,12 @@ async function deserializeAws_restJson1_1StartNextPendingJobExecutionCommandErro
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UpdateJobExecutionCommand(
+export const deserializeAws_restJson1_1UpdateJobExecutionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateJobExecutionCommandOutput> {
+): Promise<UpdateJobExecutionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateJobExecutionCommandError(
       output,
@@ -610,12 +610,12 @@ export async function deserializeAws_restJson1_1UpdateJobExecutionCommand(
     contents.jobDocument = data.jobDocument;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UpdateJobExecutionCommandError(
+const deserializeAws_restJson1_1UpdateJobExecutionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateJobExecutionCommandOutput> {
+): Promise<UpdateJobExecutionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -705,7 +705,7 @@ async function deserializeAws_restJson1_1UpdateJobExecutionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1CertificateValidationExceptionResponse = async (
   parsedOutput: any,

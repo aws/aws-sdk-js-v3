@@ -23,10 +23,10 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_restJson1_1GetPersonalizedRankingCommand(
+export const serializeAws_restJson1_1GetPersonalizedRankingCommand = async (
   input: GetPersonalizedRankingCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/personalize-ranking";
@@ -61,12 +61,12 @@ export async function serializeAws_restJson1_1GetPersonalizedRankingCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetRecommendationsCommand(
+export const serializeAws_restJson1_1GetRecommendationsCommand = async (
   input: GetRecommendationsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/recommendations";
@@ -101,12 +101,12 @@ export async function serializeAws_restJson1_1GetRecommendationsCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1GetPersonalizedRankingCommand(
+export const deserializeAws_restJson1_1GetPersonalizedRankingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetPersonalizedRankingCommandOutput> {
+): Promise<GetPersonalizedRankingCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetPersonalizedRankingCommandError(
       output,
@@ -129,12 +129,12 @@ export async function deserializeAws_restJson1_1GetPersonalizedRankingCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetPersonalizedRankingCommandError(
+const deserializeAws_restJson1_1GetPersonalizedRankingCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetPersonalizedRankingCommandOutput> {
+): Promise<GetPersonalizedRankingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -180,12 +180,12 @@ async function deserializeAws_restJson1_1GetPersonalizedRankingCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetRecommendationsCommand(
+export const deserializeAws_restJson1_1GetRecommendationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetRecommendationsCommandOutput> {
+): Promise<GetRecommendationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetRecommendationsCommandError(
       output,
@@ -205,12 +205,12 @@ export async function deserializeAws_restJson1_1GetRecommendationsCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetRecommendationsCommandError(
+const deserializeAws_restJson1_1GetRecommendationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetRecommendationsCommandOutput> {
+): Promise<GetRecommendationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -256,7 +256,7 @@ async function deserializeAws_restJson1_1GetRecommendationsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1InvalidInputExceptionResponse = async (
   parsedOutput: any,

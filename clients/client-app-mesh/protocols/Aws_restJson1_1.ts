@@ -196,10 +196,10 @@ import {
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
-export async function serializeAws_restJson1_1CreateMeshCommand(
+export const serializeAws_restJson1_1CreateMeshCommand = async (
   input: CreateMeshCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v20190125/meshes";
@@ -231,12 +231,12 @@ export async function serializeAws_restJson1_1CreateMeshCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1CreateRouteCommand(
+export const serializeAws_restJson1_1CreateRouteCommand = async (
   input: CreateRouteCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath =
@@ -297,12 +297,12 @@ export async function serializeAws_restJson1_1CreateRouteCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1CreateVirtualNodeCommand(
+export const serializeAws_restJson1_1CreateVirtualNodeCommand = async (
   input: CreateVirtualNodeCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v20190125/meshes/{meshName}/virtualNodes";
@@ -349,12 +349,12 @@ export async function serializeAws_restJson1_1CreateVirtualNodeCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1CreateVirtualRouterCommand(
+export const serializeAws_restJson1_1CreateVirtualRouterCommand = async (
   input: CreateVirtualRouterCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v20190125/meshes/{meshName}/virtualRouters";
@@ -401,12 +401,12 @@ export async function serializeAws_restJson1_1CreateVirtualRouterCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1CreateVirtualServiceCommand(
+export const serializeAws_restJson1_1CreateVirtualServiceCommand = async (
   input: CreateVirtualServiceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v20190125/meshes/{meshName}/virtualServices";
@@ -453,12 +453,12 @@ export async function serializeAws_restJson1_1CreateVirtualServiceCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeleteMeshCommand(
+export const serializeAws_restJson1_1DeleteMeshCommand = async (
   input: DeleteMeshCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/v20190125/meshes/{meshName}";
@@ -485,12 +485,12 @@ export async function serializeAws_restJson1_1DeleteMeshCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeleteRouteCommand(
+export const serializeAws_restJson1_1DeleteRouteCommand = async (
   input: DeleteRouteCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath =
@@ -546,12 +546,12 @@ export async function serializeAws_restJson1_1DeleteRouteCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeleteVirtualNodeCommand(
+export const serializeAws_restJson1_1DeleteVirtualNodeCommand = async (
   input: DeleteVirtualNodeCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath =
@@ -593,12 +593,12 @@ export async function serializeAws_restJson1_1DeleteVirtualNodeCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeleteVirtualRouterCommand(
+export const serializeAws_restJson1_1DeleteVirtualRouterCommand = async (
   input: DeleteVirtualRouterCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath =
@@ -642,12 +642,12 @@ export async function serializeAws_restJson1_1DeleteVirtualRouterCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeleteVirtualServiceCommand(
+export const serializeAws_restJson1_1DeleteVirtualServiceCommand = async (
   input: DeleteVirtualServiceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath =
@@ -691,12 +691,12 @@ export async function serializeAws_restJson1_1DeleteVirtualServiceCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribeMeshCommand(
+export const serializeAws_restJson1_1DescribeMeshCommand = async (
   input: DescribeMeshCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/v20190125/meshes/{meshName}";
@@ -723,12 +723,12 @@ export async function serializeAws_restJson1_1DescribeMeshCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribeRouteCommand(
+export const serializeAws_restJson1_1DescribeRouteCommand = async (
   input: DescribeRouteCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath =
@@ -784,12 +784,12 @@ export async function serializeAws_restJson1_1DescribeRouteCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribeVirtualNodeCommand(
+export const serializeAws_restJson1_1DescribeVirtualNodeCommand = async (
   input: DescribeVirtualNodeCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath =
@@ -831,12 +831,12 @@ export async function serializeAws_restJson1_1DescribeVirtualNodeCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribeVirtualRouterCommand(
+export const serializeAws_restJson1_1DescribeVirtualRouterCommand = async (
   input: DescribeVirtualRouterCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath =
@@ -880,12 +880,12 @@ export async function serializeAws_restJson1_1DescribeVirtualRouterCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribeVirtualServiceCommand(
+export const serializeAws_restJson1_1DescribeVirtualServiceCommand = async (
   input: DescribeVirtualServiceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath =
@@ -929,12 +929,12 @@ export async function serializeAws_restJson1_1DescribeVirtualServiceCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListMeshesCommand(
+export const serializeAws_restJson1_1ListMeshesCommand = async (
   input: ListMeshesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/v20190125/meshes";
@@ -957,12 +957,12 @@ export async function serializeAws_restJson1_1ListMeshesCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListRoutesCommand(
+export const serializeAws_restJson1_1ListRoutesCommand = async (
   input: ListRoutesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath =
@@ -1014,12 +1014,12 @@ export async function serializeAws_restJson1_1ListRoutesCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListTagsForResourceCommand(
+export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/v20190125/tags";
@@ -1045,12 +1045,12 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListVirtualNodesCommand(
+export const serializeAws_restJson1_1ListVirtualNodesCommand = async (
   input: ListVirtualNodesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/v20190125/meshes/{meshName}/virtualNodes";
@@ -1085,12 +1085,12 @@ export async function serializeAws_restJson1_1ListVirtualNodesCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListVirtualRoutersCommand(
+export const serializeAws_restJson1_1ListVirtualRoutersCommand = async (
   input: ListVirtualRoutersCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/v20190125/meshes/{meshName}/virtualRouters";
@@ -1125,12 +1125,12 @@ export async function serializeAws_restJson1_1ListVirtualRoutersCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListVirtualServicesCommand(
+export const serializeAws_restJson1_1ListVirtualServicesCommand = async (
   input: ListVirtualServicesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/v20190125/meshes/{meshName}/virtualServices";
@@ -1165,12 +1165,12 @@ export async function serializeAws_restJson1_1ListVirtualServicesCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1TagResourceCommand(
+export const serializeAws_restJson1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v20190125/tag";
@@ -1195,12 +1195,12 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UntagResourceCommand(
+export const serializeAws_restJson1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v20190125/untag";
@@ -1228,12 +1228,12 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UpdateMeshCommand(
+export const serializeAws_restJson1_1UpdateMeshCommand = async (
   input: UpdateMeshCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v20190125/meshes/{meshName}";
@@ -1271,12 +1271,12 @@ export async function serializeAws_restJson1_1UpdateMeshCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UpdateRouteCommand(
+export const serializeAws_restJson1_1UpdateRouteCommand = async (
   input: UpdateRouteCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath =
@@ -1343,12 +1343,12 @@ export async function serializeAws_restJson1_1UpdateRouteCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UpdateVirtualNodeCommand(
+export const serializeAws_restJson1_1UpdateVirtualNodeCommand = async (
   input: UpdateVirtualNodeCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath =
@@ -1404,12 +1404,12 @@ export async function serializeAws_restJson1_1UpdateVirtualNodeCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UpdateVirtualRouterCommand(
+export const serializeAws_restJson1_1UpdateVirtualRouterCommand = async (
   input: UpdateVirtualRouterCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath =
@@ -1467,12 +1467,12 @@ export async function serializeAws_restJson1_1UpdateVirtualRouterCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UpdateVirtualServiceCommand(
+export const serializeAws_restJson1_1UpdateVirtualServiceCommand = async (
   input: UpdateVirtualServiceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath =
@@ -1530,12 +1530,12 @@ export async function serializeAws_restJson1_1UpdateVirtualServiceCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1CreateMeshCommand(
+export const deserializeAws_restJson1_1CreateMeshCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateMeshCommandOutput> {
+): Promise<CreateMeshCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateMeshCommandError(output, context);
   }
@@ -1547,12 +1547,12 @@ export async function deserializeAws_restJson1_1CreateMeshCommand(
   const data: any = await parseBody(output.body, context);
   contents.mesh = deserializeAws_restJson1_1MeshData(data, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreateMeshCommandError(
+const deserializeAws_restJson1_1CreateMeshCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateMeshCommandOutput> {
+): Promise<CreateMeshCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1664,12 +1664,12 @@ async function deserializeAws_restJson1_1CreateMeshCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1CreateRouteCommand(
+export const deserializeAws_restJson1_1CreateRouteCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateRouteCommandOutput> {
+): Promise<CreateRouteCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateRouteCommandError(output, context);
   }
@@ -1681,12 +1681,12 @@ export async function deserializeAws_restJson1_1CreateRouteCommand(
   const data: any = await parseBody(output.body, context);
   contents.route = deserializeAws_restJson1_1RouteData(data, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreateRouteCommandError(
+const deserializeAws_restJson1_1CreateRouteCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateRouteCommandOutput> {
+): Promise<CreateRouteCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1798,12 +1798,12 @@ async function deserializeAws_restJson1_1CreateRouteCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1CreateVirtualNodeCommand(
+export const deserializeAws_restJson1_1CreateVirtualNodeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateVirtualNodeCommandOutput> {
+): Promise<CreateVirtualNodeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateVirtualNodeCommandError(
       output,
@@ -1821,12 +1821,12 @@ export async function deserializeAws_restJson1_1CreateVirtualNodeCommand(
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreateVirtualNodeCommandError(
+const deserializeAws_restJson1_1CreateVirtualNodeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateVirtualNodeCommandOutput> {
+): Promise<CreateVirtualNodeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1938,12 +1938,12 @@ async function deserializeAws_restJson1_1CreateVirtualNodeCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1CreateVirtualRouterCommand(
+export const deserializeAws_restJson1_1CreateVirtualRouterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateVirtualRouterCommandOutput> {
+): Promise<CreateVirtualRouterCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateVirtualRouterCommandError(
       output,
@@ -1961,12 +1961,12 @@ export async function deserializeAws_restJson1_1CreateVirtualRouterCommand(
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreateVirtualRouterCommandError(
+const deserializeAws_restJson1_1CreateVirtualRouterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateVirtualRouterCommandOutput> {
+): Promise<CreateVirtualRouterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2078,12 +2078,12 @@ async function deserializeAws_restJson1_1CreateVirtualRouterCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1CreateVirtualServiceCommand(
+export const deserializeAws_restJson1_1CreateVirtualServiceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateVirtualServiceCommandOutput> {
+): Promise<CreateVirtualServiceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateVirtualServiceCommandError(
       output,
@@ -2101,12 +2101,12 @@ export async function deserializeAws_restJson1_1CreateVirtualServiceCommand(
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreateVirtualServiceCommandError(
+const deserializeAws_restJson1_1CreateVirtualServiceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateVirtualServiceCommandOutput> {
+): Promise<CreateVirtualServiceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2218,12 +2218,12 @@ async function deserializeAws_restJson1_1CreateVirtualServiceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteMeshCommand(
+export const deserializeAws_restJson1_1DeleteMeshCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteMeshCommandOutput> {
+): Promise<DeleteMeshCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteMeshCommandError(output, context);
   }
@@ -2235,12 +2235,12 @@ export async function deserializeAws_restJson1_1DeleteMeshCommand(
   const data: any = await parseBody(output.body, context);
   contents.mesh = deserializeAws_restJson1_1MeshData(data, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteMeshCommandError(
+const deserializeAws_restJson1_1DeleteMeshCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteMeshCommandOutput> {
+): Promise<DeleteMeshCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2341,12 +2341,12 @@ async function deserializeAws_restJson1_1DeleteMeshCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteRouteCommand(
+export const deserializeAws_restJson1_1DeleteRouteCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteRouteCommandOutput> {
+): Promise<DeleteRouteCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteRouteCommandError(output, context);
   }
@@ -2358,12 +2358,12 @@ export async function deserializeAws_restJson1_1DeleteRouteCommand(
   const data: any = await parseBody(output.body, context);
   contents.route = deserializeAws_restJson1_1RouteData(data, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteRouteCommandError(
+const deserializeAws_restJson1_1DeleteRouteCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteRouteCommandOutput> {
+): Promise<DeleteRouteCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2464,12 +2464,12 @@ async function deserializeAws_restJson1_1DeleteRouteCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteVirtualNodeCommand(
+export const deserializeAws_restJson1_1DeleteVirtualNodeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteVirtualNodeCommandOutput> {
+): Promise<DeleteVirtualNodeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteVirtualNodeCommandError(
       output,
@@ -2487,12 +2487,12 @@ export async function deserializeAws_restJson1_1DeleteVirtualNodeCommand(
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteVirtualNodeCommandError(
+const deserializeAws_restJson1_1DeleteVirtualNodeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteVirtualNodeCommandOutput> {
+): Promise<DeleteVirtualNodeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2593,12 +2593,12 @@ async function deserializeAws_restJson1_1DeleteVirtualNodeCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteVirtualRouterCommand(
+export const deserializeAws_restJson1_1DeleteVirtualRouterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteVirtualRouterCommandOutput> {
+): Promise<DeleteVirtualRouterCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteVirtualRouterCommandError(
       output,
@@ -2616,12 +2616,12 @@ export async function deserializeAws_restJson1_1DeleteVirtualRouterCommand(
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteVirtualRouterCommandError(
+const deserializeAws_restJson1_1DeleteVirtualRouterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteVirtualRouterCommandOutput> {
+): Promise<DeleteVirtualRouterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2722,12 +2722,12 @@ async function deserializeAws_restJson1_1DeleteVirtualRouterCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteVirtualServiceCommand(
+export const deserializeAws_restJson1_1DeleteVirtualServiceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteVirtualServiceCommandOutput> {
+): Promise<DeleteVirtualServiceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteVirtualServiceCommandError(
       output,
@@ -2745,12 +2745,12 @@ export async function deserializeAws_restJson1_1DeleteVirtualServiceCommand(
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteVirtualServiceCommandError(
+const deserializeAws_restJson1_1DeleteVirtualServiceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteVirtualServiceCommandOutput> {
+): Promise<DeleteVirtualServiceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2840,12 +2840,12 @@ async function deserializeAws_restJson1_1DeleteVirtualServiceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeMeshCommand(
+export const deserializeAws_restJson1_1DescribeMeshCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeMeshCommandOutput> {
+): Promise<DescribeMeshCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeMeshCommandError(output, context);
   }
@@ -2857,12 +2857,12 @@ export async function deserializeAws_restJson1_1DescribeMeshCommand(
   const data: any = await parseBody(output.body, context);
   contents.mesh = deserializeAws_restJson1_1MeshData(data, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeMeshCommandError(
+const deserializeAws_restJson1_1DescribeMeshCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeMeshCommandOutput> {
+): Promise<DescribeMeshCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2952,12 +2952,12 @@ async function deserializeAws_restJson1_1DescribeMeshCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeRouteCommand(
+export const deserializeAws_restJson1_1DescribeRouteCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeRouteCommandOutput> {
+): Promise<DescribeRouteCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeRouteCommandError(output, context);
   }
@@ -2969,12 +2969,12 @@ export async function deserializeAws_restJson1_1DescribeRouteCommand(
   const data: any = await parseBody(output.body, context);
   contents.route = deserializeAws_restJson1_1RouteData(data, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeRouteCommandError(
+const deserializeAws_restJson1_1DescribeRouteCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeRouteCommandOutput> {
+): Promise<DescribeRouteCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3064,12 +3064,12 @@ async function deserializeAws_restJson1_1DescribeRouteCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeVirtualNodeCommand(
+export const deserializeAws_restJson1_1DescribeVirtualNodeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeVirtualNodeCommandOutput> {
+): Promise<DescribeVirtualNodeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeVirtualNodeCommandError(
       output,
@@ -3087,12 +3087,12 @@ export async function deserializeAws_restJson1_1DescribeVirtualNodeCommand(
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeVirtualNodeCommandError(
+const deserializeAws_restJson1_1DescribeVirtualNodeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeVirtualNodeCommandOutput> {
+): Promise<DescribeVirtualNodeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3182,12 +3182,12 @@ async function deserializeAws_restJson1_1DescribeVirtualNodeCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeVirtualRouterCommand(
+export const deserializeAws_restJson1_1DescribeVirtualRouterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeVirtualRouterCommandOutput> {
+): Promise<DescribeVirtualRouterCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeVirtualRouterCommandError(
       output,
@@ -3205,12 +3205,12 @@ export async function deserializeAws_restJson1_1DescribeVirtualRouterCommand(
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeVirtualRouterCommandError(
+const deserializeAws_restJson1_1DescribeVirtualRouterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeVirtualRouterCommandOutput> {
+): Promise<DescribeVirtualRouterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3300,12 +3300,12 @@ async function deserializeAws_restJson1_1DescribeVirtualRouterCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeVirtualServiceCommand(
+export const deserializeAws_restJson1_1DescribeVirtualServiceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeVirtualServiceCommandOutput> {
+): Promise<DescribeVirtualServiceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeVirtualServiceCommandError(
       output,
@@ -3323,12 +3323,12 @@ export async function deserializeAws_restJson1_1DescribeVirtualServiceCommand(
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeVirtualServiceCommandError(
+const deserializeAws_restJson1_1DescribeVirtualServiceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeVirtualServiceCommandOutput> {
+): Promise<DescribeVirtualServiceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3418,12 +3418,12 @@ async function deserializeAws_restJson1_1DescribeVirtualServiceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListMeshesCommand(
+export const deserializeAws_restJson1_1ListMeshesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListMeshesCommandOutput> {
+): Promise<ListMeshesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListMeshesCommandError(output, context);
   }
@@ -3441,12 +3441,12 @@ export async function deserializeAws_restJson1_1ListMeshesCommand(
     contents.nextToken = data.nextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListMeshesCommandError(
+const deserializeAws_restJson1_1ListMeshesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListMeshesCommandOutput> {
+): Promise<ListMeshesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3536,12 +3536,12 @@ async function deserializeAws_restJson1_1ListMeshesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListRoutesCommand(
+export const deserializeAws_restJson1_1ListRoutesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListRoutesCommandOutput> {
+): Promise<ListRoutesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListRoutesCommandError(output, context);
   }
@@ -3559,12 +3559,12 @@ export async function deserializeAws_restJson1_1ListRoutesCommand(
     contents.routes = deserializeAws_restJson1_1RouteList(data.routes, context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListRoutesCommandError(
+const deserializeAws_restJson1_1ListRoutesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListRoutesCommandOutput> {
+): Promise<ListRoutesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3654,12 +3654,12 @@ async function deserializeAws_restJson1_1ListRoutesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
+export const deserializeAws_restJson1_1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListTagsForResourceCommandError(
       output,
@@ -3680,12 +3680,12 @@ export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
     contents.tags = deserializeAws_restJson1_1TagList(data.tags, context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
+const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3775,12 +3775,12 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListVirtualNodesCommand(
+export const deserializeAws_restJson1_1ListVirtualNodesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListVirtualNodesCommandOutput> {
+): Promise<ListVirtualNodesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListVirtualNodesCommandError(
       output,
@@ -3804,12 +3804,12 @@ export async function deserializeAws_restJson1_1ListVirtualNodesCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListVirtualNodesCommandError(
+const deserializeAws_restJson1_1ListVirtualNodesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListVirtualNodesCommandOutput> {
+): Promise<ListVirtualNodesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3899,12 +3899,12 @@ async function deserializeAws_restJson1_1ListVirtualNodesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListVirtualRoutersCommand(
+export const deserializeAws_restJson1_1ListVirtualRoutersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListVirtualRoutersCommandOutput> {
+): Promise<ListVirtualRoutersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListVirtualRoutersCommandError(
       output,
@@ -3928,12 +3928,12 @@ export async function deserializeAws_restJson1_1ListVirtualRoutersCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListVirtualRoutersCommandError(
+const deserializeAws_restJson1_1ListVirtualRoutersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListVirtualRoutersCommandOutput> {
+): Promise<ListVirtualRoutersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4023,12 +4023,12 @@ async function deserializeAws_restJson1_1ListVirtualRoutersCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListVirtualServicesCommand(
+export const deserializeAws_restJson1_1ListVirtualServicesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListVirtualServicesCommandOutput> {
+): Promise<ListVirtualServicesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListVirtualServicesCommandError(
       output,
@@ -4052,12 +4052,12 @@ export async function deserializeAws_restJson1_1ListVirtualServicesCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListVirtualServicesCommandError(
+const deserializeAws_restJson1_1ListVirtualServicesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListVirtualServicesCommandOutput> {
+): Promise<ListVirtualServicesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4147,12 +4147,12 @@ async function deserializeAws_restJson1_1ListVirtualServicesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1TagResourceCommand(
+export const deserializeAws_restJson1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1TagResourceCommandError(output, context);
   }
@@ -4162,12 +4162,12 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1TagResourceCommandError(
+const deserializeAws_restJson1_1TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4268,12 +4268,12 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UntagResourceCommand(
+export const deserializeAws_restJson1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UntagResourceCommandError(output, context);
   }
@@ -4283,12 +4283,12 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UntagResourceCommandError(
+const deserializeAws_restJson1_1UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4378,12 +4378,12 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UpdateMeshCommand(
+export const deserializeAws_restJson1_1UpdateMeshCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateMeshCommandOutput> {
+): Promise<UpdateMeshCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateMeshCommandError(output, context);
   }
@@ -4395,12 +4395,12 @@ export async function deserializeAws_restJson1_1UpdateMeshCommand(
   const data: any = await parseBody(output.body, context);
   contents.mesh = deserializeAws_restJson1_1MeshData(data, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UpdateMeshCommandError(
+const deserializeAws_restJson1_1UpdateMeshCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateMeshCommandOutput> {
+): Promise<UpdateMeshCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4501,12 +4501,12 @@ async function deserializeAws_restJson1_1UpdateMeshCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UpdateRouteCommand(
+export const deserializeAws_restJson1_1UpdateRouteCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateRouteCommandOutput> {
+): Promise<UpdateRouteCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateRouteCommandError(output, context);
   }
@@ -4518,12 +4518,12 @@ export async function deserializeAws_restJson1_1UpdateRouteCommand(
   const data: any = await parseBody(output.body, context);
   contents.route = deserializeAws_restJson1_1RouteData(data, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UpdateRouteCommandError(
+const deserializeAws_restJson1_1UpdateRouteCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateRouteCommandOutput> {
+): Promise<UpdateRouteCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4635,12 +4635,12 @@ async function deserializeAws_restJson1_1UpdateRouteCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UpdateVirtualNodeCommand(
+export const deserializeAws_restJson1_1UpdateVirtualNodeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateVirtualNodeCommandOutput> {
+): Promise<UpdateVirtualNodeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateVirtualNodeCommandError(
       output,
@@ -4658,12 +4658,12 @@ export async function deserializeAws_restJson1_1UpdateVirtualNodeCommand(
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UpdateVirtualNodeCommandError(
+const deserializeAws_restJson1_1UpdateVirtualNodeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateVirtualNodeCommandOutput> {
+): Promise<UpdateVirtualNodeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4775,12 +4775,12 @@ async function deserializeAws_restJson1_1UpdateVirtualNodeCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UpdateVirtualRouterCommand(
+export const deserializeAws_restJson1_1UpdateVirtualRouterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateVirtualRouterCommandOutput> {
+): Promise<UpdateVirtualRouterCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateVirtualRouterCommandError(
       output,
@@ -4798,12 +4798,12 @@ export async function deserializeAws_restJson1_1UpdateVirtualRouterCommand(
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UpdateVirtualRouterCommandError(
+const deserializeAws_restJson1_1UpdateVirtualRouterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateVirtualRouterCommandOutput> {
+): Promise<UpdateVirtualRouterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4915,12 +4915,12 @@ async function deserializeAws_restJson1_1UpdateVirtualRouterCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UpdateVirtualServiceCommand(
+export const deserializeAws_restJson1_1UpdateVirtualServiceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateVirtualServiceCommandOutput> {
+): Promise<UpdateVirtualServiceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateVirtualServiceCommandError(
       output,
@@ -4938,12 +4938,12 @@ export async function deserializeAws_restJson1_1UpdateVirtualServiceCommand(
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UpdateVirtualServiceCommandError(
+const deserializeAws_restJson1_1UpdateVirtualServiceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateVirtualServiceCommandOutput> {
+): Promise<UpdateVirtualServiceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5055,7 +5055,7 @@ async function deserializeAws_restJson1_1UpdateVirtualServiceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
   parsedOutput: any,

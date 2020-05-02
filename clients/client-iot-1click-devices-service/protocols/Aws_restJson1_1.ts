@@ -79,10 +79,10 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_restJson1_1ClaimDevicesByClaimCodeCommand(
+export const serializeAws_restJson1_1ClaimDevicesByClaimCodeCommand = async (
   input: ClaimDevicesByClaimCodeCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/claims/{ClaimCode}";
@@ -109,12 +109,12 @@ export async function serializeAws_restJson1_1ClaimDevicesByClaimCodeCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribeDeviceCommand(
+export const serializeAws_restJson1_1DescribeDeviceCommand = async (
   input: DescribeDeviceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/devices/{DeviceId}";
@@ -141,12 +141,12 @@ export async function serializeAws_restJson1_1DescribeDeviceCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1FinalizeDeviceClaimCommand(
+export const serializeAws_restJson1_1FinalizeDeviceClaimCommand = async (
   input: FinalizeDeviceClaimCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/devices/{DeviceId}/finalize-claim";
@@ -181,12 +181,12 @@ export async function serializeAws_restJson1_1FinalizeDeviceClaimCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetDeviceMethodsCommand(
+export const serializeAws_restJson1_1GetDeviceMethodsCommand = async (
   input: GetDeviceMethodsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/devices/{DeviceId}/methods";
@@ -213,12 +213,12 @@ export async function serializeAws_restJson1_1GetDeviceMethodsCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1InitiateDeviceClaimCommand(
+export const serializeAws_restJson1_1InitiateDeviceClaimCommand = async (
   input: InitiateDeviceClaimCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/devices/{DeviceId}/initiate-claim";
@@ -245,12 +245,12 @@ export async function serializeAws_restJson1_1InitiateDeviceClaimCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1InvokeDeviceMethodCommand(
+export const serializeAws_restJson1_1InvokeDeviceMethodCommand = async (
   input: InvokeDeviceMethodCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/devices/{DeviceId}/methods";
@@ -288,12 +288,12 @@ export async function serializeAws_restJson1_1InvokeDeviceMethodCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListDeviceEventsCommand(
+export const serializeAws_restJson1_1ListDeviceEventsCommand = async (
   input: ListDeviceEventsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/devices/{DeviceId}/events";
@@ -338,12 +338,12 @@ export async function serializeAws_restJson1_1ListDeviceEventsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListDevicesCommand(
+export const serializeAws_restJson1_1ListDevicesCommand = async (
   input: ListDevicesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/devices";
@@ -369,12 +369,12 @@ export async function serializeAws_restJson1_1ListDevicesCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListTagsForResourceCommand(
+export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{ResourceArn}";
@@ -403,12 +403,12 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1TagResourceCommand(
+export const serializeAws_restJson1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/tags/{ResourceArn}";
@@ -445,12 +445,12 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UnclaimDeviceCommand(
+export const serializeAws_restJson1_1UnclaimDeviceCommand = async (
   input: UnclaimDeviceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/devices/{DeviceId}/unclaim";
@@ -477,12 +477,12 @@ export async function serializeAws_restJson1_1UnclaimDeviceCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UntagResourceCommand(
+export const serializeAws_restJson1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{ResourceArn}";
@@ -516,12 +516,12 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UpdateDeviceStateCommand(
+export const serializeAws_restJson1_1UpdateDeviceStateCommand = async (
   input: UpdateDeviceStateCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/devices/{DeviceId}/state";
@@ -553,12 +553,12 @@ export async function serializeAws_restJson1_1UpdateDeviceStateCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1ClaimDevicesByClaimCodeCommand(
+export const deserializeAws_restJson1_1ClaimDevicesByClaimCodeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ClaimDevicesByClaimCodeCommandOutput> {
+): Promise<ClaimDevicesByClaimCodeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ClaimDevicesByClaimCodeCommandError(
       output,
@@ -579,12 +579,12 @@ export async function deserializeAws_restJson1_1ClaimDevicesByClaimCodeCommand(
     contents.Total = data.total;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ClaimDevicesByClaimCodeCommandError(
+const deserializeAws_restJson1_1ClaimDevicesByClaimCodeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ClaimDevicesByClaimCodeCommandOutput> {
+): Promise<ClaimDevicesByClaimCodeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -641,12 +641,12 @@ async function deserializeAws_restJson1_1ClaimDevicesByClaimCodeCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeDeviceCommand(
+export const deserializeAws_restJson1_1DescribeDeviceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeDeviceCommandOutput> {
+): Promise<DescribeDeviceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeDeviceCommandError(
       output,
@@ -666,12 +666,12 @@ export async function deserializeAws_restJson1_1DescribeDeviceCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeDeviceCommandError(
+const deserializeAws_restJson1_1DescribeDeviceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeDeviceCommandOutput> {
+): Promise<DescribeDeviceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -728,12 +728,12 @@ async function deserializeAws_restJson1_1DescribeDeviceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1FinalizeDeviceClaimCommand(
+export const deserializeAws_restJson1_1FinalizeDeviceClaimCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<FinalizeDeviceClaimCommandOutput> {
+): Promise<FinalizeDeviceClaimCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1FinalizeDeviceClaimCommandError(
       output,
@@ -750,12 +750,12 @@ export async function deserializeAws_restJson1_1FinalizeDeviceClaimCommand(
     contents.State = data.state;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1FinalizeDeviceClaimCommandError(
+const deserializeAws_restJson1_1FinalizeDeviceClaimCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<FinalizeDeviceClaimCommandOutput> {
+): Promise<FinalizeDeviceClaimCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -834,12 +834,12 @@ async function deserializeAws_restJson1_1FinalizeDeviceClaimCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetDeviceMethodsCommand(
+export const deserializeAws_restJson1_1GetDeviceMethodsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetDeviceMethodsCommandOutput> {
+): Promise<GetDeviceMethodsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetDeviceMethodsCommandError(
       output,
@@ -859,12 +859,12 @@ export async function deserializeAws_restJson1_1GetDeviceMethodsCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetDeviceMethodsCommandError(
+const deserializeAws_restJson1_1GetDeviceMethodsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetDeviceMethodsCommandOutput> {
+): Promise<GetDeviceMethodsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -921,12 +921,12 @@ async function deserializeAws_restJson1_1GetDeviceMethodsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1InitiateDeviceClaimCommand(
+export const deserializeAws_restJson1_1InitiateDeviceClaimCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<InitiateDeviceClaimCommandOutput> {
+): Promise<InitiateDeviceClaimCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1InitiateDeviceClaimCommandError(
       output,
@@ -943,12 +943,12 @@ export async function deserializeAws_restJson1_1InitiateDeviceClaimCommand(
     contents.State = data.state;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1InitiateDeviceClaimCommandError(
+const deserializeAws_restJson1_1InitiateDeviceClaimCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<InitiateDeviceClaimCommandOutput> {
+): Promise<InitiateDeviceClaimCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1016,12 +1016,12 @@ async function deserializeAws_restJson1_1InitiateDeviceClaimCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1InvokeDeviceMethodCommand(
+export const deserializeAws_restJson1_1InvokeDeviceMethodCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<InvokeDeviceMethodCommandOutput> {
+): Promise<InvokeDeviceMethodCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1InvokeDeviceMethodCommandError(
       output,
@@ -1041,12 +1041,12 @@ export async function deserializeAws_restJson1_1InvokeDeviceMethodCommand(
     contents.DeviceMethodResponse = data.deviceMethodResponse;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1InvokeDeviceMethodCommandError(
+const deserializeAws_restJson1_1InvokeDeviceMethodCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<InvokeDeviceMethodCommandOutput> {
+): Promise<InvokeDeviceMethodCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1136,12 +1136,12 @@ async function deserializeAws_restJson1_1InvokeDeviceMethodCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListDeviceEventsCommand(
+export const deserializeAws_restJson1_1ListDeviceEventsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListDeviceEventsCommandOutput> {
+): Promise<ListDeviceEventsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListDeviceEventsCommandError(
       output,
@@ -1165,12 +1165,12 @@ export async function deserializeAws_restJson1_1ListDeviceEventsCommand(
     contents.NextToken = data.nextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListDeviceEventsCommandError(
+const deserializeAws_restJson1_1ListDeviceEventsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListDeviceEventsCommandOutput> {
+): Promise<ListDeviceEventsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1238,12 +1238,12 @@ async function deserializeAws_restJson1_1ListDeviceEventsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListDevicesCommand(
+export const deserializeAws_restJson1_1ListDevicesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListDevicesCommandOutput> {
+): Promise<ListDevicesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListDevicesCommandError(output, context);
   }
@@ -1264,12 +1264,12 @@ export async function deserializeAws_restJson1_1ListDevicesCommand(
     contents.NextToken = data.nextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListDevicesCommandError(
+const deserializeAws_restJson1_1ListDevicesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListDevicesCommandOutput> {
+): Promise<ListDevicesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1326,12 +1326,12 @@ async function deserializeAws_restJson1_1ListDevicesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
+export const deserializeAws_restJson1_1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListTagsForResourceCommandError(
       output,
@@ -1351,12 +1351,12 @@ export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
+const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1402,12 +1402,12 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1TagResourceCommand(
+export const deserializeAws_restJson1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1TagResourceCommandError(output, context);
   }
@@ -1416,12 +1416,12 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1TagResourceCommandError(
+const deserializeAws_restJson1_1TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1478,12 +1478,12 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UnclaimDeviceCommand(
+export const deserializeAws_restJson1_1UnclaimDeviceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UnclaimDeviceCommandOutput> {
+): Promise<UnclaimDeviceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UnclaimDeviceCommandError(output, context);
   }
@@ -1497,12 +1497,12 @@ export async function deserializeAws_restJson1_1UnclaimDeviceCommand(
     contents.State = data.state;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UnclaimDeviceCommandError(
+const deserializeAws_restJson1_1UnclaimDeviceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UnclaimDeviceCommandOutput> {
+): Promise<UnclaimDeviceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1559,12 +1559,12 @@ async function deserializeAws_restJson1_1UnclaimDeviceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UntagResourceCommand(
+export const deserializeAws_restJson1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UntagResourceCommandError(output, context);
   }
@@ -1573,12 +1573,12 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UntagResourceCommandError(
+const deserializeAws_restJson1_1UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1635,12 +1635,12 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UpdateDeviceStateCommand(
+export const deserializeAws_restJson1_1UpdateDeviceStateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateDeviceStateCommandOutput> {
+): Promise<UpdateDeviceStateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateDeviceStateCommandError(
       output,
@@ -1653,12 +1653,12 @@ export async function deserializeAws_restJson1_1UpdateDeviceStateCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UpdateDeviceStateCommandError(
+const deserializeAws_restJson1_1UpdateDeviceStateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateDeviceStateCommandOutput> {
+): Promise<UpdateDeviceStateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1715,7 +1715,7 @@ async function deserializeAws_restJson1_1UpdateDeviceStateCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1ForbiddenExceptionResponse = async (
   parsedOutput: any,

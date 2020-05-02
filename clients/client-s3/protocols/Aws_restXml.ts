@@ -485,10 +485,10 @@ import {
 } from "@aws-sdk/xml-builder";
 import { parse as xmlParse } from "fast-xml-parser";
 
-export async function serializeAws_restXmlAbortMultipartUploadCommand(
+export const serializeAws_restXmlAbortMultipartUploadCommand = async (
   input: AbortMultipartUploadCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   if (isSerializableHeaderValue(input.RequestPayer)) {
@@ -540,12 +540,12 @@ export async function serializeAws_restXmlAbortMultipartUploadCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlCompleteMultipartUploadCommand(
+export const serializeAws_restXmlCompleteMultipartUploadCommand = async (
   input: CompleteMultipartUploadCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (isSerializableHeaderValue(input.RequestPayer)) {
@@ -605,12 +605,12 @@ export async function serializeAws_restXmlCompleteMultipartUploadCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlCopyObjectCommand(
+export const serializeAws_restXmlCopyObjectCommand = async (
   input: CopyObjectCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   if (isSerializableHeaderValue(input.ACL)) {
@@ -783,12 +783,12 @@ export async function serializeAws_restXmlCopyObjectCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlCreateBucketCommand(
+export const serializeAws_restXmlCreateBucketCommand = async (
   input: CreateBucketCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (isSerializableHeaderValue(input.ACL)) {
@@ -848,12 +848,12 @@ export async function serializeAws_restXmlCreateBucketCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlCreateMultipartUploadCommand(
+export const serializeAws_restXmlCreateMultipartUploadCommand = async (
   input: CreateMultipartUploadCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   if (isSerializableHeaderValue(input.ACL)) {
@@ -986,12 +986,12 @@ export async function serializeAws_restXmlCreateMultipartUploadCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlDeleteBucketCommand(
+export const serializeAws_restXmlDeleteBucketCommand = async (
   input: DeleteBucketCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
@@ -1018,12 +1018,12 @@ export async function serializeAws_restXmlDeleteBucketCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlDeleteBucketAnalyticsConfigurationCommand(
+export const serializeAws_restXmlDeleteBucketAnalyticsConfigurationCommand = async (
   input: DeleteBucketAnalyticsConfigurationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
@@ -1057,12 +1057,12 @@ export async function serializeAws_restXmlDeleteBucketAnalyticsConfigurationComm
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlDeleteBucketCorsCommand(
+export const serializeAws_restXmlDeleteBucketCorsCommand = async (
   input: DeleteBucketCorsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
@@ -1093,12 +1093,12 @@ export async function serializeAws_restXmlDeleteBucketCorsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlDeleteBucketEncryptionCommand(
+export const serializeAws_restXmlDeleteBucketEncryptionCommand = async (
   input: DeleteBucketEncryptionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
@@ -1129,12 +1129,12 @@ export async function serializeAws_restXmlDeleteBucketEncryptionCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlDeleteBucketInventoryConfigurationCommand(
+export const serializeAws_restXmlDeleteBucketInventoryConfigurationCommand = async (
   input: DeleteBucketInventoryConfigurationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
@@ -1168,12 +1168,12 @@ export async function serializeAws_restXmlDeleteBucketInventoryConfigurationComm
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlDeleteBucketLifecycleCommand(
+export const serializeAws_restXmlDeleteBucketLifecycleCommand = async (
   input: DeleteBucketLifecycleCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
@@ -1204,12 +1204,12 @@ export async function serializeAws_restXmlDeleteBucketLifecycleCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlDeleteBucketMetricsConfigurationCommand(
+export const serializeAws_restXmlDeleteBucketMetricsConfigurationCommand = async (
   input: DeleteBucketMetricsConfigurationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
@@ -1243,12 +1243,12 @@ export async function serializeAws_restXmlDeleteBucketMetricsConfigurationComman
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlDeleteBucketPolicyCommand(
+export const serializeAws_restXmlDeleteBucketPolicyCommand = async (
   input: DeleteBucketPolicyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
@@ -1279,12 +1279,12 @@ export async function serializeAws_restXmlDeleteBucketPolicyCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlDeleteBucketReplicationCommand(
+export const serializeAws_restXmlDeleteBucketReplicationCommand = async (
   input: DeleteBucketReplicationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
@@ -1315,12 +1315,12 @@ export async function serializeAws_restXmlDeleteBucketReplicationCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlDeleteBucketTaggingCommand(
+export const serializeAws_restXmlDeleteBucketTaggingCommand = async (
   input: DeleteBucketTaggingCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
@@ -1351,12 +1351,12 @@ export async function serializeAws_restXmlDeleteBucketTaggingCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlDeleteBucketWebsiteCommand(
+export const serializeAws_restXmlDeleteBucketWebsiteCommand = async (
   input: DeleteBucketWebsiteCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
@@ -1387,12 +1387,12 @@ export async function serializeAws_restXmlDeleteBucketWebsiteCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlDeleteObjectCommand(
+export const serializeAws_restXmlDeleteObjectCommand = async (
   input: DeleteObjectCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   if (isSerializableHeaderValue(input.BypassGovernanceRetention)) {
@@ -1452,12 +1452,12 @@ export async function serializeAws_restXmlDeleteObjectCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlDeleteObjectTaggingCommand(
+export const serializeAws_restXmlDeleteObjectTaggingCommand = async (
   input: DeleteObjectTaggingCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}/{Key+}";
@@ -1506,12 +1506,12 @@ export async function serializeAws_restXmlDeleteObjectTaggingCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlDeleteObjectsCommand(
+export const serializeAws_restXmlDeleteObjectsCommand = async (
   input: DeleteObjectsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (isSerializableHeaderValue(input.BypassGovernanceRetention)) {
@@ -1560,12 +1560,12 @@ export async function serializeAws_restXmlDeleteObjectsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlDeletePublicAccessBlockCommand(
+export const serializeAws_restXmlDeletePublicAccessBlockCommand = async (
   input: DeletePublicAccessBlockCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
@@ -1596,12 +1596,12 @@ export async function serializeAws_restXmlDeletePublicAccessBlockCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetBucketAccelerateConfigurationCommand(
+export const serializeAws_restXmlGetBucketAccelerateConfigurationCommand = async (
   input: GetBucketAccelerateConfigurationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
@@ -1632,12 +1632,12 @@ export async function serializeAws_restXmlGetBucketAccelerateConfigurationComman
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetBucketAclCommand(
+export const serializeAws_restXmlGetBucketAclCommand = async (
   input: GetBucketAclCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
@@ -1668,12 +1668,12 @@ export async function serializeAws_restXmlGetBucketAclCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetBucketAnalyticsConfigurationCommand(
+export const serializeAws_restXmlGetBucketAnalyticsConfigurationCommand = async (
   input: GetBucketAnalyticsConfigurationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
@@ -1708,12 +1708,12 @@ export async function serializeAws_restXmlGetBucketAnalyticsConfigurationCommand
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetBucketCorsCommand(
+export const serializeAws_restXmlGetBucketCorsCommand = async (
   input: GetBucketCorsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
@@ -1744,12 +1744,12 @@ export async function serializeAws_restXmlGetBucketCorsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetBucketEncryptionCommand(
+export const serializeAws_restXmlGetBucketEncryptionCommand = async (
   input: GetBucketEncryptionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
@@ -1780,12 +1780,12 @@ export async function serializeAws_restXmlGetBucketEncryptionCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetBucketInventoryConfigurationCommand(
+export const serializeAws_restXmlGetBucketInventoryConfigurationCommand = async (
   input: GetBucketInventoryConfigurationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
@@ -1820,12 +1820,12 @@ export async function serializeAws_restXmlGetBucketInventoryConfigurationCommand
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetBucketLifecycleConfigurationCommand(
+export const serializeAws_restXmlGetBucketLifecycleConfigurationCommand = async (
   input: GetBucketLifecycleConfigurationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
@@ -1856,12 +1856,12 @@ export async function serializeAws_restXmlGetBucketLifecycleConfigurationCommand
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetBucketLocationCommand(
+export const serializeAws_restXmlGetBucketLocationCommand = async (
   input: GetBucketLocationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
@@ -1892,12 +1892,12 @@ export async function serializeAws_restXmlGetBucketLocationCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetBucketLoggingCommand(
+export const serializeAws_restXmlGetBucketLoggingCommand = async (
   input: GetBucketLoggingCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
@@ -1928,12 +1928,12 @@ export async function serializeAws_restXmlGetBucketLoggingCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetBucketMetricsConfigurationCommand(
+export const serializeAws_restXmlGetBucketMetricsConfigurationCommand = async (
   input: GetBucketMetricsConfigurationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
@@ -1968,12 +1968,12 @@ export async function serializeAws_restXmlGetBucketMetricsConfigurationCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetBucketNotificationConfigurationCommand(
+export const serializeAws_restXmlGetBucketNotificationConfigurationCommand = async (
   input: GetBucketNotificationConfigurationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
@@ -2004,12 +2004,12 @@ export async function serializeAws_restXmlGetBucketNotificationConfigurationComm
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetBucketPolicyCommand(
+export const serializeAws_restXmlGetBucketPolicyCommand = async (
   input: GetBucketPolicyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
@@ -2040,12 +2040,12 @@ export async function serializeAws_restXmlGetBucketPolicyCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetBucketPolicyStatusCommand(
+export const serializeAws_restXmlGetBucketPolicyStatusCommand = async (
   input: GetBucketPolicyStatusCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
@@ -2076,12 +2076,12 @@ export async function serializeAws_restXmlGetBucketPolicyStatusCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetBucketReplicationCommand(
+export const serializeAws_restXmlGetBucketReplicationCommand = async (
   input: GetBucketReplicationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
@@ -2112,12 +2112,12 @@ export async function serializeAws_restXmlGetBucketReplicationCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetBucketRequestPaymentCommand(
+export const serializeAws_restXmlGetBucketRequestPaymentCommand = async (
   input: GetBucketRequestPaymentCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
@@ -2148,12 +2148,12 @@ export async function serializeAws_restXmlGetBucketRequestPaymentCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetBucketTaggingCommand(
+export const serializeAws_restXmlGetBucketTaggingCommand = async (
   input: GetBucketTaggingCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
@@ -2184,12 +2184,12 @@ export async function serializeAws_restXmlGetBucketTaggingCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetBucketVersioningCommand(
+export const serializeAws_restXmlGetBucketVersioningCommand = async (
   input: GetBucketVersioningCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
@@ -2220,12 +2220,12 @@ export async function serializeAws_restXmlGetBucketVersioningCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetBucketWebsiteCommand(
+export const serializeAws_restXmlGetBucketWebsiteCommand = async (
   input: GetBucketWebsiteCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
@@ -2256,12 +2256,12 @@ export async function serializeAws_restXmlGetBucketWebsiteCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetObjectCommand(
+export const serializeAws_restXmlGetObjectCommand = async (
   input: GetObjectCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   if (isSerializableHeaderValue(input.IfMatch)) {
@@ -2370,12 +2370,12 @@ export async function serializeAws_restXmlGetObjectCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetObjectAclCommand(
+export const serializeAws_restXmlGetObjectAclCommand = async (
   input: GetObjectAclCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   if (isSerializableHeaderValue(input.RequestPayer)) {
@@ -2427,12 +2427,12 @@ export async function serializeAws_restXmlGetObjectAclCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetObjectLegalHoldCommand(
+export const serializeAws_restXmlGetObjectLegalHoldCommand = async (
   input: GetObjectLegalHoldCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   if (isSerializableHeaderValue(input.RequestPayer)) {
@@ -2484,12 +2484,12 @@ export async function serializeAws_restXmlGetObjectLegalHoldCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetObjectLockConfigurationCommand(
+export const serializeAws_restXmlGetObjectLockConfigurationCommand = async (
   input: GetObjectLockConfigurationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
@@ -2520,12 +2520,12 @@ export async function serializeAws_restXmlGetObjectLockConfigurationCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetObjectRetentionCommand(
+export const serializeAws_restXmlGetObjectRetentionCommand = async (
   input: GetObjectRetentionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   if (isSerializableHeaderValue(input.RequestPayer)) {
@@ -2577,12 +2577,12 @@ export async function serializeAws_restXmlGetObjectRetentionCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetObjectTaggingCommand(
+export const serializeAws_restXmlGetObjectTaggingCommand = async (
   input: GetObjectTaggingCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}/{Key+}";
@@ -2631,12 +2631,12 @@ export async function serializeAws_restXmlGetObjectTaggingCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetObjectTorrentCommand(
+export const serializeAws_restXmlGetObjectTorrentCommand = async (
   input: GetObjectTorrentCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   if (isSerializableHeaderValue(input.RequestPayer)) {
@@ -2685,12 +2685,12 @@ export async function serializeAws_restXmlGetObjectTorrentCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetPublicAccessBlockCommand(
+export const serializeAws_restXmlGetPublicAccessBlockCommand = async (
   input: GetPublicAccessBlockCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
@@ -2721,12 +2721,12 @@ export async function serializeAws_restXmlGetPublicAccessBlockCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlHeadBucketCommand(
+export const serializeAws_restXmlHeadBucketCommand = async (
   input: HeadBucketCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
@@ -2753,12 +2753,12 @@ export async function serializeAws_restXmlHeadBucketCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlHeadObjectCommand(
+export const serializeAws_restXmlHeadObjectCommand = async (
   input: HeadObjectCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   if (isSerializableHeaderValue(input.IfMatch)) {
@@ -2845,12 +2845,12 @@ export async function serializeAws_restXmlHeadObjectCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlListBucketAnalyticsConfigurationsCommand(
+export const serializeAws_restXmlListBucketAnalyticsConfigurationsCommand = async (
   input: ListBucketAnalyticsConfigurationsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
@@ -2885,12 +2885,12 @@ export async function serializeAws_restXmlListBucketAnalyticsConfigurationsComma
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlListBucketInventoryConfigurationsCommand(
+export const serializeAws_restXmlListBucketInventoryConfigurationsCommand = async (
   input: ListBucketInventoryConfigurationsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
@@ -2925,12 +2925,12 @@ export async function serializeAws_restXmlListBucketInventoryConfigurationsComma
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlListBucketMetricsConfigurationsCommand(
+export const serializeAws_restXmlListBucketMetricsConfigurationsCommand = async (
   input: ListBucketMetricsConfigurationsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
@@ -2965,12 +2965,12 @@ export async function serializeAws_restXmlListBucketMetricsConfigurationsCommand
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlListBucketsCommand(
+export const serializeAws_restXmlListBucketsCommand = async (
   input: ListBucketsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/";
@@ -2986,12 +2986,12 @@ export async function serializeAws_restXmlListBucketsCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlListMultipartUploadsCommand(
+export const serializeAws_restXmlListMultipartUploadsCommand = async (
   input: ListMultipartUploadsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
@@ -3040,12 +3040,12 @@ export async function serializeAws_restXmlListMultipartUploadsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlListObjectVersionsCommand(
+export const serializeAws_restXmlListObjectVersionsCommand = async (
   input: ListObjectVersionsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/{Bucket}";
@@ -3094,12 +3094,12 @@ export async function serializeAws_restXmlListObjectVersionsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlListObjectsCommand(
+export const serializeAws_restXmlListObjectsCommand = async (
   input: ListObjectsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   if (isSerializableHeaderValue(input.RequestPayer)) {
@@ -3146,12 +3146,12 @@ export async function serializeAws_restXmlListObjectsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlListObjectsV2Command(
+export const serializeAws_restXmlListObjectsV2Command = async (
   input: ListObjectsV2CommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   if (isSerializableHeaderValue(input.RequestPayer)) {
@@ -3206,12 +3206,12 @@ export async function serializeAws_restXmlListObjectsV2Command(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlListPartsCommand(
+export const serializeAws_restXmlListPartsCommand = async (
   input: ListPartsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   if (isSerializableHeaderValue(input.RequestPayer)) {
@@ -3269,12 +3269,12 @@ export async function serializeAws_restXmlListPartsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlPutBucketAccelerateConfigurationCommand(
+export const serializeAws_restXmlPutBucketAccelerateConfigurationCommand = async (
   input: PutBucketAccelerateConfigurationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/{Bucket}";
@@ -3315,12 +3315,12 @@ export async function serializeAws_restXmlPutBucketAccelerateConfigurationComman
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlPutBucketAclCommand(
+export const serializeAws_restXmlPutBucketAclCommand = async (
   input: PutBucketAclCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (isSerializableHeaderValue(input.ACL)) {
@@ -3382,12 +3382,12 @@ export async function serializeAws_restXmlPutBucketAclCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlPutBucketAnalyticsConfigurationCommand(
+export const serializeAws_restXmlPutBucketAnalyticsConfigurationCommand = async (
   input: PutBucketAnalyticsConfigurationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/{Bucket}";
@@ -3431,12 +3431,12 @@ export async function serializeAws_restXmlPutBucketAnalyticsConfigurationCommand
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlPutBucketCorsCommand(
+export const serializeAws_restXmlPutBucketCorsCommand = async (
   input: PutBucketCorsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (isSerializableHeaderValue(input.ContentMD5)) {
@@ -3480,12 +3480,12 @@ export async function serializeAws_restXmlPutBucketCorsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlPutBucketEncryptionCommand(
+export const serializeAws_restXmlPutBucketEncryptionCommand = async (
   input: PutBucketEncryptionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (isSerializableHeaderValue(input.ContentMD5)) {
@@ -3529,12 +3529,12 @@ export async function serializeAws_restXmlPutBucketEncryptionCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlPutBucketInventoryConfigurationCommand(
+export const serializeAws_restXmlPutBucketInventoryConfigurationCommand = async (
   input: PutBucketInventoryConfigurationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/{Bucket}";
@@ -3578,12 +3578,12 @@ export async function serializeAws_restXmlPutBucketInventoryConfigurationCommand
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlPutBucketLifecycleConfigurationCommand(
+export const serializeAws_restXmlPutBucketLifecycleConfigurationCommand = async (
   input: PutBucketLifecycleConfigurationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/{Bucket}";
@@ -3624,12 +3624,12 @@ export async function serializeAws_restXmlPutBucketLifecycleConfigurationCommand
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlPutBucketLoggingCommand(
+export const serializeAws_restXmlPutBucketLoggingCommand = async (
   input: PutBucketLoggingCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (isSerializableHeaderValue(input.ContentMD5)) {
@@ -3673,12 +3673,12 @@ export async function serializeAws_restXmlPutBucketLoggingCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlPutBucketMetricsConfigurationCommand(
+export const serializeAws_restXmlPutBucketMetricsConfigurationCommand = async (
   input: PutBucketMetricsConfigurationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/{Bucket}";
@@ -3722,12 +3722,12 @@ export async function serializeAws_restXmlPutBucketMetricsConfigurationCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlPutBucketNotificationConfigurationCommand(
+export const serializeAws_restXmlPutBucketNotificationConfigurationCommand = async (
   input: PutBucketNotificationConfigurationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/{Bucket}";
@@ -3768,12 +3768,12 @@ export async function serializeAws_restXmlPutBucketNotificationConfigurationComm
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlPutBucketPolicyCommand(
+export const serializeAws_restXmlPutBucketPolicyCommand = async (
   input: PutBucketPolicyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (isSerializableHeaderValue(input.ConfirmRemoveSelfBucketAccess)) {
@@ -3822,12 +3822,12 @@ export async function serializeAws_restXmlPutBucketPolicyCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlPutBucketReplicationCommand(
+export const serializeAws_restXmlPutBucketReplicationCommand = async (
   input: PutBucketReplicationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (isSerializableHeaderValue(input.ContentMD5)) {
@@ -3874,12 +3874,12 @@ export async function serializeAws_restXmlPutBucketReplicationCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlPutBucketRequestPaymentCommand(
+export const serializeAws_restXmlPutBucketRequestPaymentCommand = async (
   input: PutBucketRequestPaymentCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (isSerializableHeaderValue(input.ContentMD5)) {
@@ -3923,12 +3923,12 @@ export async function serializeAws_restXmlPutBucketRequestPaymentCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlPutBucketTaggingCommand(
+export const serializeAws_restXmlPutBucketTaggingCommand = async (
   input: PutBucketTaggingCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (isSerializableHeaderValue(input.ContentMD5)) {
@@ -3969,12 +3969,12 @@ export async function serializeAws_restXmlPutBucketTaggingCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlPutBucketVersioningCommand(
+export const serializeAws_restXmlPutBucketVersioningCommand = async (
   input: PutBucketVersioningCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (isSerializableHeaderValue(input.ContentMD5)) {
@@ -4021,12 +4021,12 @@ export async function serializeAws_restXmlPutBucketVersioningCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlPutBucketWebsiteCommand(
+export const serializeAws_restXmlPutBucketWebsiteCommand = async (
   input: PutBucketWebsiteCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (isSerializableHeaderValue(input.ContentMD5)) {
@@ -4070,12 +4070,12 @@ export async function serializeAws_restXmlPutBucketWebsiteCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlPutObjectCommand(
+export const serializeAws_restXmlPutObjectCommand = async (
   input: PutObjectCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/octet-stream";
   if (isSerializableHeaderValue(input.ACL)) {
@@ -4219,12 +4219,12 @@ export async function serializeAws_restXmlPutObjectCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlPutObjectAclCommand(
+export const serializeAws_restXmlPutObjectAclCommand = async (
   input: PutObjectAclCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (isSerializableHeaderValue(input.ACL)) {
@@ -4307,12 +4307,12 @@ export async function serializeAws_restXmlPutObjectAclCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlPutObjectLegalHoldCommand(
+export const serializeAws_restXmlPutObjectLegalHoldCommand = async (
   input: PutObjectLegalHoldCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (isSerializableHeaderValue(input.ContentMD5)) {
@@ -4377,12 +4377,12 @@ export async function serializeAws_restXmlPutObjectLegalHoldCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlPutObjectLockConfigurationCommand(
+export const serializeAws_restXmlPutObjectLockConfigurationCommand = async (
   input: PutObjectLockConfigurationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (isSerializableHeaderValue(input.ContentMD5)) {
@@ -4432,12 +4432,12 @@ export async function serializeAws_restXmlPutObjectLockConfigurationCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlPutObjectRetentionCommand(
+export const serializeAws_restXmlPutObjectRetentionCommand = async (
   input: PutObjectRetentionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (isSerializableHeaderValue(input.BypassGovernanceRetention)) {
@@ -4507,12 +4507,12 @@ export async function serializeAws_restXmlPutObjectRetentionCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlPutObjectTaggingCommand(
+export const serializeAws_restXmlPutObjectTaggingCommand = async (
   input: PutObjectTaggingCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (isSerializableHeaderValue(input.ContentMD5)) {
@@ -4571,12 +4571,12 @@ export async function serializeAws_restXmlPutObjectTaggingCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlPutPublicAccessBlockCommand(
+export const serializeAws_restXmlPutPublicAccessBlockCommand = async (
   input: PutPublicAccessBlockCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (isSerializableHeaderValue(input.ContentMD5)) {
@@ -4620,12 +4620,12 @@ export async function serializeAws_restXmlPutPublicAccessBlockCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlRestoreObjectCommand(
+export const serializeAws_restXmlRestoreObjectCommand = async (
   input: RestoreObjectCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (isSerializableHeaderValue(input.RequestPayer)) {
@@ -4687,12 +4687,12 @@ export async function serializeAws_restXmlRestoreObjectCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlSelectObjectContentCommand(
+export const serializeAws_restXmlSelectObjectContentCommand = async (
   input: SelectObjectContentCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (isSerializableHeaderValue(input.SSECustomerAlgorithm)) {
@@ -4798,12 +4798,12 @@ export async function serializeAws_restXmlSelectObjectContentCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlUploadPartCommand(
+export const serializeAws_restXmlUploadPartCommand = async (
   input: UploadPartCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/octet-stream";
   if (isSerializableHeaderValue(input.ContentLength)) {
@@ -4884,12 +4884,12 @@ export async function serializeAws_restXmlUploadPartCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlUploadPartCopyCommand(
+export const serializeAws_restXmlUploadPartCopyCommand = async (
   input: UploadPartCopyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   if (isSerializableHeaderValue(input.CopySource)) {
@@ -4996,12 +4996,12 @@ export async function serializeAws_restXmlUploadPartCopyCommand(
     query,
     body
   });
-}
+};
 
-export async function deserializeAws_restXmlAbortMultipartUploadCommand(
+export const deserializeAws_restXmlAbortMultipartUploadCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AbortMultipartUploadCommandOutput> {
+): Promise<AbortMultipartUploadCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restXmlAbortMultipartUploadCommandError(
       output,
@@ -5018,12 +5018,12 @@ export async function deserializeAws_restXmlAbortMultipartUploadCommand(
   }
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlAbortMultipartUploadCommandError(
+const deserializeAws_restXmlAbortMultipartUploadCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AbortMultipartUploadCommandOutput> {
+): Promise<AbortMultipartUploadCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5058,12 +5058,12 @@ async function deserializeAws_restXmlAbortMultipartUploadCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlCompleteMultipartUploadCommand(
+export const deserializeAws_restXmlCompleteMultipartUploadCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CompleteMultipartUploadCommandOutput> {
+): Promise<CompleteMultipartUploadCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlCompleteMultipartUploadCommandError(
       output,
@@ -5126,12 +5126,12 @@ export async function deserializeAws_restXmlCompleteMultipartUploadCommand(
         : data["Location"];
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlCompleteMultipartUploadCommandError(
+const deserializeAws_restXmlCompleteMultipartUploadCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CompleteMultipartUploadCommandOutput> {
+): Promise<CompleteMultipartUploadCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5155,12 +5155,12 @@ async function deserializeAws_restXmlCompleteMultipartUploadCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlCopyObjectCommand(
+export const deserializeAws_restXmlCopyObjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CopyObjectCommandOutput> {
+): Promise<CopyObjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlCopyObjectCommandError(output, context);
   }
@@ -5225,12 +5225,12 @@ export async function deserializeAws_restXmlCopyObjectCommand(
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlCopyObjectCommandError(
+const deserializeAws_restXmlCopyObjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CopyObjectCommandOutput> {
+): Promise<CopyObjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5265,12 +5265,12 @@ async function deserializeAws_restXmlCopyObjectCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlCreateBucketCommand(
+export const deserializeAws_restXmlCreateBucketCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateBucketCommandOutput> {
+): Promise<CreateBucketCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlCreateBucketCommandError(output, context);
   }
@@ -5284,12 +5284,12 @@ export async function deserializeAws_restXmlCreateBucketCommand(
   }
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlCreateBucketCommandError(
+const deserializeAws_restXmlCreateBucketCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateBucketCommandOutput> {
+): Promise<CreateBucketCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5335,12 +5335,12 @@ async function deserializeAws_restXmlCreateBucketCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlCreateMultipartUploadCommand(
+export const deserializeAws_restXmlCreateMultipartUploadCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateMultipartUploadCommandOutput> {
+): Promise<CreateMultipartUploadCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlCreateMultipartUploadCommandError(
       output,
@@ -5417,12 +5417,12 @@ export async function deserializeAws_restXmlCreateMultipartUploadCommand(
         : data["UploadId"];
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlCreateMultipartUploadCommandError(
+const deserializeAws_restXmlCreateMultipartUploadCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateMultipartUploadCommandOutput> {
+): Promise<CreateMultipartUploadCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5446,12 +5446,12 @@ async function deserializeAws_restXmlCreateMultipartUploadCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlDeleteBucketCommand(
+export const deserializeAws_restXmlDeleteBucketCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteBucketCommandOutput> {
+): Promise<DeleteBucketCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restXmlDeleteBucketCommandError(output, context);
   }
@@ -5460,12 +5460,12 @@ export async function deserializeAws_restXmlDeleteBucketCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlDeleteBucketCommandError(
+const deserializeAws_restXmlDeleteBucketCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteBucketCommandOutput> {
+): Promise<DeleteBucketCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5489,12 +5489,12 @@ async function deserializeAws_restXmlDeleteBucketCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlDeleteBucketAnalyticsConfigurationCommand(
+export const deserializeAws_restXmlDeleteBucketAnalyticsConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteBucketAnalyticsConfigurationCommandOutput> {
+): Promise<DeleteBucketAnalyticsConfigurationCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restXmlDeleteBucketAnalyticsConfigurationCommandError(
       output,
@@ -5506,12 +5506,12 @@ export async function deserializeAws_restXmlDeleteBucketAnalyticsConfigurationCo
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlDeleteBucketAnalyticsConfigurationCommandError(
+const deserializeAws_restXmlDeleteBucketAnalyticsConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteBucketAnalyticsConfigurationCommandOutput> {
+): Promise<DeleteBucketAnalyticsConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5535,12 +5535,12 @@ async function deserializeAws_restXmlDeleteBucketAnalyticsConfigurationCommandEr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlDeleteBucketCorsCommand(
+export const deserializeAws_restXmlDeleteBucketCorsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteBucketCorsCommandOutput> {
+): Promise<DeleteBucketCorsCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restXmlDeleteBucketCorsCommandError(output, context);
   }
@@ -5549,12 +5549,12 @@ export async function deserializeAws_restXmlDeleteBucketCorsCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlDeleteBucketCorsCommandError(
+const deserializeAws_restXmlDeleteBucketCorsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteBucketCorsCommandOutput> {
+): Promise<DeleteBucketCorsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5578,12 +5578,12 @@ async function deserializeAws_restXmlDeleteBucketCorsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlDeleteBucketEncryptionCommand(
+export const deserializeAws_restXmlDeleteBucketEncryptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteBucketEncryptionCommandOutput> {
+): Promise<DeleteBucketEncryptionCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restXmlDeleteBucketEncryptionCommandError(
       output,
@@ -5595,12 +5595,12 @@ export async function deserializeAws_restXmlDeleteBucketEncryptionCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlDeleteBucketEncryptionCommandError(
+const deserializeAws_restXmlDeleteBucketEncryptionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteBucketEncryptionCommandOutput> {
+): Promise<DeleteBucketEncryptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5624,12 +5624,12 @@ async function deserializeAws_restXmlDeleteBucketEncryptionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlDeleteBucketInventoryConfigurationCommand(
+export const deserializeAws_restXmlDeleteBucketInventoryConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteBucketInventoryConfigurationCommandOutput> {
+): Promise<DeleteBucketInventoryConfigurationCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restXmlDeleteBucketInventoryConfigurationCommandError(
       output,
@@ -5641,12 +5641,12 @@ export async function deserializeAws_restXmlDeleteBucketInventoryConfigurationCo
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlDeleteBucketInventoryConfigurationCommandError(
+const deserializeAws_restXmlDeleteBucketInventoryConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteBucketInventoryConfigurationCommandOutput> {
+): Promise<DeleteBucketInventoryConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5670,12 +5670,12 @@ async function deserializeAws_restXmlDeleteBucketInventoryConfigurationCommandEr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlDeleteBucketLifecycleCommand(
+export const deserializeAws_restXmlDeleteBucketLifecycleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteBucketLifecycleCommandOutput> {
+): Promise<DeleteBucketLifecycleCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restXmlDeleteBucketLifecycleCommandError(
       output,
@@ -5687,12 +5687,12 @@ export async function deserializeAws_restXmlDeleteBucketLifecycleCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlDeleteBucketLifecycleCommandError(
+const deserializeAws_restXmlDeleteBucketLifecycleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteBucketLifecycleCommandOutput> {
+): Promise<DeleteBucketLifecycleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5716,12 +5716,12 @@ async function deserializeAws_restXmlDeleteBucketLifecycleCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlDeleteBucketMetricsConfigurationCommand(
+export const deserializeAws_restXmlDeleteBucketMetricsConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteBucketMetricsConfigurationCommandOutput> {
+): Promise<DeleteBucketMetricsConfigurationCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restXmlDeleteBucketMetricsConfigurationCommandError(
       output,
@@ -5733,12 +5733,12 @@ export async function deserializeAws_restXmlDeleteBucketMetricsConfigurationComm
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlDeleteBucketMetricsConfigurationCommandError(
+const deserializeAws_restXmlDeleteBucketMetricsConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteBucketMetricsConfigurationCommandOutput> {
+): Promise<DeleteBucketMetricsConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5762,12 +5762,12 @@ async function deserializeAws_restXmlDeleteBucketMetricsConfigurationCommandErro
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlDeleteBucketPolicyCommand(
+export const deserializeAws_restXmlDeleteBucketPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteBucketPolicyCommandOutput> {
+): Promise<DeleteBucketPolicyCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restXmlDeleteBucketPolicyCommandError(
       output,
@@ -5779,12 +5779,12 @@ export async function deserializeAws_restXmlDeleteBucketPolicyCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlDeleteBucketPolicyCommandError(
+const deserializeAws_restXmlDeleteBucketPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteBucketPolicyCommandOutput> {
+): Promise<DeleteBucketPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5808,12 +5808,12 @@ async function deserializeAws_restXmlDeleteBucketPolicyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlDeleteBucketReplicationCommand(
+export const deserializeAws_restXmlDeleteBucketReplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteBucketReplicationCommandOutput> {
+): Promise<DeleteBucketReplicationCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restXmlDeleteBucketReplicationCommandError(
       output,
@@ -5825,12 +5825,12 @@ export async function deserializeAws_restXmlDeleteBucketReplicationCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlDeleteBucketReplicationCommandError(
+const deserializeAws_restXmlDeleteBucketReplicationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteBucketReplicationCommandOutput> {
+): Promise<DeleteBucketReplicationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5854,12 +5854,12 @@ async function deserializeAws_restXmlDeleteBucketReplicationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlDeleteBucketTaggingCommand(
+export const deserializeAws_restXmlDeleteBucketTaggingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteBucketTaggingCommandOutput> {
+): Promise<DeleteBucketTaggingCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restXmlDeleteBucketTaggingCommandError(
       output,
@@ -5871,12 +5871,12 @@ export async function deserializeAws_restXmlDeleteBucketTaggingCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlDeleteBucketTaggingCommandError(
+const deserializeAws_restXmlDeleteBucketTaggingCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteBucketTaggingCommandOutput> {
+): Promise<DeleteBucketTaggingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5900,12 +5900,12 @@ async function deserializeAws_restXmlDeleteBucketTaggingCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlDeleteBucketWebsiteCommand(
+export const deserializeAws_restXmlDeleteBucketWebsiteCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteBucketWebsiteCommandOutput> {
+): Promise<DeleteBucketWebsiteCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restXmlDeleteBucketWebsiteCommandError(
       output,
@@ -5917,12 +5917,12 @@ export async function deserializeAws_restXmlDeleteBucketWebsiteCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlDeleteBucketWebsiteCommandError(
+const deserializeAws_restXmlDeleteBucketWebsiteCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteBucketWebsiteCommandOutput> {
+): Promise<DeleteBucketWebsiteCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5946,12 +5946,12 @@ async function deserializeAws_restXmlDeleteBucketWebsiteCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlDeleteObjectCommand(
+export const deserializeAws_restXmlDeleteObjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteObjectCommandOutput> {
+): Promise<DeleteObjectCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restXmlDeleteObjectCommandError(output, context);
   }
@@ -5973,12 +5973,12 @@ export async function deserializeAws_restXmlDeleteObjectCommand(
   }
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlDeleteObjectCommandError(
+const deserializeAws_restXmlDeleteObjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteObjectCommandOutput> {
+): Promise<DeleteObjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6002,12 +6002,12 @@ async function deserializeAws_restXmlDeleteObjectCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlDeleteObjectTaggingCommand(
+export const deserializeAws_restXmlDeleteObjectTaggingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteObjectTaggingCommandOutput> {
+): Promise<DeleteObjectTaggingCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restXmlDeleteObjectTaggingCommandError(
       output,
@@ -6024,12 +6024,12 @@ export async function deserializeAws_restXmlDeleteObjectTaggingCommand(
   }
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlDeleteObjectTaggingCommandError(
+const deserializeAws_restXmlDeleteObjectTaggingCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteObjectTaggingCommandOutput> {
+): Promise<DeleteObjectTaggingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6053,12 +6053,12 @@ async function deserializeAws_restXmlDeleteObjectTaggingCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlDeleteObjectsCommand(
+export const deserializeAws_restXmlDeleteObjectsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteObjectsCommandOutput> {
+): Promise<DeleteObjectsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlDeleteObjectsCommandError(output, context);
   }
@@ -6093,12 +6093,12 @@ export async function deserializeAws_restXmlDeleteObjectsCommand(
     contents.Errors = deserializeAws_restXmlErrors(wrappedItem, context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlDeleteObjectsCommandError(
+const deserializeAws_restXmlDeleteObjectsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteObjectsCommandOutput> {
+): Promise<DeleteObjectsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6122,12 +6122,12 @@ async function deserializeAws_restXmlDeleteObjectsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlDeletePublicAccessBlockCommand(
+export const deserializeAws_restXmlDeletePublicAccessBlockCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeletePublicAccessBlockCommandOutput> {
+): Promise<DeletePublicAccessBlockCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restXmlDeletePublicAccessBlockCommandError(
       output,
@@ -6139,12 +6139,12 @@ export async function deserializeAws_restXmlDeletePublicAccessBlockCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlDeletePublicAccessBlockCommandError(
+const deserializeAws_restXmlDeletePublicAccessBlockCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeletePublicAccessBlockCommandOutput> {
+): Promise<DeletePublicAccessBlockCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6168,12 +6168,12 @@ async function deserializeAws_restXmlDeletePublicAccessBlockCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetBucketAccelerateConfigurationCommand(
+export const deserializeAws_restXmlGetBucketAccelerateConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBucketAccelerateConfigurationCommandOutput> {
+): Promise<GetBucketAccelerateConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetBucketAccelerateConfigurationCommandError(
       output,
@@ -6193,12 +6193,12 @@ export async function deserializeAws_restXmlGetBucketAccelerateConfigurationComm
         : data["Status"];
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetBucketAccelerateConfigurationCommandError(
+const deserializeAws_restXmlGetBucketAccelerateConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBucketAccelerateConfigurationCommandOutput> {
+): Promise<GetBucketAccelerateConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6222,12 +6222,12 @@ async function deserializeAws_restXmlGetBucketAccelerateConfigurationCommandErro
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetBucketAclCommand(
+export const deserializeAws_restXmlGetBucketAclCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBucketAclCommandOutput> {
+): Promise<GetBucketAclCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetBucketAclCommandError(output, context);
   }
@@ -6255,12 +6255,12 @@ export async function deserializeAws_restXmlGetBucketAclCommand(
     contents.Owner = deserializeAws_restXmlOwner(data["Owner"], context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetBucketAclCommandError(
+const deserializeAws_restXmlGetBucketAclCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBucketAclCommandOutput> {
+): Promise<GetBucketAclCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6284,12 +6284,12 @@ async function deserializeAws_restXmlGetBucketAclCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetBucketAnalyticsConfigurationCommand(
+export const deserializeAws_restXmlGetBucketAnalyticsConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBucketAnalyticsConfigurationCommandOutput> {
+): Promise<GetBucketAnalyticsConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetBucketAnalyticsConfigurationCommandError(
       output,
@@ -6307,12 +6307,12 @@ export async function deserializeAws_restXmlGetBucketAnalyticsConfigurationComma
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetBucketAnalyticsConfigurationCommandError(
+const deserializeAws_restXmlGetBucketAnalyticsConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBucketAnalyticsConfigurationCommandOutput> {
+): Promise<GetBucketAnalyticsConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6336,12 +6336,12 @@ async function deserializeAws_restXmlGetBucketAnalyticsConfigurationCommandError
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetBucketCorsCommand(
+export const deserializeAws_restXmlGetBucketCorsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBucketCorsCommandOutput> {
+): Promise<GetBucketCorsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetBucketCorsCommandError(output, context);
   }
@@ -6360,12 +6360,12 @@ export async function deserializeAws_restXmlGetBucketCorsCommand(
     contents.CORSRules = deserializeAws_restXmlCORSRules(wrappedItem, context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetBucketCorsCommandError(
+const deserializeAws_restXmlGetBucketCorsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBucketCorsCommandOutput> {
+): Promise<GetBucketCorsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6389,12 +6389,12 @@ async function deserializeAws_restXmlGetBucketCorsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetBucketEncryptionCommand(
+export const deserializeAws_restXmlGetBucketEncryptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBucketEncryptionCommandOutput> {
+): Promise<GetBucketEncryptionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetBucketEncryptionCommandError(
       output,
@@ -6412,12 +6412,12 @@ export async function deserializeAws_restXmlGetBucketEncryptionCommand(
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetBucketEncryptionCommandError(
+const deserializeAws_restXmlGetBucketEncryptionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBucketEncryptionCommandOutput> {
+): Promise<GetBucketEncryptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6441,12 +6441,12 @@ async function deserializeAws_restXmlGetBucketEncryptionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetBucketInventoryConfigurationCommand(
+export const deserializeAws_restXmlGetBucketInventoryConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBucketInventoryConfigurationCommandOutput> {
+): Promise<GetBucketInventoryConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetBucketInventoryConfigurationCommandError(
       output,
@@ -6464,12 +6464,12 @@ export async function deserializeAws_restXmlGetBucketInventoryConfigurationComma
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetBucketInventoryConfigurationCommandError(
+const deserializeAws_restXmlGetBucketInventoryConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBucketInventoryConfigurationCommandOutput> {
+): Promise<GetBucketInventoryConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6493,12 +6493,12 @@ async function deserializeAws_restXmlGetBucketInventoryConfigurationCommandError
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetBucketLifecycleConfigurationCommand(
+export const deserializeAws_restXmlGetBucketLifecycleConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBucketLifecycleConfigurationCommandOutput> {
+): Promise<GetBucketLifecycleConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetBucketLifecycleConfigurationCommandError(
       output,
@@ -6520,12 +6520,12 @@ export async function deserializeAws_restXmlGetBucketLifecycleConfigurationComma
     contents.Rules = deserializeAws_restXmlLifecycleRules(wrappedItem, context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetBucketLifecycleConfigurationCommandError(
+const deserializeAws_restXmlGetBucketLifecycleConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBucketLifecycleConfigurationCommandOutput> {
+): Promise<GetBucketLifecycleConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6549,12 +6549,12 @@ async function deserializeAws_restXmlGetBucketLifecycleConfigurationCommandError
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetBucketLocationCommand(
+export const deserializeAws_restXmlGetBucketLocationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBucketLocationCommandOutput> {
+): Promise<GetBucketLocationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetBucketLocationCommandError(output, context);
   }
@@ -6571,12 +6571,12 @@ export async function deserializeAws_restXmlGetBucketLocationCommand(
         : data["LocationConstraint"];
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetBucketLocationCommandError(
+const deserializeAws_restXmlGetBucketLocationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBucketLocationCommandOutput> {
+): Promise<GetBucketLocationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6600,12 +6600,12 @@ async function deserializeAws_restXmlGetBucketLocationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetBucketLoggingCommand(
+export const deserializeAws_restXmlGetBucketLoggingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBucketLoggingCommandOutput> {
+): Promise<GetBucketLoggingCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetBucketLoggingCommandError(output, context);
   }
@@ -6622,12 +6622,12 @@ export async function deserializeAws_restXmlGetBucketLoggingCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetBucketLoggingCommandError(
+const deserializeAws_restXmlGetBucketLoggingCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBucketLoggingCommandOutput> {
+): Promise<GetBucketLoggingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6651,12 +6651,12 @@ async function deserializeAws_restXmlGetBucketLoggingCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetBucketMetricsConfigurationCommand(
+export const deserializeAws_restXmlGetBucketMetricsConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBucketMetricsConfigurationCommandOutput> {
+): Promise<GetBucketMetricsConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetBucketMetricsConfigurationCommandError(
       output,
@@ -6674,12 +6674,12 @@ export async function deserializeAws_restXmlGetBucketMetricsConfigurationCommand
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetBucketMetricsConfigurationCommandError(
+const deserializeAws_restXmlGetBucketMetricsConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBucketMetricsConfigurationCommandOutput> {
+): Promise<GetBucketMetricsConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6703,12 +6703,12 @@ async function deserializeAws_restXmlGetBucketMetricsConfigurationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetBucketNotificationConfigurationCommand(
+export const deserializeAws_restXmlGetBucketNotificationConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBucketNotificationConfigurationCommandOutput> {
+): Promise<GetBucketNotificationConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetBucketNotificationConfigurationCommandError(
       output,
@@ -6763,12 +6763,12 @@ export async function deserializeAws_restXmlGetBucketNotificationConfigurationCo
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetBucketNotificationConfigurationCommandError(
+const deserializeAws_restXmlGetBucketNotificationConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBucketNotificationConfigurationCommandOutput> {
+): Promise<GetBucketNotificationConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6792,12 +6792,12 @@ async function deserializeAws_restXmlGetBucketNotificationConfigurationCommandEr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetBucketPolicyCommand(
+export const deserializeAws_restXmlGetBucketPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBucketPolicyCommandOutput> {
+): Promise<GetBucketPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetBucketPolicyCommandError(output, context);
   }
@@ -6814,12 +6814,12 @@ export async function deserializeAws_restXmlGetBucketPolicyCommand(
         : data["Policy"];
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetBucketPolicyCommandError(
+const deserializeAws_restXmlGetBucketPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBucketPolicyCommandOutput> {
+): Promise<GetBucketPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6843,12 +6843,12 @@ async function deserializeAws_restXmlGetBucketPolicyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetBucketPolicyStatusCommand(
+export const deserializeAws_restXmlGetBucketPolicyStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBucketPolicyStatusCommandOutput> {
+): Promise<GetBucketPolicyStatusCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetBucketPolicyStatusCommandError(
       output,
@@ -6863,12 +6863,12 @@ export async function deserializeAws_restXmlGetBucketPolicyStatusCommand(
   const data: any = await parseBody(output.body, context);
   contents.PolicyStatus = deserializeAws_restXmlPolicyStatus(data, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetBucketPolicyStatusCommandError(
+const deserializeAws_restXmlGetBucketPolicyStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBucketPolicyStatusCommandOutput> {
+): Promise<GetBucketPolicyStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6892,12 +6892,12 @@ async function deserializeAws_restXmlGetBucketPolicyStatusCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetBucketReplicationCommand(
+export const deserializeAws_restXmlGetBucketReplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBucketReplicationCommandOutput> {
+): Promise<GetBucketReplicationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetBucketReplicationCommandError(
       output,
@@ -6915,12 +6915,12 @@ export async function deserializeAws_restXmlGetBucketReplicationCommand(
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetBucketReplicationCommandError(
+const deserializeAws_restXmlGetBucketReplicationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBucketReplicationCommandOutput> {
+): Promise<GetBucketReplicationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6944,12 +6944,12 @@ async function deserializeAws_restXmlGetBucketReplicationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetBucketRequestPaymentCommand(
+export const deserializeAws_restXmlGetBucketRequestPaymentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBucketRequestPaymentCommandOutput> {
+): Promise<GetBucketRequestPaymentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetBucketRequestPaymentCommandError(
       output,
@@ -6969,12 +6969,12 @@ export async function deserializeAws_restXmlGetBucketRequestPaymentCommand(
         : data["Payer"];
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetBucketRequestPaymentCommandError(
+const deserializeAws_restXmlGetBucketRequestPaymentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBucketRequestPaymentCommandOutput> {
+): Promise<GetBucketRequestPaymentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6998,12 +6998,12 @@ async function deserializeAws_restXmlGetBucketRequestPaymentCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetBucketTaggingCommand(
+export const deserializeAws_restXmlGetBucketTaggingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBucketTaggingCommandOutput> {
+): Promise<GetBucketTaggingCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetBucketTaggingCommandError(output, context);
   }
@@ -7024,12 +7024,12 @@ export async function deserializeAws_restXmlGetBucketTaggingCommand(
     contents.TagSet = deserializeAws_restXmlTagSet(wrappedItem, context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetBucketTaggingCommandError(
+const deserializeAws_restXmlGetBucketTaggingCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBucketTaggingCommandOutput> {
+): Promise<GetBucketTaggingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -7053,12 +7053,12 @@ async function deserializeAws_restXmlGetBucketTaggingCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetBucketVersioningCommand(
+export const deserializeAws_restXmlGetBucketVersioningCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBucketVersioningCommandOutput> {
+): Promise<GetBucketVersioningCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetBucketVersioningCommandError(
       output,
@@ -7085,12 +7085,12 @@ export async function deserializeAws_restXmlGetBucketVersioningCommand(
         : data["Status"];
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetBucketVersioningCommandError(
+const deserializeAws_restXmlGetBucketVersioningCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBucketVersioningCommandOutput> {
+): Promise<GetBucketVersioningCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -7114,12 +7114,12 @@ async function deserializeAws_restXmlGetBucketVersioningCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetBucketWebsiteCommand(
+export const deserializeAws_restXmlGetBucketWebsiteCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBucketWebsiteCommandOutput> {
+): Promise<GetBucketWebsiteCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetBucketWebsiteCommandError(output, context);
   }
@@ -7167,12 +7167,12 @@ export async function deserializeAws_restXmlGetBucketWebsiteCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetBucketWebsiteCommandError(
+const deserializeAws_restXmlGetBucketWebsiteCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBucketWebsiteCommandOutput> {
+): Promise<GetBucketWebsiteCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -7196,12 +7196,12 @@ async function deserializeAws_restXmlGetBucketWebsiteCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetObjectCommand(
+export const deserializeAws_restXmlGetObjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetObjectCommandOutput> {
+): Promise<GetObjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetObjectCommandError(output, context);
   }
@@ -7354,12 +7354,12 @@ export async function deserializeAws_restXmlGetObjectCommand(
   const data: any = output.body;
   contents.Body = data;
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetObjectCommandError(
+const deserializeAws_restXmlGetObjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetObjectCommandOutput> {
+): Promise<GetObjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -7394,12 +7394,12 @@ async function deserializeAws_restXmlGetObjectCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetObjectAclCommand(
+export const deserializeAws_restXmlGetObjectAclCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetObjectAclCommandOutput> {
+): Promise<GetObjectAclCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetObjectAclCommandError(output, context);
   }
@@ -7431,12 +7431,12 @@ export async function deserializeAws_restXmlGetObjectAclCommand(
     contents.Owner = deserializeAws_restXmlOwner(data["Owner"], context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetObjectAclCommandError(
+const deserializeAws_restXmlGetObjectAclCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetObjectAclCommandOutput> {
+): Promise<GetObjectAclCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -7471,12 +7471,12 @@ async function deserializeAws_restXmlGetObjectAclCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetObjectLegalHoldCommand(
+export const deserializeAws_restXmlGetObjectLegalHoldCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetObjectLegalHoldCommandOutput> {
+): Promise<GetObjectLegalHoldCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetObjectLegalHoldCommandError(
       output,
@@ -7491,12 +7491,12 @@ export async function deserializeAws_restXmlGetObjectLegalHoldCommand(
   const data: any = await parseBody(output.body, context);
   contents.LegalHold = deserializeAws_restXmlObjectLockLegalHold(data, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetObjectLegalHoldCommandError(
+const deserializeAws_restXmlGetObjectLegalHoldCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetObjectLegalHoldCommandOutput> {
+): Promise<GetObjectLegalHoldCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -7520,12 +7520,12 @@ async function deserializeAws_restXmlGetObjectLegalHoldCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetObjectLockConfigurationCommand(
+export const deserializeAws_restXmlGetObjectLockConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetObjectLockConfigurationCommandOutput> {
+): Promise<GetObjectLockConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetObjectLockConfigurationCommandError(
       output,
@@ -7543,12 +7543,12 @@ export async function deserializeAws_restXmlGetObjectLockConfigurationCommand(
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetObjectLockConfigurationCommandError(
+const deserializeAws_restXmlGetObjectLockConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetObjectLockConfigurationCommandOutput> {
+): Promise<GetObjectLockConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -7572,12 +7572,12 @@ async function deserializeAws_restXmlGetObjectLockConfigurationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetObjectRetentionCommand(
+export const deserializeAws_restXmlGetObjectRetentionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetObjectRetentionCommandOutput> {
+): Promise<GetObjectRetentionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetObjectRetentionCommandError(
       output,
@@ -7592,12 +7592,12 @@ export async function deserializeAws_restXmlGetObjectRetentionCommand(
   const data: any = await parseBody(output.body, context);
   contents.Retention = deserializeAws_restXmlObjectLockRetention(data, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetObjectRetentionCommandError(
+const deserializeAws_restXmlGetObjectRetentionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetObjectRetentionCommandOutput> {
+): Promise<GetObjectRetentionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -7621,12 +7621,12 @@ async function deserializeAws_restXmlGetObjectRetentionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetObjectTaggingCommand(
+export const deserializeAws_restXmlGetObjectTaggingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetObjectTaggingCommandOutput> {
+): Promise<GetObjectTaggingCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetObjectTaggingCommandError(output, context);
   }
@@ -7651,12 +7651,12 @@ export async function deserializeAws_restXmlGetObjectTaggingCommand(
     contents.TagSet = deserializeAws_restXmlTagSet(wrappedItem, context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetObjectTaggingCommandError(
+const deserializeAws_restXmlGetObjectTaggingCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetObjectTaggingCommandOutput> {
+): Promise<GetObjectTaggingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -7680,12 +7680,12 @@ async function deserializeAws_restXmlGetObjectTaggingCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetObjectTorrentCommand(
+export const deserializeAws_restXmlGetObjectTorrentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetObjectTorrentCommandOutput> {
+): Promise<GetObjectTorrentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetObjectTorrentCommandError(output, context);
   }
@@ -7701,12 +7701,12 @@ export async function deserializeAws_restXmlGetObjectTorrentCommand(
   const data: any = output.body;
   contents.Body = data;
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetObjectTorrentCommandError(
+const deserializeAws_restXmlGetObjectTorrentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetObjectTorrentCommandOutput> {
+): Promise<GetObjectTorrentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -7730,12 +7730,12 @@ async function deserializeAws_restXmlGetObjectTorrentCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetPublicAccessBlockCommand(
+export const deserializeAws_restXmlGetPublicAccessBlockCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetPublicAccessBlockCommandOutput> {
+): Promise<GetPublicAccessBlockCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetPublicAccessBlockCommandError(
       output,
@@ -7753,12 +7753,12 @@ export async function deserializeAws_restXmlGetPublicAccessBlockCommand(
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetPublicAccessBlockCommandError(
+const deserializeAws_restXmlGetPublicAccessBlockCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetPublicAccessBlockCommandOutput> {
+): Promise<GetPublicAccessBlockCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -7782,12 +7782,12 @@ async function deserializeAws_restXmlGetPublicAccessBlockCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlHeadBucketCommand(
+export const deserializeAws_restXmlHeadBucketCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<HeadBucketCommandOutput> {
+): Promise<HeadBucketCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlHeadBucketCommandError(output, context);
   }
@@ -7796,12 +7796,12 @@ export async function deserializeAws_restXmlHeadBucketCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlHeadBucketCommandError(
+const deserializeAws_restXmlHeadBucketCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<HeadBucketCommandOutput> {
+): Promise<HeadBucketCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -7836,12 +7836,12 @@ async function deserializeAws_restXmlHeadBucketCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlHeadObjectCommand(
+export const deserializeAws_restXmlHeadObjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<HeadObjectCommandOutput> {
+): Promise<HeadObjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlHeadObjectCommandError(output, context);
   }
@@ -7984,12 +7984,12 @@ export async function deserializeAws_restXmlHeadObjectCommand(
   });
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlHeadObjectCommandError(
+const deserializeAws_restXmlHeadObjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<HeadObjectCommandOutput> {
+): Promise<HeadObjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -8024,12 +8024,12 @@ async function deserializeAws_restXmlHeadObjectCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlListBucketAnalyticsConfigurationsCommand(
+export const deserializeAws_restXmlListBucketAnalyticsConfigurationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListBucketAnalyticsConfigurationsCommandOutput> {
+): Promise<ListBucketAnalyticsConfigurationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlListBucketAnalyticsConfigurationsCommandError(
       output,
@@ -8077,12 +8077,12 @@ export async function deserializeAws_restXmlListBucketAnalyticsConfigurationsCom
         : data["NextContinuationToken"];
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlListBucketAnalyticsConfigurationsCommandError(
+const deserializeAws_restXmlListBucketAnalyticsConfigurationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListBucketAnalyticsConfigurationsCommandOutput> {
+): Promise<ListBucketAnalyticsConfigurationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -8106,12 +8106,12 @@ async function deserializeAws_restXmlListBucketAnalyticsConfigurationsCommandErr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlListBucketInventoryConfigurationsCommand(
+export const deserializeAws_restXmlListBucketInventoryConfigurationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListBucketInventoryConfigurationsCommandOutput> {
+): Promise<ListBucketInventoryConfigurationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlListBucketInventoryConfigurationsCommandError(
       output,
@@ -8159,12 +8159,12 @@ export async function deserializeAws_restXmlListBucketInventoryConfigurationsCom
         : data["NextContinuationToken"];
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlListBucketInventoryConfigurationsCommandError(
+const deserializeAws_restXmlListBucketInventoryConfigurationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListBucketInventoryConfigurationsCommandOutput> {
+): Promise<ListBucketInventoryConfigurationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -8188,12 +8188,12 @@ async function deserializeAws_restXmlListBucketInventoryConfigurationsCommandErr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlListBucketMetricsConfigurationsCommand(
+export const deserializeAws_restXmlListBucketMetricsConfigurationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListBucketMetricsConfigurationsCommandOutput> {
+): Promise<ListBucketMetricsConfigurationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlListBucketMetricsConfigurationsCommandError(
       output,
@@ -8241,12 +8241,12 @@ export async function deserializeAws_restXmlListBucketMetricsConfigurationsComma
         : data["NextContinuationToken"];
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlListBucketMetricsConfigurationsCommandError(
+const deserializeAws_restXmlListBucketMetricsConfigurationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListBucketMetricsConfigurationsCommandOutput> {
+): Promise<ListBucketMetricsConfigurationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -8270,12 +8270,12 @@ async function deserializeAws_restXmlListBucketMetricsConfigurationsCommandError
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlListBucketsCommand(
+export const deserializeAws_restXmlListBucketsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListBucketsCommandOutput> {
+): Promise<ListBucketsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlListBucketsCommandError(output, context);
   }
@@ -8303,12 +8303,12 @@ export async function deserializeAws_restXmlListBucketsCommand(
     contents.Owner = deserializeAws_restXmlOwner(data["Owner"], context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlListBucketsCommandError(
+const deserializeAws_restXmlListBucketsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListBucketsCommandOutput> {
+): Promise<ListBucketsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -8332,12 +8332,12 @@ async function deserializeAws_restXmlListBucketsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlListMultipartUploadsCommand(
+export const deserializeAws_restXmlListMultipartUploadsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListMultipartUploadsCommandOutput> {
+): Promise<ListMultipartUploadsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlListMultipartUploadsCommandError(
       output,
@@ -8447,12 +8447,12 @@ export async function deserializeAws_restXmlListMultipartUploadsCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlListMultipartUploadsCommandError(
+const deserializeAws_restXmlListMultipartUploadsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListMultipartUploadsCommandOutput> {
+): Promise<ListMultipartUploadsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -8476,12 +8476,12 @@ async function deserializeAws_restXmlListMultipartUploadsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlListObjectVersionsCommand(
+export const deserializeAws_restXmlListObjectVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListObjectVersionsCommandOutput> {
+): Promise<ListObjectVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlListObjectVersionsCommandError(
       output,
@@ -8605,12 +8605,12 @@ export async function deserializeAws_restXmlListObjectVersionsCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlListObjectVersionsCommandError(
+const deserializeAws_restXmlListObjectVersionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListObjectVersionsCommandOutput> {
+): Promise<ListObjectVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -8634,12 +8634,12 @@ async function deserializeAws_restXmlListObjectVersionsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlListObjectsCommand(
+export const deserializeAws_restXmlListObjectsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListObjectsCommandOutput> {
+): Promise<ListObjectsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlListObjectsCommandError(output, context);
   }
@@ -8729,12 +8729,12 @@ export async function deserializeAws_restXmlListObjectsCommand(
         : data["Prefix"];
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlListObjectsCommandError(
+const deserializeAws_restXmlListObjectsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListObjectsCommandOutput> {
+): Promise<ListObjectsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -8769,12 +8769,12 @@ async function deserializeAws_restXmlListObjectsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlListObjectsV2Command(
+export const deserializeAws_restXmlListObjectsV2Command = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListObjectsV2CommandOutput> {
+): Promise<ListObjectsV2CommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlListObjectsV2CommandError(output, context);
   }
@@ -8879,12 +8879,12 @@ export async function deserializeAws_restXmlListObjectsV2Command(
         : data["StartAfter"];
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlListObjectsV2CommandError(
+const deserializeAws_restXmlListObjectsV2CommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListObjectsV2CommandOutput> {
+): Promise<ListObjectsV2CommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -8919,12 +8919,12 @@ async function deserializeAws_restXmlListObjectsV2CommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlListPartsCommand(
+export const deserializeAws_restXmlListPartsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListPartsCommandOutput> {
+): Promise<ListPartsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlListPartsCommandError(output, context);
   }
@@ -9023,12 +9023,12 @@ export async function deserializeAws_restXmlListPartsCommand(
         : data["UploadId"];
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlListPartsCommandError(
+const deserializeAws_restXmlListPartsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListPartsCommandOutput> {
+): Promise<ListPartsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -9052,12 +9052,12 @@ async function deserializeAws_restXmlListPartsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlPutBucketAccelerateConfigurationCommand(
+export const deserializeAws_restXmlPutBucketAccelerateConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutBucketAccelerateConfigurationCommandOutput> {
+): Promise<PutBucketAccelerateConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlPutBucketAccelerateConfigurationCommandError(
       output,
@@ -9069,12 +9069,12 @@ export async function deserializeAws_restXmlPutBucketAccelerateConfigurationComm
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlPutBucketAccelerateConfigurationCommandError(
+const deserializeAws_restXmlPutBucketAccelerateConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutBucketAccelerateConfigurationCommandOutput> {
+): Promise<PutBucketAccelerateConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -9098,12 +9098,12 @@ async function deserializeAws_restXmlPutBucketAccelerateConfigurationCommandErro
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlPutBucketAclCommand(
+export const deserializeAws_restXmlPutBucketAclCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutBucketAclCommandOutput> {
+): Promise<PutBucketAclCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlPutBucketAclCommandError(output, context);
   }
@@ -9112,12 +9112,12 @@ export async function deserializeAws_restXmlPutBucketAclCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlPutBucketAclCommandError(
+const deserializeAws_restXmlPutBucketAclCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutBucketAclCommandOutput> {
+): Promise<PutBucketAclCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -9141,12 +9141,12 @@ async function deserializeAws_restXmlPutBucketAclCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlPutBucketAnalyticsConfigurationCommand(
+export const deserializeAws_restXmlPutBucketAnalyticsConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutBucketAnalyticsConfigurationCommandOutput> {
+): Promise<PutBucketAnalyticsConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlPutBucketAnalyticsConfigurationCommandError(
       output,
@@ -9158,12 +9158,12 @@ export async function deserializeAws_restXmlPutBucketAnalyticsConfigurationComma
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlPutBucketAnalyticsConfigurationCommandError(
+const deserializeAws_restXmlPutBucketAnalyticsConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutBucketAnalyticsConfigurationCommandOutput> {
+): Promise<PutBucketAnalyticsConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -9187,12 +9187,12 @@ async function deserializeAws_restXmlPutBucketAnalyticsConfigurationCommandError
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlPutBucketCorsCommand(
+export const deserializeAws_restXmlPutBucketCorsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutBucketCorsCommandOutput> {
+): Promise<PutBucketCorsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlPutBucketCorsCommandError(output, context);
   }
@@ -9201,12 +9201,12 @@ export async function deserializeAws_restXmlPutBucketCorsCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlPutBucketCorsCommandError(
+const deserializeAws_restXmlPutBucketCorsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutBucketCorsCommandOutput> {
+): Promise<PutBucketCorsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -9230,12 +9230,12 @@ async function deserializeAws_restXmlPutBucketCorsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlPutBucketEncryptionCommand(
+export const deserializeAws_restXmlPutBucketEncryptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutBucketEncryptionCommandOutput> {
+): Promise<PutBucketEncryptionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlPutBucketEncryptionCommandError(
       output,
@@ -9247,12 +9247,12 @@ export async function deserializeAws_restXmlPutBucketEncryptionCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlPutBucketEncryptionCommandError(
+const deserializeAws_restXmlPutBucketEncryptionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutBucketEncryptionCommandOutput> {
+): Promise<PutBucketEncryptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -9276,12 +9276,12 @@ async function deserializeAws_restXmlPutBucketEncryptionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlPutBucketInventoryConfigurationCommand(
+export const deserializeAws_restXmlPutBucketInventoryConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutBucketInventoryConfigurationCommandOutput> {
+): Promise<PutBucketInventoryConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlPutBucketInventoryConfigurationCommandError(
       output,
@@ -9293,12 +9293,12 @@ export async function deserializeAws_restXmlPutBucketInventoryConfigurationComma
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlPutBucketInventoryConfigurationCommandError(
+const deserializeAws_restXmlPutBucketInventoryConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutBucketInventoryConfigurationCommandOutput> {
+): Promise<PutBucketInventoryConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -9322,12 +9322,12 @@ async function deserializeAws_restXmlPutBucketInventoryConfigurationCommandError
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlPutBucketLifecycleConfigurationCommand(
+export const deserializeAws_restXmlPutBucketLifecycleConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutBucketLifecycleConfigurationCommandOutput> {
+): Promise<PutBucketLifecycleConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlPutBucketLifecycleConfigurationCommandError(
       output,
@@ -9339,12 +9339,12 @@ export async function deserializeAws_restXmlPutBucketLifecycleConfigurationComma
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlPutBucketLifecycleConfigurationCommandError(
+const deserializeAws_restXmlPutBucketLifecycleConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutBucketLifecycleConfigurationCommandOutput> {
+): Promise<PutBucketLifecycleConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -9368,12 +9368,12 @@ async function deserializeAws_restXmlPutBucketLifecycleConfigurationCommandError
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlPutBucketLoggingCommand(
+export const deserializeAws_restXmlPutBucketLoggingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutBucketLoggingCommandOutput> {
+): Promise<PutBucketLoggingCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlPutBucketLoggingCommandError(output, context);
   }
@@ -9382,12 +9382,12 @@ export async function deserializeAws_restXmlPutBucketLoggingCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlPutBucketLoggingCommandError(
+const deserializeAws_restXmlPutBucketLoggingCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutBucketLoggingCommandOutput> {
+): Promise<PutBucketLoggingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -9411,12 +9411,12 @@ async function deserializeAws_restXmlPutBucketLoggingCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlPutBucketMetricsConfigurationCommand(
+export const deserializeAws_restXmlPutBucketMetricsConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutBucketMetricsConfigurationCommandOutput> {
+): Promise<PutBucketMetricsConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlPutBucketMetricsConfigurationCommandError(
       output,
@@ -9428,12 +9428,12 @@ export async function deserializeAws_restXmlPutBucketMetricsConfigurationCommand
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlPutBucketMetricsConfigurationCommandError(
+const deserializeAws_restXmlPutBucketMetricsConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutBucketMetricsConfigurationCommandOutput> {
+): Promise<PutBucketMetricsConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -9457,12 +9457,12 @@ async function deserializeAws_restXmlPutBucketMetricsConfigurationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlPutBucketNotificationConfigurationCommand(
+export const deserializeAws_restXmlPutBucketNotificationConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutBucketNotificationConfigurationCommandOutput> {
+): Promise<PutBucketNotificationConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlPutBucketNotificationConfigurationCommandError(
       output,
@@ -9474,12 +9474,12 @@ export async function deserializeAws_restXmlPutBucketNotificationConfigurationCo
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlPutBucketNotificationConfigurationCommandError(
+const deserializeAws_restXmlPutBucketNotificationConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutBucketNotificationConfigurationCommandOutput> {
+): Promise<PutBucketNotificationConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -9503,12 +9503,12 @@ async function deserializeAws_restXmlPutBucketNotificationConfigurationCommandEr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlPutBucketPolicyCommand(
+export const deserializeAws_restXmlPutBucketPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutBucketPolicyCommandOutput> {
+): Promise<PutBucketPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlPutBucketPolicyCommandError(output, context);
   }
@@ -9517,12 +9517,12 @@ export async function deserializeAws_restXmlPutBucketPolicyCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlPutBucketPolicyCommandError(
+const deserializeAws_restXmlPutBucketPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutBucketPolicyCommandOutput> {
+): Promise<PutBucketPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -9546,12 +9546,12 @@ async function deserializeAws_restXmlPutBucketPolicyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlPutBucketReplicationCommand(
+export const deserializeAws_restXmlPutBucketReplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutBucketReplicationCommandOutput> {
+): Promise<PutBucketReplicationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlPutBucketReplicationCommandError(
       output,
@@ -9563,12 +9563,12 @@ export async function deserializeAws_restXmlPutBucketReplicationCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlPutBucketReplicationCommandError(
+const deserializeAws_restXmlPutBucketReplicationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutBucketReplicationCommandOutput> {
+): Promise<PutBucketReplicationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -9592,12 +9592,12 @@ async function deserializeAws_restXmlPutBucketReplicationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlPutBucketRequestPaymentCommand(
+export const deserializeAws_restXmlPutBucketRequestPaymentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutBucketRequestPaymentCommandOutput> {
+): Promise<PutBucketRequestPaymentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlPutBucketRequestPaymentCommandError(
       output,
@@ -9609,12 +9609,12 @@ export async function deserializeAws_restXmlPutBucketRequestPaymentCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlPutBucketRequestPaymentCommandError(
+const deserializeAws_restXmlPutBucketRequestPaymentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutBucketRequestPaymentCommandOutput> {
+): Promise<PutBucketRequestPaymentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -9638,12 +9638,12 @@ async function deserializeAws_restXmlPutBucketRequestPaymentCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlPutBucketTaggingCommand(
+export const deserializeAws_restXmlPutBucketTaggingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutBucketTaggingCommandOutput> {
+): Promise<PutBucketTaggingCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlPutBucketTaggingCommandError(output, context);
   }
@@ -9652,12 +9652,12 @@ export async function deserializeAws_restXmlPutBucketTaggingCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlPutBucketTaggingCommandError(
+const deserializeAws_restXmlPutBucketTaggingCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutBucketTaggingCommandOutput> {
+): Promise<PutBucketTaggingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -9681,12 +9681,12 @@ async function deserializeAws_restXmlPutBucketTaggingCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlPutBucketVersioningCommand(
+export const deserializeAws_restXmlPutBucketVersioningCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutBucketVersioningCommandOutput> {
+): Promise<PutBucketVersioningCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlPutBucketVersioningCommandError(
       output,
@@ -9698,12 +9698,12 @@ export async function deserializeAws_restXmlPutBucketVersioningCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlPutBucketVersioningCommandError(
+const deserializeAws_restXmlPutBucketVersioningCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutBucketVersioningCommandOutput> {
+): Promise<PutBucketVersioningCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -9727,12 +9727,12 @@ async function deserializeAws_restXmlPutBucketVersioningCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlPutBucketWebsiteCommand(
+export const deserializeAws_restXmlPutBucketWebsiteCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutBucketWebsiteCommandOutput> {
+): Promise<PutBucketWebsiteCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlPutBucketWebsiteCommandError(output, context);
   }
@@ -9741,12 +9741,12 @@ export async function deserializeAws_restXmlPutBucketWebsiteCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlPutBucketWebsiteCommandError(
+const deserializeAws_restXmlPutBucketWebsiteCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutBucketWebsiteCommandOutput> {
+): Promise<PutBucketWebsiteCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -9770,12 +9770,12 @@ async function deserializeAws_restXmlPutBucketWebsiteCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlPutObjectCommand(
+export const deserializeAws_restXmlPutObjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutObjectCommandOutput> {
+): Promise<PutObjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlPutObjectCommandError(output, context);
   }
@@ -9834,12 +9834,12 @@ export async function deserializeAws_restXmlPutObjectCommand(
   }
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlPutObjectCommandError(
+const deserializeAws_restXmlPutObjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutObjectCommandOutput> {
+): Promise<PutObjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -9863,12 +9863,12 @@ async function deserializeAws_restXmlPutObjectCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlPutObjectAclCommand(
+export const deserializeAws_restXmlPutObjectAclCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutObjectAclCommandOutput> {
+): Promise<PutObjectAclCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlPutObjectAclCommandError(output, context);
   }
@@ -9882,12 +9882,12 @@ export async function deserializeAws_restXmlPutObjectAclCommand(
   }
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlPutObjectAclCommandError(
+const deserializeAws_restXmlPutObjectAclCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutObjectAclCommandOutput> {
+): Promise<PutObjectAclCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -9922,12 +9922,12 @@ async function deserializeAws_restXmlPutObjectAclCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlPutObjectLegalHoldCommand(
+export const deserializeAws_restXmlPutObjectLegalHoldCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutObjectLegalHoldCommandOutput> {
+): Promise<PutObjectLegalHoldCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlPutObjectLegalHoldCommandError(
       output,
@@ -9944,12 +9944,12 @@ export async function deserializeAws_restXmlPutObjectLegalHoldCommand(
   }
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlPutObjectLegalHoldCommandError(
+const deserializeAws_restXmlPutObjectLegalHoldCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutObjectLegalHoldCommandOutput> {
+): Promise<PutObjectLegalHoldCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -9973,12 +9973,12 @@ async function deserializeAws_restXmlPutObjectLegalHoldCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlPutObjectLockConfigurationCommand(
+export const deserializeAws_restXmlPutObjectLockConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutObjectLockConfigurationCommandOutput> {
+): Promise<PutObjectLockConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlPutObjectLockConfigurationCommandError(
       output,
@@ -9995,12 +9995,12 @@ export async function deserializeAws_restXmlPutObjectLockConfigurationCommand(
   }
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlPutObjectLockConfigurationCommandError(
+const deserializeAws_restXmlPutObjectLockConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutObjectLockConfigurationCommandOutput> {
+): Promise<PutObjectLockConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -10024,12 +10024,12 @@ async function deserializeAws_restXmlPutObjectLockConfigurationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlPutObjectRetentionCommand(
+export const deserializeAws_restXmlPutObjectRetentionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutObjectRetentionCommandOutput> {
+): Promise<PutObjectRetentionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlPutObjectRetentionCommandError(
       output,
@@ -10046,12 +10046,12 @@ export async function deserializeAws_restXmlPutObjectRetentionCommand(
   }
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlPutObjectRetentionCommandError(
+const deserializeAws_restXmlPutObjectRetentionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutObjectRetentionCommandOutput> {
+): Promise<PutObjectRetentionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -10075,12 +10075,12 @@ async function deserializeAws_restXmlPutObjectRetentionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlPutObjectTaggingCommand(
+export const deserializeAws_restXmlPutObjectTaggingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutObjectTaggingCommandOutput> {
+): Promise<PutObjectTaggingCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlPutObjectTaggingCommandError(output, context);
   }
@@ -10094,12 +10094,12 @@ export async function deserializeAws_restXmlPutObjectTaggingCommand(
   }
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlPutObjectTaggingCommandError(
+const deserializeAws_restXmlPutObjectTaggingCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutObjectTaggingCommandOutput> {
+): Promise<PutObjectTaggingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -10123,12 +10123,12 @@ async function deserializeAws_restXmlPutObjectTaggingCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlPutPublicAccessBlockCommand(
+export const deserializeAws_restXmlPutPublicAccessBlockCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutPublicAccessBlockCommandOutput> {
+): Promise<PutPublicAccessBlockCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlPutPublicAccessBlockCommandError(
       output,
@@ -10140,12 +10140,12 @@ export async function deserializeAws_restXmlPutPublicAccessBlockCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlPutPublicAccessBlockCommandError(
+const deserializeAws_restXmlPutPublicAccessBlockCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutPublicAccessBlockCommandOutput> {
+): Promise<PutPublicAccessBlockCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -10169,12 +10169,12 @@ async function deserializeAws_restXmlPutPublicAccessBlockCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlRestoreObjectCommand(
+export const deserializeAws_restXmlRestoreObjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RestoreObjectCommandOutput> {
+): Promise<RestoreObjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlRestoreObjectCommandError(output, context);
   }
@@ -10192,12 +10192,12 @@ export async function deserializeAws_restXmlRestoreObjectCommand(
   }
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlRestoreObjectCommandError(
+const deserializeAws_restXmlRestoreObjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RestoreObjectCommandOutput> {
+): Promise<RestoreObjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -10232,12 +10232,12 @@ async function deserializeAws_restXmlRestoreObjectCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlSelectObjectContentCommand(
+export const deserializeAws_restXmlSelectObjectContentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext & __EventStreamSerdeContext
-): Promise<SelectObjectContentCommandOutput> {
+): Promise<SelectObjectContentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlSelectObjectContentCommandError(
       output,
@@ -10275,12 +10275,12 @@ export async function deserializeAws_restXmlSelectObjectContentCommand(
   );
   contents.Payload = data;
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlSelectObjectContentCommandError(
+const deserializeAws_restXmlSelectObjectContentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SelectObjectContentCommandOutput> {
+): Promise<SelectObjectContentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -10304,12 +10304,12 @@ async function deserializeAws_restXmlSelectObjectContentCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlUploadPartCommand(
+export const deserializeAws_restXmlUploadPartCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UploadPartCommandOutput> {
+): Promise<UploadPartCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlUploadPartCommandError(output, context);
   }
@@ -10355,12 +10355,12 @@ export async function deserializeAws_restXmlUploadPartCommand(
   }
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlUploadPartCommandError(
+const deserializeAws_restXmlUploadPartCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UploadPartCommandOutput> {
+): Promise<UploadPartCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -10384,12 +10384,12 @@ async function deserializeAws_restXmlUploadPartCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlUploadPartCopyCommand(
+export const deserializeAws_restXmlUploadPartCopyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UploadPartCopyCommandOutput> {
+): Promise<UploadPartCopyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlUploadPartCopyCommandError(output, context);
   }
@@ -10438,12 +10438,12 @@ export async function deserializeAws_restXmlUploadPartCopyCommand(
   const data: any = await parseBody(output.body, context);
   contents.CopyPartResult = deserializeAws_restXmlCopyPartResult(data, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlUploadPartCopyCommandError(
+const deserializeAws_restXmlUploadPartCopyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UploadPartCopyCommandOutput> {
+): Promise<UploadPartCopyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -10467,7 +10467,7 @@ async function deserializeAws_restXmlUploadPartCopyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restXmlSelectObjectContentEventStream_event = async (
   output: any,

@@ -53,10 +53,10 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_restJson1_1BatchExecuteStatementCommand(
+export const serializeAws_restJson1_1BatchExecuteStatementCommand = async (
   input: BatchExecuteStatementCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/BatchExecute";
@@ -97,12 +97,12 @@ export async function serializeAws_restJson1_1BatchExecuteStatementCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1BeginTransactionCommand(
+export const serializeAws_restJson1_1BeginTransactionCommand = async (
   input: BeginTransactionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/BeginTransaction";
@@ -131,12 +131,12 @@ export async function serializeAws_restJson1_1BeginTransactionCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1CommitTransactionCommand(
+export const serializeAws_restJson1_1CommitTransactionCommand = async (
   input: CommitTransactionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/CommitTransaction";
@@ -162,12 +162,12 @@ export async function serializeAws_restJson1_1CommitTransactionCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ExecuteSqlCommand(
+export const serializeAws_restJson1_1ExecuteSqlCommand = async (
   input: ExecuteSqlCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/ExecuteSql";
@@ -199,12 +199,12 @@ export async function serializeAws_restJson1_1ExecuteSqlCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ExecuteStatementCommand(
+export const serializeAws_restJson1_1ExecuteStatementCommand = async (
   input: ExecuteStatementCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/Execute";
@@ -251,12 +251,12 @@ export async function serializeAws_restJson1_1ExecuteStatementCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1RollbackTransactionCommand(
+export const serializeAws_restJson1_1RollbackTransactionCommand = async (
   input: RollbackTransactionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/RollbackTransaction";
@@ -282,12 +282,12 @@ export async function serializeAws_restJson1_1RollbackTransactionCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1BatchExecuteStatementCommand(
+export const deserializeAws_restJson1_1BatchExecuteStatementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchExecuteStatementCommandOutput> {
+): Promise<BatchExecuteStatementCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1BatchExecuteStatementCommandError(
       output,
@@ -307,12 +307,12 @@ export async function deserializeAws_restJson1_1BatchExecuteStatementCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1BatchExecuteStatementCommandError(
+const deserializeAws_restJson1_1BatchExecuteStatementCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchExecuteStatementCommandOutput> {
+): Promise<BatchExecuteStatementCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -391,12 +391,12 @@ async function deserializeAws_restJson1_1BatchExecuteStatementCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1BeginTransactionCommand(
+export const deserializeAws_restJson1_1BeginTransactionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BeginTransactionCommandOutput> {
+): Promise<BeginTransactionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1BeginTransactionCommandError(
       output,
@@ -413,12 +413,12 @@ export async function deserializeAws_restJson1_1BeginTransactionCommand(
     contents.transactionId = data.transactionId;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1BeginTransactionCommandError(
+const deserializeAws_restJson1_1BeginTransactionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BeginTransactionCommandOutput> {
+): Promise<BeginTransactionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -497,12 +497,12 @@ async function deserializeAws_restJson1_1BeginTransactionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1CommitTransactionCommand(
+export const deserializeAws_restJson1_1CommitTransactionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CommitTransactionCommandOutput> {
+): Promise<CommitTransactionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CommitTransactionCommandError(
       output,
@@ -519,12 +519,12 @@ export async function deserializeAws_restJson1_1CommitTransactionCommand(
     contents.transactionStatus = data.transactionStatus;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CommitTransactionCommandError(
+const deserializeAws_restJson1_1CommitTransactionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CommitTransactionCommandOutput> {
+): Promise<CommitTransactionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -603,12 +603,12 @@ async function deserializeAws_restJson1_1CommitTransactionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ExecuteSqlCommand(
+export const deserializeAws_restJson1_1ExecuteSqlCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ExecuteSqlCommandOutput> {
+): Promise<ExecuteSqlCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ExecuteSqlCommandError(output, context);
   }
@@ -628,12 +628,12 @@ export async function deserializeAws_restJson1_1ExecuteSqlCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ExecuteSqlCommandError(
+const deserializeAws_restJson1_1ExecuteSqlCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ExecuteSqlCommandOutput> {
+): Promise<ExecuteSqlCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -701,12 +701,12 @@ async function deserializeAws_restJson1_1ExecuteSqlCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ExecuteStatementCommand(
+export const deserializeAws_restJson1_1ExecuteStatementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ExecuteStatementCommandOutput> {
+): Promise<ExecuteStatementCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ExecuteStatementCommandError(
       output,
@@ -747,12 +747,12 @@ export async function deserializeAws_restJson1_1ExecuteStatementCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ExecuteStatementCommandError(
+const deserializeAws_restJson1_1ExecuteStatementCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ExecuteStatementCommandOutput> {
+): Promise<ExecuteStatementCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -831,12 +831,12 @@ async function deserializeAws_restJson1_1ExecuteStatementCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1RollbackTransactionCommand(
+export const deserializeAws_restJson1_1RollbackTransactionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RollbackTransactionCommandOutput> {
+): Promise<RollbackTransactionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1RollbackTransactionCommandError(
       output,
@@ -853,12 +853,12 @@ export async function deserializeAws_restJson1_1RollbackTransactionCommand(
     contents.transactionStatus = data.transactionStatus;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1RollbackTransactionCommandError(
+const deserializeAws_restJson1_1RollbackTransactionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RollbackTransactionCommandOutput> {
+): Promise<RollbackTransactionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -937,7 +937,7 @@ async function deserializeAws_restJson1_1RollbackTransactionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
   parsedOutput: any,

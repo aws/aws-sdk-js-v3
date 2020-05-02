@@ -67,10 +67,10 @@ import {
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
-export async function serializeAws_restJson1_1DescribeSavingsPlansOfferingRatesCommand(
+export const serializeAws_restJson1_1DescribeSavingsPlansOfferingRatesCommand = async (
   input: DescribeSavingsPlansOfferingRatesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/DescribeSavingsPlansOfferingRates";
@@ -153,12 +153,12 @@ export async function serializeAws_restJson1_1DescribeSavingsPlansOfferingRatesC
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribeSavingsPlansOfferingsCommand(
+export const serializeAws_restJson1_1DescribeSavingsPlansOfferingsCommand = async (
   input: DescribeSavingsPlansOfferingsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/DescribeSavingsPlansOfferings";
@@ -252,12 +252,12 @@ export async function serializeAws_restJson1_1DescribeSavingsPlansOfferingsComma
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1CreateSavingsPlanCommand(
+export const serializeAws_restJson1_1CreateSavingsPlanCommand = async (
   input: CreateSavingsPlanCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/CreateSavingsPlan";
@@ -292,12 +292,12 @@ export async function serializeAws_restJson1_1CreateSavingsPlanCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribeSavingsPlanRatesCommand(
+export const serializeAws_restJson1_1DescribeSavingsPlanRatesCommand = async (
   input: DescribeSavingsPlanRatesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/DescribeSavingsPlanRates";
@@ -329,12 +329,12 @@ export async function serializeAws_restJson1_1DescribeSavingsPlanRatesCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribeSavingsPlansCommand(
+export const serializeAws_restJson1_1DescribeSavingsPlansCommand = async (
   input: DescribeSavingsPlansCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/DescribeSavingsPlans";
@@ -381,12 +381,12 @@ export async function serializeAws_restJson1_1DescribeSavingsPlansCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListTagsForResourceCommand(
+export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/ListTagsForResource";
@@ -406,12 +406,12 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1TagResourceCommand(
+export const serializeAws_restJson1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/TagResource";
@@ -434,12 +434,12 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UntagResourceCommand(
+export const serializeAws_restJson1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/UntagResource";
@@ -465,12 +465,12 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeSavingsPlansOfferingRatesCommand(
+export const deserializeAws_restJson1_1DescribeSavingsPlansOfferingRatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeSavingsPlansOfferingRatesCommandOutput> {
+): Promise<DescribeSavingsPlansOfferingRatesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeSavingsPlansOfferingRatesCommandError(
       output,
@@ -494,12 +494,12 @@ export async function deserializeAws_restJson1_1DescribeSavingsPlansOfferingRate
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeSavingsPlansOfferingRatesCommandError(
+const deserializeAws_restJson1_1DescribeSavingsPlansOfferingRatesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeSavingsPlansOfferingRatesCommandOutput> {
+): Promise<DescribeSavingsPlansOfferingRatesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -545,12 +545,12 @@ async function deserializeAws_restJson1_1DescribeSavingsPlansOfferingRatesComman
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeSavingsPlansOfferingsCommand(
+export const deserializeAws_restJson1_1DescribeSavingsPlansOfferingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeSavingsPlansOfferingsCommandOutput> {
+): Promise<DescribeSavingsPlansOfferingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeSavingsPlansOfferingsCommandError(
       output,
@@ -574,12 +574,12 @@ export async function deserializeAws_restJson1_1DescribeSavingsPlansOfferingsCom
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeSavingsPlansOfferingsCommandError(
+const deserializeAws_restJson1_1DescribeSavingsPlansOfferingsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeSavingsPlansOfferingsCommandOutput> {
+): Promise<DescribeSavingsPlansOfferingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -625,12 +625,12 @@ async function deserializeAws_restJson1_1DescribeSavingsPlansOfferingsCommandErr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1CreateSavingsPlanCommand(
+export const deserializeAws_restJson1_1CreateSavingsPlanCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateSavingsPlanCommandOutput> {
+): Promise<CreateSavingsPlanCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateSavingsPlanCommandError(
       output,
@@ -647,12 +647,12 @@ export async function deserializeAws_restJson1_1CreateSavingsPlanCommand(
     contents.savingsPlanId = data.savingsPlanId;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreateSavingsPlanCommandError(
+const deserializeAws_restJson1_1CreateSavingsPlanCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateSavingsPlanCommandOutput> {
+): Promise<CreateSavingsPlanCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -720,12 +720,12 @@ async function deserializeAws_restJson1_1CreateSavingsPlanCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeSavingsPlanRatesCommand(
+export const deserializeAws_restJson1_1DescribeSavingsPlanRatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeSavingsPlanRatesCommandOutput> {
+): Promise<DescribeSavingsPlanRatesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeSavingsPlanRatesCommandError(
       output,
@@ -753,12 +753,12 @@ export async function deserializeAws_restJson1_1DescribeSavingsPlanRatesCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeSavingsPlanRatesCommandError(
+const deserializeAws_restJson1_1DescribeSavingsPlanRatesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeSavingsPlanRatesCommandOutput> {
+): Promise<DescribeSavingsPlanRatesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -804,12 +804,12 @@ async function deserializeAws_restJson1_1DescribeSavingsPlanRatesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeSavingsPlansCommand(
+export const deserializeAws_restJson1_1DescribeSavingsPlansCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeSavingsPlansCommandOutput> {
+): Promise<DescribeSavingsPlansCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeSavingsPlansCommandError(
       output,
@@ -833,12 +833,12 @@ export async function deserializeAws_restJson1_1DescribeSavingsPlansCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeSavingsPlansCommandError(
+const deserializeAws_restJson1_1DescribeSavingsPlansCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeSavingsPlansCommandOutput> {
+): Promise<DescribeSavingsPlansCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -884,12 +884,12 @@ async function deserializeAws_restJson1_1DescribeSavingsPlansCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
+export const deserializeAws_restJson1_1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListTagsForResourceCommandError(
       output,
@@ -906,12 +906,12 @@ export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
     contents.tags = deserializeAws_restJson1_1TagMap(data.tags, context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
+const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -968,12 +968,12 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1TagResourceCommand(
+export const deserializeAws_restJson1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1TagResourceCommandError(output, context);
   }
@@ -983,12 +983,12 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1TagResourceCommandError(
+const deserializeAws_restJson1_1TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1056,12 +1056,12 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UntagResourceCommand(
+export const deserializeAws_restJson1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UntagResourceCommandError(output, context);
   }
@@ -1071,12 +1071,12 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UntagResourceCommandError(
+const deserializeAws_restJson1_1UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1133,7 +1133,7 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1InternalServerExceptionResponse = async (
   parsedOutput: any,

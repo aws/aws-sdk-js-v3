@@ -26,10 +26,10 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_json1_1QueryForecastCommand(
+export const serializeAws_json1_1QueryForecastCommand = async (
   input: QueryForecastCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecastRuntime.QueryForecast";
@@ -38,12 +38,12 @@ export async function serializeAws_json1_1QueryForecastCommand(
     serializeAws_json1_1QueryForecastRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_1QueryForecastCommand(
+export const deserializeAws_json1_1QueryForecastCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<QueryForecastCommandOutput> {
+): Promise<QueryForecastCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1QueryForecastCommandError(output, context);
   }
@@ -56,12 +56,12 @@ export async function deserializeAws_json1_1QueryForecastCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1QueryForecastCommandError(
+const deserializeAws_json1_1QueryForecastCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<QueryForecastCommandOutput> {
+): Promise<QueryForecastCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -142,7 +142,7 @@ async function deserializeAws_json1_1QueryForecastCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_1InvalidInputExceptionResponse = async (
   parsedOutput: any,

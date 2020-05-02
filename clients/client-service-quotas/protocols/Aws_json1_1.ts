@@ -131,10 +131,10 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_json1_1AssociateServiceQuotaTemplateCommand(
+export const serializeAws_json1_1AssociateServiceQuotaTemplateCommand = async (
   input: AssociateServiceQuotaTemplateCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -144,12 +144,12 @@ export async function serializeAws_json1_1AssociateServiceQuotaTemplateCommand(
     serializeAws_json1_1AssociateServiceQuotaTemplateRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateCommand(
+export const serializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateCommand = async (
   input: DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -162,12 +162,12 @@ export async function serializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromT
     )
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DisassociateServiceQuotaTemplateCommand(
+export const serializeAws_json1_1DisassociateServiceQuotaTemplateCommand = async (
   input: DisassociateServiceQuotaTemplateCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -177,12 +177,12 @@ export async function serializeAws_json1_1DisassociateServiceQuotaTemplateComman
     serializeAws_json1_1DisassociateServiceQuotaTemplateRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetAWSDefaultServiceQuotaCommand(
+export const serializeAws_json1_1GetAWSDefaultServiceQuotaCommand = async (
   input: GetAWSDefaultServiceQuotaCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ServiceQuotasV20190624.GetAWSDefaultServiceQuota";
@@ -191,12 +191,12 @@ export async function serializeAws_json1_1GetAWSDefaultServiceQuotaCommand(
     serializeAws_json1_1GetAWSDefaultServiceQuotaRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetAssociationForServiceQuotaTemplateCommand(
+export const serializeAws_json1_1GetAssociationForServiceQuotaTemplateCommand = async (
   input: GetAssociationForServiceQuotaTemplateCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -209,12 +209,12 @@ export async function serializeAws_json1_1GetAssociationForServiceQuotaTemplateC
     )
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetRequestedServiceQuotaChangeCommand(
+export const serializeAws_json1_1GetRequestedServiceQuotaChangeCommand = async (
   input: GetRequestedServiceQuotaChangeCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -224,12 +224,12 @@ export async function serializeAws_json1_1GetRequestedServiceQuotaChangeCommand(
     serializeAws_json1_1GetRequestedServiceQuotaChangeRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetServiceQuotaCommand(
+export const serializeAws_json1_1GetServiceQuotaCommand = async (
   input: GetServiceQuotaCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ServiceQuotasV20190624.GetServiceQuota";
@@ -238,12 +238,12 @@ export async function serializeAws_json1_1GetServiceQuotaCommand(
     serializeAws_json1_1GetServiceQuotaRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateCommand(
+export const serializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateCommand = async (
   input: GetServiceQuotaIncreaseRequestFromTemplateCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -256,12 +256,12 @@ export async function serializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemp
     )
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListAWSDefaultServiceQuotasCommand(
+export const serializeAws_json1_1ListAWSDefaultServiceQuotasCommand = async (
   input: ListAWSDefaultServiceQuotasCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -271,12 +271,12 @@ export async function serializeAws_json1_1ListAWSDefaultServiceQuotasCommand(
     serializeAws_json1_1ListAWSDefaultServiceQuotasRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListRequestedServiceQuotaChangeHistoryCommand(
+export const serializeAws_json1_1ListRequestedServiceQuotaChangeHistoryCommand = async (
   input: ListRequestedServiceQuotaChangeHistoryCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -289,12 +289,12 @@ export async function serializeAws_json1_1ListRequestedServiceQuotaChangeHistory
     )
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaCommand(
+export const serializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaCommand = async (
   input: ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -307,12 +307,12 @@ export async function serializeAws_json1_1ListRequestedServiceQuotaChangeHistory
     )
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateCommand(
+export const serializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateCommand = async (
   input: ListServiceQuotaIncreaseRequestsInTemplateCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -325,12 +325,12 @@ export async function serializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemp
     )
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListServiceQuotasCommand(
+export const serializeAws_json1_1ListServiceQuotasCommand = async (
   input: ListServiceQuotasCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ServiceQuotasV20190624.ListServiceQuotas";
@@ -339,12 +339,12 @@ export async function serializeAws_json1_1ListServiceQuotasCommand(
     serializeAws_json1_1ListServiceQuotasRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListServicesCommand(
+export const serializeAws_json1_1ListServicesCommand = async (
   input: ListServicesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ServiceQuotasV20190624.ListServices";
@@ -353,12 +353,12 @@ export async function serializeAws_json1_1ListServicesCommand(
     serializeAws_json1_1ListServicesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateCommand(
+export const serializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateCommand = async (
   input: PutServiceQuotaIncreaseRequestIntoTemplateCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -371,12 +371,12 @@ export async function serializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemp
     )
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1RequestServiceQuotaIncreaseCommand(
+export const serializeAws_json1_1RequestServiceQuotaIncreaseCommand = async (
   input: RequestServiceQuotaIncreaseCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -386,12 +386,12 @@ export async function serializeAws_json1_1RequestServiceQuotaIncreaseCommand(
     serializeAws_json1_1RequestServiceQuotaIncreaseRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_1AssociateServiceQuotaTemplateCommand(
+export const deserializeAws_json1_1AssociateServiceQuotaTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AssociateServiceQuotaTemplateCommandOutput> {
+): Promise<AssociateServiceQuotaTemplateCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1AssociateServiceQuotaTemplateCommandError(
       output,
@@ -410,12 +410,12 @@ export async function deserializeAws_json1_1AssociateServiceQuotaTemplateCommand
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1AssociateServiceQuotaTemplateCommandError(
+const deserializeAws_json1_1AssociateServiceQuotaTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AssociateServiceQuotaTemplateCommandOutput> {
+): Promise<AssociateServiceQuotaTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -529,12 +529,12 @@ async function deserializeAws_json1_1AssociateServiceQuotaTemplateCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateCommand(
+export const deserializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput> {
+): Promise<DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateCommandError(
       output,
@@ -553,12 +553,12 @@ export async function deserializeAws_json1_1DeleteServiceQuotaIncreaseRequestFro
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateCommandError(
+const deserializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput> {
+): Promise<DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -683,12 +683,12 @@ async function deserializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTempla
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DisassociateServiceQuotaTemplateCommand(
+export const deserializeAws_json1_1DisassociateServiceQuotaTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisassociateServiceQuotaTemplateCommandOutput> {
+): Promise<DisassociateServiceQuotaTemplateCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DisassociateServiceQuotaTemplateCommandError(
       output,
@@ -707,12 +707,12 @@ export async function deserializeAws_json1_1DisassociateServiceQuotaTemplateComm
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DisassociateServiceQuotaTemplateCommandError(
+const deserializeAws_json1_1DisassociateServiceQuotaTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisassociateServiceQuotaTemplateCommandOutput> {
+): Promise<DisassociateServiceQuotaTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -826,12 +826,12 @@ async function deserializeAws_json1_1DisassociateServiceQuotaTemplateCommandErro
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetAWSDefaultServiceQuotaCommand(
+export const deserializeAws_json1_1GetAWSDefaultServiceQuotaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetAWSDefaultServiceQuotaCommandOutput> {
+): Promise<GetAWSDefaultServiceQuotaCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetAWSDefaultServiceQuotaCommandError(
       output,
@@ -850,12 +850,12 @@ export async function deserializeAws_json1_1GetAWSDefaultServiceQuotaCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetAWSDefaultServiceQuotaCommandError(
+const deserializeAws_json1_1GetAWSDefaultServiceQuotaCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetAWSDefaultServiceQuotaCommandOutput> {
+): Promise<GetAWSDefaultServiceQuotaCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -936,12 +936,12 @@ async function deserializeAws_json1_1GetAWSDefaultServiceQuotaCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetAssociationForServiceQuotaTemplateCommand(
+export const deserializeAws_json1_1GetAssociationForServiceQuotaTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetAssociationForServiceQuotaTemplateCommandOutput> {
+): Promise<GetAssociationForServiceQuotaTemplateCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetAssociationForServiceQuotaTemplateCommandError(
       output,
@@ -960,12 +960,12 @@ export async function deserializeAws_json1_1GetAssociationForServiceQuotaTemplat
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetAssociationForServiceQuotaTemplateCommandError(
+const deserializeAws_json1_1GetAssociationForServiceQuotaTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetAssociationForServiceQuotaTemplateCommandOutput> {
+): Promise<GetAssociationForServiceQuotaTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1079,12 +1079,12 @@ async function deserializeAws_json1_1GetAssociationForServiceQuotaTemplateComman
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetRequestedServiceQuotaChangeCommand(
+export const deserializeAws_json1_1GetRequestedServiceQuotaChangeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetRequestedServiceQuotaChangeCommandOutput> {
+): Promise<GetRequestedServiceQuotaChangeCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetRequestedServiceQuotaChangeCommandError(
       output,
@@ -1103,12 +1103,12 @@ export async function deserializeAws_json1_1GetRequestedServiceQuotaChangeComman
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetRequestedServiceQuotaChangeCommandError(
+const deserializeAws_json1_1GetRequestedServiceQuotaChangeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetRequestedServiceQuotaChangeCommandOutput> {
+): Promise<GetRequestedServiceQuotaChangeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1189,12 +1189,12 @@ async function deserializeAws_json1_1GetRequestedServiceQuotaChangeCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetServiceQuotaCommand(
+export const deserializeAws_json1_1GetServiceQuotaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetServiceQuotaCommandOutput> {
+): Promise<GetServiceQuotaCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetServiceQuotaCommandError(output, context);
   }
@@ -1207,12 +1207,12 @@ export async function deserializeAws_json1_1GetServiceQuotaCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetServiceQuotaCommandError(
+const deserializeAws_json1_1GetServiceQuotaCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetServiceQuotaCommandOutput> {
+): Promise<GetServiceQuotaCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1293,12 +1293,12 @@ async function deserializeAws_json1_1GetServiceQuotaCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateCommand(
+export const deserializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetServiceQuotaIncreaseRequestFromTemplateCommandOutput> {
+): Promise<GetServiceQuotaIncreaseRequestFromTemplateCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateCommandError(
       output,
@@ -1317,12 +1317,12 @@ export async function deserializeAws_json1_1GetServiceQuotaIncreaseRequestFromTe
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateCommandError(
+const deserializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetServiceQuotaIncreaseRequestFromTemplateCommandOutput> {
+): Promise<GetServiceQuotaIncreaseRequestFromTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1447,12 +1447,12 @@ async function deserializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateC
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListAWSDefaultServiceQuotasCommand(
+export const deserializeAws_json1_1ListAWSDefaultServiceQuotasCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListAWSDefaultServiceQuotasCommandOutput> {
+): Promise<ListAWSDefaultServiceQuotasCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListAWSDefaultServiceQuotasCommandError(
       output,
@@ -1471,12 +1471,12 @@ export async function deserializeAws_json1_1ListAWSDefaultServiceQuotasCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListAWSDefaultServiceQuotasCommandError(
+const deserializeAws_json1_1ListAWSDefaultServiceQuotasCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListAWSDefaultServiceQuotasCommandOutput> {
+): Promise<ListAWSDefaultServiceQuotasCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1568,12 +1568,12 @@ async function deserializeAws_json1_1ListAWSDefaultServiceQuotasCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryCommand(
+export const deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListRequestedServiceQuotaChangeHistoryCommandOutput> {
+): Promise<ListRequestedServiceQuotaChangeHistoryCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryCommandError(
       output,
@@ -1592,12 +1592,12 @@ export async function deserializeAws_json1_1ListRequestedServiceQuotaChangeHisto
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryCommandError(
+const deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListRequestedServiceQuotaChangeHistoryCommandOutput> {
+): Promise<ListRequestedServiceQuotaChangeHistoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1689,12 +1689,12 @@ async function deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryComma
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaCommand(
+export const deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput> {
+): Promise<ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaCommandError(
       output,
@@ -1713,12 +1713,12 @@ export async function deserializeAws_json1_1ListRequestedServiceQuotaChangeHisto
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaCommandError(
+const deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput> {
+): Promise<ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1810,12 +1810,12 @@ async function deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuo
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateCommand(
+export const deserializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListServiceQuotaIncreaseRequestsInTemplateCommandOutput> {
+): Promise<ListServiceQuotaIncreaseRequestsInTemplateCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateCommandError(
       output,
@@ -1834,12 +1834,12 @@ export async function deserializeAws_json1_1ListServiceQuotaIncreaseRequestsInTe
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateCommandError(
+const deserializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListServiceQuotaIncreaseRequestsInTemplateCommandOutput> {
+): Promise<ListServiceQuotaIncreaseRequestsInTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1953,12 +1953,12 @@ async function deserializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateC
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListServiceQuotasCommand(
+export const deserializeAws_json1_1ListServiceQuotasCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListServiceQuotasCommandOutput> {
+): Promise<ListServiceQuotasCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListServiceQuotasCommandError(output, context);
   }
@@ -1971,12 +1971,12 @@ export async function deserializeAws_json1_1ListServiceQuotasCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListServiceQuotasCommandError(
+const deserializeAws_json1_1ListServiceQuotasCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListServiceQuotasCommandOutput> {
+): Promise<ListServiceQuotasCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2068,12 +2068,12 @@ async function deserializeAws_json1_1ListServiceQuotasCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListServicesCommand(
+export const deserializeAws_json1_1ListServicesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListServicesCommandOutput> {
+): Promise<ListServicesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListServicesCommandError(output, context);
   }
@@ -2086,12 +2086,12 @@ export async function deserializeAws_json1_1ListServicesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListServicesCommandError(
+const deserializeAws_json1_1ListServicesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListServicesCommandOutput> {
+): Promise<ListServicesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2172,12 +2172,12 @@ async function deserializeAws_json1_1ListServicesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateCommand(
+export const deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput> {
+): Promise<PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateCommandError(
       output,
@@ -2196,12 +2196,12 @@ export async function deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTe
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateCommandError(
+const deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput> {
+): Promise<PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2337,12 +2337,12 @@ async function deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateC
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1RequestServiceQuotaIncreaseCommand(
+export const deserializeAws_json1_1RequestServiceQuotaIncreaseCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RequestServiceQuotaIncreaseCommandOutput> {
+): Promise<RequestServiceQuotaIncreaseCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1RequestServiceQuotaIncreaseCommandError(
       output,
@@ -2361,12 +2361,12 @@ export async function deserializeAws_json1_1RequestServiceQuotaIncreaseCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1RequestServiceQuotaIncreaseCommandError(
+const deserializeAws_json1_1RequestServiceQuotaIncreaseCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RequestServiceQuotaIncreaseCommandOutput> {
+): Promise<RequestServiceQuotaIncreaseCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2491,7 +2491,7 @@ async function deserializeAws_json1_1RequestServiceQuotaIncreaseCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_1AWSServiceAccessNotEnabledExceptionResponse = async (
   parsedOutput: any,

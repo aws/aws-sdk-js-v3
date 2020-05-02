@@ -120,10 +120,10 @@ import {
 import { parse as xmlParse } from "fast-xml-parser";
 import { v4 as generateIdempotencyToken } from "uuid";
 
-export async function serializeAws_restXmlCreateAccessPointCommand(
+export const serializeAws_restXmlCreateAccessPointCommand = async (
   input: CreateAccessPointCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (isSerializableHeaderValue(input.AccountId)) {
@@ -180,12 +180,12 @@ export async function serializeAws_restXmlCreateAccessPointCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlCreateJobCommand(
+export const serializeAws_restXmlCreateJobCommand = async (
   input: CreateJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (isSerializableHeaderValue(input.AccountId)) {
@@ -263,12 +263,12 @@ export async function serializeAws_restXmlCreateJobCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlDeleteAccessPointCommand(
+export const serializeAws_restXmlDeleteAccessPointCommand = async (
   input: DeleteAccessPointCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   if (isSerializableHeaderValue(input.AccountId)) {
@@ -298,12 +298,12 @@ export async function serializeAws_restXmlDeleteAccessPointCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlDeleteAccessPointPolicyCommand(
+export const serializeAws_restXmlDeleteAccessPointPolicyCommand = async (
   input: DeleteAccessPointPolicyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   if (isSerializableHeaderValue(input.AccountId)) {
@@ -333,12 +333,12 @@ export async function serializeAws_restXmlDeleteAccessPointPolicyCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlDeletePublicAccessBlockCommand(
+export const serializeAws_restXmlDeletePublicAccessBlockCommand = async (
   input: DeletePublicAccessBlockCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   if (isSerializableHeaderValue(input.AccountId)) {
@@ -356,12 +356,12 @@ export async function serializeAws_restXmlDeletePublicAccessBlockCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlDescribeJobCommand(
+export const serializeAws_restXmlDescribeJobCommand = async (
   input: DescribeJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   if (isSerializableHeaderValue(input.AccountId)) {
@@ -391,12 +391,12 @@ export async function serializeAws_restXmlDescribeJobCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetAccessPointCommand(
+export const serializeAws_restXmlGetAccessPointCommand = async (
   input: GetAccessPointCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   if (isSerializableHeaderValue(input.AccountId)) {
@@ -426,12 +426,12 @@ export async function serializeAws_restXmlGetAccessPointCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetAccessPointPolicyCommand(
+export const serializeAws_restXmlGetAccessPointPolicyCommand = async (
   input: GetAccessPointPolicyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   if (isSerializableHeaderValue(input.AccountId)) {
@@ -461,12 +461,12 @@ export async function serializeAws_restXmlGetAccessPointPolicyCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetAccessPointPolicyStatusCommand(
+export const serializeAws_restXmlGetAccessPointPolicyStatusCommand = async (
   input: GetAccessPointPolicyStatusCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   if (isSerializableHeaderValue(input.AccountId)) {
@@ -496,12 +496,12 @@ export async function serializeAws_restXmlGetAccessPointPolicyStatusCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetPublicAccessBlockCommand(
+export const serializeAws_restXmlGetPublicAccessBlockCommand = async (
   input: GetPublicAccessBlockCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   if (isSerializableHeaderValue(input.AccountId)) {
@@ -519,12 +519,12 @@ export async function serializeAws_restXmlGetPublicAccessBlockCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlListAccessPointsCommand(
+export const serializeAws_restXmlListAccessPointsCommand = async (
   input: ListAccessPointsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   if (isSerializableHeaderValue(input.AccountId)) {
@@ -553,12 +553,12 @@ export async function serializeAws_restXmlListAccessPointsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlListJobsCommand(
+export const serializeAws_restXmlListJobsCommand = async (
   input: ListJobsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   if (isSerializableHeaderValue(input.AccountId)) {
@@ -587,12 +587,12 @@ export async function serializeAws_restXmlListJobsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlPutAccessPointPolicyCommand(
+export const serializeAws_restXmlPutAccessPointPolicyCommand = async (
   input: PutAccessPointPolicyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (isSerializableHeaderValue(input.AccountId)) {
@@ -635,12 +635,12 @@ export async function serializeAws_restXmlPutAccessPointPolicyCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlPutPublicAccessBlockCommand(
+export const serializeAws_restXmlPutPublicAccessBlockCommand = async (
   input: PutPublicAccessBlockCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (isSerializableHeaderValue(input.AccountId)) {
@@ -671,12 +671,12 @@ export async function serializeAws_restXmlPutPublicAccessBlockCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlUpdateJobPriorityCommand(
+export const serializeAws_restXmlUpdateJobPriorityCommand = async (
   input: UpdateJobPriorityCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   if (isSerializableHeaderValue(input.AccountId)) {
@@ -711,12 +711,12 @@ export async function serializeAws_restXmlUpdateJobPriorityCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlUpdateJobStatusCommand(
+export const serializeAws_restXmlUpdateJobStatusCommand = async (
   input: UpdateJobStatusCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   if (isSerializableHeaderValue(input.AccountId)) {
@@ -754,12 +754,12 @@ export async function serializeAws_restXmlUpdateJobStatusCommand(
     query,
     body
   });
-}
+};
 
-export async function deserializeAws_restXmlCreateAccessPointCommand(
+export const deserializeAws_restXmlCreateAccessPointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateAccessPointCommandOutput> {
+): Promise<CreateAccessPointCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlCreateAccessPointCommandError(output, context);
   }
@@ -768,12 +768,12 @@ export async function deserializeAws_restXmlCreateAccessPointCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlCreateAccessPointCommandError(
+const deserializeAws_restXmlCreateAccessPointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateAccessPointCommandOutput> {
+): Promise<CreateAccessPointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -798,12 +798,12 @@ async function deserializeAws_restXmlCreateAccessPointCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlCreateJobCommand(
+export const deserializeAws_restXmlCreateJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateJobCommandOutput> {
+): Promise<CreateJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlCreateJobCommandError(output, context);
   }
@@ -820,12 +820,12 @@ export async function deserializeAws_restXmlCreateJobCommand(
         : data["JobId"];
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlCreateJobCommandError(
+const deserializeAws_restXmlCreateJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateJobCommandOutput> {
+): Promise<CreateJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -894,12 +894,12 @@ async function deserializeAws_restXmlCreateJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlDeleteAccessPointCommand(
+export const deserializeAws_restXmlDeleteAccessPointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteAccessPointCommandOutput> {
+): Promise<DeleteAccessPointCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlDeleteAccessPointCommandError(output, context);
   }
@@ -908,12 +908,12 @@ export async function deserializeAws_restXmlDeleteAccessPointCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlDeleteAccessPointCommandError(
+const deserializeAws_restXmlDeleteAccessPointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteAccessPointCommandOutput> {
+): Promise<DeleteAccessPointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -938,12 +938,12 @@ async function deserializeAws_restXmlDeleteAccessPointCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlDeleteAccessPointPolicyCommand(
+export const deserializeAws_restXmlDeleteAccessPointPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteAccessPointPolicyCommandOutput> {
+): Promise<DeleteAccessPointPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlDeleteAccessPointPolicyCommandError(
       output,
@@ -955,12 +955,12 @@ export async function deserializeAws_restXmlDeleteAccessPointPolicyCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlDeleteAccessPointPolicyCommandError(
+const deserializeAws_restXmlDeleteAccessPointPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteAccessPointPolicyCommandOutput> {
+): Promise<DeleteAccessPointPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -985,12 +985,12 @@ async function deserializeAws_restXmlDeleteAccessPointPolicyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlDeletePublicAccessBlockCommand(
+export const deserializeAws_restXmlDeletePublicAccessBlockCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeletePublicAccessBlockCommandOutput> {
+): Promise<DeletePublicAccessBlockCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlDeletePublicAccessBlockCommandError(
       output,
@@ -1002,12 +1002,12 @@ export async function deserializeAws_restXmlDeletePublicAccessBlockCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlDeletePublicAccessBlockCommandError(
+const deserializeAws_restXmlDeletePublicAccessBlockCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeletePublicAccessBlockCommandOutput> {
+): Promise<DeletePublicAccessBlockCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1032,12 +1032,12 @@ async function deserializeAws_restXmlDeletePublicAccessBlockCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlDescribeJobCommand(
+export const deserializeAws_restXmlDescribeJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeJobCommandOutput> {
+): Promise<DescribeJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlDescribeJobCommandError(output, context);
   }
@@ -1051,12 +1051,12 @@ export async function deserializeAws_restXmlDescribeJobCommand(
     contents.Job = deserializeAws_restXmlJobDescriptor(data["Job"], context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlDescribeJobCommandError(
+const deserializeAws_restXmlDescribeJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeJobCommandOutput> {
+): Promise<DescribeJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1125,12 +1125,12 @@ async function deserializeAws_restXmlDescribeJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetAccessPointCommand(
+export const deserializeAws_restXmlGetAccessPointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetAccessPointCommandOutput> {
+): Promise<GetAccessPointCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetAccessPointCommandError(output, context);
   }
@@ -1179,12 +1179,12 @@ export async function deserializeAws_restXmlGetAccessPointCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetAccessPointCommandError(
+const deserializeAws_restXmlGetAccessPointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetAccessPointCommandOutput> {
+): Promise<GetAccessPointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1209,12 +1209,12 @@ async function deserializeAws_restXmlGetAccessPointCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetAccessPointPolicyCommand(
+export const deserializeAws_restXmlGetAccessPointPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetAccessPointPolicyCommandOutput> {
+): Promise<GetAccessPointPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetAccessPointPolicyCommandError(
       output,
@@ -1234,12 +1234,12 @@ export async function deserializeAws_restXmlGetAccessPointPolicyCommand(
         : data["Policy"];
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetAccessPointPolicyCommandError(
+const deserializeAws_restXmlGetAccessPointPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetAccessPointPolicyCommandOutput> {
+): Promise<GetAccessPointPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1264,12 +1264,12 @@ async function deserializeAws_restXmlGetAccessPointPolicyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetAccessPointPolicyStatusCommand(
+export const deserializeAws_restXmlGetAccessPointPolicyStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetAccessPointPolicyStatusCommandOutput> {
+): Promise<GetAccessPointPolicyStatusCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetAccessPointPolicyStatusCommandError(
       output,
@@ -1289,12 +1289,12 @@ export async function deserializeAws_restXmlGetAccessPointPolicyStatusCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetAccessPointPolicyStatusCommandError(
+const deserializeAws_restXmlGetAccessPointPolicyStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetAccessPointPolicyStatusCommandOutput> {
+): Promise<GetAccessPointPolicyStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1319,12 +1319,12 @@ async function deserializeAws_restXmlGetAccessPointPolicyStatusCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetPublicAccessBlockCommand(
+export const deserializeAws_restXmlGetPublicAccessBlockCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetPublicAccessBlockCommandOutput> {
+): Promise<GetPublicAccessBlockCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetPublicAccessBlockCommandError(
       output,
@@ -1342,12 +1342,12 @@ export async function deserializeAws_restXmlGetPublicAccessBlockCommand(
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetPublicAccessBlockCommandError(
+const deserializeAws_restXmlGetPublicAccessBlockCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetPublicAccessBlockCommandOutput> {
+): Promise<GetPublicAccessBlockCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1383,12 +1383,12 @@ async function deserializeAws_restXmlGetPublicAccessBlockCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlListAccessPointsCommand(
+export const deserializeAws_restXmlListAccessPointsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListAccessPointsCommandOutput> {
+): Promise<ListAccessPointsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlListAccessPointsCommandError(output, context);
   }
@@ -1422,12 +1422,12 @@ export async function deserializeAws_restXmlListAccessPointsCommand(
         : data["NextToken"];
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlListAccessPointsCommandError(
+const deserializeAws_restXmlListAccessPointsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListAccessPointsCommandOutput> {
+): Promise<ListAccessPointsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1452,12 +1452,12 @@ async function deserializeAws_restXmlListAccessPointsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlListJobsCommand(
+export const deserializeAws_restXmlListJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListJobsCommandOutput> {
+): Promise<ListJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlListJobsCommandError(output, context);
   }
@@ -1488,12 +1488,12 @@ export async function deserializeAws_restXmlListJobsCommand(
         : data["NextToken"];
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlListJobsCommandError(
+const deserializeAws_restXmlListJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListJobsCommandOutput> {
+): Promise<ListJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1551,12 +1551,12 @@ async function deserializeAws_restXmlListJobsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlPutAccessPointPolicyCommand(
+export const deserializeAws_restXmlPutAccessPointPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutAccessPointPolicyCommandOutput> {
+): Promise<PutAccessPointPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlPutAccessPointPolicyCommandError(
       output,
@@ -1568,12 +1568,12 @@ export async function deserializeAws_restXmlPutAccessPointPolicyCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlPutAccessPointPolicyCommandError(
+const deserializeAws_restXmlPutAccessPointPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutAccessPointPolicyCommandOutput> {
+): Promise<PutAccessPointPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1598,12 +1598,12 @@ async function deserializeAws_restXmlPutAccessPointPolicyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlPutPublicAccessBlockCommand(
+export const deserializeAws_restXmlPutPublicAccessBlockCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutPublicAccessBlockCommandOutput> {
+): Promise<PutPublicAccessBlockCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlPutPublicAccessBlockCommandError(
       output,
@@ -1615,12 +1615,12 @@ export async function deserializeAws_restXmlPutPublicAccessBlockCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlPutPublicAccessBlockCommandError(
+const deserializeAws_restXmlPutPublicAccessBlockCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutPublicAccessBlockCommandOutput> {
+): Promise<PutPublicAccessBlockCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1645,12 +1645,12 @@ async function deserializeAws_restXmlPutPublicAccessBlockCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlUpdateJobPriorityCommand(
+export const deserializeAws_restXmlUpdateJobPriorityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateJobPriorityCommandOutput> {
+): Promise<UpdateJobPriorityCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlUpdateJobPriorityCommandError(output, context);
   }
@@ -1675,12 +1675,12 @@ export async function deserializeAws_restXmlUpdateJobPriorityCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlUpdateJobPriorityCommandError(
+const deserializeAws_restXmlUpdateJobPriorityCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateJobPriorityCommandOutput> {
+): Promise<UpdateJobPriorityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1749,12 +1749,12 @@ async function deserializeAws_restXmlUpdateJobPriorityCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlUpdateJobStatusCommand(
+export const deserializeAws_restXmlUpdateJobStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateJobStatusCommandOutput> {
+): Promise<UpdateJobStatusCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlUpdateJobStatusCommandError(output, context);
   }
@@ -1785,12 +1785,12 @@ export async function deserializeAws_restXmlUpdateJobStatusCommand(
         : data["StatusUpdateReason"];
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlUpdateJobStatusCommandError(
+const deserializeAws_restXmlUpdateJobStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateJobStatusCommandOutput> {
+): Promise<UpdateJobStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1870,7 +1870,7 @@ async function deserializeAws_restXmlUpdateJobStatusCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restXmlBadRequestExceptionResponse = async (
   parsedOutput: any,

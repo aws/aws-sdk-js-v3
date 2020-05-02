@@ -30,10 +30,10 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_restJson1_1StartStreamTranscriptionCommand(
+export const serializeAws_restJson1_1StartStreamTranscriptionCommand = async (
   input: StartStreamTranscriptionCommandInput,
   context: __SerdeContext & __EventStreamSerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   if (isSerializableHeaderValue(input.LanguageCode)) {
@@ -74,12 +74,12 @@ export async function serializeAws_restJson1_1StartStreamTranscriptionCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1StartStreamTranscriptionCommand(
+export const deserializeAws_restJson1_1StartStreamTranscriptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext & __EventStreamSerdeContext
-): Promise<StartStreamTranscriptionCommandOutput> {
+): Promise<StartStreamTranscriptionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1StartStreamTranscriptionCommandError(
       output,
@@ -145,12 +145,12 @@ export async function deserializeAws_restJson1_1StartStreamTranscriptionCommand(
   );
   contents.TranscriptResultStream = data;
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1StartStreamTranscriptionCommandError(
+const deserializeAws_restJson1_1StartStreamTranscriptionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartStreamTranscriptionCommandOutput> {
+): Promise<StartStreamTranscriptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -218,7 +218,7 @@ async function deserializeAws_restJson1_1StartStreamTranscriptionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const serializeAws_restJson1_1AudioStream_event = (
   input: any,

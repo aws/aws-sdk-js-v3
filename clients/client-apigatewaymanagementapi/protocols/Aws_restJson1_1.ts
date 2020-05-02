@@ -32,10 +32,10 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_restJson1_1DeleteConnectionCommand(
+export const serializeAws_restJson1_1DeleteConnectionCommand = async (
   input: DeleteConnectionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/@connections/{ConnectionId}";
@@ -64,12 +64,12 @@ export async function serializeAws_restJson1_1DeleteConnectionCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetConnectionCommand(
+export const serializeAws_restJson1_1GetConnectionCommand = async (
   input: GetConnectionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/@connections/{ConnectionId}";
@@ -98,12 +98,12 @@ export async function serializeAws_restJson1_1GetConnectionCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1PostToConnectionCommand(
+export const serializeAws_restJson1_1PostToConnectionCommand = async (
   input: PostToConnectionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/octet-stream";
   let resolvedPath = "/@connections/{ConnectionId}";
@@ -135,12 +135,12 @@ export async function serializeAws_restJson1_1PostToConnectionCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteConnectionCommand(
+export const deserializeAws_restJson1_1DeleteConnectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteConnectionCommandOutput> {
+): Promise<DeleteConnectionCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteConnectionCommandError(
       output,
@@ -152,12 +152,12 @@ export async function deserializeAws_restJson1_1DeleteConnectionCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteConnectionCommandError(
+const deserializeAws_restJson1_1DeleteConnectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteConnectionCommandOutput> {
+): Promise<DeleteConnectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -214,12 +214,12 @@ async function deserializeAws_restJson1_1DeleteConnectionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetConnectionCommand(
+export const deserializeAws_restJson1_1GetConnectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetConnectionCommandOutput> {
+): Promise<GetConnectionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetConnectionCommandError(output, context);
   }
@@ -244,12 +244,12 @@ export async function deserializeAws_restJson1_1GetConnectionCommand(
     contents.LastActiveAt = new Date(data.lastActiveAt);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetConnectionCommandError(
+const deserializeAws_restJson1_1GetConnectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetConnectionCommandOutput> {
+): Promise<GetConnectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -306,12 +306,12 @@ async function deserializeAws_restJson1_1GetConnectionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1PostToConnectionCommand(
+export const deserializeAws_restJson1_1PostToConnectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PostToConnectionCommandOutput> {
+): Promise<PostToConnectionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1PostToConnectionCommandError(
       output,
@@ -323,12 +323,12 @@ export async function deserializeAws_restJson1_1PostToConnectionCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1PostToConnectionCommandError(
+const deserializeAws_restJson1_1PostToConnectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PostToConnectionCommandOutput> {
+): Promise<PostToConnectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -396,7 +396,7 @@ async function deserializeAws_restJson1_1PostToConnectionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1ForbiddenExceptionResponse = async (
   parsedOutput: any,

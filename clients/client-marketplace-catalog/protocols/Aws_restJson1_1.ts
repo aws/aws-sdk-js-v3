@@ -55,10 +55,10 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_restJson1_1CancelChangeSetCommand(
+export const serializeAws_restJson1_1CancelChangeSetCommand = async (
   input: CancelChangeSetCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/CancelChangeSet";
@@ -81,12 +81,12 @@ export async function serializeAws_restJson1_1CancelChangeSetCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribeChangeSetCommand(
+export const serializeAws_restJson1_1DescribeChangeSetCommand = async (
   input: DescribeChangeSetCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/DescribeChangeSet";
@@ -109,12 +109,12 @@ export async function serializeAws_restJson1_1DescribeChangeSetCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribeEntityCommand(
+export const serializeAws_restJson1_1DescribeEntityCommand = async (
   input: DescribeEntityCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/DescribeEntity";
@@ -137,12 +137,12 @@ export async function serializeAws_restJson1_1DescribeEntityCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListChangeSetsCommand(
+export const serializeAws_restJson1_1ListChangeSetsCommand = async (
   input: ListChangeSetsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/ListChangeSets";
@@ -177,12 +177,12 @@ export async function serializeAws_restJson1_1ListChangeSetsCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListEntitiesCommand(
+export const serializeAws_restJson1_1ListEntitiesCommand = async (
   input: ListEntitiesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/ListEntities";
@@ -220,12 +220,12 @@ export async function serializeAws_restJson1_1ListEntitiesCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1StartChangeSetCommand(
+export const serializeAws_restJson1_1StartChangeSetCommand = async (
   input: StartChangeSetCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/StartChangeSet";
@@ -257,12 +257,12 @@ export async function serializeAws_restJson1_1StartChangeSetCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1CancelChangeSetCommand(
+export const deserializeAws_restJson1_1CancelChangeSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CancelChangeSetCommandOutput> {
+): Promise<CancelChangeSetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CancelChangeSetCommandError(
       output,
@@ -283,12 +283,12 @@ export async function deserializeAws_restJson1_1CancelChangeSetCommand(
     contents.ChangeSetId = data.ChangeSetId;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CancelChangeSetCommandError(
+const deserializeAws_restJson1_1CancelChangeSetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CancelChangeSetCommandOutput> {
+): Promise<CancelChangeSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -378,12 +378,12 @@ async function deserializeAws_restJson1_1CancelChangeSetCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeChangeSetCommand(
+export const deserializeAws_restJson1_1DescribeChangeSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeChangeSetCommandOutput> {
+): Promise<DescribeChangeSetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeChangeSetCommandError(
       output,
@@ -434,12 +434,12 @@ export async function deserializeAws_restJson1_1DescribeChangeSetCommand(
     contents.Status = data.Status;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeChangeSetCommandError(
+const deserializeAws_restJson1_1DescribeChangeSetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeChangeSetCommandOutput> {
+): Promise<DescribeChangeSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -518,12 +518,12 @@ async function deserializeAws_restJson1_1DescribeChangeSetCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeEntityCommand(
+export const deserializeAws_restJson1_1DescribeEntityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeEntityCommandOutput> {
+): Promise<DescribeEntityCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeEntityCommandError(
       output,
@@ -556,12 +556,12 @@ export async function deserializeAws_restJson1_1DescribeEntityCommand(
     contents.LastModifiedDate = data.LastModifiedDate;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeEntityCommandError(
+const deserializeAws_restJson1_1DescribeEntityCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeEntityCommandOutput> {
+): Promise<DescribeEntityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -651,12 +651,12 @@ async function deserializeAws_restJson1_1DescribeEntityCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListChangeSetsCommand(
+export const deserializeAws_restJson1_1ListChangeSetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListChangeSetsCommandOutput> {
+): Promise<ListChangeSetsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListChangeSetsCommandError(
       output,
@@ -683,12 +683,12 @@ export async function deserializeAws_restJson1_1ListChangeSetsCommand(
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListChangeSetsCommandError(
+const deserializeAws_restJson1_1ListChangeSetsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListChangeSetsCommandOutput> {
+): Promise<ListChangeSetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -756,12 +756,12 @@ async function deserializeAws_restJson1_1ListChangeSetsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListEntitiesCommand(
+export const deserializeAws_restJson1_1ListEntitiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListEntitiesCommandOutput> {
+): Promise<ListEntitiesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListEntitiesCommandError(output, context);
   }
@@ -782,12 +782,12 @@ export async function deserializeAws_restJson1_1ListEntitiesCommand(
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListEntitiesCommandError(
+const deserializeAws_restJson1_1ListEntitiesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListEntitiesCommandOutput> {
+): Promise<ListEntitiesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -866,12 +866,12 @@ async function deserializeAws_restJson1_1ListEntitiesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1StartChangeSetCommand(
+export const deserializeAws_restJson1_1StartChangeSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartChangeSetCommandOutput> {
+): Promise<StartChangeSetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1StartChangeSetCommandError(
       output,
@@ -892,12 +892,12 @@ export async function deserializeAws_restJson1_1StartChangeSetCommand(
     contents.ChangeSetId = data.ChangeSetId;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1StartChangeSetCommandError(
+const deserializeAws_restJson1_1StartChangeSetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartChangeSetCommandOutput> {
+): Promise<StartChangeSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -998,7 +998,7 @@ async function deserializeAws_restJson1_1StartChangeSetCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
   parsedOutput: any,

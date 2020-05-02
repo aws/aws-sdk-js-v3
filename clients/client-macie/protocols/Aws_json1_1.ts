@@ -64,10 +64,10 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_json1_1AssociateMemberAccountCommand(
+export const serializeAws_json1_1AssociateMemberAccountCommand = async (
   input: AssociateMemberAccountCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MacieService.AssociateMemberAccount";
@@ -76,12 +76,12 @@ export async function serializeAws_json1_1AssociateMemberAccountCommand(
     serializeAws_json1_1AssociateMemberAccountRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1AssociateS3ResourcesCommand(
+export const serializeAws_json1_1AssociateS3ResourcesCommand = async (
   input: AssociateS3ResourcesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MacieService.AssociateS3Resources";
@@ -90,12 +90,12 @@ export async function serializeAws_json1_1AssociateS3ResourcesCommand(
     serializeAws_json1_1AssociateS3ResourcesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DisassociateMemberAccountCommand(
+export const serializeAws_json1_1DisassociateMemberAccountCommand = async (
   input: DisassociateMemberAccountCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MacieService.DisassociateMemberAccount";
@@ -104,12 +104,12 @@ export async function serializeAws_json1_1DisassociateMemberAccountCommand(
     serializeAws_json1_1DisassociateMemberAccountRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DisassociateS3ResourcesCommand(
+export const serializeAws_json1_1DisassociateS3ResourcesCommand = async (
   input: DisassociateS3ResourcesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MacieService.DisassociateS3Resources";
@@ -118,12 +118,12 @@ export async function serializeAws_json1_1DisassociateS3ResourcesCommand(
     serializeAws_json1_1DisassociateS3ResourcesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListMemberAccountsCommand(
+export const serializeAws_json1_1ListMemberAccountsCommand = async (
   input: ListMemberAccountsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MacieService.ListMemberAccounts";
@@ -132,12 +132,12 @@ export async function serializeAws_json1_1ListMemberAccountsCommand(
     serializeAws_json1_1ListMemberAccountsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListS3ResourcesCommand(
+export const serializeAws_json1_1ListS3ResourcesCommand = async (
   input: ListS3ResourcesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MacieService.ListS3Resources";
@@ -146,12 +146,12 @@ export async function serializeAws_json1_1ListS3ResourcesCommand(
     serializeAws_json1_1ListS3ResourcesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateS3ResourcesCommand(
+export const serializeAws_json1_1UpdateS3ResourcesCommand = async (
   input: UpdateS3ResourcesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MacieService.UpdateS3Resources";
@@ -160,12 +160,12 @@ export async function serializeAws_json1_1UpdateS3ResourcesCommand(
     serializeAws_json1_1UpdateS3ResourcesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_1AssociateMemberAccountCommand(
+export const deserializeAws_json1_1AssociateMemberAccountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AssociateMemberAccountCommandOutput> {
+): Promise<AssociateMemberAccountCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1AssociateMemberAccountCommandError(
       output,
@@ -177,12 +177,12 @@ export async function deserializeAws_json1_1AssociateMemberAccountCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1AssociateMemberAccountCommandError(
+const deserializeAws_json1_1AssociateMemberAccountCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AssociateMemberAccountCommandOutput> {
+): Promise<AssociateMemberAccountCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -241,12 +241,12 @@ async function deserializeAws_json1_1AssociateMemberAccountCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1AssociateS3ResourcesCommand(
+export const deserializeAws_json1_1AssociateS3ResourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AssociateS3ResourcesCommandOutput> {
+): Promise<AssociateS3ResourcesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1AssociateS3ResourcesCommandError(
       output,
@@ -262,12 +262,12 @@ export async function deserializeAws_json1_1AssociateS3ResourcesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1AssociateS3ResourcesCommandError(
+const deserializeAws_json1_1AssociateS3ResourcesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AssociateS3ResourcesCommandOutput> {
+): Promise<AssociateS3ResourcesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -337,12 +337,12 @@ async function deserializeAws_json1_1AssociateS3ResourcesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DisassociateMemberAccountCommand(
+export const deserializeAws_json1_1DisassociateMemberAccountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisassociateMemberAccountCommandOutput> {
+): Promise<DisassociateMemberAccountCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DisassociateMemberAccountCommandError(
       output,
@@ -354,12 +354,12 @@ export async function deserializeAws_json1_1DisassociateMemberAccountCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DisassociateMemberAccountCommandError(
+const deserializeAws_json1_1DisassociateMemberAccountCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisassociateMemberAccountCommandOutput> {
+): Promise<DisassociateMemberAccountCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -407,12 +407,12 @@ async function deserializeAws_json1_1DisassociateMemberAccountCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DisassociateS3ResourcesCommand(
+export const deserializeAws_json1_1DisassociateS3ResourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisassociateS3ResourcesCommandOutput> {
+): Promise<DisassociateS3ResourcesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DisassociateS3ResourcesCommandError(
       output,
@@ -428,12 +428,12 @@ export async function deserializeAws_json1_1DisassociateS3ResourcesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DisassociateS3ResourcesCommandError(
+const deserializeAws_json1_1DisassociateS3ResourcesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisassociateS3ResourcesCommandOutput> {
+): Promise<DisassociateS3ResourcesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -492,12 +492,12 @@ async function deserializeAws_json1_1DisassociateS3ResourcesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListMemberAccountsCommand(
+export const deserializeAws_json1_1ListMemberAccountsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListMemberAccountsCommandOutput> {
+): Promise<ListMemberAccountsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListMemberAccountsCommandError(
       output,
@@ -513,12 +513,12 @@ export async function deserializeAws_json1_1ListMemberAccountsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListMemberAccountsCommandError(
+const deserializeAws_json1_1ListMemberAccountsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListMemberAccountsCommandOutput> {
+): Promise<ListMemberAccountsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -566,12 +566,12 @@ async function deserializeAws_json1_1ListMemberAccountsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListS3ResourcesCommand(
+export const deserializeAws_json1_1ListS3ResourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListS3ResourcesCommandOutput> {
+): Promise<ListS3ResourcesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListS3ResourcesCommandError(output, context);
   }
@@ -584,12 +584,12 @@ export async function deserializeAws_json1_1ListS3ResourcesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListS3ResourcesCommandError(
+const deserializeAws_json1_1ListS3ResourcesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListS3ResourcesCommandOutput> {
+): Promise<ListS3ResourcesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -648,12 +648,12 @@ async function deserializeAws_json1_1ListS3ResourcesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateS3ResourcesCommand(
+export const deserializeAws_json1_1UpdateS3ResourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateS3ResourcesCommandOutput> {
+): Promise<UpdateS3ResourcesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateS3ResourcesCommandError(output, context);
   }
@@ -666,12 +666,12 @@ export async function deserializeAws_json1_1UpdateS3ResourcesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateS3ResourcesCommandError(
+const deserializeAws_json1_1UpdateS3ResourcesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateS3ResourcesCommandOutput> {
+): Promise<UpdateS3ResourcesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -730,7 +730,7 @@ async function deserializeAws_json1_1UpdateS3ResourcesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
   parsedOutput: any,

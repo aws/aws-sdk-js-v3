@@ -39,10 +39,10 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_restJson1_1SearchCommand(
+export const serializeAws_restJson1_1SearchCommand = async (
   input: SearchCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-01-01/search";
@@ -104,12 +104,12 @@ export async function serializeAws_restJson1_1SearchCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1SuggestCommand(
+export const serializeAws_restJson1_1SuggestCommand = async (
   input: SuggestCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-01-01/suggest";
@@ -138,12 +138,12 @@ export async function serializeAws_restJson1_1SuggestCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UploadDocumentsCommand(
+export const serializeAws_restJson1_1UploadDocumentsCommand = async (
   input: UploadDocumentsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/octet-stream";
   if (isSerializableHeaderValue(input.contentType)) {
@@ -168,12 +168,12 @@ export async function serializeAws_restJson1_1UploadDocumentsCommand(
     query,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1SearchCommand(
+export const deserializeAws_restJson1_1SearchCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SearchCommandOutput> {
+): Promise<SearchCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1SearchCommandError(output, context);
   }
@@ -202,12 +202,12 @@ export async function deserializeAws_restJson1_1SearchCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1SearchCommandError(
+const deserializeAws_restJson1_1SearchCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SearchCommandOutput> {
+): Promise<SearchCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -242,12 +242,12 @@ async function deserializeAws_restJson1_1SearchCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1SuggestCommand(
+export const deserializeAws_restJson1_1SuggestCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SuggestCommandOutput> {
+): Promise<SuggestCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1SuggestCommandError(output, context);
   }
@@ -271,12 +271,12 @@ export async function deserializeAws_restJson1_1SuggestCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1SuggestCommandError(
+const deserializeAws_restJson1_1SuggestCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SuggestCommandOutput> {
+): Promise<SuggestCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -311,12 +311,12 @@ async function deserializeAws_restJson1_1SuggestCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UploadDocumentsCommand(
+export const deserializeAws_restJson1_1UploadDocumentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UploadDocumentsCommandOutput> {
+): Promise<UploadDocumentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UploadDocumentsCommandError(
       output,
@@ -348,12 +348,12 @@ export async function deserializeAws_restJson1_1UploadDocumentsCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UploadDocumentsCommandError(
+const deserializeAws_restJson1_1UploadDocumentsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UploadDocumentsCommandOutput> {
+): Promise<UploadDocumentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -388,7 +388,7 @@ async function deserializeAws_restJson1_1UploadDocumentsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1DocumentServiceExceptionResponse = async (
   parsedOutput: any,

@@ -18,10 +18,10 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_restJson1_1PutEventsCommand(
+export const serializeAws_restJson1_1PutEventsCommand = async (
   input: PutEventsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/events";
@@ -53,12 +53,12 @@ export async function serializeAws_restJson1_1PutEventsCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1PutEventsCommand(
+export const deserializeAws_restJson1_1PutEventsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutEventsCommandOutput> {
+): Promise<PutEventsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1PutEventsCommandError(output, context);
   }
@@ -67,12 +67,12 @@ export async function deserializeAws_restJson1_1PutEventsCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1PutEventsCommandError(
+const deserializeAws_restJson1_1PutEventsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutEventsCommandOutput> {
+): Promise<PutEventsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -107,7 +107,7 @@ async function deserializeAws_restJson1_1PutEventsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1InvalidInputExceptionResponse = async (
   parsedOutput: any,

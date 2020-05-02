@@ -65,10 +65,10 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_restJson1_1AcceptInvitationCommand(
+export const serializeAws_restJson1_1AcceptInvitationCommand = async (
   input: AcceptInvitationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/invitation";
@@ -88,12 +88,12 @@ export async function serializeAws_restJson1_1AcceptInvitationCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1CreateGraphCommand(
+export const serializeAws_restJson1_1CreateGraphCommand = async (
   input: CreateGraphCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/graph";
@@ -109,12 +109,12 @@ export async function serializeAws_restJson1_1CreateGraphCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1CreateMembersCommand(
+export const serializeAws_restJson1_1CreateMembersCommand = async (
   input: CreateMembersCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/graph/members";
@@ -143,12 +143,12 @@ export async function serializeAws_restJson1_1CreateMembersCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeleteGraphCommand(
+export const serializeAws_restJson1_1DeleteGraphCommand = async (
   input: DeleteGraphCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/graph/removal";
@@ -168,12 +168,12 @@ export async function serializeAws_restJson1_1DeleteGraphCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeleteMembersCommand(
+export const serializeAws_restJson1_1DeleteMembersCommand = async (
   input: DeleteMembersCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/graph/members/removal";
@@ -199,12 +199,12 @@ export async function serializeAws_restJson1_1DeleteMembersCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DisassociateMembershipCommand(
+export const serializeAws_restJson1_1DisassociateMembershipCommand = async (
   input: DisassociateMembershipCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/membership/removal";
@@ -224,12 +224,12 @@ export async function serializeAws_restJson1_1DisassociateMembershipCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetMembersCommand(
+export const serializeAws_restJson1_1GetMembersCommand = async (
   input: GetMembersCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/graph/members/get";
@@ -255,12 +255,12 @@ export async function serializeAws_restJson1_1GetMembersCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListGraphsCommand(
+export const serializeAws_restJson1_1ListGraphsCommand = async (
   input: ListGraphsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/graphs/list";
@@ -283,12 +283,12 @@ export async function serializeAws_restJson1_1ListGraphsCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListInvitationsCommand(
+export const serializeAws_restJson1_1ListInvitationsCommand = async (
   input: ListInvitationsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/invitations/list";
@@ -311,12 +311,12 @@ export async function serializeAws_restJson1_1ListInvitationsCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListMembersCommand(
+export const serializeAws_restJson1_1ListMembersCommand = async (
   input: ListMembersCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/graph/members/list";
@@ -342,12 +342,12 @@ export async function serializeAws_restJson1_1ListMembersCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1RejectInvitationCommand(
+export const serializeAws_restJson1_1RejectInvitationCommand = async (
   input: RejectInvitationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/invitation/removal";
@@ -367,12 +367,12 @@ export async function serializeAws_restJson1_1RejectInvitationCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1AcceptInvitationCommand(
+export const deserializeAws_restJson1_1AcceptInvitationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AcceptInvitationCommandOutput> {
+): Promise<AcceptInvitationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1AcceptInvitationCommandError(
       output,
@@ -384,12 +384,12 @@ export async function deserializeAws_restJson1_1AcceptInvitationCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1AcceptInvitationCommandError(
+const deserializeAws_restJson1_1AcceptInvitationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AcceptInvitationCommandOutput> {
+): Promise<AcceptInvitationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -457,12 +457,12 @@ async function deserializeAws_restJson1_1AcceptInvitationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1CreateGraphCommand(
+export const deserializeAws_restJson1_1CreateGraphCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateGraphCommandOutput> {
+): Promise<CreateGraphCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateGraphCommandError(output, context);
   }
@@ -476,12 +476,12 @@ export async function deserializeAws_restJson1_1CreateGraphCommand(
     contents.GraphArn = data.GraphArn;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreateGraphCommandError(
+const deserializeAws_restJson1_1CreateGraphCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateGraphCommandOutput> {
+): Promise<CreateGraphCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -527,12 +527,12 @@ async function deserializeAws_restJson1_1CreateGraphCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1CreateMembersCommand(
+export const deserializeAws_restJson1_1CreateMembersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateMembersCommandOutput> {
+): Promise<CreateMembersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateMembersCommandError(output, context);
   }
@@ -559,12 +559,12 @@ export async function deserializeAws_restJson1_1CreateMembersCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreateMembersCommandError(
+const deserializeAws_restJson1_1CreateMembersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateMembersCommandOutput> {
+): Promise<CreateMembersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -632,12 +632,12 @@ async function deserializeAws_restJson1_1CreateMembersCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteGraphCommand(
+export const deserializeAws_restJson1_1DeleteGraphCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteGraphCommandOutput> {
+): Promise<DeleteGraphCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteGraphCommandError(output, context);
   }
@@ -646,12 +646,12 @@ export async function deserializeAws_restJson1_1DeleteGraphCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteGraphCommandError(
+const deserializeAws_restJson1_1DeleteGraphCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteGraphCommandOutput> {
+): Promise<DeleteGraphCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -708,12 +708,12 @@ async function deserializeAws_restJson1_1DeleteGraphCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteMembersCommand(
+export const deserializeAws_restJson1_1DeleteMembersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteMembersCommandOutput> {
+): Promise<DeleteMembersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteMembersCommandError(output, context);
   }
@@ -740,12 +740,12 @@ export async function deserializeAws_restJson1_1DeleteMembersCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteMembersCommandError(
+const deserializeAws_restJson1_1DeleteMembersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteMembersCommandOutput> {
+): Promise<DeleteMembersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -813,12 +813,12 @@ async function deserializeAws_restJson1_1DeleteMembersCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DisassociateMembershipCommand(
+export const deserializeAws_restJson1_1DisassociateMembershipCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisassociateMembershipCommandOutput> {
+): Promise<DisassociateMembershipCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DisassociateMembershipCommandError(
       output,
@@ -830,12 +830,12 @@ export async function deserializeAws_restJson1_1DisassociateMembershipCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DisassociateMembershipCommandError(
+const deserializeAws_restJson1_1DisassociateMembershipCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisassociateMembershipCommandOutput> {
+): Promise<DisassociateMembershipCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -903,12 +903,12 @@ async function deserializeAws_restJson1_1DisassociateMembershipCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetMembersCommand(
+export const deserializeAws_restJson1_1GetMembersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetMembersCommandOutput> {
+): Promise<GetMembersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetMembersCommandError(output, context);
   }
@@ -935,12 +935,12 @@ export async function deserializeAws_restJson1_1GetMembersCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetMembersCommandError(
+const deserializeAws_restJson1_1GetMembersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetMembersCommandOutput> {
+): Promise<GetMembersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -997,12 +997,12 @@ async function deserializeAws_restJson1_1GetMembersCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListGraphsCommand(
+export const deserializeAws_restJson1_1ListGraphsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListGraphsCommandOutput> {
+): Promise<ListGraphsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListGraphsCommandError(output, context);
   }
@@ -1023,12 +1023,12 @@ export async function deserializeAws_restJson1_1ListGraphsCommand(
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListGraphsCommandError(
+const deserializeAws_restJson1_1ListGraphsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListGraphsCommandOutput> {
+): Promise<ListGraphsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1074,12 +1074,12 @@ async function deserializeAws_restJson1_1ListGraphsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListInvitationsCommand(
+export const deserializeAws_restJson1_1ListInvitationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListInvitationsCommandOutput> {
+): Promise<ListInvitationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListInvitationsCommandError(
       output,
@@ -1103,12 +1103,12 @@ export async function deserializeAws_restJson1_1ListInvitationsCommand(
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListInvitationsCommandError(
+const deserializeAws_restJson1_1ListInvitationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListInvitationsCommandOutput> {
+): Promise<ListInvitationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1154,12 +1154,12 @@ async function deserializeAws_restJson1_1ListInvitationsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListMembersCommand(
+export const deserializeAws_restJson1_1ListMembersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListMembersCommandOutput> {
+): Promise<ListMembersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListMembersCommandError(output, context);
   }
@@ -1180,12 +1180,12 @@ export async function deserializeAws_restJson1_1ListMembersCommand(
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListMembersCommandError(
+const deserializeAws_restJson1_1ListMembersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListMembersCommandOutput> {
+): Promise<ListMembersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1242,12 +1242,12 @@ async function deserializeAws_restJson1_1ListMembersCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1RejectInvitationCommand(
+export const deserializeAws_restJson1_1RejectInvitationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RejectInvitationCommandOutput> {
+): Promise<RejectInvitationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1RejectInvitationCommandError(
       output,
@@ -1259,12 +1259,12 @@ export async function deserializeAws_restJson1_1RejectInvitationCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1RejectInvitationCommandError(
+const deserializeAws_restJson1_1RejectInvitationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RejectInvitationCommandOutput> {
+): Promise<RejectInvitationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1332,7 +1332,7 @@ async function deserializeAws_restJson1_1RejectInvitationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1ConflictExceptionResponse = async (
   parsedOutput: any,

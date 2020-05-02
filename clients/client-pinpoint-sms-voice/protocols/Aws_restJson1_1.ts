@@ -63,10 +63,10 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_restJson1_1CreateConfigurationSetCommand(
+export const serializeAws_restJson1_1CreateConfigurationSetCommand = async (
   input: CreateConfigurationSetCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/sms-voice/configuration-sets";
@@ -86,12 +86,12 @@ export async function serializeAws_restJson1_1CreateConfigurationSetCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1CreateConfigurationSetEventDestinationCommand(
+export const serializeAws_restJson1_1CreateConfigurationSetEventDestinationCommand = async (
   input: CreateConfigurationSetEventDestinationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath =
@@ -136,12 +136,12 @@ export async function serializeAws_restJson1_1CreateConfigurationSetEventDestina
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeleteConfigurationSetCommand(
+export const serializeAws_restJson1_1DeleteConfigurationSetCommand = async (
   input: DeleteConfigurationSetCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/sms-voice/configuration-sets/{ConfigurationSetName}";
@@ -172,12 +172,12 @@ export async function serializeAws_restJson1_1DeleteConfigurationSetCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeleteConfigurationSetEventDestinationCommand(
+export const serializeAws_restJson1_1DeleteConfigurationSetEventDestinationCommand = async (
   input: DeleteConfigurationSetEventDestinationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath =
@@ -225,12 +225,12 @@ export async function serializeAws_restJson1_1DeleteConfigurationSetEventDestina
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetConfigurationSetEventDestinationsCommand(
+export const serializeAws_restJson1_1GetConfigurationSetEventDestinationsCommand = async (
   input: GetConfigurationSetEventDestinationsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath =
@@ -262,12 +262,12 @@ export async function serializeAws_restJson1_1GetConfigurationSetEventDestinatio
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListConfigurationSetsCommand(
+export const serializeAws_restJson1_1ListConfigurationSetsCommand = async (
   input: ListConfigurationSetsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/sms-voice/configuration-sets";
@@ -290,12 +290,12 @@ export async function serializeAws_restJson1_1ListConfigurationSetsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1SendVoiceMessageCommand(
+export const serializeAws_restJson1_1SendVoiceMessageCommand = async (
   input: SendVoiceMessageCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/sms-voice/voice/message";
@@ -330,12 +330,12 @@ export async function serializeAws_restJson1_1SendVoiceMessageCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UpdateConfigurationSetEventDestinationCommand(
+export const serializeAws_restJson1_1UpdateConfigurationSetEventDestinationCommand = async (
   input: UpdateConfigurationSetEventDestinationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath =
@@ -393,12 +393,12 @@ export async function serializeAws_restJson1_1UpdateConfigurationSetEventDestina
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1CreateConfigurationSetCommand(
+export const deserializeAws_restJson1_1CreateConfigurationSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateConfigurationSetCommandOutput> {
+): Promise<CreateConfigurationSetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateConfigurationSetCommandError(
       output,
@@ -411,12 +411,12 @@ export async function deserializeAws_restJson1_1CreateConfigurationSetCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreateConfigurationSetCommandError(
+const deserializeAws_restJson1_1CreateConfigurationSetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateConfigurationSetCommandOutput> {
+): Promise<CreateConfigurationSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -495,12 +495,12 @@ async function deserializeAws_restJson1_1CreateConfigurationSetCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1CreateConfigurationSetEventDestinationCommand(
+export const deserializeAws_restJson1_1CreateConfigurationSetEventDestinationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateConfigurationSetEventDestinationCommandOutput> {
+): Promise<CreateConfigurationSetEventDestinationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateConfigurationSetEventDestinationCommandError(
       output,
@@ -513,12 +513,12 @@ export async function deserializeAws_restJson1_1CreateConfigurationSetEventDesti
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreateConfigurationSetEventDestinationCommandError(
+const deserializeAws_restJson1_1CreateConfigurationSetEventDestinationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateConfigurationSetEventDestinationCommandOutput> {
+): Promise<CreateConfigurationSetEventDestinationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -608,12 +608,12 @@ async function deserializeAws_restJson1_1CreateConfigurationSetEventDestinationC
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteConfigurationSetCommand(
+export const deserializeAws_restJson1_1DeleteConfigurationSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteConfigurationSetCommandOutput> {
+): Promise<DeleteConfigurationSetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteConfigurationSetCommandError(
       output,
@@ -626,12 +626,12 @@ export async function deserializeAws_restJson1_1DeleteConfigurationSetCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteConfigurationSetCommandError(
+const deserializeAws_restJson1_1DeleteConfigurationSetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteConfigurationSetCommandOutput> {
+): Promise<DeleteConfigurationSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -699,12 +699,12 @@ async function deserializeAws_restJson1_1DeleteConfigurationSetCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteConfigurationSetEventDestinationCommand(
+export const deserializeAws_restJson1_1DeleteConfigurationSetEventDestinationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteConfigurationSetEventDestinationCommandOutput> {
+): Promise<DeleteConfigurationSetEventDestinationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteConfigurationSetEventDestinationCommandError(
       output,
@@ -717,12 +717,12 @@ export async function deserializeAws_restJson1_1DeleteConfigurationSetEventDesti
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteConfigurationSetEventDestinationCommandError(
+const deserializeAws_restJson1_1DeleteConfigurationSetEventDestinationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteConfigurationSetEventDestinationCommandOutput> {
+): Promise<DeleteConfigurationSetEventDestinationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -790,12 +790,12 @@ async function deserializeAws_restJson1_1DeleteConfigurationSetEventDestinationC
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetConfigurationSetEventDestinationsCommand(
+export const deserializeAws_restJson1_1GetConfigurationSetEventDestinationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetConfigurationSetEventDestinationsCommandOutput> {
+): Promise<GetConfigurationSetEventDestinationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetConfigurationSetEventDestinationsCommandError(
       output,
@@ -815,12 +815,12 @@ export async function deserializeAws_restJson1_1GetConfigurationSetEventDestinat
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetConfigurationSetEventDestinationsCommandError(
+const deserializeAws_restJson1_1GetConfigurationSetEventDestinationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetConfigurationSetEventDestinationsCommandOutput> {
+): Promise<GetConfigurationSetEventDestinationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -888,12 +888,12 @@ async function deserializeAws_restJson1_1GetConfigurationSetEventDestinationsCom
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListConfigurationSetsCommand(
+export const deserializeAws_restJson1_1ListConfigurationSetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListConfigurationSetsCommandOutput> {
+): Promise<ListConfigurationSetsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListConfigurationSetsCommandError(
       output,
@@ -917,12 +917,12 @@ export async function deserializeAws_restJson1_1ListConfigurationSetsCommand(
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListConfigurationSetsCommandError(
+const deserializeAws_restJson1_1ListConfigurationSetsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListConfigurationSetsCommandOutput> {
+): Promise<ListConfigurationSetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -979,12 +979,12 @@ async function deserializeAws_restJson1_1ListConfigurationSetsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1SendVoiceMessageCommand(
+export const deserializeAws_restJson1_1SendVoiceMessageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SendVoiceMessageCommandOutput> {
+): Promise<SendVoiceMessageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1SendVoiceMessageCommandError(
       output,
@@ -1001,12 +1001,12 @@ export async function deserializeAws_restJson1_1SendVoiceMessageCommand(
     contents.MessageId = data.MessageId;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1SendVoiceMessageCommandError(
+const deserializeAws_restJson1_1SendVoiceMessageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SendVoiceMessageCommandOutput> {
+): Promise<SendVoiceMessageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1063,12 +1063,12 @@ async function deserializeAws_restJson1_1SendVoiceMessageCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UpdateConfigurationSetEventDestinationCommand(
+export const deserializeAws_restJson1_1UpdateConfigurationSetEventDestinationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateConfigurationSetEventDestinationCommandOutput> {
+): Promise<UpdateConfigurationSetEventDestinationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateConfigurationSetEventDestinationCommandError(
       output,
@@ -1081,12 +1081,12 @@ export async function deserializeAws_restJson1_1UpdateConfigurationSetEventDesti
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UpdateConfigurationSetEventDestinationCommandError(
+const deserializeAws_restJson1_1UpdateConfigurationSetEventDestinationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateConfigurationSetEventDestinationCommandOutput> {
+): Promise<UpdateConfigurationSetEventDestinationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1154,7 +1154,7 @@ async function deserializeAws_restJson1_1UpdateConfigurationSetEventDestinationC
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1AlreadyExistsExceptionResponse = async (
   parsedOutput: any,

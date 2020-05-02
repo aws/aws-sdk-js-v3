@@ -38,10 +38,10 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_json1_1CreateHomeRegionControlCommand(
+export const serializeAws_json1_1CreateHomeRegionControlCommand = async (
   input: CreateHomeRegionControlCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -51,12 +51,12 @@ export async function serializeAws_json1_1CreateHomeRegionControlCommand(
     serializeAws_json1_1CreateHomeRegionControlRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeHomeRegionControlsCommand(
+export const serializeAws_json1_1DescribeHomeRegionControlsCommand = async (
   input: DescribeHomeRegionControlsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -66,12 +66,12 @@ export async function serializeAws_json1_1DescribeHomeRegionControlsCommand(
     serializeAws_json1_1DescribeHomeRegionControlsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetHomeRegionCommand(
+export const serializeAws_json1_1GetHomeRegionCommand = async (
   input: GetHomeRegionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSMigrationHubMultiAccountService.GetHomeRegion";
@@ -80,12 +80,12 @@ export async function serializeAws_json1_1GetHomeRegionCommand(
     serializeAws_json1_1GetHomeRegionRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_1CreateHomeRegionControlCommand(
+export const deserializeAws_json1_1CreateHomeRegionControlCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateHomeRegionControlCommandOutput> {
+): Promise<CreateHomeRegionControlCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateHomeRegionControlCommandError(
       output,
@@ -101,12 +101,12 @@ export async function deserializeAws_json1_1CreateHomeRegionControlCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateHomeRegionControlCommandError(
+const deserializeAws_json1_1CreateHomeRegionControlCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateHomeRegionControlCommandOutput> {
+): Promise<CreateHomeRegionControlCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -187,12 +187,12 @@ async function deserializeAws_json1_1CreateHomeRegionControlCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeHomeRegionControlsCommand(
+export const deserializeAws_json1_1DescribeHomeRegionControlsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeHomeRegionControlsCommandOutput> {
+): Promise<DescribeHomeRegionControlsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeHomeRegionControlsCommandError(
       output,
@@ -211,12 +211,12 @@ export async function deserializeAws_json1_1DescribeHomeRegionControlsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeHomeRegionControlsCommandError(
+const deserializeAws_json1_1DescribeHomeRegionControlsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeHomeRegionControlsCommandOutput> {
+): Promise<DescribeHomeRegionControlsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -286,12 +286,12 @@ async function deserializeAws_json1_1DescribeHomeRegionControlsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetHomeRegionCommand(
+export const deserializeAws_json1_1GetHomeRegionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetHomeRegionCommandOutput> {
+): Promise<GetHomeRegionCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetHomeRegionCommandError(output, context);
   }
@@ -304,12 +304,12 @@ export async function deserializeAws_json1_1GetHomeRegionCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetHomeRegionCommandError(
+const deserializeAws_json1_1GetHomeRegionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetHomeRegionCommandOutput> {
+): Promise<GetHomeRegionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -379,7 +379,7 @@ async function deserializeAws_json1_1GetHomeRegionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
   parsedOutput: any,

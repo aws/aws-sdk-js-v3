@@ -26,10 +26,10 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_json1_1GenerateDataSetCommand(
+export const serializeAws_json1_1GenerateDataSetCommand = async (
   input: GenerateDataSetCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -39,12 +39,12 @@ export async function serializeAws_json1_1GenerateDataSetCommand(
     serializeAws_json1_1GenerateDataSetRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1StartSupportDataExportCommand(
+export const serializeAws_json1_1StartSupportDataExportCommand = async (
   input: StartSupportDataExportCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -54,12 +54,12 @@ export async function serializeAws_json1_1StartSupportDataExportCommand(
     serializeAws_json1_1StartSupportDataExportRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_1GenerateDataSetCommand(
+export const deserializeAws_json1_1GenerateDataSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GenerateDataSetCommandOutput> {
+): Promise<GenerateDataSetCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GenerateDataSetCommandError(output, context);
   }
@@ -72,12 +72,12 @@ export async function deserializeAws_json1_1GenerateDataSetCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GenerateDataSetCommandError(
+const deserializeAws_json1_1GenerateDataSetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GenerateDataSetCommandOutput> {
+): Promise<GenerateDataSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -114,12 +114,12 @@ async function deserializeAws_json1_1GenerateDataSetCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1StartSupportDataExportCommand(
+export const deserializeAws_json1_1StartSupportDataExportCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartSupportDataExportCommandOutput> {
+): Promise<StartSupportDataExportCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StartSupportDataExportCommandError(
       output,
@@ -135,12 +135,12 @@ export async function deserializeAws_json1_1StartSupportDataExportCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1StartSupportDataExportCommandError(
+const deserializeAws_json1_1StartSupportDataExportCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartSupportDataExportCommandOutput> {
+): Promise<StartSupportDataExportCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -177,7 +177,7 @@ async function deserializeAws_json1_1StartSupportDataExportCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_1MarketplaceCommerceAnalyticsExceptionResponse = async (
   parsedOutput: any,

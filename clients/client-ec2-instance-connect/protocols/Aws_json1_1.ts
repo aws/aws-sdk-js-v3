@@ -24,10 +24,10 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_json1_1SendSSHPublicKeyCommand(
+export const serializeAws_json1_1SendSSHPublicKeyCommand = async (
   input: SendSSHPublicKeyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSEC2InstanceConnectService.SendSSHPublicKey";
@@ -36,12 +36,12 @@ export async function serializeAws_json1_1SendSSHPublicKeyCommand(
     serializeAws_json1_1SendSSHPublicKeyRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_1SendSSHPublicKeyCommand(
+export const deserializeAws_json1_1SendSSHPublicKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SendSSHPublicKeyCommandOutput> {
+): Promise<SendSSHPublicKeyCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1SendSSHPublicKeyCommandError(output, context);
   }
@@ -54,12 +54,12 @@ export async function deserializeAws_json1_1SendSSHPublicKeyCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1SendSSHPublicKeyCommandError(
+const deserializeAws_json1_1SendSSHPublicKeyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SendSSHPublicKeyCommandOutput> {
+): Promise<SendSSHPublicKeyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -140,7 +140,7 @@ async function deserializeAws_json1_1SendSSHPublicKeyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_1AuthExceptionResponse = async (
   parsedOutput: any,
