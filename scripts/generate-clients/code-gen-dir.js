@@ -21,7 +21,7 @@ const getCodeGenOutputDir = dir =>
       dir
     )
   );
-const CODE_GEN_SDK_PROTOCOL_TESTS_DIR = getCodeGenOutputDir(
+const CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR = getCodeGenOutputDir(
   "protocol-test-codegen"
 );
 const CODE_GEN_SDK_OUTPUT_DIR = getCodeGenOutputDir("sdk-codegen");
@@ -31,6 +31,6 @@ module.exports = {
   CODE_GEN_SDK_ROOT,
   CODE_GEN_PROTOCOL_TESTS_ROOT,
   CODE_GEN_SDK_OUTPUT_DIR,
-  CODE_GEN_SDK_PROTOCOL_TESTS_DIR,
+  CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR,
   TEMP_CODE_GEN_INPUT_DIR
 };
