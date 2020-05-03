@@ -58,9 +58,20 @@ async function generateClients(models) {
       )}`
     );
   }
+
+  // Generate SDK clients
   await spawnProcess("./gradlew", options, {
     cwd: CODE_GEN_ROOT
   });
+
+  // Generate Protocol tests clients
+  await spawnProcess(
+    "./gradlew",
+    [":protocol-test-codegen:clean", ":protocol-test-codegen:build"],
+    {
+      cwd: CODE_GEN_ROOT
+    }
+  );
 }
 
 module.exports = {
