@@ -35,15 +35,20 @@ const { models, globs, output: clientsDir } = yargs
   try {
     await generateClients(models || globs);
     await generateProtocolTests();
+
     await prettifyCode(CODE_GEN_SDK_OUTPUT_DIR);
     await prettifyCode(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
+
     await copyToClients(CODE_GEN_SDK_OUTPUT_DIR, clientsDir);
     await copyToClients(
       CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR,
       PROTOCOL_TESTS_CLIENTS_DIR
     );
+
     emptyDirSync(CODE_GEN_SDK_OUTPUT_DIR);
+    emptyDirSync(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
     emptyDirSync(TEMP_CODE_GEN_INPUT_DIR);
+
     rmdirSync(TEMP_CODE_GEN_INPUT_DIR);
   } catch (e) {
     console.log(e);
