@@ -7,7 +7,7 @@ const {
   existsSync,
   writeFileSync
 } = require("fs");
-const { CODE_GEN_OUTPUT_DIR } = require("./code-gen-dir");
+const { CODE_GEN_SDK_OUTPUT_DIR } = require("./code-gen-dir");
 
 const getOverwritablePredicate = packageName => pathName => {
   const overwritablePathnames = [
@@ -64,10 +64,10 @@ const mergeManifest = (fromContent, toContent) => {
 };
 
 async function copyToClients(clientsDir) {
-  for (const modelName of readdirSync(CODE_GEN_OUTPUT_DIR)) {
+  for (const modelName of readdirSync(CODE_GEN_SDK_OUTPUT_DIR)) {
     if (modelName === "source") continue;
     const artifactPath = join(
-      CODE_GEN_OUTPUT_DIR,
+      CODE_GEN_SDK_OUTPUT_DIR,
       modelName,
       "typescript-codegen"
     );

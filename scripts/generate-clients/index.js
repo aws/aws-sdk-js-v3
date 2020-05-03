@@ -4,7 +4,7 @@ const { emptyDirSync, rmdirSync } = require("fs-extra");
 const { generateClients } = require("./code-gen");
 const { copyToClients } = require("./copy-to-clients");
 const {
-  CODE_GEN_OUTPUT_DIR,
+  CODE_GEN_SDK_OUTPUT_DIR,
   TEMP_CODE_GEN_INPUT_DIR
 } = require("./code-gen-dir");
 const { prettifyCode } = require("./code-prettify");
@@ -30,7 +30,7 @@ const { models, globs, output: clientsDir } = yargs
     await generateClients(models || globs);
     await prettifyCode();
     await copyToClients(clientsDir);
-    emptyDirSync(CODE_GEN_OUTPUT_DIR);
+    emptyDirSync(CODE_GEN_SDK_OUTPUT_DIR);
     emptyDirSync(TEMP_CODE_GEN_INPUT_DIR);
     rmdirSync(TEMP_CODE_GEN_INPUT_DIR);
   } catch (e) {

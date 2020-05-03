@@ -4,7 +4,7 @@ const { readdirSync, lstatSync } = require("fs");
 const { spawnProcess } = require("./spawn-process");
 const {
   CODE_GEN_ROOT,
-  CODE_GEN_TASK_ROOT,
+  CODE_GEN_SDK_ROOT,
   TEMP_CODE_GEN_INPUT_DIR
 } = require("./code-gen-dir");
 const Glob = require("glob");
@@ -53,7 +53,7 @@ async function generateClients(models) {
   if (designatedModels) {
     options.push(
       `-PmodelsDirProp=${path.relative(
-        CODE_GEN_TASK_ROOT,
+        CODE_GEN_SDK_ROOT,
         TEMP_CODE_GEN_INPUT_DIR
       )}`
     );
