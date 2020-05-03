@@ -9,7 +9,7 @@ const {
 } = require("./code-gen-dir");
 const Glob = require("glob");
 
-async function generateClients(models) {
+const generateClients = async models => {
   let designatedModels = false;
   if (typeof models === "string") {
     //`models` is a folder path
@@ -59,12 +59,12 @@ async function generateClients(models) {
     );
   }
 
-  // Generate SDK clients
   await spawnProcess("./gradlew", options, {
     cwd: CODE_GEN_ROOT
   });
+};
 
-  // Generate Protocol tests clients
+const generateProtocolTests = async () => {
   await spawnProcess(
     "./gradlew",
     [":protocol-test-codegen:clean", ":protocol-test-codegen:build"],
@@ -72,8 +72,9 @@ async function generateClients(models) {
       cwd: CODE_GEN_ROOT
     }
   );
-}
+};
 
 module.exports = {
-  generateClients
+  generateClients,
+  generateProtocolTests
 };

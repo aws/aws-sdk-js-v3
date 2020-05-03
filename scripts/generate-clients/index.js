@@ -1,10 +1,11 @@
 const yargs = require("yargs");
 const path = require("path");
 const { emptyDirSync, rmdirSync } = require("fs-extra");
-const { generateClients } = require("./code-gen");
+const { generateClients, generateProtocolTests } = require("./code-gen");
 const { copyToClients } = require("./copy-to-clients");
 const {
   CODE_GEN_SDK_OUTPUT_DIR,
+  CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR,
   TEMP_CODE_GEN_INPUT_DIR
 } = require("./code-gen-dir");
 const { prettifyCode } = require("./code-prettify");
@@ -28,7 +29,9 @@ const { models, globs, output: clientsDir } = yargs
 (async () => {
   try {
     await generateClients(models || globs);
-    await prettifyCode();
+    await generateProtocolTests();
+    await prettifyCode(CODE_GEN_SDK_OUTPUT_DIR);
+    await prettifyCode(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
     await copyToClients(clientsDir);
     emptyDirSync(CODE_GEN_SDK_OUTPUT_DIR);
     emptyDirSync(TEMP_CODE_GEN_INPUT_DIR);
