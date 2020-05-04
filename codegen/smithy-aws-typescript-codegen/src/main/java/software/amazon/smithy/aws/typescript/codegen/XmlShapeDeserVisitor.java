@@ -24,10 +24,8 @@ import software.amazon.smithy.codegen.core.CodegenException;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.shapes.CollectionShape;
 import software.amazon.smithy.model.shapes.DocumentShape;
-import software.amazon.smithy.model.shapes.ListShape;
 import software.amazon.smithy.model.shapes.MapShape;
 import software.amazon.smithy.model.shapes.MemberShape;
-import software.amazon.smithy.model.shapes.SetShape;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.shapes.UnionShape;
@@ -191,10 +189,8 @@ final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
             writer.openBlock("if ($L.$L === \"\") {", "}", inputLocation, locationName, () -> {
                 if (target instanceof MapShape) {
                     writer.write("contents.$L = {};", memberName);
-                } else if (target instanceof ListShape) {
+                } else if (target instanceof CollectionShape) {
                     writer.write("contents.$L = [];", memberName);
-                } else if (target instanceof SetShape) {
-                    writer.write("contents.$L = new Set([]);", memberName);
                 }
             });
         }
