@@ -19,18 +19,17 @@ package software.amazon.smithy.aws.typescript.codegen;
  * Handles generating the aws.json-1.0 protocol for services.
  *
  * @inheritDoc
- *
  * @see JsonRpcProtocolGenerator
  */
 final class AwsJsonRpc1_0 extends JsonRpcProtocolGenerator {
 
-    @Override
-    protected String getDocumentContentType() {
-        return "application/x-amz-json-1.0";
-    }
+  @Override
+  protected String getDocumentContentType() {
+    return "application/x-amz-json-1.0";
+  }
 
-    @Override
-    public String getName() {
-        return "aws.json-1.0";
-    }
+  @Override
+  public String getName() {
+    return "aws.json-1.0";
+  }
 }

@@ -28,49 +28,50 @@ import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
 import software.amazon.smithy.utils.MapUtils;
 
-/**
- * Generates an endpoint resolver from endpoints.json.
- */
+/** Generates an endpoint resolver from endpoints.json. */
 public final class AwsEndpointGeneratorIntegration implements TypeScriptIntegration {
-    @Override
-    public void writeAdditionalFiles(
-            TypeScriptSettings settings,
-            Model model,
-            SymbolProvider symbolProvider,
-            BiConsumer<String, Consumer<TypeScriptWriter>> writerFactory
-    ) {
-        writerFactory.accept("endpoints.ts", writer -> {
-            new EndpointGenerator(settings.getService(model), writer).run();
+  @Override
+  public void writeAdditionalFiles(
+      TypeScriptSettings settings,
+      Model model,
+      SymbolProvider symbolProvider,
+      BiConsumer<String, Consumer<TypeScriptWriter>> writerFactory) {
+    writerFactory.accept(
+        "endpoints.ts",
+        writer -> {
+          new EndpointGenerator(settings.getService(model), writer).run();
         });
-    }
+  }
 
-    @Override
-    public void addConfigInterfaceFields(
-            TypeScriptSettings settings,
-            Model model,
-            SymbolProvider symbolProvider,
-            TypeScriptWriter writer
-    ) {
-        writer.addImport("RegionInfoProvider", "RegionInfoProvider", TypeScriptDependency.AWS_SDK_TYPES.packageName);
-        writer.writeDocs("Fetch related hostname, signing name or signing region with given region.");
-        writer.write("regionInfoProvider?: RegionInfoProvider;\n");
-    }
+  @Override
+  public void addConfigInterfaceFields(
+      TypeScriptSettings settings,
+      Model model,
+      SymbolProvider symbolProvider,
+      TypeScriptWriter writer) {
+    writer.addImport(
+        "RegionInfoProvider", "RegionInfoProvider", TypeScriptDependency.AWS_SDK_TYPES.packageName);
+    writer.writeDocs("Fetch related hostname, signing name or signing region with given region.");
+    writer.write("regionInfoProvider?: RegionInfoProvider;\n");
+  }
 
-    @Override
-    public Map<String, Consumer<TypeScriptWriter>> getRuntimeConfigWriters(
-            TypeScriptSettings settings,
-            Model model,
-            SymbolProvider symbolProvider,
-            LanguageTarget target
-    ) {
-        switch (target) {
-            case SHARED:
-                return MapUtils.of("regionInfoProvider", writer -> {
-                    writer.addImport("defaultRegionInfoProvider", "defaultRegionInfoProvider", "./endpoints");
-                    writer.write("regionInfoProvider: defaultRegionInfoProvider,");
-                });
-            default:
-                return Collections.emptyMap();
-        }
+  @Override
+  public Map<String, Consumer<TypeScriptWriter>> getRuntimeConfigWriters(
+      TypeScriptSettings settings,
+      Model model,
+      SymbolProvider symbolProvider,
+      LanguageTarget target) {
+    switch (target) {
+      case SHARED:
+        return MapUtils.of(
+            "regionInfoProvider",
+            writer -> {
+              writer.addImport(
+                  "defaultRegionInfoProvider", "defaultRegionInfoProvider", "./endpoints");
+              writer.write("regionInfoProvider: defaultRegionInfoProvider,");
+            });
+      default:
+        return Collections.emptyMap();
     }
+  }
 }

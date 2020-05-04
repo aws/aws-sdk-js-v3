@@ -24,32 +24,33 @@ import software.amazon.smithy.typescript.codegen.integration.DocumentMemberDeser
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
 
 /**
- * Overrides the default implementation of BigDecimal and BigInteger shape
- * deserialization to throw when encountered in AWS REST JSON based protocols.
+ * Overrides the default implementation of BigDecimal and BigInteger shape deserialization to throw
+ * when encountered in AWS REST JSON based protocols.
  */
 final class JsonMemberDeserVisitor extends DocumentMemberDeserVisitor {
 
-    /**
-     * @inheritDoc
-     */
-    JsonMemberDeserVisitor(GenerationContext context, String dataSource, Format defaultTimestampFormat) {
-        super(context, dataSource, defaultTimestampFormat);
-    }
+  /** @inheritDoc */
+  JsonMemberDeserVisitor(
+      GenerationContext context, String dataSource, Format defaultTimestampFormat) {
+    super(context, dataSource, defaultTimestampFormat);
+  }
 
-    @Override
-    public String bigDecimalShape(BigDecimalShape shape) {
-        // Fail instead of losing precision through Number.
-        return unsupportedShape(shape);
-    }
+  @Override
+  public String bigDecimalShape(BigDecimalShape shape) {
+    // Fail instead of losing precision through Number.
+    return unsupportedShape(shape);
+  }
 
-    @Override
-    public String bigIntegerShape(BigIntegerShape shape) {
-        // Fail instead of losing precision through Number.
-        return unsupportedShape(shape);
-    }
+  @Override
+  public String bigIntegerShape(BigIntegerShape shape) {
+    // Fail instead of losing precision through Number.
+    return unsupportedShape(shape);
+  }
 
-    private String unsupportedShape(Shape shape) {
-        throw new CodegenException(String.format("Cannot deserialize shape type %s on protocol, shape: %s.",
-                shape.getType(), shape.getId()));
-    }
+  private String unsupportedShape(Shape shape) {
+    throw new CodegenException(
+        String.format(
+            "Cannot deserialize shape type %s on protocol, shape: %s.",
+            shape.getType(), shape.getId()));
+  }
 }

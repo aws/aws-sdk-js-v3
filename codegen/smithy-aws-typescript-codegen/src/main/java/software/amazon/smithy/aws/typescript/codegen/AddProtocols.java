@@ -20,14 +20,17 @@ import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
 import software.amazon.smithy.utils.ListUtils;
 
-/**
- * Adds all built-in AWS protocols.
- */
+/** Adds all built-in AWS protocols. */
 public class AddProtocols implements TypeScriptIntegration {
 
-    @Override
-    public List<ProtocolGenerator> getProtocolGenerators() {
-        return ListUtils.of(new AwsRestJson1_1(), new AwsJsonRpc1_0(), new AwsJsonRpc1_1(),
-                new AwsRestXml(), new AwsQuery(), new AwsEc2());
-    }
+  @Override
+  public List<ProtocolGenerator> getProtocolGenerators() {
+    return ListUtils.of(
+        new AwsRestJson1_1(),
+        new AwsJsonRpc1_0(),
+        new AwsJsonRpc1_1(),
+        new AwsRestXml(),
+        new AwsQuery(),
+        new AwsEc2());
+  }
 }

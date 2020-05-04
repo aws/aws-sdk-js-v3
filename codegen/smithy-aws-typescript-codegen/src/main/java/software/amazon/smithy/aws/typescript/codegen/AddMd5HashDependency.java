@@ -19,7 +19,6 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
-
 import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
@@ -32,61 +31,64 @@ import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegrati
 import software.amazon.smithy.utils.MapUtils;
 import software.amazon.smithy.utils.SetUtils;
 
-/**
- * Adds Md5Hash if needed.
- */
+/** Adds Md5Hash if needed. */
 public class AddMd5HashDependency implements TypeScriptIntegration {
-    private static final Set<String> SERVICE_IDS = SetUtils.of("S3", "SQS");
+  private static final Set<String> SERVICE_IDS = SetUtils.of("S3", "SQS");
 
-    @Override
-    public void addConfigInterfaceFields(
-            TypeScriptSettings settings,
-            Model model,
-            SymbolProvider symbolProvider,
-            TypeScriptWriter writer
-    ) {
-        if (!needsMd5Dep(settings.getService(model))) {
-            return;
-        }
-
-        writer.addImport("HashConstructor", "__HashConstructor", "@aws-sdk/types");
-        writer.writeDocs("A constructor for a class implementing the @aws-sdk/types.Hash interface \n"
-                + "that computes MD5 hashes");
-        writer.write("md5?: __HashConstructor;\n");
+  @Override
+  public void addConfigInterfaceFields(
+      TypeScriptSettings settings,
+      Model model,
+      SymbolProvider symbolProvider,
+      TypeScriptWriter writer) {
+    if (!needsMd5Dep(settings.getService(model))) {
+      return;
     }
 
-    @Override
-    public Map<String, Consumer<TypeScriptWriter>> getRuntimeConfigWriters(
-            TypeScriptSettings settings,
-            Model model,
-            SymbolProvider symbolProvider,
-            LanguageTarget target
-    ) {
-        if (!needsMd5Dep(settings.getService(model))) {
-            return Collections.emptyMap();
-        }
+    writer.addImport("HashConstructor", "__HashConstructor", "@aws-sdk/types");
+    writer.writeDocs(
+        "A constructor for a class implementing the @aws-sdk/types.Hash interface \n"
+            + "that computes MD5 hashes");
+    writer.write("md5?: __HashConstructor;\n");
+  }
 
-        switch (target) {
-            case NODE:
-                return MapUtils.of("md5", writer -> {
-                    writer.addDependency(TypeScriptDependency.AWS_SDK_TYPES);
-                    writer.addImport("HashConstructor", "__HashConstructor",
-                            TypeScriptDependency.AWS_SDK_TYPES.packageName);
-                    writer.write("md5: Hash.bind(null, \"md5\"),");
-                });
-            case BROWSER:
-                return MapUtils.of("md5", writer -> {
-                    writer.addDependency(AwsDependency.MD5_BROWSER);
-                    writer.addImport("Md5", "Md5", AwsDependency.MD5_BROWSER.packageName);
-                    writer.write("md5: Md5,");
-                });
-            default:
-                return Collections.emptyMap();
-        }
+  @Override
+  public Map<String, Consumer<TypeScriptWriter>> getRuntimeConfigWriters(
+      TypeScriptSettings settings,
+      Model model,
+      SymbolProvider symbolProvider,
+      LanguageTarget target) {
+    if (!needsMd5Dep(settings.getService(model))) {
+      return Collections.emptyMap();
     }
 
-    private static boolean needsMd5Dep(ServiceShape service) {
-        String serviceId = service.getTrait(ServiceTrait.class).map(ServiceTrait::getSdkId).orElse("");
-        return SERVICE_IDS.contains(serviceId);
+    switch (target) {
+      case NODE:
+        return MapUtils.of(
+            "md5",
+            writer -> {
+              writer.addDependency(TypeScriptDependency.AWS_SDK_TYPES);
+              writer.addImport(
+                  "HashConstructor",
+                  "__HashConstructor",
+                  TypeScriptDependency.AWS_SDK_TYPES.packageName);
+              writer.write("md5: Hash.bind(null, \"md5\"),");
+            });
+      case BROWSER:
+        return MapUtils.of(
+            "md5",
+            writer -> {
+              writer.addDependency(AwsDependency.MD5_BROWSER);
+              writer.addImport("Md5", "Md5", AwsDependency.MD5_BROWSER.packageName);
+              writer.write("md5: Md5,");
+            });
+      default:
+        return Collections.emptyMap();
     }
+  }
+
+  private static boolean needsMd5Dep(ServiceShape service) {
+    String serviceId = service.getTrait(ServiceTrait.class).map(ServiceTrait::getSdkId).orElse("");
+    return SERVICE_IDS.contains(serviceId);
+  }
 }

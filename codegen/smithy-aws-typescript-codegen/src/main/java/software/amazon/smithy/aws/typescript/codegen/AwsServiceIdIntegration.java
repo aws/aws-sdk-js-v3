@@ -23,42 +23,43 @@ import software.amazon.smithy.model.Model;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
 
-/**
- * Uses the {@code aws.api#service$sdkId} trait property to determine the
- * name of a service.
- */
+/** Uses the {@code aws.api#service$sdkId} trait property to determine the name of a service. */
 public final class AwsServiceIdIntegration implements TypeScriptIntegration {
 
-    private static final Logger LOGGER = Logger.getLogger(AwsServiceIdIntegration.class.getName());
+  private static final Logger LOGGER = Logger.getLogger(AwsServiceIdIntegration.class.getName());
 
-    @Override
-    public SymbolProvider decorateSymbolProvider(
-            TypeScriptSettings settings, Model model, SymbolProvider symbolProvider) {
-        return shape -> {
-            Symbol symbol = symbolProvider.toSymbol(shape);
+  @Override
+  public SymbolProvider decorateSymbolProvider(
+      TypeScriptSettings settings, Model model, SymbolProvider symbolProvider) {
+    return shape -> {
+      Symbol symbol = symbolProvider.toSymbol(shape);
 
-            if (!shape.isServiceShape()) {
+      if (!shape.isServiceShape()) {
+        return symbol;
+      }
+
+      // If the SDK service ID trait is present, use that, otherwise fall back to
+      // the default naming strategy for the service.
+      return shape
+          .getTrait(ServiceTrait.class)
+          .map(ServiceTrait::getSdkId)
+          .map(id -> updateServiceSymbol(symbol, id))
+          .orElseGet(
+              () -> {
+                LOGGER.warning(
+                    String.format("No `%s` trait found on `%s`", ServiceTrait.ID, shape.getId()));
                 return symbol;
-            }
+              });
+    };
+  }
 
-            // If the SDK service ID trait is present, use that, otherwise fall back to
-            // the default naming strategy for the service.
-            return shape.getTrait(ServiceTrait.class)
-                    .map(ServiceTrait::getSdkId)
-                    .map(id -> updateServiceSymbol(symbol, id))
-                    .orElseGet(() -> {
-                        LOGGER.warning(String.format("No `%s` trait found on `%s`", ServiceTrait.ID, shape.getId()));
-                        return symbol;
-                    });
-        };
-    }
-
-    private static Symbol updateServiceSymbol(Symbol symbol, String serviceId) {
-        String name = serviceId.replace(" ", "") + "Client";
-        return symbol.toBuilder()
-                .name(name)
-                .namespace("./" + name, "/")
-                .definitionFile(name + ".ts")
-                .build();
-    }
+  private static Symbol updateServiceSymbol(Symbol symbol, String serviceId) {
+    String name = serviceId.replace(" ", "") + "Client";
+    return symbol
+        .toBuilder()
+        .name(name)
+        .namespace("./" + name, "/")
+        .definitionFile(name + ".ts")
+        .build();
+  }
 }

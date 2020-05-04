@@ -33,103 +33,111 @@ import software.amazon.smithy.typescript.codegen.integration.DocumentMemberDeser
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
 
 /**
- * Overrides several of the default implementations to handle XML document
- * contents deserializing to strings instead of typed components:
+ * Overrides several of the default implementations to handle XML document contents deserializing to
+ * strings instead of typed components:
  *
  * <ul>
- *   <li>Uses {@code parseFloat} on Float and Double shapes.</li>
- *   <li>Fails on BigDecimal and BigInteger shapes.</li>
- *   <li>Uses {@code parseInt} on other number shapes.</li>
- *   <li>Compares boolean shapes to the string {@code "true"} to generate a boolean.</li>
+ *   <li>Uses {@code parseFloat} on Float and Double shapes.
+ *   <li>Fails on BigDecimal and BigInteger shapes.
+ *   <li>Uses {@code parseInt} on other number shapes.
+ *   <li>Compares boolean shapes to the string {@code "true"} to generate a boolean.
  * </ul>
  *
  * @see <a href="https://awslabs.github.io/smithy/spec/xml.html">Smithy XML traits.</a>
  */
 final class XmlMemberDeserVisitor extends DocumentMemberDeserVisitor {
 
-    XmlMemberDeserVisitor(GenerationContext context, String dataSource, Format defaultTimestampFormat) {
-        super(context, dataSource, defaultTimestampFormat);
-    }
+  XmlMemberDeserVisitor(
+      GenerationContext context, String dataSource, Format defaultTimestampFormat) {
+    super(context, dataSource, defaultTimestampFormat);
+  }
 
-    @Override
-    public String stringShape(StringShape shape) {
-        return getSafeDataSource();
-    }
+  @Override
+  public String stringShape(StringShape shape) {
+    return getSafeDataSource();
+  }
 
-    /**
-     * Provides a data source safety mechanism to handle nodes that are
-     * expected to have only a value but were loaded from a node with
-     * a namespace.
-     *
-     * @return The node's value having handled a potential namespace.
-     */
-    private String getSafeDataSource() {
-        String dataSource = getDataSource();
-        return "((" + dataSource + "['#text'] !== undefined) ? " + dataSource + "['#text'] : " + dataSource + ")";
-    }
+  /**
+   * Provides a data source safety mechanism to handle nodes that are expected to have only a value
+   * but were loaded from a node with a namespace.
+   *
+   * @return The node's value having handled a potential namespace.
+   */
+  private String getSafeDataSource() {
+    String dataSource = getDataSource();
+    return "(("
+        + dataSource
+        + "['#text'] !== undefined) ? "
+        + dataSource
+        + "['#text'] : "
+        + dataSource
+        + ")";
+  }
 
-    @Override
-    public String blobShape(BlobShape shape) {
-        return "context.base64Decoder(" + getSafeDataSource() + ")";
-    }
+  @Override
+  public String blobShape(BlobShape shape) {
+    return "context.base64Decoder(" + getSafeDataSource() + ")";
+  }
 
-    @Override
-    public String booleanShape(BooleanShape shape) {
-        return getSafeDataSource() + " == 'true'";
-    }
+  @Override
+  public String booleanShape(BooleanShape shape) {
+    return getSafeDataSource() + " == 'true'";
+  }
 
-    @Override
-    public String byteShape(ByteShape shape) {
-        return deserializeInt();
-    }
+  @Override
+  public String byteShape(ByteShape shape) {
+    return deserializeInt();
+  }
 
-    @Override
-    public String shortShape(ShortShape shape) {
-        return deserializeInt();
-    }
+  @Override
+  public String shortShape(ShortShape shape) {
+    return deserializeInt();
+  }
 
-    @Override
-    public String integerShape(IntegerShape shape) {
-        return deserializeInt();
-    }
+  @Override
+  public String integerShape(IntegerShape shape) {
+    return deserializeInt();
+  }
 
-    @Override
-    public String longShape(LongShape shape) {
-        return deserializeInt();
-    }
+  @Override
+  public String longShape(LongShape shape) {
+    return deserializeInt();
+  }
 
-    private String deserializeInt() {
-        return "parseInt(" + getSafeDataSource() + ")";
-    }
+  private String deserializeInt() {
+    return "parseInt(" + getSafeDataSource() + ")";
+  }
 
-    @Override
-    public String floatShape(FloatShape shape) {
-        return deserializeFloat();
-    }
+  @Override
+  public String floatShape(FloatShape shape) {
+    return deserializeFloat();
+  }
 
-    @Override
-    public String doubleShape(DoubleShape shape) {
-        return deserializeFloat();
-    }
+  @Override
+  public String doubleShape(DoubleShape shape) {
+    return deserializeFloat();
+  }
 
-    private String deserializeFloat() {
-        return "parseFloat(" + getSafeDataSource() + ")";
-    }
+  private String deserializeFloat() {
+    return "parseFloat(" + getSafeDataSource() + ")";
+  }
 
-    @Override
-    public String bigDecimalShape(BigDecimalShape shape) {
-        // Fail instead of losing precision through Number.
-        return unsupportedShape(shape);
-    }
+  @Override
+  public String bigDecimalShape(BigDecimalShape shape) {
+    // Fail instead of losing precision through Number.
+    return unsupportedShape(shape);
+  }
 
-    @Override
-    public String bigIntegerShape(BigIntegerShape shape) {
-        // Fail instead of losing precision through Number.
-        return unsupportedShape(shape);
-    }
+  @Override
+  public String bigIntegerShape(BigIntegerShape shape) {
+    // Fail instead of losing precision through Number.
+    return unsupportedShape(shape);
+  }
 
-    private String unsupportedShape(Shape shape) {
-        throw new CodegenException(String.format("Cannot deserialize shape type %s on protocol, shape: %s.",
-                shape.getType(), shape.getId()));
-    }
+  private String unsupportedShape(Shape shape) {
+    throw new CodegenException(
+        String.format(
+            "Cannot deserialize shape type %s on protocol, shape: %s.",
+            shape.getType(), shape.getId()));
+  }
 }

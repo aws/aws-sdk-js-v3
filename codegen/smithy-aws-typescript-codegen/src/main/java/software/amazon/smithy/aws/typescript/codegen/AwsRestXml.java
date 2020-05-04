@@ -33,17 +33,17 @@ import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.HttpBindingProtocolGenerator;
 
 /**
- * Handles generating the aws.rest-xml protocol for services. It handles reading and
- * writing from document bodies, including generating any functions needed for
- * performing serde.
+ * Handles generating the aws.rest-xml protocol for services. It handles reading and writing from
+ * document bodies, including generating any functions needed for performing serde.
  *
- * This builds on the foundations of the {@link HttpBindingProtocolGenerator} to handle
+ * <p>This builds on the foundations of the {@link HttpBindingProtocolGenerator} to handle
  * components of binding to HTTP requests and responses.
  *
- * A service-specific customization exists for Amazon S3, which doesn't wrap the Error
- * object in the response.
+ * <p>A service-specific customization exists for Amazon S3, which doesn't wrap the Error object in
+ * the response.
  *
- * TODO: Build an XmlIndex to handle pre-computing resolved values for names, namespaces, and more.
+ * <p>TODO: Build an XmlIndex to handle pre-computing resolved values for names, namespaces, and
+ * more.
  *
  * @see XmlShapeSerVisitor
  * @see XmlShapeDeserVisitor
@@ -55,206 +55,227 @@ import software.amazon.smithy.typescript.codegen.integration.HttpBindingProtocol
  */
 final class AwsRestXml extends HttpBindingProtocolGenerator {
 
-    AwsRestXml() {
-        super(true);
-    }
+  AwsRestXml() {
+    super(true);
+  }
 
-    @Override
-    protected String getDocumentContentType() {
-        return "application/xml";
-    }
+  @Override
+  protected String getDocumentContentType() {
+    return "application/xml";
+  }
 
-    @Override
-    protected Format getDocumentTimestampFormat() {
-        return Format.DATE_TIME;
-    }
+  @Override
+  protected Format getDocumentTimestampFormat() {
+    return Format.DATE_TIME;
+  }
 
-    @Override
-    public String getName() {
-        return "aws.rest-xml";
-    }
+  @Override
+  public String getName() {
+    return "aws.rest-xml";
+  }
 
-    @Override
-    protected void generateDocumentBodyShapeSerializers(GenerationContext context, Set<Shape> shapes) {
-        AwsProtocolUtils.generateDocumentBodyShapeSerde(context, shapes, new XmlShapeSerVisitor(context));
-    }
+  @Override
+  protected void generateDocumentBodyShapeSerializers(
+      GenerationContext context, Set<Shape> shapes) {
+    AwsProtocolUtils.generateDocumentBodyShapeSerde(
+        context, shapes, new XmlShapeSerVisitor(context));
+  }
 
-    @Override
-    protected void generateDocumentBodyShapeDeserializers(GenerationContext context, Set<Shape> shapes) {
-        AwsProtocolUtils.generateDocumentBodyShapeSerde(context, shapes, new XmlShapeDeserVisitor(context));
-    }
+  @Override
+  protected void generateDocumentBodyShapeDeserializers(
+      GenerationContext context, Set<Shape> shapes) {
+    AwsProtocolUtils.generateDocumentBodyShapeSerde(
+        context, shapes, new XmlShapeDeserVisitor(context));
+  }
 
-    @Override
-    public void generateSharedComponents(GenerationContext context) {
-        super.generateSharedComponents(context);
-        AwsProtocolUtils.generateXmlParseBody(context);
-        AwsProtocolUtils.addItempotencyAutofillImport(context);
+  @Override
+  public void generateSharedComponents(GenerationContext context) {
+    super.generateSharedComponents(context);
+    AwsProtocolUtils.generateXmlParseBody(context);
+    AwsProtocolUtils.addItempotencyAutofillImport(context);
 
-        TypeScriptWriter writer = context.getWriter();
-        writer.addDependency(AwsDependency.XML_BUILDER);
+    TypeScriptWriter writer = context.getWriter();
+    writer.addDependency(AwsDependency.XML_BUILDER);
 
-        // Generate a function that handles the complex rules around deserializing
-        // an error code from a rest-xml error.
-        SymbolReference responseType = getApplicationProtocol().getResponseType();
-        writer.openBlock("const loadRestXmlErrorCode = (\n"
-                       + "  output: $T,\n"
-                       + "  data: any\n"
-                       + "): string => {", "};", responseType, () -> {
-            // Attempt to fetch the error code from the specific location.
-            String errorCodeLocation = getErrorBodyLocation(context, "data") + ".Code";
-            writer.openBlock("if ($L !== undefined) {", "}", errorCodeLocation, () -> {
+    // Generate a function that handles the complex rules around deserializing
+    // an error code from a rest-xml error.
+    SymbolReference responseType = getApplicationProtocol().getResponseType();
+    writer.openBlock(
+        "const loadRestXmlErrorCode = (\n" + "  output: $T,\n" + "  data: any\n" + "): string => {",
+        "};",
+        responseType,
+        () -> {
+          // Attempt to fetch the error code from the specific location.
+          String errorCodeLocation = getErrorBodyLocation(context, "data") + ".Code";
+          writer.openBlock(
+              "if ($L !== undefined) {",
+              "}",
+              errorCodeLocation,
+              () -> {
                 writer.write("return $L;", errorCodeLocation);
-            });
+              });
 
-            // Default a 404 status code to the NotFound code.
-            writer.openBlock("if (output.statusCode == 404) {", "}", () -> writer.write("return 'NotFound';"));
+          // Default a 404 status code to the NotFound code.
+          writer.openBlock(
+              "if (output.statusCode == 404) {", "}", () -> writer.write("return 'NotFound';"));
 
-            // Default to an empty error code so an unmodeled exception is built.
-            writer.write("return '';");
+          // Default to an empty error code so an unmodeled exception is built.
+          writer.write("return '';");
         });
-        writer.write("");
+    writer.write("");
+  }
+
+  @Override
+  protected String getErrorBodyLocation(GenerationContext context, String outputLocation) {
+    // Some services, S3 for example, don't wrap the Error object in the response.
+    if (usesWrappedErrorResponse(context)) {
+      return outputLocation + ".Error";
+    }
+    return outputLocation;
+  }
+
+  private boolean usesWrappedErrorResponse(GenerationContext context) {
+    return context
+        .getService()
+        .getTrait(ServiceTrait.class)
+        .map(trait -> !trait.getSdkId().equals("S3"))
+        .orElse(true);
+  }
+
+  @Override
+  protected void writeDefaultHeaders(GenerationContext context, OperationShape operation) {
+    super.writeDefaultHeaders(context, operation);
+    AwsProtocolUtils.generateUnsignedPayloadSigV4Header(context, operation);
+  }
+
+  @Override
+  protected void serializeInputDocument(
+      GenerationContext context, OperationShape operation, List<HttpBinding> documentBindings) {
+    // Short circuit when we have no bindings.
+    TypeScriptWriter writer = context.getWriter();
+    if (documentBindings.isEmpty()) {
+      writer.write("body = \"\";");
+      return;
     }
 
-    @Override
-    protected String getErrorBodyLocation(GenerationContext context, String outputLocation) {
-        // Some services, S3 for example, don't wrap the Error object in the response.
-        if (usesWrappedErrorResponse(context)) {
-            return outputLocation + ".Error";
-        }
-        return outputLocation;
+    SymbolProvider symbolProvider = context.getSymbolProvider();
+    ShapeId inputShapeId = documentBindings.get(0).getMember().getContainer();
+
+    // Start with the XML declaration.
+    writer.write("body = \"<?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\"?>\";");
+
+    writer.addImport("XmlNode", "__XmlNode", "@aws-sdk/xml-builder");
+    writer.write("const bodyNode = new __XmlNode($S);", inputShapeId.getName());
+
+    // Add @xmlNamespace value of the service to the root node,
+    // fall back to one from the input shape.
+    boolean serviceXmlns =
+        AwsProtocolUtils.writeXmlNamespace(context, context.getService(), "bodyNode");
+    if (!serviceXmlns) {
+      StructureShape inputShape =
+          context.getModel().expectShape(inputShapeId, StructureShape.class);
+      AwsProtocolUtils.writeXmlNamespace(context, inputShape, "bodyNode");
     }
 
-    private boolean usesWrappedErrorResponse(GenerationContext context) {
-        return context.getService().getTrait(ServiceTrait.class)
-                .map(trait -> !trait.getSdkId().equals("S3"))
-                .orElse(true);
+    XmlShapeSerVisitor shapeSerVisitor = new XmlShapeSerVisitor(context);
+
+    for (HttpBinding binding : documentBindings) {
+      MemberShape memberShape = binding.getMember();
+      // The name of the member to get from the input shape.
+      String memberName = symbolProvider.toMemberName(memberShape);
+      String inputLocation = "input." + memberName;
+
+      // Handle if the member is an idempotency token that should be auto-filled.
+      AwsProtocolUtils.writeIdempotencyAutofill(context, memberShape, inputLocation);
+
+      writer.openBlock(
+          "if ($L !== undefined) {",
+          "}",
+          inputLocation,
+          () -> {
+            shapeSerVisitor.serializeNamedMember(
+                context, memberName, memberShape, () -> inputLocation);
+          });
     }
 
-    @Override
-    protected void writeDefaultHeaders(GenerationContext context, OperationShape operation) {
-        super.writeDefaultHeaders(context, operation);
-        AwsProtocolUtils.generateUnsignedPayloadSigV4Header(context, operation);
-    }
+    // Append the generated XML to the body.
+    writer.write("body += bodyNode.toString();");
+  }
 
-    @Override
-    protected void serializeInputDocument(
-            GenerationContext context,
-            OperationShape operation,
-            List<HttpBinding> documentBindings
-    ) {
-        // Short circuit when we have no bindings.
-        TypeScriptWriter writer = context.getWriter();
-        if (documentBindings.isEmpty()) {
-            writer.write("body = \"\";");
-            return;
-        }
+  @Override
+  protected void serializeInputPayload(
+      GenerationContext context, OperationShape operation, HttpBinding payloadBinding) {
+    SymbolProvider symbolProvider = context.getSymbolProvider();
+    TypeScriptWriter writer = context.getWriter();
 
-        SymbolProvider symbolProvider = context.getSymbolProvider();
-        ShapeId inputShapeId = documentBindings.get(0).getMember().getContainer();
+    MemberShape member = payloadBinding.getMember();
+    String memberName = symbolProvider.toMemberName(member);
 
-        // Start with the XML declaration.
-        writer.write("body = \"<?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\"?>\";");
+    writer.write("let contents: any;");
 
-        writer.addImport("XmlNode", "__XmlNode", "@aws-sdk/xml-builder");
-        writer.write("const bodyNode = new __XmlNode($S);", inputShapeId.getName());
+    // Generate an if statement to set the body node if the member is set.
+    writer.openBlock(
+        "if (input.$L !== undefined) {",
+        "}",
+        memberName,
+        () -> {
+          Shape target = context.getModel().expectShape(member.getTarget());
+          writer.write(
+              "contents = $L;",
+              getInputValue(context, Location.PAYLOAD, "input." + memberName, member, target));
 
-        // Add @xmlNamespace value of the service to the root node,
-        // fall back to one from the input shape.
-        boolean serviceXmlns = AwsProtocolUtils.writeXmlNamespace(context, context.getService(), "bodyNode");
-        if (!serviceXmlns) {
-            StructureShape inputShape = context.getModel().expectShape(inputShapeId, StructureShape.class);
-            AwsProtocolUtils.writeXmlNamespace(context, inputShape, "bodyNode");
-        }
+          // Structure and Union payloads will serialize as XML documents via XmlNode.
+          if (target instanceof StructureShape || target instanceof UnionShape) {
+            // Start with the XML declaration.
+            writer.write("body = \"<?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\"?>\";");
 
-        XmlShapeSerVisitor shapeSerVisitor = new XmlShapeSerVisitor(context);
-
-        for (HttpBinding binding : documentBindings) {
-            MemberShape memberShape = binding.getMember();
-            // The name of the member to get from the input shape.
-            String memberName = symbolProvider.toMemberName(memberShape);
-            String inputLocation = "input." + memberName;
-
-            // Handle if the member is an idempotency token that should be auto-filled.
-            AwsProtocolUtils.writeIdempotencyAutofill(context, memberShape, inputLocation);
-
-            writer.openBlock("if ($L !== undefined) {", "}", inputLocation, () -> {
-                shapeSerVisitor.serializeNamedMember(context, memberName, memberShape, () -> inputLocation);
-            });
-        }
-
-        // Append the generated XML to the body.
-        writer.write("body += bodyNode.toString();");
-    }
-
-    @Override
-    protected void serializeInputPayload(
-            GenerationContext context,
-            OperationShape operation,
-            HttpBinding payloadBinding
-    ) {
-        SymbolProvider symbolProvider = context.getSymbolProvider();
-        TypeScriptWriter writer = context.getWriter();
-
-        MemberShape member = payloadBinding.getMember();
-        String memberName = symbolProvider.toMemberName(member);
-
-        writer.write("let contents: any;");
-
-        // Generate an if statement to set the body node if the member is set.
-        writer.openBlock("if (input.$L !== undefined) {", "}", memberName, () -> {
-            Shape target = context.getModel().expectShape(member.getTarget());
-            writer.write("contents = $L;",
-                    getInputValue(context, Location.PAYLOAD, "input." + memberName, member, target));
-
-            // Structure and Union payloads will serialize as XML documents via XmlNode.
-            if (target instanceof StructureShape || target instanceof UnionShape) {
-                // Start with the XML declaration.
-                writer.write("body = \"<?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\"?>\";");
-
-                // Add @xmlNamespace value of the service to the root node,
-                // fall back to one from the payload target.
-                boolean serviceXmlns = AwsProtocolUtils.writeXmlNamespace(context, context.getService(), "contents");
-                if (!serviceXmlns) {
-                    AwsProtocolUtils.writeXmlNamespace(context, target, "contents");
-                }
-
-                // Append the generated XML to the body.
-                writer.write("body += contents.toString();");
-            } else {
-                // Strings and blobs (streaming or not) will not need any modification.
-                writer.write("body = contents;");
+            // Add @xmlNamespace value of the service to the root node,
+            // fall back to one from the payload target.
+            boolean serviceXmlns =
+                AwsProtocolUtils.writeXmlNamespace(context, context.getService(), "contents");
+            if (!serviceXmlns) {
+              AwsProtocolUtils.writeXmlNamespace(context, target, "contents");
             }
+
+            // Append the generated XML to the body.
+            writer.write("body += contents.toString();");
+          } else {
+            // Strings and blobs (streaming or not) will not need any modification.
+            writer.write("body = contents;");
+          }
         });
+  }
+
+  @Override
+  protected void writeErrorCodeParser(GenerationContext context) {
+    TypeScriptWriter writer = context.getWriter();
+
+    // Outsource error code parsing since it's complex for this protocol.
+    writer.write("errorCode = loadRestXmlErrorCode(output, parsedOutput.body);");
+  }
+
+  @Override
+  protected void deserializeOutputDocument(
+      GenerationContext context, Shape operationOrError, List<HttpBinding> documentBindings) {
+    SymbolProvider symbolProvider = context.getSymbolProvider();
+    XmlShapeDeserVisitor shapeVisitor = new XmlShapeDeserVisitor(context);
+
+    for (HttpBinding binding : documentBindings) {
+      MemberShape memberShape = binding.getMember();
+      // Grab the target shape so we can use a member deserializer on it.
+      Shape target = context.getModel().expectShape(memberShape.getTarget());
+      // The name of the member to get from the output shape.
+      String memberName = symbolProvider.toMemberName(memberShape);
+
+      shapeVisitor.deserializeNamedMember(
+          context,
+          memberName,
+          memberShape,
+          "data",
+          (dataSource, visitor) -> {
+            TypeScriptWriter writer = context.getWriter();
+            writer.write("contents.$L = $L;", memberName, target.accept(visitor));
+          });
     }
-
-    @Override
-    protected void writeErrorCodeParser(GenerationContext context) {
-        TypeScriptWriter writer = context.getWriter();
-
-        // Outsource error code parsing since it's complex for this protocol.
-        writer.write("errorCode = loadRestXmlErrorCode(output, parsedOutput.body);");
-    }
-
-    @Override
-    protected void deserializeOutputDocument(
-            GenerationContext context,
-            Shape operationOrError,
-            List<HttpBinding> documentBindings
-    ) {
-        SymbolProvider symbolProvider = context.getSymbolProvider();
-        XmlShapeDeserVisitor shapeVisitor = new XmlShapeDeserVisitor(context);
-
-        for (HttpBinding binding : documentBindings) {
-            MemberShape memberShape = binding.getMember();
-            // Grab the target shape so we can use a member deserializer on it.
-            Shape target = context.getModel().expectShape(memberShape.getTarget());
-            // The name of the member to get from the output shape.
-            String memberName = symbolProvider.toMemberName(memberShape);
-
-            shapeVisitor.deserializeNamedMember(context, memberName, memberShape, "data", (dataSource, visitor) -> {
-                TypeScriptWriter writer = context.getWriter();
-                writer.write("contents.$L = $L;", memberName, target.accept(visitor));
-            });
-        }
-    }
+  }
 }

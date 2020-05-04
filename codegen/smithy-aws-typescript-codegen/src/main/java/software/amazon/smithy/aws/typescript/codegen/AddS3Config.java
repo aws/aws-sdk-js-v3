@@ -18,7 +18,6 @@ package software.amazon.smithy.aws.typescript.codegen;
 import java.util.Collections;
 import java.util.Map;
 import java.util.function.Consumer;
-
 import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
@@ -29,47 +28,46 @@ import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
 import software.amazon.smithy.utils.MapUtils;
 
-/**
- * AWS S3 client configuration.
- */
+/** AWS S3 client configuration. */
 public final class AddS3Config implements TypeScriptIntegration {
 
-    @Override
-    public void addConfigInterfaceFields(
-            TypeScriptSettings settings,
-            Model model,
-            SymbolProvider symbolProvider,
-            TypeScriptWriter writer
-    ) {
-        if (!needsS3Config(settings.getService(model))) {
-            return;
-        }
-        writer.writeDocs("Whether to escape request path when signing the request.")
-                .write("signingEscapePath?: boolean;\n");
+  @Override
+  public void addConfigInterfaceFields(
+      TypeScriptSettings settings,
+      Model model,
+      SymbolProvider symbolProvider,
+      TypeScriptWriter writer) {
+    if (!needsS3Config(settings.getService(model))) {
+      return;
     }
+    writer
+        .writeDocs("Whether to escape request path when signing the request.")
+        .write("signingEscapePath?: boolean;\n");
+  }
 
-    @Override
-    public Map<String, Consumer<TypeScriptWriter>> getRuntimeConfigWriters(
-            TypeScriptSettings settings,
-            Model model,
-            SymbolProvider symbolProvider,
-            LanguageTarget target
-    ) {
-        if (!needsS3Config(settings.getService(model))) {
-            return Collections.emptyMap();
-        }
-        switch (target) {
-            case SHARED:
-                return MapUtils.of("signingEscapePath", writer -> {
-                    writer.write("signingEscapePath: false,");
-                });
-            default:
-                return Collections.emptyMap();
-        }
+  @Override
+  public Map<String, Consumer<TypeScriptWriter>> getRuntimeConfigWriters(
+      TypeScriptSettings settings,
+      Model model,
+      SymbolProvider symbolProvider,
+      LanguageTarget target) {
+    if (!needsS3Config(settings.getService(model))) {
+      return Collections.emptyMap();
     }
+    switch (target) {
+      case SHARED:
+        return MapUtils.of(
+            "signingEscapePath",
+            writer -> {
+              writer.write("signingEscapePath: false,");
+            });
+      default:
+        return Collections.emptyMap();
+    }
+  }
 
-    private static boolean needsS3Config(ServiceShape service) {
-        String serviceId = service.getTrait(ServiceTrait.class).map(ServiceTrait::getSdkId).orElse("");
-        return serviceId.equals("S3");
-    }
+  private static boolean needsS3Config(ServiceShape service) {
+    String serviceId = service.getTrait(ServiceTrait.class).map(ServiceTrait::getSdkId).orElse("");
+    return serviceId.equals("S3");
+  }
 }

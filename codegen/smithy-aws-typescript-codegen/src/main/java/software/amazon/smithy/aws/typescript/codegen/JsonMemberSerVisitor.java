@@ -24,34 +24,35 @@ import software.amazon.smithy.typescript.codegen.integration.DocumentMemberSerVi
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
 
 /**
- * Overrides the default implementation of BigDecimal and BigInteger shape
- * serialization to throw when encountered in AWS REST-JSON based protocols.
+ * Overrides the default implementation of BigDecimal and BigInteger shape serialization to throw
+ * when encountered in AWS REST-JSON based protocols.
  *
- * TODO: Work out support for BigDecimal and BigInteger, natively or through a library.
+ * <p>TODO: Work out support for BigDecimal and BigInteger, natively or through a library.
  */
 final class JsonMemberSerVisitor extends DocumentMemberSerVisitor {
 
-    /**
-     * @inheritDoc
-     */
-    JsonMemberSerVisitor(GenerationContext context, String dataSource, Format defaultTimestampFormat) {
-        super(context, dataSource, defaultTimestampFormat);
-    }
+  /** @inheritDoc */
+  JsonMemberSerVisitor(
+      GenerationContext context, String dataSource, Format defaultTimestampFormat) {
+    super(context, dataSource, defaultTimestampFormat);
+  }
 
-    @Override
-    public String bigDecimalShape(BigDecimalShape shape) {
-        // Fail instead of losing precision through Number.
-        return unsupportedShape(shape);
-    }
+  @Override
+  public String bigDecimalShape(BigDecimalShape shape) {
+    // Fail instead of losing precision through Number.
+    return unsupportedShape(shape);
+  }
 
-    @Override
-    public String bigIntegerShape(BigIntegerShape shape) {
-        // Fail instead of losing precision through Number.
-        return unsupportedShape(shape);
-    }
+  @Override
+  public String bigIntegerShape(BigIntegerShape shape) {
+    // Fail instead of losing precision through Number.
+    return unsupportedShape(shape);
+  }
 
-    private String unsupportedShape(Shape shape) {
-        throw new CodegenException(String.format("Cannot serialize shape type %s on protocol, shape: %s.",
-                shape.getType(), shape.getId()));
-    }
+  private String unsupportedShape(Shape shape) {
+    throw new CodegenException(
+        String.format(
+            "Cannot serialize shape type %s on protocol, shape: %s.",
+            shape.getType(), shape.getId()));
+  }
 }

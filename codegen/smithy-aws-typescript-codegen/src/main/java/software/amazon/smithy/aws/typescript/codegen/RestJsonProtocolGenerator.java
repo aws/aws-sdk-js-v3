@@ -33,11 +33,11 @@ import software.amazon.smithy.typescript.codegen.integration.HttpBindingProtocol
 import software.amazon.smithy.utils.IoUtils;
 
 /**
- * Handles general components across the AWS JSON protocols that have HTTP bindings.
- * It handles reading and writing from document bodies, including generating any
- * functions needed for performing serde.
+ * Handles general components across the AWS JSON protocols that have HTTP bindings. It handles
+ * reading and writing from document bodies, including generating any functions needed for
+ * performing serde.
  *
- * This builds on the foundations of the {@link HttpBindingProtocolGenerator} to handle
+ * <p>This builds on the foundations of the {@link HttpBindingProtocolGenerator} to handle
  * components of binding to HTTP requests and responses.
  *
  * @see JsonShapeSerVisitor
@@ -48,150 +48,161 @@ import software.amazon.smithy.utils.IoUtils;
  * @see <a href="https://awslabs.github.io/smithy/spec/http.html">Smithy HTTP protocol bindings.</a>
  */
 abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
-    /**
-     * Creates a AWS JSON RPC protocol generator.
-     */
-    RestJsonProtocolGenerator() {
-        super(true);
+  /** Creates a AWS JSON RPC protocol generator. */
+  RestJsonProtocolGenerator() {
+    super(true);
+  }
+
+  @Override
+  protected TimestampFormatTrait.Format getDocumentTimestampFormat() {
+    return TimestampFormatTrait.Format.EPOCH_SECONDS;
+  }
+
+  @Override
+  protected void generateDocumentBodyShapeSerializers(
+      GenerationContext context, Set<Shape> shapes) {
+    AwsProtocolUtils.generateDocumentBodyShapeSerde(
+        context, shapes, new JsonShapeSerVisitor(context));
+  }
+
+  @Override
+  protected void generateDocumentBodyShapeDeserializers(
+      GenerationContext context, Set<Shape> shapes) {
+    AwsProtocolUtils.generateDocumentBodyShapeSerde(
+        context, shapes, new JsonShapeDeserVisitor(context));
+  }
+
+  @Override
+  public void generateSharedComponents(GenerationContext context) {
+    super.generateSharedComponents(context);
+    AwsProtocolUtils.generateJsonParseBody(context);
+    AwsProtocolUtils.addItempotencyAutofillImport(context);
+
+    TypeScriptWriter writer = context.getWriter();
+    writer.addUseImports(getApplicationProtocol().getResponseType());
+    writer.write(IoUtils.readUtf8Resource(getClass(), "load-rest-json-error-code-stub.ts"));
+  }
+
+  @Override
+  protected void writeDefaultHeaders(GenerationContext context, OperationShape operation) {
+    super.writeDefaultHeaders(context, operation);
+    AwsProtocolUtils.generateUnsignedPayloadSigV4Header(context, operation);
+  }
+
+  @Override
+  public void serializeInputDocument(
+      GenerationContext context, OperationShape operation, List<HttpBinding> documentBindings) {
+    // Short circuit when we have no bindings.
+    TypeScriptWriter writer = context.getWriter();
+    if (documentBindings.isEmpty()) {
+      writer.write("body = \"{}\";");
+      return;
     }
 
-    @Override
-    protected TimestampFormatTrait.Format getDocumentTimestampFormat() {
-        return TimestampFormatTrait.Format.EPOCH_SECONDS;
+    SymbolProvider symbolProvider = context.getSymbolProvider();
+
+    writer.write("const bodyParams: any = {};");
+    for (HttpBinding binding : documentBindings) {
+      MemberShape memberShape = binding.getMember();
+      // The name of the member to get from the input shape.
+      String memberName = symbolProvider.toMemberName(memberShape);
+      String inputLocation = "input." + memberName;
+      // Use the jsonName trait value if present, otherwise use the member name.
+      String locationName =
+          memberShape
+              .getTrait(JsonNameTrait.class)
+              .map(JsonNameTrait::getValue)
+              .orElseGet(binding::getLocationName);
+      Shape target = context.getModel().expectShape(memberShape.getTarget());
+
+      // Handle if the member is an idempotency token that should be auto-filled.
+      AwsProtocolUtils.writeIdempotencyAutofill(context, memberShape, inputLocation);
+
+      // Generate an if statement to set the bodyParam if the member is set.
+      writer.openBlock(
+          "if ($L !== undefined) {",
+          "}",
+          inputLocation,
+          () -> {
+            // Handle @timestampFormat on members not just the targeted shape.
+            String valueProvider =
+                memberShape.hasTrait(TimestampFormatTrait.class)
+                    ? AwsProtocolUtils.getInputTimestampValueProvider(
+                        context, memberShape, getDocumentTimestampFormat(), inputLocation)
+                    : target.accept(getMemberSerVisitor(context, inputLocation));
+
+            // Dispatch to the input value provider for any additional handling.
+            writer.write("bodyParams['$L'] = $L;", locationName, valueProvider);
+          });
     }
 
-    @Override
-    protected void generateDocumentBodyShapeSerializers(GenerationContext context, Set<Shape> shapes) {
-        AwsProtocolUtils.generateDocumentBodyShapeSerde(context, shapes, new JsonShapeSerVisitor(context));
+    writer.write("body = JSON.stringify(bodyParams);");
+  }
+
+  @Override
+  protected void serializeInputPayload(
+      GenerationContext context, OperationShape operation, HttpBinding payloadBinding) {
+    // We want the standard serialization, but need to alter it to JSON.
+    super.serializeInputPayload(context, operation, payloadBinding);
+
+    TypeScriptWriter writer = context.getWriter();
+    Shape target = context.getModel().expectShape(payloadBinding.getMember().getTarget());
+
+    // Default to an empty JSON body instead of an undefined body if
+    // the target is a structure or union, and make sure any structure
+    // or union content ends up as a JSON string.
+    if (target instanceof StructureShape || target instanceof UnionShape) {
+      writer.openBlock("if (body === undefined) {", "}", () -> writer.write("body = {};"));
+      writer.write("body = JSON.stringify(body);");
     }
+  }
 
-    @Override
-    protected void generateDocumentBodyShapeDeserializers(GenerationContext context, Set<Shape> shapes) {
-        AwsProtocolUtils.generateDocumentBodyShapeSerde(context, shapes, new JsonShapeDeserVisitor(context));
+  private DocumentMemberSerVisitor getMemberSerVisitor(
+      GenerationContext context, String dataSource) {
+    return new JsonMemberSerVisitor(context, dataSource, getDocumentTimestampFormat());
+  }
+
+  @Override
+  protected void writeErrorCodeParser(GenerationContext context) {
+    TypeScriptWriter writer = context.getWriter();
+
+    // Outsource error code parsing since it's complex for this protocol.
+    writer.write("errorCode = loadRestJsonErrorCode(output, parsedOutput.body);");
+  }
+
+  @Override
+  public void deserializeOutputDocument(
+      GenerationContext context, Shape operationOrError, List<HttpBinding> documentBindings) {
+    TypeScriptWriter writer = context.getWriter();
+    SymbolProvider symbolProvider = context.getSymbolProvider();
+
+    for (HttpBinding binding : documentBindings) {
+      Shape target = context.getModel().expectShape(binding.getMember().getTarget());
+      // The name of the member to get from the input shape.
+      String memberName = symbolProvider.toMemberName(binding.getMember());
+      // Use the jsonName trait value if present, otherwise use the member name.
+      String locationName =
+          binding
+              .getMember()
+              .getTrait(JsonNameTrait.class)
+              .map(JsonNameTrait::getValue)
+              .orElseGet(binding::getLocationName);
+      writer.openBlock(
+          "if (data.$L !== undefined && data.$L !== null) {",
+          "}",
+          locationName,
+          locationName,
+          () -> {
+            writer.write(
+                "contents.$L = $L;",
+                memberName,
+                target.accept(getMemberDeserVisitor(context, "data." + locationName)));
+          });
     }
+  }
 
-    @Override
-    public void generateSharedComponents(GenerationContext context) {
-        super.generateSharedComponents(context);
-        AwsProtocolUtils.generateJsonParseBody(context);
-        AwsProtocolUtils.addItempotencyAutofillImport(context);
-
-        TypeScriptWriter writer = context.getWriter();
-        writer.addUseImports(getApplicationProtocol().getResponseType());
-        writer.write(IoUtils.readUtf8Resource(getClass(), "load-rest-json-error-code-stub.ts"));
-    }
-
-    @Override
-    protected void writeDefaultHeaders(GenerationContext context, OperationShape operation) {
-        super.writeDefaultHeaders(context, operation);
-        AwsProtocolUtils.generateUnsignedPayloadSigV4Header(context, operation);
-    }
-
-    @Override
-    public void serializeInputDocument(
-            GenerationContext context,
-            OperationShape operation,
-            List<HttpBinding> documentBindings
-    ) {
-        // Short circuit when we have no bindings.
-        TypeScriptWriter writer = context.getWriter();
-        if (documentBindings.isEmpty()) {
-            writer.write("body = \"{}\";");
-            return;
-        }
-
-        SymbolProvider symbolProvider = context.getSymbolProvider();
-
-        writer.write("const bodyParams: any = {};");
-        for (HttpBinding binding : documentBindings) {
-            MemberShape memberShape = binding.getMember();
-            // The name of the member to get from the input shape.
-            String memberName = symbolProvider.toMemberName(memberShape);
-            String inputLocation = "input." + memberName;
-            // Use the jsonName trait value if present, otherwise use the member name.
-            String locationName = memberShape.getTrait(JsonNameTrait.class)
-                    .map(JsonNameTrait::getValue)
-                    .orElseGet(binding::getLocationName);
-            Shape target = context.getModel().expectShape(memberShape.getTarget());
-
-            // Handle if the member is an idempotency token that should be auto-filled.
-            AwsProtocolUtils.writeIdempotencyAutofill(context, memberShape, inputLocation);
-
-            // Generate an if statement to set the bodyParam if the member is set.
-            writer.openBlock("if ($L !== undefined) {", "}", inputLocation, () -> {
-                // Handle @timestampFormat on members not just the targeted shape.
-                String valueProvider = memberShape.hasTrait(TimestampFormatTrait.class)
-                        ? AwsProtocolUtils.getInputTimestampValueProvider(context, memberShape,
-                                getDocumentTimestampFormat(), inputLocation)
-                        : target.accept(getMemberSerVisitor(context, inputLocation));
-
-                // Dispatch to the input value provider for any additional handling.
-                writer.write("bodyParams['$L'] = $L;", locationName, valueProvider);
-            });
-        }
-
-        writer.write("body = JSON.stringify(bodyParams);");
-    }
-
-    @Override
-    protected void serializeInputPayload(
-            GenerationContext context,
-            OperationShape operation,
-            HttpBinding payloadBinding
-    ) {
-        // We want the standard serialization, but need to alter it to JSON.
-        super.serializeInputPayload(context, operation, payloadBinding);
-
-        TypeScriptWriter writer = context.getWriter();
-        Shape target = context.getModel().expectShape(payloadBinding.getMember().getTarget());
-
-        // Default to an empty JSON body instead of an undefined body if
-        // the target is a structure or union, and make sure any structure
-        // or union content ends up as a JSON string.
-        if (target instanceof StructureShape || target instanceof UnionShape) {
-            writer.openBlock("if (body === undefined) {", "}", () -> writer.write("body = {};"));
-            writer.write("body = JSON.stringify(body);");
-        }
-    }
-
-    private DocumentMemberSerVisitor getMemberSerVisitor(GenerationContext context, String dataSource) {
-        return new JsonMemberSerVisitor(context, dataSource, getDocumentTimestampFormat());
-    }
-
-    @Override
-    protected void writeErrorCodeParser(GenerationContext context) {
-        TypeScriptWriter writer = context.getWriter();
-
-        // Outsource error code parsing since it's complex for this protocol.
-        writer.write("errorCode = loadRestJsonErrorCode(output, parsedOutput.body);");
-    }
-
-    @Override
-    public void deserializeOutputDocument(
-            GenerationContext context,
-            Shape operationOrError,
-            List<HttpBinding> documentBindings
-    ) {
-        TypeScriptWriter writer = context.getWriter();
-        SymbolProvider symbolProvider = context.getSymbolProvider();
-
-        for (HttpBinding binding : documentBindings) {
-            Shape target = context.getModel().expectShape(binding.getMember().getTarget());
-            // The name of the member to get from the input shape.
-            String memberName = symbolProvider.toMemberName(binding.getMember());
-            // Use the jsonName trait value if present, otherwise use the member name.
-            String locationName = binding.getMember().getTrait(JsonNameTrait.class)
-                    .map(JsonNameTrait::getValue)
-                    .orElseGet(binding::getLocationName);
-            writer.openBlock("if (data.$L !== undefined && data.$L !== null) {", "}", locationName, locationName,
-                    () -> {
-                writer.write("contents.$L = $L;", memberName,
-                        target.accept(getMemberDeserVisitor(context, "data." + locationName)));
-            });
-        }
-    }
-
-    private DocumentMemberDeserVisitor getMemberDeserVisitor(GenerationContext context, String dataSource) {
-        return new JsonMemberDeserVisitor(context, dataSource, getDocumentTimestampFormat());
-    }
+  private DocumentMemberDeserVisitor getMemberDeserVisitor(
+      GenerationContext context, String dataSource) {
+    return new JsonMemberDeserVisitor(context, dataSource, getDocumentTimestampFormat());
+  }
 }

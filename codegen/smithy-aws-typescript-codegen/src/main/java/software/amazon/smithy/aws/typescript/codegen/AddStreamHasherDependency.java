@@ -18,7 +18,6 @@ package software.amazon.smithy.aws.typescript.codegen;
 import java.util.Collections;
 import java.util.Map;
 import java.util.function.Consumer;
-
 import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
@@ -29,64 +28,67 @@ import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
 import software.amazon.smithy.utils.MapUtils;
 
-/**
- * Adds StreamHasher if needed.
- */
+/** Adds StreamHasher if needed. */
 public class AddStreamHasherDependency implements TypeScriptIntegration {
 
-    @Override
-    public void addConfigInterfaceFields(
-            TypeScriptSettings settings,
-            Model model,
-            SymbolProvider symbolProvider,
-            TypeScriptWriter writer
-    ) {
-        if (!needsStreamHasher(settings.getService(model))) {
-            return;
-        }
-
-        writer.addImport("Readable", "Readable", "stream");
-        writer.addImport("StreamHasher", "__StreamHasher", "@aws-sdk/types");
-        writer.writeDocs("A function that, given a hash constructor and a stream, calculates the \n"
-                + "hash of the streamed value");
-        writer.write("streamHasher?: __StreamHasher<Readable> | __StreamHasher<Blob>;\n");
+  @Override
+  public void addConfigInterfaceFields(
+      TypeScriptSettings settings,
+      Model model,
+      SymbolProvider symbolProvider,
+      TypeScriptWriter writer) {
+    if (!needsStreamHasher(settings.getService(model))) {
+      return;
     }
 
-    @Override
-    public Map<String, Consumer<TypeScriptWriter>> getRuntimeConfigWriters(
-            TypeScriptSettings settings,
-            Model model,
-            SymbolProvider symbolProvider,
-            LanguageTarget target
-    ) {
-        if (!needsStreamHasher(settings.getService(model))) {
-            return Collections.emptyMap();
-        }
+    writer.addImport("Readable", "Readable", "stream");
+    writer.addImport("StreamHasher", "__StreamHasher", "@aws-sdk/types");
+    writer.writeDocs(
+        "A function that, given a hash constructor and a stream, calculates the \n"
+            + "hash of the streamed value");
+    writer.write("streamHasher?: __StreamHasher<Readable> | __StreamHasher<Blob>;\n");
+  }
 
-        switch (target) {
-            case NODE:
-                return MapUtils.of("streamHasher", writer -> {
-                    writer.addDependency(AwsDependency.STREAM_HASHER_NODE);
-                    writer.addImport("fileStreamHasher", "streamHasher", AwsDependency.STREAM_HASHER_NODE.packageName);
-                    writer.write("streamHasher,");
-                });
-            case BROWSER:
-                return MapUtils.of("streamHasher", writer -> {
-                    writer.addDependency(AwsDependency.STREAM_HASHER_BROWSER);
-                    writer.addImport("blobHasher", "streamHasher", AwsDependency.STREAM_HASHER_BROWSER.packageName);
-                    writer.write("streamHasher,");
-                });
-            default:
-                return Collections.emptyMap();
-        }
+  @Override
+  public Map<String, Consumer<TypeScriptWriter>> getRuntimeConfigWriters(
+      TypeScriptSettings settings,
+      Model model,
+      SymbolProvider symbolProvider,
+      LanguageTarget target) {
+    if (!needsStreamHasher(settings.getService(model))) {
+      return Collections.emptyMap();
     }
 
-    private static boolean needsStreamHasher(ServiceShape service) {
-        String serviceId = service.getTrait(ServiceTrait.class).map(ServiceTrait::getSdkId).orElse("");
-        if (serviceId.equals("S3")) {
-            return true;
-        }
-
-        return false;
+    switch (target) {
+      case NODE:
+        return MapUtils.of(
+            "streamHasher",
+            writer -> {
+              writer.addDependency(AwsDependency.STREAM_HASHER_NODE);
+              writer.addImport(
+                  "fileStreamHasher", "streamHasher", AwsDependency.STREAM_HASHER_NODE.packageName);
+              writer.write("streamHasher,");
+            });
+      case BROWSER:
+        return MapUtils.of(
+            "streamHasher",
+            writer -> {
+              writer.addDependency(AwsDependency.STREAM_HASHER_BROWSER);
+              writer.addImport(
+                  "blobHasher", "streamHasher", AwsDependency.STREAM_HASHER_BROWSER.packageName);
+              writer.write("streamHasher,");
+            });
+      default:
+        return Collections.emptyMap();
     }
+  }
+
+  private static boolean needsStreamHasher(ServiceShape service) {
+    String serviceId = service.getTrait(ServiceTrait.class).map(ServiceTrait::getSdkId).orElse("");
+    if (serviceId.equals("S3")) {
+      return true;
+    }
+
+    return false;
+  }
 }

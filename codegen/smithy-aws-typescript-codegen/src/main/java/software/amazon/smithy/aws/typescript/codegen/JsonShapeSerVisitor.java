@@ -34,109 +34,128 @@ import software.amazon.smithy.typescript.codegen.integration.DocumentShapeSerVis
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
 
 /**
- * Visitor to generate serialization functions for shapes in AWS JSON protocol
- * document bodies.
+ * Visitor to generate serialization functions for shapes in AWS JSON protocol document bodies.
  *
- * This class handles function body generation for all types expected by the {@code
+ * <p>This class handles function body generation for all types expected by the {@code
  * DocumentShapeSerVisitor}. No other shape type serialization is overridden.
  *
- * Timestamps are serialized to {@link Format}.EPOCH_SECONDS by default.
+ * <p>Timestamps are serialized to {@link Format}.EPOCH_SECONDS by default.
  */
 final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
-    private static final Format TIMESTAMP_FORMAT = Format.EPOCH_SECONDS;
+  private static final Format TIMESTAMP_FORMAT = Format.EPOCH_SECONDS;
 
-    JsonShapeSerVisitor(GenerationContext context) {
-        super(context);
-    }
+  JsonShapeSerVisitor(GenerationContext context) {
+    super(context);
+  }
 
-    private DocumentMemberSerVisitor getMemberVisitor(String dataSource) {
-        return new JsonMemberSerVisitor(getContext(), dataSource, TIMESTAMP_FORMAT);
-    }
+  private DocumentMemberSerVisitor getMemberVisitor(String dataSource) {
+    return new JsonMemberSerVisitor(getContext(), dataSource, TIMESTAMP_FORMAT);
+  }
 
-    @Override
-    public void serializeCollection(GenerationContext context, CollectionShape shape) {
-        TypeScriptWriter writer = context.getWriter();
-        Shape target = context.getModel().expectShape(shape.getMember().getTarget());
+  @Override
+  public void serializeCollection(GenerationContext context, CollectionShape shape) {
+    TypeScriptWriter writer = context.getWriter();
+    Shape target = context.getModel().expectShape(shape.getMember().getTarget());
 
-        writer.write("const contents = [];");
-        writer.openBlock("for (let entry of input) {", "}", () ->
-                // Dispatch to the input value provider for any additional handling.
-                writer.write("contents.push($L);", target.accept(getMemberVisitor("entry"))));
-        writer.write("return contents;");
-    }
-
-    @Override
-    public void serializeDocument(GenerationContext context, DocumentShape shape) {
-        TypeScriptWriter writer = context.getWriter();
-        // Documents are JSON content, so don't modify.
-        writer.write("return input;");
-    }
-
-    @Override
-    public void serializeMap(GenerationContext context, MapShape shape) {
-        TypeScriptWriter writer = context.getWriter();
-        Shape target = context.getModel().expectShape(shape.getValue().getTarget());
-
-        // Get the right serialization for each entry in the map. Undefined
-        // inputs won't have this serializer invoked.
-        writer.write("const mapParams: any = {};");
-        writer.openBlock("Object.keys(input).forEach(key => {", "});", () -> {
+    writer.write("const contents = [];");
+    writer.openBlock(
+        "for (let entry of input) {",
+        "}",
+        () ->
             // Dispatch to the input value provider for any additional handling.
-            writer.write("mapParams[key] = $L;", target.accept(getMemberVisitor("input[key]")));
+            writer.write("contents.push($L);", target.accept(getMemberVisitor("entry"))));
+    writer.write("return contents;");
+  }
+
+  @Override
+  public void serializeDocument(GenerationContext context, DocumentShape shape) {
+    TypeScriptWriter writer = context.getWriter();
+    // Documents are JSON content, so don't modify.
+    writer.write("return input;");
+  }
+
+  @Override
+  public void serializeMap(GenerationContext context, MapShape shape) {
+    TypeScriptWriter writer = context.getWriter();
+    Shape target = context.getModel().expectShape(shape.getValue().getTarget());
+
+    // Get the right serialization for each entry in the map. Undefined
+    // inputs won't have this serializer invoked.
+    writer.write("const mapParams: any = {};");
+    writer.openBlock(
+        "Object.keys(input).forEach(key => {",
+        "});",
+        () -> {
+          // Dispatch to the input value provider for any additional handling.
+          writer.write("mapParams[key] = $L;", target.accept(getMemberVisitor("input[key]")));
         });
-        writer.write("return mapParams;");
-    }
+    writer.write("return mapParams;");
+  }
 
-    @Override
-    public void serializeStructure(GenerationContext context, StructureShape shape) {
-        TypeScriptWriter writer = context.getWriter();
+  @Override
+  public void serializeStructure(GenerationContext context, StructureShape shape) {
+    TypeScriptWriter writer = context.getWriter();
 
-        writer.write("const bodyParams: any = {};");
-        // Use a TreeMap to sort the members.
-        Map<String, MemberShape> members = new TreeMap<>(shape.getAllMembers());
-        members.forEach((memberName, memberShape) -> {
-            // Use the jsonName trait value if present, otherwise use the member name.
-            String locationName = memberShape.getTrait(JsonNameTrait.class)
-                    .map(JsonNameTrait::getValue)
-                    .orElse(memberName);
-            Shape target = context.getModel().expectShape(memberShape.getTarget());
-            String inputLocation = "input." + memberName;
+    writer.write("const bodyParams: any = {};");
+    // Use a TreeMap to sort the members.
+    Map<String, MemberShape> members = new TreeMap<>(shape.getAllMembers());
+    members.forEach(
+        (memberName, memberShape) -> {
+          // Use the jsonName trait value if present, otherwise use the member name.
+          String locationName =
+              memberShape
+                  .getTrait(JsonNameTrait.class)
+                  .map(JsonNameTrait::getValue)
+                  .orElse(memberName);
+          Shape target = context.getModel().expectShape(memberShape.getTarget());
+          String inputLocation = "input." + memberName;
 
-            // Handle if the member is an idempotency token that should be auto-filled.
-            AwsProtocolUtils.writeIdempotencyAutofill(context, memberShape, inputLocation);
+          // Handle if the member is an idempotency token that should be auto-filled.
+          AwsProtocolUtils.writeIdempotencyAutofill(context, memberShape, inputLocation);
 
-            // Generate an if statement to set the bodyParam if the member is set.
-            writer.openBlock("if ($L !== undefined) {", "}", inputLocation, () -> {
+          // Generate an if statement to set the bodyParam if the member is set.
+          writer.openBlock(
+              "if ($L !== undefined) {",
+              "}",
+              inputLocation,
+              () -> {
                 String dataSource = "input." + memberName;
 
                 // Handle @timestampFormat on members not just the targeted shape.
-                String valueProvider = memberShape.hasTrait(TimestampFormatTrait.class)
-                        ? AwsProtocolUtils.getInputTimestampValueProvider(context, memberShape,
-                                TIMESTAMP_FORMAT, dataSource)
+                String valueProvider =
+                    memberShape.hasTrait(TimestampFormatTrait.class)
+                        ? AwsProtocolUtils.getInputTimestampValueProvider(
+                            context, memberShape, TIMESTAMP_FORMAT, dataSource)
                         : target.accept(getMemberVisitor(dataSource));
 
                 // Dispatch to the input value provider for any additional handling.
                 writer.write("bodyParams['$L'] = $L;", locationName, valueProvider);
-            });
+              });
         });
-        writer.write("return bodyParams;");
-    }
+    writer.write("return bodyParams;");
+  }
 
-    @Override
-    public void serializeUnion(GenerationContext context, UnionShape shape) {
-        TypeScriptWriter writer = context.getWriter();
-        Model model = context.getModel();
+  @Override
+  public void serializeUnion(GenerationContext context, UnionShape shape) {
+    TypeScriptWriter writer = context.getWriter();
+    Model model = context.getModel();
 
-        // Visit over the union type, then get the right serialization for the member.
-        writer.openBlock("return $L.visit(input, {", "});", shape.getId().getName(), () -> {
-            // Use a TreeMap to sort the members.
-            Map<String, MemberShape> members = new TreeMap<>(shape.getAllMembers());
-            members.forEach((memberName, memberShape) -> {
-                    Shape target = model.expectShape(memberShape.getTarget());
-                    // Dispatch to the input value provider for any additional handling.
-                    writer.write("$L: value => $L,", memberName, target.accept(getMemberVisitor("value")));
-                });
-            writer.write("_: value => value");
+    // Visit over the union type, then get the right serialization for the member.
+    writer.openBlock(
+        "return $L.visit(input, {",
+        "});",
+        shape.getId().getName(),
+        () -> {
+          // Use a TreeMap to sort the members.
+          Map<String, MemberShape> members = new TreeMap<>(shape.getAllMembers());
+          members.forEach(
+              (memberName, memberShape) -> {
+                Shape target = model.expectShape(memberShape.getTarget());
+                // Dispatch to the input value provider for any additional handling.
+                writer.write(
+                    "$L: value => $L,", memberName, target.accept(getMemberVisitor("value")));
+              });
+          writer.write("_: value => value");
         });
-    }
+  }
 }
