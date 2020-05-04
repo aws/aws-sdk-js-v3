@@ -1,6 +1,6 @@
 import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-node";
 import { EventStreamMarshaller } from "@aws-sdk/eventstream-marshaller";
-import { MessageUnmarshallerStream } from "./MessageUnmarshallerStream";
+import { getUnmarshalledStream } from "./getUnmarshalledStream";
 import {
   recordEventMessage,
   statsEventMessage,
@@ -8,8 +8,8 @@ import {
 } from "./fixtures/event.fixture";
 import { Message } from "@aws-sdk/types";
 
-describe("MessageUnmarshallerStream", () => {
-  it("emits parsed message on data", done => {
+describe("getUnmarshalledStream", () => {
+  it("emits parsed message on data", async () => {
     const expectedMessages: Array<Message> = [
       {
         headers: {
@@ -50,24 +50,20 @@ describe("MessageUnmarshallerStream", () => {
       }
     ];
 
-    const unmarshallerStream = new MessageUnmarshallerStream({
+    const source = async function* () {
+      yield recordEventMessage;
+      yield statsEventMessage;
+      yield endEventMessage;
+    };
+    const unmarshallerStream = getUnmarshalledStream(source(), {
       eventMarshaller: new EventStreamMarshaller(toUtf8, fromUtf8)
     });
-
     const messages: Array<Message> = [];
-    unmarshallerStream.on("data", msg => {
-      messages.push(msg[Object.keys(msg)[0]]);
-    });
-    unmarshallerStream.on("end", () => {
-      for (let i = 1; i < messages.length; i++) {
-        expect(messages[i]).toEqual(expectedMessages[i]);
-      }
-      done();
-    });
-
-    unmarshallerStream.write(recordEventMessage);
-    unmarshallerStream.write(statsEventMessage);
-    unmarshallerStream.write(endEventMessage);
-    unmarshallerStream.end();
+    for await (const message of unmarshallerStream) {
+      messages.push(message[Object.keys(message)[0]]);
+    }
+    for (let i = 1; i < messages.length; i++) {
+      expect(messages[i]).toEqual(expectedMessages[i]);
+    }
   });
 });

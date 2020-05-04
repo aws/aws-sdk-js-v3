@@ -1,5 +1,5 @@
 {
-  "name": "@aws-sdk/eventstream-signer-node",
+  "name": "@aws-sdk/eventstream-serde-universal",
   "version": "1.0.0-gamma.0",
   "scripts": {
     "prepublishOnly": "tsc",
@@ -20,9 +20,9 @@
   },
   "devDependencies": {
     "@aws-sdk/util-utf8-node": "1.0.0-gamma.1",
-    "@types/jest": "^24.0.12",
-    "jest": "^24.7.1",
-    "typescript": "~3.4.0"
+    "@types/jest": "^25.1.4",
+    "jest": "^25.1.0",
+    "typescript": "~3.8.3"
   },
   "engines": {
     "node": ">= 10.0.0"
