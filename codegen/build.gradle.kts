@@ -19,3 +19,13 @@ allprojects {
         mavenCentral()
     }
 }
+
+plugins {
+  id("com.github.sherter.google-java-format") version "0.8"
+}
+
+buildscript {
+    dependencies {
+        classpath("gradle.plugin.com.github.sherter.google-java-format:google-java-format-gradle-plugin:0.8")
+    }
+}
