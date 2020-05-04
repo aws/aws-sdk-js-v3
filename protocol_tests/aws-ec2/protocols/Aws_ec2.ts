@@ -1245,7 +1245,7 @@ const serializeAws_ec2EmptyInputAndEmptyOutputInput = (
 };
 
 const serializeAws_ec2ListWithXmlName = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -1414,7 +1414,7 @@ const serializeAws_ec2StructArg = (
 };
 
 const serializeAws_ec2GreetingList = (
-  input: Array<GreetingStruct>,
+  input: GreetingStruct[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -1441,7 +1441,7 @@ const serializeAws_ec2GreetingStruct = (
 };
 
 const serializeAws_ec2StringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -1633,7 +1633,7 @@ const deserializeAws_ec2RecursiveXmlShapesOutputNested2 = (
 const deserializeAws_ec2RenamedListMembers = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -1730,7 +1730,7 @@ const deserializeAws_ec2SimpleScalarXmlPropertiesOutput = (
 const deserializeAws_ec2StructureList = (
   output: any,
   context: __SerdeContext
-): Array<StructureListMember> => {
+): StructureListMember[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2StructureListMember(entry, context));
@@ -2063,7 +2063,7 @@ const deserializeAws_ec2XmlNamespaceNested = (
 const deserializeAws_ec2XmlNamespacedList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -2117,7 +2117,7 @@ const deserializeAws_ec2XmlTimestampsOutput = (
 const deserializeAws_ec2BooleanList = (
   output: any,
   context: __SerdeContext
-): Array<boolean> => {
+): boolean[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -2130,7 +2130,7 @@ const deserializeAws_ec2BooleanList = (
 const deserializeAws_ec2FooEnumList = (
   output: any,
   context: __SerdeContext
-): Array<FooEnum | string> => {
+): (FooEnum | string)[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -2166,7 +2166,7 @@ const deserializeAws_ec2FooEnumSet = (
 const deserializeAws_ec2IntegerList = (
   output: any,
   context: __SerdeContext
-): Array<number> => {
+): number[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -2179,7 +2179,7 @@ const deserializeAws_ec2IntegerList = (
 const deserializeAws_ec2NestedStringList = (
   output: any,
   context: __SerdeContext
-): Array<Array<string>> => {
+): string[][] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     const wrappedItem =
@@ -2192,7 +2192,7 @@ const deserializeAws_ec2NestedStringList = (
 const deserializeAws_ec2StringList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -2214,7 +2214,7 @@ const deserializeAws_ec2StringSet = (
 const deserializeAws_ec2TimestampList = (
   output: any,
   context: __SerdeContext
-): Array<Date> => {
+): Date[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(new Date(entry));
@@ -2230,7 +2230,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -2251,19 +2251,21 @@ const collectBodyString = (
   );
 };
 
-const buildHttpRpcRequest = (
+const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,
   path: string,
   resolvedHostname: string | undefined,
   body: any
-): __HttpRequest => {
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port } = await context.endpoint();
   const contents: any = {
-    ...context.endpoint,
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    path: path,
-    headers: headers
+    path,
+    headers
   };
   if (resolvedHostname !== undefined) {
     contents.hostname = resolvedHostname;

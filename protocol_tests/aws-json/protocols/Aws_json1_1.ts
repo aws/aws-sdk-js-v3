@@ -421,7 +421,7 @@ const serializeAws_json1_1KitchenSink = (
 };
 
 const serializeAws_json1_1ListOfKitchenSinks = (
-  input: Array<KitchenSink>,
+  input: KitchenSink[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -432,7 +432,7 @@ const serializeAws_json1_1ListOfKitchenSinks = (
 };
 
 const serializeAws_json1_1ListOfListOfStrings = (
-  input: Array<Array<string>>,
+  input: string[][],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -443,7 +443,7 @@ const serializeAws_json1_1ListOfListOfStrings = (
 };
 
 const serializeAws_json1_1ListOfMapsOfStrings = (
-  input: Array<{ [key: string]: string }>,
+  input: { [key: string]: string }[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -454,7 +454,7 @@ const serializeAws_json1_1ListOfMapsOfStrings = (
 };
 
 const serializeAws_json1_1ListOfStrings = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -465,7 +465,7 @@ const serializeAws_json1_1ListOfStrings = (
 };
 
 const serializeAws_json1_1ListOfStructs = (
-  input: Array<SimpleStruct>,
+  input: SimpleStruct[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -487,7 +487,7 @@ const serializeAws_json1_1MapOfKitchenSinks = (
 };
 
 const serializeAws_json1_1MapOfListsOfStrings = (
-  input: { [key: string]: Array<string> },
+  input: { [key: string]: string[] },
   context: __SerdeContext
 ): any => {
   const mapParams: any = {};
@@ -797,7 +797,7 @@ const deserializeAws_json1_1KitchenSink = (
 const deserializeAws_json1_1ListOfKitchenSinks = (
   output: any,
   context: __SerdeContext
-): Array<KitchenSink> => {
+): KitchenSink[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1KitchenSink(entry, context)
   );
@@ -806,7 +806,7 @@ const deserializeAws_json1_1ListOfKitchenSinks = (
 const deserializeAws_json1_1ListOfListOfStrings = (
   output: any,
   context: __SerdeContext
-): Array<Array<string>> => {
+): string[][] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ListOfStrings(entry, context)
   );
@@ -815,7 +815,7 @@ const deserializeAws_json1_1ListOfListOfStrings = (
 const deserializeAws_json1_1ListOfMapsOfStrings = (
   output: any,
   context: __SerdeContext
-): Array<{ [key: string]: string }> => {
+): { [key: string]: string }[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1MapOfStrings(entry, context)
   );
@@ -824,14 +824,14 @@ const deserializeAws_json1_1ListOfMapsOfStrings = (
 const deserializeAws_json1_1ListOfStrings = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1ListOfStructs = (
   output: any,
   context: __SerdeContext
-): Array<SimpleStruct> => {
+): SimpleStruct[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SimpleStruct(entry, context)
   );
@@ -851,7 +851,7 @@ const deserializeAws_json1_1MapOfKitchenSinks = (
 const deserializeAws_json1_1MapOfListsOfStrings = (
   output: any,
   context: __SerdeContext
-): { [key: string]: Array<string> } => {
+): { [key: string]: string[] } => {
   const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_json1_1ListOfStrings(output[key], context);
@@ -928,7 +928,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -949,19 +949,21 @@ const collectBodyString = (
   );
 };
 
-const buildHttpRpcRequest = (
+const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,
   path: string,
   resolvedHostname: string | undefined,
   body: any
-): __HttpRequest => {
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port } = await context.endpoint();
   const contents: any = {
-    ...context.endpoint,
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    path: path,
-    headers: headers
+    path,
+    headers
   };
   if (resolvedHostname !== undefined) {
     contents.hostname = resolvedHostname;
