@@ -4,12 +4,12 @@ const { readdirSync, lstatSync } = require("fs");
 const { spawnProcess } = require("./spawn-process");
 const {
   CODE_GEN_ROOT,
-  CODE_GEN_TASK_ROOT,
+  CODE_GEN_SDK_ROOT,
   TEMP_CODE_GEN_INPUT_DIR
 } = require("./code-gen-dir");
 const Glob = require("glob");
 
-async function generateClients(models) {
+const generateClients = async models => {
   let designatedModels = false;
   if (typeof models === "string") {
     //`models` is a folder path
@@ -53,16 +53,28 @@ async function generateClients(models) {
   if (designatedModels) {
     options.push(
       `-PmodelsDirProp=${path.relative(
-        CODE_GEN_TASK_ROOT,
+        CODE_GEN_SDK_ROOT,
         TEMP_CODE_GEN_INPUT_DIR
       )}`
     );
   }
+
   await spawnProcess("./gradlew", options, {
     cwd: CODE_GEN_ROOT
   });
-}
+};
+
+const generateProtocolTests = async () => {
+  await spawnProcess(
+    "./gradlew",
+    [":protocol-test-codegen:clean", ":protocol-test-codegen:build"],
+    {
+      cwd: CODE_GEN_ROOT
+    }
+  );
+};
 
 module.exports = {
-  generateClients
+  generateClients,
+  generateProtocolTests
 };
