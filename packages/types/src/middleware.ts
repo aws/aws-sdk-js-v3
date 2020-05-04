@@ -488,6 +488,8 @@ export interface HandlerExecutionContext {
    * operation.
    */
   logger: Logger;
+
+  [key: string]: any;
 }
 
 export interface Pluggable<Input extends object, Output extends object> {

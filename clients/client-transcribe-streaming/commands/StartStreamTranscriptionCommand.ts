@@ -12,6 +12,7 @@ import {
   serializeAws_restJson1_1StartStreamTranscriptionCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
+import { getEventStreamPlugin } from "@aws-sdk/middleware-eventstream";
 import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
@@ -57,6 +58,7 @@ export class StartStreamTranscriptionCommand extends $Command<
     this.middlewareStack.use(
       getSerdePlugin(configuration, this.serialize, this.deserialize)
     );
+    this.middlewareStack.use(getEventStreamPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 

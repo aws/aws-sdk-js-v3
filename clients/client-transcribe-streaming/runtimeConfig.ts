@@ -1,8 +1,9 @@
 import { name, version } from "./package.json";
 import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
 import { eventStreamSerdeProvider } from "@aws-sdk/eventstream-serde-node";
+import { eventStreamPayloadHandlerProvider } from "@aws-sdk/eventstream-handler-node";
 import { Hash } from "@aws-sdk/hash-node";
-import { NodeHttpHandler, streamCollector } from "@aws-sdk/node-http-handler";
+import { NodeHttp2Handler, streamCollector } from "@aws-sdk/node-http-handler";
 import { defaultProvider as regionDefaultProvider } from "@aws-sdk/region-provider";
 import { parseUrl } from "@aws-sdk/url-parser-node";
 import { fromBase64, toBase64 } from "@aws-sdk/util-base64-node";
@@ -21,8 +22,9 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   credentialDefaultProvider,
   defaultUserAgent: defaultUserAgent(name, version),
   eventStreamSerdeProvider,
+  eventStreamPayloadHandlerProvider,
   regionDefaultProvider,
-  requestHandler: new NodeHttpHandler(),
+  requestHandler: new NodeHttp2Handler(),
   sha256: Hash.bind(null, "sha256"),
   streamCollector,
   urlParser: parseUrl,

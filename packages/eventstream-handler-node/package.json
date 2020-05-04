@@ -1,5 +1,5 @@
 {
-  "name": "@aws-sdk/eventstream-signer-node",
+  "name": "@aws-sdk/eventstream-handler-node",
   "version": "1.0.0-gamma.0",
   "scripts": {
     "prepublishOnly": "tsc",
