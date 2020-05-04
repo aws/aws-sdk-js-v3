@@ -15,9 +15,7 @@ export interface ComplexError extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ComplexError {
-  export function isa(o: any): o is ComplexError {
-    return __isa(o, "ComplexError");
-  }
+  export const isa = (o: any): o is ComplexError => __isa(o, "ComplexError");
 }
 
 export interface ComplexNestedErrorData {
@@ -26,9 +24,8 @@ export interface ComplexNestedErrorData {
 }
 
 export namespace ComplexNestedErrorData {
-  export function isa(o: any): o is ComplexNestedErrorData {
-    return __isa(o, "ComplexNestedErrorData");
-  }
+  export const isa = (o: any): o is ComplexNestedErrorData =>
+    __isa(o, "ComplexNestedErrorData");
 }
 
 export interface EmptyInputAndEmptyOutputInput {
@@ -36,9 +33,8 @@ export interface EmptyInputAndEmptyOutputInput {
 }
 
 export namespace EmptyInputAndEmptyOutputInput {
-  export function isa(o: any): o is EmptyInputAndEmptyOutputInput {
-    return __isa(o, "EmptyInputAndEmptyOutputInput");
-  }
+  export const isa = (o: any): o is EmptyInputAndEmptyOutputInput =>
+    __isa(o, "EmptyInputAndEmptyOutputInput");
 }
 
 export interface EmptyInputAndEmptyOutputOutput {
@@ -46,9 +42,8 @@ export interface EmptyInputAndEmptyOutputOutput {
 }
 
 export namespace EmptyInputAndEmptyOutputOutput {
-  export function isa(o: any): o is EmptyInputAndEmptyOutputOutput {
-    return __isa(o, "EmptyInputAndEmptyOutputOutput");
-  }
+  export const isa = (o: any): o is EmptyInputAndEmptyOutputOutput =>
+    __isa(o, "EmptyInputAndEmptyOutputOutput");
 }
 
 export interface FlattenedXmlMapOutput {
@@ -57,9 +52,8 @@ export interface FlattenedXmlMapOutput {
 }
 
 export namespace FlattenedXmlMapOutput {
-  export function isa(o: any): o is FlattenedXmlMapOutput {
-    return __isa(o, "FlattenedXmlMapOutput");
-  }
+  export const isa = (o: any): o is FlattenedXmlMapOutput =>
+    __isa(o, "FlattenedXmlMapOutput");
 }
 
 export interface FlattenedXmlMapWithXmlNameOutput {
@@ -68,9 +62,8 @@ export interface FlattenedXmlMapWithXmlNameOutput {
 }
 
 export namespace FlattenedXmlMapWithXmlNameOutput {
-  export function isa(o: any): o is FlattenedXmlMapWithXmlNameOutput {
-    return __isa(o, "FlattenedXmlMapWithXmlNameOutput");
-  }
+  export const isa = (o: any): o is FlattenedXmlMapWithXmlNameOutput =>
+    __isa(o, "FlattenedXmlMapWithXmlNameOutput");
 }
 
 export interface GreetingWithErrorsOutput {
@@ -79,9 +72,8 @@ export interface GreetingWithErrorsOutput {
 }
 
 export namespace GreetingWithErrorsOutput {
-  export function isa(o: any): o is GreetingWithErrorsOutput {
-    return __isa(o, "GreetingWithErrorsOutput");
-  }
+  export const isa = (o: any): o is GreetingWithErrorsOutput =>
+    __isa(o, "GreetingWithErrorsOutput");
 }
 
 export interface IgnoresWrappingXmlNameOutput {
@@ -90,9 +82,8 @@ export interface IgnoresWrappingXmlNameOutput {
 }
 
 export namespace IgnoresWrappingXmlNameOutput {
-  export function isa(o: any): o is IgnoresWrappingXmlNameOutput {
-    return __isa(o, "IgnoresWrappingXmlNameOutput");
-  }
+  export const isa = (o: any): o is IgnoresWrappingXmlNameOutput =>
+    __isa(o, "IgnoresWrappingXmlNameOutput");
 }
 
 /**
@@ -105,9 +96,8 @@ export interface InvalidGreeting extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidGreeting {
-  export function isa(o: any): o is InvalidGreeting {
-    return __isa(o, "InvalidGreeting");
-  }
+  export const isa = (o: any): o is InvalidGreeting =>
+    __isa(o, "InvalidGreeting");
 }
 
 export interface NestedStructuresInput {
@@ -116,9 +106,8 @@ export interface NestedStructuresInput {
 }
 
 export namespace NestedStructuresInput {
-  export function isa(o: any): o is NestedStructuresInput {
-    return __isa(o, "NestedStructuresInput");
-  }
+  export const isa = (o: any): o is NestedStructuresInput =>
+    __isa(o, "NestedStructuresInput");
 }
 
 export interface NoInputAndOutputOutput {
@@ -126,9 +115,8 @@ export interface NoInputAndOutputOutput {
 }
 
 export namespace NoInputAndOutputOutput {
-  export function isa(o: any): o is NoInputAndOutputOutput {
-    return __isa(o, "NoInputAndOutputOutput");
-  }
+  export const isa = (o: any): o is NoInputAndOutputOutput =>
+    __isa(o, "NoInputAndOutputOutput");
 }
 
 export interface QueryIdempotencyTokenAutoFillInput {
@@ -137,24 +125,22 @@ export interface QueryIdempotencyTokenAutoFillInput {
 }
 
 export namespace QueryIdempotencyTokenAutoFillInput {
-  export function isa(o: any): o is QueryIdempotencyTokenAutoFillInput {
-    return __isa(o, "QueryIdempotencyTokenAutoFillInput");
-  }
+  export const isa = (o: any): o is QueryIdempotencyTokenAutoFillInput =>
+    __isa(o, "QueryIdempotencyTokenAutoFillInput");
 }
 
 export interface QueryListsInput {
   __type?: "QueryListsInput";
-  ComplexListArg?: Array<GreetingStruct>;
-  FlattenedListArg?: Array<string>;
-  FlattenedListArgWithXmlName?: Array<string>;
-  ListArg?: Array<string>;
-  ListArgWithXmlNameMember?: Array<string>;
+  ComplexListArg?: GreetingStruct[];
+  FlattenedListArg?: string[];
+  FlattenedListArgWithXmlName?: string[];
+  ListArg?: string[];
+  ListArgWithXmlNameMember?: string[];
 }
 
 export namespace QueryListsInput {
-  export function isa(o: any): o is QueryListsInput {
-    return __isa(o, "QueryListsInput");
-  }
+  export const isa = (o: any): o is QueryListsInput =>
+    __isa(o, "QueryListsInput");
 }
 
 export interface QueryMapsInput {
@@ -163,15 +149,14 @@ export interface QueryMapsInput {
   FlattenedMap?: { [key: string]: string };
   FlattenedMapWithXmlName?: { [key: string]: string };
   MapArg?: { [key: string]: string };
-  MapOfLists?: { [key: string]: Array<string> };
+  MapOfLists?: { [key: string]: string[] };
   MapWithXmlMemberName?: { [key: string]: string };
   RenamedMapArg?: { [key: string]: string };
 }
 
 export namespace QueryMapsInput {
-  export function isa(o: any): o is QueryMapsInput {
-    return __isa(o, "QueryMapsInput");
-  }
+  export const isa = (o: any): o is QueryMapsInput =>
+    __isa(o, "QueryMapsInput");
 }
 
 export interface QueryTimestampsInput {
@@ -182,9 +167,8 @@ export interface QueryTimestampsInput {
 }
 
 export namespace QueryTimestampsInput {
-  export function isa(o: any): o is QueryTimestampsInput {
-    return __isa(o, "QueryTimestampsInput");
-  }
+  export const isa = (o: any): o is QueryTimestampsInput =>
+    __isa(o, "QueryTimestampsInput");
 }
 
 export interface RecursiveXmlShapesOutput {
@@ -193,9 +177,8 @@ export interface RecursiveXmlShapesOutput {
 }
 
 export namespace RecursiveXmlShapesOutput {
-  export function isa(o: any): o is RecursiveXmlShapesOutput {
-    return __isa(o, "RecursiveXmlShapesOutput");
-  }
+  export const isa = (o: any): o is RecursiveXmlShapesOutput =>
+    __isa(o, "RecursiveXmlShapesOutput");
 }
 
 export interface RecursiveXmlShapesOutputNested1 {
@@ -205,9 +188,8 @@ export interface RecursiveXmlShapesOutputNested1 {
 }
 
 export namespace RecursiveXmlShapesOutputNested1 {
-  export function isa(o: any): o is RecursiveXmlShapesOutputNested1 {
-    return __isa(o, "RecursiveXmlShapesOutputNested1");
-  }
+  export const isa = (o: any): o is RecursiveXmlShapesOutputNested1 =>
+    __isa(o, "RecursiveXmlShapesOutputNested1");
 }
 
 export interface RecursiveXmlShapesOutputNested2 {
@@ -217,9 +199,8 @@ export interface RecursiveXmlShapesOutputNested2 {
 }
 
 export namespace RecursiveXmlShapesOutputNested2 {
-  export function isa(o: any): o is RecursiveXmlShapesOutputNested2 {
-    return __isa(o, "RecursiveXmlShapesOutputNested2");
-  }
+  export const isa = (o: any): o is RecursiveXmlShapesOutputNested2 =>
+    __isa(o, "RecursiveXmlShapesOutputNested2");
 }
 
 export interface SimpleInputParamsInput {
@@ -234,9 +215,8 @@ export interface SimpleInputParamsInput {
 }
 
 export namespace SimpleInputParamsInput {
-  export function isa(o: any): o is SimpleInputParamsInput {
-    return __isa(o, "SimpleInputParamsInput");
-  }
+  export const isa = (o: any): o is SimpleInputParamsInput =>
+    __isa(o, "SimpleInputParamsInput");
 }
 
 export interface SimpleScalarXmlPropertiesOutput {
@@ -254,9 +234,8 @@ export interface SimpleScalarXmlPropertiesOutput {
 }
 
 export namespace SimpleScalarXmlPropertiesOutput {
-  export function isa(o: any): o is SimpleScalarXmlPropertiesOutput {
-    return __isa(o, "SimpleScalarXmlPropertiesOutput");
-  }
+  export const isa = (o: any): o is SimpleScalarXmlPropertiesOutput =>
+    __isa(o, "SimpleScalarXmlPropertiesOutput");
 }
 
 export interface StructArg {
@@ -267,9 +246,7 @@ export interface StructArg {
 }
 
 export namespace StructArg {
-  export function isa(o: any): o is StructArg {
-    return __isa(o, "StructArg");
-  }
+  export const isa = (o: any): o is StructArg => __isa(o, "StructArg");
 }
 
 export interface StructureListMember {
@@ -279,9 +256,8 @@ export interface StructureListMember {
 }
 
 export namespace StructureListMember {
-  export function isa(o: any): o is StructureListMember {
-    return __isa(o, "StructureListMember");
-  }
+  export const isa = (o: any): o is StructureListMember =>
+    __isa(o, "StructureListMember");
 }
 
 export interface XmlBlobsOutput {
@@ -290,9 +266,8 @@ export interface XmlBlobsOutput {
 }
 
 export namespace XmlBlobsOutput {
-  export function isa(o: any): o is XmlBlobsOutput {
-    return __isa(o, "XmlBlobsOutput");
-  }
+  export const isa = (o: any): o is XmlBlobsOutput =>
+    __isa(o, "XmlBlobsOutput");
 }
 
 export interface XmlEnumsOutput {
@@ -300,40 +275,38 @@ export interface XmlEnumsOutput {
   fooEnum1?: FooEnum | string;
   fooEnum2?: FooEnum | string;
   fooEnum3?: FooEnum | string;
-  fooEnumList?: Array<FooEnum | string>;
+  fooEnumList?: (FooEnum | string)[];
   fooEnumMap?: { [key: string]: FooEnum | string };
   fooEnumSet?: Set<FooEnum | string>;
 }
 
 export namespace XmlEnumsOutput {
-  export function isa(o: any): o is XmlEnumsOutput {
-    return __isa(o, "XmlEnumsOutput");
-  }
+  export const isa = (o: any): o is XmlEnumsOutput =>
+    __isa(o, "XmlEnumsOutput");
 }
 
 export interface XmlListsOutput {
   __type?: "XmlListsOutput";
-  booleanList?: Array<boolean>;
-  enumList?: Array<FooEnum | string>;
-  flattenedList?: Array<string>;
-  flattenedList2?: Array<string>;
-  integerList?: Array<number>;
+  booleanList?: boolean[];
+  enumList?: (FooEnum | string)[];
+  flattenedList?: string[];
+  flattenedList2?: string[];
+  integerList?: number[];
   /**
    * A list of lists of strings.
    */
-  nestedStringList?: Array<Array<string>>;
+  nestedStringList?: string[][];
 
-  renamedListMembers?: Array<string>;
-  stringList?: Array<string>;
+  renamedListMembers?: string[];
+  stringList?: string[];
   stringSet?: Set<string>;
-  structureList?: Array<StructureListMember>;
-  timestampList?: Array<Date>;
+  structureList?: StructureListMember[];
+  timestampList?: Date[];
 }
 
 export namespace XmlListsOutput {
-  export function isa(o: any): o is XmlListsOutput {
-    return __isa(o, "XmlListsOutput");
-  }
+  export const isa = (o: any): o is XmlListsOutput =>
+    __isa(o, "XmlListsOutput");
 }
 
 export interface XmlMapsOutput {
@@ -342,9 +315,7 @@ export interface XmlMapsOutput {
 }
 
 export namespace XmlMapsOutput {
-  export function isa(o: any): o is XmlMapsOutput {
-    return __isa(o, "XmlMapsOutput");
-  }
+  export const isa = (o: any): o is XmlMapsOutput => __isa(o, "XmlMapsOutput");
 }
 
 export interface XmlMapsXmlNameOutput {
@@ -353,21 +324,19 @@ export interface XmlMapsXmlNameOutput {
 }
 
 export namespace XmlMapsXmlNameOutput {
-  export function isa(o: any): o is XmlMapsXmlNameOutput {
-    return __isa(o, "XmlMapsXmlNameOutput");
-  }
+  export const isa = (o: any): o is XmlMapsXmlNameOutput =>
+    __isa(o, "XmlMapsXmlNameOutput");
 }
 
 export interface XmlNamespaceNested {
   __type?: "XmlNamespaceNested";
   foo?: string;
-  values?: Array<string>;
+  values?: string[];
 }
 
 export namespace XmlNamespaceNested {
-  export function isa(o: any): o is XmlNamespaceNested {
-    return __isa(o, "XmlNamespaceNested");
-  }
+  export const isa = (o: any): o is XmlNamespaceNested =>
+    __isa(o, "XmlNamespaceNested");
 }
 
 export interface XmlNamespacesOutput {
@@ -376,9 +345,8 @@ export interface XmlNamespacesOutput {
 }
 
 export namespace XmlNamespacesOutput {
-  export function isa(o: any): o is XmlNamespacesOutput {
-    return __isa(o, "XmlNamespacesOutput");
-  }
+  export const isa = (o: any): o is XmlNamespacesOutput =>
+    __isa(o, "XmlNamespacesOutput");
 }
 
 export interface XmlTimestampsOutput {
@@ -390,9 +358,8 @@ export interface XmlTimestampsOutput {
 }
 
 export namespace XmlTimestampsOutput {
-  export function isa(o: any): o is XmlTimestampsOutput {
-    return __isa(o, "XmlTimestampsOutput");
-  }
+  export const isa = (o: any): o is XmlTimestampsOutput =>
+    __isa(o, "XmlTimestampsOutput");
 }
 
 export type FooEnum = "0" | "1" | "Bar" | "Baz" | "Foo";
@@ -403,7 +370,6 @@ export interface GreetingStruct {
 }
 
 export namespace GreetingStruct {
-  export function isa(o: any): o is GreetingStruct {
-    return __isa(o, "GreetingStruct");
-  }
+  export const isa = (o: any): o is GreetingStruct =>
+    __isa(o, "GreetingStruct");
 }

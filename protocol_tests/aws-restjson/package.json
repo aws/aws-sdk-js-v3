@@ -1,6 +1,6 @@
 {
-  "name": "@aws-sdk/protocol-tests-aws-restjson",
-  "description": "@aws-sdk/protocol-tests-aws-restjson client",
+  "name": "@aws-sdk/aws-restjson",
+  "description": "@aws-sdk/aws-restjson client",
   "version": "1.0.0-beta.0",
   "scripts": {
     "clean": "npm run remove-definitions && npm run remove-dist && npm run remove-js && npm run remove-maps",

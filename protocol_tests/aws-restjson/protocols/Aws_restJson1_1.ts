@@ -223,14 +223,16 @@ export async function serializeAws_restJson1_1AllQueryStringTypesCommand(
     );
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    query: query,
-    body: body
+    query,
+    body
   });
 }
 
@@ -251,14 +253,16 @@ export async function serializeAws_restJson1_1ConstantAndVariableQueryStringComm
     query["maybeSet"] = input.maybeSet;
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    query: query,
-    body: body
+    query,
+    body
   });
 }
 
@@ -286,14 +290,16 @@ export async function serializeAws_restJson1_1ConstantQueryStringCommand(
     hello: ""
   };
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    query: query,
-    body: body
+    query,
+    body
   });
 }
 
@@ -306,13 +312,15 @@ export async function serializeAws_restJson1_1EmptyInputAndEmptyOutputCommand(
   let resolvedPath = "/EmptyInputAndEmptyOutput";
   let body: any;
   body = "{}";
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body
+    body
   });
 }
 
@@ -325,13 +333,15 @@ export async function serializeAws_restJson1_1GreetingWithErrorsCommand(
   let resolvedPath = "/GreetingWithErrors";
   let body: any;
   body = "{}";
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "PUT",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body
+    body
   });
 }
 
@@ -349,13 +359,15 @@ export async function serializeAws_restJson1_1HttpPayloadTraitsCommand(
   if (input.blob !== undefined) {
     body = input.blob;
   }
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body
+    body
   });
 }
 
@@ -373,13 +385,15 @@ export async function serializeAws_restJson1_1HttpPayloadTraitsWithMediaTypeComm
   if (input.blob !== undefined) {
     body = input.blob;
   }
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body
+    body
   });
 }
 
@@ -398,13 +412,15 @@ export async function serializeAws_restJson1_1HttpPayloadWithStructureCommand(
     body = {};
   }
   body = JSON.stringify(body);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "PUT",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body
+    body
   });
 }
 
@@ -424,13 +440,15 @@ export async function serializeAws_restJson1_1HttpPrefixHeadersCommand(
   }
   let resolvedPath = "/HttpPrefixHeaders";
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body
+    body
   });
 }
 
@@ -469,13 +487,15 @@ export async function serializeAws_restJson1_1HttpRequestWithGreedyLabelInPathCo
     throw new Error("No value provided for input HTTP label: foo.");
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body
+    body
   });
 }
 
@@ -588,13 +608,15 @@ export async function serializeAws_restJson1_1HttpRequestWithLabelsCommand(
     throw new Error("No value provided for input HTTP label: timestamp.");
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body
+    body
   });
 }
 
@@ -723,13 +745,15 @@ export async function serializeAws_restJson1_1HttpRequestWithLabelsAndTimestampF
     throw new Error("No value provided for input HTTP label: targetHttpDate.");
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body
+    body
   });
 }
 
@@ -742,13 +766,15 @@ export async function serializeAws_restJson1_1IgnoreQueryParamsInResponseCommand
   let resolvedPath = "/IgnoreQueryParamsInResponse";
   let body: any;
   body = "{}";
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body
+    body
   });
 }
 
@@ -826,13 +852,15 @@ export async function serializeAws_restJson1_1InputAndOutputWithHeadersCommand(
   }
   let resolvedPath = "/InputAndOutputWithHeaders";
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body
+    body
   });
 }
 
@@ -849,13 +877,15 @@ export async function serializeAws_restJson1_1JsonBlobsCommand(
     bodyParams["data"] = context.base64Encoder(input.data);
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body
+    body
   });
 }
 
@@ -896,13 +926,15 @@ export async function serializeAws_restJson1_1JsonEnumsCommand(
     );
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "PUT",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body
+    body
   });
 }
 
@@ -964,13 +996,15 @@ export async function serializeAws_restJson1_1JsonListsCommand(
     );
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "PUT",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body
+    body
   });
 }
 
@@ -990,13 +1024,15 @@ export async function serializeAws_restJson1_1JsonMapsCommand(
     );
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body
+    body
   });
 }
 
@@ -1024,13 +1060,15 @@ export async function serializeAws_restJson1_1JsonTimestampsCommand(
     bodyParams["normal"] = Math.round(input.normal.getTime() / 1000);
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body
+    body
   });
 }
 
@@ -1043,13 +1081,15 @@ export async function serializeAws_restJson1_1NoInputAndNoOutputCommand(
   let resolvedPath = "/NoInputAndNoOutput";
   let body: any;
   body = "{}";
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body
+    body
   });
 }
 
@@ -1062,13 +1102,15 @@ export async function serializeAws_restJson1_1NoInputAndOutputCommand(
   let resolvedPath = "/NoInputAndOutputOutput";
   let body: any;
   body = "{}";
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body
+    body
   });
 }
 
@@ -1089,13 +1131,15 @@ export async function serializeAws_restJson1_1NullAndEmptyHeadersClientCommand(
   }
   let resolvedPath = "/NullAndEmptyHeadersClient";
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body
+    body
   });
 }
 
@@ -1116,13 +1160,15 @@ export async function serializeAws_restJson1_1NullAndEmptyHeadersServerCommand(
   }
   let resolvedPath = "/NullAndEmptyHeadersServer";
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body
+    body
   });
 }
 
@@ -1141,14 +1187,16 @@ export async function serializeAws_restJson1_1OmitsNullSerializesEmptyStringComm
     query["Null"] = input.nullValue;
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    query: query,
-    body: body
+    query,
+    body
   });
 }
 
@@ -1164,14 +1212,16 @@ export async function serializeAws_restJson1_1QueryIdempotencyTokenAutoFillComma
     query["token"] = input.token;
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    query: query,
-    body: body
+    query,
+    body
   });
 }
 
@@ -1193,13 +1243,15 @@ export async function serializeAws_restJson1_1RecursiveShapesCommand(
     );
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "PUT",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body
+    body
   });
 }
 
@@ -1243,13 +1295,15 @@ export async function serializeAws_restJson1_1SimpleScalarPropertiesCommand(
     bodyParams["trueBooleanValue"] = input.trueBooleanValue;
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "PUT",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body
+    body
   });
 }
 
@@ -1296,13 +1350,15 @@ export async function serializeAws_restJson1_1TimestampFormatHeadersCommand(
   }
   let resolvedPath = "/TimestampFormatHeaders";
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    ...context.endpoint,
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body
+    body
   });
 }
 
@@ -3097,7 +3153,7 @@ const serializeAws_restJson1_1RecursiveShapesInputOutputNested2 = (
 };
 
 const serializeAws_restJson1_1StructureList = (
-  input: Array<StructureListMember>,
+  input: StructureListMember[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3122,7 +3178,7 @@ const serializeAws_restJson1_1StructureListMember = (
 };
 
 const serializeAws_restJson1_1BooleanList = (
-  input: Array<boolean>,
+  input: boolean[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3133,7 +3189,7 @@ const serializeAws_restJson1_1BooleanList = (
 };
 
 const serializeAws_restJson1_1FooEnumList = (
-  input: Array<FooEnum | string>,
+  input: (FooEnum | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3177,7 +3233,7 @@ const serializeAws_restJson1_1GreetingStruct = (
 };
 
 const serializeAws_restJson1_1IntegerList = (
-  input: Array<number>,
+  input: number[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3188,7 +3244,7 @@ const serializeAws_restJson1_1IntegerList = (
 };
 
 const serializeAws_restJson1_1NestedStringList = (
-  input: Array<Array<string>>,
+  input: string[][],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3199,7 +3255,7 @@ const serializeAws_restJson1_1NestedStringList = (
 };
 
 const serializeAws_restJson1_1StringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3221,7 +3277,7 @@ const serializeAws_restJson1_1StringSet = (
 };
 
 const serializeAws_restJson1_1TimestampList = (
-  input: Array<Date>,
+  input: Date[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3322,7 +3378,7 @@ const deserializeAws_restJson1_1RecursiveShapesInputOutputNested2 = (
 const deserializeAws_restJson1_1StructureList = (
   output: any,
   context: __SerdeContext
-): Array<StructureListMember> => {
+): StructureListMember[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1StructureListMember(entry, context)
   );
@@ -3349,14 +3405,14 @@ const deserializeAws_restJson1_1StructureListMember = (
 const deserializeAws_restJson1_1BooleanList = (
   output: any,
   context: __SerdeContext
-): Array<boolean> => {
+): boolean[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1FooEnumList = (
   output: any,
   context: __SerdeContext
-): Array<FooEnum | string> => {
+): (FooEnum | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -3395,14 +3451,14 @@ const deserializeAws_restJson1_1GreetingStruct = (
 const deserializeAws_restJson1_1IntegerList = (
   output: any,
   context: __SerdeContext
-): Array<number> => {
+): number[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1NestedStringList = (
   output: any,
   context: __SerdeContext
-): Array<Array<string>> => {
+): string[][] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1StringList(entry, context)
   );
@@ -3411,7 +3467,7 @@ const deserializeAws_restJson1_1NestedStringList = (
 const deserializeAws_restJson1_1StringList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -3425,7 +3481,7 @@ const deserializeAws_restJson1_1StringSet = (
 const deserializeAws_restJson1_1TimestampList = (
   output: any,
   context: __SerdeContext
-): Array<Date> => {
+): Date[] => {
   return (output || []).map((entry: any) => new Date(Math.round(entry * 1000)));
 };
 
@@ -3437,7 +3493,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {

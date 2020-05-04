@@ -10,9 +10,7 @@ export interface EmptyStruct {
 }
 
 export namespace EmptyStruct {
-  export function isa(o: any): o is EmptyStruct {
-    return __isa(o, "EmptyStruct");
-  }
+  export const isa = (o: any): o is EmptyStruct => __isa(o, "EmptyStruct");
 }
 
 export interface ErrorWithMembers extends __SmithyException, $MetadataBearer {
@@ -21,7 +19,7 @@ export interface ErrorWithMembers extends __SmithyException, $MetadataBearer {
   Code?: string;
   ComplexData?: KitchenSink;
   IntegerField?: number;
-  ListField?: Array<string>;
+  ListField?: string[];
   MapField?: { [key: string]: string };
   Message?: string;
   /**
@@ -31,9 +29,8 @@ export interface ErrorWithMembers extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ErrorWithMembers {
-  export function isa(o: any): o is ErrorWithMembers {
-    return __isa(o, "ErrorWithMembers");
-  }
+  export const isa = (o: any): o is ErrorWithMembers =>
+    __isa(o, "ErrorWithMembers");
 }
 
 export interface ErrorWithoutMembers
@@ -44,9 +41,8 @@ export interface ErrorWithoutMembers
 }
 
 export namespace ErrorWithoutMembers {
-  export function isa(o: any): o is ErrorWithoutMembers {
-    return __isa(o, "ErrorWithoutMembers");
-  }
+  export const isa = (o: any): o is ErrorWithoutMembers =>
+    __isa(o, "ErrorWithoutMembers");
 }
 
 export interface KitchenSink {
@@ -60,16 +56,16 @@ export interface KitchenSink {
   Integer?: number;
   Iso8601Timestamp?: Date;
   JsonValue?: __LazyJsonString | string;
-  ListOfLists?: Array<Array<string>>;
-  ListOfMapsOfStrings?: Array<{ [key: string]: string }>;
-  ListOfStrings?: Array<string>;
-  ListOfStructs?: Array<SimpleStruct>;
+  ListOfLists?: string[][];
+  ListOfMapsOfStrings?: { [key: string]: string }[];
+  ListOfStrings?: string[];
+  ListOfStructs?: SimpleStruct[];
   Long?: number;
-  MapOfListsOfStrings?: { [key: string]: Array<string> };
+  MapOfListsOfStrings?: { [key: string]: string[] };
   MapOfMaps?: { [key: string]: { [key: string]: string } };
   MapOfStrings?: { [key: string]: string };
   MapOfStructs?: { [key: string]: SimpleStruct };
-  RecursiveList?: Array<KitchenSink>;
+  RecursiveList?: KitchenSink[];
   RecursiveMap?: { [key: string]: KitchenSink };
   RecursiveStruct?: KitchenSink;
   SimpleStruct?: SimpleStruct;
@@ -80,9 +76,7 @@ export interface KitchenSink {
 }
 
 export namespace KitchenSink {
-  export function isa(o: any): o is KitchenSink {
-    return __isa(o, "KitchenSink");
-  }
+  export const isa = (o: any): o is KitchenSink => __isa(o, "KitchenSink");
 }
 
 export interface SimpleStruct {
@@ -91,9 +85,7 @@ export interface SimpleStruct {
 }
 
 export namespace SimpleStruct {
-  export function isa(o: any): o is SimpleStruct {
-    return __isa(o, "SimpleStruct");
-  }
+  export const isa = (o: any): o is SimpleStruct => __isa(o, "SimpleStruct");
 }
 
 export interface StructWithLocationName {
@@ -102,7 +94,6 @@ export interface StructWithLocationName {
 }
 
 export namespace StructWithLocationName {
-  export function isa(o: any): o is StructWithLocationName {
-    return __isa(o, "StructWithLocationName");
-  }
+  export const isa = (o: any): o is StructWithLocationName =>
+    __isa(o, "StructWithLocationName");
 }
