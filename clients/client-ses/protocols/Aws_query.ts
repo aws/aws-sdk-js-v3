@@ -12541,8 +12541,8 @@ const decodeEscapedXML = (str: string) => {
     .replace(/&lt;/g, "<");
 };
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       const parsedObj = xmlParse(encoded, {
         attributeNamePrefix: "",
@@ -12561,10 +12561,9 @@ const parseBody = (streamBody: any, context: __SerdeContext): any => {
     }
     return {};
   });
-};
 
-const buildFormUrlencodedString = (entries: any): string => {
-  return Object.keys(entries)
+const buildFormUrlencodedString = (entries: any): string =>
+  Object.keys(entries)
     .map(
       key =>
         __extendedEncodeURIComponent(key) +
@@ -12572,7 +12571,6 @@ const buildFormUrlencodedString = (entries: any): string => {
         __extendedEncodeURIComponent(entries[key])
     )
     .join("&");
-};
 
 const loadQueryErrorCode = (output: __HttpResponse, data: any): string => {
   if (data.Error.Code !== undefined) {

@@ -1020,14 +1020,13 @@ function isSerializableHeaderValue(value: any): boolean {
   );
 }
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};
 
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
