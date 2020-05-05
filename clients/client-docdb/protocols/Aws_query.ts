@@ -326,7 +326,8 @@ import {
 } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  getArrayIfSingleItem as __getArrayIfSingleItem
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -8039,11 +8040,9 @@ const deserializeAws_queryAttributeValueList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryAvailabilityZone = (
@@ -8067,22 +8066,18 @@ const deserializeAws_queryAvailabilityZoneList = (
   output: any,
   context: __SerdeContext
 ): AvailabilityZone[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryAvailabilityZone(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryAvailabilityZone(entry, context)
+  );
 };
 
 const deserializeAws_queryAvailabilityZones = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryCertificate = (
@@ -8135,11 +8130,9 @@ const deserializeAws_queryCertificateList = (
   output: any,
   context: __SerdeContext
 ): Certificate[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryCertificate(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryCertificate(entry, context)
+  );
 };
 
 const deserializeAws_queryCertificateMessage = (
@@ -8158,12 +8151,8 @@ const deserializeAws_queryCertificateMessage = (
     output["Certificates"] !== undefined &&
     output["Certificates"]["Certificate"] !== undefined
   ) {
-    const wrappedItem =
-      output["Certificates"]["Certificate"] instanceof Array
-        ? output["Certificates"]["Certificate"]
-        : [output["Certificates"]["Certificate"]];
     contents.Certificates = deserializeAws_queryCertificateList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Certificates"]["Certificate"]),
       context
     );
   }
@@ -8338,12 +8327,8 @@ const deserializeAws_queryDBCluster = (
     output["AssociatedRoles"] !== undefined &&
     output["AssociatedRoles"]["DBClusterRole"] !== undefined
   ) {
-    const wrappedItem =
-      output["AssociatedRoles"]["DBClusterRole"] instanceof Array
-        ? output["AssociatedRoles"]["DBClusterRole"]
-        : [output["AssociatedRoles"]["DBClusterRole"]];
     contents.AssociatedRoles = deserializeAws_queryDBClusterRoles(
-      wrappedItem,
+      __getArrayIfSingleItem(output["AssociatedRoles"]["DBClusterRole"]),
       context
     );
   }
@@ -8354,12 +8339,8 @@ const deserializeAws_queryDBCluster = (
     output["AvailabilityZones"] !== undefined &&
     output["AvailabilityZones"]["AvailabilityZone"] !== undefined
   ) {
-    const wrappedItem =
-      output["AvailabilityZones"]["AvailabilityZone"] instanceof Array
-        ? output["AvailabilityZones"]["AvailabilityZone"]
-        : [output["AvailabilityZones"]["AvailabilityZone"]];
     contents.AvailabilityZones = deserializeAws_queryAvailabilityZones(
-      wrappedItem,
+      __getArrayIfSingleItem(output["AvailabilityZones"]["AvailabilityZone"]),
       context
     );
   }
@@ -8392,12 +8373,8 @@ const deserializeAws_queryDBCluster = (
     output["DBClusterMembers"] !== undefined &&
     output["DBClusterMembers"]["DBClusterMember"] !== undefined
   ) {
-    const wrappedItem =
-      output["DBClusterMembers"]["DBClusterMember"] instanceof Array
-        ? output["DBClusterMembers"]["DBClusterMember"]
-        : [output["DBClusterMembers"]["DBClusterMember"]];
     contents.DBClusterMembers = deserializeAws_queryDBClusterMemberList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["DBClusterMembers"]["DBClusterMember"]),
       context
     );
   }
@@ -8437,12 +8414,8 @@ const deserializeAws_queryDBCluster = (
     output["EnabledCloudwatchLogsExports"] !== undefined &&
     output["EnabledCloudwatchLogsExports"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["EnabledCloudwatchLogsExports"]["member"] instanceof Array
-        ? output["EnabledCloudwatchLogsExports"]["member"]
-        : [output["EnabledCloudwatchLogsExports"]["member"]];
     contents.EnabledCloudwatchLogsExports = deserializeAws_queryLogTypeList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["EnabledCloudwatchLogsExports"]["member"]),
       context
     );
   }
@@ -8541,12 +8514,10 @@ const deserializeAws_queryDBCluster = (
     output["VpcSecurityGroups"] !== undefined &&
     output["VpcSecurityGroups"]["VpcSecurityGroupMembership"] !== undefined
   ) {
-    const wrappedItem =
-      output["VpcSecurityGroups"]["VpcSecurityGroupMembership"] instanceof Array
-        ? output["VpcSecurityGroups"]["VpcSecurityGroupMembership"]
-        : [output["VpcSecurityGroups"]["VpcSecurityGroupMembership"]];
     contents.VpcSecurityGroups = deserializeAws_queryVpcSecurityGroupMembershipList(
-      wrappedItem,
+      __getArrayIfSingleItem(
+        output["VpcSecurityGroups"]["VpcSecurityGroupMembership"]
+      ),
       context
     );
   }
@@ -8557,11 +8528,9 @@ const deserializeAws_queryDBClusterList = (
   output: any,
   context: __SerdeContext
 ): DBCluster[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryDBCluster(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryDBCluster(entry, context)
+  );
 };
 
 const deserializeAws_queryDBClusterMember = (
@@ -8607,11 +8576,9 @@ const deserializeAws_queryDBClusterMemberList = (
   output: any,
   context: __SerdeContext
 ): DBClusterMember[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryDBClusterMember(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryDBClusterMember(entry, context)
+  );
 };
 
 const deserializeAws_queryDBClusterMessage = (
@@ -8630,12 +8597,8 @@ const deserializeAws_queryDBClusterMessage = (
     output["DBClusters"] !== undefined &&
     output["DBClusters"]["DBCluster"] !== undefined
   ) {
-    const wrappedItem =
-      output["DBClusters"]["DBCluster"] instanceof Array
-        ? output["DBClusters"]["DBCluster"]
-        : [output["DBClusters"]["DBCluster"]];
     contents.DBClusters = deserializeAws_queryDBClusterList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["DBClusters"]["DBCluster"]),
       context
     );
   }
@@ -8708,12 +8671,8 @@ const deserializeAws_queryDBClusterParameterGroupDetails = (
     output["Parameters"] !== undefined &&
     output["Parameters"]["Parameter"] !== undefined
   ) {
-    const wrappedItem =
-      output["Parameters"]["Parameter"] instanceof Array
-        ? output["Parameters"]["Parameter"]
-        : [output["Parameters"]["Parameter"]];
     contents.Parameters = deserializeAws_queryParametersList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Parameters"]["Parameter"]),
       context
     );
   }
@@ -8724,11 +8683,9 @@ const deserializeAws_queryDBClusterParameterGroupList = (
   output: any,
   context: __SerdeContext
 ): DBClusterParameterGroup[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryDBClusterParameterGroup(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryDBClusterParameterGroup(entry, context)
+  );
 };
 
 const deserializeAws_queryDBClusterParameterGroupNameMessage = (
@@ -8764,13 +8721,10 @@ const deserializeAws_queryDBClusterParameterGroupsMessage = (
     output["DBClusterParameterGroups"] !== undefined &&
     output["DBClusterParameterGroups"]["DBClusterParameterGroup"] !== undefined
   ) {
-    const wrappedItem =
-      output["DBClusterParameterGroups"]["DBClusterParameterGroup"] instanceof
-      Array
-        ? output["DBClusterParameterGroups"]["DBClusterParameterGroup"]
-        : [output["DBClusterParameterGroups"]["DBClusterParameterGroup"]];
     contents.DBClusterParameterGroups = deserializeAws_queryDBClusterParameterGroupList(
-      wrappedItem,
+      __getArrayIfSingleItem(
+        output["DBClusterParameterGroups"]["DBClusterParameterGroup"]
+      ),
       context
     );
   }
@@ -8811,11 +8765,9 @@ const deserializeAws_queryDBClusterRoles = (
   output: any,
   context: __SerdeContext
 ): DBClusterRole[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryDBClusterRole(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryDBClusterRole(entry, context)
+  );
 };
 
 const deserializeAws_queryDBClusterSnapshot = (
@@ -8849,12 +8801,8 @@ const deserializeAws_queryDBClusterSnapshot = (
     output["AvailabilityZones"] !== undefined &&
     output["AvailabilityZones"]["AvailabilityZone"] !== undefined
   ) {
-    const wrappedItem =
-      output["AvailabilityZones"]["AvailabilityZone"] instanceof Array
-        ? output["AvailabilityZones"]["AvailabilityZone"]
-        : [output["AvailabilityZones"]["AvailabilityZone"]];
     contents.AvailabilityZones = deserializeAws_queryAvailabilityZones(
-      wrappedItem,
+      __getArrayIfSingleItem(output["AvailabilityZones"]["AvailabilityZone"]),
       context
     );
   }
@@ -8975,12 +8923,8 @@ const deserializeAws_queryDBClusterSnapshotAttribute = (
     output["AttributeValues"] !== undefined &&
     output["AttributeValues"]["AttributeValue"] !== undefined
   ) {
-    const wrappedItem =
-      output["AttributeValues"]["AttributeValue"] instanceof Array
-        ? output["AttributeValues"]["AttributeValue"]
-        : [output["AttributeValues"]["AttributeValue"]];
     contents.AttributeValues = deserializeAws_queryAttributeValueList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["AttributeValues"]["AttributeValue"]),
       context
     );
   }
@@ -8991,13 +8935,9 @@ const deserializeAws_queryDBClusterSnapshotAttributeList = (
   output: any,
   context: __SerdeContext
 ): DBClusterSnapshotAttribute[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      deserializeAws_queryDBClusterSnapshotAttribute(entry, context)
-    );
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryDBClusterSnapshotAttribute(entry, context)
+  );
 };
 
 const deserializeAws_queryDBClusterSnapshotAttributesResult = (
@@ -9017,14 +8957,10 @@ const deserializeAws_queryDBClusterSnapshotAttributesResult = (
     output["DBClusterSnapshotAttributes"]["DBClusterSnapshotAttribute"] !==
       undefined
   ) {
-    const wrappedItem =
-      output["DBClusterSnapshotAttributes"][
-        "DBClusterSnapshotAttribute"
-      ] instanceof Array
-        ? output["DBClusterSnapshotAttributes"]["DBClusterSnapshotAttribute"]
-        : [output["DBClusterSnapshotAttributes"]["DBClusterSnapshotAttribute"]];
     contents.DBClusterSnapshotAttributes = deserializeAws_queryDBClusterSnapshotAttributeList(
-      wrappedItem,
+      __getArrayIfSingleItem(
+        output["DBClusterSnapshotAttributes"]["DBClusterSnapshotAttribute"]
+      ),
       context
     );
   }
@@ -9041,11 +8977,9 @@ const deserializeAws_queryDBClusterSnapshotList = (
   output: any,
   context: __SerdeContext
 ): DBClusterSnapshot[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryDBClusterSnapshot(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryDBClusterSnapshot(entry, context)
+  );
 };
 
 const deserializeAws_queryDBClusterSnapshotMessage = (
@@ -9064,12 +8998,8 @@ const deserializeAws_queryDBClusterSnapshotMessage = (
     output["DBClusterSnapshots"] !== undefined &&
     output["DBClusterSnapshots"]["DBClusterSnapshot"] !== undefined
   ) {
-    const wrappedItem =
-      output["DBClusterSnapshots"]["DBClusterSnapshot"] instanceof Array
-        ? output["DBClusterSnapshots"]["DBClusterSnapshot"]
-        : [output["DBClusterSnapshots"]["DBClusterSnapshot"]];
     contents.DBClusterSnapshots = deserializeAws_queryDBClusterSnapshotList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["DBClusterSnapshots"]["DBClusterSnapshot"]),
       context
     );
   }
@@ -9134,12 +9064,8 @@ const deserializeAws_queryDBEngineVersion = (
     output["ExportableLogTypes"] !== undefined &&
     output["ExportableLogTypes"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["ExportableLogTypes"]["member"] instanceof Array
-        ? output["ExportableLogTypes"]["member"]
-        : [output["ExportableLogTypes"]["member"]];
     contents.ExportableLogTypes = deserializeAws_queryLogTypeList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["ExportableLogTypes"]["member"]),
       context
     );
   }
@@ -9156,12 +9082,8 @@ const deserializeAws_queryDBEngineVersion = (
     output["ValidUpgradeTarget"] !== undefined &&
     output["ValidUpgradeTarget"]["UpgradeTarget"] !== undefined
   ) {
-    const wrappedItem =
-      output["ValidUpgradeTarget"]["UpgradeTarget"] instanceof Array
-        ? output["ValidUpgradeTarget"]["UpgradeTarget"]
-        : [output["ValidUpgradeTarget"]["UpgradeTarget"]];
     contents.ValidUpgradeTarget = deserializeAws_queryValidUpgradeTargetList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["ValidUpgradeTarget"]["UpgradeTarget"]),
       context
     );
   }
@@ -9172,11 +9094,9 @@ const deserializeAws_queryDBEngineVersionList = (
   output: any,
   context: __SerdeContext
 ): DBEngineVersion[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryDBEngineVersion(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryDBEngineVersion(entry, context)
+  );
 };
 
 const deserializeAws_queryDBEngineVersionMessage = (
@@ -9195,12 +9115,8 @@ const deserializeAws_queryDBEngineVersionMessage = (
     output["DBEngineVersions"] !== undefined &&
     output["DBEngineVersions"]["DBEngineVersion"] !== undefined
   ) {
-    const wrappedItem =
-      output["DBEngineVersions"]["DBEngineVersion"] instanceof Array
-        ? output["DBEngineVersions"]["DBEngineVersion"]
-        : [output["DBEngineVersions"]["DBEngineVersion"]];
     contents.DBEngineVersions = deserializeAws_queryDBEngineVersionList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["DBEngineVersions"]["DBEngineVersion"]),
       context
     );
   }
@@ -9320,12 +9236,8 @@ const deserializeAws_queryDBInstance = (
     output["EnabledCloudwatchLogsExports"] !== undefined &&
     output["EnabledCloudwatchLogsExports"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["EnabledCloudwatchLogsExports"]["member"] instanceof Array
-        ? output["EnabledCloudwatchLogsExports"]["member"]
-        : [output["EnabledCloudwatchLogsExports"]["member"]];
     contents.EnabledCloudwatchLogsExports = deserializeAws_queryLogTypeList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["EnabledCloudwatchLogsExports"]["member"]),
       context
     );
   }
@@ -9397,12 +9309,8 @@ const deserializeAws_queryDBInstance = (
     output["StatusInfos"] !== undefined &&
     output["StatusInfos"]["DBInstanceStatusInfo"] !== undefined
   ) {
-    const wrappedItem =
-      output["StatusInfos"]["DBInstanceStatusInfo"] instanceof Array
-        ? output["StatusInfos"]["DBInstanceStatusInfo"]
-        : [output["StatusInfos"]["DBInstanceStatusInfo"]];
     contents.StatusInfos = deserializeAws_queryDBInstanceStatusInfoList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["StatusInfos"]["DBInstanceStatusInfo"]),
       context
     );
   }
@@ -9419,12 +9327,10 @@ const deserializeAws_queryDBInstance = (
     output["VpcSecurityGroups"] !== undefined &&
     output["VpcSecurityGroups"]["VpcSecurityGroupMembership"] !== undefined
   ) {
-    const wrappedItem =
-      output["VpcSecurityGroups"]["VpcSecurityGroupMembership"] instanceof Array
-        ? output["VpcSecurityGroups"]["VpcSecurityGroupMembership"]
-        : [output["VpcSecurityGroups"]["VpcSecurityGroupMembership"]];
     contents.VpcSecurityGroups = deserializeAws_queryVpcSecurityGroupMembershipList(
-      wrappedItem,
+      __getArrayIfSingleItem(
+        output["VpcSecurityGroups"]["VpcSecurityGroupMembership"]
+      ),
       context
     );
   }
@@ -9435,11 +9341,9 @@ const deserializeAws_queryDBInstanceList = (
   output: any,
   context: __SerdeContext
 ): DBInstance[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryDBInstance(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryDBInstance(entry, context)
+  );
 };
 
 const deserializeAws_queryDBInstanceMessage = (
@@ -9458,12 +9362,8 @@ const deserializeAws_queryDBInstanceMessage = (
     output["DBInstances"] !== undefined &&
     output["DBInstances"]["DBInstance"] !== undefined
   ) {
-    const wrappedItem =
-      output["DBInstances"]["DBInstance"] instanceof Array
-        ? output["DBInstances"]["DBInstance"]
-        : [output["DBInstances"]["DBInstance"]];
     contents.DBInstances = deserializeAws_queryDBInstanceList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["DBInstances"]["DBInstance"]),
       context
     );
   }
@@ -9518,11 +9418,9 @@ const deserializeAws_queryDBInstanceStatusInfoList = (
   output: any,
   context: __SerdeContext
 ): DBInstanceStatusInfo[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryDBInstanceStatusInfo(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryDBInstanceStatusInfo(entry, context)
+  );
 };
 
 const deserializeAws_queryDBSubnetGroup = (
@@ -9569,11 +9467,10 @@ const deserializeAws_queryDBSubnetGroup = (
     output["Subnets"] !== undefined &&
     output["Subnets"]["Subnet"] !== undefined
   ) {
-    const wrappedItem =
-      output["Subnets"]["Subnet"] instanceof Array
-        ? output["Subnets"]["Subnet"]
-        : [output["Subnets"]["Subnet"]];
-    contents.Subnets = deserializeAws_querySubnetList(wrappedItem, context);
+    contents.Subnets = deserializeAws_querySubnetList(
+      __getArrayIfSingleItem(output["Subnets"]["Subnet"]),
+      context
+    );
   }
   if (output["VpcId"] !== undefined) {
     contents.VpcId =
@@ -9600,12 +9497,8 @@ const deserializeAws_queryDBSubnetGroupMessage = (
     output["DBSubnetGroups"] !== undefined &&
     output["DBSubnetGroups"]["DBSubnetGroup"] !== undefined
   ) {
-    const wrappedItem =
-      output["DBSubnetGroups"]["DBSubnetGroup"] instanceof Array
-        ? output["DBSubnetGroups"]["DBSubnetGroup"]
-        : [output["DBSubnetGroups"]["DBSubnetGroup"]];
     contents.DBSubnetGroups = deserializeAws_queryDBSubnetGroups(
-      wrappedItem,
+      __getArrayIfSingleItem(output["DBSubnetGroups"]["DBSubnetGroup"]),
       context
     );
   }
@@ -9622,11 +9515,9 @@ const deserializeAws_queryDBSubnetGroups = (
   output: any,
   context: __SerdeContext
 ): DBSubnetGroup[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryDBSubnetGroup(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryDBSubnetGroup(entry, context)
+  );
 };
 
 const deserializeAws_queryDeleteDBClusterResult = (
@@ -9775,12 +9666,8 @@ const deserializeAws_queryEngineDefaults = (
     output["Parameters"] !== undefined &&
     output["Parameters"]["Parameter"] !== undefined
   ) {
-    const wrappedItem =
-      output["Parameters"]["Parameter"] instanceof Array
-        ? output["Parameters"]["Parameter"]
-        : [output["Parameters"]["Parameter"]];
     contents.Parameters = deserializeAws_queryParametersList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Parameters"]["Parameter"]),
       context
     );
   }
@@ -9810,12 +9697,8 @@ const deserializeAws_queryEvent = (
     output["EventCategories"] !== undefined &&
     output["EventCategories"]["EventCategory"] !== undefined
   ) {
-    const wrappedItem =
-      output["EventCategories"]["EventCategory"] instanceof Array
-        ? output["EventCategories"]["EventCategory"]
-        : [output["EventCategories"]["EventCategory"]];
     contents.EventCategories = deserializeAws_queryEventCategoriesList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["EventCategories"]["EventCategory"]),
       context
     );
   }
@@ -9850,11 +9733,9 @@ const deserializeAws_queryEventCategoriesList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryEventCategoriesMap = (
@@ -9873,12 +9754,8 @@ const deserializeAws_queryEventCategoriesMap = (
     output["EventCategories"] !== undefined &&
     output["EventCategories"]["EventCategory"] !== undefined
   ) {
-    const wrappedItem =
-      output["EventCategories"]["EventCategory"] instanceof Array
-        ? output["EventCategories"]["EventCategory"]
-        : [output["EventCategories"]["EventCategory"]];
     contents.EventCategories = deserializeAws_queryEventCategoriesList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["EventCategories"]["EventCategory"]),
       context
     );
   }
@@ -9895,11 +9772,9 @@ const deserializeAws_queryEventCategoriesMapList = (
   output: any,
   context: __SerdeContext
 ): EventCategoriesMap[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryEventCategoriesMap(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryEventCategoriesMap(entry, context)
+  );
 };
 
 const deserializeAws_queryEventCategoriesMessage = (
@@ -9917,12 +9792,10 @@ const deserializeAws_queryEventCategoriesMessage = (
     output["EventCategoriesMapList"] !== undefined &&
     output["EventCategoriesMapList"]["EventCategoriesMap"] !== undefined
   ) {
-    const wrappedItem =
-      output["EventCategoriesMapList"]["EventCategoriesMap"] instanceof Array
-        ? output["EventCategoriesMapList"]["EventCategoriesMap"]
-        : [output["EventCategoriesMapList"]["EventCategoriesMap"]];
     contents.EventCategoriesMapList = deserializeAws_queryEventCategoriesMapList(
-      wrappedItem,
+      __getArrayIfSingleItem(
+        output["EventCategoriesMapList"]["EventCategoriesMap"]
+      ),
       context
     );
   }
@@ -9933,11 +9806,9 @@ const deserializeAws_queryEventList = (
   output: any,
   context: __SerdeContext
 ): Event[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryEvent(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryEvent(entry, context)
+  );
 };
 
 const deserializeAws_queryEventsMessage = (
@@ -9956,11 +9827,10 @@ const deserializeAws_queryEventsMessage = (
     output["Events"] !== undefined &&
     output["Events"]["Event"] !== undefined
   ) {
-    const wrappedItem =
-      output["Events"]["Event"] instanceof Array
-        ? output["Events"]["Event"]
-        : [output["Events"]["Event"]];
-    contents.Events = deserializeAws_queryEventList(wrappedItem, context);
+    contents.Events = deserializeAws_queryEventList(
+      __getArrayIfSingleItem(output["Events"]["Event"]),
+      context
+    );
   }
   if (output["Marker"] !== undefined) {
     contents.Marker =
@@ -9992,11 +9862,9 @@ const deserializeAws_queryLogTypeList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryModifyDBClusterResult = (
@@ -10087,12 +9955,8 @@ const deserializeAws_queryOrderableDBInstanceOption = (
     output["AvailabilityZones"] !== undefined &&
     output["AvailabilityZones"]["AvailabilityZone"] !== undefined
   ) {
-    const wrappedItem =
-      output["AvailabilityZones"]["AvailabilityZone"] instanceof Array
-        ? output["AvailabilityZones"]["AvailabilityZone"]
-        : [output["AvailabilityZones"]["AvailabilityZone"]];
     contents.AvailabilityZones = deserializeAws_queryAvailabilityZoneList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["AvailabilityZones"]["AvailabilityZone"]),
       context
     );
   }
@@ -10133,13 +9997,9 @@ const deserializeAws_queryOrderableDBInstanceOptionsList = (
   output: any,
   context: __SerdeContext
 ): OrderableDBInstanceOption[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      deserializeAws_queryOrderableDBInstanceOption(entry, context)
-    );
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryOrderableDBInstanceOption(entry, context)
+  );
 };
 
 const deserializeAws_queryOrderableDBInstanceOptionsMessage = (
@@ -10165,14 +10025,10 @@ const deserializeAws_queryOrderableDBInstanceOptionsMessage = (
     output["OrderableDBInstanceOptions"]["OrderableDBInstanceOption"] !==
       undefined
   ) {
-    const wrappedItem =
-      output["OrderableDBInstanceOptions"][
-        "OrderableDBInstanceOption"
-      ] instanceof Array
-        ? output["OrderableDBInstanceOptions"]["OrderableDBInstanceOption"]
-        : [output["OrderableDBInstanceOptions"]["OrderableDBInstanceOption"]];
     contents.OrderableDBInstanceOptions = deserializeAws_queryOrderableDBInstanceOptionsList(
-      wrappedItem,
+      __getArrayIfSingleItem(
+        output["OrderableDBInstanceOptions"]["OrderableDBInstanceOption"]
+      ),
       context
     );
   }
@@ -10263,11 +10119,9 @@ const deserializeAws_queryParametersList = (
   output: any,
   context: __SerdeContext
 ): Parameter[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryParameter(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryParameter(entry, context)
+  );
 };
 
 const deserializeAws_queryPendingCloudwatchLogsExports = (
@@ -10286,12 +10140,8 @@ const deserializeAws_queryPendingCloudwatchLogsExports = (
     output["LogTypesToDisable"] !== undefined &&
     output["LogTypesToDisable"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["LogTypesToDisable"]["member"] instanceof Array
-        ? output["LogTypesToDisable"]["member"]
-        : [output["LogTypesToDisable"]["member"]];
     contents.LogTypesToDisable = deserializeAws_queryLogTypeList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["LogTypesToDisable"]["member"]),
       context
     );
   }
@@ -10302,12 +10152,8 @@ const deserializeAws_queryPendingCloudwatchLogsExports = (
     output["LogTypesToEnable"] !== undefined &&
     output["LogTypesToEnable"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["LogTypesToEnable"]["member"] instanceof Array
-        ? output["LogTypesToEnable"]["member"]
-        : [output["LogTypesToEnable"]["member"]];
     contents.LogTypesToEnable = deserializeAws_queryLogTypeList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["LogTypesToEnable"]["member"]),
       context
     );
   }
@@ -10361,24 +10207,18 @@ const deserializeAws_queryPendingMaintenanceActionDetails = (
   output: any,
   context: __SerdeContext
 ): PendingMaintenanceAction[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryPendingMaintenanceAction(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryPendingMaintenanceAction(entry, context)
+  );
 };
 
 const deserializeAws_queryPendingMaintenanceActions = (
   output: any,
   context: __SerdeContext
 ): ResourcePendingMaintenanceActions[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      deserializeAws_queryResourcePendingMaintenanceActions(entry, context)
-    );
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryResourcePendingMaintenanceActions(entry, context)
+  );
 };
 
 const deserializeAws_queryPendingMaintenanceActionsMessage = (
@@ -10404,20 +10244,10 @@ const deserializeAws_queryPendingMaintenanceActionsMessage = (
     output["PendingMaintenanceActions"]["ResourcePendingMaintenanceActions"] !==
       undefined
   ) {
-    const wrappedItem =
-      output["PendingMaintenanceActions"][
-        "ResourcePendingMaintenanceActions"
-      ] instanceof Array
-        ? output["PendingMaintenanceActions"][
-            "ResourcePendingMaintenanceActions"
-          ]
-        : [
-            output["PendingMaintenanceActions"][
-              "ResourcePendingMaintenanceActions"
-            ]
-          ];
     contents.PendingMaintenanceActions = deserializeAws_queryPendingMaintenanceActions(
-      wrappedItem,
+      __getArrayIfSingleItem(
+        output["PendingMaintenanceActions"]["ResourcePendingMaintenanceActions"]
+      ),
       context
     );
   }
@@ -10570,18 +10400,10 @@ const deserializeAws_queryResourcePendingMaintenanceActions = (
     output["PendingMaintenanceActionDetails"]["PendingMaintenanceAction"] !==
       undefined
   ) {
-    const wrappedItem =
-      output["PendingMaintenanceActionDetails"][
-        "PendingMaintenanceAction"
-      ] instanceof Array
-        ? output["PendingMaintenanceActionDetails"]["PendingMaintenanceAction"]
-        : [
-            output["PendingMaintenanceActionDetails"][
-              "PendingMaintenanceAction"
-            ]
-          ];
     contents.PendingMaintenanceActionDetails = deserializeAws_queryPendingMaintenanceActionDetails(
-      wrappedItem,
+      __getArrayIfSingleItem(
+        output["PendingMaintenanceActionDetails"]["PendingMaintenanceAction"]
+      ),
       context
     );
   }
@@ -10697,11 +10519,9 @@ const deserializeAws_querySubnetList = (
   output: any,
   context: __SerdeContext
 ): Subnet[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_querySubnet(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_querySubnet(entry, context)
+  );
 };
 
 const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
@@ -10729,11 +10549,9 @@ const deserializeAws_queryTagList = (
   output: any,
   context: __SerdeContext
 ): Tag[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryTag(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryTag(entry, context)
+  );
 };
 
 const deserializeAws_queryTagListMessage = (
@@ -10751,11 +10569,10 @@ const deserializeAws_queryTagListMessage = (
     output["TagList"] !== undefined &&
     output["TagList"]["Tag"] !== undefined
   ) {
-    const wrappedItem =
-      output["TagList"]["Tag"] instanceof Array
-        ? output["TagList"]["Tag"]
-        : [output["TagList"]["Tag"]];
-    contents.TagList = deserializeAws_queryTagList(wrappedItem, context);
+    contents.TagList = deserializeAws_queryTagList(
+      __getArrayIfSingleItem(output["TagList"]["Tag"]),
+      context
+    );
   }
   return contents;
 };
@@ -10809,11 +10626,9 @@ const deserializeAws_queryValidUpgradeTargetList = (
   output: any,
   context: __SerdeContext
 ): UpgradeTarget[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryUpgradeTarget(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryUpgradeTarget(entry, context)
+  );
 };
 
 const deserializeAws_queryVpcSecurityGroupMembership = (
@@ -10844,13 +10659,9 @@ const deserializeAws_queryVpcSecurityGroupMembershipList = (
   output: any,
   context: __SerdeContext
 ): VpcSecurityGroupMembership[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      deserializeAws_queryVpcSecurityGroupMembership(entry, context)
-    );
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryVpcSecurityGroupMembership(entry, context)
+  );
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

@@ -400,7 +400,8 @@ import {
 } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  getArrayIfSingleItem as __getArrayIfSingleItem
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -7161,22 +7162,18 @@ const deserializeAws_queryAccountLimitList = (
   output: any,
   context: __SerdeContext
 ): AccountLimit[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryAccountLimit(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryAccountLimit(entry, context)
+  );
 };
 
 const deserializeAws_queryAllowedValues = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryAlreadyExistsException = (
@@ -7217,11 +7214,9 @@ const deserializeAws_queryCapabilities = (
   output: any,
   context: __SerdeContext
 ): (Capability | string)[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryChange = (
@@ -7269,11 +7264,9 @@ const deserializeAws_queryChangeSetSummaries = (
   output: any,
   context: __SerdeContext
 ): ChangeSetSummary[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryChangeSetSummary(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryChangeSetSummary(entry, context)
+  );
 };
 
 const deserializeAws_queryChangeSetSummary = (
@@ -7350,11 +7343,9 @@ const deserializeAws_queryChanges = (
   output: any,
   context: __SerdeContext
 ): Change[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryChange(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryChange(entry, context)
+  );
 };
 
 const deserializeAws_queryContinueUpdateRollbackOutput = (
@@ -7444,12 +7435,8 @@ const deserializeAws_queryDescribeAccountLimitsOutput = (
     output["AccountLimits"] !== undefined &&
     output["AccountLimits"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["AccountLimits"]["member"] instanceof Array
-        ? output["AccountLimits"]["member"]
-        : [output["AccountLimits"]["member"]];
     contents.AccountLimits = deserializeAws_queryAccountLimitList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["AccountLimits"]["member"]),
       context
     );
   }
@@ -7492,12 +7479,8 @@ const deserializeAws_queryDescribeChangeSetOutput = (
     output["Capabilities"] !== undefined &&
     output["Capabilities"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Capabilities"]["member"] instanceof Array
-        ? output["Capabilities"]["member"]
-        : [output["Capabilities"]["member"]];
     contents.Capabilities = deserializeAws_queryCapabilities(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Capabilities"]["member"]),
       context
     );
   }
@@ -7520,11 +7503,10 @@ const deserializeAws_queryDescribeChangeSetOutput = (
     output["Changes"] !== undefined &&
     output["Changes"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Changes"]["member"] instanceof Array
-        ? output["Changes"]["member"]
-        : [output["Changes"]["member"]];
-    contents.Changes = deserializeAws_queryChanges(wrappedItem, context);
+    contents.Changes = deserializeAws_queryChanges(
+      __getArrayIfSingleItem(output["Changes"]["member"]),
+      context
+    );
   }
   if (output["CreationTime"] !== undefined) {
     contents.CreationTime = new Date(output["CreationTime"]);
@@ -7554,12 +7536,8 @@ const deserializeAws_queryDescribeChangeSetOutput = (
     output["NotificationARNs"] !== undefined &&
     output["NotificationARNs"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["NotificationARNs"]["member"] instanceof Array
-        ? output["NotificationARNs"]["member"]
-        : [output["NotificationARNs"]["member"]];
     contents.NotificationARNs = deserializeAws_queryNotificationARNs(
-      wrappedItem,
+      __getArrayIfSingleItem(output["NotificationARNs"]["member"]),
       context
     );
   }
@@ -7570,11 +7548,10 @@ const deserializeAws_queryDescribeChangeSetOutput = (
     output["Parameters"] !== undefined &&
     output["Parameters"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Parameters"]["member"] instanceof Array
-        ? output["Parameters"]["member"]
-        : [output["Parameters"]["member"]];
-    contents.Parameters = deserializeAws_queryParameters(wrappedItem, context);
+    contents.Parameters = deserializeAws_queryParameters(
+      __getArrayIfSingleItem(output["Parameters"]["member"]),
+      context
+    );
   }
   if (output["RollbackConfiguration"] !== undefined) {
     contents.RollbackConfiguration = deserializeAws_queryRollbackConfiguration(
@@ -7610,11 +7587,10 @@ const deserializeAws_queryDescribeChangeSetOutput = (
     contents.Tags = [];
   }
   if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    const wrappedItem =
-      output["Tags"]["member"] instanceof Array
-        ? output["Tags"]["member"]
-        : [output["Tags"]["member"]];
-    contents.Tags = deserializeAws_queryTags(wrappedItem, context);
+    contents.Tags = deserializeAws_queryTags(
+      __getArrayIfSingleItem(output["Tags"]["member"]),
+      context
+    );
   }
   return contents;
 };
@@ -7698,12 +7674,8 @@ const deserializeAws_queryDescribeStackEventsOutput = (
     output["StackEvents"] !== undefined &&
     output["StackEvents"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["StackEvents"]["member"] instanceof Array
-        ? output["StackEvents"]["member"]
-        : [output["StackEvents"]["member"]];
     contents.StackEvents = deserializeAws_queryStackEvents(
-      wrappedItem,
+      __getArrayIfSingleItem(output["StackEvents"]["member"]),
       context
     );
   }
@@ -7732,12 +7704,8 @@ const deserializeAws_queryDescribeStackResourceDriftsOutput = (
     output["StackResourceDrifts"] !== undefined &&
     output["StackResourceDrifts"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["StackResourceDrifts"]["member"] instanceof Array
-        ? output["StackResourceDrifts"]["member"]
-        : [output["StackResourceDrifts"]["member"]];
     contents.StackResourceDrifts = deserializeAws_queryStackResourceDrifts(
-      wrappedItem,
+      __getArrayIfSingleItem(output["StackResourceDrifts"]["member"]),
       context
     );
   }
@@ -7776,12 +7744,8 @@ const deserializeAws_queryDescribeStackResourcesOutput = (
     output["StackResources"] !== undefined &&
     output["StackResources"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["StackResources"]["member"] instanceof Array
-        ? output["StackResources"]["member"]
-        : [output["StackResources"]["member"]];
     contents.StackResources = deserializeAws_queryStackResources(
-      wrappedItem,
+      __getArrayIfSingleItem(output["StackResources"]["member"]),
       context
     );
   }
@@ -7810,11 +7774,10 @@ const deserializeAws_queryDescribeStacksOutput = (
     output["Stacks"] !== undefined &&
     output["Stacks"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Stacks"]["member"] instanceof Array
-        ? output["Stacks"]["member"]
-        : [output["Stacks"]["member"]];
-    contents.Stacks = deserializeAws_queryStacks(wrappedItem, context);
+    contents.Stacks = deserializeAws_queryStacks(
+      __getArrayIfSingleItem(output["Stacks"]["member"]),
+      context
+    );
   }
   return contents;
 };
@@ -8062,11 +8025,9 @@ const deserializeAws_queryExports = (
   output: any,
   context: __SerdeContext
 ): Export[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryExport(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryExport(entry, context)
+  );
 };
 
 const deserializeAws_queryGetStackPolicyOutput = (
@@ -8102,12 +8063,8 @@ const deserializeAws_queryGetTemplateOutput = (
     output["StagesAvailable"] !== undefined &&
     output["StagesAvailable"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["StagesAvailable"]["member"] instanceof Array
-        ? output["StagesAvailable"]["member"]
-        : [output["StagesAvailable"]["member"]];
     contents.StagesAvailable = deserializeAws_queryStageList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["StagesAvailable"]["member"]),
       context
     );
   }
@@ -8143,12 +8100,8 @@ const deserializeAws_queryGetTemplateSummaryOutput = (
     output["Capabilities"] !== undefined &&
     output["Capabilities"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Capabilities"]["member"] instanceof Array
-        ? output["Capabilities"]["member"]
-        : [output["Capabilities"]["member"]];
     contents.Capabilities = deserializeAws_queryCapabilities(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Capabilities"]["member"]),
       context
     );
   }
@@ -8165,12 +8118,8 @@ const deserializeAws_queryGetTemplateSummaryOutput = (
     output["DeclaredTransforms"] !== undefined &&
     output["DeclaredTransforms"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["DeclaredTransforms"]["member"] instanceof Array
-        ? output["DeclaredTransforms"]["member"]
-        : [output["DeclaredTransforms"]["member"]];
     contents.DeclaredTransforms = deserializeAws_queryTransformsList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["DeclaredTransforms"]["member"]),
       context
     );
   }
@@ -8193,12 +8142,8 @@ const deserializeAws_queryGetTemplateSummaryOutput = (
     output["Parameters"] !== undefined &&
     output["Parameters"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Parameters"]["member"] instanceof Array
-        ? output["Parameters"]["member"]
-        : [output["Parameters"]["member"]];
     contents.Parameters = deserializeAws_queryParameterDeclarations(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Parameters"]["member"]),
       context
     );
   }
@@ -8209,12 +8154,8 @@ const deserializeAws_queryGetTemplateSummaryOutput = (
     output["ResourceIdentifierSummaries"] !== undefined &&
     output["ResourceIdentifierSummaries"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["ResourceIdentifierSummaries"]["member"] instanceof Array
-        ? output["ResourceIdentifierSummaries"]["member"]
-        : [output["ResourceIdentifierSummaries"]["member"]];
     contents.ResourceIdentifierSummaries = deserializeAws_queryResourceIdentifierSummaries(
-      wrappedItem,
+      __getArrayIfSingleItem(output["ResourceIdentifierSummaries"]["member"]),
       context
     );
   }
@@ -8225,12 +8166,8 @@ const deserializeAws_queryGetTemplateSummaryOutput = (
     output["ResourceTypes"] !== undefined &&
     output["ResourceTypes"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["ResourceTypes"]["member"] instanceof Array
-        ? output["ResourceTypes"]["member"]
-        : [output["ResourceTypes"]["member"]];
     contents.ResourceTypes = deserializeAws_queryResourceTypes(
-      wrappedItem,
+      __getArrayIfSingleItem(output["ResourceTypes"]["member"]),
       context
     );
   }
@@ -8247,11 +8184,9 @@ const deserializeAws_queryImports = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryInsufficientCapabilitiesException = (
@@ -8344,12 +8279,8 @@ const deserializeAws_queryListChangeSetsOutput = (
     output["Summaries"] !== undefined &&
     output["Summaries"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Summaries"]["member"] instanceof Array
-        ? output["Summaries"]["member"]
-        : [output["Summaries"]["member"]];
     contents.Summaries = deserializeAws_queryChangeSetSummaries(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Summaries"]["member"]),
       context
     );
   }
@@ -8372,11 +8303,10 @@ const deserializeAws_queryListExportsOutput = (
     output["Exports"] !== undefined &&
     output["Exports"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Exports"]["member"] instanceof Array
-        ? output["Exports"]["member"]
-        : [output["Exports"]["member"]];
-    contents.Exports = deserializeAws_queryExports(wrappedItem, context);
+    contents.Exports = deserializeAws_queryExports(
+      __getArrayIfSingleItem(output["Exports"]["member"]),
+      context
+    );
   }
   if (output["NextToken"] !== undefined) {
     contents.NextToken =
@@ -8403,11 +8333,10 @@ const deserializeAws_queryListImportsOutput = (
     output["Imports"] !== undefined &&
     output["Imports"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Imports"]["member"] instanceof Array
-        ? output["Imports"]["member"]
-        : [output["Imports"]["member"]];
-    contents.Imports = deserializeAws_queryImports(wrappedItem, context);
+    contents.Imports = deserializeAws_queryImports(
+      __getArrayIfSingleItem(output["Imports"]["member"]),
+      context
+    );
   }
   if (output["NextToken"] !== undefined) {
     contents.NextToken =
@@ -8440,12 +8369,8 @@ const deserializeAws_queryListStackResourcesOutput = (
     output["StackResourceSummaries"] !== undefined &&
     output["StackResourceSummaries"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["StackResourceSummaries"]["member"] instanceof Array
-        ? output["StackResourceSummaries"]["member"]
-        : [output["StackResourceSummaries"]["member"]];
     contents.StackResourceSummaries = deserializeAws_queryStackResourceSummaries(
-      wrappedItem,
+      __getArrayIfSingleItem(output["StackResourceSummaries"]["member"]),
       context
     );
   }
@@ -8474,12 +8399,8 @@ const deserializeAws_queryListStacksOutput = (
     output["StackSummaries"] !== undefined &&
     output["StackSummaries"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["StackSummaries"]["member"] instanceof Array
-        ? output["StackSummaries"]["member"]
-        : [output["StackSummaries"]["member"]];
     contents.StackSummaries = deserializeAws_queryStackSummaries(
-      wrappedItem,
+      __getArrayIfSingleItem(output["StackSummaries"]["member"]),
       context
     );
   }
@@ -8508,12 +8429,8 @@ const deserializeAws_queryListTypeRegistrationsOutput = (
     output["RegistrationTokenList"] !== undefined &&
     output["RegistrationTokenList"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["RegistrationTokenList"]["member"] instanceof Array
-        ? output["RegistrationTokenList"]["member"]
-        : [output["RegistrationTokenList"]["member"]];
     contents.RegistrationTokenList = deserializeAws_queryRegistrationTokenList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["RegistrationTokenList"]["member"]),
       context
     );
   }
@@ -8542,12 +8459,8 @@ const deserializeAws_queryListTypeVersionsOutput = (
     output["TypeVersionSummaries"] !== undefined &&
     output["TypeVersionSummaries"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["TypeVersionSummaries"]["member"] instanceof Array
-        ? output["TypeVersionSummaries"]["member"]
-        : [output["TypeVersionSummaries"]["member"]];
     contents.TypeVersionSummaries = deserializeAws_queryTypeVersionSummaries(
-      wrappedItem,
+      __getArrayIfSingleItem(output["TypeVersionSummaries"]["member"]),
       context
     );
   }
@@ -8576,12 +8489,8 @@ const deserializeAws_queryListTypesOutput = (
     output["TypeSummaries"] !== undefined &&
     output["TypeSummaries"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["TypeSummaries"]["member"] instanceof Array
-        ? output["TypeSummaries"]["member"]
-        : [output["TypeSummaries"]["member"]];
     contents.TypeSummaries = deserializeAws_queryTypeSummaries(
-      wrappedItem,
+      __getArrayIfSingleItem(output["TypeSummaries"]["member"]),
       context
     );
   }
@@ -8616,22 +8525,18 @@ const deserializeAws_queryLogicalResourceIds = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryNotificationARNs = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryOperationStatusCheckFailedException = (
@@ -8693,11 +8598,9 @@ const deserializeAws_queryOutputs = (
   output: any,
   context: __SerdeContext
 ): Output[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryOutput(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryOutput(entry, context)
+  );
 };
 
 const deserializeAws_queryParameter = (
@@ -8753,12 +8656,8 @@ const deserializeAws_queryParameterConstraints = (
     output["AllowedValues"] !== undefined &&
     output["AllowedValues"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["AllowedValues"]["member"] instanceof Array
-        ? output["AllowedValues"]["member"]
-        : [output["AllowedValues"]["member"]];
     contents.AllowedValues = deserializeAws_queryAllowedValues(
-      wrappedItem,
+      __getArrayIfSingleItem(output["AllowedValues"]["member"]),
       context
     );
   }
@@ -8821,35 +8720,27 @@ const deserializeAws_queryParameterDeclarations = (
   output: any,
   context: __SerdeContext
 ): ParameterDeclaration[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryParameterDeclaration(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryParameterDeclaration(entry, context)
+  );
 };
 
 const deserializeAws_queryParameters = (
   output: any,
   context: __SerdeContext
 ): Parameter[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryParameter(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryParameter(entry, context)
+  );
 };
 
 const deserializeAws_queryPhysicalResourceIdContext = (
   output: any,
   context: __SerdeContext
 ): PhysicalResourceIdContextKeyValuePair[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      deserializeAws_queryPhysicalResourceIdContextKeyValuePair(entry, context)
-    );
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryPhysicalResourceIdContextKeyValuePair(entry, context)
+  );
 };
 
 const deserializeAws_queryPhysicalResourceIdContextKeyValuePair = (
@@ -8918,11 +8809,9 @@ const deserializeAws_queryPropertyDifferences = (
   output: any,
   context: __SerdeContext
 ): PropertyDifference[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryPropertyDifference(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryPropertyDifference(entry, context)
+  );
 };
 
 const deserializeAws_queryRecordHandlerProgressOutput = (
@@ -8956,11 +8845,9 @@ const deserializeAws_queryRegistrationTokenList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryResourceChange = (
@@ -8990,12 +8877,8 @@ const deserializeAws_queryResourceChange = (
     output["Details"] !== undefined &&
     output["Details"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Details"]["member"] instanceof Array
-        ? output["Details"]["member"]
-        : [output["Details"]["member"]];
     contents.Details = deserializeAws_queryResourceChangeDetails(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Details"]["member"]),
       context
     );
   }
@@ -9030,11 +8913,10 @@ const deserializeAws_queryResourceChange = (
     output["Scope"] !== undefined &&
     output["Scope"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Scope"]["member"] instanceof Array
-        ? output["Scope"]["member"]
-        : [output["Scope"]["member"]];
-    contents.Scope = deserializeAws_queryScope(wrappedItem, context);
+    contents.Scope = deserializeAws_queryScope(
+      __getArrayIfSingleItem(output["Scope"]["member"]),
+      context
+    );
   }
   return contents;
 };
@@ -9081,24 +8963,18 @@ const deserializeAws_queryResourceChangeDetails = (
   output: any,
   context: __SerdeContext
 ): ResourceChangeDetail[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryResourceChangeDetail(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryResourceChangeDetail(entry, context)
+  );
 };
 
 const deserializeAws_queryResourceIdentifierSummaries = (
   output: any,
   context: __SerdeContext
 ): ResourceIdentifierSummary[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      deserializeAws_queryResourceIdentifierSummary(entry, context)
-    );
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryResourceIdentifierSummary(entry, context)
+  );
 };
 
 const deserializeAws_queryResourceIdentifierSummary = (
@@ -9118,12 +8994,8 @@ const deserializeAws_queryResourceIdentifierSummary = (
     output["LogicalResourceIds"] !== undefined &&
     output["LogicalResourceIds"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["LogicalResourceIds"]["member"] instanceof Array
-        ? output["LogicalResourceIds"]["member"]
-        : [output["LogicalResourceIds"]["member"]];
     contents.LogicalResourceIds = deserializeAws_queryLogicalResourceIds(
-      wrappedItem,
+      __getArrayIfSingleItem(output["LogicalResourceIds"]["member"]),
       context
     );
   }
@@ -9134,12 +9006,8 @@ const deserializeAws_queryResourceIdentifierSummary = (
     output["ResourceIdentifiers"] !== undefined &&
     output["ResourceIdentifiers"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["ResourceIdentifiers"]["member"] instanceof Array
-        ? output["ResourceIdentifiers"]["member"]
-        : [output["ResourceIdentifiers"]["member"]];
     contents.ResourceIdentifiers = deserializeAws_queryResourceIdentifiers(
-      wrappedItem,
+      __getArrayIfSingleItem(output["ResourceIdentifiers"]["member"]),
       context
     );
   }
@@ -9156,11 +9024,9 @@ const deserializeAws_queryResourceIdentifiers = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryResourceTargetDefinition = (
@@ -9198,11 +9064,9 @@ const deserializeAws_queryResourceTypes = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryRollbackConfiguration = (
@@ -9228,12 +9092,8 @@ const deserializeAws_queryRollbackConfiguration = (
     output["RollbackTriggers"] !== undefined &&
     output["RollbackTriggers"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["RollbackTriggers"]["member"] instanceof Array
-        ? output["RollbackTriggers"]["member"]
-        : [output["RollbackTriggers"]["member"]];
     contents.RollbackTriggers = deserializeAws_queryRollbackTriggers(
-      wrappedItem,
+      __getArrayIfSingleItem(output["RollbackTriggers"]["member"]),
       context
     );
   }
@@ -9268,22 +9128,18 @@ const deserializeAws_queryRollbackTriggers = (
   output: any,
   context: __SerdeContext
 ): RollbackTrigger[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryRollbackTrigger(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryRollbackTrigger(entry, context)
+  );
 };
 
 const deserializeAws_queryScope = (
   output: any,
   context: __SerdeContext
 ): (ResourceAttribute | string)[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_querySetTypeDefaultVersionOutput = (
@@ -9332,12 +9188,8 @@ const deserializeAws_queryStack = (
     output["Capabilities"] !== undefined &&
     output["Capabilities"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Capabilities"]["member"] instanceof Array
-        ? output["Capabilities"]["member"]
-        : [output["Capabilities"]["member"]];
     contents.Capabilities = deserializeAws_queryCapabilities(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Capabilities"]["member"]),
       context
     );
   }
@@ -9387,12 +9239,8 @@ const deserializeAws_queryStack = (
     output["NotificationARNs"] !== undefined &&
     output["NotificationARNs"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["NotificationARNs"]["member"] instanceof Array
-        ? output["NotificationARNs"]["member"]
-        : [output["NotificationARNs"]["member"]];
     contents.NotificationARNs = deserializeAws_queryNotificationARNs(
-      wrappedItem,
+      __getArrayIfSingleItem(output["NotificationARNs"]["member"]),
       context
     );
   }
@@ -9403,11 +9251,10 @@ const deserializeAws_queryStack = (
     output["Outputs"] !== undefined &&
     output["Outputs"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Outputs"]["member"] instanceof Array
-        ? output["Outputs"]["member"]
-        : [output["Outputs"]["member"]];
-    contents.Outputs = deserializeAws_queryOutputs(wrappedItem, context);
+    contents.Outputs = deserializeAws_queryOutputs(
+      __getArrayIfSingleItem(output["Outputs"]["member"]),
+      context
+    );
   }
   if (output.Parameters === "") {
     contents.Parameters = [];
@@ -9416,11 +9263,10 @@ const deserializeAws_queryStack = (
     output["Parameters"] !== undefined &&
     output["Parameters"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Parameters"]["member"] instanceof Array
-        ? output["Parameters"]["member"]
-        : [output["Parameters"]["member"]];
-    contents.Parameters = deserializeAws_queryParameters(wrappedItem, context);
+    contents.Parameters = deserializeAws_queryParameters(
+      __getArrayIfSingleItem(output["Parameters"]["member"]),
+      context
+    );
   }
   if (output["ParentId"] !== undefined) {
     contents.ParentId =
@@ -9474,11 +9320,10 @@ const deserializeAws_queryStack = (
     contents.Tags = [];
   }
   if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    const wrappedItem =
-      output["Tags"]["member"] instanceof Array
-        ? output["Tags"]["member"]
-        : [output["Tags"]["member"]];
-    contents.Tags = deserializeAws_queryTags(wrappedItem, context);
+    contents.Tags = deserializeAws_queryTags(
+      __getArrayIfSingleItem(output["Tags"]["member"]),
+      context
+    );
   }
   if (output["TimeoutInMinutes"] !== undefined) {
     contents.TimeoutInMinutes = parseInt(
@@ -9620,11 +9465,9 @@ const deserializeAws_queryStackEvents = (
   output: any,
   context: __SerdeContext
 ): StackEvent[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryStackEvent(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryStackEvent(entry, context)
+  );
 };
 
 const deserializeAws_queryStackResource = (
@@ -9836,12 +9679,8 @@ const deserializeAws_queryStackResourceDrift = (
     output["PhysicalResourceIdContext"] !== undefined &&
     output["PhysicalResourceIdContext"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["PhysicalResourceIdContext"]["member"] instanceof Array
-        ? output["PhysicalResourceIdContext"]["member"]
-        : [output["PhysicalResourceIdContext"]["member"]];
     contents.PhysicalResourceIdContext = deserializeAws_queryPhysicalResourceIdContext(
-      wrappedItem,
+      __getArrayIfSingleItem(output["PhysicalResourceIdContext"]["member"]),
       context
     );
   }
@@ -9852,12 +9691,8 @@ const deserializeAws_queryStackResourceDrift = (
     output["PropertyDifferences"] !== undefined &&
     output["PropertyDifferences"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["PropertyDifferences"]["member"] instanceof Array
-        ? output["PropertyDifferences"]["member"]
-        : [output["PropertyDifferences"]["member"]];
     contents.PropertyDifferences = deserializeAws_queryPropertyDifferences(
-      wrappedItem,
+      __getArrayIfSingleItem(output["PropertyDifferences"]["member"]),
       context
     );
   }
@@ -9931,22 +9766,18 @@ const deserializeAws_queryStackResourceDrifts = (
   output: any,
   context: __SerdeContext
 ): StackResourceDrift[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryStackResourceDrift(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryStackResourceDrift(entry, context)
+  );
 };
 
 const deserializeAws_queryStackResourceSummaries = (
   output: any,
   context: __SerdeContext
 ): StackResourceSummary[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryStackResourceSummary(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryStackResourceSummary(entry, context)
+  );
 };
 
 const deserializeAws_queryStackResourceSummary = (
@@ -10009,11 +9840,9 @@ const deserializeAws_queryStackResources = (
   output: any,
   context: __SerdeContext
 ): StackResource[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryStackResource(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryStackResource(entry, context)
+  );
 };
 
 const deserializeAws_queryStackSetNotFoundException = (
@@ -10037,11 +9866,9 @@ const deserializeAws_queryStackSummaries = (
   output: any,
   context: __SerdeContext
 ): StackSummary[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryStackSummary(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryStackSummary(entry, context)
+  );
 };
 
 const deserializeAws_queryStackSummary = (
@@ -10126,22 +9953,18 @@ const deserializeAws_queryStacks = (
   output: any,
   context: __SerdeContext
 ): Stack[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryStack(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryStack(entry, context)
+  );
 };
 
 const deserializeAws_queryStageList = (
   output: any,
   context: __SerdeContext
 ): (TemplateStage | string)[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
@@ -10169,11 +9992,9 @@ const deserializeAws_queryTags = (
   output: any,
   context: __SerdeContext
 ): Tag[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryTag(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryTag(entry, context)
+  );
 };
 
 const deserializeAws_queryTemplateParameter = (
@@ -10218,11 +10039,9 @@ const deserializeAws_queryTemplateParameters = (
   output: any,
   context: __SerdeContext
 ): TemplateParameter[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryTemplateParameter(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryTemplateParameter(entry, context)
+  );
 };
 
 const deserializeAws_queryTokenAlreadyExistsException = (
@@ -10246,11 +10065,9 @@ const deserializeAws_queryTransformsList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryTypeNotFoundException = (
@@ -10274,11 +10091,9 @@ const deserializeAws_queryTypeSummaries = (
   output: any,
   context: __SerdeContext
 ): TypeSummary[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryTypeSummary(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryTypeSummary(entry, context)
+  );
 };
 
 const deserializeAws_queryTypeSummary = (
@@ -10334,11 +10149,9 @@ const deserializeAws_queryTypeVersionSummaries = (
   output: any,
   context: __SerdeContext
 ): TypeVersionSummary[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryTypeVersionSummary(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryTypeVersionSummary(entry, context)
+  );
 };
 
 const deserializeAws_queryTypeVersionSummary = (
@@ -10443,12 +10256,8 @@ const deserializeAws_queryValidateTemplateOutput = (
     output["Capabilities"] !== undefined &&
     output["Capabilities"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Capabilities"]["member"] instanceof Array
-        ? output["Capabilities"]["member"]
-        : [output["Capabilities"]["member"]];
     contents.Capabilities = deserializeAws_queryCapabilities(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Capabilities"]["member"]),
       context
     );
   }
@@ -10465,12 +10274,8 @@ const deserializeAws_queryValidateTemplateOutput = (
     output["DeclaredTransforms"] !== undefined &&
     output["DeclaredTransforms"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["DeclaredTransforms"]["member"] instanceof Array
-        ? output["DeclaredTransforms"]["member"]
-        : [output["DeclaredTransforms"]["member"]];
     contents.DeclaredTransforms = deserializeAws_queryTransformsList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["DeclaredTransforms"]["member"]),
       context
     );
   }
@@ -10487,12 +10292,8 @@ const deserializeAws_queryValidateTemplateOutput = (
     output["Parameters"] !== undefined &&
     output["Parameters"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Parameters"]["member"] instanceof Array
-        ? output["Parameters"]["member"]
-        : [output["Parameters"]["member"]];
     contents.Parameters = deserializeAws_queryTemplateParameters(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Parameters"]["member"]),
       context
     );
   }
@@ -10708,12 +10509,8 @@ const deserializeAws_queryListStackInstancesOutput = (
     output["Summaries"] !== undefined &&
     output["Summaries"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Summaries"]["member"] instanceof Array
-        ? output["Summaries"]["member"]
-        : [output["Summaries"]["member"]];
     contents.Summaries = deserializeAws_queryStackInstanceSummaries(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Summaries"]["member"]),
       context
     );
   }
@@ -10742,12 +10539,8 @@ const deserializeAws_queryListStackSetOperationResultsOutput = (
     output["Summaries"] !== undefined &&
     output["Summaries"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Summaries"]["member"] instanceof Array
-        ? output["Summaries"]["member"]
-        : [output["Summaries"]["member"]];
     contents.Summaries = deserializeAws_queryStackSetOperationResultSummaries(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Summaries"]["member"]),
       context
     );
   }
@@ -10776,12 +10569,8 @@ const deserializeAws_queryListStackSetOperationsOutput = (
     output["Summaries"] !== undefined &&
     output["Summaries"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Summaries"]["member"] instanceof Array
-        ? output["Summaries"]["member"]
-        : [output["Summaries"]["member"]];
     contents.Summaries = deserializeAws_queryStackSetOperationSummaries(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Summaries"]["member"]),
       context
     );
   }
@@ -10810,12 +10599,8 @@ const deserializeAws_queryListStackSetsOutput = (
     output["Summaries"] !== undefined &&
     output["Summaries"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Summaries"]["member"] instanceof Array
-        ? output["Summaries"]["member"]
-        : [output["Summaries"]["member"]];
     contents.Summaries = deserializeAws_queryStackSetSummaries(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Summaries"]["member"]),
       context
     );
   }
@@ -10894,11 +10679,9 @@ const deserializeAws_queryRegionList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryStackInstance = (
@@ -10941,12 +10724,8 @@ const deserializeAws_queryStackInstance = (
     output["ParameterOverrides"] !== undefined &&
     output["ParameterOverrides"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["ParameterOverrides"]["member"] instanceof Array
-        ? output["ParameterOverrides"]["member"]
-        : [output["ParameterOverrides"]["member"]];
     contents.ParameterOverrides = deserializeAws_queryParameters(
-      wrappedItem,
+      __getArrayIfSingleItem(output["ParameterOverrides"]["member"]),
       context
     );
   }
@@ -11004,11 +10783,9 @@ const deserializeAws_queryStackInstanceSummaries = (
   output: any,
   context: __SerdeContext
 ): StackInstanceSummary[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryStackInstanceSummary(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryStackInstanceSummary(entry, context)
+  );
 };
 
 const deserializeAws_queryStackInstanceSummary = (
@@ -11108,12 +10885,8 @@ const deserializeAws_queryStackSet = (
     output["Capabilities"] !== undefined &&
     output["Capabilities"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Capabilities"]["member"] instanceof Array
-        ? output["Capabilities"]["member"]
-        : [output["Capabilities"]["member"]];
     contents.Capabilities = deserializeAws_queryCapabilities(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Capabilities"]["member"]),
       context
     );
   }
@@ -11136,11 +10909,10 @@ const deserializeAws_queryStackSet = (
     output["Parameters"] !== undefined &&
     output["Parameters"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Parameters"]["member"] instanceof Array
-        ? output["Parameters"]["member"]
-        : [output["Parameters"]["member"]];
-    contents.Parameters = deserializeAws_queryParameters(wrappedItem, context);
+    contents.Parameters = deserializeAws_queryParameters(
+      __getArrayIfSingleItem(output["Parameters"]["member"]),
+      context
+    );
   }
   if (output["StackSetARN"] !== undefined) {
     contents.StackSetARN =
@@ -11176,11 +10948,10 @@ const deserializeAws_queryStackSet = (
     contents.Tags = [];
   }
   if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    const wrappedItem =
-      output["Tags"]["member"] instanceof Array
-        ? output["Tags"]["member"]
-        : [output["Tags"]["member"]];
-    contents.Tags = deserializeAws_queryTags(wrappedItem, context);
+    contents.Tags = deserializeAws_queryTags(
+      __getArrayIfSingleItem(output["Tags"]["member"]),
+      context
+    );
   }
   if (output["TemplateBody"] !== undefined) {
     contents.TemplateBody =
@@ -11406,11 +11177,10 @@ const deserializeAws_queryStackSetOperationPreferences = (
     output["RegionOrder"] !== undefined &&
     output["RegionOrder"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["RegionOrder"]["member"] instanceof Array
-        ? output["RegionOrder"]["member"]
-        : [output["RegionOrder"]["member"]];
-    contents.RegionOrder = deserializeAws_queryRegionList(wrappedItem, context);
+    contents.RegionOrder = deserializeAws_queryRegionList(
+      __getArrayIfSingleItem(output["RegionOrder"]["member"]),
+      context
+    );
   }
   return contents;
 };
@@ -11419,13 +11189,9 @@ const deserializeAws_queryStackSetOperationResultSummaries = (
   output: any,
   context: __SerdeContext
 ): StackSetOperationResultSummary[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      deserializeAws_queryStackSetOperationResultSummary(entry, context)
-    );
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryStackSetOperationResultSummary(entry, context)
+  );
 };
 
 const deserializeAws_queryStackSetOperationResultSummary = (
@@ -11477,11 +11243,9 @@ const deserializeAws_queryStackSetOperationSummaries = (
   output: any,
   context: __SerdeContext
 ): StackSetOperationSummary[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryStackSetOperationSummary(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryStackSetOperationSummary(entry, context)
+  );
 };
 
 const deserializeAws_queryStackSetOperationSummary = (
@@ -11527,11 +11291,9 @@ const deserializeAws_queryStackSetSummaries = (
   output: any,
   context: __SerdeContext
 ): StackSetSummary[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryStackSetSummary(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryStackSetSummary(entry, context)
+  );
 };
 
 const deserializeAws_queryStackSetSummary = (

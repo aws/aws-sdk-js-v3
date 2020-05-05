@@ -199,7 +199,8 @@ import {
 } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  getArrayIfSingleItem as __getArrayIfSingleItem
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -4379,11 +4380,9 @@ const deserializeAws_queryAnalysisSchemeStatusList = (
   output: any,
   context: __SerdeContext
 ): AnalysisSchemeStatus[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryAnalysisSchemeStatus(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryAnalysisSchemeStatus(entry, context)
+  );
 };
 
 const deserializeAws_queryAvailabilityOptionsStatus = (
@@ -4449,12 +4448,8 @@ const deserializeAws_queryBuildSuggestersResponse = (
     output["FieldNames"] !== undefined &&
     output["FieldNames"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["FieldNames"]["member"] instanceof Array
-        ? output["FieldNames"]["member"]
-        : [output["FieldNames"]["member"]];
     contents.FieldNames = deserializeAws_queryFieldNameList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["FieldNames"]["member"]),
       context
     );
   }
@@ -4743,12 +4738,8 @@ const deserializeAws_queryDescribeAnalysisSchemesResponse = (
     output["AnalysisSchemes"] !== undefined &&
     output["AnalysisSchemes"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["AnalysisSchemes"]["member"] instanceof Array
-        ? output["AnalysisSchemes"]["member"]
-        : [output["AnalysisSchemes"]["member"]];
     contents.AnalysisSchemes = deserializeAws_queryAnalysisSchemeStatusList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["AnalysisSchemes"]["member"]),
       context
     );
   }
@@ -4804,12 +4795,8 @@ const deserializeAws_queryDescribeDomainsResponse = (
     output["DomainStatusList"] !== undefined &&
     output["DomainStatusList"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["DomainStatusList"]["member"] instanceof Array
-        ? output["DomainStatusList"]["member"]
-        : [output["DomainStatusList"]["member"]];
     contents.DomainStatusList = deserializeAws_queryDomainStatusList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["DomainStatusList"]["member"]),
       context
     );
   }
@@ -4831,12 +4818,8 @@ const deserializeAws_queryDescribeExpressionsResponse = (
     output["Expressions"] !== undefined &&
     output["Expressions"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Expressions"]["member"] instanceof Array
-        ? output["Expressions"]["member"]
-        : [output["Expressions"]["member"]];
     contents.Expressions = deserializeAws_queryExpressionStatusList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Expressions"]["member"]),
       context
     );
   }
@@ -4858,12 +4841,8 @@ const deserializeAws_queryDescribeIndexFieldsResponse = (
     output["IndexFields"] !== undefined &&
     output["IndexFields"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["IndexFields"]["member"] instanceof Array
-        ? output["IndexFields"]["member"]
-        : [output["IndexFields"]["member"]];
     contents.IndexFields = deserializeAws_queryIndexFieldStatusList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["IndexFields"]["member"]),
       context
     );
   }
@@ -4919,12 +4898,8 @@ const deserializeAws_queryDescribeSuggestersResponse = (
     output["Suggesters"] !== undefined &&
     output["Suggesters"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Suggesters"]["member"] instanceof Array
-        ? output["Suggesters"]["member"]
-        : [output["Suggesters"]["member"]];
     contents.Suggesters = deserializeAws_querySuggesterStatusList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Suggesters"]["member"]),
       context
     );
   }
@@ -5038,14 +5013,13 @@ const deserializeAws_queryDomainNameMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  output.forEach((pair: any) => {
-    mapParams[pair["key"]] =
+  return output.reduce((acc: any, pair: any) => {
+    acc[pair["key"]] =
       pair["value"]["#text"] !== undefined
         ? pair["value"]["#text"]
         : pair["value"];
-  });
-  return mapParams;
+    return acc;
+  }, {});
 };
 
 const deserializeAws_queryDomainStatus = (
@@ -5152,11 +5126,9 @@ const deserializeAws_queryDomainStatusList = (
   output: any,
   context: __SerdeContext
 ): DomainStatus[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryDomainStatus(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryDomainStatus(entry, context)
+  );
 };
 
 const deserializeAws_queryDoubleArrayOptions = (
@@ -5310,22 +5282,18 @@ const deserializeAws_queryExpressionStatusList = (
   output: any,
   context: __SerdeContext
 ): ExpressionStatus[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryExpressionStatus(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryExpressionStatus(entry, context)
+  );
 };
 
 const deserializeAws_queryFieldNameList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryIndexDocumentsResponse = (
@@ -5343,12 +5311,8 @@ const deserializeAws_queryIndexDocumentsResponse = (
     output["FieldNames"] !== undefined &&
     output["FieldNames"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["FieldNames"]["member"] instanceof Array
-        ? output["FieldNames"]["member"]
-        : [output["FieldNames"]["member"]];
     contents.FieldNames = deserializeAws_queryFieldNameList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["FieldNames"]["member"]),
       context
     );
   }
@@ -5484,11 +5448,9 @@ const deserializeAws_queryIndexFieldStatusList = (
   output: any,
   context: __SerdeContext
 ): IndexFieldStatus[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryIndexFieldStatus(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryIndexFieldStatus(entry, context)
+  );
 };
 
 const deserializeAws_queryIntArrayOptions = (
@@ -5755,12 +5717,8 @@ const deserializeAws_queryListDomainNamesResponse = (
     output["DomainNames"] !== undefined &&
     output["DomainNames"]["entry"] !== undefined
   ) {
-    const wrappedItem =
-      output["DomainNames"]["entry"] instanceof Array
-        ? output["DomainNames"]["entry"]
-        : [output["DomainNames"]["entry"]];
     contents.DomainNames = deserializeAws_queryDomainNameMap(
-      wrappedItem,
+      __getArrayIfSingleItem(output["DomainNames"]["entry"]),
       context
     );
   }
@@ -6054,11 +6012,9 @@ const deserializeAws_querySuggesterStatusList = (
   output: any,
   context: __SerdeContext
 ): SuggesterStatus[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_querySuggesterStatus(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_querySuggesterStatus(entry, context)
+  );
 };
 
 const deserializeAws_queryTextArrayOptions = (

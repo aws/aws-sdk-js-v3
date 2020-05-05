@@ -144,7 +144,8 @@ import {
 } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  getArrayIfSingleItem as __getArrayIfSingleItem
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -2898,26 +2899,18 @@ const deserializeAws_queryBatchResultErrorEntryList = (
   output: any,
   context: __SerdeContext
 ): BatchResultErrorEntry[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryBatchResultErrorEntry(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryBatchResultErrorEntry(entry, context)
+  );
 };
 
 const deserializeAws_queryBinaryList = (
   output: any,
   context: __SerdeContext
 ): Uint8Array[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      context.base64Decoder(
-        entry["#text"] !== undefined ? entry["#text"] : entry
-      )
-    );
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    context.base64Decoder(entry["#text"] !== undefined ? entry["#text"] : entry)
+  );
 };
 
 const deserializeAws_queryChangeMessageVisibilityBatchResult = (
@@ -2933,12 +2926,8 @@ const deserializeAws_queryChangeMessageVisibilityBatchResult = (
     contents.Failed = [];
   }
   if (output["BatchResultErrorEntry"] !== undefined) {
-    const wrappedItem =
-      output["BatchResultErrorEntry"] instanceof Array
-        ? output["BatchResultErrorEntry"]
-        : [output["BatchResultErrorEntry"]];
     contents.Failed = deserializeAws_queryBatchResultErrorEntryList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["BatchResultErrorEntry"]),
       context
     );
   }
@@ -2946,12 +2935,8 @@ const deserializeAws_queryChangeMessageVisibilityBatchResult = (
     contents.Successful = [];
   }
   if (output["ChangeMessageVisibilityBatchResultEntry"] !== undefined) {
-    const wrappedItem =
-      output["ChangeMessageVisibilityBatchResultEntry"] instanceof Array
-        ? output["ChangeMessageVisibilityBatchResultEntry"]
-        : [output["ChangeMessageVisibilityBatchResultEntry"]];
     contents.Successful = deserializeAws_queryChangeMessageVisibilityBatchResultEntryList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["ChangeMessageVisibilityBatchResultEntry"]),
       context
     );
   }
@@ -2979,16 +2964,9 @@ const deserializeAws_queryChangeMessageVisibilityBatchResultEntryList = (
   output: any,
   context: __SerdeContext
 ): ChangeMessageVisibilityBatchResultEntry[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      deserializeAws_queryChangeMessageVisibilityBatchResultEntry(
-        entry,
-        context
-      )
-    );
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryChangeMessageVisibilityBatchResultEntry(entry, context)
+  );
 };
 
 const deserializeAws_queryCreateQueueResult = (
@@ -3021,12 +2999,8 @@ const deserializeAws_queryDeleteMessageBatchResult = (
     contents.Failed = [];
   }
   if (output["BatchResultErrorEntry"] !== undefined) {
-    const wrappedItem =
-      output["BatchResultErrorEntry"] instanceof Array
-        ? output["BatchResultErrorEntry"]
-        : [output["BatchResultErrorEntry"]];
     contents.Failed = deserializeAws_queryBatchResultErrorEntryList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["BatchResultErrorEntry"]),
       context
     );
   }
@@ -3034,12 +3008,8 @@ const deserializeAws_queryDeleteMessageBatchResult = (
     contents.Successful = [];
   }
   if (output["DeleteMessageBatchResultEntry"] !== undefined) {
-    const wrappedItem =
-      output["DeleteMessageBatchResultEntry"] instanceof Array
-        ? output["DeleteMessageBatchResultEntry"]
-        : [output["DeleteMessageBatchResultEntry"]];
     contents.Successful = deserializeAws_queryDeleteMessageBatchResultEntryList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["DeleteMessageBatchResultEntry"]),
       context
     );
   }
@@ -3067,13 +3037,9 @@ const deserializeAws_queryDeleteMessageBatchResultEntryList = (
   output: any,
   context: __SerdeContext
 ): DeleteMessageBatchResultEntry[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      deserializeAws_queryDeleteMessageBatchResultEntry(entry, context)
-    );
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryDeleteMessageBatchResultEntry(entry, context)
+  );
 };
 
 const deserializeAws_queryEmptyBatchRequest = (
@@ -3098,12 +3064,8 @@ const deserializeAws_queryGetQueueAttributesResult = (
     contents.Attributes = {};
   }
   if (output["Attribute"] !== undefined) {
-    const wrappedItem =
-      output["Attribute"] instanceof Array
-        ? output["Attribute"]
-        : [output["Attribute"]];
     contents.Attributes = deserializeAws_queryQueueAttributeMap(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Attribute"]),
       context
     );
   }
@@ -3179,11 +3141,10 @@ const deserializeAws_queryListDeadLetterSourceQueuesResult = (
     contents.queueUrls = [];
   }
   if (output["QueueUrl"] !== undefined) {
-    const wrappedItem =
-      output["QueueUrl"] instanceof Array
-        ? output["QueueUrl"]
-        : [output["QueueUrl"]];
-    contents.queueUrls = deserializeAws_queryQueueUrlList(wrappedItem, context);
+    contents.queueUrls = deserializeAws_queryQueueUrlList(
+      __getArrayIfSingleItem(output["QueueUrl"]),
+      context
+    );
   }
   return contents;
 };
@@ -3200,9 +3161,10 @@ const deserializeAws_queryListQueueTagsResult = (
     contents.Tags = {};
   }
   if (output["Tag"] !== undefined) {
-    const wrappedItem =
-      output["Tag"] instanceof Array ? output["Tag"] : [output["Tag"]];
-    contents.Tags = deserializeAws_queryTagMap(wrappedItem, context);
+    contents.Tags = deserializeAws_queryTagMap(
+      __getArrayIfSingleItem(output["Tag"]),
+      context
+    );
   }
   return contents;
 };
@@ -3219,11 +3181,10 @@ const deserializeAws_queryListQueuesResult = (
     contents.QueueUrls = [];
   }
   if (output["QueueUrl"] !== undefined) {
-    const wrappedItem =
-      output["QueueUrl"] instanceof Array
-        ? output["QueueUrl"]
-        : [output["QueueUrl"]];
-    contents.QueueUrls = deserializeAws_queryQueueUrlList(wrappedItem, context);
+    contents.QueueUrls = deserializeAws_queryQueueUrlList(
+      __getArrayIfSingleItem(output["QueueUrl"]),
+      context
+    );
   }
   return contents;
 };
@@ -3246,12 +3207,8 @@ const deserializeAws_queryMessage = (
     contents.Attributes = {};
   }
   if (output["Attribute"] !== undefined) {
-    const wrappedItem =
-      output["Attribute"] instanceof Array
-        ? output["Attribute"]
-        : [output["Attribute"]];
     contents.Attributes = deserializeAws_queryMessageSystemAttributeMap(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Attribute"]),
       context
     );
   }
@@ -3277,12 +3234,8 @@ const deserializeAws_queryMessage = (
     contents.MessageAttributes = {};
   }
   if (output["MessageAttribute"] !== undefined) {
-    const wrappedItem =
-      output["MessageAttribute"] instanceof Array
-        ? output["MessageAttribute"]
-        : [output["MessageAttribute"]];
     contents.MessageAttributes = deserializeAws_queryMessageBodyAttributeMap(
-      wrappedItem,
+      __getArrayIfSingleItem(output["MessageAttribute"]),
       context
     );
   }
@@ -3317,12 +3270,8 @@ const deserializeAws_queryMessageAttributeValue = (
     contents.BinaryListValues = [];
   }
   if (output["BinaryListValue"] !== undefined) {
-    const wrappedItem =
-      output["BinaryListValue"] instanceof Array
-        ? output["BinaryListValue"]
-        : [output["BinaryListValue"]];
     contents.BinaryListValues = deserializeAws_queryBinaryList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["BinaryListValue"]),
       context
     );
   }
@@ -3343,12 +3292,8 @@ const deserializeAws_queryMessageAttributeValue = (
     contents.StringListValues = [];
   }
   if (output["StringListValue"] !== undefined) {
-    const wrappedItem =
-      output["StringListValue"] instanceof Array
-        ? output["StringListValue"]
-        : [output["StringListValue"]];
     contents.StringListValues = deserializeAws_queryStringList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["StringListValue"]),
       context
     );
   }
@@ -3365,25 +3310,22 @@ const deserializeAws_queryMessageBodyAttributeMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: MessageAttributeValue } => {
-  const mapParams: any = {};
-  output.forEach((pair: any) => {
-    mapParams[pair["Name"]] = deserializeAws_queryMessageAttributeValue(
+  return output.reduce((acc: any, pair: any) => {
+    acc[pair["Name"]] = deserializeAws_queryMessageAttributeValue(
       pair["Value"],
       context
     );
-  });
-  return mapParams;
+    return acc;
+  }, {});
 };
 
 const deserializeAws_queryMessageList = (
   output: any,
   context: __SerdeContext
 ): Message[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryMessage(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryMessage(entry, context)
+  );
 };
 
 const deserializeAws_queryMessageNotInflight = (
@@ -3400,14 +3342,13 @@ const deserializeAws_queryMessageSystemAttributeMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  output.forEach((pair: any) => {
-    mapParams[pair["Name"]] =
+  return output.reduce((acc: any, pair: any) => {
+    acc[pair["Name"]] =
       pair["Value"]["#text"] !== undefined
         ? pair["Value"]["#text"]
         : pair["Value"];
-  });
-  return mapParams;
+    return acc;
+  }, {});
 };
 
 const deserializeAws_queryOverLimit = (
@@ -3434,14 +3375,13 @@ const deserializeAws_queryQueueAttributeMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  output.forEach((pair: any) => {
-    mapParams[pair["Name"]] =
+  return output.reduce((acc: any, pair: any) => {
+    acc[pair["Name"]] =
       pair["Value"]["#text"] !== undefined
         ? pair["Value"]["#text"]
         : pair["Value"];
-  });
-  return mapParams;
+    return acc;
+  }, {});
 };
 
 const deserializeAws_queryQueueDeletedRecently = (
@@ -3478,11 +3418,9 @@ const deserializeAws_queryQueueUrlList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryReceiptHandleIsInvalid = (
@@ -3507,11 +3445,10 @@ const deserializeAws_queryReceiveMessageResult = (
     contents.Messages = [];
   }
   if (output["Message"] !== undefined) {
-    const wrappedItem =
-      output["Message"] instanceof Array
-        ? output["Message"]
-        : [output["Message"]];
-    contents.Messages = deserializeAws_queryMessageList(wrappedItem, context);
+    contents.Messages = deserializeAws_queryMessageList(
+      __getArrayIfSingleItem(output["Message"]),
+      context
+    );
   }
   return contents;
 };
@@ -3529,12 +3466,8 @@ const deserializeAws_querySendMessageBatchResult = (
     contents.Failed = [];
   }
   if (output["BatchResultErrorEntry"] !== undefined) {
-    const wrappedItem =
-      output["BatchResultErrorEntry"] instanceof Array
-        ? output["BatchResultErrorEntry"]
-        : [output["BatchResultErrorEntry"]];
     contents.Failed = deserializeAws_queryBatchResultErrorEntryList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["BatchResultErrorEntry"]),
       context
     );
   }
@@ -3542,12 +3475,8 @@ const deserializeAws_querySendMessageBatchResult = (
     contents.Successful = [];
   }
   if (output["SendMessageBatchResultEntry"] !== undefined) {
-    const wrappedItem =
-      output["SendMessageBatchResultEntry"] instanceof Array
-        ? output["SendMessageBatchResultEntry"]
-        : [output["SendMessageBatchResultEntry"]];
     contents.Successful = deserializeAws_querySendMessageBatchResultEntryList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["SendMessageBatchResultEntry"]),
       context
     );
   }
@@ -3610,13 +3539,9 @@ const deserializeAws_querySendMessageBatchResultEntryList = (
   output: any,
   context: __SerdeContext
 ): SendMessageBatchResultEntry[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      deserializeAws_querySendMessageBatchResultEntry(entry, context)
-    );
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_querySendMessageBatchResultEntry(entry, context)
+  );
 };
 
 const deserializeAws_querySendMessageResult = (
@@ -3668,25 +3593,22 @@ const deserializeAws_queryStringList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryTagMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  output.forEach((pair: any) => {
-    mapParams[pair["Key"]] =
+  return output.reduce((acc: any, pair: any) => {
+    acc[pair["Key"]] =
       pair["Value"]["#text"] !== undefined
         ? pair["Value"]["#text"]
         : pair["Value"];
-  });
-  return mapParams;
+    return acc;
+  }, {});
 };
 
 const deserializeAws_queryTooManyEntriesInBatchRequest = (
