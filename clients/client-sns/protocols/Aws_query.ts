@@ -5833,22 +5833,18 @@ const deserializeAws_queryListOfEndpoints = (
   output: any,
   context: __SerdeContext
 ): Endpoint[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryEndpoint(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryEndpoint(entry, context)
+  );
 };
 
 const deserializeAws_queryListOfPlatformApplications = (
   output: any,
   context: __SerdeContext
 ): PlatformApplication[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryPlatformApplication(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryPlatformApplication(entry, context)
+  );
 };
 
 const deserializeAws_queryListPhoneNumbersOptedOutResponse = (
@@ -6066,11 +6062,9 @@ const deserializeAws_queryPhoneNumberList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryPlatformApplication = (
@@ -6278,11 +6272,9 @@ const deserializeAws_querySubscriptionsList = (
   output: any,
   context: __SerdeContext
 ): Subscription[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_querySubscription(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_querySubscription(entry, context)
+  );
 };
 
 const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
@@ -6327,11 +6319,9 @@ const deserializeAws_queryTagList = (
   output: any,
   context: __SerdeContext
 ): Tag[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryTag(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryTag(entry, context)
+  );
 };
 
 const deserializeAws_queryTagPolicyException = (
@@ -6430,11 +6420,9 @@ const deserializeAws_queryTopicsList = (
   output: any,
   context: __SerdeContext
 ): Topic[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryTopic(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryTopic(entry, context)
+  );
 };
 
 const deserializeAws_queryUntagResourceResponse = (

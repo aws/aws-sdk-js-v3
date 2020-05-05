@@ -8040,11 +8040,9 @@ const deserializeAws_queryAttributeValueList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryAvailabilityZone = (
@@ -8068,22 +8066,18 @@ const deserializeAws_queryAvailabilityZoneList = (
   output: any,
   context: __SerdeContext
 ): AvailabilityZone[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryAvailabilityZone(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryAvailabilityZone(entry, context)
+  );
 };
 
 const deserializeAws_queryAvailabilityZones = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryCertificate = (
@@ -8136,11 +8130,9 @@ const deserializeAws_queryCertificateList = (
   output: any,
   context: __SerdeContext
 ): Certificate[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryCertificate(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryCertificate(entry, context)
+  );
 };
 
 const deserializeAws_queryCertificateMessage = (
@@ -8536,11 +8528,9 @@ const deserializeAws_queryDBClusterList = (
   output: any,
   context: __SerdeContext
 ): DBCluster[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryDBCluster(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryDBCluster(entry, context)
+  );
 };
 
 const deserializeAws_queryDBClusterMember = (
@@ -8586,11 +8576,9 @@ const deserializeAws_queryDBClusterMemberList = (
   output: any,
   context: __SerdeContext
 ): DBClusterMember[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryDBClusterMember(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryDBClusterMember(entry, context)
+  );
 };
 
 const deserializeAws_queryDBClusterMessage = (
@@ -8695,11 +8683,9 @@ const deserializeAws_queryDBClusterParameterGroupList = (
   output: any,
   context: __SerdeContext
 ): DBClusterParameterGroup[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryDBClusterParameterGroup(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryDBClusterParameterGroup(entry, context)
+  );
 };
 
 const deserializeAws_queryDBClusterParameterGroupNameMessage = (
@@ -8779,11 +8765,9 @@ const deserializeAws_queryDBClusterRoles = (
   output: any,
   context: __SerdeContext
 ): DBClusterRole[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryDBClusterRole(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryDBClusterRole(entry, context)
+  );
 };
 
 const deserializeAws_queryDBClusterSnapshot = (
@@ -8951,13 +8935,9 @@ const deserializeAws_queryDBClusterSnapshotAttributeList = (
   output: any,
   context: __SerdeContext
 ): DBClusterSnapshotAttribute[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      deserializeAws_queryDBClusterSnapshotAttribute(entry, context)
-    );
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryDBClusterSnapshotAttribute(entry, context)
+  );
 };
 
 const deserializeAws_queryDBClusterSnapshotAttributesResult = (
@@ -8997,11 +8977,9 @@ const deserializeAws_queryDBClusterSnapshotList = (
   output: any,
   context: __SerdeContext
 ): DBClusterSnapshot[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryDBClusterSnapshot(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryDBClusterSnapshot(entry, context)
+  );
 };
 
 const deserializeAws_queryDBClusterSnapshotMessage = (
@@ -9116,11 +9094,9 @@ const deserializeAws_queryDBEngineVersionList = (
   output: any,
   context: __SerdeContext
 ): DBEngineVersion[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryDBEngineVersion(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryDBEngineVersion(entry, context)
+  );
 };
 
 const deserializeAws_queryDBEngineVersionMessage = (
@@ -9365,11 +9341,9 @@ const deserializeAws_queryDBInstanceList = (
   output: any,
   context: __SerdeContext
 ): DBInstance[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryDBInstance(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryDBInstance(entry, context)
+  );
 };
 
 const deserializeAws_queryDBInstanceMessage = (
@@ -9444,11 +9418,9 @@ const deserializeAws_queryDBInstanceStatusInfoList = (
   output: any,
   context: __SerdeContext
 ): DBInstanceStatusInfo[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryDBInstanceStatusInfo(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryDBInstanceStatusInfo(entry, context)
+  );
 };
 
 const deserializeAws_queryDBSubnetGroup = (
@@ -9543,11 +9515,9 @@ const deserializeAws_queryDBSubnetGroups = (
   output: any,
   context: __SerdeContext
 ): DBSubnetGroup[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryDBSubnetGroup(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryDBSubnetGroup(entry, context)
+  );
 };
 
 const deserializeAws_queryDeleteDBClusterResult = (
@@ -9763,11 +9733,9 @@ const deserializeAws_queryEventCategoriesList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryEventCategoriesMap = (
@@ -9804,11 +9772,9 @@ const deserializeAws_queryEventCategoriesMapList = (
   output: any,
   context: __SerdeContext
 ): EventCategoriesMap[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryEventCategoriesMap(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryEventCategoriesMap(entry, context)
+  );
 };
 
 const deserializeAws_queryEventCategoriesMessage = (
@@ -9840,11 +9806,9 @@ const deserializeAws_queryEventList = (
   output: any,
   context: __SerdeContext
 ): Event[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryEvent(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryEvent(entry, context)
+  );
 };
 
 const deserializeAws_queryEventsMessage = (
@@ -9898,11 +9862,9 @@ const deserializeAws_queryLogTypeList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryModifyDBClusterResult = (
@@ -10035,13 +9997,9 @@ const deserializeAws_queryOrderableDBInstanceOptionsList = (
   output: any,
   context: __SerdeContext
 ): OrderableDBInstanceOption[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      deserializeAws_queryOrderableDBInstanceOption(entry, context)
-    );
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryOrderableDBInstanceOption(entry, context)
+  );
 };
 
 const deserializeAws_queryOrderableDBInstanceOptionsMessage = (
@@ -10161,11 +10119,9 @@ const deserializeAws_queryParametersList = (
   output: any,
   context: __SerdeContext
 ): Parameter[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryParameter(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryParameter(entry, context)
+  );
 };
 
 const deserializeAws_queryPendingCloudwatchLogsExports = (
@@ -10251,24 +10207,18 @@ const deserializeAws_queryPendingMaintenanceActionDetails = (
   output: any,
   context: __SerdeContext
 ): PendingMaintenanceAction[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryPendingMaintenanceAction(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryPendingMaintenanceAction(entry, context)
+  );
 };
 
 const deserializeAws_queryPendingMaintenanceActions = (
   output: any,
   context: __SerdeContext
 ): ResourcePendingMaintenanceActions[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      deserializeAws_queryResourcePendingMaintenanceActions(entry, context)
-    );
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryResourcePendingMaintenanceActions(entry, context)
+  );
 };
 
 const deserializeAws_queryPendingMaintenanceActionsMessage = (
@@ -10569,11 +10519,9 @@ const deserializeAws_querySubnetList = (
   output: any,
   context: __SerdeContext
 ): Subnet[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_querySubnet(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_querySubnet(entry, context)
+  );
 };
 
 const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
@@ -10601,11 +10549,9 @@ const deserializeAws_queryTagList = (
   output: any,
   context: __SerdeContext
 ): Tag[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryTag(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryTag(entry, context)
+  );
 };
 
 const deserializeAws_queryTagListMessage = (
@@ -10680,11 +10626,9 @@ const deserializeAws_queryValidUpgradeTargetList = (
   output: any,
   context: __SerdeContext
 ): UpgradeTarget[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryUpgradeTarget(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryUpgradeTarget(entry, context)
+  );
 };
 
 const deserializeAws_queryVpcSecurityGroupMembership = (
@@ -10715,13 +10659,9 @@ const deserializeAws_queryVpcSecurityGroupMembershipList = (
   output: any,
   context: __SerdeContext
 ): VpcSecurityGroupMembership[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      deserializeAws_queryVpcSecurityGroupMembership(entry, context)
-    );
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryVpcSecurityGroupMembership(entry, context)
+  );
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

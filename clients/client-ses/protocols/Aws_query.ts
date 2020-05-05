@@ -9338,11 +9338,9 @@ const deserializeAws_queryAddressList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryAlreadyExistsException = (
@@ -9449,13 +9447,9 @@ const deserializeAws_queryBulkEmailDestinationStatusList = (
   output: any,
   context: __SerdeContext
 ): BulkEmailDestinationStatus[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      deserializeAws_queryBulkEmailDestinationStatus(entry, context)
-    );
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryBulkEmailDestinationStatus(entry, context)
+  );
 };
 
 const deserializeAws_queryCannotDeleteException = (
@@ -9550,13 +9544,9 @@ const deserializeAws_queryCloudWatchDimensionConfigurations = (
   output: any,
   context: __SerdeContext
 ): CloudWatchDimensionConfiguration[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      deserializeAws_queryCloudWatchDimensionConfiguration(entry, context)
-    );
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryCloudWatchDimensionConfiguration(entry, context)
+  );
 };
 
 const deserializeAws_queryConfigurationSet = (
@@ -9652,11 +9642,9 @@ const deserializeAws_queryConfigurationSets = (
   output: any,
   context: __SerdeContext
 ): ConfigurationSet[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryConfigurationSet(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryConfigurationSet(entry, context)
+  );
 };
 
 const deserializeAws_queryCreateConfigurationSetEventDestinationResponse = (
@@ -9843,13 +9831,9 @@ const deserializeAws_queryCustomVerificationEmailTemplates = (
   output: any,
   context: __SerdeContext
 ): CustomVerificationEmailTemplate[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      deserializeAws_queryCustomVerificationEmailTemplate(entry, context)
-    );
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryCustomVerificationEmailTemplate(entry, context)
+  );
 };
 
 const deserializeAws_queryDeleteConfigurationSetEventDestinationResponse = (
@@ -10222,22 +10206,18 @@ const deserializeAws_queryEventDestinations = (
   output: any,
   context: __SerdeContext
 ): EventDestination[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryEventDestination(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryEventDestination(entry, context)
+  );
 };
 
 const deserializeAws_queryEventTypes = (
   output: any,
   context: __SerdeContext
 ): (EventType | string)[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryFromEmailAddressNotVerifiedException = (
@@ -10563,11 +10543,9 @@ const deserializeAws_queryIdentityList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryIdentityMailFromDomainAttributes = (
@@ -11364,11 +11342,9 @@ const deserializeAws_queryPolicyNameList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryProductionAccessNotGrantedException = (
@@ -11471,11 +11447,9 @@ const deserializeAws_queryReceiptActionsList = (
   output: any,
   context: __SerdeContext
 ): ReceiptAction[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryReceiptAction(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryReceiptAction(entry, context)
+  );
 };
 
 const deserializeAws_queryReceiptFilter = (
@@ -11506,11 +11480,9 @@ const deserializeAws_queryReceiptFilterList = (
   output: any,
   context: __SerdeContext
 ): ReceiptFilter[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryReceiptFilter(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryReceiptFilter(entry, context)
+  );
 };
 
 const deserializeAws_queryReceiptIpFilter = (
@@ -11626,33 +11598,27 @@ const deserializeAws_queryReceiptRuleSetsLists = (
   output: any,
   context: __SerdeContext
 ): ReceiptRuleSetMetadata[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryReceiptRuleSetMetadata(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryReceiptRuleSetMetadata(entry, context)
+  );
 };
 
 const deserializeAws_queryReceiptRulesList = (
   output: any,
   context: __SerdeContext
 ): ReceiptRule[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryReceiptRule(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryReceiptRule(entry, context)
+  );
 };
 
 const deserializeAws_queryRecipientsList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryReorderReceiptRuleSetResponse = (
@@ -11927,11 +11893,9 @@ const deserializeAws_querySendDataPointList = (
   output: any,
   context: __SerdeContext
 ): SendDataPoint[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_querySendDataPoint(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_querySendDataPoint(entry, context)
+  );
 };
 
 const deserializeAws_querySendEmailResponse = (
@@ -12166,11 +12130,9 @@ const deserializeAws_queryTemplateMetadataList = (
   output: any,
   context: __SerdeContext
 ): TemplateMetadata[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryTemplateMetadata(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryTemplateMetadata(entry, context)
+  );
 };
 
 const deserializeAws_queryTestRenderTemplateResponse = (
@@ -12313,11 +12275,9 @@ const deserializeAws_queryVerificationTokenList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryVerifyDomainDkimResponse = (

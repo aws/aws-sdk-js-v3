@@ -2166,11 +2166,9 @@ const deserializeAws_queryRenamedListMembers = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_querySimpleScalarXmlPropertiesOutput = (
@@ -2263,11 +2261,9 @@ const deserializeAws_queryStructureList = (
   output: any,
   context: __SerdeContext
 ): StructureListMember[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryStructureListMember(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryStructureListMember(entry, context)
+  );
 };
 
 const deserializeAws_queryStructureListMember = (
@@ -2631,11 +2627,9 @@ const deserializeAws_queryXmlNamespacedList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryXmlNamespacesOutput = (
@@ -2685,24 +2679,19 @@ const deserializeAws_queryBooleanList = (
   output: any,
   context: __SerdeContext
 ): boolean[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
+  return (output || []).map(
+    (entry: any) =>
       (entry["#text"] !== undefined ? entry["#text"] : entry) == "true"
-    );
-  });
-  return contents;
+  );
 };
 
 const deserializeAws_queryFooEnumList = (
   output: any,
   context: __SerdeContext
 ): (FooEnum | string)[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryFooEnumMap = (
@@ -2723,11 +2712,9 @@ const deserializeAws_queryFooEnumSet = (
   output: any,
   context: __SerdeContext
 ): Set<FooEnum | string> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryGreetingStruct = (
@@ -2751,62 +2738,46 @@ const deserializeAws_queryIntegerList = (
   output: any,
   context: __SerdeContext
 ): number[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      parseInt(entry["#text"] !== undefined ? entry["#text"] : entry)
-    );
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    parseInt(entry["#text"] !== undefined ? entry["#text"] : entry)
+  );
 };
 
 const deserializeAws_queryNestedStringList = (
   output: any,
   context: __SerdeContext
 ): string[][] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      deserializeAws_queryStringList(
-        __getArrayIfSingleItem(entry["member"]),
-        context
-      )
-    );
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryStringList(
+      __getArrayIfSingleItem(entry["member"]),
+      context
+    )
+  );
 };
 
 const deserializeAws_queryStringList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryStringSet = (
   output: any,
   context: __SerdeContext
 ): Set<string> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryTimestampList = (
   output: any,
   context: __SerdeContext
 ): Date[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(new Date(entry));
-  });
-  return contents;
+  return (output || []).map((entry: any) => new Date(entry));
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

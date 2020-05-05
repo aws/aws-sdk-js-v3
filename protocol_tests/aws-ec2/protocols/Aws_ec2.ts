@@ -1635,11 +1635,9 @@ const deserializeAws_ec2RenamedListMembers = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_ec2SimpleScalarXmlPropertiesOutput = (
@@ -1732,11 +1730,9 @@ const deserializeAws_ec2StructureList = (
   output: any,
   context: __SerdeContext
 ): StructureListMember[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_ec2StructureListMember(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_ec2StructureListMember(entry, context)
+  );
 };
 
 const deserializeAws_ec2StructureListMember = (
@@ -2032,11 +2028,9 @@ const deserializeAws_ec2XmlNamespacedList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_ec2XmlNamespacesOutput = (
@@ -2086,24 +2080,19 @@ const deserializeAws_ec2BooleanList = (
   output: any,
   context: __SerdeContext
 ): boolean[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
+  return (output || []).map(
+    (entry: any) =>
       (entry["#text"] !== undefined ? entry["#text"] : entry) == "true"
-    );
-  });
-  return contents;
+  );
 };
 
 const deserializeAws_ec2FooEnumList = (
   output: any,
   context: __SerdeContext
 ): (FooEnum | string)[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_ec2FooEnumMap = (
@@ -2124,73 +2113,55 @@ const deserializeAws_ec2FooEnumSet = (
   output: any,
   context: __SerdeContext
 ): Set<FooEnum | string> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_ec2IntegerList = (
   output: any,
   context: __SerdeContext
 ): number[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      parseInt(entry["#text"] !== undefined ? entry["#text"] : entry)
-    );
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    parseInt(entry["#text"] !== undefined ? entry["#text"] : entry)
+  );
 };
 
 const deserializeAws_ec2NestedStringList = (
   output: any,
   context: __SerdeContext
 ): string[][] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      deserializeAws_ec2StringList(
-        __getArrayIfSingleItem(entry["member"]),
-        context
-      )
-    );
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_ec2StringList(
+      __getArrayIfSingleItem(entry["member"]),
+      context
+    )
+  );
 };
 
 const deserializeAws_ec2StringList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_ec2StringSet = (
   output: any,
   context: __SerdeContext
 ): Set<string> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_ec2TimestampList = (
   output: any,
   context: __SerdeContext
 ): Date[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(new Date(entry));
-  });
-  return contents;
+  return (output || []).map((entry: any) => new Date(entry));
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

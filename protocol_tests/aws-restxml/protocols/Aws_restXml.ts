@@ -4722,22 +4722,18 @@ const deserializeAws_restXmlRenamedListMembers = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_restXmlStructureList = (
   output: any,
   context: __SerdeContext
 ): StructureListMember[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_restXmlStructureListMember(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_restXmlStructureListMember(entry, context)
+  );
 };
 
 const deserializeAws_restXmlStructureListMember = (
@@ -4850,35 +4846,28 @@ const deserializeAws_restXmlXmlNamespacedList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_restXmlBooleanList = (
   output: any,
   context: __SerdeContext
 ): boolean[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
+  return (output || []).map(
+    (entry: any) =>
       (entry["#text"] !== undefined ? entry["#text"] : entry) == "true"
-    );
-  });
-  return contents;
+  );
 };
 
 const deserializeAws_restXmlFooEnumList = (
   output: any,
   context: __SerdeContext
 ): (FooEnum | string)[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_restXmlFooEnumMap = (
@@ -4899,11 +4888,9 @@ const deserializeAws_restXmlFooEnumSet = (
   output: any,
   context: __SerdeContext
 ): Set<FooEnum | string> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_restXmlGreetingStruct = (
@@ -4927,62 +4914,46 @@ const deserializeAws_restXmlIntegerList = (
   output: any,
   context: __SerdeContext
 ): number[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      parseInt(entry["#text"] !== undefined ? entry["#text"] : entry)
-    );
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    parseInt(entry["#text"] !== undefined ? entry["#text"] : entry)
+  );
 };
 
 const deserializeAws_restXmlNestedStringList = (
   output: any,
   context: __SerdeContext
 ): string[][] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      deserializeAws_restXmlStringList(
-        __getArrayIfSingleItem(entry["member"]),
-        context
-      )
-    );
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_restXmlStringList(
+      __getArrayIfSingleItem(entry["member"]),
+      context
+    )
+  );
 };
 
 const deserializeAws_restXmlStringList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_restXmlStringSet = (
   output: any,
   context: __SerdeContext
 ): Set<string> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_restXmlTimestampList = (
   output: any,
   context: __SerdeContext
 ): Date[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(new Date(entry));
-  });
-  return contents;
+  return (output || []).map((entry: any) => new Date(entry));
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

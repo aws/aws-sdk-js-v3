@@ -17802,11 +17802,9 @@ const deserializeAws_queryAccessDetails = (
   output: any,
   context: __SerdeContext
 ): AccessDetail[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryAccessDetail(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryAccessDetail(entry, context)
+  );
 };
 
 const deserializeAws_queryAccessKey = (
@@ -17918,11 +17916,9 @@ const deserializeAws_queryArnListType = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryAttachedPermissionsBoundary = (
@@ -17994,11 +17990,9 @@ const deserializeAws_queryContextKeyNamesResultListType = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryCreateAccessKeyResponse = (
@@ -18588,11 +18582,9 @@ const deserializeAws_queryEvaluationResultsListType = (
   output: any,
   context: __SerdeContext
 ): EvaluationResult[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryEvaluationResult(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryEvaluationResult(entry, context)
+  );
 };
 
 const deserializeAws_queryGenerateCredentialReportResponse = (
@@ -20907,11 +20899,9 @@ const deserializeAws_queryManagedPolicyDetailListType = (
   output: any,
   context: __SerdeContext
 ): ManagedPolicyDetail[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryManagedPolicyDetail(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryManagedPolicyDetail(entry, context)
+  );
 };
 
 const deserializeAws_queryNoSuchEntityException = (
@@ -20952,13 +20942,9 @@ const deserializeAws_queryOpenIDConnectProviderListType = (
   output: any,
   context: __SerdeContext
 ): OpenIDConnectProviderListEntry[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      deserializeAws_queryOpenIDConnectProviderListEntry(entry, context)
-    );
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryOpenIDConnectProviderListEntry(entry, context)
+  );
 };
 
 const deserializeAws_queryOrganizationsDecisionDetail = (
@@ -21275,11 +21261,9 @@ const deserializeAws_queryPolicyGroupListType = (
   output: any,
   context: __SerdeContext
 ): PolicyGroup[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryPolicyGroup(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryPolicyGroup(entry, context)
+  );
 };
 
 const deserializeAws_queryPolicyNotAttachableException = (
@@ -21327,11 +21311,9 @@ const deserializeAws_queryPolicyRoleListType = (
   output: any,
   context: __SerdeContext
 ): PolicyRole[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryPolicyRole(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryPolicyRole(entry, context)
+  );
 };
 
 const deserializeAws_queryPolicyUser = (
@@ -21362,11 +21344,9 @@ const deserializeAws_queryPolicyUserListType = (
   output: any,
   context: __SerdeContext
 ): PolicyUser[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryPolicyUser(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryPolicyUser(entry, context)
+  );
 };
 
 const deserializeAws_queryPolicyVersion = (
@@ -21531,11 +21511,9 @@ const deserializeAws_queryResourceSpecificResultListType = (
   output: any,
   context: __SerdeContext
 ): ResourceSpecificResult[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryResourceSpecificResult(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryResourceSpecificResult(entry, context)
+  );
 };
 
 const deserializeAws_queryRole = (
@@ -21763,11 +21741,9 @@ const deserializeAws_queryRoleUsageListType = (
   output: any,
   context: __SerdeContext
 ): RoleUsageType[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryRoleUsageType(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryRoleUsageType(entry, context)
+  );
 };
 
 const deserializeAws_queryRoleUsageType = (
@@ -21829,11 +21805,9 @@ const deserializeAws_querySAMLProviderListType = (
   output: any,
   context: __SerdeContext
 ): SAMLProviderListEntry[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_querySAMLProviderListEntry(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_querySAMLProviderListEntry(entry, context)
+  );
 };
 
 const deserializeAws_querySSHPublicKey = (
@@ -21889,11 +21863,9 @@ const deserializeAws_querySSHPublicKeyListType = (
   output: any,
   context: __SerdeContext
 ): SSHPublicKeyMetadata[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_querySSHPublicKeyMetadata(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_querySSHPublicKeyMetadata(entry, context)
+  );
 };
 
 const deserializeAws_querySSHPublicKeyMetadata = (
@@ -22194,24 +22166,18 @@ const deserializeAws_queryServiceSpecificCredentialsListType = (
   output: any,
   context: __SerdeContext
 ): ServiceSpecificCredentialMetadata[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      deserializeAws_queryServiceSpecificCredentialMetadata(entry, context)
-    );
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryServiceSpecificCredentialMetadata(entry, context)
+  );
 };
 
 const deserializeAws_queryServicesLastAccessed = (
   output: any,
   context: __SerdeContext
 ): ServiceLastAccessed[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryServiceLastAccessed(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryServiceLastAccessed(entry, context)
+  );
 };
 
 const deserializeAws_querySigningCertificate = (
@@ -22335,11 +22301,9 @@ const deserializeAws_queryStatementListType = (
   output: any,
   context: __SerdeContext
 ): Statement[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryStatement(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryStatement(entry, context)
+  );
 };
 
 const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
@@ -22695,226 +22659,180 @@ const deserializeAws_queryaccessKeyMetadataListType = (
   output: any,
   context: __SerdeContext
 ): AccessKeyMetadata[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryAccessKeyMetadata(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryAccessKeyMetadata(entry, context)
+  );
 };
 
 const deserializeAws_queryaccountAliasListType = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryattachedPoliciesListType = (
   output: any,
   context: __SerdeContext
 ): AttachedPolicy[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryAttachedPolicy(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryAttachedPolicy(entry, context)
+  );
 };
 
 const deserializeAws_querycertificateListType = (
   output: any,
   context: __SerdeContext
 ): SigningCertificate[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_querySigningCertificate(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_querySigningCertificate(entry, context)
+  );
 };
 
 const deserializeAws_queryclientIDListType = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryentityDetailsListType = (
   output: any,
   context: __SerdeContext
 ): EntityDetails[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryEntityDetails(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryEntityDetails(entry, context)
+  );
 };
 
 const deserializeAws_querygroupDetailListType = (
   output: any,
   context: __SerdeContext
 ): GroupDetail[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryGroupDetail(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryGroupDetail(entry, context)
+  );
 };
 
 const deserializeAws_querygroupListType = (
   output: any,
   context: __SerdeContext
 ): Group[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryGroup(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryGroup(entry, context)
+  );
 };
 
 const deserializeAws_querygroupNameListType = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryinstanceProfileListType = (
   output: any,
   context: __SerdeContext
 ): InstanceProfile[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryInstanceProfile(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryInstanceProfile(entry, context)
+  );
 };
 
 const deserializeAws_querylistPolicyGrantingServiceAccessResponseListType = (
   output: any,
   context: __SerdeContext
 ): ListPoliciesGrantingServiceAccessEntry[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      deserializeAws_queryListPoliciesGrantingServiceAccessEntry(entry, context)
-    );
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryListPoliciesGrantingServiceAccessEntry(entry, context)
+  );
 };
 
 const deserializeAws_querymfaDeviceListType = (
   output: any,
   context: __SerdeContext
 ): MFADevice[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryMFADevice(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryMFADevice(entry, context)
+  );
 };
 
 const deserializeAws_querypolicyDetailListType = (
   output: any,
   context: __SerdeContext
 ): PolicyDetail[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryPolicyDetail(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryPolicyDetail(entry, context)
+  );
 };
 
 const deserializeAws_querypolicyDocumentVersionListType = (
   output: any,
   context: __SerdeContext
 ): PolicyVersion[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryPolicyVersion(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryPolicyVersion(entry, context)
+  );
 };
 
 const deserializeAws_querypolicyGrantingServiceAccessListType = (
   output: any,
   context: __SerdeContext
 ): PolicyGrantingServiceAccess[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      deserializeAws_queryPolicyGrantingServiceAccess(entry, context)
-    );
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryPolicyGrantingServiceAccess(entry, context)
+  );
 };
 
 const deserializeAws_querypolicyListType = (
   output: any,
   context: __SerdeContext
 ): Policy[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryPolicy(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryPolicy(entry, context)
+  );
 };
 
 const deserializeAws_querypolicyNameListType = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryroleDetailListType = (
   output: any,
   context: __SerdeContext
 ): RoleDetail[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryRoleDetail(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryRoleDetail(entry, context)
+  );
 };
 
 const deserializeAws_queryroleListType = (
   output: any,
   context: __SerdeContext
 ): Role[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryRole(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryRole(entry, context)
+  );
 };
 
 const deserializeAws_queryserverCertificateMetadataListType = (
   output: any,
   context: __SerdeContext
 ): ServerCertificateMetadata[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      deserializeAws_queryServerCertificateMetadata(entry, context)
-    );
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryServerCertificateMetadata(entry, context)
+  );
 };
 
 const deserializeAws_querysummaryMapType = (
@@ -22936,55 +22854,45 @@ const deserializeAws_querytagListType = (
   output: any,
   context: __SerdeContext
 ): Tag[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryTag(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryTag(entry, context)
+  );
 };
 
 const deserializeAws_querythumbprintListType = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryuserDetailListType = (
   output: any,
   context: __SerdeContext
 ): UserDetail[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryUserDetail(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryUserDetail(entry, context)
+  );
 };
 
 const deserializeAws_queryuserListType = (
   output: any,
   context: __SerdeContext
 ): User[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryUser(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryUser(entry, context)
+  );
 };
 
 const deserializeAws_queryvirtualMFADeviceListType = (
   output: any,
   context: __SerdeContext
 ): VirtualMFADevice[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryVirtualMFADevice(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryVirtualMFADevice(entry, context)
+  );
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

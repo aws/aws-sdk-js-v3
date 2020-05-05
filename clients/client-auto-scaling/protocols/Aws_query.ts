@@ -7154,11 +7154,9 @@ const deserializeAws_queryActivities = (
   output: any,
   context: __SerdeContext
 ): Activity[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryActivity(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryActivity(entry, context)
+  );
 };
 
 const deserializeAws_queryActivitiesType = (
@@ -7304,11 +7302,9 @@ const deserializeAws_queryAdjustmentTypes = (
   output: any,
   context: __SerdeContext
 ): AdjustmentType[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryAdjustmentType(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryAdjustmentType(entry, context)
+  );
 };
 
 const deserializeAws_queryAlarm = (
@@ -7339,11 +7335,9 @@ const deserializeAws_queryAlarms = (
   output: any,
   context: __SerdeContext
 ): Alarm[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryAlarm(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryAlarm(entry, context)
+  );
 };
 
 const deserializeAws_queryAlreadyExistsFault = (
@@ -7627,11 +7621,9 @@ const deserializeAws_queryAutoScalingGroups = (
   output: any,
   context: __SerdeContext
 ): AutoScalingGroup[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryAutoScalingGroup(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryAutoScalingGroup(entry, context)
+  );
 };
 
 const deserializeAws_queryAutoScalingGroupsType = (
@@ -7748,13 +7740,9 @@ const deserializeAws_queryAutoScalingInstances = (
   output: any,
   context: __SerdeContext
 ): AutoScalingInstanceDetails[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      deserializeAws_queryAutoScalingInstanceDetails(entry, context)
-    );
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryAutoScalingInstanceDetails(entry, context)
+  );
 };
 
 const deserializeAws_queryAutoScalingInstancesType = (
@@ -7791,22 +7779,18 @@ const deserializeAws_queryAutoScalingNotificationTypes = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryAvailabilityZones = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryBatchDeleteScheduledActionAnswer = (
@@ -7896,22 +7880,18 @@ const deserializeAws_queryBlockDeviceMappings = (
   output: any,
   context: __SerdeContext
 ): BlockDeviceMapping[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryBlockDeviceMapping(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryBlockDeviceMapping(entry, context)
+  );
 };
 
 const deserializeAws_queryClassicLinkVPCSecurityGroups = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryCompleteLifecycleActionAnswer = (
@@ -8390,11 +8370,9 @@ const deserializeAws_queryEnabledMetrics = (
   output: any,
   context: __SerdeContext
 ): EnabledMetric[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryEnabledMetric(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryEnabledMetric(entry, context)
+  );
 };
 
 const deserializeAws_queryEnterStandbyAnswer = (
@@ -8478,16 +8456,9 @@ const deserializeAws_queryFailedScheduledUpdateGroupActionRequests = (
   output: any,
   context: __SerdeContext
 ): FailedScheduledUpdateGroupActionRequest[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      deserializeAws_queryFailedScheduledUpdateGroupActionRequest(
-        entry,
-        context
-      )
-    );
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryFailedScheduledUpdateGroupActionRequest(entry, context)
+  );
 };
 
 const deserializeAws_queryInstance = (
@@ -8584,11 +8555,9 @@ const deserializeAws_queryInstances = (
   output: any,
   context: __SerdeContext
 ): Instance[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryInstance(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryInstance(entry, context)
+  );
 };
 
 const deserializeAws_queryInstancesDistribution = (
@@ -8825,11 +8794,9 @@ const deserializeAws_queryLaunchConfigurations = (
   output: any,
   context: __SerdeContext
 ): LaunchConfiguration[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryLaunchConfiguration(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryLaunchConfiguration(entry, context)
+  );
 };
 
 const deserializeAws_queryLaunchConfigurationsType = (
@@ -9026,11 +8993,9 @@ const deserializeAws_queryLifecycleHooks = (
   output: any,
   context: __SerdeContext
 ): LifecycleHook[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryLifecycleHook(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryLifecycleHook(entry, context)
+  );
 };
 
 const deserializeAws_queryLimitExceededFault = (
@@ -9054,11 +9019,9 @@ const deserializeAws_queryLoadBalancerNames = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryLoadBalancerState = (
@@ -9089,11 +9052,9 @@ const deserializeAws_queryLoadBalancerStates = (
   output: any,
   context: __SerdeContext
 ): LoadBalancerState[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryLoadBalancerState(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryLoadBalancerState(entry, context)
+  );
 };
 
 const deserializeAws_queryLoadBalancerTargetGroupState = (
@@ -9124,13 +9085,9 @@ const deserializeAws_queryLoadBalancerTargetGroupStates = (
   output: any,
   context: __SerdeContext
 ): LoadBalancerTargetGroupState[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      deserializeAws_queryLoadBalancerTargetGroupState(entry, context)
-    );
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryLoadBalancerTargetGroupState(entry, context)
+  );
 };
 
 const deserializeAws_queryMetricCollectionType = (
@@ -9154,11 +9111,9 @@ const deserializeAws_queryMetricCollectionTypes = (
   output: any,
   context: __SerdeContext
 ): MetricCollectionType[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryMetricCollectionType(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryMetricCollectionType(entry, context)
+  );
 };
 
 const deserializeAws_queryMetricDimension = (
@@ -9189,11 +9144,9 @@ const deserializeAws_queryMetricDimensions = (
   output: any,
   context: __SerdeContext
 ): MetricDimension[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryMetricDimension(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryMetricDimension(entry, context)
+  );
 };
 
 const deserializeAws_queryMetricGranularityType = (
@@ -9217,11 +9170,9 @@ const deserializeAws_queryMetricGranularityTypes = (
   output: any,
   context: __SerdeContext
 ): MetricGranularityType[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryMetricGranularityType(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryMetricGranularityType(entry, context)
+  );
 };
 
 const deserializeAws_queryMixedInstancesPolicy = (
@@ -9283,24 +9234,18 @@ const deserializeAws_queryNotificationConfigurations = (
   output: any,
   context: __SerdeContext
 ): NotificationConfiguration[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      deserializeAws_queryNotificationConfiguration(entry, context)
-    );
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryNotificationConfiguration(entry, context)
+  );
 };
 
 const deserializeAws_queryOverrides = (
   output: any,
   context: __SerdeContext
 ): LaunchTemplateOverrides[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryLaunchTemplateOverrides(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryLaunchTemplateOverrides(entry, context)
+  );
 };
 
 const deserializeAws_queryPoliciesType = (
@@ -9408,11 +9353,9 @@ const deserializeAws_queryProcesses = (
   output: any,
   context: __SerdeContext
 ): ProcessType[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryProcessType(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryProcessType(entry, context)
+  );
 };
 
 const deserializeAws_queryProcessesType = (
@@ -9513,11 +9456,9 @@ const deserializeAws_queryScalingPolicies = (
   output: any,
   context: __SerdeContext
 ): ScalingPolicy[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryScalingPolicy(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryScalingPolicy(entry, context)
+  );
 };
 
 const deserializeAws_queryScalingPolicy = (
@@ -9753,24 +9694,18 @@ const deserializeAws_queryScheduledUpdateGroupActions = (
   output: any,
   context: __SerdeContext
 ): ScheduledUpdateGroupAction[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      deserializeAws_queryScheduledUpdateGroupAction(entry, context)
-    );
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryScheduledUpdateGroupAction(entry, context)
+  );
 };
 
 const deserializeAws_querySecurityGroups = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryServiceLinkedRoleFailure = (
@@ -9838,11 +9773,9 @@ const deserializeAws_queryStepAdjustments = (
   output: any,
   context: __SerdeContext
 ): StepAdjustment[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryStepAdjustment(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryStepAdjustment(entry, context)
+  );
 };
 
 const deserializeAws_querySuspendedProcess = (
@@ -9873,11 +9806,9 @@ const deserializeAws_querySuspendedProcesses = (
   output: any,
   context: __SerdeContext
 ): SuspendedProcess[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_querySuspendedProcess(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_querySuspendedProcess(entry, context)
+  );
 };
 
 const deserializeAws_queryTagDescription = (
@@ -9929,11 +9860,9 @@ const deserializeAws_queryTagDescriptionList = (
   output: any,
   context: __SerdeContext
 ): TagDescription[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryTagDescription(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryTagDescription(entry, context)
+  );
 };
 
 const deserializeAws_queryTagsType = (
@@ -9967,11 +9896,9 @@ const deserializeAws_queryTargetGroupARNs = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryTargetTrackingConfiguration = (
@@ -10017,11 +9944,9 @@ const deserializeAws_queryTerminationPolicies = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

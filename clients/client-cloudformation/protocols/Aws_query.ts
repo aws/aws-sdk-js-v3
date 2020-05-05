@@ -7162,22 +7162,18 @@ const deserializeAws_queryAccountLimitList = (
   output: any,
   context: __SerdeContext
 ): AccountLimit[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryAccountLimit(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryAccountLimit(entry, context)
+  );
 };
 
 const deserializeAws_queryAllowedValues = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryAlreadyExistsException = (
@@ -7218,11 +7214,9 @@ const deserializeAws_queryCapabilities = (
   output: any,
   context: __SerdeContext
 ): (Capability | string)[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryChange = (
@@ -7270,11 +7264,9 @@ const deserializeAws_queryChangeSetSummaries = (
   output: any,
   context: __SerdeContext
 ): ChangeSetSummary[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryChangeSetSummary(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryChangeSetSummary(entry, context)
+  );
 };
 
 const deserializeAws_queryChangeSetSummary = (
@@ -7351,11 +7343,9 @@ const deserializeAws_queryChanges = (
   output: any,
   context: __SerdeContext
 ): Change[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryChange(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryChange(entry, context)
+  );
 };
 
 const deserializeAws_queryContinueUpdateRollbackOutput = (
@@ -8035,11 +8025,9 @@ const deserializeAws_queryExports = (
   output: any,
   context: __SerdeContext
 ): Export[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryExport(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryExport(entry, context)
+  );
 };
 
 const deserializeAws_queryGetStackPolicyOutput = (
@@ -8196,11 +8184,9 @@ const deserializeAws_queryImports = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryInsufficientCapabilitiesException = (
@@ -8539,22 +8525,18 @@ const deserializeAws_queryLogicalResourceIds = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryNotificationARNs = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryOperationStatusCheckFailedException = (
@@ -8616,11 +8598,9 @@ const deserializeAws_queryOutputs = (
   output: any,
   context: __SerdeContext
 ): Output[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryOutput(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryOutput(entry, context)
+  );
 };
 
 const deserializeAws_queryParameter = (
@@ -8740,35 +8720,27 @@ const deserializeAws_queryParameterDeclarations = (
   output: any,
   context: __SerdeContext
 ): ParameterDeclaration[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryParameterDeclaration(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryParameterDeclaration(entry, context)
+  );
 };
 
 const deserializeAws_queryParameters = (
   output: any,
   context: __SerdeContext
 ): Parameter[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryParameter(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryParameter(entry, context)
+  );
 };
 
 const deserializeAws_queryPhysicalResourceIdContext = (
   output: any,
   context: __SerdeContext
 ): PhysicalResourceIdContextKeyValuePair[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      deserializeAws_queryPhysicalResourceIdContextKeyValuePair(entry, context)
-    );
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryPhysicalResourceIdContextKeyValuePair(entry, context)
+  );
 };
 
 const deserializeAws_queryPhysicalResourceIdContextKeyValuePair = (
@@ -8837,11 +8809,9 @@ const deserializeAws_queryPropertyDifferences = (
   output: any,
   context: __SerdeContext
 ): PropertyDifference[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryPropertyDifference(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryPropertyDifference(entry, context)
+  );
 };
 
 const deserializeAws_queryRecordHandlerProgressOutput = (
@@ -8875,11 +8845,9 @@ const deserializeAws_queryRegistrationTokenList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryResourceChange = (
@@ -8995,24 +8963,18 @@ const deserializeAws_queryResourceChangeDetails = (
   output: any,
   context: __SerdeContext
 ): ResourceChangeDetail[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryResourceChangeDetail(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryResourceChangeDetail(entry, context)
+  );
 };
 
 const deserializeAws_queryResourceIdentifierSummaries = (
   output: any,
   context: __SerdeContext
 ): ResourceIdentifierSummary[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      deserializeAws_queryResourceIdentifierSummary(entry, context)
-    );
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryResourceIdentifierSummary(entry, context)
+  );
 };
 
 const deserializeAws_queryResourceIdentifierSummary = (
@@ -9062,11 +9024,9 @@ const deserializeAws_queryResourceIdentifiers = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryResourceTargetDefinition = (
@@ -9104,11 +9064,9 @@ const deserializeAws_queryResourceTypes = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryRollbackConfiguration = (
@@ -9170,22 +9128,18 @@ const deserializeAws_queryRollbackTriggers = (
   output: any,
   context: __SerdeContext
 ): RollbackTrigger[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryRollbackTrigger(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryRollbackTrigger(entry, context)
+  );
 };
 
 const deserializeAws_queryScope = (
   output: any,
   context: __SerdeContext
 ): (ResourceAttribute | string)[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_querySetTypeDefaultVersionOutput = (
@@ -9511,11 +9465,9 @@ const deserializeAws_queryStackEvents = (
   output: any,
   context: __SerdeContext
 ): StackEvent[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryStackEvent(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryStackEvent(entry, context)
+  );
 };
 
 const deserializeAws_queryStackResource = (
@@ -9814,22 +9766,18 @@ const deserializeAws_queryStackResourceDrifts = (
   output: any,
   context: __SerdeContext
 ): StackResourceDrift[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryStackResourceDrift(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryStackResourceDrift(entry, context)
+  );
 };
 
 const deserializeAws_queryStackResourceSummaries = (
   output: any,
   context: __SerdeContext
 ): StackResourceSummary[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryStackResourceSummary(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryStackResourceSummary(entry, context)
+  );
 };
 
 const deserializeAws_queryStackResourceSummary = (
@@ -9892,11 +9840,9 @@ const deserializeAws_queryStackResources = (
   output: any,
   context: __SerdeContext
 ): StackResource[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryStackResource(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryStackResource(entry, context)
+  );
 };
 
 const deserializeAws_queryStackSetNotFoundException = (
@@ -9920,11 +9866,9 @@ const deserializeAws_queryStackSummaries = (
   output: any,
   context: __SerdeContext
 ): StackSummary[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryStackSummary(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryStackSummary(entry, context)
+  );
 };
 
 const deserializeAws_queryStackSummary = (
@@ -10009,22 +9953,18 @@ const deserializeAws_queryStacks = (
   output: any,
   context: __SerdeContext
 ): Stack[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryStack(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryStack(entry, context)
+  );
 };
 
 const deserializeAws_queryStageList = (
   output: any,
   context: __SerdeContext
 ): (TemplateStage | string)[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
@@ -10052,11 +9992,9 @@ const deserializeAws_queryTags = (
   output: any,
   context: __SerdeContext
 ): Tag[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryTag(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryTag(entry, context)
+  );
 };
 
 const deserializeAws_queryTemplateParameter = (
@@ -10101,11 +10039,9 @@ const deserializeAws_queryTemplateParameters = (
   output: any,
   context: __SerdeContext
 ): TemplateParameter[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryTemplateParameter(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryTemplateParameter(entry, context)
+  );
 };
 
 const deserializeAws_queryTokenAlreadyExistsException = (
@@ -10129,11 +10065,9 @@ const deserializeAws_queryTransformsList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryTypeNotFoundException = (
@@ -10157,11 +10091,9 @@ const deserializeAws_queryTypeSummaries = (
   output: any,
   context: __SerdeContext
 ): TypeSummary[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryTypeSummary(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryTypeSummary(entry, context)
+  );
 };
 
 const deserializeAws_queryTypeSummary = (
@@ -10217,11 +10149,9 @@ const deserializeAws_queryTypeVersionSummaries = (
   output: any,
   context: __SerdeContext
 ): TypeVersionSummary[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryTypeVersionSummary(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryTypeVersionSummary(entry, context)
+  );
 };
 
 const deserializeAws_queryTypeVersionSummary = (
@@ -10749,11 +10679,9 @@ const deserializeAws_queryRegionList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryStackInstance = (
@@ -10855,11 +10783,9 @@ const deserializeAws_queryStackInstanceSummaries = (
   output: any,
   context: __SerdeContext
 ): StackInstanceSummary[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryStackInstanceSummary(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryStackInstanceSummary(entry, context)
+  );
 };
 
 const deserializeAws_queryStackInstanceSummary = (
@@ -11263,13 +11189,9 @@ const deserializeAws_queryStackSetOperationResultSummaries = (
   output: any,
   context: __SerdeContext
 ): StackSetOperationResultSummary[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      deserializeAws_queryStackSetOperationResultSummary(entry, context)
-    );
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryStackSetOperationResultSummary(entry, context)
+  );
 };
 
 const deserializeAws_queryStackSetOperationResultSummary = (
@@ -11321,11 +11243,9 @@ const deserializeAws_queryStackSetOperationSummaries = (
   output: any,
   context: __SerdeContext
 ): StackSetOperationSummary[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryStackSetOperationSummary(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryStackSetOperationSummary(entry, context)
+  );
 };
 
 const deserializeAws_queryStackSetOperationSummary = (
@@ -11371,11 +11291,9 @@ const deserializeAws_queryStackSetSummaries = (
   output: any,
   context: __SerdeContext
 ): StackSetSummary[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryStackSetSummary(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryStackSetSummary(entry, context)
+  );
 };
 
 const deserializeAws_queryStackSetSummary = (

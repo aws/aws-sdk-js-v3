@@ -4380,11 +4380,9 @@ const deserializeAws_queryAnalysisSchemeStatusList = (
   output: any,
   context: __SerdeContext
 ): AnalysisSchemeStatus[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryAnalysisSchemeStatus(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryAnalysisSchemeStatus(entry, context)
+  );
 };
 
 const deserializeAws_queryAvailabilityOptionsStatus = (
@@ -5129,11 +5127,9 @@ const deserializeAws_queryDomainStatusList = (
   output: any,
   context: __SerdeContext
 ): DomainStatus[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryDomainStatus(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryDomainStatus(entry, context)
+  );
 };
 
 const deserializeAws_queryDoubleArrayOptions = (
@@ -5287,22 +5283,18 @@ const deserializeAws_queryExpressionStatusList = (
   output: any,
   context: __SerdeContext
 ): ExpressionStatus[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryExpressionStatus(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryExpressionStatus(entry, context)
+  );
 };
 
 const deserializeAws_queryFieldNameList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryIndexDocumentsResponse = (
@@ -5457,11 +5449,9 @@ const deserializeAws_queryIndexFieldStatusList = (
   output: any,
   context: __SerdeContext
 ): IndexFieldStatus[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryIndexFieldStatus(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryIndexFieldStatus(entry, context)
+  );
 };
 
 const deserializeAws_queryIntArrayOptions = (
@@ -6023,11 +6013,9 @@ const deserializeAws_querySuggesterStatusList = (
   output: any,
   context: __SerdeContext
 ): SuggesterStatus[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_querySuggesterStatus(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_querySuggesterStatus(entry, context)
+  );
 };
 
 const deserializeAws_queryTextArrayOptions = (

@@ -2899,26 +2899,18 @@ const deserializeAws_queryBatchResultErrorEntryList = (
   output: any,
   context: __SerdeContext
 ): BatchResultErrorEntry[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryBatchResultErrorEntry(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryBatchResultErrorEntry(entry, context)
+  );
 };
 
 const deserializeAws_queryBinaryList = (
   output: any,
   context: __SerdeContext
 ): Uint8Array[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      context.base64Decoder(
-        entry["#text"] !== undefined ? entry["#text"] : entry
-      )
-    );
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    context.base64Decoder(entry["#text"] !== undefined ? entry["#text"] : entry)
+  );
 };
 
 const deserializeAws_queryChangeMessageVisibilityBatchResult = (
@@ -2972,16 +2964,9 @@ const deserializeAws_queryChangeMessageVisibilityBatchResultEntryList = (
   output: any,
   context: __SerdeContext
 ): ChangeMessageVisibilityBatchResultEntry[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      deserializeAws_queryChangeMessageVisibilityBatchResultEntry(
-        entry,
-        context
-      )
-    );
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryChangeMessageVisibilityBatchResultEntry(entry, context)
+  );
 };
 
 const deserializeAws_queryCreateQueueResult = (
@@ -3052,13 +3037,9 @@ const deserializeAws_queryDeleteMessageBatchResultEntryList = (
   output: any,
   context: __SerdeContext
 ): DeleteMessageBatchResultEntry[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      deserializeAws_queryDeleteMessageBatchResultEntry(entry, context)
-    );
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryDeleteMessageBatchResultEntry(entry, context)
+  );
 };
 
 const deserializeAws_queryEmptyBatchRequest = (
@@ -3343,11 +3324,9 @@ const deserializeAws_queryMessageList = (
   output: any,
   context: __SerdeContext
 ): Message[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryMessage(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryMessage(entry, context)
+  );
 };
 
 const deserializeAws_queryMessageNotInflight = (
@@ -3442,11 +3421,9 @@ const deserializeAws_queryQueueUrlList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryReceiptHandleIsInvalid = (
@@ -3565,13 +3542,9 @@ const deserializeAws_querySendMessageBatchResultEntryList = (
   output: any,
   context: __SerdeContext
 ): SendMessageBatchResultEntry[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      deserializeAws_querySendMessageBatchResultEntry(entry, context)
-    );
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_querySendMessageBatchResultEntry(entry, context)
+  );
 };
 
 const deserializeAws_querySendMessageResult = (
@@ -3623,11 +3596,9 @@ const deserializeAws_queryStringList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryTagMap = (

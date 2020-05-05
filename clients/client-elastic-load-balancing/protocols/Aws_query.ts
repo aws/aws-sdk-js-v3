@@ -4699,24 +4699,18 @@ const deserializeAws_queryAdditionalAttributes = (
   output: any,
   context: __SerdeContext
 ): AdditionalAttribute[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryAdditionalAttribute(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryAdditionalAttribute(entry, context)
+  );
 };
 
 const deserializeAws_queryAppCookieStickinessPolicies = (
   output: any,
   context: __SerdeContext
 ): AppCookieStickinessPolicy[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      deserializeAws_queryAppCookieStickinessPolicy(entry, context)
-    );
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryAppCookieStickinessPolicy(entry, context)
+  );
 };
 
 const deserializeAws_queryAppCookieStickinessPolicy = (
@@ -4793,11 +4787,9 @@ const deserializeAws_queryAvailabilityZones = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryBackendServerDescription = (
@@ -4835,11 +4827,9 @@ const deserializeAws_queryBackendServerDescriptions = (
   output: any,
   context: __SerdeContext
 ): BackendServerDescription[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryBackendServerDescription(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryBackendServerDescription(entry, context)
+  );
 };
 
 const deserializeAws_queryCertificateNotFoundException = (
@@ -5431,22 +5421,18 @@ const deserializeAws_queryInstanceStates = (
   output: any,
   context: __SerdeContext
 ): InstanceState[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryInstanceState(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryInstanceState(entry, context)
+  );
 };
 
 const deserializeAws_queryInstances = (
   output: any,
   context: __SerdeContext
 ): Instance[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryInstance(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryInstance(entry, context)
+  );
 };
 
 const deserializeAws_queryInvalidConfigurationRequestException = (
@@ -5538,11 +5524,9 @@ const deserializeAws_queryLBCookieStickinessPolicies = (
   output: any,
   context: __SerdeContext
 ): LBCookieStickinessPolicy[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryLBCookieStickinessPolicy(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryLBCookieStickinessPolicy(entry, context)
+  );
 };
 
 const deserializeAws_queryLBCookieStickinessPolicy = (
@@ -5598,11 +5582,9 @@ const deserializeAws_queryLimits = (
   output: any,
   context: __SerdeContext
 ): Limit[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryLimit(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryLimit(entry, context)
+  );
 };
 
 const deserializeAws_queryListener = (
@@ -5686,11 +5668,9 @@ const deserializeAws_queryListenerDescriptions = (
   output: any,
   context: __SerdeContext
 ): ListenerDescription[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryListenerDescription(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryListenerDescription(entry, context)
+  );
 };
 
 const deserializeAws_queryListenerNotFoundException = (
@@ -5937,11 +5917,9 @@ const deserializeAws_queryLoadBalancerDescriptions = (
   output: any,
   context: __SerdeContext
 ): LoadBalancerDescription[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryLoadBalancerDescription(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryLoadBalancerDescription(entry, context)
+  );
 };
 
 const deserializeAws_queryModifyLoadBalancerAttributesOutput = (
@@ -6062,13 +6040,9 @@ const deserializeAws_queryPolicyAttributeDescriptions = (
   output: any,
   context: __SerdeContext
 ): PolicyAttributeDescription[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      deserializeAws_queryPolicyAttributeDescription(entry, context)
-    );
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryPolicyAttributeDescription(entry, context)
+  );
 };
 
 const deserializeAws_queryPolicyAttributeTypeDescription = (
@@ -6120,13 +6094,9 @@ const deserializeAws_queryPolicyAttributeTypeDescriptions = (
   output: any,
   context: __SerdeContext
 ): PolicyAttributeTypeDescription[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      deserializeAws_queryPolicyAttributeTypeDescription(entry, context)
-    );
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryPolicyAttributeTypeDescription(entry, context)
+  );
 };
 
 const deserializeAws_queryPolicyDescription = (
@@ -6170,22 +6140,18 @@ const deserializeAws_queryPolicyDescriptions = (
   output: any,
   context: __SerdeContext
 ): PolicyDescription[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryPolicyDescription(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryPolicyDescription(entry, context)
+  );
 };
 
 const deserializeAws_queryPolicyNames = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryPolicyNotFoundException = (
@@ -6248,11 +6214,9 @@ const deserializeAws_queryPolicyTypeDescriptions = (
   output: any,
   context: __SerdeContext
 ): PolicyTypeDescription[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryPolicyTypeDescription(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryPolicyTypeDescription(entry, context)
+  );
 };
 
 const deserializeAws_queryPolicyTypeNotFoundException = (
@@ -6332,11 +6296,9 @@ const deserializeAws_querySecurityGroups = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_querySetLoadBalancerListenerSSLCertificateOutput = (
@@ -6414,11 +6376,9 @@ const deserializeAws_querySubnets = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
@@ -6473,22 +6433,18 @@ const deserializeAws_queryTagDescriptions = (
   output: any,
   context: __SerdeContext
 ): TagDescription[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryTagDescription(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryTagDescription(entry, context)
+  );
 };
 
 const deserializeAws_queryTagList = (
   output: any,
   context: __SerdeContext
 ): Tag[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryTag(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryTag(entry, context)
+  );
 };
 
 const deserializeAws_queryTooManyAccessPointsException = (

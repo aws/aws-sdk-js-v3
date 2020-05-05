@@ -4386,11 +4386,9 @@ const deserializeAws_queryAlarmHistoryItems = (
   output: any,
   context: __SerdeContext
 ): AlarmHistoryItem[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryAlarmHistoryItem(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryAlarmHistoryItem(entry, context)
+  );
 };
 
 const deserializeAws_queryAnomalyDetector = (
@@ -4485,33 +4483,27 @@ const deserializeAws_queryAnomalyDetectorExcludedTimeRanges = (
   output: any,
   context: __SerdeContext
 ): Range[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryRange(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryRange(entry, context)
+  );
 };
 
 const deserializeAws_queryAnomalyDetectors = (
   output: any,
   context: __SerdeContext
 ): AnomalyDetector[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryAnomalyDetector(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryAnomalyDetector(entry, context)
+  );
 };
 
 const deserializeAws_queryBatchFailures = (
   output: any,
   context: __SerdeContext
 ): PartialFailure[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryPartialFailure(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryPartialFailure(entry, context)
+  );
 };
 
 const deserializeAws_queryConcurrentModificationException = (
@@ -4535,11 +4527,9 @@ const deserializeAws_queryDashboardEntries = (
   output: any,
   context: __SerdeContext
 ): DashboardEntry[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryDashboardEntry(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryDashboardEntry(entry, context)
+  );
 };
 
 const deserializeAws_queryDashboardEntry = (
@@ -4653,13 +4643,9 @@ const deserializeAws_queryDashboardValidationMessages = (
   output: any,
   context: __SerdeContext
 ): DashboardValidationMessage[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      deserializeAws_queryDashboardValidationMessage(entry, context)
-    );
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryDashboardValidationMessage(entry, context)
+  );
 };
 
 const deserializeAws_queryDatapoint = (
@@ -4755,24 +4741,18 @@ const deserializeAws_queryDatapointValues = (
   output: any,
   context: __SerdeContext
 ): number[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      parseFloat(entry["#text"] !== undefined ? entry["#text"] : entry)
-    );
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    parseFloat(entry["#text"] !== undefined ? entry["#text"] : entry)
+  );
 };
 
 const deserializeAws_queryDatapoints = (
   output: any,
   context: __SerdeContext
 ): Datapoint[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryDatapoint(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryDatapoint(entry, context)
+  );
 };
 
 const deserializeAws_queryDeleteAnomalyDetectorOutput = (
@@ -4989,11 +4969,9 @@ const deserializeAws_queryDimensions = (
   output: any,
   context: __SerdeContext
 ): Dimension[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryDimension(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryDimension(entry, context)
+  );
 };
 
 const deserializeAws_queryDisableInsightRulesOutput = (
@@ -5341,46 +5319,36 @@ const deserializeAws_queryInsightRuleContributorDatapoints = (
   output: any,
   context: __SerdeContext
 ): InsightRuleContributorDatapoint[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      deserializeAws_queryInsightRuleContributorDatapoint(entry, context)
-    );
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryInsightRuleContributorDatapoint(entry, context)
+  );
 };
 
 const deserializeAws_queryInsightRuleContributorKeyLabels = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryInsightRuleContributorKeys = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryInsightRuleContributors = (
   output: any,
   context: __SerdeContext
 ): InsightRuleContributor[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryInsightRuleContributor(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryInsightRuleContributor(entry, context)
+  );
 };
 
 const deserializeAws_queryInsightRuleMetricDatapoint = (
@@ -5457,24 +5425,18 @@ const deserializeAws_queryInsightRuleMetricDatapoints = (
   output: any,
   context: __SerdeContext
 ): InsightRuleMetricDatapoint[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      deserializeAws_queryInsightRuleMetricDatapoint(entry, context)
-    );
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryInsightRuleMetricDatapoint(entry, context)
+  );
 };
 
 const deserializeAws_queryInsightRules = (
   output: any,
   context: __SerdeContext
 ): InsightRule[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryInsightRule(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryInsightRule(entry, context)
+  );
 };
 
 const deserializeAws_queryInternalServiceFault = (
@@ -5936,22 +5898,18 @@ const deserializeAws_queryMetricAlarms = (
   output: any,
   context: __SerdeContext
 ): MetricAlarm[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryMetricAlarm(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryMetricAlarm(entry, context)
+  );
 };
 
 const deserializeAws_queryMetricDataQueries = (
   output: any,
   context: __SerdeContext
 ): MetricDataQuery[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryMetricDataQuery(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryMetricDataQuery(entry, context)
+  );
 };
 
 const deserializeAws_queryMetricDataQuery = (
@@ -6081,22 +6039,18 @@ const deserializeAws_queryMetricDataResultMessages = (
   output: any,
   context: __SerdeContext
 ): MessageData[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryMessageData(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryMessageData(entry, context)
+  );
 };
 
 const deserializeAws_queryMetricDataResults = (
   output: any,
   context: __SerdeContext
 ): MetricDataResult[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryMetricDataResult(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryMetricDataResult(entry, context)
+  );
 };
 
 const deserializeAws_queryMetricStat = (
@@ -6139,11 +6093,9 @@ const deserializeAws_queryMetrics = (
   output: any,
   context: __SerdeContext
 ): Metric[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryMetric(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryMetric(entry, context)
+  );
 };
 
 const deserializeAws_queryPartialFailure = (
@@ -6249,11 +6201,9 @@ const deserializeAws_queryResourceList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_queryResourceNotFound = (
@@ -6329,11 +6279,9 @@ const deserializeAws_queryTagList = (
   output: any,
   context: __SerdeContext
 ): Tag[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryTag(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryTag(entry, context)
+  );
 };
 
 const deserializeAws_queryTagResourceOutput = (
@@ -6350,11 +6298,7 @@ const deserializeAws_queryTimestamps = (
   output: any,
   context: __SerdeContext
 ): Date[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(new Date(entry));
-  });
-  return contents;
+  return (output || []).map((entry: any) => new Date(entry));
 };
 
 const deserializeAws_queryUntagResourceOutput = (

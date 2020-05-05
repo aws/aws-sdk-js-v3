@@ -9784,22 +9784,18 @@ const deserializeAws_restXmlCheckerIpRanges = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_restXmlChildHealthCheckList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_restXmlCloudWatchAlarmConfiguration = (
@@ -9918,22 +9914,18 @@ const deserializeAws_restXmlDelegationSetNameServers = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_restXmlDelegationSets = (
   output: any,
   context: __SerdeContext
 ): DelegationSet[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_restXmlDelegationSet(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_restXmlDelegationSet(entry, context)
+  );
 };
 
 const deserializeAws_restXmlDimension = (
@@ -9964,22 +9956,18 @@ const deserializeAws_restXmlDimensionList = (
   output: any,
   context: __SerdeContext
 ): Dimension[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_restXmlDimension(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_restXmlDimension(entry, context)
+  );
 };
 
 const deserializeAws_restXmlErrorMessages = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_restXmlGeoLocation = (
@@ -10069,11 +10057,9 @@ const deserializeAws_restXmlGeoLocationDetailsList = (
   output: any,
   context: __SerdeContext
 ): GeoLocationDetails[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_restXmlGeoLocationDetails(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_restXmlGeoLocationDetails(entry, context)
+  );
 };
 
 const deserializeAws_restXmlHealthCheck = (
@@ -10309,33 +10295,27 @@ const deserializeAws_restXmlHealthCheckObservations = (
   output: any,
   context: __SerdeContext
 ): HealthCheckObservation[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_restXmlHealthCheckObservation(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_restXmlHealthCheckObservation(entry, context)
+  );
 };
 
 const deserializeAws_restXmlHealthCheckRegionList = (
   output: any,
   context: __SerdeContext
 ): (HealthCheckRegion | string)[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_restXmlHealthChecks = (
   output: any,
   context: __SerdeContext
 ): HealthCheck[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_restXmlHealthCheck(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_restXmlHealthCheck(entry, context)
+  );
 };
 
 const deserializeAws_restXmlHostedZone = (
@@ -10444,11 +10424,9 @@ const deserializeAws_restXmlHostedZones = (
   output: any,
   context: __SerdeContext
 ): HostedZone[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_restXmlHostedZone(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_restXmlHostedZone(entry, context)
+  );
 };
 
 const deserializeAws_restXmlLinkedService = (
@@ -10510,22 +10488,18 @@ const deserializeAws_restXmlQueryLoggingConfigs = (
   output: any,
   context: __SerdeContext
 ): QueryLoggingConfig[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_restXmlQueryLoggingConfig(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_restXmlQueryLoggingConfig(entry, context)
+  );
 };
 
 const deserializeAws_restXmlRecordData = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    entry["#text"] !== undefined ? entry["#text"] : entry
+  );
 };
 
 const deserializeAws_restXmlResourceRecord = (
@@ -10658,22 +10632,18 @@ const deserializeAws_restXmlResourceRecordSets = (
   output: any,
   context: __SerdeContext
 ): ResourceRecordSet[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_restXmlResourceRecordSet(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_restXmlResourceRecordSet(entry, context)
+  );
 };
 
 const deserializeAws_restXmlResourceRecords = (
   output: any,
   context: __SerdeContext
 ): ResourceRecord[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_restXmlResourceRecord(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_restXmlResourceRecord(entry, context)
+  );
 };
 
 const deserializeAws_restXmlResourceTagSet = (
@@ -10714,11 +10684,9 @@ const deserializeAws_restXmlResourceTagSetList = (
   output: any,
   context: __SerdeContext
 ): ResourceTagSet[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_restXmlResourceTagSet(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_restXmlResourceTagSet(entry, context)
+  );
 };
 
 const deserializeAws_restXmlReusableDelegationSetLimit = (
@@ -10795,22 +10763,18 @@ const deserializeAws_restXmlTagList = (
   output: any,
   context: __SerdeContext
 ): Tag[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_restXmlTag(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_restXmlTag(entry, context)
+  );
 };
 
 const deserializeAws_restXmlTrafficPolicies = (
   output: any,
   context: __SerdeContext
 ): TrafficPolicy[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_restXmlTrafficPolicy(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_restXmlTrafficPolicy(entry, context)
+  );
 };
 
 const deserializeAws_restXmlTrafficPolicy = (
@@ -10945,22 +10909,18 @@ const deserializeAws_restXmlTrafficPolicyInstances = (
   output: any,
   context: __SerdeContext
 ): TrafficPolicyInstance[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_restXmlTrafficPolicyInstance(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_restXmlTrafficPolicyInstance(entry, context)
+  );
 };
 
 const deserializeAws_restXmlTrafficPolicySummaries = (
   output: any,
   context: __SerdeContext
 ): TrafficPolicySummary[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_restXmlTrafficPolicySummary(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_restXmlTrafficPolicySummary(entry, context)
+  );
 };
 
 const deserializeAws_restXmlTrafficPolicySummary = (
@@ -11038,11 +10998,9 @@ const deserializeAws_restXmlVPCs = (
   output: any,
   context: __SerdeContext
 ): VPC[] => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_restXmlVPC(entry, context));
-  });
-  return contents;
+  return (output || []).map((entry: any) =>
+    deserializeAws_restXmlVPC(entry, context)
+  );
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
