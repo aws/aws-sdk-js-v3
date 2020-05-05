@@ -9121,17 +9121,17 @@ export namespace SelectObjectContentEventStream {
     Stats: (value: StatsEvent) => T;
     _: (name: string, value: any) => T;
   }
-  export function visit<T>(
+  export const visit = <T>(
     value: SelectObjectContentEventStream,
     visitor: Visitor<T>
-  ): T {
+  ): T => {
     if (value.Cont !== undefined) return visitor.Cont(value.Cont);
     if (value.End !== undefined) return visitor.End(value.End);
     if (value.Progress !== undefined) return visitor.Progress(value.Progress);
     if (value.Records !== undefined) return visitor.Records(value.Records);
     if (value.Stats !== undefined) return visitor.Stats(value.Stats);
     return visitor._(value.$unknown[0], value.$unknown[1]);
-  }
+  };
 }
 
 export interface SelectObjectContentOutput {

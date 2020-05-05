@@ -90,7 +90,7 @@ export namespace ArrayValue {
     stringValues: (value: string[]) => T;
     _: (name: string, value: any) => T;
   }
-  export function visit<T>(value: ArrayValue, visitor: Visitor<T>): T {
+  export const visit = <T>(value: ArrayValue, visitor: Visitor<T>): T => {
     if (value.arrayValues !== undefined)
       return visitor.arrayValues(value.arrayValues);
     if (value.booleanValues !== undefined)
@@ -102,7 +102,7 @@ export namespace ArrayValue {
     if (value.stringValues !== undefined)
       return visitor.stringValues(value.stringValues);
     return visitor._(value.$unknown[0], value.$unknown[1]);
-  }
+  };
 }
 
 /**
@@ -648,7 +648,7 @@ export namespace Field {
     stringValue: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-  export function visit<T>(value: Field, visitor: Visitor<T>): T {
+  export const visit = <T>(value: Field, visitor: Visitor<T>): T => {
     if (value.arrayValue !== undefined)
       return visitor.arrayValue(value.arrayValue);
     if (value.blobValue !== undefined)
@@ -663,7 +663,7 @@ export namespace Field {
     if (value.stringValue !== undefined)
       return visitor.stringValue(value.stringValue);
     return visitor._(value.$unknown[0], value.$unknown[1]);
-  }
+  };
 }
 
 /**
@@ -1132,7 +1132,7 @@ export namespace Value {
     structValue: (value: StructValue) => T;
     _: (name: string, value: any) => T;
   }
-  export function visit<T>(value: Value, visitor: Visitor<T>): T {
+  export const visit = <T>(value: Value, visitor: Visitor<T>): T => {
     if (value.arrayValues !== undefined)
       return visitor.arrayValues(value.arrayValues);
     if (value.bigIntValue !== undefined)
@@ -1151,5 +1151,5 @@ export namespace Value {
     if (value.structValue !== undefined)
       return visitor.structValue(value.structValue);
     return visitor._(value.$unknown[0], value.$unknown[1]);
-  }
+  };
 }

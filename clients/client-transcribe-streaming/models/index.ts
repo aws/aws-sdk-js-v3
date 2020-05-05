@@ -66,11 +66,11 @@ export namespace AudioStream {
     AudioEvent: (value: AudioEvent) => T;
     _: (name: string, value: any) => T;
   }
-  export function visit<T>(value: AudioStream, visitor: Visitor<T>): T {
+  export const visit = <T>(value: AudioStream, visitor: Visitor<T>): T => {
     if (value.AudioEvent !== undefined)
       return visitor.AudioEvent(value.AudioEvent);
     return visitor._(value.$unknown[0], value.$unknown[1]);
-  }
+  };
 }
 
 /**
@@ -446,10 +446,10 @@ export namespace TranscriptResultStream {
     TranscriptEvent: (value: TranscriptEvent) => T;
     _: (name: string, value: any) => T;
   }
-  export function visit<T>(
+  export const visit = <T>(
     value: TranscriptResultStream,
     visitor: Visitor<T>
-  ): T {
+  ): T => {
     if (value.BadRequestException !== undefined)
       return visitor.BadRequestException(value.BadRequestException);
     if (value.ConflictException !== undefined)
@@ -461,7 +461,7 @@ export namespace TranscriptResultStream {
     if (value.TranscriptEvent !== undefined)
       return visitor.TranscriptEvent(value.TranscriptEvent);
     return visitor._(value.$unknown[0], value.$unknown[1]);
-  }
+  };
 }
 
 export enum MediaEncoding {
