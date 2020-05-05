@@ -16022,17 +16022,16 @@ function isSerializableHeaderValue(value: any): boolean {
   );
 }
 
-const decodeEscapedXML = (str: string) => {
-  return str
+const decodeEscapedXML = (str: string) =>
+  str
     .replace(/&amp;/g, "&")
     .replace(/&apos;/g, "'")
     .replace(/&quot;/g, '"')
     .replace(/&gt;/g, ">")
     .replace(/&lt;/g, "<");
-};
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       const parsedObj = xmlParse(encoded, {
         attributeNamePrefix: "",
@@ -16051,7 +16050,6 @@ const parseBody = (streamBody: any, context: __SerdeContext): any => {
     }
     return {};
   });
-};
 
 const loadRestXmlErrorCode = (output: __HttpResponse, data: any): string => {
   if (data.Code !== undefined) {
