@@ -3310,14 +3310,13 @@ const deserializeAws_queryMessageBodyAttributeMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: MessageAttributeValue } => {
-  const mapParams: any = {};
-  output.forEach((pair: any) => {
-    mapParams[pair["Name"]] = deserializeAws_queryMessageAttributeValue(
+  return output.reduce((acc: any, pair: any) => {
+    acc[pair["Name"]] = deserializeAws_queryMessageAttributeValue(
       pair["Value"],
       context
     );
-  });
-  return mapParams;
+    return acc;
+  }, {});
 };
 
 const deserializeAws_queryMessageList = (
@@ -3343,14 +3342,13 @@ const deserializeAws_queryMessageSystemAttributeMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  output.forEach((pair: any) => {
-    mapParams[pair["Name"]] =
+  return output.reduce((acc: any, pair: any) => {
+    acc[pair["Name"]] =
       pair["Value"]["#text"] !== undefined
         ? pair["Value"]["#text"]
         : pair["Value"];
-  });
-  return mapParams;
+    return acc;
+  }, {});
 };
 
 const deserializeAws_queryOverLimit = (
@@ -3377,14 +3375,13 @@ const deserializeAws_queryQueueAttributeMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  output.forEach((pair: any) => {
-    mapParams[pair["Name"]] =
+  return output.reduce((acc: any, pair: any) => {
+    acc[pair["Name"]] =
       pair["Value"]["#text"] !== undefined
         ? pair["Value"]["#text"]
         : pair["Value"];
-  });
-  return mapParams;
+    return acc;
+  }, {});
 };
 
 const deserializeAws_queryQueueDeletedRecently = (
@@ -3605,14 +3602,13 @@ const deserializeAws_queryTagMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  output.forEach((pair: any) => {
-    mapParams[pair["Key"]] =
+  return output.reduce((acc: any, pair: any) => {
+    acc[pair["Key"]] =
       pair["Value"]["#text"] !== undefined
         ? pair["Value"]["#text"]
         : pair["Value"];
-  });
-  return mapParams;
+    return acc;
+  }, {});
 };
 
 const deserializeAws_queryTooManyEntriesInBatchRequest = (

@@ -18478,14 +18478,13 @@ const deserializeAws_queryEvalDecisionDetailsType = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: PolicyEvaluationDecisionType | string } => {
-  const mapParams: any = {};
-  output.forEach((pair: any) => {
-    mapParams[pair["key"]] =
+  return output.reduce((acc: any, pair: any) => {
+    acc[pair["key"]] =
       pair["value"]["#text"] !== undefined
         ? pair["value"]["#text"]
         : pair["value"];
-  });
-  return mapParams;
+    return acc;
+  }, {});
 };
 
 const deserializeAws_queryEvaluationResult = (
@@ -22839,15 +22838,14 @@ const deserializeAws_querysummaryMapType = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: number } => {
-  const mapParams: any = {};
-  output.forEach((pair: any) => {
-    mapParams[pair["key"]] = parseInt(
+  return output.reduce((acc: any, pair: any) => {
+    acc[pair["key"]] = parseInt(
       pair["value"]["#text"] !== undefined
         ? pair["value"]["#text"]
         : pair["value"]
     );
-  });
-  return mapParams;
+    return acc;
+  }, {});
 };
 
 const deserializeAws_querytagListType = (

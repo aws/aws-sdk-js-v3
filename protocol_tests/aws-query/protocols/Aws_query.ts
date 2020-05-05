@@ -2038,12 +2038,11 @@ const deserializeAws_queryFlattenedXmlMapWithXmlNameOutputMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  output.forEach((pair: any) => {
-    mapParams[pair["K"]] =
+  return output.reduce((acc: any, pair: any) => {
+    acc[pair["K"]] =
       pair["V"]["#text"] !== undefined ? pair["V"]["#text"] : pair["V"];
-  });
-  return mapParams;
+    return acc;
+  }, {});
 };
 
 const deserializeAws_queryGreetingWithErrorsOutput = (
@@ -2549,14 +2548,13 @@ const deserializeAws_queryXmlMapsOutputMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: GreetingStruct } => {
-  const mapParams: any = {};
-  output.forEach((pair: any) => {
-    mapParams[pair["key"]] = deserializeAws_queryGreetingStruct(
+  return output.reduce((acc: any, pair: any) => {
+    acc[pair["key"]] = deserializeAws_queryGreetingStruct(
       pair["value"],
       context
     );
-  });
-  return mapParams;
+    return acc;
+  }, {});
 };
 
 const deserializeAws_queryXmlMapsXmlNameOutput = (
@@ -2583,14 +2581,13 @@ const deserializeAws_queryXmlMapsXmlNameOutputMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: GreetingStruct } => {
-  const mapParams: any = {};
-  output.forEach((pair: any) => {
-    mapParams[pair["Attribute"]] = deserializeAws_queryGreetingStruct(
+  return output.reduce((acc: any, pair: any) => {
+    acc[pair["Attribute"]] = deserializeAws_queryGreetingStruct(
       pair["Setting"],
       context
     );
-  });
-  return mapParams;
+    return acc;
+  }, {});
 };
 
 const deserializeAws_queryXmlNamespaceNested = (
@@ -2698,14 +2695,13 @@ const deserializeAws_queryFooEnumMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: FooEnum | string } => {
-  const mapParams: any = {};
-  output.forEach((pair: any) => {
-    mapParams[pair["key"]] =
+  return output.reduce((acc: any, pair: any) => {
+    acc[pair["key"]] =
       pair["value"]["#text"] !== undefined
         ? pair["value"]["#text"]
         : pair["value"];
-  });
-  return mapParams;
+    return acc;
+  }, {});
 };
 
 const deserializeAws_queryFooEnumSet = (

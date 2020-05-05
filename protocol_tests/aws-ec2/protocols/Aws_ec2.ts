@@ -2099,14 +2099,13 @@ const deserializeAws_ec2FooEnumMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: FooEnum | string } => {
-  const mapParams: any = {};
-  output.forEach((pair: any) => {
-    mapParams[pair["key"]] =
+  return output.reduce((acc: any, pair: any) => {
+    acc[pair["key"]] =
       pair["value"]["#text"] !== undefined
         ? pair["value"]["#text"]
         : pair["value"];
-  });
-  return mapParams;
+    return acc;
+  }, {});
 };
 
 const deserializeAws_ec2FooEnumSet = (

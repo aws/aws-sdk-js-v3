@@ -10072,14 +10072,13 @@ const deserializeAws_queryDkimAttributes = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: IdentityDkimAttributes } => {
-  const mapParams: any = {};
-  output.forEach((pair: any) => {
-    mapParams[pair["key"]] = deserializeAws_queryIdentityDkimAttributes(
+  return output.reduce((acc: any, pair: any) => {
+    acc[pair["key"]] = deserializeAws_queryIdentityDkimAttributes(
       pair["value"],
       context
     );
-  });
-  return mapParams;
+    return acc;
+  }, {});
 };
 
 const deserializeAws_queryEventDestination = (
@@ -11240,16 +11239,13 @@ const deserializeAws_queryMailFromDomainAttributes = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: IdentityMailFromDomainAttributes } => {
-  const mapParams: any = {};
-  output.forEach((pair: any) => {
-    mapParams[
-      pair["key"]
-    ] = deserializeAws_queryIdentityMailFromDomainAttributes(
+  return output.reduce((acc: any, pair: any) => {
+    acc[pair["key"]] = deserializeAws_queryIdentityMailFromDomainAttributes(
       pair["value"],
       context
     );
-  });
-  return mapParams;
+    return acc;
+  }, {});
 };
 
 const deserializeAws_queryMailFromDomainNotVerifiedException = (
@@ -11314,28 +11310,26 @@ const deserializeAws_queryNotificationAttributes = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: IdentityNotificationAttributes } => {
-  const mapParams: any = {};
-  output.forEach((pair: any) => {
-    mapParams[pair["key"]] = deserializeAws_queryIdentityNotificationAttributes(
+  return output.reduce((acc: any, pair: any) => {
+    acc[pair["key"]] = deserializeAws_queryIdentityNotificationAttributes(
       pair["value"],
       context
     );
-  });
-  return mapParams;
+    return acc;
+  }, {});
 };
 
 const deserializeAws_queryPolicyMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  output.forEach((pair: any) => {
-    mapParams[pair["key"]] =
+  return output.reduce((acc: any, pair: any) => {
+    acc[pair["key"]] =
       pair["value"]["#text"] !== undefined
         ? pair["value"]["#text"]
         : pair["value"];
-  });
-  return mapParams;
+    return acc;
+  }, {});
 };
 
 const deserializeAws_queryPolicyNameList = (
@@ -12261,14 +12255,13 @@ const deserializeAws_queryVerificationAttributes = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: IdentityVerificationAttributes } => {
-  const mapParams: any = {};
-  output.forEach((pair: any) => {
-    mapParams[pair["key"]] = deserializeAws_queryIdentityVerificationAttributes(
+  return output.reduce((acc: any, pair: any) => {
+    acc[pair["key"]] = deserializeAws_queryIdentityVerificationAttributes(
       pair["value"],
       context
     );
-  });
-  return mapParams;
+    return acc;
+  }, {});
 };
 
 const deserializeAws_queryVerificationTokenList = (
