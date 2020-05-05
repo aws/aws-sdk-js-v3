@@ -80,12 +80,12 @@ final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
         }
 
         TypeScriptWriter writer = context.getWriter();
+        writer.addImport("getArrayIfSingleItem", "__getArrayIfSingleItem", "@aws-sdk/smithy-client");
         // The XML parser will set one K:V for a member that could
         // return multiple entries but only has one.
         // Update the target element if we target another level of collection.
         String targetLocation = getUnnamedAggregateTargetLocation(context.getModel(), target);
-        writer.write("const wrappedItem = ($1L[$2S] instanceof Array) ? $1L[$2S] : [$1L[$2S]];",
-                dataSource, targetLocation);
+        writer.write("const wrappedItem = __getArrayIfSingleItem($1L[$2S]);", dataSource, targetLocation);
         return "wrappedItem";
     }
 
@@ -223,9 +223,10 @@ final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
         }
 
         TypeScriptWriter writer = context.getWriter();
+        writer.addImport("getArrayIfSingleItem", "__getArrayIfSingleItem", "@aws-sdk/smithy-client");
         // The XML parser will set one K:V for a member that could
         // return multiple entries but only has one.
-        writer.write("const wrappedItem = ($1L instanceof Array) ? $1L : [$1L];", dataSource);
+        writer.write("const wrappedItem = __getArrayIfSingleItem($1L)", dataSource);
         return "wrappedItem";
     }
 
