@@ -2676,21 +2676,15 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
-function isSerializableHeaderValue(value: any): boolean {
-  return (
-    value !== undefined &&
-    value !== "" &&
-    (!Object.getOwnPropertyNames(value).includes("length") ||
-      value.length != 0) &&
-    (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0)
-  );
-}
+const isSerializableHeaderValue = (value: any): boolean =>
+  value !== undefined &&
+  value !== "" &&
+  (!Object.getOwnPropertyNames(value).includes("length") ||
+    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
   return collectBodyString(streamBody, context).then(encoded => {

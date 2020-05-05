@@ -4526,11 +4526,8 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
