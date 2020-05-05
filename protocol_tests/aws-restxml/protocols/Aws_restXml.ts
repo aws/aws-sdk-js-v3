@@ -170,6 +170,7 @@ import {
   SmithyException as __SmithyException,
   dateToUtcString as __dateToUtcString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  getArrayIfSingleItem as __getArrayIfSingleItem,
   splitEvery as __splitEvery
 } from "@aws-sdk/smithy-client";
 import {
@@ -2023,8 +2024,7 @@ export const deserializeAws_restXmlFlattenedXmlMapCommand = async (
     contents.myMap = {};
   }
   if (data["myMap"] !== undefined) {
-    const wrappedItem =
-      data["myMap"] instanceof Array ? data["myMap"] : [data["myMap"]];
+    const wrappedItem = __getArrayIfSingleItem(data["myMap"]);
     contents.myMap = deserializeAws_restXmlFooEnumMap(wrappedItem, context);
   }
   return Promise.resolve(contents);
@@ -2080,8 +2080,7 @@ export const deserializeAws_restXmlFlattenedXmlMapWithXmlNameCommand = async (
     contents.myMap = {};
   }
   if (data["KVP"] !== undefined) {
-    const wrappedItem =
-      data["KVP"] instanceof Array ? data["KVP"] : [data["KVP"]];
+    const wrappedItem = __getArrayIfSingleItem(data["KVP"]);
     contents.myMap = deserializeAws_restXmlFlattenedXmlMapWithXmlNameInputOutputMap(
       wrappedItem,
       context
@@ -3652,10 +3651,7 @@ export const deserializeAws_restXmlXmlEnumsCommand = async (
     data["fooEnumList"] !== undefined &&
     data["fooEnumList"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      data["fooEnumList"]["member"] instanceof Array
-        ? data["fooEnumList"]["member"]
-        : [data["fooEnumList"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(data["fooEnumList"]["member"]);
     contents.fooEnumList = deserializeAws_restXmlFooEnumList(
       wrappedItem,
       context
@@ -3668,10 +3664,7 @@ export const deserializeAws_restXmlXmlEnumsCommand = async (
     data["fooEnumMap"] !== undefined &&
     data["fooEnumMap"]["entry"] !== undefined
   ) {
-    const wrappedItem =
-      data["fooEnumMap"]["entry"] instanceof Array
-        ? data["fooEnumMap"]["entry"]
-        : [data["fooEnumMap"]["entry"]];
+    const wrappedItem = __getArrayIfSingleItem(data["fooEnumMap"]["entry"]);
     contents.fooEnumMap = deserializeAws_restXmlFooEnumMap(
       wrappedItem,
       context
@@ -3684,10 +3677,7 @@ export const deserializeAws_restXmlXmlEnumsCommand = async (
     data["fooEnumSet"] !== undefined &&
     data["fooEnumSet"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      data["fooEnumSet"]["member"] instanceof Array
-        ? data["fooEnumSet"]["member"]
-        : [data["fooEnumSet"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(data["fooEnumSet"]["member"]);
     contents.fooEnumSet = deserializeAws_restXmlFooEnumSet(
       wrappedItem,
       context
@@ -3756,10 +3746,7 @@ export const deserializeAws_restXmlXmlListsCommand = async (
     data["booleanList"] !== undefined &&
     data["booleanList"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      data["booleanList"]["member"] instanceof Array
-        ? data["booleanList"]["member"]
-        : [data["booleanList"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(data["booleanList"]["member"]);
     contents.booleanList = deserializeAws_restXmlBooleanList(
       wrappedItem,
       context
@@ -3772,20 +3759,14 @@ export const deserializeAws_restXmlXmlListsCommand = async (
     data["enumList"] !== undefined &&
     data["enumList"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      data["enumList"]["member"] instanceof Array
-        ? data["enumList"]["member"]
-        : [data["enumList"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(data["enumList"]["member"]);
     contents.enumList = deserializeAws_restXmlFooEnumList(wrappedItem, context);
   }
   if (data.flattenedList === "") {
     contents.flattenedList = [];
   }
   if (data["flattenedList"] !== undefined) {
-    const wrappedItem =
-      data["flattenedList"] instanceof Array
-        ? data["flattenedList"]
-        : [data["flattenedList"]];
+    const wrappedItem = __getArrayIfSingleItem(data["flattenedList"]);
     contents.flattenedList = deserializeAws_restXmlRenamedListMembers(
       wrappedItem,
       context
@@ -3795,10 +3776,7 @@ export const deserializeAws_restXmlXmlListsCommand = async (
     contents.flattenedList2 = [];
   }
   if (data["customName"] !== undefined) {
-    const wrappedItem =
-      data["customName"] instanceof Array
-        ? data["customName"]
-        : [data["customName"]];
+    const wrappedItem = __getArrayIfSingleItem(data["customName"]);
     contents.flattenedList2 = deserializeAws_restXmlRenamedListMembers(
       wrappedItem,
       context
@@ -3811,10 +3789,7 @@ export const deserializeAws_restXmlXmlListsCommand = async (
     data["integerList"] !== undefined &&
     data["integerList"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      data["integerList"]["member"] instanceof Array
-        ? data["integerList"]["member"]
-        : [data["integerList"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(data["integerList"]["member"]);
     contents.integerList = deserializeAws_restXmlIntegerList(
       wrappedItem,
       context
@@ -3827,10 +3802,9 @@ export const deserializeAws_restXmlXmlListsCommand = async (
     data["nestedStringList"] !== undefined &&
     data["nestedStringList"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      data["nestedStringList"]["member"] instanceof Array
-        ? data["nestedStringList"]["member"]
-        : [data["nestedStringList"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      data["nestedStringList"]["member"]
+    );
     contents.nestedStringList = deserializeAws_restXmlNestedStringList(
       wrappedItem,
       context
@@ -3840,10 +3814,7 @@ export const deserializeAws_restXmlXmlListsCommand = async (
     contents.renamedListMembers = [];
   }
   if (data["renamed"] !== undefined && data["renamed"]["item"] !== undefined) {
-    const wrappedItem =
-      data["renamed"]["item"] instanceof Array
-        ? data["renamed"]["item"]
-        : [data["renamed"]["item"]];
+    const wrappedItem = __getArrayIfSingleItem(data["renamed"]["item"]);
     contents.renamedListMembers = deserializeAws_restXmlRenamedListMembers(
       wrappedItem,
       context
@@ -3856,10 +3827,7 @@ export const deserializeAws_restXmlXmlListsCommand = async (
     data["stringList"] !== undefined &&
     data["stringList"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      data["stringList"]["member"] instanceof Array
-        ? data["stringList"]["member"]
-        : [data["stringList"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(data["stringList"]["member"]);
     contents.stringList = deserializeAws_restXmlStringList(
       wrappedItem,
       context
@@ -3872,10 +3840,7 @@ export const deserializeAws_restXmlXmlListsCommand = async (
     data["stringSet"] !== undefined &&
     data["stringSet"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      data["stringSet"]["member"] instanceof Array
-        ? data["stringSet"]["member"]
-        : [data["stringSet"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(data["stringSet"]["member"]);
     contents.stringSet = deserializeAws_restXmlStringSet(wrappedItem, context);
   }
   if (data.myStructureList === "") {
@@ -3885,10 +3850,7 @@ export const deserializeAws_restXmlXmlListsCommand = async (
     data["myStructureList"] !== undefined &&
     data["myStructureList"]["item"] !== undefined
   ) {
-    const wrappedItem =
-      data["myStructureList"]["item"] instanceof Array
-        ? data["myStructureList"]["item"]
-        : [data["myStructureList"]["item"]];
+    const wrappedItem = __getArrayIfSingleItem(data["myStructureList"]["item"]);
     contents.structureList = deserializeAws_restXmlStructureList(
       wrappedItem,
       context
@@ -3901,10 +3863,7 @@ export const deserializeAws_restXmlXmlListsCommand = async (
     data["timestampList"] !== undefined &&
     data["timestampList"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      data["timestampList"]["member"] instanceof Array
-        ? data["timestampList"]["member"]
-        : [data["timestampList"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(data["timestampList"]["member"]);
     contents.timestampList = deserializeAws_restXmlTimestampList(
       wrappedItem,
       context
@@ -3960,10 +3919,7 @@ export const deserializeAws_restXmlXmlMapsCommand = async (
     contents.myMap = {};
   }
   if (data["myMap"] !== undefined && data["myMap"]["entry"] !== undefined) {
-    const wrappedItem =
-      data["myMap"]["entry"] instanceof Array
-        ? data["myMap"]["entry"]
-        : [data["myMap"]["entry"]];
+    const wrappedItem = __getArrayIfSingleItem(data["myMap"]["entry"]);
     contents.myMap = deserializeAws_restXmlXmlMapsInputOutputMap(
       wrappedItem,
       context
@@ -4019,10 +3975,7 @@ export const deserializeAws_restXmlXmlMapsXmlNameCommand = async (
     contents.myMap = {};
   }
   if (data["myMap"] !== undefined && data["myMap"]["entry"] !== undefined) {
-    const wrappedItem =
-      data["myMap"]["entry"] instanceof Array
-        ? data["myMap"]["entry"]
-        : [data["myMap"]["entry"]];
+    const wrappedItem = __getArrayIfSingleItem(data["myMap"]["entry"]);
     contents.myMap = deserializeAws_restXmlXmlMapsXmlNameInputOutputMap(
       wrappedItem,
       context
@@ -4896,10 +4849,7 @@ const deserializeAws_restXmlXmlNamespaceNested = (
     output["values"] !== undefined &&
     output["values"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["values"]["member"] instanceof Array
-        ? output["values"]["member"]
-        : [output["values"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(output["values"]["member"]);
     contents.values = deserializeAws_restXmlXmlNamespacedList(
       wrappedItem,
       context
@@ -5004,8 +4954,7 @@ const deserializeAws_restXmlNestedStringList = (
 ): string[][] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
-    const wrappedItem =
-      entry["member"] instanceof Array ? entry["member"] : [entry["member"]];
+    const wrappedItem = __getArrayIfSingleItem(entry["member"]);
     contents.push(deserializeAws_restXmlStringList(wrappedItem, context));
   });
   return contents;

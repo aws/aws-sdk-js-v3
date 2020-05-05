@@ -497,7 +497,8 @@ import {
 } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  getArrayIfSingleItem as __getArrayIfSingleItem
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -9506,10 +9507,9 @@ const deserializeAws_queryCloudWatchDestination = (
     output["DimensionConfigurations"] !== undefined &&
     output["DimensionConfigurations"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["DimensionConfigurations"]["member"] instanceof Array
-        ? output["DimensionConfigurations"]["member"]
-        : [output["DimensionConfigurations"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["DimensionConfigurations"]["member"]
+    );
     contents.DimensionConfigurations = deserializeAws_queryCloudWatchDimensionConfigurations(
       wrappedItem,
       context
@@ -9984,10 +9984,7 @@ const deserializeAws_queryDescribeActiveReceiptRuleSetResponse = (
     output["Rules"] !== undefined &&
     output["Rules"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Rules"]["member"] instanceof Array
-        ? output["Rules"]["member"]
-        : [output["Rules"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(output["Rules"]["member"]);
     contents.Rules = deserializeAws_queryReceiptRulesList(wrappedItem, context);
   }
   return contents;
@@ -10024,10 +10021,9 @@ const deserializeAws_queryDescribeConfigurationSetResponse = (
     output["EventDestinations"] !== undefined &&
     output["EventDestinations"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["EventDestinations"]["member"] instanceof Array
-        ? output["EventDestinations"]["member"]
-        : [output["EventDestinations"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["EventDestinations"]["member"]
+    );
     contents.EventDestinations = deserializeAws_queryEventDestinations(
       wrappedItem,
       context
@@ -10084,10 +10080,7 @@ const deserializeAws_queryDescribeReceiptRuleSetResponse = (
     output["Rules"] !== undefined &&
     output["Rules"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Rules"]["member"] instanceof Array
-        ? output["Rules"]["member"]
-        : [output["Rules"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(output["Rules"]["member"]);
     contents.Rules = deserializeAws_queryReceiptRulesList(wrappedItem, context);
   }
   return contents;
@@ -10145,10 +10138,9 @@ const deserializeAws_queryEventDestination = (
     output["MatchingEventTypes"] !== undefined &&
     output["MatchingEventTypes"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["MatchingEventTypes"]["member"] instanceof Array
-        ? output["MatchingEventTypes"]["member"]
-        : [output["MatchingEventTypes"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["MatchingEventTypes"]["member"]
+    );
     contents.MatchingEventTypes = deserializeAws_queryEventTypes(
       wrappedItem,
       context
@@ -10361,10 +10353,9 @@ const deserializeAws_queryGetIdentityDkimAttributesResponse = (
     output["DkimAttributes"] !== undefined &&
     output["DkimAttributes"]["entry"] !== undefined
   ) {
-    const wrappedItem =
-      output["DkimAttributes"]["entry"] instanceof Array
-        ? output["DkimAttributes"]["entry"]
-        : [output["DkimAttributes"]["entry"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["DkimAttributes"]["entry"]
+    );
     contents.DkimAttributes = deserializeAws_queryDkimAttributes(
       wrappedItem,
       context
@@ -10388,10 +10379,9 @@ const deserializeAws_queryGetIdentityMailFromDomainAttributesResponse = (
     output["MailFromDomainAttributes"] !== undefined &&
     output["MailFromDomainAttributes"]["entry"] !== undefined
   ) {
-    const wrappedItem =
-      output["MailFromDomainAttributes"]["entry"] instanceof Array
-        ? output["MailFromDomainAttributes"]["entry"]
-        : [output["MailFromDomainAttributes"]["entry"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["MailFromDomainAttributes"]["entry"]
+    );
     contents.MailFromDomainAttributes = deserializeAws_queryMailFromDomainAttributes(
       wrappedItem,
       context
@@ -10415,10 +10405,9 @@ const deserializeAws_queryGetIdentityNotificationAttributesResponse = (
     output["NotificationAttributes"] !== undefined &&
     output["NotificationAttributes"]["entry"] !== undefined
   ) {
-    const wrappedItem =
-      output["NotificationAttributes"]["entry"] instanceof Array
-        ? output["NotificationAttributes"]["entry"]
-        : [output["NotificationAttributes"]["entry"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["NotificationAttributes"]["entry"]
+    );
     contents.NotificationAttributes = deserializeAws_queryNotificationAttributes(
       wrappedItem,
       context
@@ -10442,10 +10431,7 @@ const deserializeAws_queryGetIdentityPoliciesResponse = (
     output["Policies"] !== undefined &&
     output["Policies"]["entry"] !== undefined
   ) {
-    const wrappedItem =
-      output["Policies"]["entry"] instanceof Array
-        ? output["Policies"]["entry"]
-        : [output["Policies"]["entry"]];
+    const wrappedItem = __getArrayIfSingleItem(output["Policies"]["entry"]);
     contents.Policies = deserializeAws_queryPolicyMap(wrappedItem, context);
   }
   return contents;
@@ -10466,10 +10452,9 @@ const deserializeAws_queryGetIdentityVerificationAttributesResponse = (
     output["VerificationAttributes"] !== undefined &&
     output["VerificationAttributes"]["entry"] !== undefined
   ) {
-    const wrappedItem =
-      output["VerificationAttributes"]["entry"] instanceof Array
-        ? output["VerificationAttributes"]["entry"]
-        : [output["VerificationAttributes"]["entry"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["VerificationAttributes"]["entry"]
+    );
     contents.VerificationAttributes = deserializeAws_queryVerificationAttributes(
       wrappedItem,
       context
@@ -10527,10 +10512,9 @@ const deserializeAws_queryGetSendStatisticsResponse = (
     output["SendDataPoints"] !== undefined &&
     output["SendDataPoints"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["SendDataPoints"]["member"] instanceof Array
-        ? output["SendDataPoints"]["member"]
-        : [output["SendDataPoints"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["SendDataPoints"]["member"]
+    );
     contents.SendDataPoints = deserializeAws_querySendDataPointList(
       wrappedItem,
       context
@@ -10579,10 +10563,7 @@ const deserializeAws_queryIdentityDkimAttributes = (
     output["DkimTokens"] !== undefined &&
     output["DkimTokens"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["DkimTokens"]["member"] instanceof Array
-        ? output["DkimTokens"]["member"]
-        : [output["DkimTokens"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(output["DkimTokens"]["member"]);
     contents.DkimTokens = deserializeAws_queryVerificationTokenList(
       wrappedItem,
       context
@@ -11091,10 +11072,9 @@ const deserializeAws_queryListConfigurationSetsResponse = (
     output["ConfigurationSets"] !== undefined &&
     output["ConfigurationSets"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["ConfigurationSets"]["member"] instanceof Array
-        ? output["ConfigurationSets"]["member"]
-        : [output["ConfigurationSets"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["ConfigurationSets"]["member"]
+    );
     contents.ConfigurationSets = deserializeAws_queryConfigurationSets(
       wrappedItem,
       context
@@ -11125,10 +11105,9 @@ const deserializeAws_queryListCustomVerificationEmailTemplatesResponse = (
     output["CustomVerificationEmailTemplates"] !== undefined &&
     output["CustomVerificationEmailTemplates"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["CustomVerificationEmailTemplates"]["member"] instanceof Array
-        ? output["CustomVerificationEmailTemplates"]["member"]
-        : [output["CustomVerificationEmailTemplates"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["CustomVerificationEmailTemplates"]["member"]
+    );
     contents.CustomVerificationEmailTemplates = deserializeAws_queryCustomVerificationEmailTemplates(
       wrappedItem,
       context
@@ -11159,10 +11138,7 @@ const deserializeAws_queryListIdentitiesResponse = (
     output["Identities"] !== undefined &&
     output["Identities"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Identities"]["member"] instanceof Array
-        ? output["Identities"]["member"]
-        : [output["Identities"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(output["Identities"]["member"]);
     contents.Identities = deserializeAws_queryIdentityList(
       wrappedItem,
       context
@@ -11192,10 +11168,7 @@ const deserializeAws_queryListIdentityPoliciesResponse = (
     output["PolicyNames"] !== undefined &&
     output["PolicyNames"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["PolicyNames"]["member"] instanceof Array
-        ? output["PolicyNames"]["member"]
-        : [output["PolicyNames"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(output["PolicyNames"]["member"]);
     contents.PolicyNames = deserializeAws_queryPolicyNameList(
       wrappedItem,
       context
@@ -11219,10 +11192,7 @@ const deserializeAws_queryListReceiptFiltersResponse = (
     output["Filters"] !== undefined &&
     output["Filters"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Filters"]["member"] instanceof Array
-        ? output["Filters"]["member"]
-        : [output["Filters"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(output["Filters"]["member"]);
     contents.Filters = deserializeAws_queryReceiptFilterList(
       wrappedItem,
       context
@@ -11253,10 +11223,7 @@ const deserializeAws_queryListReceiptRuleSetsResponse = (
     output["RuleSets"] !== undefined &&
     output["RuleSets"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["RuleSets"]["member"] instanceof Array
-        ? output["RuleSets"]["member"]
-        : [output["RuleSets"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(output["RuleSets"]["member"]);
     contents.RuleSets = deserializeAws_queryReceiptRuleSetsLists(
       wrappedItem,
       context
@@ -11287,10 +11254,9 @@ const deserializeAws_queryListTemplatesResponse = (
     output["TemplatesMetadata"] !== undefined &&
     output["TemplatesMetadata"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["TemplatesMetadata"]["member"] instanceof Array
-        ? output["TemplatesMetadata"]["member"]
-        : [output["TemplatesMetadata"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["TemplatesMetadata"]["member"]
+    );
     contents.TemplatesMetadata = deserializeAws_queryTemplateMetadataList(
       wrappedItem,
       context
@@ -11314,10 +11280,9 @@ const deserializeAws_queryListVerifiedEmailAddressesResponse = (
     output["VerifiedEmailAddresses"] !== undefined &&
     output["VerifiedEmailAddresses"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["VerifiedEmailAddresses"]["member"] instanceof Array
-        ? output["VerifiedEmailAddresses"]["member"]
-        : [output["VerifiedEmailAddresses"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["VerifiedEmailAddresses"]["member"]
+    );
     contents.VerifiedEmailAddresses = deserializeAws_queryAddressList(
       wrappedItem,
       context
@@ -11625,10 +11590,7 @@ const deserializeAws_queryReceiptRule = (
     output["Actions"] !== undefined &&
     output["Actions"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Actions"]["member"] instanceof Array
-        ? output["Actions"]["member"]
-        : [output["Actions"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(output["Actions"]["member"]);
     contents.Actions = deserializeAws_queryReceiptActionsList(
       wrappedItem,
       context
@@ -11653,10 +11615,7 @@ const deserializeAws_queryReceiptRule = (
     output["Recipients"] !== undefined &&
     output["Recipients"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Recipients"]["member"] instanceof Array
-        ? output["Recipients"]["member"]
-        : [output["Recipients"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(output["Recipients"]["member"]);
     contents.Recipients = deserializeAws_queryRecipientsList(
       wrappedItem,
       context
@@ -11928,10 +11887,7 @@ const deserializeAws_querySendBulkTemplatedEmailResponse = (
     output["Status"] !== undefined &&
     output["Status"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Status"]["member"] instanceof Array
-        ? output["Status"]["member"]
-        : [output["Status"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(output["Status"]["member"]);
     contents.Status = deserializeAws_queryBulkEmailDestinationStatusList(
       wrappedItem,
       context
@@ -12415,10 +12371,7 @@ const deserializeAws_queryVerifyDomainDkimResponse = (
     output["DkimTokens"] !== undefined &&
     output["DkimTokens"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["DkimTokens"]["member"] instanceof Array
-        ? output["DkimTokens"]["member"]
-        : [output["DkimTokens"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(output["DkimTokens"]["member"]);
     contents.DkimTokens = deserializeAws_queryVerificationTokenList(
       wrappedItem,
       context

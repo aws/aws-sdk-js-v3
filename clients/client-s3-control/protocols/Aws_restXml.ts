@@ -105,7 +105,8 @@ import {
 } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  getArrayIfSingleItem as __getArrayIfSingleItem
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1406,10 +1407,9 @@ export const deserializeAws_restXmlListAccessPointsCommand = async (
     data["AccessPointList"] !== undefined &&
     data["AccessPointList"]["AccessPoint"] !== undefined
   ) {
-    const wrappedItem =
-      data["AccessPointList"]["AccessPoint"] instanceof Array
-        ? data["AccessPointList"]["AccessPoint"]
-        : [data["AccessPointList"]["AccessPoint"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      data["AccessPointList"]["AccessPoint"]
+    );
     contents.AccessPointList = deserializeAws_restXmlAccessPointList(
       wrappedItem,
       context
@@ -1472,10 +1472,7 @@ export const deserializeAws_restXmlListJobsCommand = async (
     contents.Jobs = [];
   }
   if (data["Jobs"] !== undefined && data["Jobs"]["member"] !== undefined) {
-    const wrappedItem =
-      data["Jobs"]["member"] instanceof Array
-        ? data["Jobs"]["member"]
-        : [data["Jobs"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(data["Jobs"]["member"]);
     contents.Jobs = deserializeAws_restXmlJobListDescriptorList(
       wrappedItem,
       context
@@ -2805,10 +2802,9 @@ const deserializeAws_restXmlJobDescriptor = (
     output["FailureReasons"] !== undefined &&
     output["FailureReasons"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["FailureReasons"]["member"] instanceof Array
-        ? output["FailureReasons"]["member"]
-        : [output["FailureReasons"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["FailureReasons"]["member"]
+    );
     contents.FailureReasons = deserializeAws_restXmlJobFailureList(
       wrappedItem,
       context
@@ -3079,10 +3075,7 @@ const deserializeAws_restXmlJobManifestSpec = (
     output["Fields"] !== undefined &&
     output["Fields"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Fields"]["member"] instanceof Array
-        ? output["Fields"]["member"]
-        : [output["Fields"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(output["Fields"]["member"]);
     contents.Fields = deserializeAws_restXmlJobManifestFieldList(
       wrappedItem,
       context
@@ -3309,10 +3302,7 @@ const deserializeAws_restXmlS3AccessControlList = (
     output["Grants"] !== undefined &&
     output["Grants"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Grants"]["member"] instanceof Array
-        ? output["Grants"]["member"]
-        : [output["Grants"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(output["Grants"]["member"]);
     contents.Grants = deserializeAws_restXmlS3GrantList(wrappedItem, context);
   }
   if (output["Owner"] !== undefined) {
@@ -3378,10 +3368,9 @@ const deserializeAws_restXmlS3CopyObjectOperation = (
     output["AccessControlGrants"] !== undefined &&
     output["AccessControlGrants"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["AccessControlGrants"]["member"] instanceof Array
-        ? output["AccessControlGrants"]["member"]
-        : [output["AccessControlGrants"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["AccessControlGrants"]["member"]
+    );
     contents.AccessControlGrants = deserializeAws_restXmlS3GrantList(
       wrappedItem,
       context
@@ -3417,10 +3406,9 @@ const deserializeAws_restXmlS3CopyObjectOperation = (
     output["NewObjectTagging"] !== undefined &&
     output["NewObjectTagging"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["NewObjectTagging"]["member"] instanceof Array
-        ? output["NewObjectTagging"]["member"]
-        : [output["NewObjectTagging"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["NewObjectTagging"]["member"]
+    );
     contents.NewObjectTagging = deserializeAws_restXmlS3TagSet(
       wrappedItem,
       context
@@ -3661,10 +3649,7 @@ const deserializeAws_restXmlS3ObjectMetadata = (
     output["UserMetadata"] !== undefined &&
     output["UserMetadata"]["entry"] !== undefined
   ) {
-    const wrappedItem =
-      output["UserMetadata"]["entry"] instanceof Array
-        ? output["UserMetadata"]["entry"]
-        : [output["UserMetadata"]["entry"]];
+    const wrappedItem = __getArrayIfSingleItem(output["UserMetadata"]["entry"]);
     contents.UserMetadata = deserializeAws_restXmlS3UserMetadata(
       wrappedItem,
       context
@@ -3729,10 +3714,7 @@ const deserializeAws_restXmlS3SetObjectTaggingOperation = (
     output["TagSet"] !== undefined &&
     output["TagSet"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["TagSet"]["member"] instanceof Array
-        ? output["TagSet"]["member"]
-        : [output["TagSet"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(output["TagSet"]["member"]);
     contents.TagSet = deserializeAws_restXmlS3TagSet(wrappedItem, context);
   }
   return contents;

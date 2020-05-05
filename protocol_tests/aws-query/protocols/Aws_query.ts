@@ -126,7 +126,8 @@ import {
 } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  getArrayIfSingleItem as __getArrayIfSingleItem
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -2005,8 +2006,7 @@ const deserializeAws_queryFlattenedXmlMapOutput = (
     contents.myMap = {};
   }
   if (output["myMap"] !== undefined) {
-    const wrappedItem =
-      output["myMap"] instanceof Array ? output["myMap"] : [output["myMap"]];
+    const wrappedItem = __getArrayIfSingleItem(output["myMap"]);
     contents.myMap = deserializeAws_queryFooEnumMap(wrappedItem, context);
   }
   return contents;
@@ -2024,8 +2024,7 @@ const deserializeAws_queryFlattenedXmlMapWithXmlNameOutput = (
     contents.myMap = {};
   }
   if (output["KVP"] !== undefined) {
-    const wrappedItem =
-      output["KVP"] instanceof Array ? output["KVP"] : [output["KVP"]];
+    const wrappedItem = __getArrayIfSingleItem(output["KVP"]);
     contents.myMap = deserializeAws_queryFlattenedXmlMapWithXmlNameOutputMap(
       wrappedItem,
       context
@@ -2350,10 +2349,7 @@ const deserializeAws_queryXmlEnumsOutput = (
     output["fooEnumList"] !== undefined &&
     output["fooEnumList"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["fooEnumList"]["member"] instanceof Array
-        ? output["fooEnumList"]["member"]
-        : [output["fooEnumList"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(output["fooEnumList"]["member"]);
     contents.fooEnumList = deserializeAws_queryFooEnumList(
       wrappedItem,
       context
@@ -2366,10 +2362,7 @@ const deserializeAws_queryXmlEnumsOutput = (
     output["fooEnumMap"] !== undefined &&
     output["fooEnumMap"]["entry"] !== undefined
   ) {
-    const wrappedItem =
-      output["fooEnumMap"]["entry"] instanceof Array
-        ? output["fooEnumMap"]["entry"]
-        : [output["fooEnumMap"]["entry"]];
+    const wrappedItem = __getArrayIfSingleItem(output["fooEnumMap"]["entry"]);
     contents.fooEnumMap = deserializeAws_queryFooEnumMap(wrappedItem, context);
   }
   if (output.fooEnumSet === "") {
@@ -2379,10 +2372,7 @@ const deserializeAws_queryXmlEnumsOutput = (
     output["fooEnumSet"] !== undefined &&
     output["fooEnumSet"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["fooEnumSet"]["member"] instanceof Array
-        ? output["fooEnumSet"]["member"]
-        : [output["fooEnumSet"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(output["fooEnumSet"]["member"]);
     contents.fooEnumSet = deserializeAws_queryFooEnumSet(wrappedItem, context);
   }
   return contents;
@@ -2413,10 +2403,7 @@ const deserializeAws_queryXmlListsOutput = (
     output["booleanList"] !== undefined &&
     output["booleanList"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["booleanList"]["member"] instanceof Array
-        ? output["booleanList"]["member"]
-        : [output["booleanList"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(output["booleanList"]["member"]);
     contents.booleanList = deserializeAws_queryBooleanList(
       wrappedItem,
       context
@@ -2429,20 +2416,14 @@ const deserializeAws_queryXmlListsOutput = (
     output["enumList"] !== undefined &&
     output["enumList"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["enumList"]["member"] instanceof Array
-        ? output["enumList"]["member"]
-        : [output["enumList"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(output["enumList"]["member"]);
     contents.enumList = deserializeAws_queryFooEnumList(wrappedItem, context);
   }
   if (output.flattenedList === "") {
     contents.flattenedList = [];
   }
   if (output["flattenedList"] !== undefined) {
-    const wrappedItem =
-      output["flattenedList"] instanceof Array
-        ? output["flattenedList"]
-        : [output["flattenedList"]];
+    const wrappedItem = __getArrayIfSingleItem(output["flattenedList"]);
     contents.flattenedList = deserializeAws_queryRenamedListMembers(
       wrappedItem,
       context
@@ -2452,10 +2433,7 @@ const deserializeAws_queryXmlListsOutput = (
     contents.flattenedList2 = [];
   }
   if (output["customName"] !== undefined) {
-    const wrappedItem =
-      output["customName"] instanceof Array
-        ? output["customName"]
-        : [output["customName"]];
+    const wrappedItem = __getArrayIfSingleItem(output["customName"]);
     contents.flattenedList2 = deserializeAws_queryRenamedListMembers(
       wrappedItem,
       context
@@ -2468,10 +2446,7 @@ const deserializeAws_queryXmlListsOutput = (
     output["integerList"] !== undefined &&
     output["integerList"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["integerList"]["member"] instanceof Array
-        ? output["integerList"]["member"]
-        : [output["integerList"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(output["integerList"]["member"]);
     contents.integerList = deserializeAws_queryIntegerList(
       wrappedItem,
       context
@@ -2484,10 +2459,9 @@ const deserializeAws_queryXmlListsOutput = (
     output["nestedStringList"] !== undefined &&
     output["nestedStringList"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["nestedStringList"]["member"] instanceof Array
-        ? output["nestedStringList"]["member"]
-        : [output["nestedStringList"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["nestedStringList"]["member"]
+    );
     contents.nestedStringList = deserializeAws_queryNestedStringList(
       wrappedItem,
       context
@@ -2500,10 +2474,7 @@ const deserializeAws_queryXmlListsOutput = (
     output["renamed"] !== undefined &&
     output["renamed"]["item"] !== undefined
   ) {
-    const wrappedItem =
-      output["renamed"]["item"] instanceof Array
-        ? output["renamed"]["item"]
-        : [output["renamed"]["item"]];
+    const wrappedItem = __getArrayIfSingleItem(output["renamed"]["item"]);
     contents.renamedListMembers = deserializeAws_queryRenamedListMembers(
       wrappedItem,
       context
@@ -2516,10 +2487,7 @@ const deserializeAws_queryXmlListsOutput = (
     output["stringList"] !== undefined &&
     output["stringList"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["stringList"]["member"] instanceof Array
-        ? output["stringList"]["member"]
-        : [output["stringList"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(output["stringList"]["member"]);
     contents.stringList = deserializeAws_queryStringList(wrappedItem, context);
   }
   if (output.stringSet === "") {
@@ -2529,10 +2497,7 @@ const deserializeAws_queryXmlListsOutput = (
     output["stringSet"] !== undefined &&
     output["stringSet"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["stringSet"]["member"] instanceof Array
-        ? output["stringSet"]["member"]
-        : [output["stringSet"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(output["stringSet"]["member"]);
     contents.stringSet = deserializeAws_queryStringSet(wrappedItem, context);
   }
   if (output.myStructureList === "") {
@@ -2542,10 +2507,9 @@ const deserializeAws_queryXmlListsOutput = (
     output["myStructureList"] !== undefined &&
     output["myStructureList"]["item"] !== undefined
   ) {
-    const wrappedItem =
-      output["myStructureList"]["item"] instanceof Array
-        ? output["myStructureList"]["item"]
-        : [output["myStructureList"]["item"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["myStructureList"]["item"]
+    );
     contents.structureList = deserializeAws_queryStructureList(
       wrappedItem,
       context
@@ -2558,10 +2522,9 @@ const deserializeAws_queryXmlListsOutput = (
     output["timestampList"] !== undefined &&
     output["timestampList"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["timestampList"]["member"] instanceof Array
-        ? output["timestampList"]["member"]
-        : [output["timestampList"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["timestampList"]["member"]
+    );
     contents.timestampList = deserializeAws_queryTimestampList(
       wrappedItem,
       context
@@ -2582,10 +2545,7 @@ const deserializeAws_queryXmlMapsOutput = (
     contents.myMap = {};
   }
   if (output["myMap"] !== undefined && output["myMap"]["entry"] !== undefined) {
-    const wrappedItem =
-      output["myMap"]["entry"] instanceof Array
-        ? output["myMap"]["entry"]
-        : [output["myMap"]["entry"]];
+    const wrappedItem = __getArrayIfSingleItem(output["myMap"]["entry"]);
     contents.myMap = deserializeAws_queryXmlMapsOutputMap(wrappedItem, context);
   }
   return contents;
@@ -2617,10 +2577,7 @@ const deserializeAws_queryXmlMapsXmlNameOutput = (
     contents.myMap = {};
   }
   if (output["myMap"] !== undefined && output["myMap"]["entry"] !== undefined) {
-    const wrappedItem =
-      output["myMap"]["entry"] instanceof Array
-        ? output["myMap"]["entry"]
-        : [output["myMap"]["entry"]];
+    const wrappedItem = __getArrayIfSingleItem(output["myMap"]["entry"]);
     contents.myMap = deserializeAws_queryXmlMapsXmlNameOutputMap(
       wrappedItem,
       context
@@ -2665,10 +2622,7 @@ const deserializeAws_queryXmlNamespaceNested = (
     output["values"] !== undefined &&
     output["values"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["values"]["member"] instanceof Array
-        ? output["values"]["member"]
-        : [output["values"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(output["values"]["member"]);
     contents.values = deserializeAws_queryXmlNamespacedList(
       wrappedItem,
       context
@@ -2816,8 +2770,7 @@ const deserializeAws_queryNestedStringList = (
 ): string[][] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
-    const wrappedItem =
-      entry["member"] instanceof Array ? entry["member"] : [entry["member"]];
+    const wrappedItem = __getArrayIfSingleItem(entry["member"]);
     contents.push(deserializeAws_queryStringList(wrappedItem, context));
   });
   return contents;

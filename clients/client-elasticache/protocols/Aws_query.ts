@@ -386,7 +386,8 @@ import {
 } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  getArrayIfSingleItem as __getArrayIfSingleItem
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -10116,10 +10117,9 @@ const deserializeAws_queryAllowedNodeTypeModificationsMessage = (
     output["ScaleDownModifications"] !== undefined &&
     output["ScaleDownModifications"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["ScaleDownModifications"]["member"] instanceof Array
-        ? output["ScaleDownModifications"]["member"]
-        : [output["ScaleDownModifications"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["ScaleDownModifications"]["member"]
+    );
     contents.ScaleDownModifications = deserializeAws_queryNodeTypeList(
       wrappedItem,
       context
@@ -10132,10 +10132,9 @@ const deserializeAws_queryAllowedNodeTypeModificationsMessage = (
     output["ScaleUpModifications"] !== undefined &&
     output["ScaleUpModifications"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["ScaleUpModifications"]["member"] instanceof Array
-        ? output["ScaleUpModifications"]["member"]
-        : [output["ScaleUpModifications"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["ScaleUpModifications"]["member"]
+    );
     contents.ScaleUpModifications = deserializeAws_queryNodeTypeList(
       wrappedItem,
       context
@@ -10275,10 +10274,9 @@ const deserializeAws_queryCacheCluster = (
     output["CacheNodes"] !== undefined &&
     output["CacheNodes"]["CacheNode"] !== undefined
   ) {
-    const wrappedItem =
-      output["CacheNodes"]["CacheNode"] instanceof Array
-        ? output["CacheNodes"]["CacheNode"]
-        : [output["CacheNodes"]["CacheNode"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["CacheNodes"]["CacheNode"]
+    );
     contents.CacheNodes = deserializeAws_queryCacheNodeList(
       wrappedItem,
       context
@@ -10297,10 +10295,9 @@ const deserializeAws_queryCacheCluster = (
     output["CacheSecurityGroups"] !== undefined &&
     output["CacheSecurityGroups"]["CacheSecurityGroup"] !== undefined
   ) {
-    const wrappedItem =
-      output["CacheSecurityGroups"]["CacheSecurityGroup"] instanceof Array
-        ? output["CacheSecurityGroups"]["CacheSecurityGroup"]
-        : [output["CacheSecurityGroups"]["CacheSecurityGroup"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["CacheSecurityGroups"]["CacheSecurityGroup"]
+    );
     contents.CacheSecurityGroups = deserializeAws_queryCacheSecurityGroupMembershipList(
       wrappedItem,
       context
@@ -10380,10 +10377,9 @@ const deserializeAws_queryCacheCluster = (
     output["SecurityGroups"] !== undefined &&
     output["SecurityGroups"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["SecurityGroups"]["member"] instanceof Array
-        ? output["SecurityGroups"]["member"]
-        : [output["SecurityGroups"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["SecurityGroups"]["member"]
+    );
     contents.SecurityGroups = deserializeAws_querySecurityGroupMembershipList(
       wrappedItem,
       context
@@ -10438,10 +10434,9 @@ const deserializeAws_queryCacheClusterMessage = (
     output["CacheClusters"] !== undefined &&
     output["CacheClusters"]["CacheCluster"] !== undefined
   ) {
-    const wrappedItem =
-      output["CacheClusters"]["CacheCluster"] instanceof Array
-        ? output["CacheClusters"]["CacheCluster"]
-        : [output["CacheClusters"]["CacheCluster"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["CacheClusters"]["CacheCluster"]
+    );
     contents.CacheClusters = deserializeAws_queryCacheClusterList(
       wrappedItem,
       context
@@ -10528,10 +10523,9 @@ const deserializeAws_queryCacheEngineVersionMessage = (
     output["CacheEngineVersions"] !== undefined &&
     output["CacheEngineVersions"]["CacheEngineVersion"] !== undefined
   ) {
-    const wrappedItem =
-      output["CacheEngineVersions"]["CacheEngineVersion"] instanceof Array
-        ? output["CacheEngineVersions"]["CacheEngineVersion"]
-        : [output["CacheEngineVersions"]["CacheEngineVersion"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["CacheEngineVersions"]["CacheEngineVersion"]
+    );
     contents.CacheEngineVersions = deserializeAws_queryCacheEngineVersionList(
       wrappedItem,
       context
@@ -10654,12 +10648,9 @@ const deserializeAws_queryCacheNodeTypeSpecificParameter = (
     output["CacheNodeTypeSpecificValues"]["CacheNodeTypeSpecificValue"] !==
       undefined
   ) {
-    const wrappedItem =
-      output["CacheNodeTypeSpecificValues"][
-        "CacheNodeTypeSpecificValue"
-      ] instanceof Array
-        ? output["CacheNodeTypeSpecificValues"]["CacheNodeTypeSpecificValue"]
-        : [output["CacheNodeTypeSpecificValues"]["CacheNodeTypeSpecificValue"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["CacheNodeTypeSpecificValues"]["CacheNodeTypeSpecificValue"]
+    );
     contents.CacheNodeTypeSpecificValues = deserializeAws_queryCacheNodeTypeSpecificValueList(
       wrappedItem,
       context
@@ -10876,18 +10867,11 @@ const deserializeAws_queryCacheParameterGroupDetails = (
       "CacheNodeTypeSpecificParameter"
     ] !== undefined
   ) {
-    const wrappedItem =
+    const wrappedItem = __getArrayIfSingleItem(
       output["CacheNodeTypeSpecificParameters"][
         "CacheNodeTypeSpecificParameter"
-      ] instanceof Array
-        ? output["CacheNodeTypeSpecificParameters"][
-            "CacheNodeTypeSpecificParameter"
-          ]
-        : [
-            output["CacheNodeTypeSpecificParameters"][
-              "CacheNodeTypeSpecificParameter"
-            ]
-          ];
+      ]
+    );
     contents.CacheNodeTypeSpecificParameters = deserializeAws_queryCacheNodeTypeSpecificParametersList(
       wrappedItem,
       context
@@ -10906,10 +10890,9 @@ const deserializeAws_queryCacheParameterGroupDetails = (
     output["Parameters"] !== undefined &&
     output["Parameters"]["Parameter"] !== undefined
   ) {
-    const wrappedItem =
-      output["Parameters"]["Parameter"] instanceof Array
-        ? output["Parameters"]["Parameter"]
-        : [output["Parameters"]["Parameter"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["Parameters"]["Parameter"]
+    );
     contents.Parameters = deserializeAws_queryParametersList(
       wrappedItem,
       context
@@ -10963,10 +10946,9 @@ const deserializeAws_queryCacheParameterGroupStatus = (
     output["CacheNodeIdsToReboot"] !== undefined &&
     output["CacheNodeIdsToReboot"]["CacheNodeId"] !== undefined
   ) {
-    const wrappedItem =
-      output["CacheNodeIdsToReboot"]["CacheNodeId"] instanceof Array
-        ? output["CacheNodeIdsToReboot"]["CacheNodeId"]
-        : [output["CacheNodeIdsToReboot"]["CacheNodeId"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["CacheNodeIdsToReboot"]["CacheNodeId"]
+    );
     contents.CacheNodeIdsToReboot = deserializeAws_queryCacheNodeIdsList(
       wrappedItem,
       context
@@ -11003,10 +10985,9 @@ const deserializeAws_queryCacheParameterGroupsMessage = (
     output["CacheParameterGroups"] !== undefined &&
     output["CacheParameterGroups"]["CacheParameterGroup"] !== undefined
   ) {
-    const wrappedItem =
-      output["CacheParameterGroups"]["CacheParameterGroup"] instanceof Array
-        ? output["CacheParameterGroups"]["CacheParameterGroup"]
-        : [output["CacheParameterGroups"]["CacheParameterGroup"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["CacheParameterGroups"]["CacheParameterGroup"]
+    );
     contents.CacheParameterGroups = deserializeAws_queryCacheParameterGroupList(
       wrappedItem,
       context
@@ -11051,10 +11032,9 @@ const deserializeAws_queryCacheSecurityGroup = (
     output["EC2SecurityGroups"] !== undefined &&
     output["EC2SecurityGroups"]["EC2SecurityGroup"] !== undefined
   ) {
-    const wrappedItem =
-      output["EC2SecurityGroups"]["EC2SecurityGroup"] instanceof Array
-        ? output["EC2SecurityGroups"]["EC2SecurityGroup"]
-        : [output["EC2SecurityGroups"]["EC2SecurityGroup"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["EC2SecurityGroups"]["EC2SecurityGroup"]
+    );
     contents.EC2SecurityGroups = deserializeAws_queryEC2SecurityGroupList(
       wrappedItem,
       context
@@ -11122,10 +11102,9 @@ const deserializeAws_queryCacheSecurityGroupMessage = (
     output["CacheSecurityGroups"] !== undefined &&
     output["CacheSecurityGroups"]["CacheSecurityGroup"] !== undefined
   ) {
-    const wrappedItem =
-      output["CacheSecurityGroups"]["CacheSecurityGroup"] instanceof Array
-        ? output["CacheSecurityGroups"]["CacheSecurityGroup"]
-        : [output["CacheSecurityGroups"]["CacheSecurityGroup"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["CacheSecurityGroups"]["CacheSecurityGroup"]
+    );
     contents.CacheSecurityGroups = deserializeAws_queryCacheSecurityGroups(
       wrappedItem,
       context
@@ -11181,10 +11160,7 @@ const deserializeAws_queryCacheSubnetGroup = (
     output["Subnets"] !== undefined &&
     output["Subnets"]["Subnet"] !== undefined
   ) {
-    const wrappedItem =
-      output["Subnets"]["Subnet"] instanceof Array
-        ? output["Subnets"]["Subnet"]
-        : [output["Subnets"]["Subnet"]];
+    const wrappedItem = __getArrayIfSingleItem(output["Subnets"]["Subnet"]);
     contents.Subnets = deserializeAws_querySubnetList(wrappedItem, context);
   }
   if (output["VpcId"] !== undefined) {
@@ -11212,10 +11188,9 @@ const deserializeAws_queryCacheSubnetGroupMessage = (
     output["CacheSubnetGroups"] !== undefined &&
     output["CacheSubnetGroups"]["CacheSubnetGroup"] !== undefined
   ) {
-    const wrappedItem =
-      output["CacheSubnetGroups"]["CacheSubnetGroup"] instanceof Array
-        ? output["CacheSubnetGroups"]["CacheSubnetGroup"]
-        : [output["CacheSubnetGroups"]["CacheSubnetGroup"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["CacheSubnetGroups"]["CacheSubnetGroup"]
+    );
     contents.CacheSubnetGroups = deserializeAws_queryCacheSubnetGroups(
       wrappedItem,
       context
@@ -11495,10 +11470,7 @@ const deserializeAws_queryDescribeSnapshotsListMessage = (
     output["Snapshots"] !== undefined &&
     output["Snapshots"]["Snapshot"] !== undefined
   ) {
-    const wrappedItem =
-      output["Snapshots"]["Snapshot"] instanceof Array
-        ? output["Snapshots"]["Snapshot"]
-        : [output["Snapshots"]["Snapshot"]];
+    const wrappedItem = __getArrayIfSingleItem(output["Snapshots"]["Snapshot"]);
     contents.Snapshots = deserializeAws_querySnapshotList(wrappedItem, context);
   }
   return contents;
@@ -11591,18 +11563,11 @@ const deserializeAws_queryEngineDefaults = (
       "CacheNodeTypeSpecificParameter"
     ] !== undefined
   ) {
-    const wrappedItem =
+    const wrappedItem = __getArrayIfSingleItem(
       output["CacheNodeTypeSpecificParameters"][
         "CacheNodeTypeSpecificParameter"
-      ] instanceof Array
-        ? output["CacheNodeTypeSpecificParameters"][
-            "CacheNodeTypeSpecificParameter"
-          ]
-        : [
-            output["CacheNodeTypeSpecificParameters"][
-              "CacheNodeTypeSpecificParameter"
-            ]
-          ];
+      ]
+    );
     contents.CacheNodeTypeSpecificParameters = deserializeAws_queryCacheNodeTypeSpecificParametersList(
       wrappedItem,
       context
@@ -11627,10 +11592,9 @@ const deserializeAws_queryEngineDefaults = (
     output["Parameters"] !== undefined &&
     output["Parameters"]["Parameter"] !== undefined
   ) {
-    const wrappedItem =
-      output["Parameters"]["Parameter"] instanceof Array
-        ? output["Parameters"]["Parameter"]
-        : [output["Parameters"]["Parameter"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["Parameters"]["Parameter"]
+    );
     contents.Parameters = deserializeAws_queryParametersList(
       wrappedItem,
       context
@@ -11701,10 +11665,7 @@ const deserializeAws_queryEventsMessage = (
     output["Events"] !== undefined &&
     output["Events"]["Event"] !== undefined
   ) {
-    const wrappedItem =
-      output["Events"]["Event"] instanceof Array
-        ? output["Events"]["Event"]
-        : [output["Events"]["Event"]];
+    const wrappedItem = __getArrayIfSingleItem(output["Events"]["Event"]);
     contents.Events = deserializeAws_queryEventList(wrappedItem, context);
   }
   if (output["Marker"] !== undefined) {
@@ -11827,10 +11788,9 @@ const deserializeAws_queryNodeGroup = (
     output["NodeGroupMembers"] !== undefined &&
     output["NodeGroupMembers"]["NodeGroupMember"] !== undefined
   ) {
-    const wrappedItem =
-      output["NodeGroupMembers"]["NodeGroupMember"] instanceof Array
-        ? output["NodeGroupMembers"]["NodeGroupMember"]
-        : [output["NodeGroupMembers"]["NodeGroupMember"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["NodeGroupMembers"]["NodeGroupMember"]
+    );
     contents.NodeGroupMembers = deserializeAws_queryNodeGroupMemberList(
       wrappedItem,
       context
@@ -11894,10 +11854,9 @@ const deserializeAws_queryNodeGroupConfiguration = (
     output["ReplicaAvailabilityZones"] !== undefined &&
     output["ReplicaAvailabilityZones"]["AvailabilityZone"] !== undefined
   ) {
-    const wrappedItem =
-      output["ReplicaAvailabilityZones"]["AvailabilityZone"] instanceof Array
-        ? output["ReplicaAvailabilityZones"]["AvailabilityZone"]
-        : [output["ReplicaAvailabilityZones"]["AvailabilityZone"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["ReplicaAvailabilityZones"]["AvailabilityZone"]
+    );
     contents.ReplicaAvailabilityZones = deserializeAws_queryAvailabilityZonesList(
       wrappedItem,
       context
@@ -12084,14 +12043,9 @@ const deserializeAws_queryNodeGroupUpdateStatus = (
     output["NodeGroupMemberUpdateStatus"]["NodeGroupMemberUpdateStatus"] !==
       undefined
   ) {
-    const wrappedItem =
-      output["NodeGroupMemberUpdateStatus"][
-        "NodeGroupMemberUpdateStatus"
-      ] instanceof Array
-        ? output["NodeGroupMemberUpdateStatus"]["NodeGroupMemberUpdateStatus"]
-        : [
-            output["NodeGroupMemberUpdateStatus"]["NodeGroupMemberUpdateStatus"]
-          ];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["NodeGroupMemberUpdateStatus"]["NodeGroupMemberUpdateStatus"]
+    );
     contents.NodeGroupMemberUpdateStatus = deserializeAws_queryNodeGroupMemberUpdateStatusList(
       wrappedItem,
       context
@@ -12319,10 +12273,9 @@ const deserializeAws_queryPendingModifiedValues = (
     output["CacheNodeIdsToRemove"] !== undefined &&
     output["CacheNodeIdsToRemove"]["CacheNodeId"] !== undefined
   ) {
-    const wrappedItem =
-      output["CacheNodeIdsToRemove"]["CacheNodeId"] instanceof Array
-        ? output["CacheNodeIdsToRemove"]["CacheNodeId"]
-        : [output["CacheNodeIdsToRemove"]["CacheNodeId"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["CacheNodeIdsToRemove"]["CacheNodeId"]
+    );
     contents.CacheNodeIdsToRemove = deserializeAws_queryCacheNodeIdsList(
       wrappedItem,
       context
@@ -12554,10 +12507,9 @@ const deserializeAws_queryReplicationGroup = (
     output["MemberClusters"] !== undefined &&
     output["MemberClusters"]["ClusterId"] !== undefined
   ) {
-    const wrappedItem =
-      output["MemberClusters"]["ClusterId"] instanceof Array
-        ? output["MemberClusters"]["ClusterId"]
-        : [output["MemberClusters"]["ClusterId"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["MemberClusters"]["ClusterId"]
+    );
     contents.MemberClusters = deserializeAws_queryClusterIdList(
       wrappedItem,
       context
@@ -12570,10 +12522,9 @@ const deserializeAws_queryReplicationGroup = (
     output["NodeGroups"] !== undefined &&
     output["NodeGroups"]["NodeGroup"] !== undefined
   ) {
-    const wrappedItem =
-      output["NodeGroups"]["NodeGroup"] instanceof Array
-        ? output["NodeGroups"]["NodeGroup"]
-        : [output["NodeGroups"]["NodeGroup"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["NodeGroups"]["NodeGroup"]
+    );
     contents.NodeGroups = deserializeAws_queryNodeGroupList(
       wrappedItem,
       context
@@ -12658,10 +12609,9 @@ const deserializeAws_queryReplicationGroupMessage = (
     output["ReplicationGroups"] !== undefined &&
     output["ReplicationGroups"]["ReplicationGroup"] !== undefined
   ) {
-    const wrappedItem =
-      output["ReplicationGroups"]["ReplicationGroup"] instanceof Array
-        ? output["ReplicationGroups"]["ReplicationGroup"]
-        : [output["ReplicationGroups"]["ReplicationGroup"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["ReplicationGroups"]["ReplicationGroup"]
+    );
     contents.ReplicationGroups = deserializeAws_queryReplicationGroupList(
       wrappedItem,
       context
@@ -12774,10 +12724,9 @@ const deserializeAws_queryReservedCacheNode = (
     output["RecurringCharges"] !== undefined &&
     output["RecurringCharges"]["RecurringCharge"] !== undefined
   ) {
-    const wrappedItem =
-      output["RecurringCharges"]["RecurringCharge"] instanceof Array
-        ? output["RecurringCharges"]["RecurringCharge"]
-        : [output["RecurringCharges"]["RecurringCharge"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["RecurringCharges"]["RecurringCharge"]
+    );
     contents.RecurringCharges = deserializeAws_queryRecurringChargeList(
       wrappedItem,
       context
@@ -12853,10 +12802,9 @@ const deserializeAws_queryReservedCacheNodeMessage = (
     output["ReservedCacheNodes"] !== undefined &&
     output["ReservedCacheNodes"]["ReservedCacheNode"] !== undefined
   ) {
-    const wrappedItem =
-      output["ReservedCacheNodes"]["ReservedCacheNode"] instanceof Array
-        ? output["ReservedCacheNodes"]["ReservedCacheNode"]
-        : [output["ReservedCacheNodes"]["ReservedCacheNode"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["ReservedCacheNodes"]["ReservedCacheNode"]
+    );
     contents.ReservedCacheNodes = deserializeAws_queryReservedCacheNodeList(
       wrappedItem,
       context
@@ -12919,10 +12867,9 @@ const deserializeAws_queryReservedCacheNodesOffering = (
     output["RecurringCharges"] !== undefined &&
     output["RecurringCharges"]["RecurringCharge"] !== undefined
   ) {
-    const wrappedItem =
-      output["RecurringCharges"]["RecurringCharge"] instanceof Array
-        ? output["RecurringCharges"]["RecurringCharge"]
-        : [output["RecurringCharges"]["RecurringCharge"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["RecurringCharges"]["RecurringCharge"]
+    );
     contents.RecurringCharges = deserializeAws_queryRecurringChargeList(
       wrappedItem,
       context
@@ -12980,12 +12927,9 @@ const deserializeAws_queryReservedCacheNodesOfferingMessage = (
     output["ReservedCacheNodesOfferings"]["ReservedCacheNodesOffering"] !==
       undefined
   ) {
-    const wrappedItem =
-      output["ReservedCacheNodesOfferings"][
-        "ReservedCacheNodesOffering"
-      ] instanceof Array
-        ? output["ReservedCacheNodesOfferings"]["ReservedCacheNodesOffering"]
-        : [output["ReservedCacheNodesOfferings"]["ReservedCacheNodesOffering"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["ReservedCacheNodesOfferings"]["ReservedCacheNodesOffering"]
+    );
     contents.ReservedCacheNodesOfferings = deserializeAws_queryReservedCacheNodesOfferingList(
       wrappedItem,
       context
@@ -13185,10 +13129,9 @@ const deserializeAws_queryServiceUpdatesMessage = (
     output["ServiceUpdates"] !== undefined &&
     output["ServiceUpdates"]["ServiceUpdate"] !== undefined
   ) {
-    const wrappedItem =
-      output["ServiceUpdates"]["ServiceUpdate"] instanceof Array
-        ? output["ServiceUpdates"]["ServiceUpdate"]
-        : [output["ServiceUpdates"]["ServiceUpdate"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["ServiceUpdates"]["ServiceUpdate"]
+    );
     contents.ServiceUpdates = deserializeAws_queryServiceUpdateList(
       wrappedItem,
       context
@@ -13313,10 +13256,9 @@ const deserializeAws_querySnapshot = (
     output["NodeSnapshots"] !== undefined &&
     output["NodeSnapshots"]["NodeSnapshot"] !== undefined
   ) {
-    const wrappedItem =
-      output["NodeSnapshots"]["NodeSnapshot"] instanceof Array
-        ? output["NodeSnapshots"]["NodeSnapshot"]
-        : [output["NodeSnapshots"]["NodeSnapshot"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["NodeSnapshots"]["NodeSnapshot"]
+    );
     contents.NodeSnapshots = deserializeAws_queryNodeSnapshotList(
       wrappedItem,
       context
@@ -13523,10 +13465,7 @@ const deserializeAws_queryTagListMessage = (
     output["TagList"] !== undefined &&
     output["TagList"]["Tag"] !== undefined
   ) {
-    const wrappedItem =
-      output["TagList"]["Tag"] instanceof Array
-        ? output["TagList"]["Tag"]
-        : [output["TagList"]["Tag"]];
+    const wrappedItem = __getArrayIfSingleItem(output["TagList"]["Tag"]);
     contents.TagList = deserializeAws_queryTagList(wrappedItem, context);
   }
   return contents;
@@ -13642,10 +13581,9 @@ const deserializeAws_queryUpdateAction = (
     output["CacheNodeUpdateStatus"] !== undefined &&
     output["CacheNodeUpdateStatus"]["CacheNodeUpdateStatus"] !== undefined
   ) {
-    const wrappedItem =
-      output["CacheNodeUpdateStatus"]["CacheNodeUpdateStatus"] instanceof Array
-        ? output["CacheNodeUpdateStatus"]["CacheNodeUpdateStatus"]
-        : [output["CacheNodeUpdateStatus"]["CacheNodeUpdateStatus"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["CacheNodeUpdateStatus"]["CacheNodeUpdateStatus"]
+    );
     contents.CacheNodeUpdateStatus = deserializeAws_queryCacheNodeUpdateStatusList(
       wrappedItem,
       context
@@ -13670,10 +13608,9 @@ const deserializeAws_queryUpdateAction = (
     output["NodeGroupUpdateStatus"] !== undefined &&
     output["NodeGroupUpdateStatus"]["NodeGroupUpdateStatus"] !== undefined
   ) {
-    const wrappedItem =
-      output["NodeGroupUpdateStatus"]["NodeGroupUpdateStatus"] instanceof Array
-        ? output["NodeGroupUpdateStatus"]["NodeGroupUpdateStatus"]
-        : [output["NodeGroupUpdateStatus"]["NodeGroupUpdateStatus"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["NodeGroupUpdateStatus"]["NodeGroupUpdateStatus"]
+    );
     contents.NodeGroupUpdateStatus = deserializeAws_queryNodeGroupUpdateStatusList(
       wrappedItem,
       context
@@ -13777,10 +13714,9 @@ const deserializeAws_queryUpdateActionResultsMessage = (
     output["ProcessedUpdateActions"] !== undefined &&
     output["ProcessedUpdateActions"]["ProcessedUpdateAction"] !== undefined
   ) {
-    const wrappedItem =
-      output["ProcessedUpdateActions"]["ProcessedUpdateAction"] instanceof Array
-        ? output["ProcessedUpdateActions"]["ProcessedUpdateAction"]
-        : [output["ProcessedUpdateActions"]["ProcessedUpdateAction"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["ProcessedUpdateActions"]["ProcessedUpdateAction"]
+    );
     contents.ProcessedUpdateActions = deserializeAws_queryProcessedUpdateActionList(
       wrappedItem,
       context
@@ -13793,11 +13729,9 @@ const deserializeAws_queryUpdateActionResultsMessage = (
     output["UnprocessedUpdateActions"] !== undefined &&
     output["UnprocessedUpdateActions"]["UnprocessedUpdateAction"] !== undefined
   ) {
-    const wrappedItem =
-      output["UnprocessedUpdateActions"]["UnprocessedUpdateAction"] instanceof
-      Array
-        ? output["UnprocessedUpdateActions"]["UnprocessedUpdateAction"]
-        : [output["UnprocessedUpdateActions"]["UnprocessedUpdateAction"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["UnprocessedUpdateActions"]["UnprocessedUpdateAction"]
+    );
     contents.UnprocessedUpdateActions = deserializeAws_queryUnprocessedUpdateActionList(
       wrappedItem,
       context
@@ -13828,10 +13762,9 @@ const deserializeAws_queryUpdateActionsMessage = (
     output["UpdateActions"] !== undefined &&
     output["UpdateActions"]["UpdateAction"] !== undefined
   ) {
-    const wrappedItem =
-      output["UpdateActions"]["UpdateAction"] instanceof Array
-        ? output["UpdateActions"]["UpdateAction"]
-        : [output["UpdateActions"]["UpdateAction"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["UpdateActions"]["UpdateAction"]
+    );
     contents.UpdateActions = deserializeAws_queryUpdateActionList(
       wrappedItem,
       context

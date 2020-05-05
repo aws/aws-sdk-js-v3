@@ -439,7 +439,8 @@ import {
 } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  getArrayIfSingleItem as __getArrayIfSingleItem
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -11207,10 +11208,9 @@ const deserializeAws_queryDBCluster = (
     output["AssociatedRoles"] !== undefined &&
     output["AssociatedRoles"]["DBClusterRole"] !== undefined
   ) {
-    const wrappedItem =
-      output["AssociatedRoles"]["DBClusterRole"] instanceof Array
-        ? output["AssociatedRoles"]["DBClusterRole"]
-        : [output["AssociatedRoles"]["DBClusterRole"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["AssociatedRoles"]["DBClusterRole"]
+    );
     contents.AssociatedRoles = deserializeAws_queryDBClusterRoles(
       wrappedItem,
       context
@@ -11223,10 +11223,9 @@ const deserializeAws_queryDBCluster = (
     output["AvailabilityZones"] !== undefined &&
     output["AvailabilityZones"]["AvailabilityZone"] !== undefined
   ) {
-    const wrappedItem =
-      output["AvailabilityZones"]["AvailabilityZone"] instanceof Array
-        ? output["AvailabilityZones"]["AvailabilityZone"]
-        : [output["AvailabilityZones"]["AvailabilityZone"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["AvailabilityZones"]["AvailabilityZone"]
+    );
     contents.AvailabilityZones = deserializeAws_queryAvailabilityZones(
       wrappedItem,
       context
@@ -11273,10 +11272,9 @@ const deserializeAws_queryDBCluster = (
     output["DBClusterMembers"] !== undefined &&
     output["DBClusterMembers"]["DBClusterMember"] !== undefined
   ) {
-    const wrappedItem =
-      output["DBClusterMembers"]["DBClusterMember"] instanceof Array
-        ? output["DBClusterMembers"]["DBClusterMember"]
-        : [output["DBClusterMembers"]["DBClusterMember"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["DBClusterMembers"]["DBClusterMember"]
+    );
     contents.DBClusterMembers = deserializeAws_queryDBClusterMemberList(
       wrappedItem,
       context
@@ -11290,12 +11288,9 @@ const deserializeAws_queryDBCluster = (
     output["DBClusterOptionGroupMemberships"]["DBClusterOptionGroup"] !==
       undefined
   ) {
-    const wrappedItem =
-      output["DBClusterOptionGroupMemberships"][
-        "DBClusterOptionGroup"
-      ] instanceof Array
-        ? output["DBClusterOptionGroupMemberships"]["DBClusterOptionGroup"]
-        : [output["DBClusterOptionGroupMemberships"]["DBClusterOptionGroup"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["DBClusterOptionGroupMemberships"]["DBClusterOptionGroup"]
+    );
     contents.DBClusterOptionGroupMemberships = deserializeAws_queryDBClusterOptionGroupMemberships(
       wrappedItem,
       context
@@ -11343,10 +11338,9 @@ const deserializeAws_queryDBCluster = (
     output["EnabledCloudwatchLogsExports"] !== undefined &&
     output["EnabledCloudwatchLogsExports"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["EnabledCloudwatchLogsExports"]["member"] instanceof Array
-        ? output["EnabledCloudwatchLogsExports"]["member"]
-        : [output["EnabledCloudwatchLogsExports"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["EnabledCloudwatchLogsExports"]["member"]
+    );
     contents.EnabledCloudwatchLogsExports = deserializeAws_queryLogTypeList(
       wrappedItem,
       context
@@ -11435,10 +11429,9 @@ const deserializeAws_queryDBCluster = (
     output["ReadReplicaIdentifiers"] !== undefined &&
     output["ReadReplicaIdentifiers"]["ReadReplicaIdentifier"] !== undefined
   ) {
-    const wrappedItem =
-      output["ReadReplicaIdentifiers"]["ReadReplicaIdentifier"] instanceof Array
-        ? output["ReadReplicaIdentifiers"]["ReadReplicaIdentifier"]
-        : [output["ReadReplicaIdentifiers"]["ReadReplicaIdentifier"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["ReadReplicaIdentifiers"]["ReadReplicaIdentifier"]
+    );
     contents.ReadReplicaIdentifiers = deserializeAws_queryReadReplicaIdentifierList(
       wrappedItem,
       context
@@ -11475,10 +11468,9 @@ const deserializeAws_queryDBCluster = (
     output["VpcSecurityGroups"] !== undefined &&
     output["VpcSecurityGroups"]["VpcSecurityGroupMembership"] !== undefined
   ) {
-    const wrappedItem =
-      output["VpcSecurityGroups"]["VpcSecurityGroupMembership"] instanceof Array
-        ? output["VpcSecurityGroups"]["VpcSecurityGroupMembership"]
-        : [output["VpcSecurityGroups"]["VpcSecurityGroupMembership"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["VpcSecurityGroups"]["VpcSecurityGroupMembership"]
+    );
     contents.VpcSecurityGroups = deserializeAws_queryVpcSecurityGroupMembershipList(
       wrappedItem,
       context
@@ -11564,10 +11556,9 @@ const deserializeAws_queryDBClusterMessage = (
     output["DBClusters"] !== undefined &&
     output["DBClusters"]["DBCluster"] !== undefined
   ) {
-    const wrappedItem =
-      output["DBClusters"]["DBCluster"] instanceof Array
-        ? output["DBClusters"]["DBCluster"]
-        : [output["DBClusters"]["DBCluster"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["DBClusters"]["DBCluster"]
+    );
     contents.DBClusters = deserializeAws_queryDBClusterList(
       wrappedItem,
       context
@@ -11679,10 +11670,9 @@ const deserializeAws_queryDBClusterParameterGroupDetails = (
     output["Parameters"] !== undefined &&
     output["Parameters"]["Parameter"] !== undefined
   ) {
-    const wrappedItem =
-      output["Parameters"]["Parameter"] instanceof Array
-        ? output["Parameters"]["Parameter"]
-        : [output["Parameters"]["Parameter"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["Parameters"]["Parameter"]
+    );
     contents.Parameters = deserializeAws_queryParametersList(
       wrappedItem,
       context
@@ -11735,11 +11725,9 @@ const deserializeAws_queryDBClusterParameterGroupsMessage = (
     output["DBClusterParameterGroups"] !== undefined &&
     output["DBClusterParameterGroups"]["DBClusterParameterGroup"] !== undefined
   ) {
-    const wrappedItem =
-      output["DBClusterParameterGroups"]["DBClusterParameterGroup"] instanceof
-      Array
-        ? output["DBClusterParameterGroups"]["DBClusterParameterGroup"]
-        : [output["DBClusterParameterGroups"]["DBClusterParameterGroup"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["DBClusterParameterGroups"]["DBClusterParameterGroup"]
+    );
     contents.DBClusterParameterGroups = deserializeAws_queryDBClusterParameterGroupList(
       wrappedItem,
       context
@@ -11830,10 +11818,9 @@ const deserializeAws_queryDBClusterSnapshot = (
     output["AvailabilityZones"] !== undefined &&
     output["AvailabilityZones"]["AvailabilityZone"] !== undefined
   ) {
-    const wrappedItem =
-      output["AvailabilityZones"]["AvailabilityZone"] instanceof Array
-        ? output["AvailabilityZones"]["AvailabilityZone"]
-        : [output["AvailabilityZones"]["AvailabilityZone"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["AvailabilityZones"]["AvailabilityZone"]
+    );
     contents.AvailabilityZones = deserializeAws_queryAvailabilityZones(
       wrappedItem,
       context
@@ -11968,10 +11955,9 @@ const deserializeAws_queryDBClusterSnapshotAttribute = (
     output["AttributeValues"] !== undefined &&
     output["AttributeValues"]["AttributeValue"] !== undefined
   ) {
-    const wrappedItem =
-      output["AttributeValues"]["AttributeValue"] instanceof Array
-        ? output["AttributeValues"]["AttributeValue"]
-        : [output["AttributeValues"]["AttributeValue"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["AttributeValues"]["AttributeValue"]
+    );
     contents.AttributeValues = deserializeAws_queryAttributeValueList(
       wrappedItem,
       context
@@ -12010,12 +11996,9 @@ const deserializeAws_queryDBClusterSnapshotAttributesResult = (
     output["DBClusterSnapshotAttributes"]["DBClusterSnapshotAttribute"] !==
       undefined
   ) {
-    const wrappedItem =
-      output["DBClusterSnapshotAttributes"][
-        "DBClusterSnapshotAttribute"
-      ] instanceof Array
-        ? output["DBClusterSnapshotAttributes"]["DBClusterSnapshotAttribute"]
-        : [output["DBClusterSnapshotAttributes"]["DBClusterSnapshotAttribute"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["DBClusterSnapshotAttributes"]["DBClusterSnapshotAttribute"]
+    );
     contents.DBClusterSnapshotAttributes = deserializeAws_queryDBClusterSnapshotAttributeList(
       wrappedItem,
       context
@@ -12057,10 +12040,9 @@ const deserializeAws_queryDBClusterSnapshotMessage = (
     output["DBClusterSnapshots"] !== undefined &&
     output["DBClusterSnapshots"]["DBClusterSnapshot"] !== undefined
   ) {
-    const wrappedItem =
-      output["DBClusterSnapshots"]["DBClusterSnapshot"] instanceof Array
-        ? output["DBClusterSnapshots"]["DBClusterSnapshot"]
-        : [output["DBClusterSnapshots"]["DBClusterSnapshot"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["DBClusterSnapshots"]["DBClusterSnapshot"]
+    );
     contents.DBClusterSnapshots = deserializeAws_queryDBClusterSnapshotList(
       wrappedItem,
       context
@@ -12137,10 +12119,9 @@ const deserializeAws_queryDBEngineVersion = (
     output["ExportableLogTypes"] !== undefined &&
     output["ExportableLogTypes"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["ExportableLogTypes"]["member"] instanceof Array
-        ? output["ExportableLogTypes"]["member"]
-        : [output["ExportableLogTypes"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["ExportableLogTypes"]["member"]
+    );
     contents.ExportableLogTypes = deserializeAws_queryLogTypeList(
       wrappedItem,
       context
@@ -12153,10 +12134,9 @@ const deserializeAws_queryDBEngineVersion = (
     output["SupportedCharacterSets"] !== undefined &&
     output["SupportedCharacterSets"]["CharacterSet"] !== undefined
   ) {
-    const wrappedItem =
-      output["SupportedCharacterSets"]["CharacterSet"] instanceof Array
-        ? output["SupportedCharacterSets"]["CharacterSet"]
-        : [output["SupportedCharacterSets"]["CharacterSet"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["SupportedCharacterSets"]["CharacterSet"]
+    );
     contents.SupportedCharacterSets = deserializeAws_querySupportedCharacterSetsList(
       wrappedItem,
       context
@@ -12169,10 +12149,9 @@ const deserializeAws_queryDBEngineVersion = (
     output["SupportedTimezones"] !== undefined &&
     output["SupportedTimezones"]["Timezone"] !== undefined
   ) {
-    const wrappedItem =
-      output["SupportedTimezones"]["Timezone"] instanceof Array
-        ? output["SupportedTimezones"]["Timezone"]
-        : [output["SupportedTimezones"]["Timezone"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["SupportedTimezones"]["Timezone"]
+    );
     contents.SupportedTimezones = deserializeAws_querySupportedTimezonesList(
       wrappedItem,
       context
@@ -12197,10 +12176,9 @@ const deserializeAws_queryDBEngineVersion = (
     output["ValidUpgradeTarget"] !== undefined &&
     output["ValidUpgradeTarget"]["UpgradeTarget"] !== undefined
   ) {
-    const wrappedItem =
-      output["ValidUpgradeTarget"]["UpgradeTarget"] instanceof Array
-        ? output["ValidUpgradeTarget"]["UpgradeTarget"]
-        : [output["ValidUpgradeTarget"]["UpgradeTarget"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["ValidUpgradeTarget"]["UpgradeTarget"]
+    );
     contents.ValidUpgradeTarget = deserializeAws_queryValidUpgradeTargetList(
       wrappedItem,
       context
@@ -12236,10 +12214,9 @@ const deserializeAws_queryDBEngineVersionMessage = (
     output["DBEngineVersions"] !== undefined &&
     output["DBEngineVersions"]["DBEngineVersion"] !== undefined
   ) {
-    const wrappedItem =
-      output["DBEngineVersions"]["DBEngineVersion"] instanceof Array
-        ? output["DBEngineVersions"]["DBEngineVersion"]
-        : [output["DBEngineVersions"]["DBEngineVersion"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["DBEngineVersions"]["DBEngineVersion"]
+    );
     contents.DBEngineVersions = deserializeAws_queryDBEngineVersionList(
       wrappedItem,
       context
@@ -12401,10 +12378,9 @@ const deserializeAws_queryDBInstance = (
     output["DBParameterGroups"] !== undefined &&
     output["DBParameterGroups"]["DBParameterGroup"] !== undefined
   ) {
-    const wrappedItem =
-      output["DBParameterGroups"]["DBParameterGroup"] instanceof Array
-        ? output["DBParameterGroups"]["DBParameterGroup"]
-        : [output["DBParameterGroups"]["DBParameterGroup"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["DBParameterGroups"]["DBParameterGroup"]
+    );
     contents.DBParameterGroups = deserializeAws_queryDBParameterGroupStatusList(
       wrappedItem,
       context
@@ -12417,10 +12393,9 @@ const deserializeAws_queryDBInstance = (
     output["DBSecurityGroups"] !== undefined &&
     output["DBSecurityGroups"]["DBSecurityGroup"] !== undefined
   ) {
-    const wrappedItem =
-      output["DBSecurityGroups"]["DBSecurityGroup"] instanceof Array
-        ? output["DBSecurityGroups"]["DBSecurityGroup"]
-        : [output["DBSecurityGroups"]["DBSecurityGroup"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["DBSecurityGroups"]["DBSecurityGroup"]
+    );
     contents.DBSecurityGroups = deserializeAws_queryDBSecurityGroupMembershipList(
       wrappedItem,
       context
@@ -12458,10 +12433,9 @@ const deserializeAws_queryDBInstance = (
     output["DomainMemberships"] !== undefined &&
     output["DomainMemberships"]["DomainMembership"] !== undefined
   ) {
-    const wrappedItem =
-      output["DomainMemberships"]["DomainMembership"] instanceof Array
-        ? output["DomainMemberships"]["DomainMembership"]
-        : [output["DomainMemberships"]["DomainMembership"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["DomainMemberships"]["DomainMembership"]
+    );
     contents.DomainMemberships = deserializeAws_queryDomainMembershipList(
       wrappedItem,
       context
@@ -12474,10 +12448,9 @@ const deserializeAws_queryDBInstance = (
     output["EnabledCloudwatchLogsExports"] !== undefined &&
     output["EnabledCloudwatchLogsExports"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["EnabledCloudwatchLogsExports"]["member"] instanceof Array
-        ? output["EnabledCloudwatchLogsExports"]["member"]
-        : [output["EnabledCloudwatchLogsExports"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["EnabledCloudwatchLogsExports"]["member"]
+    );
     contents.EnabledCloudwatchLogsExports = deserializeAws_queryLogTypeList(
       wrappedItem,
       context
@@ -12570,10 +12543,9 @@ const deserializeAws_queryDBInstance = (
     output["OptionGroupMemberships"] !== undefined &&
     output["OptionGroupMemberships"]["OptionGroupMembership"] !== undefined
   ) {
-    const wrappedItem =
-      output["OptionGroupMemberships"]["OptionGroupMembership"] instanceof Array
-        ? output["OptionGroupMemberships"]["OptionGroupMembership"]
-        : [output["OptionGroupMemberships"]["OptionGroupMembership"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["OptionGroupMemberships"]["OptionGroupMembership"]
+    );
     contents.OptionGroupMemberships = deserializeAws_queryOptionGroupMembershipList(
       wrappedItem,
       context
@@ -12631,18 +12603,11 @@ const deserializeAws_queryDBInstance = (
       "ReadReplicaDBClusterIdentifier"
     ] !== undefined
   ) {
-    const wrappedItem =
+    const wrappedItem = __getArrayIfSingleItem(
       output["ReadReplicaDBClusterIdentifiers"][
         "ReadReplicaDBClusterIdentifier"
-      ] instanceof Array
-        ? output["ReadReplicaDBClusterIdentifiers"][
-            "ReadReplicaDBClusterIdentifier"
-          ]
-        : [
-            output["ReadReplicaDBClusterIdentifiers"][
-              "ReadReplicaDBClusterIdentifier"
-            ]
-          ];
+      ]
+    );
     contents.ReadReplicaDBClusterIdentifiers = deserializeAws_queryReadReplicaDBClusterIdentifierList(
       wrappedItem,
       context
@@ -12657,18 +12622,11 @@ const deserializeAws_queryDBInstance = (
       "ReadReplicaDBInstanceIdentifier"
     ] !== undefined
   ) {
-    const wrappedItem =
+    const wrappedItem = __getArrayIfSingleItem(
       output["ReadReplicaDBInstanceIdentifiers"][
         "ReadReplicaDBInstanceIdentifier"
-      ] instanceof Array
-        ? output["ReadReplicaDBInstanceIdentifiers"][
-            "ReadReplicaDBInstanceIdentifier"
-          ]
-        : [
-            output["ReadReplicaDBInstanceIdentifiers"][
-              "ReadReplicaDBInstanceIdentifier"
-            ]
-          ];
+      ]
+    );
     contents.ReadReplicaDBInstanceIdentifiers = deserializeAws_queryReadReplicaDBInstanceIdentifierList(
       wrappedItem,
       context
@@ -12693,10 +12651,9 @@ const deserializeAws_queryDBInstance = (
     output["StatusInfos"] !== undefined &&
     output["StatusInfos"]["DBInstanceStatusInfo"] !== undefined
   ) {
-    const wrappedItem =
-      output["StatusInfos"]["DBInstanceStatusInfo"] instanceof Array
-        ? output["StatusInfos"]["DBInstanceStatusInfo"]
-        : [output["StatusInfos"]["DBInstanceStatusInfo"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["StatusInfos"]["DBInstanceStatusInfo"]
+    );
     contents.StatusInfos = deserializeAws_queryDBInstanceStatusInfoList(
       wrappedItem,
       context
@@ -12733,10 +12690,9 @@ const deserializeAws_queryDBInstance = (
     output["VpcSecurityGroups"] !== undefined &&
     output["VpcSecurityGroups"]["VpcSecurityGroupMembership"] !== undefined
   ) {
-    const wrappedItem =
-      output["VpcSecurityGroups"]["VpcSecurityGroupMembership"] instanceof Array
-        ? output["VpcSecurityGroups"]["VpcSecurityGroupMembership"]
-        : [output["VpcSecurityGroups"]["VpcSecurityGroupMembership"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["VpcSecurityGroups"]["VpcSecurityGroupMembership"]
+    );
     contents.VpcSecurityGroups = deserializeAws_queryVpcSecurityGroupMembershipList(
       wrappedItem,
       context
@@ -12772,10 +12728,9 @@ const deserializeAws_queryDBInstanceMessage = (
     output["DBInstances"] !== undefined &&
     output["DBInstances"]["DBInstance"] !== undefined
   ) {
-    const wrappedItem =
-      output["DBInstances"]["DBInstance"] instanceof Array
-        ? output["DBInstances"]["DBInstance"]
-        : [output["DBInstances"]["DBInstance"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["DBInstances"]["DBInstance"]
+    );
     contents.DBInstances = deserializeAws_queryDBInstanceList(
       wrappedItem,
       context
@@ -12899,10 +12854,9 @@ const deserializeAws_queryDBParameterGroupDetails = (
     output["Parameters"] !== undefined &&
     output["Parameters"]["Parameter"] !== undefined
   ) {
-    const wrappedItem =
-      output["Parameters"]["Parameter"] instanceof Array
-        ? output["Parameters"]["Parameter"]
-        : [output["Parameters"]["Parameter"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["Parameters"]["Parameter"]
+    );
     contents.Parameters = deserializeAws_queryParametersList(
       wrappedItem,
       context
@@ -12990,10 +12944,9 @@ const deserializeAws_queryDBParameterGroupsMessage = (
     output["DBParameterGroups"] !== undefined &&
     output["DBParameterGroups"]["DBParameterGroup"] !== undefined
   ) {
-    const wrappedItem =
-      output["DBParameterGroups"]["DBParameterGroup"] instanceof Array
-        ? output["DBParameterGroups"]["DBParameterGroup"]
-        : [output["DBParameterGroups"]["DBParameterGroup"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["DBParameterGroups"]["DBParameterGroup"]
+    );
     contents.DBParameterGroups = deserializeAws_queryDBParameterGroupList(
       wrappedItem,
       context
@@ -13089,10 +13042,7 @@ const deserializeAws_queryDBSubnetGroup = (
     output["Subnets"] !== undefined &&
     output["Subnets"]["Subnet"] !== undefined
   ) {
-    const wrappedItem =
-      output["Subnets"]["Subnet"] instanceof Array
-        ? output["Subnets"]["Subnet"]
-        : [output["Subnets"]["Subnet"]];
+    const wrappedItem = __getArrayIfSingleItem(output["Subnets"]["Subnet"]);
     contents.Subnets = deserializeAws_querySubnetList(wrappedItem, context);
   }
   if (output["VpcId"] !== undefined) {
@@ -13120,10 +13070,9 @@ const deserializeAws_queryDBSubnetGroupMessage = (
     output["DBSubnetGroups"] !== undefined &&
     output["DBSubnetGroups"]["DBSubnetGroup"] !== undefined
   ) {
-    const wrappedItem =
-      output["DBSubnetGroups"]["DBSubnetGroup"] instanceof Array
-        ? output["DBSubnetGroups"]["DBSubnetGroup"]
-        : [output["DBSubnetGroups"]["DBSubnetGroup"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["DBSubnetGroups"]["DBSubnetGroup"]
+    );
     contents.DBSubnetGroups = deserializeAws_queryDBSubnetGroups(
       wrappedItem,
       context
@@ -13430,10 +13379,9 @@ const deserializeAws_queryEngineDefaults = (
     output["Parameters"] !== undefined &&
     output["Parameters"]["Parameter"] !== undefined
   ) {
-    const wrappedItem =
-      output["Parameters"]["Parameter"] instanceof Array
-        ? output["Parameters"]["Parameter"]
-        : [output["Parameters"]["Parameter"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["Parameters"]["Parameter"]
+    );
     contents.Parameters = deserializeAws_queryParametersList(
       wrappedItem,
       context
@@ -13465,10 +13413,9 @@ const deserializeAws_queryEvent = (
     output["EventCategories"] !== undefined &&
     output["EventCategories"]["EventCategory"] !== undefined
   ) {
-    const wrappedItem =
-      output["EventCategories"]["EventCategory"] instanceof Array
-        ? output["EventCategories"]["EventCategory"]
-        : [output["EventCategories"]["EventCategory"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["EventCategories"]["EventCategory"]
+    );
     contents.EventCategories = deserializeAws_queryEventCategoriesList(
       wrappedItem,
       context
@@ -13528,10 +13475,9 @@ const deserializeAws_queryEventCategoriesMap = (
     output["EventCategories"] !== undefined &&
     output["EventCategories"]["EventCategory"] !== undefined
   ) {
-    const wrappedItem =
-      output["EventCategories"]["EventCategory"] instanceof Array
-        ? output["EventCategories"]["EventCategory"]
-        : [output["EventCategories"]["EventCategory"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["EventCategories"]["EventCategory"]
+    );
     contents.EventCategories = deserializeAws_queryEventCategoriesList(
       wrappedItem,
       context
@@ -13572,10 +13518,9 @@ const deserializeAws_queryEventCategoriesMessage = (
     output["EventCategoriesMapList"] !== undefined &&
     output["EventCategoriesMapList"]["EventCategoriesMap"] !== undefined
   ) {
-    const wrappedItem =
-      output["EventCategoriesMapList"]["EventCategoriesMap"] instanceof Array
-        ? output["EventCategoriesMapList"]["EventCategoriesMap"]
-        : [output["EventCategoriesMapList"]["EventCategoriesMap"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["EventCategoriesMapList"]["EventCategoriesMap"]
+    );
     contents.EventCategoriesMapList = deserializeAws_queryEventCategoriesMapList(
       wrappedItem,
       context
@@ -13637,10 +13582,9 @@ const deserializeAws_queryEventSubscription = (
     output["EventCategoriesList"] !== undefined &&
     output["EventCategoriesList"]["EventCategory"] !== undefined
   ) {
-    const wrappedItem =
-      output["EventCategoriesList"]["EventCategory"] instanceof Array
-        ? output["EventCategoriesList"]["EventCategory"]
-        : [output["EventCategoriesList"]["EventCategory"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["EventCategoriesList"]["EventCategory"]
+    );
     contents.EventCategoriesList = deserializeAws_queryEventCategoriesList(
       wrappedItem,
       context
@@ -13665,10 +13609,9 @@ const deserializeAws_queryEventSubscription = (
     output["SourceIdsList"] !== undefined &&
     output["SourceIdsList"]["SourceId"] !== undefined
   ) {
-    const wrappedItem =
-      output["SourceIdsList"]["SourceId"] instanceof Array
-        ? output["SourceIdsList"]["SourceId"]
-        : [output["SourceIdsList"]["SourceId"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["SourceIdsList"]["SourceId"]
+    );
     contents.SourceIdsList = deserializeAws_querySourceIdsList(
       wrappedItem,
       context
@@ -13722,10 +13665,9 @@ const deserializeAws_queryEventSubscriptionsMessage = (
     output["EventSubscriptionsList"] !== undefined &&
     output["EventSubscriptionsList"]["EventSubscription"] !== undefined
   ) {
-    const wrappedItem =
-      output["EventSubscriptionsList"]["EventSubscription"] instanceof Array
-        ? output["EventSubscriptionsList"]["EventSubscription"]
-        : [output["EventSubscriptionsList"]["EventSubscription"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["EventSubscriptionsList"]["EventSubscription"]
+    );
     contents.EventSubscriptionsList = deserializeAws_queryEventSubscriptionsList(
       wrappedItem,
       context
@@ -13756,10 +13698,7 @@ const deserializeAws_queryEventsMessage = (
     output["Events"] !== undefined &&
     output["Events"]["Event"] !== undefined
   ) {
-    const wrappedItem =
-      output["Events"]["Event"] instanceof Array
-        ? output["Events"]["Event"]
-        : [output["Events"]["Event"]];
+    const wrappedItem = __getArrayIfSingleItem(output["Events"]["Event"]);
     contents.Events = deserializeAws_queryEventList(wrappedItem, context);
   }
   if (output["Marker"] !== undefined) {
@@ -13953,10 +13892,9 @@ const deserializeAws_queryOrderableDBInstanceOption = (
     output["AvailabilityZones"] !== undefined &&
     output["AvailabilityZones"]["AvailabilityZone"] !== undefined
   ) {
-    const wrappedItem =
-      output["AvailabilityZones"]["AvailabilityZone"] instanceof Array
-        ? output["AvailabilityZones"]["AvailabilityZone"]
-        : [output["AvailabilityZones"]["AvailabilityZone"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["AvailabilityZones"]["AvailabilityZone"]
+    );
     contents.AvailabilityZones = deserializeAws_queryAvailabilityZoneList(
       wrappedItem,
       context
@@ -14121,12 +14059,9 @@ const deserializeAws_queryOrderableDBInstanceOptionsMessage = (
     output["OrderableDBInstanceOptions"]["OrderableDBInstanceOption"] !==
       undefined
   ) {
-    const wrappedItem =
-      output["OrderableDBInstanceOptions"][
-        "OrderableDBInstanceOption"
-      ] instanceof Array
-        ? output["OrderableDBInstanceOptions"]["OrderableDBInstanceOption"]
-        : [output["OrderableDBInstanceOptions"]["OrderableDBInstanceOption"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["OrderableDBInstanceOptions"]["OrderableDBInstanceOption"]
+    );
     contents.OrderableDBInstanceOptions = deserializeAws_queryOrderableDBInstanceOptionsList(
       wrappedItem,
       context
@@ -14242,10 +14177,9 @@ const deserializeAws_queryPendingCloudwatchLogsExports = (
     output["LogTypesToDisable"] !== undefined &&
     output["LogTypesToDisable"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["LogTypesToDisable"]["member"] instanceof Array
-        ? output["LogTypesToDisable"]["member"]
-        : [output["LogTypesToDisable"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["LogTypesToDisable"]["member"]
+    );
     contents.LogTypesToDisable = deserializeAws_queryLogTypeList(
       wrappedItem,
       context
@@ -14258,10 +14192,9 @@ const deserializeAws_queryPendingCloudwatchLogsExports = (
     output["LogTypesToEnable"] !== undefined &&
     output["LogTypesToEnable"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["LogTypesToEnable"]["member"] instanceof Array
-        ? output["LogTypesToEnable"]["member"]
-        : [output["LogTypesToEnable"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["LogTypesToEnable"]["member"]
+    );
     contents.LogTypesToEnable = deserializeAws_queryLogTypeList(
       wrappedItem,
       context
@@ -14360,18 +14293,9 @@ const deserializeAws_queryPendingMaintenanceActionsMessage = (
     output["PendingMaintenanceActions"]["ResourcePendingMaintenanceActions"] !==
       undefined
   ) {
-    const wrappedItem =
-      output["PendingMaintenanceActions"][
-        "ResourcePendingMaintenanceActions"
-      ] instanceof Array
-        ? output["PendingMaintenanceActions"][
-            "ResourcePendingMaintenanceActions"
-          ]
-        : [
-            output["PendingMaintenanceActions"][
-              "ResourcePendingMaintenanceActions"
-            ]
-          ];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["PendingMaintenanceActions"]["ResourcePendingMaintenanceActions"]
+    );
     contents.PendingMaintenanceActions = deserializeAws_queryPendingMaintenanceActions(
       wrappedItem,
       context
@@ -14636,16 +14560,9 @@ const deserializeAws_queryResourcePendingMaintenanceActions = (
     output["PendingMaintenanceActionDetails"]["PendingMaintenanceAction"] !==
       undefined
   ) {
-    const wrappedItem =
-      output["PendingMaintenanceActionDetails"][
-        "PendingMaintenanceAction"
-      ] instanceof Array
-        ? output["PendingMaintenanceActionDetails"]["PendingMaintenanceAction"]
-        : [
-            output["PendingMaintenanceActionDetails"][
-              "PendingMaintenanceAction"
-            ]
-          ];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["PendingMaintenanceActionDetails"]["PendingMaintenanceAction"]
+    );
     contents.PendingMaintenanceActionDetails = deserializeAws_queryPendingMaintenanceActionDetails(
       wrappedItem,
       context
@@ -14816,10 +14733,7 @@ const deserializeAws_queryTagListMessage = (
     output["TagList"] !== undefined &&
     output["TagList"]["Tag"] !== undefined
   ) {
-    const wrappedItem =
-      output["TagList"]["Tag"] instanceof Array
-        ? output["TagList"]["Tag"]
-        : [output["TagList"]["Tag"]];
+    const wrappedItem = __getArrayIfSingleItem(output["TagList"]["Tag"]);
     contents.TagList = deserializeAws_queryTagList(wrappedItem, context);
   }
   return contents;
@@ -14902,10 +14816,9 @@ const deserializeAws_queryValidDBInstanceModificationsMessage = (
     output["Storage"] !== undefined &&
     output["Storage"]["ValidStorageOptions"] !== undefined
   ) {
-    const wrappedItem =
-      output["Storage"]["ValidStorageOptions"] instanceof Array
-        ? output["Storage"]["ValidStorageOptions"]
-        : [output["Storage"]["ValidStorageOptions"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["Storage"]["ValidStorageOptions"]
+    );
     contents.Storage = deserializeAws_queryValidStorageOptionsList(
       wrappedItem,
       context
@@ -14932,10 +14845,9 @@ const deserializeAws_queryValidStorageOptions = (
     output["IopsToStorageRatio"] !== undefined &&
     output["IopsToStorageRatio"]["DoubleRange"] !== undefined
   ) {
-    const wrappedItem =
-      output["IopsToStorageRatio"]["DoubleRange"] instanceof Array
-        ? output["IopsToStorageRatio"]["DoubleRange"]
-        : [output["IopsToStorageRatio"]["DoubleRange"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["IopsToStorageRatio"]["DoubleRange"]
+    );
     contents.IopsToStorageRatio = deserializeAws_queryDoubleRangeList(
       wrappedItem,
       context
@@ -14948,10 +14860,9 @@ const deserializeAws_queryValidStorageOptions = (
     output["ProvisionedIops"] !== undefined &&
     output["ProvisionedIops"]["Range"] !== undefined
   ) {
-    const wrappedItem =
-      output["ProvisionedIops"]["Range"] instanceof Array
-        ? output["ProvisionedIops"]["Range"]
-        : [output["ProvisionedIops"]["Range"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["ProvisionedIops"]["Range"]
+    );
     contents.ProvisionedIops = deserializeAws_queryRangeList(
       wrappedItem,
       context
@@ -14964,10 +14875,7 @@ const deserializeAws_queryValidStorageOptions = (
     output["StorageSize"] !== undefined &&
     output["StorageSize"]["Range"] !== undefined
   ) {
-    const wrappedItem =
-      output["StorageSize"]["Range"] instanceof Array
-        ? output["StorageSize"]["Range"]
-        : [output["StorageSize"]["Range"]];
+    const wrappedItem = __getArrayIfSingleItem(output["StorageSize"]["Range"]);
     contents.StorageSize = deserializeAws_queryRangeList(wrappedItem, context);
   }
   if (output["StorageType"] !== undefined) {

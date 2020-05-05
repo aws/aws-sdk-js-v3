@@ -856,7 +856,8 @@ import {
 } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  getArrayIfSingleItem as __getArrayIfSingleItem
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -18313,10 +18314,9 @@ const deserializeAws_queryDeletionTaskFailureReasonType = (
     output["RoleUsageList"] !== undefined &&
     output["RoleUsageList"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["RoleUsageList"]["member"] instanceof Array
-        ? output["RoleUsageList"]["member"]
-        : [output["RoleUsageList"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["RoleUsageList"]["member"]
+    );
     contents.RoleUsageList = deserializeAws_queryRoleUsageListType(
       wrappedItem,
       context
@@ -18531,10 +18531,9 @@ const deserializeAws_queryEvaluationResult = (
     output["EvalDecisionDetails"] !== undefined &&
     output["EvalDecisionDetails"]["entry"] !== undefined
   ) {
-    const wrappedItem =
-      output["EvalDecisionDetails"]["entry"] instanceof Array
-        ? output["EvalDecisionDetails"]["entry"]
-        : [output["EvalDecisionDetails"]["entry"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["EvalDecisionDetails"]["entry"]
+    );
     contents.EvalDecisionDetails = deserializeAws_queryEvalDecisionDetailsType(
       wrappedItem,
       context
@@ -18553,10 +18552,9 @@ const deserializeAws_queryEvaluationResult = (
     output["MatchedStatements"] !== undefined &&
     output["MatchedStatements"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["MatchedStatements"]["member"] instanceof Array
-        ? output["MatchedStatements"]["member"]
-        : [output["MatchedStatements"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["MatchedStatements"]["member"]
+    );
     contents.MatchedStatements = deserializeAws_queryStatementListType(
       wrappedItem,
       context
@@ -18569,10 +18567,9 @@ const deserializeAws_queryEvaluationResult = (
     output["MissingContextValues"] !== undefined &&
     output["MissingContextValues"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["MissingContextValues"]["member"] instanceof Array
-        ? output["MissingContextValues"]["member"]
-        : [output["MissingContextValues"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["MissingContextValues"]["member"]
+    );
     contents.MissingContextValues = deserializeAws_queryContextKeyNamesResultListType(
       wrappedItem,
       context
@@ -18591,10 +18588,9 @@ const deserializeAws_queryEvaluationResult = (
     output["ResourceSpecificResults"] !== undefined &&
     output["ResourceSpecificResults"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["ResourceSpecificResults"]["member"] instanceof Array
-        ? output["ResourceSpecificResults"]["member"]
-        : [output["ResourceSpecificResults"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["ResourceSpecificResults"]["member"]
+    );
     contents.ResourceSpecificResults = deserializeAws_queryResourceSpecificResultListType(
       wrappedItem,
       context
@@ -18716,10 +18712,9 @@ const deserializeAws_queryGetAccountAuthorizationDetailsResponse = (
     output["GroupDetailList"] !== undefined &&
     output["GroupDetailList"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["GroupDetailList"]["member"] instanceof Array
-        ? output["GroupDetailList"]["member"]
-        : [output["GroupDetailList"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["GroupDetailList"]["member"]
+    );
     contents.GroupDetailList = deserializeAws_querygroupDetailListType(
       wrappedItem,
       context
@@ -18744,10 +18739,7 @@ const deserializeAws_queryGetAccountAuthorizationDetailsResponse = (
     output["Policies"] !== undefined &&
     output["Policies"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Policies"]["member"] instanceof Array
-        ? output["Policies"]["member"]
-        : [output["Policies"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(output["Policies"]["member"]);
     contents.Policies = deserializeAws_queryManagedPolicyDetailListType(
       wrappedItem,
       context
@@ -18760,10 +18752,9 @@ const deserializeAws_queryGetAccountAuthorizationDetailsResponse = (
     output["RoleDetailList"] !== undefined &&
     output["RoleDetailList"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["RoleDetailList"]["member"] instanceof Array
-        ? output["RoleDetailList"]["member"]
-        : [output["RoleDetailList"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["RoleDetailList"]["member"]
+    );
     contents.RoleDetailList = deserializeAws_queryroleDetailListType(
       wrappedItem,
       context
@@ -18776,10 +18767,9 @@ const deserializeAws_queryGetAccountAuthorizationDetailsResponse = (
     output["UserDetailList"] !== undefined &&
     output["UserDetailList"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["UserDetailList"]["member"] instanceof Array
-        ? output["UserDetailList"]["member"]
-        : [output["UserDetailList"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["UserDetailList"]["member"]
+    );
     contents.UserDetailList = deserializeAws_queryuserDetailListType(
       wrappedItem,
       context
@@ -18820,10 +18810,7 @@ const deserializeAws_queryGetAccountSummaryResponse = (
     output["SummaryMap"] !== undefined &&
     output["SummaryMap"]["entry"] !== undefined
   ) {
-    const wrappedItem =
-      output["SummaryMap"]["entry"] instanceof Array
-        ? output["SummaryMap"]["entry"]
-        : [output["SummaryMap"]["entry"]];
+    const wrappedItem = __getArrayIfSingleItem(output["SummaryMap"]["entry"]);
     contents.SummaryMap = deserializeAws_querysummaryMapType(
       wrappedItem,
       context
@@ -18847,10 +18834,9 @@ const deserializeAws_queryGetContextKeysForPolicyResponse = (
     output["ContextKeyNames"] !== undefined &&
     output["ContextKeyNames"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["ContextKeyNames"]["member"] instanceof Array
-        ? output["ContextKeyNames"]["member"]
-        : [output["ContextKeyNames"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["ContextKeyNames"]["member"]
+    );
     contents.ContextKeyNames = deserializeAws_queryContextKeyNamesResultListType(
       wrappedItem,
       context
@@ -18952,10 +18938,7 @@ const deserializeAws_queryGetGroupResponse = (
     output["Users"] !== undefined &&
     output["Users"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Users"]["member"] instanceof Array
-        ? output["Users"]["member"]
-        : [output["Users"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(output["Users"]["member"]);
     contents.Users = deserializeAws_queryuserListType(wrappedItem, context);
   }
   return contents;
@@ -19013,10 +18996,9 @@ const deserializeAws_queryGetOpenIDConnectProviderResponse = (
     output["ClientIDList"] !== undefined &&
     output["ClientIDList"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["ClientIDList"]["member"] instanceof Array
-        ? output["ClientIDList"]["member"]
-        : [output["ClientIDList"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["ClientIDList"]["member"]
+    );
     contents.ClientIDList = deserializeAws_queryclientIDListType(
       wrappedItem,
       context
@@ -19032,10 +19014,9 @@ const deserializeAws_queryGetOpenIDConnectProviderResponse = (
     output["ThumbprintList"] !== undefined &&
     output["ThumbprintList"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["ThumbprintList"]["member"] instanceof Array
-        ? output["ThumbprintList"]["member"]
-        : [output["ThumbprintList"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["ThumbprintList"]["member"]
+    );
     contents.ThumbprintList = deserializeAws_querythumbprintListType(
       wrappedItem,
       context
@@ -19073,10 +19054,9 @@ const deserializeAws_queryGetOrganizationsAccessReportResponse = (
     output["AccessDetails"] !== undefined &&
     output["AccessDetails"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["AccessDetails"]["member"] instanceof Array
-        ? output["AccessDetails"]["member"]
-        : [output["AccessDetails"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["AccessDetails"]["member"]
+    );
     contents.AccessDetails = deserializeAws_queryAccessDetails(
       wrappedItem,
       context
@@ -19312,10 +19292,9 @@ const deserializeAws_queryGetServiceLastAccessedDetailsResponse = (
     output["ServicesLastAccessed"] !== undefined &&
     output["ServicesLastAccessed"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["ServicesLastAccessed"]["member"] instanceof Array
-        ? output["ServicesLastAccessed"]["member"]
-        : [output["ServicesLastAccessed"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["ServicesLastAccessed"]["member"]
+    );
     contents.ServicesLastAccessed = deserializeAws_queryServicesLastAccessed(
       wrappedItem,
       context
@@ -19345,10 +19324,9 @@ const deserializeAws_queryGetServiceLastAccessedDetailsWithEntitiesResponse = (
     output["EntityDetailsList"] !== undefined &&
     output["EntityDetailsList"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["EntityDetailsList"]["member"] instanceof Array
-        ? output["EntityDetailsList"]["member"]
-        : [output["EntityDetailsList"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["EntityDetailsList"]["member"]
+    );
     contents.EntityDetailsList = deserializeAws_queryentityDetailsListType(
       wrappedItem,
       context
@@ -19522,10 +19500,9 @@ const deserializeAws_queryGroupDetail = (
     output["AttachedManagedPolicies"] !== undefined &&
     output["AttachedManagedPolicies"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["AttachedManagedPolicies"]["member"] instanceof Array
-        ? output["AttachedManagedPolicies"]["member"]
-        : [output["AttachedManagedPolicies"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["AttachedManagedPolicies"]["member"]
+    );
     contents.AttachedManagedPolicies = deserializeAws_queryattachedPoliciesListType(
       wrappedItem,
       context
@@ -19553,10 +19530,9 @@ const deserializeAws_queryGroupDetail = (
     output["GroupPolicyList"] !== undefined &&
     output["GroupPolicyList"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["GroupPolicyList"]["member"] instanceof Array
-        ? output["GroupPolicyList"]["member"]
-        : [output["GroupPolicyList"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["GroupPolicyList"]["member"]
+    );
     contents.GroupPolicyList = deserializeAws_querypolicyDetailListType(
       wrappedItem,
       context
@@ -19618,10 +19594,7 @@ const deserializeAws_queryInstanceProfile = (
     output["Roles"] !== undefined &&
     output["Roles"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Roles"]["member"] instanceof Array
-        ? output["Roles"]["member"]
-        : [output["Roles"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(output["Roles"]["member"]);
     contents.Roles = deserializeAws_queryroleListType(wrappedItem, context);
   }
   return contents;
@@ -19763,10 +19736,9 @@ const deserializeAws_queryListAccessKeysResponse = (
     output["AccessKeyMetadata"] !== undefined &&
     output["AccessKeyMetadata"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["AccessKeyMetadata"]["member"] instanceof Array
-        ? output["AccessKeyMetadata"]["member"]
-        : [output["AccessKeyMetadata"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["AccessKeyMetadata"]["member"]
+    );
     contents.AccessKeyMetadata = deserializeAws_queryaccessKeyMetadataListType(
       wrappedItem,
       context
@@ -19804,10 +19776,9 @@ const deserializeAws_queryListAccountAliasesResponse = (
     output["AccountAliases"] !== undefined &&
     output["AccountAliases"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["AccountAliases"]["member"] instanceof Array
-        ? output["AccountAliases"]["member"]
-        : [output["AccountAliases"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["AccountAliases"]["member"]
+    );
     contents.AccountAliases = deserializeAws_queryaccountAliasListType(
       wrappedItem,
       context
@@ -19845,10 +19816,9 @@ const deserializeAws_queryListAttachedGroupPoliciesResponse = (
     output["AttachedPolicies"] !== undefined &&
     output["AttachedPolicies"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["AttachedPolicies"]["member"] instanceof Array
-        ? output["AttachedPolicies"]["member"]
-        : [output["AttachedPolicies"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["AttachedPolicies"]["member"]
+    );
     contents.AttachedPolicies = deserializeAws_queryattachedPoliciesListType(
       wrappedItem,
       context
@@ -19886,10 +19856,9 @@ const deserializeAws_queryListAttachedRolePoliciesResponse = (
     output["AttachedPolicies"] !== undefined &&
     output["AttachedPolicies"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["AttachedPolicies"]["member"] instanceof Array
-        ? output["AttachedPolicies"]["member"]
-        : [output["AttachedPolicies"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["AttachedPolicies"]["member"]
+    );
     contents.AttachedPolicies = deserializeAws_queryattachedPoliciesListType(
       wrappedItem,
       context
@@ -19927,10 +19896,9 @@ const deserializeAws_queryListAttachedUserPoliciesResponse = (
     output["AttachedPolicies"] !== undefined &&
     output["AttachedPolicies"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["AttachedPolicies"]["member"] instanceof Array
-        ? output["AttachedPolicies"]["member"]
-        : [output["AttachedPolicies"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["AttachedPolicies"]["member"]
+    );
     contents.AttachedPolicies = deserializeAws_queryattachedPoliciesListType(
       wrappedItem,
       context
@@ -19982,10 +19950,9 @@ const deserializeAws_queryListEntitiesForPolicyResponse = (
     output["PolicyGroups"] !== undefined &&
     output["PolicyGroups"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["PolicyGroups"]["member"] instanceof Array
-        ? output["PolicyGroups"]["member"]
-        : [output["PolicyGroups"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["PolicyGroups"]["member"]
+    );
     contents.PolicyGroups = deserializeAws_queryPolicyGroupListType(
       wrappedItem,
       context
@@ -19998,10 +19965,7 @@ const deserializeAws_queryListEntitiesForPolicyResponse = (
     output["PolicyRoles"] !== undefined &&
     output["PolicyRoles"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["PolicyRoles"]["member"] instanceof Array
-        ? output["PolicyRoles"]["member"]
-        : [output["PolicyRoles"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(output["PolicyRoles"]["member"]);
     contents.PolicyRoles = deserializeAws_queryPolicyRoleListType(
       wrappedItem,
       context
@@ -20014,10 +19978,7 @@ const deserializeAws_queryListEntitiesForPolicyResponse = (
     output["PolicyUsers"] !== undefined &&
     output["PolicyUsers"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["PolicyUsers"]["member"] instanceof Array
-        ? output["PolicyUsers"]["member"]
-        : [output["PolicyUsers"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(output["PolicyUsers"]["member"]);
     contents.PolicyUsers = deserializeAws_queryPolicyUserListType(
       wrappedItem,
       context
@@ -20055,10 +20016,7 @@ const deserializeAws_queryListGroupPoliciesResponse = (
     output["PolicyNames"] !== undefined &&
     output["PolicyNames"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["PolicyNames"]["member"] instanceof Array
-        ? output["PolicyNames"]["member"]
-        : [output["PolicyNames"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(output["PolicyNames"]["member"]);
     contents.PolicyNames = deserializeAws_querypolicyNameListType(
       wrappedItem,
       context
@@ -20084,10 +20042,7 @@ const deserializeAws_queryListGroupsForUserResponse = (
     output["Groups"] !== undefined &&
     output["Groups"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Groups"]["member"] instanceof Array
-        ? output["Groups"]["member"]
-        : [output["Groups"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(output["Groups"]["member"]);
     contents.Groups = deserializeAws_querygroupListType(wrappedItem, context);
   }
   if (output["IsTruncated"] !== undefined) {
@@ -20122,10 +20077,7 @@ const deserializeAws_queryListGroupsResponse = (
     output["Groups"] !== undefined &&
     output["Groups"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Groups"]["member"] instanceof Array
-        ? output["Groups"]["member"]
-        : [output["Groups"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(output["Groups"]["member"]);
     contents.Groups = deserializeAws_querygroupListType(wrappedItem, context);
   }
   if (output["IsTruncated"] !== undefined) {
@@ -20160,10 +20112,9 @@ const deserializeAws_queryListInstanceProfilesForRoleResponse = (
     output["InstanceProfiles"] !== undefined &&
     output["InstanceProfiles"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["InstanceProfiles"]["member"] instanceof Array
-        ? output["InstanceProfiles"]["member"]
-        : [output["InstanceProfiles"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["InstanceProfiles"]["member"]
+    );
     contents.InstanceProfiles = deserializeAws_queryinstanceProfileListType(
       wrappedItem,
       context
@@ -20201,10 +20152,9 @@ const deserializeAws_queryListInstanceProfilesResponse = (
     output["InstanceProfiles"] !== undefined &&
     output["InstanceProfiles"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["InstanceProfiles"]["member"] instanceof Array
-        ? output["InstanceProfiles"]["member"]
-        : [output["InstanceProfiles"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["InstanceProfiles"]["member"]
+    );
     contents.InstanceProfiles = deserializeAws_queryinstanceProfileListType(
       wrappedItem,
       context
@@ -20248,10 +20198,7 @@ const deserializeAws_queryListMFADevicesResponse = (
     output["MFADevices"] !== undefined &&
     output["MFADevices"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["MFADevices"]["member"] instanceof Array
-        ? output["MFADevices"]["member"]
-        : [output["MFADevices"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(output["MFADevices"]["member"]);
     contents.MFADevices = deserializeAws_querymfaDeviceListType(
       wrappedItem,
       context
@@ -20281,10 +20228,9 @@ const deserializeAws_queryListOpenIDConnectProvidersResponse = (
     output["OpenIDConnectProviderList"] !== undefined &&
     output["OpenIDConnectProviderList"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["OpenIDConnectProviderList"]["member"] instanceof Array
-        ? output["OpenIDConnectProviderList"]["member"]
-        : [output["OpenIDConnectProviderList"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["OpenIDConnectProviderList"]["member"]
+    );
     contents.OpenIDConnectProviderList = deserializeAws_queryOpenIDConnectProviderListType(
       wrappedItem,
       context
@@ -20309,10 +20255,7 @@ const deserializeAws_queryListPoliciesGrantingServiceAccessEntry = (
     output["Policies"] !== undefined &&
     output["Policies"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Policies"]["member"] instanceof Array
-        ? output["Policies"]["member"]
-        : [output["Policies"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(output["Policies"]["member"]);
     contents.Policies = deserializeAws_querypolicyGrantingServiceAccessListType(
       wrappedItem,
       context
@@ -20356,10 +20299,9 @@ const deserializeAws_queryListPoliciesGrantingServiceAccessResponse = (
     output["PoliciesGrantingServiceAccess"] !== undefined &&
     output["PoliciesGrantingServiceAccess"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["PoliciesGrantingServiceAccess"]["member"] instanceof Array
-        ? output["PoliciesGrantingServiceAccess"]["member"]
-        : [output["PoliciesGrantingServiceAccess"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["PoliciesGrantingServiceAccess"]["member"]
+    );
     contents.PoliciesGrantingServiceAccess = deserializeAws_querylistPolicyGrantingServiceAccessResponseListType(
       wrappedItem,
       context
@@ -20397,10 +20339,7 @@ const deserializeAws_queryListPoliciesResponse = (
     output["Policies"] !== undefined &&
     output["Policies"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Policies"]["member"] instanceof Array
-        ? output["Policies"]["member"]
-        : [output["Policies"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(output["Policies"]["member"]);
     contents.Policies = deserializeAws_querypolicyListType(
       wrappedItem,
       context
@@ -20438,10 +20377,7 @@ const deserializeAws_queryListPolicyVersionsResponse = (
     output["Versions"] !== undefined &&
     output["Versions"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Versions"]["member"] instanceof Array
-        ? output["Versions"]["member"]
-        : [output["Versions"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(output["Versions"]["member"]);
     contents.Versions = deserializeAws_querypolicyDocumentVersionListType(
       wrappedItem,
       context
@@ -20479,10 +20415,7 @@ const deserializeAws_queryListRolePoliciesResponse = (
     output["PolicyNames"] !== undefined &&
     output["PolicyNames"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["PolicyNames"]["member"] instanceof Array
-        ? output["PolicyNames"]["member"]
-        : [output["PolicyNames"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(output["PolicyNames"]["member"]);
     contents.PolicyNames = deserializeAws_querypolicyNameListType(
       wrappedItem,
       context
@@ -20517,10 +20450,7 @@ const deserializeAws_queryListRoleTagsResponse = (
     contents.Tags = [];
   }
   if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    const wrappedItem =
-      output["Tags"]["member"] instanceof Array
-        ? output["Tags"]["member"]
-        : [output["Tags"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(output["Tags"]["member"]);
     contents.Tags = deserializeAws_querytagListType(wrappedItem, context);
   }
   return contents;
@@ -20555,10 +20485,7 @@ const deserializeAws_queryListRolesResponse = (
     output["Roles"] !== undefined &&
     output["Roles"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Roles"]["member"] instanceof Array
-        ? output["Roles"]["member"]
-        : [output["Roles"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(output["Roles"]["member"]);
     contents.Roles = deserializeAws_queryroleListType(wrappedItem, context);
   }
   return contents;
@@ -20579,10 +20506,9 @@ const deserializeAws_queryListSAMLProvidersResponse = (
     output["SAMLProviderList"] !== undefined &&
     output["SAMLProviderList"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["SAMLProviderList"]["member"] instanceof Array
-        ? output["SAMLProviderList"]["member"]
-        : [output["SAMLProviderList"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["SAMLProviderList"]["member"]
+    );
     contents.SAMLProviderList = deserializeAws_querySAMLProviderListType(
       wrappedItem,
       context
@@ -20620,10 +20546,9 @@ const deserializeAws_queryListSSHPublicKeysResponse = (
     output["SSHPublicKeys"] !== undefined &&
     output["SSHPublicKeys"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["SSHPublicKeys"]["member"] instanceof Array
-        ? output["SSHPublicKeys"]["member"]
-        : [output["SSHPublicKeys"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["SSHPublicKeys"]["member"]
+    );
     contents.SSHPublicKeys = deserializeAws_querySSHPublicKeyListType(
       wrappedItem,
       context
@@ -20661,10 +20586,9 @@ const deserializeAws_queryListServerCertificatesResponse = (
     output["ServerCertificateMetadataList"] !== undefined &&
     output["ServerCertificateMetadataList"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["ServerCertificateMetadataList"]["member"] instanceof Array
-        ? output["ServerCertificateMetadataList"]["member"]
-        : [output["ServerCertificateMetadataList"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["ServerCertificateMetadataList"]["member"]
+    );
     contents.ServerCertificateMetadataList = deserializeAws_queryserverCertificateMetadataListType(
       wrappedItem,
       context
@@ -20688,10 +20612,9 @@ const deserializeAws_queryListServiceSpecificCredentialsResponse = (
     output["ServiceSpecificCredentials"] !== undefined &&
     output["ServiceSpecificCredentials"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["ServiceSpecificCredentials"]["member"] instanceof Array
-        ? output["ServiceSpecificCredentials"]["member"]
-        : [output["ServiceSpecificCredentials"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["ServiceSpecificCredentials"]["member"]
+    );
     contents.ServiceSpecificCredentials = deserializeAws_queryServiceSpecificCredentialsListType(
       wrappedItem,
       context
@@ -20717,10 +20640,9 @@ const deserializeAws_queryListSigningCertificatesResponse = (
     output["Certificates"] !== undefined &&
     output["Certificates"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Certificates"]["member"] instanceof Array
-        ? output["Certificates"]["member"]
-        : [output["Certificates"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["Certificates"]["member"]
+    );
     contents.Certificates = deserializeAws_querycertificateListType(
       wrappedItem,
       context
@@ -20770,10 +20692,7 @@ const deserializeAws_queryListUserPoliciesResponse = (
     output["PolicyNames"] !== undefined &&
     output["PolicyNames"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["PolicyNames"]["member"] instanceof Array
-        ? output["PolicyNames"]["member"]
-        : [output["PolicyNames"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(output["PolicyNames"]["member"]);
     contents.PolicyNames = deserializeAws_querypolicyNameListType(
       wrappedItem,
       context
@@ -20808,10 +20727,7 @@ const deserializeAws_queryListUserTagsResponse = (
     contents.Tags = [];
   }
   if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    const wrappedItem =
-      output["Tags"]["member"] instanceof Array
-        ? output["Tags"]["member"]
-        : [output["Tags"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(output["Tags"]["member"]);
     contents.Tags = deserializeAws_querytagListType(wrappedItem, context);
   }
   return contents;
@@ -20846,10 +20762,7 @@ const deserializeAws_queryListUsersResponse = (
     output["Users"] !== undefined &&
     output["Users"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Users"]["member"] instanceof Array
-        ? output["Users"]["member"]
-        : [output["Users"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(output["Users"]["member"]);
     contents.Users = deserializeAws_queryuserListType(wrappedItem, context);
   }
   return contents;
@@ -20884,10 +20797,9 @@ const deserializeAws_queryListVirtualMFADevicesResponse = (
     output["VirtualMFADevices"] !== undefined &&
     output["VirtualMFADevices"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["VirtualMFADevices"]["member"] instanceof Array
-        ? output["VirtualMFADevices"]["member"]
-        : [output["VirtualMFADevices"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["VirtualMFADevices"]["member"]
+    );
     contents.VirtualMFADevices = deserializeAws_queryvirtualMFADeviceListType(
       wrappedItem,
       context
@@ -21071,10 +20983,9 @@ const deserializeAws_queryManagedPolicyDetail = (
     output["PolicyVersionList"] !== undefined &&
     output["PolicyVersionList"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["PolicyVersionList"]["member"] instanceof Array
-        ? output["PolicyVersionList"]["member"]
-        : [output["PolicyVersionList"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["PolicyVersionList"]["member"]
+    );
     contents.PolicyVersionList = deserializeAws_querypolicyDocumentVersionListType(
       wrappedItem,
       context
@@ -21666,10 +21577,9 @@ const deserializeAws_queryResourceSpecificResult = (
     output["EvalDecisionDetails"] !== undefined &&
     output["EvalDecisionDetails"]["entry"] !== undefined
   ) {
-    const wrappedItem =
-      output["EvalDecisionDetails"]["entry"] instanceof Array
-        ? output["EvalDecisionDetails"]["entry"]
-        : [output["EvalDecisionDetails"]["entry"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["EvalDecisionDetails"]["entry"]
+    );
     contents.EvalDecisionDetails = deserializeAws_queryEvalDecisionDetailsType(
       wrappedItem,
       context
@@ -21694,10 +21604,9 @@ const deserializeAws_queryResourceSpecificResult = (
     output["MatchedStatements"] !== undefined &&
     output["MatchedStatements"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["MatchedStatements"]["member"] instanceof Array
-        ? output["MatchedStatements"]["member"]
-        : [output["MatchedStatements"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["MatchedStatements"]["member"]
+    );
     contents.MatchedStatements = deserializeAws_queryStatementListType(
       wrappedItem,
       context
@@ -21710,10 +21619,9 @@ const deserializeAws_queryResourceSpecificResult = (
     output["MissingContextValues"] !== undefined &&
     output["MissingContextValues"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["MissingContextValues"]["member"] instanceof Array
-        ? output["MissingContextValues"]["member"]
-        : [output["MissingContextValues"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["MissingContextValues"]["member"]
+    );
     contents.MissingContextValues = deserializeAws_queryContextKeyNamesResultListType(
       wrappedItem,
       context
@@ -21813,10 +21721,7 @@ const deserializeAws_queryRole = (
     contents.Tags = [];
   }
   if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    const wrappedItem =
-      output["Tags"]["member"] instanceof Array
-        ? output["Tags"]["member"]
-        : [output["Tags"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(output["Tags"]["member"]);
     contents.Tags = deserializeAws_querytagListType(wrappedItem, context);
   }
   return contents;
@@ -21860,10 +21765,9 @@ const deserializeAws_queryRoleDetail = (
     output["AttachedManagedPolicies"] !== undefined &&
     output["AttachedManagedPolicies"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["AttachedManagedPolicies"]["member"] instanceof Array
-        ? output["AttachedManagedPolicies"]["member"]
-        : [output["AttachedManagedPolicies"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["AttachedManagedPolicies"]["member"]
+    );
     contents.AttachedManagedPolicies = deserializeAws_queryattachedPoliciesListType(
       wrappedItem,
       context
@@ -21879,10 +21783,9 @@ const deserializeAws_queryRoleDetail = (
     output["InstanceProfileList"] !== undefined &&
     output["InstanceProfileList"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["InstanceProfileList"]["member"] instanceof Array
-        ? output["InstanceProfileList"]["member"]
-        : [output["InstanceProfileList"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["InstanceProfileList"]["member"]
+    );
     contents.InstanceProfileList = deserializeAws_queryinstanceProfileListType(
       wrappedItem,
       context
@@ -21925,10 +21828,9 @@ const deserializeAws_queryRoleDetail = (
     output["RolePolicyList"] !== undefined &&
     output["RolePolicyList"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["RolePolicyList"]["member"] instanceof Array
-        ? output["RolePolicyList"]["member"]
-        : [output["RolePolicyList"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["RolePolicyList"]["member"]
+    );
     contents.RolePolicyList = deserializeAws_querypolicyDetailListType(
       wrappedItem,
       context
@@ -21938,10 +21840,7 @@ const deserializeAws_queryRoleDetail = (
     contents.Tags = [];
   }
   if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    const wrappedItem =
-      output["Tags"]["member"] instanceof Array
-        ? output["Tags"]["member"]
-        : [output["Tags"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(output["Tags"]["member"]);
     contents.Tags = deserializeAws_querytagListType(wrappedItem, context);
   }
   return contents;
@@ -22001,10 +21900,7 @@ const deserializeAws_queryRoleUsageType = (
     output["Resources"] !== undefined &&
     output["Resources"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Resources"]["member"] instanceof Array
-        ? output["Resources"]["member"]
-        : [output["Resources"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(output["Resources"]["member"]);
     contents.Resources = deserializeAws_queryArnListType(wrappedItem, context);
   }
   return contents;
@@ -22483,10 +22379,9 @@ const deserializeAws_querySimulatePolicyResponse = (
     output["EvaluationResults"] !== undefined &&
     output["EvaluationResults"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["EvaluationResults"]["member"] instanceof Array
-        ? output["EvaluationResults"]["member"]
-        : [output["EvaluationResults"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["EvaluationResults"]["member"]
+    );
     contents.EvaluationResults = deserializeAws_queryEvaluationResultsListType(
       wrappedItem,
       context
@@ -22746,10 +22641,7 @@ const deserializeAws_queryUser = (
     contents.Tags = [];
   }
   if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    const wrappedItem =
-      output["Tags"]["member"] instanceof Array
-        ? output["Tags"]["member"]
-        : [output["Tags"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(output["Tags"]["member"]);
     contents.Tags = deserializeAws_querytagListType(wrappedItem, context);
   }
   if (output["UserId"] !== undefined) {
@@ -22797,10 +22689,9 @@ const deserializeAws_queryUserDetail = (
     output["AttachedManagedPolicies"] !== undefined &&
     output["AttachedManagedPolicies"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["AttachedManagedPolicies"]["member"] instanceof Array
-        ? output["AttachedManagedPolicies"]["member"]
-        : [output["AttachedManagedPolicies"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["AttachedManagedPolicies"]["member"]
+    );
     contents.AttachedManagedPolicies = deserializeAws_queryattachedPoliciesListType(
       wrappedItem,
       context
@@ -22816,10 +22707,7 @@ const deserializeAws_queryUserDetail = (
     output["GroupList"] !== undefined &&
     output["GroupList"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["GroupList"]["member"] instanceof Array
-        ? output["GroupList"]["member"]
-        : [output["GroupList"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(output["GroupList"]["member"]);
     contents.GroupList = deserializeAws_querygroupNameListType(
       wrappedItem,
       context
@@ -22841,10 +22729,7 @@ const deserializeAws_queryUserDetail = (
     contents.Tags = [];
   }
   if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    const wrappedItem =
-      output["Tags"]["member"] instanceof Array
-        ? output["Tags"]["member"]
-        : [output["Tags"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(output["Tags"]["member"]);
     contents.Tags = deserializeAws_querytagListType(wrappedItem, context);
   }
   if (output["UserId"] !== undefined) {
@@ -22866,10 +22751,9 @@ const deserializeAws_queryUserDetail = (
     output["UserPolicyList"] !== undefined &&
     output["UserPolicyList"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["UserPolicyList"]["member"] instanceof Array
-        ? output["UserPolicyList"]["member"]
-        : [output["UserPolicyList"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["UserPolicyList"]["member"]
+    );
     contents.UserPolicyList = deserializeAws_querypolicyDetailListType(
       wrappedItem,
       context

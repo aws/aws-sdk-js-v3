@@ -199,7 +199,8 @@ import {
 } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  getArrayIfSingleItem as __getArrayIfSingleItem
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -4449,10 +4450,7 @@ const deserializeAws_queryBuildSuggestersResponse = (
     output["FieldNames"] !== undefined &&
     output["FieldNames"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["FieldNames"]["member"] instanceof Array
-        ? output["FieldNames"]["member"]
-        : [output["FieldNames"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(output["FieldNames"]["member"]);
     contents.FieldNames = deserializeAws_queryFieldNameList(
       wrappedItem,
       context
@@ -4743,10 +4741,9 @@ const deserializeAws_queryDescribeAnalysisSchemesResponse = (
     output["AnalysisSchemes"] !== undefined &&
     output["AnalysisSchemes"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["AnalysisSchemes"]["member"] instanceof Array
-        ? output["AnalysisSchemes"]["member"]
-        : [output["AnalysisSchemes"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["AnalysisSchemes"]["member"]
+    );
     contents.AnalysisSchemes = deserializeAws_queryAnalysisSchemeStatusList(
       wrappedItem,
       context
@@ -4804,10 +4801,9 @@ const deserializeAws_queryDescribeDomainsResponse = (
     output["DomainStatusList"] !== undefined &&
     output["DomainStatusList"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["DomainStatusList"]["member"] instanceof Array
-        ? output["DomainStatusList"]["member"]
-        : [output["DomainStatusList"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["DomainStatusList"]["member"]
+    );
     contents.DomainStatusList = deserializeAws_queryDomainStatusList(
       wrappedItem,
       context
@@ -4831,10 +4827,7 @@ const deserializeAws_queryDescribeExpressionsResponse = (
     output["Expressions"] !== undefined &&
     output["Expressions"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Expressions"]["member"] instanceof Array
-        ? output["Expressions"]["member"]
-        : [output["Expressions"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(output["Expressions"]["member"]);
     contents.Expressions = deserializeAws_queryExpressionStatusList(
       wrappedItem,
       context
@@ -4858,10 +4851,7 @@ const deserializeAws_queryDescribeIndexFieldsResponse = (
     output["IndexFields"] !== undefined &&
     output["IndexFields"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["IndexFields"]["member"] instanceof Array
-        ? output["IndexFields"]["member"]
-        : [output["IndexFields"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(output["IndexFields"]["member"]);
     contents.IndexFields = deserializeAws_queryIndexFieldStatusList(
       wrappedItem,
       context
@@ -4919,10 +4909,7 @@ const deserializeAws_queryDescribeSuggestersResponse = (
     output["Suggesters"] !== undefined &&
     output["Suggesters"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Suggesters"]["member"] instanceof Array
-        ? output["Suggesters"]["member"]
-        : [output["Suggesters"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(output["Suggesters"]["member"]);
     contents.Suggesters = deserializeAws_querySuggesterStatusList(
       wrappedItem,
       context
@@ -5343,10 +5330,7 @@ const deserializeAws_queryIndexDocumentsResponse = (
     output["FieldNames"] !== undefined &&
     output["FieldNames"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["FieldNames"]["member"] instanceof Array
-        ? output["FieldNames"]["member"]
-        : [output["FieldNames"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(output["FieldNames"]["member"]);
     contents.FieldNames = deserializeAws_queryFieldNameList(
       wrappedItem,
       context
@@ -5755,10 +5739,7 @@ const deserializeAws_queryListDomainNamesResponse = (
     output["DomainNames"] !== undefined &&
     output["DomainNames"]["entry"] !== undefined
   ) {
-    const wrappedItem =
-      output["DomainNames"]["entry"] instanceof Array
-        ? output["DomainNames"]["entry"]
-        : [output["DomainNames"]["entry"]];
+    const wrappedItem = __getArrayIfSingleItem(output["DomainNames"]["entry"]);
     contents.DomainNames = deserializeAws_queryDomainNameMap(
       wrappedItem,
       context

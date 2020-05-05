@@ -312,7 +312,8 @@ import {
 } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  getArrayIfSingleItem as __getArrayIfSingleItem
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -4839,10 +4840,9 @@ export const deserializeAws_restXmlGetCheckerIpRangesCommand = async (
     data["CheckerIpRanges"] !== undefined &&
     data["CheckerIpRanges"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      data["CheckerIpRanges"]["member"] instanceof Array
-        ? data["CheckerIpRanges"]["member"]
-        : [data["CheckerIpRanges"]["member"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      data["CheckerIpRanges"]["member"]
+    );
     contents.CheckerIpRanges = deserializeAws_restXmlCheckerIpRanges(
       wrappedItem,
       context
@@ -5119,10 +5119,9 @@ export const deserializeAws_restXmlGetHealthCheckLastFailureReasonCommand = asyn
     data["HealthCheckObservations"] !== undefined &&
     data["HealthCheckObservations"]["HealthCheckObservation"] !== undefined
   ) {
-    const wrappedItem =
-      data["HealthCheckObservations"]["HealthCheckObservation"] instanceof Array
-        ? data["HealthCheckObservations"]["HealthCheckObservation"]
-        : [data["HealthCheckObservations"]["HealthCheckObservation"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      data["HealthCheckObservations"]["HealthCheckObservation"]
+    );
     contents.HealthCheckObservations = deserializeAws_restXmlHealthCheckObservations(
       wrappedItem,
       context
@@ -5206,10 +5205,9 @@ export const deserializeAws_restXmlGetHealthCheckStatusCommand = async (
     data["HealthCheckObservations"] !== undefined &&
     data["HealthCheckObservations"]["HealthCheckObservation"] !== undefined
   ) {
-    const wrappedItem =
-      data["HealthCheckObservations"]["HealthCheckObservation"] instanceof Array
-        ? data["HealthCheckObservations"]["HealthCheckObservation"]
-        : [data["HealthCheckObservations"]["HealthCheckObservation"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      data["HealthCheckObservations"]["HealthCheckObservation"]
+    );
     contents.HealthCheckObservations = deserializeAws_restXmlHealthCheckObservations(
       wrappedItem,
       context
@@ -5301,10 +5299,7 @@ export const deserializeAws_restXmlGetHostedZoneCommand = async (
     contents.VPCs = [];
   }
   if (data["VPCs"] !== undefined && data["VPCs"]["VPC"] !== undefined) {
-    const wrappedItem =
-      data["VPCs"]["VPC"] instanceof Array
-        ? data["VPCs"]["VPC"]
-        : [data["VPCs"]["VPC"]];
+    const wrappedItem = __getArrayIfSingleItem(data["VPCs"]["VPC"]);
     contents.VPCs = deserializeAws_restXmlVPCs(wrappedItem, context);
   }
   return Promise.resolve(contents);
@@ -6007,10 +6002,9 @@ export const deserializeAws_restXmlListGeoLocationsCommand = async (
     data["GeoLocationDetailsList"] !== undefined &&
     data["GeoLocationDetailsList"]["GeoLocationDetails"] !== undefined
   ) {
-    const wrappedItem =
-      data["GeoLocationDetailsList"]["GeoLocationDetails"] instanceof Array
-        ? data["GeoLocationDetailsList"]["GeoLocationDetails"]
-        : [data["GeoLocationDetailsList"]["GeoLocationDetails"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      data["GeoLocationDetailsList"]["GeoLocationDetails"]
+    );
     contents.GeoLocationDetailsList = deserializeAws_restXmlGeoLocationDetailsList(
       wrappedItem,
       context
@@ -6114,10 +6108,9 @@ export const deserializeAws_restXmlListHealthChecksCommand = async (
     data["HealthChecks"] !== undefined &&
     data["HealthChecks"]["HealthCheck"] !== undefined
   ) {
-    const wrappedItem =
-      data["HealthChecks"]["HealthCheck"] instanceof Array
-        ? data["HealthChecks"]["HealthCheck"]
-        : [data["HealthChecks"]["HealthCheck"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      data["HealthChecks"]["HealthCheck"]
+    );
     contents.HealthChecks = deserializeAws_restXmlHealthChecks(
       wrappedItem,
       context
@@ -6226,10 +6219,9 @@ export const deserializeAws_restXmlListHostedZonesCommand = async (
     data["HostedZones"] !== undefined &&
     data["HostedZones"]["HostedZone"] !== undefined
   ) {
-    const wrappedItem =
-      data["HostedZones"]["HostedZone"] instanceof Array
-        ? data["HostedZones"]["HostedZone"]
-        : [data["HostedZones"]["HostedZone"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      data["HostedZones"]["HostedZone"]
+    );
     contents.HostedZones = deserializeAws_restXmlHostedZones(
       wrappedItem,
       context
@@ -6366,10 +6358,9 @@ export const deserializeAws_restXmlListHostedZonesByNameCommand = async (
     data["HostedZones"] !== undefined &&
     data["HostedZones"]["HostedZone"] !== undefined
   ) {
-    const wrappedItem =
-      data["HostedZones"]["HostedZone"] instanceof Array
-        ? data["HostedZones"]["HostedZone"]
-        : [data["HostedZones"]["HostedZone"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      data["HostedZones"]["HostedZone"]
+    );
     contents.HostedZones = deserializeAws_restXmlHostedZones(
       wrappedItem,
       context
@@ -6484,10 +6475,9 @@ export const deserializeAws_restXmlListQueryLoggingConfigsCommand = async (
     data["QueryLoggingConfigs"] !== undefined &&
     data["QueryLoggingConfigs"]["QueryLoggingConfig"] !== undefined
   ) {
-    const wrappedItem =
-      data["QueryLoggingConfigs"]["QueryLoggingConfig"] instanceof Array
-        ? data["QueryLoggingConfigs"]["QueryLoggingConfig"]
-        : [data["QueryLoggingConfigs"]["QueryLoggingConfig"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      data["QueryLoggingConfigs"]["QueryLoggingConfig"]
+    );
     contents.QueryLoggingConfigs = deserializeAws_restXmlQueryLoggingConfigs(
       wrappedItem,
       context
@@ -6617,10 +6607,9 @@ export const deserializeAws_restXmlListResourceRecordSetsCommand = async (
     data["ResourceRecordSets"] !== undefined &&
     data["ResourceRecordSets"]["ResourceRecordSet"] !== undefined
   ) {
-    const wrappedItem =
-      data["ResourceRecordSets"]["ResourceRecordSet"] instanceof Array
-        ? data["ResourceRecordSets"]["ResourceRecordSet"]
-        : [data["ResourceRecordSets"]["ResourceRecordSet"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      data["ResourceRecordSets"]["ResourceRecordSet"]
+    );
     contents.ResourceRecordSets = deserializeAws_restXmlResourceRecordSets(
       wrappedItem,
       context
@@ -6708,10 +6697,9 @@ export const deserializeAws_restXmlListReusableDelegationSetsCommand = async (
     data["DelegationSets"] !== undefined &&
     data["DelegationSets"]["DelegationSet"] !== undefined
   ) {
-    const wrappedItem =
-      data["DelegationSets"]["DelegationSet"] instanceof Array
-        ? data["DelegationSets"]["DelegationSet"]
-        : [data["DelegationSets"]["DelegationSet"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      data["DelegationSets"]["DelegationSet"]
+    );
     contents.DelegationSets = deserializeAws_restXmlDelegationSets(
       wrappedItem,
       context
@@ -6918,10 +6906,9 @@ export const deserializeAws_restXmlListTagsForResourcesCommand = async (
     data["ResourceTagSets"] !== undefined &&
     data["ResourceTagSets"]["ResourceTagSet"] !== undefined
   ) {
-    const wrappedItem =
-      data["ResourceTagSets"]["ResourceTagSet"] instanceof Array
-        ? data["ResourceTagSets"]["ResourceTagSet"]
-        : [data["ResourceTagSets"]["ResourceTagSet"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      data["ResourceTagSets"]["ResourceTagSet"]
+    );
     contents.ResourceTagSets = deserializeAws_restXmlResourceTagSetList(
       wrappedItem,
       context
@@ -7059,10 +7046,9 @@ export const deserializeAws_restXmlListTrafficPoliciesCommand = async (
     data["TrafficPolicySummaries"] !== undefined &&
     data["TrafficPolicySummaries"]["TrafficPolicySummary"] !== undefined
   ) {
-    const wrappedItem =
-      data["TrafficPolicySummaries"]["TrafficPolicySummary"] instanceof Array
-        ? data["TrafficPolicySummaries"]["TrafficPolicySummary"]
-        : [data["TrafficPolicySummaries"]["TrafficPolicySummary"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      data["TrafficPolicySummaries"]["TrafficPolicySummary"]
+    );
     contents.TrafficPolicySummaries = deserializeAws_restXmlTrafficPolicySummaries(
       wrappedItem,
       context
@@ -7170,10 +7156,9 @@ export const deserializeAws_restXmlListTrafficPolicyInstancesCommand = async (
     data["TrafficPolicyInstances"] !== undefined &&
     data["TrafficPolicyInstances"]["TrafficPolicyInstance"] !== undefined
   ) {
-    const wrappedItem =
-      data["TrafficPolicyInstances"]["TrafficPolicyInstance"] instanceof Array
-        ? data["TrafficPolicyInstances"]["TrafficPolicyInstance"]
-        : [data["TrafficPolicyInstances"]["TrafficPolicyInstance"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      data["TrafficPolicyInstances"]["TrafficPolicyInstance"]
+    );
     contents.TrafficPolicyInstances = deserializeAws_restXmlTrafficPolicyInstances(
       wrappedItem,
       context
@@ -7285,10 +7270,9 @@ export const deserializeAws_restXmlListTrafficPolicyInstancesByHostedZoneCommand
     data["TrafficPolicyInstances"] !== undefined &&
     data["TrafficPolicyInstances"]["TrafficPolicyInstance"] !== undefined
   ) {
-    const wrappedItem =
-      data["TrafficPolicyInstances"]["TrafficPolicyInstance"] instanceof Array
-        ? data["TrafficPolicyInstances"]["TrafficPolicyInstance"]
-        : [data["TrafficPolicyInstances"]["TrafficPolicyInstance"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      data["TrafficPolicyInstances"]["TrafficPolicyInstance"]
+    );
     contents.TrafficPolicyInstances = deserializeAws_restXmlTrafficPolicyInstances(
       wrappedItem,
       context
@@ -7418,10 +7402,9 @@ export const deserializeAws_restXmlListTrafficPolicyInstancesByPolicyCommand = a
     data["TrafficPolicyInstances"] !== undefined &&
     data["TrafficPolicyInstances"]["TrafficPolicyInstance"] !== undefined
   ) {
-    const wrappedItem =
-      data["TrafficPolicyInstances"]["TrafficPolicyInstance"] instanceof Array
-        ? data["TrafficPolicyInstances"]["TrafficPolicyInstance"]
-        : [data["TrafficPolicyInstances"]["TrafficPolicyInstance"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      data["TrafficPolicyInstances"]["TrafficPolicyInstance"]
+    );
     contents.TrafficPolicyInstances = deserializeAws_restXmlTrafficPolicyInstances(
       wrappedItem,
       context
@@ -7531,10 +7514,9 @@ export const deserializeAws_restXmlListTrafficPolicyVersionsCommand = async (
     data["TrafficPolicies"] !== undefined &&
     data["TrafficPolicies"]["TrafficPolicy"] !== undefined
   ) {
-    const wrappedItem =
-      data["TrafficPolicies"]["TrafficPolicy"] instanceof Array
-        ? data["TrafficPolicies"]["TrafficPolicy"]
-        : [data["TrafficPolicies"]["TrafficPolicy"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      data["TrafficPolicies"]["TrafficPolicy"]
+    );
     contents.TrafficPolicies = deserializeAws_restXmlTrafficPolicies(
       wrappedItem,
       context
@@ -7635,10 +7617,7 @@ export const deserializeAws_restXmlListVPCAssociationAuthorizationsCommand = asy
     contents.VPCs = [];
   }
   if (data["VPCs"] !== undefined && data["VPCs"]["VPC"] !== undefined) {
-    const wrappedItem =
-      data["VPCs"]["VPC"] instanceof Array
-        ? data["VPCs"]["VPC"]
-        : [data["VPCs"]["VPC"]];
+    const wrappedItem = __getArrayIfSingleItem(data["VPCs"]["VPC"]);
     contents.VPCs = deserializeAws_restXmlVPCs(wrappedItem, context);
   }
   return Promise.resolve(contents);
@@ -7744,10 +7723,9 @@ export const deserializeAws_restXmlTestDNSAnswerCommand = async (
     data["RecordData"] !== undefined &&
     data["RecordData"]["RecordDataEntry"] !== undefined
   ) {
-    const wrappedItem =
-      data["RecordData"]["RecordDataEntry"] instanceof Array
-        ? data["RecordData"]["RecordDataEntry"]
-        : [data["RecordData"]["RecordDataEntry"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      data["RecordData"]["RecordDataEntry"]
+    );
     contents.RecordData = deserializeAws_restXmlRecordData(
       wrappedItem,
       context
@@ -8571,10 +8549,7 @@ const deserializeAws_restXmlInvalidChangeBatchResponse = async (
     data["messages"] !== undefined &&
     data["messages"]["Message"] !== undefined
   ) {
-    const wrappedItem =
-      data["messages"]["Message"] instanceof Array
-        ? data["messages"]["Message"]
-        : [data["messages"]["Message"]];
+    const wrappedItem = __getArrayIfSingleItem(data["messages"]["Message"]);
     contents.messages = deserializeAws_restXmlErrorMessages(
       wrappedItem,
       context
@@ -9889,10 +9864,9 @@ const deserializeAws_restXmlCloudWatchAlarmConfiguration = (
     output["Dimensions"] !== undefined &&
     output["Dimensions"]["Dimension"] !== undefined
   ) {
-    const wrappedItem =
-      output["Dimensions"]["Dimension"] instanceof Array
-        ? output["Dimensions"]["Dimension"]
-        : [output["Dimensions"]["Dimension"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["Dimensions"]["Dimension"]
+    );
     contents.Dimensions = deserializeAws_restXmlDimensionList(
       wrappedItem,
       context
@@ -9969,10 +9943,9 @@ const deserializeAws_restXmlDelegationSet = (
     output["NameServers"] !== undefined &&
     output["NameServers"]["NameServer"] !== undefined
   ) {
-    const wrappedItem =
-      output["NameServers"]["NameServer"] instanceof Array
-        ? output["NameServers"]["NameServer"]
-        : [output["NameServers"]["NameServer"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["NameServers"]["NameServer"]
+    );
     contents.NameServers = deserializeAws_restXmlDelegationSetNameServers(
       wrappedItem,
       context
@@ -10233,10 +10206,9 @@ const deserializeAws_restXmlHealthCheckConfig = (
     output["ChildHealthChecks"] !== undefined &&
     output["ChildHealthChecks"]["ChildHealthCheck"] !== undefined
   ) {
-    const wrappedItem =
-      output["ChildHealthChecks"]["ChildHealthCheck"] instanceof Array
-        ? output["ChildHealthChecks"]["ChildHealthCheck"]
-        : [output["ChildHealthChecks"]["ChildHealthCheck"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["ChildHealthChecks"]["ChildHealthCheck"]
+    );
     contents.ChildHealthChecks = deserializeAws_restXmlChildHealthCheckList(
       wrappedItem,
       context
@@ -10312,10 +10284,7 @@ const deserializeAws_restXmlHealthCheckConfig = (
     output["Regions"] !== undefined &&
     output["Regions"]["Region"] !== undefined
   ) {
-    const wrappedItem =
-      output["Regions"]["Region"] instanceof Array
-        ? output["Regions"]["Region"]
-        : [output["Regions"]["Region"]];
+    const wrappedItem = __getArrayIfSingleItem(output["Regions"]["Region"]);
     contents.Regions = deserializeAws_restXmlHealthCheckRegionList(
       wrappedItem,
       context
@@ -10689,10 +10658,9 @@ const deserializeAws_restXmlResourceRecordSet = (
     output["ResourceRecords"] !== undefined &&
     output["ResourceRecords"]["ResourceRecord"] !== undefined
   ) {
-    const wrappedItem =
-      output["ResourceRecords"]["ResourceRecord"] instanceof Array
-        ? output["ResourceRecords"]["ResourceRecord"]
-        : [output["ResourceRecords"]["ResourceRecord"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["ResourceRecords"]["ResourceRecord"]
+    );
     contents.ResourceRecords = deserializeAws_restXmlResourceRecords(
       wrappedItem,
       context
@@ -10781,10 +10749,7 @@ const deserializeAws_restXmlResourceTagSet = (
     contents.Tags = [];
   }
   if (output["Tags"] !== undefined && output["Tags"]["Tag"] !== undefined) {
-    const wrappedItem =
-      output["Tags"]["Tag"] instanceof Array
-        ? output["Tags"]["Tag"]
-        : [output["Tags"]["Tag"]];
+    const wrappedItem = __getArrayIfSingleItem(output["Tags"]["Tag"]);
     contents.Tags = deserializeAws_restXmlTagList(wrappedItem, context);
   }
   return contents;

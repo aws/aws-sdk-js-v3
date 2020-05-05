@@ -470,7 +470,8 @@ import {
 import {
   SmithyException as __SmithyException,
   dateToUtcString as __dateToUtcString,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  getArrayIfSingleItem as __getArrayIfSingleItem
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -6077,8 +6078,7 @@ export const deserializeAws_restXmlDeleteObjectsCommand = async (
     contents.Deleted = [];
   }
   if (data["Deleted"] !== undefined) {
-    const wrappedItem =
-      data["Deleted"] instanceof Array ? data["Deleted"] : [data["Deleted"]];
+    const wrappedItem = __getArrayIfSingleItem(data["Deleted"]);
     contents.Deleted = deserializeAws_restXmlDeletedObjects(
       wrappedItem,
       context
@@ -6088,8 +6088,7 @@ export const deserializeAws_restXmlDeleteObjectsCommand = async (
     contents.Errors = [];
   }
   if (data["Error"] !== undefined) {
-    const wrappedItem =
-      data["Error"] instanceof Array ? data["Error"] : [data["Error"]];
+    const wrappedItem = __getArrayIfSingleItem(data["Error"]);
     contents.Errors = deserializeAws_restXmlErrors(wrappedItem, context);
   }
   return Promise.resolve(contents);
@@ -6245,10 +6244,9 @@ export const deserializeAws_restXmlGetBucketAclCommand = async (
     data["AccessControlList"] !== undefined &&
     data["AccessControlList"]["Grant"] !== undefined
   ) {
-    const wrappedItem =
-      data["AccessControlList"]["Grant"] instanceof Array
-        ? data["AccessControlList"]["Grant"]
-        : [data["AccessControlList"]["Grant"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      data["AccessControlList"]["Grant"]
+    );
     contents.Grants = deserializeAws_restXmlGrants(wrappedItem, context);
   }
   if (data["Owner"] !== undefined) {
@@ -6355,8 +6353,7 @@ export const deserializeAws_restXmlGetBucketCorsCommand = async (
     contents.CORSRules = [];
   }
   if (data["CORSRule"] !== undefined) {
-    const wrappedItem =
-      data["CORSRule"] instanceof Array ? data["CORSRule"] : [data["CORSRule"]];
+    const wrappedItem = __getArrayIfSingleItem(data["CORSRule"]);
     contents.CORSRules = deserializeAws_restXmlCORSRules(wrappedItem, context);
   }
   return Promise.resolve(contents);
@@ -6515,8 +6512,7 @@ export const deserializeAws_restXmlGetBucketLifecycleConfigurationCommand = asyn
     contents.Rules = [];
   }
   if (data["Rule"] !== undefined) {
-    const wrappedItem =
-      data["Rule"] instanceof Array ? data["Rule"] : [data["Rule"]];
+    const wrappedItem = __getArrayIfSingleItem(data["Rule"]);
     contents.Rules = deserializeAws_restXmlLifecycleRules(wrappedItem, context);
   }
   return Promise.resolve(contents);
@@ -6727,10 +6723,9 @@ export const deserializeAws_restXmlGetBucketNotificationConfigurationCommand = a
     contents.LambdaFunctionConfigurations = [];
   }
   if (data["CloudFunctionConfiguration"] !== undefined) {
-    const wrappedItem =
-      data["CloudFunctionConfiguration"] instanceof Array
-        ? data["CloudFunctionConfiguration"]
-        : [data["CloudFunctionConfiguration"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      data["CloudFunctionConfiguration"]
+    );
     contents.LambdaFunctionConfigurations = deserializeAws_restXmlLambdaFunctionConfigurationList(
       wrappedItem,
       context
@@ -6740,10 +6735,7 @@ export const deserializeAws_restXmlGetBucketNotificationConfigurationCommand = a
     contents.QueueConfigurations = [];
   }
   if (data["QueueConfiguration"] !== undefined) {
-    const wrappedItem =
-      data["QueueConfiguration"] instanceof Array
-        ? data["QueueConfiguration"]
-        : [data["QueueConfiguration"]];
+    const wrappedItem = __getArrayIfSingleItem(data["QueueConfiguration"]);
     contents.QueueConfigurations = deserializeAws_restXmlQueueConfigurationList(
       wrappedItem,
       context
@@ -6753,10 +6745,7 @@ export const deserializeAws_restXmlGetBucketNotificationConfigurationCommand = a
     contents.TopicConfigurations = [];
   }
   if (data["TopicConfiguration"] !== undefined) {
-    const wrappedItem =
-      data["TopicConfiguration"] instanceof Array
-        ? data["TopicConfiguration"]
-        : [data["TopicConfiguration"]];
+    const wrappedItem = __getArrayIfSingleItem(data["TopicConfiguration"]);
     contents.TopicConfigurations = deserializeAws_restXmlTopicConfigurationList(
       wrappedItem,
       context
@@ -7017,10 +7006,7 @@ export const deserializeAws_restXmlGetBucketTaggingCommand = async (
     contents.TagSet = [];
   }
   if (data["TagSet"] !== undefined && data["TagSet"]["Tag"] !== undefined) {
-    const wrappedItem =
-      data["TagSet"]["Tag"] instanceof Array
-        ? data["TagSet"]["Tag"]
-        : [data["TagSet"]["Tag"]];
+    const wrappedItem = __getArrayIfSingleItem(data["TagSet"]["Tag"]);
     contents.TagSet = deserializeAws_restXmlTagSet(wrappedItem, context);
   }
   return Promise.resolve(contents);
@@ -7157,10 +7143,9 @@ export const deserializeAws_restXmlGetBucketWebsiteCommand = async (
     data["RoutingRules"] !== undefined &&
     data["RoutingRules"]["RoutingRule"] !== undefined
   ) {
-    const wrappedItem =
-      data["RoutingRules"]["RoutingRule"] instanceof Array
-        ? data["RoutingRules"]["RoutingRule"]
-        : [data["RoutingRules"]["RoutingRule"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      data["RoutingRules"]["RoutingRule"]
+    );
     contents.RoutingRules = deserializeAws_restXmlRoutingRules(
       wrappedItem,
       context
@@ -7421,10 +7406,9 @@ export const deserializeAws_restXmlGetObjectAclCommand = async (
     data["AccessControlList"] !== undefined &&
     data["AccessControlList"]["Grant"] !== undefined
   ) {
-    const wrappedItem =
-      data["AccessControlList"]["Grant"] instanceof Array
-        ? data["AccessControlList"]["Grant"]
-        : [data["AccessControlList"]["Grant"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      data["AccessControlList"]["Grant"]
+    );
     contents.Grants = deserializeAws_restXmlGrants(wrappedItem, context);
   }
   if (data["Owner"] !== undefined) {
@@ -7644,10 +7628,7 @@ export const deserializeAws_restXmlGetObjectTaggingCommand = async (
     contents.TagSet = [];
   }
   if (data["TagSet"] !== undefined && data["TagSet"]["Tag"] !== undefined) {
-    const wrappedItem =
-      data["TagSet"]["Tag"] instanceof Array
-        ? data["TagSet"]["Tag"]
-        : [data["TagSet"]["Tag"]];
+    const wrappedItem = __getArrayIfSingleItem(data["TagSet"]["Tag"]);
     contents.TagSet = deserializeAws_restXmlTagSet(wrappedItem, context);
   }
   return Promise.resolve(contents);
@@ -8049,10 +8030,7 @@ export const deserializeAws_restXmlListBucketAnalyticsConfigurationsCommand = as
     contents.AnalyticsConfigurationList = [];
   }
   if (data["AnalyticsConfiguration"] !== undefined) {
-    const wrappedItem =
-      data["AnalyticsConfiguration"] instanceof Array
-        ? data["AnalyticsConfiguration"]
-        : [data["AnalyticsConfiguration"]];
+    const wrappedItem = __getArrayIfSingleItem(data["AnalyticsConfiguration"]);
     contents.AnalyticsConfigurationList = deserializeAws_restXmlAnalyticsConfigurationList(
       wrappedItem,
       context
@@ -8137,10 +8115,7 @@ export const deserializeAws_restXmlListBucketInventoryConfigurationsCommand = as
     contents.InventoryConfigurationList = [];
   }
   if (data["InventoryConfiguration"] !== undefined) {
-    const wrappedItem =
-      data["InventoryConfiguration"] instanceof Array
-        ? data["InventoryConfiguration"]
-        : [data["InventoryConfiguration"]];
+    const wrappedItem = __getArrayIfSingleItem(data["InventoryConfiguration"]);
     contents.InventoryConfigurationList = deserializeAws_restXmlInventoryConfigurationList(
       wrappedItem,
       context
@@ -8225,10 +8200,7 @@ export const deserializeAws_restXmlListBucketMetricsConfigurationsCommand = asyn
     contents.MetricsConfigurationList = [];
   }
   if (data["MetricsConfiguration"] !== undefined) {
-    const wrappedItem =
-      data["MetricsConfiguration"] instanceof Array
-        ? data["MetricsConfiguration"]
-        : [data["MetricsConfiguration"]];
+    const wrappedItem = __getArrayIfSingleItem(data["MetricsConfiguration"]);
     contents.MetricsConfigurationList = deserializeAws_restXmlMetricsConfigurationList(
       wrappedItem,
       context
@@ -8293,10 +8265,7 @@ export const deserializeAws_restXmlListBucketsCommand = async (
     data["Buckets"] !== undefined &&
     data["Buckets"]["Bucket"] !== undefined
   ) {
-    const wrappedItem =
-      data["Buckets"]["Bucket"] instanceof Array
-        ? data["Buckets"]["Bucket"]
-        : [data["Buckets"]["Bucket"]];
+    const wrappedItem = __getArrayIfSingleItem(data["Buckets"]["Bucket"]);
     contents.Buckets = deserializeAws_restXmlBuckets(wrappedItem, context);
   }
   if (data["Owner"] !== undefined) {
@@ -8371,10 +8340,7 @@ export const deserializeAws_restXmlListMultipartUploadsCommand = async (
     contents.CommonPrefixes = [];
   }
   if (data["CommonPrefixes"] !== undefined) {
-    const wrappedItem =
-      data["CommonPrefixes"] instanceof Array
-        ? data["CommonPrefixes"]
-        : [data["CommonPrefixes"]];
+    const wrappedItem = __getArrayIfSingleItem(data["CommonPrefixes"]);
     contents.CommonPrefixes = deserializeAws_restXmlCommonPrefixList(
       wrappedItem,
       context
@@ -8439,8 +8405,7 @@ export const deserializeAws_restXmlListMultipartUploadsCommand = async (
     contents.Uploads = [];
   }
   if (data["Upload"] !== undefined) {
-    const wrappedItem =
-      data["Upload"] instanceof Array ? data["Upload"] : [data["Upload"]];
+    const wrappedItem = __getArrayIfSingleItem(data["Upload"]);
     contents.Uploads = deserializeAws_restXmlMultipartUploadList(
       wrappedItem,
       context
@@ -8510,10 +8475,7 @@ export const deserializeAws_restXmlListObjectVersionsCommand = async (
     contents.CommonPrefixes = [];
   }
   if (data["CommonPrefixes"] !== undefined) {
-    const wrappedItem =
-      data["CommonPrefixes"] instanceof Array
-        ? data["CommonPrefixes"]
-        : [data["CommonPrefixes"]];
+    const wrappedItem = __getArrayIfSingleItem(data["CommonPrefixes"]);
     contents.CommonPrefixes = deserializeAws_restXmlCommonPrefixList(
       wrappedItem,
       context
@@ -8523,10 +8485,7 @@ export const deserializeAws_restXmlListObjectVersionsCommand = async (
     contents.DeleteMarkers = [];
   }
   if (data["DeleteMarker"] !== undefined) {
-    const wrappedItem =
-      data["DeleteMarker"] instanceof Array
-        ? data["DeleteMarker"]
-        : [data["DeleteMarker"]];
+    const wrappedItem = __getArrayIfSingleItem(data["DeleteMarker"]);
     contents.DeleteMarkers = deserializeAws_restXmlDeleteMarkers(
       wrappedItem,
       context
@@ -8597,8 +8556,7 @@ export const deserializeAws_restXmlListObjectVersionsCommand = async (
     contents.Versions = [];
   }
   if (data["Version"] !== undefined) {
-    const wrappedItem =
-      data["Version"] instanceof Array ? data["Version"] : [data["Version"]];
+    const wrappedItem = __getArrayIfSingleItem(data["Version"]);
     contents.Versions = deserializeAws_restXmlObjectVersionList(
       wrappedItem,
       context
@@ -8662,10 +8620,7 @@ export const deserializeAws_restXmlListObjectsCommand = async (
     contents.CommonPrefixes = [];
   }
   if (data["CommonPrefixes"] !== undefined) {
-    const wrappedItem =
-      data["CommonPrefixes"] instanceof Array
-        ? data["CommonPrefixes"]
-        : [data["CommonPrefixes"]];
+    const wrappedItem = __getArrayIfSingleItem(data["CommonPrefixes"]);
     contents.CommonPrefixes = deserializeAws_restXmlCommonPrefixList(
       wrappedItem,
       context
@@ -8675,8 +8630,7 @@ export const deserializeAws_restXmlListObjectsCommand = async (
     contents.Contents = [];
   }
   if (data["Contents"] !== undefined) {
-    const wrappedItem =
-      data["Contents"] instanceof Array ? data["Contents"] : [data["Contents"]];
+    const wrappedItem = __getArrayIfSingleItem(data["Contents"]);
     contents.Contents = deserializeAws_restXmlObjectList(wrappedItem, context);
   }
   if (data["Delimiter"] !== undefined) {
@@ -8799,10 +8753,7 @@ export const deserializeAws_restXmlListObjectsV2Command = async (
     contents.CommonPrefixes = [];
   }
   if (data["CommonPrefixes"] !== undefined) {
-    const wrappedItem =
-      data["CommonPrefixes"] instanceof Array
-        ? data["CommonPrefixes"]
-        : [data["CommonPrefixes"]];
+    const wrappedItem = __getArrayIfSingleItem(data["CommonPrefixes"]);
     contents.CommonPrefixes = deserializeAws_restXmlCommonPrefixList(
       wrappedItem,
       context
@@ -8812,8 +8763,7 @@ export const deserializeAws_restXmlListObjectsV2Command = async (
     contents.Contents = [];
   }
   if (data["Contents"] !== undefined) {
-    const wrappedItem =
-      data["Contents"] instanceof Array ? data["Contents"] : [data["Contents"]];
+    const wrappedItem = __getArrayIfSingleItem(data["Contents"]);
     contents.Contents = deserializeAws_restXmlObjectList(wrappedItem, context);
   }
   if (data["ContinuationToken"] !== undefined) {
@@ -9006,8 +8956,7 @@ export const deserializeAws_restXmlListPartsCommand = async (
     contents.Parts = [];
   }
   if (data["Part"] !== undefined) {
-    const wrappedItem =
-      data["Part"] instanceof Array ? data["Part"] : [data["Part"]];
+    const wrappedItem = __getArrayIfSingleItem(data["Part"]);
     contents.Parts = deserializeAws_restXmlParts(wrappedItem, context);
   }
   if (data["StorageClass"] !== undefined) {
@@ -13370,8 +13319,7 @@ const deserializeAws_restXmlAnalyticsAndOperator = (
     contents.Tags = [];
   }
   if (output["Tag"] !== undefined) {
-    const wrappedItem =
-      output["Tag"] instanceof Array ? output["Tag"] : [output["Tag"]];
+    const wrappedItem = __getArrayIfSingleItem(output["Tag"]);
     contents.Tags = deserializeAws_restXmlTagSet(wrappedItem, context);
   }
   return contents;
@@ -13550,10 +13498,7 @@ const deserializeAws_restXmlCORSRule = (
     contents.AllowedHeaders = [];
   }
   if (output["AllowedHeader"] !== undefined) {
-    const wrappedItem =
-      output["AllowedHeader"] instanceof Array
-        ? output["AllowedHeader"]
-        : [output["AllowedHeader"]];
+    const wrappedItem = __getArrayIfSingleItem(output["AllowedHeader"]);
     contents.AllowedHeaders = deserializeAws_restXmlAllowedHeaders(
       wrappedItem,
       context
@@ -13563,10 +13508,7 @@ const deserializeAws_restXmlCORSRule = (
     contents.AllowedMethods = [];
   }
   if (output["AllowedMethod"] !== undefined) {
-    const wrappedItem =
-      output["AllowedMethod"] instanceof Array
-        ? output["AllowedMethod"]
-        : [output["AllowedMethod"]];
+    const wrappedItem = __getArrayIfSingleItem(output["AllowedMethod"]);
     contents.AllowedMethods = deserializeAws_restXmlAllowedMethods(
       wrappedItem,
       context
@@ -13576,10 +13518,7 @@ const deserializeAws_restXmlCORSRule = (
     contents.AllowedOrigins = [];
   }
   if (output["AllowedOrigin"] !== undefined) {
-    const wrappedItem =
-      output["AllowedOrigin"] instanceof Array
-        ? output["AllowedOrigin"]
-        : [output["AllowedOrigin"]];
+    const wrappedItem = __getArrayIfSingleItem(output["AllowedOrigin"]);
     contents.AllowedOrigins = deserializeAws_restXmlAllowedOrigins(
       wrappedItem,
       context
@@ -13589,10 +13528,7 @@ const deserializeAws_restXmlCORSRule = (
     contents.ExposeHeaders = [];
   }
   if (output["ExposeHeader"] !== undefined) {
-    const wrappedItem =
-      output["ExposeHeader"] instanceof Array
-        ? output["ExposeHeader"]
-        : [output["ExposeHeader"]];
+    const wrappedItem = __getArrayIfSingleItem(output["ExposeHeader"]);
     contents.ExposeHeaders = deserializeAws_restXmlExposeHeaders(
       wrappedItem,
       context
@@ -14250,10 +14186,9 @@ const deserializeAws_restXmlInventoryConfiguration = (
     output["OptionalFields"] !== undefined &&
     output["OptionalFields"]["Field"] !== undefined
   ) {
-    const wrappedItem =
-      output["OptionalFields"]["Field"] instanceof Array
-        ? output["OptionalFields"]["Field"]
-        : [output["OptionalFields"]["Field"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["OptionalFields"]["Field"]
+    );
     contents.OptionalFields = deserializeAws_restXmlInventoryOptionalFields(
       wrappedItem,
       context
@@ -14419,8 +14354,7 @@ const deserializeAws_restXmlLambdaFunctionConfiguration = (
     contents.Events = [];
   }
   if (output["Event"] !== undefined) {
-    const wrappedItem =
-      output["Event"] instanceof Array ? output["Event"] : [output["Event"]];
+    const wrappedItem = __getArrayIfSingleItem(output["Event"]);
     contents.Events = deserializeAws_restXmlEventList(wrappedItem, context);
   }
   if (output["Filter"] !== undefined) {
@@ -14536,10 +14470,9 @@ const deserializeAws_restXmlLifecycleRule = (
     contents.NoncurrentVersionTransitions = [];
   }
   if (output["NoncurrentVersionTransition"] !== undefined) {
-    const wrappedItem =
-      output["NoncurrentVersionTransition"] instanceof Array
-        ? output["NoncurrentVersionTransition"]
-        : [output["NoncurrentVersionTransition"]];
+    const wrappedItem = __getArrayIfSingleItem(
+      output["NoncurrentVersionTransition"]
+    );
     contents.NoncurrentVersionTransitions = deserializeAws_restXmlNoncurrentVersionTransitionList(
       wrappedItem,
       context
@@ -14561,10 +14494,7 @@ const deserializeAws_restXmlLifecycleRule = (
     contents.Transitions = [];
   }
   if (output["Transition"] !== undefined) {
-    const wrappedItem =
-      output["Transition"] instanceof Array
-        ? output["Transition"]
-        : [output["Transition"]];
+    const wrappedItem = __getArrayIfSingleItem(output["Transition"]);
     contents.Transitions = deserializeAws_restXmlTransitionList(
       wrappedItem,
       context
@@ -14592,8 +14522,7 @@ const deserializeAws_restXmlLifecycleRuleAndOperator = (
     contents.Tags = [];
   }
   if (output["Tag"] !== undefined) {
-    const wrappedItem =
-      output["Tag"] instanceof Array ? output["Tag"] : [output["Tag"]];
+    const wrappedItem = __getArrayIfSingleItem(output["Tag"]);
     contents.Tags = deserializeAws_restXmlTagSet(wrappedItem, context);
   }
   return contents;
@@ -14661,10 +14590,7 @@ const deserializeAws_restXmlLoggingEnabled = (
     output["TargetGrants"] !== undefined &&
     output["TargetGrants"]["Grant"] !== undefined
   ) {
-    const wrappedItem =
-      output["TargetGrants"]["Grant"] instanceof Array
-        ? output["TargetGrants"]["Grant"]
-        : [output["TargetGrants"]["Grant"]];
+    const wrappedItem = __getArrayIfSingleItem(output["TargetGrants"]["Grant"]);
     contents.TargetGrants = deserializeAws_restXmlTargetGrants(
       wrappedItem,
       context
@@ -14722,8 +14648,7 @@ const deserializeAws_restXmlMetricsAndOperator = (
     contents.Tags = [];
   }
   if (output["Tag"] !== undefined) {
-    const wrappedItem =
-      output["Tag"] instanceof Array ? output["Tag"] : [output["Tag"]];
+    const wrappedItem = __getArrayIfSingleItem(output["Tag"]);
     contents.Tags = deserializeAws_restXmlTagSet(wrappedItem, context);
   }
   return contents;
@@ -15270,8 +15195,7 @@ const deserializeAws_restXmlQueueConfiguration = (
     contents.Events = [];
   }
   if (output["Event"] !== undefined) {
-    const wrappedItem =
-      output["Event"] instanceof Array ? output["Event"] : [output["Event"]];
+    const wrappedItem = __getArrayIfSingleItem(output["Event"]);
     contents.Events = deserializeAws_restXmlEventList(wrappedItem, context);
   }
   if (output["Filter"] !== undefined) {
@@ -15394,8 +15318,7 @@ const deserializeAws_restXmlReplicationConfiguration = (
     contents.Rules = [];
   }
   if (output["Rule"] !== undefined) {
-    const wrappedItem =
-      output["Rule"] instanceof Array ? output["Rule"] : [output["Rule"]];
+    const wrappedItem = __getArrayIfSingleItem(output["Rule"]);
     contents.Rules = deserializeAws_restXmlReplicationRules(
       wrappedItem,
       context
@@ -15497,8 +15420,7 @@ const deserializeAws_restXmlReplicationRuleAndOperator = (
     contents.Tags = [];
   }
   if (output["Tag"] !== undefined) {
-    const wrappedItem =
-      output["Tag"] instanceof Array ? output["Tag"] : [output["Tag"]];
+    const wrappedItem = __getArrayIfSingleItem(output["Tag"]);
     contents.Tags = deserializeAws_restXmlTagSet(wrappedItem, context);
   }
   return contents;
@@ -15632,10 +15554,7 @@ const deserializeAws_restXmlS3KeyFilter = (
     contents.FilterRules = [];
   }
   if (output["FilterRule"] !== undefined) {
-    const wrappedItem =
-      output["FilterRule"] instanceof Array
-        ? output["FilterRule"]
-        : [output["FilterRule"]];
+    const wrappedItem = __getArrayIfSingleItem(output["FilterRule"]);
     contents.FilterRules = deserializeAws_restXmlFilterRuleList(
       wrappedItem,
       context
@@ -15707,8 +15626,7 @@ const deserializeAws_restXmlServerSideEncryptionConfiguration = (
     contents.Rules = [];
   }
   if (output["Rule"] !== undefined) {
-    const wrappedItem =
-      output["Rule"] instanceof Array ? output["Rule"] : [output["Rule"]];
+    const wrappedItem = __getArrayIfSingleItem(output["Rule"]);
     contents.Rules = deserializeAws_restXmlServerSideEncryptionRules(
       wrappedItem,
       context
@@ -15907,8 +15825,7 @@ const deserializeAws_restXmlTopicConfiguration = (
     contents.Events = [];
   }
   if (output["Event"] !== undefined) {
-    const wrappedItem =
-      output["Event"] instanceof Array ? output["Event"] : [output["Event"]];
+    const wrappedItem = __getArrayIfSingleItem(output["Event"]);
     contents.Events = deserializeAws_restXmlEventList(wrappedItem, context);
   }
   if (output["Filter"] !== undefined) {
