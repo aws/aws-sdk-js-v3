@@ -68,13 +68,13 @@ final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
         // Dispatch to the output value provider for any additional handling.
         writer.write("const contents: any = [];");
         writer.openBlock("(output || []).map((entry: any) => {", "});", () -> {
-            String dataSource = handleUnnamedTargetWrapping(context, target, "entry");
+            String dataSource = getUnnamedTargetWrapper(context, target, "entry");
             writer.write("contents.push($L);", target.accept(getMemberVisitor(dataSource)));
         });
         writer.write("return contents;");
     }
 
-    private String handleUnnamedTargetWrapping(GenerationContext context, Shape target, String dataSource) {
+    private String getUnnamedTargetWrapper(GenerationContext context, Shape target, String dataSource) {
         if (!deserializationReturnsArray(target)) {
             return dataSource;
         }
@@ -85,8 +85,7 @@ final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
         // return multiple entries but only has one.
         // Update the target element if we target another level of collection.
         String targetLocation = getUnnamedAggregateTargetLocation(context.getModel(), target);
-        writer.write("const wrappedItem = __getArrayIfSingleItem($1L[$2S]);", dataSource, targetLocation);
-        return "wrappedItem";
+        return String.format("__getArrayIfSingleItem(%s[\"%s\"])", dataSource, targetLocation);
     }
 
     private boolean deserializationReturnsArray(Shape shape) {
@@ -112,7 +111,7 @@ final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
         writer.write("const mapParams: any = {};");
         writer.openBlock("output.forEach((pair: any) => {", "});", () -> {
             // Dispatch to the output value provider for any additional handling.
-            String dataSource = handleUnnamedTargetWrapping(context, target, "pair[\"" + valueLocation + "\"]");
+            String dataSource = getUnnamedTargetWrapper(context, target, "pair[\"" + valueLocation + "\"]");
             writer.write("mapParams[pair[$S]] = $L;", keyLocation, target.accept(getMemberVisitor(dataSource)));
         });
         writer.write("return mapParams;");
@@ -212,12 +211,12 @@ final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
                 .map(location -> location + " !== undefined")
                 .collect(Collectors.joining(" && "));
         writer.openBlock("if ($L) {", "}", validationStatement, () -> {
-            String dataSource = handleNamedTargetWrapping(context, target, source);
+            String dataSource = getNamedTargetWrapper(context, target, source);
             statementBodyGenerator.accept(dataSource, getMemberVisitor(dataSource));
         });
     }
 
-    private String handleNamedTargetWrapping(GenerationContext context, Shape target, String dataSource) {
+    private String getNamedTargetWrapper(GenerationContext context, Shape target, String dataSource) {
         if (!deserializationReturnsArray(target)) {
             return dataSource;
         }
@@ -226,8 +225,7 @@ final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
         writer.addImport("getArrayIfSingleItem", "__getArrayIfSingleItem", "@aws-sdk/smithy-client");
         // The XML parser will set one K:V for a member that could
         // return multiple entries but only has one.
-        writer.write("const wrappedItem = __getArrayIfSingleItem($1L)", dataSource);
-        return "wrappedItem";
+        return String.format("__getArrayIfSingleItem(%s)", dataSource);
     }
 
     private String getUnnamedAggregateTargetLocation(Model model, Shape shape) {
