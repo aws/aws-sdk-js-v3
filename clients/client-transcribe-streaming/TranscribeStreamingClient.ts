@@ -23,12 +23,6 @@ import {
   resolveEventStreamConfig
 } from "@aws-sdk/middleware-eventstream";
 import {
-  WebSocketInputConfig,
-  WebSocketResolvedConfig,
-  resolveWebSocketConfig,
-  getWebSocketPlugin
-} from "@aws-sdk/middleware-sdk-transcribe-streaming";
-import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
@@ -63,8 +57,8 @@ import {
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
+  EventStreamPayloadHandlerProvider as __EventStreamPayloadHandlerProvider,
   EventStreamSerdeProvider as __EventStreamSerdeProvider,
-  EventStreamPayloadHandlerProvider as __EventStreamPayloadhandlerProvider,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
@@ -161,12 +155,12 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 
   /**
-   * The function that provides necessary utilities for singing event stream
+   * The function that provides necessary utilities for handling request event stream.
    */
-  eventStreamPayloadHandlerProvider?: __EventStreamPayloadhandlerProvider;
+  eventStreamPayloadHandlerProvider?: __EventStreamPayloadHandlerProvider;
 
   /**
-   * The function that provides necessary utilities for generating and signing event stream
+   * The function that provides necessary utilities for generating and parsing event stream
    */
   eventStreamSerdeProvider?: __EventStreamSerdeProvider;
 }
@@ -178,7 +172,6 @@ export type TranscribeStreamingClientConfig = Partial<
   RegionInputConfig &
   EndpointsInputConfig &
   AwsAuthInputConfig &
-  WebSocketInputConfig &
   RetryInputConfig &
   UserAgentInputConfig &
   HostHeaderInputConfig &
@@ -192,7 +185,6 @@ export type TranscribeStreamingClientResolvedConfig = __SmithyResolvedConfigurat
   RegionResolvedConfig &
   EndpointsResolvedConfig &
   AwsAuthResolvedConfig &
-  WebSocketResolvedConfig &
   RetryResolvedConfig &
   UserAgentResolvedConfig &
   HostHeaderResolvedConfig &
@@ -218,8 +210,7 @@ export class TranscribeStreamingClient extends __Client<
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
     let _config_3 = resolveAwsAuthConfig(_config_2);
-    let _config_31 = resolveWebSocketConfig(_config_3);
-    let _config_4 = resolveRetryConfig(_config_31);
+    let _config_4 = resolveRetryConfig(_config_3);
     let _config_5 = resolveUserAgentConfig(_config_4);
     let _config_6 = resolveHostHeaderConfig(_config_5);
     let _config_7 = resolveEventStreamConfig(_config_6);
@@ -231,7 +222,6 @@ export class TranscribeStreamingClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
-    this.middlewareStack.use(getWebSocketPlugin(this.config));
   }
 
   destroy(): void {

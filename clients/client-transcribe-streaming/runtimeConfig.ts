@@ -1,7 +1,7 @@
 import { name, version } from "./package.json";
 import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
-import { eventStreamSerdeProvider } from "@aws-sdk/eventstream-serde-node";
 import { eventStreamPayloadHandlerProvider } from "@aws-sdk/eventstream-handler-node";
+import { eventStreamSerdeProvider } from "@aws-sdk/eventstream-serde-node";
 import { Hash } from "@aws-sdk/hash-node";
 import { NodeHttp2Handler, streamCollector } from "@aws-sdk/node-http-handler";
 import { defaultProvider as regionDefaultProvider } from "@aws-sdk/region-provider";
@@ -21,8 +21,8 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   bodyLengthChecker: calculateBodyLength,
   credentialDefaultProvider,
   defaultUserAgent: defaultUserAgent(name, version),
-  eventStreamSerdeProvider,
   eventStreamPayloadHandlerProvider,
+  eventStreamSerdeProvider,
   regionDefaultProvider,
   requestHandler: new NodeHttp2Handler(),
   sha256: Hash.bind(null, "sha256"),

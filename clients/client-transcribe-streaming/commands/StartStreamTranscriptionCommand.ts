@@ -11,8 +11,8 @@ import {
   deserializeAws_restJson1_1StartStreamTranscriptionCommand,
   serializeAws_restJson1_1StartStreamTranscriptionCommand
 } from "../protocols/Aws_restJson1_1";
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { getEventStreamPlugin } from "@aws-sdk/middleware-eventstream";
+import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
