@@ -66,12 +66,10 @@ final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
         Shape target = context.getModel().expectShape(shape.getMember().getTarget());
 
         // Dispatch to the output value provider for any additional handling.
-        writer.write("const contents: any = [];");
-        writer.openBlock("(output || []).map((entry: any) => {", "});", () -> {
+        writer.openBlock("return (output || []).map((entry: any) => ", ");", () -> {
             String dataSource = getUnnamedTargetWrapper(context, target, "entry");
-            writer.write("contents.push($L);", target.accept(getMemberVisitor(dataSource)));
+            writer.write("$L", target.accept(getMemberVisitor(dataSource)));
         });
-        writer.write("return contents;");
     }
 
     private String getUnnamedTargetWrapper(GenerationContext context, Shape target, String dataSource) {
