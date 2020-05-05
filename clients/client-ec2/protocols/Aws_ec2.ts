@@ -48402,9 +48402,8 @@ const deserializeAws_ec2AcceptVpcEndpointConnectionsResult = (
     output["unsuccessful"] !== undefined &&
     output["unsuccessful"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["unsuccessful"]["item"]);
     contents.Unsuccessful = deserializeAws_ec2UnsuccessfulItemSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["unsuccessful"]["item"]),
       context
     );
   }
@@ -48450,11 +48449,8 @@ const deserializeAws_ec2AccountAttribute = (
     output["attributeValueSet"] !== undefined &&
     output["attributeValueSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["attributeValueSet"]["item"]
-    );
     contents.AttributeValues = deserializeAws_ec2AccountAttributeValueList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["attributeValueSet"]["item"]),
       context
     );
   }
@@ -48648,8 +48644,10 @@ const deserializeAws_ec2Address = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   return contents;
 };
@@ -48756,9 +48754,8 @@ const deserializeAws_ec2AllocateHostsResult = (
     output["hostIdSet"] !== undefined &&
     output["hostIdSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["hostIdSet"]["item"]);
     contents.HostIds = deserializeAws_ec2ResponseHostIdList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["hostIdSet"]["item"]),
       context
     );
   }
@@ -48815,11 +48812,8 @@ const deserializeAws_ec2ApplySecurityGroupsToClientVpnTargetNetworkResult = (
     output["securityGroupIds"] !== undefined &&
     output["securityGroupIds"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["securityGroupIds"]["item"]
-    );
     contents.SecurityGroupIds = deserializeAws_ec2ClientVpnSecurityGroupIdSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["securityGroupIds"]["item"]),
       context
     );
   }
@@ -48853,11 +48847,8 @@ const deserializeAws_ec2AssignIpv6AddressesResult = (
     output["assignedIpv6Addresses"] !== undefined &&
     output["assignedIpv6Addresses"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["assignedIpv6Addresses"]["item"]
-    );
     contents.AssignedIpv6Addresses = deserializeAws_ec2Ipv6AddressList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["assignedIpv6Addresses"]["item"]),
       context
     );
   }
@@ -48886,11 +48877,8 @@ const deserializeAws_ec2AssignPrivateIpAddressesResult = (
     output["assignedPrivateIpAddressesSet"] !== undefined &&
     output["assignedPrivateIpAddressesSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["assignedPrivateIpAddressesSet"]["item"]
-    );
     contents.AssignedPrivateIpAddresses = deserializeAws_ec2AssignedPrivateIpAddressList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["assignedPrivateIpAddressesSet"]["item"]),
       context
     );
   }
@@ -49354,9 +49342,8 @@ const deserializeAws_ec2AvailabilityZone = (
     output["messageSet"] !== undefined &&
     output["messageSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["messageSet"]["item"]);
     contents.Messages = deserializeAws_ec2AvailabilityZoneMessageList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["messageSet"]["item"]),
       context
     );
   }
@@ -49454,11 +49441,8 @@ const deserializeAws_ec2AvailableCapacity = (
     output["availableInstanceCapacity"] !== undefined &&
     output["availableInstanceCapacity"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["availableInstanceCapacity"]["item"]
-    );
     contents.AvailableInstanceCapacity = deserializeAws_ec2AvailableInstanceCapacityList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["availableInstanceCapacity"]["item"]),
       context
     );
   }
@@ -49767,11 +49751,8 @@ const deserializeAws_ec2CancelReservedInstancesListingResult = (
     output["reservedInstancesListingsSet"] !== undefined &&
     output["reservedInstancesListingsSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["reservedInstancesListingsSet"]["item"]
-    );
     contents.ReservedInstancesListings = deserializeAws_ec2ReservedInstancesListingList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["reservedInstancesListingsSet"]["item"]),
       context
     );
   }
@@ -49855,11 +49836,8 @@ const deserializeAws_ec2CancelSpotFleetRequestsResponse = (
     output["successfulFleetRequestSet"] !== undefined &&
     output["successfulFleetRequestSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["successfulFleetRequestSet"]["item"]
-    );
     contents.SuccessfulFleetRequests = deserializeAws_ec2CancelSpotFleetRequestsSuccessSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["successfulFleetRequestSet"]["item"]),
       context
     );
   }
@@ -49870,11 +49848,8 @@ const deserializeAws_ec2CancelSpotFleetRequestsResponse = (
     output["unsuccessfulFleetRequestSet"] !== undefined &&
     output["unsuccessfulFleetRequestSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["unsuccessfulFleetRequestSet"]["item"]
-    );
     contents.UnsuccessfulFleetRequests = deserializeAws_ec2CancelSpotFleetRequestsErrorSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["unsuccessfulFleetRequestSet"]["item"]),
       context
     );
   }
@@ -49940,11 +49915,8 @@ const deserializeAws_ec2CancelSpotInstanceRequestsResult = (
     output["spotInstanceRequestSet"] !== undefined &&
     output["spotInstanceRequestSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["spotInstanceRequestSet"]["item"]
-    );
     contents.CancelledSpotInstanceRequests = deserializeAws_ec2CancelledSpotInstanceRequestList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["spotInstanceRequestSet"]["item"]),
       context
     );
   }
@@ -50105,8 +50077,10 @@ const deserializeAws_ec2CapacityReservation = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   if (output["tenancy"] !== undefined) {
     contents.Tenancy =
@@ -50291,9 +50265,8 @@ const deserializeAws_ec2ClassicLinkInstance = (
     output["groupSet"] !== undefined &&
     output["groupSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["groupSet"]["item"]);
     contents.Groups = deserializeAws_ec2GroupIdentifierList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["groupSet"]["item"]),
       context
     );
   }
@@ -50310,8 +50283,10 @@ const deserializeAws_ec2ClassicLinkInstance = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   if (output["vpcId"] !== undefined) {
     contents.VpcId =
@@ -50376,11 +50351,8 @@ const deserializeAws_ec2ClassicLoadBalancersConfig = (
     output["classicLoadBalancers"] !== undefined &&
     output["classicLoadBalancers"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["classicLoadBalancers"]["item"]
-    );
     contents.ClassicLoadBalancers = deserializeAws_ec2ClassicLoadBalancers(
-      wrappedItem,
+      __getArrayIfSingleItem(output["classicLoadBalancers"]["item"]),
       context
     );
   }
@@ -50644,11 +50616,8 @@ const deserializeAws_ec2ClientVpnEndpoint = (
     output["associatedTargetNetwork"] !== undefined &&
     output["associatedTargetNetwork"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["associatedTargetNetwork"]["item"]
-    );
     contents.AssociatedTargetNetworks = deserializeAws_ec2AssociatedTargetNetworkSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["associatedTargetNetwork"]["item"]),
       context
     );
   }
@@ -50659,11 +50628,8 @@ const deserializeAws_ec2ClientVpnEndpoint = (
     output["authenticationOptions"] !== undefined &&
     output["authenticationOptions"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["authenticationOptions"]["item"]
-    );
     contents.AuthenticationOptions = deserializeAws_ec2ClientVpnAuthenticationList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["authenticationOptions"]["item"]),
       context
     );
   }
@@ -50716,9 +50682,8 @@ const deserializeAws_ec2ClientVpnEndpoint = (
     output["dnsServer"] !== undefined &&
     output["dnsServer"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["dnsServer"]["item"]);
     contents.DnsServers = deserializeAws_ec2ValueStringList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["dnsServer"]["item"]),
       context
     );
   }
@@ -50747,8 +50712,10 @@ const deserializeAws_ec2ClientVpnEndpoint = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   if (output["transportProtocol"] !== undefined) {
     contents.TransportProtocol =
@@ -50974,9 +50941,8 @@ const deserializeAws_ec2CoipPool = (
     output["poolCidrSet"] !== undefined &&
     output["poolCidrSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["poolCidrSet"]["item"]);
     contents.PoolCidrs = deserializeAws_ec2ValueStringList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["poolCidrSet"]["item"]),
       context
     );
   }
@@ -50993,8 +50959,10 @@ const deserializeAws_ec2CoipPool = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   return contents;
 };
@@ -51086,11 +51054,8 @@ const deserializeAws_ec2ConnectionNotification = (
     output["connectionEvents"] !== undefined &&
     output["connectionEvents"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["connectionEvents"]["item"]
-    );
     contents.ConnectionEvents = deserializeAws_ec2ValueStringList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["connectionEvents"]["item"]),
       context
     );
   }
@@ -51201,8 +51166,10 @@ const deserializeAws_ec2ConversionTask = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   return contents;
 };
@@ -51263,8 +51230,10 @@ const deserializeAws_ec2CopySnapshotResult = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   return contents;
 };
@@ -51527,9 +51496,8 @@ const deserializeAws_ec2CreateFleetInstance = (
     output["instanceIds"] !== undefined &&
     output["instanceIds"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["instanceIds"]["item"]);
     contents.InstanceIds = deserializeAws_ec2InstanceIdsSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["instanceIds"]["item"]),
       context
     );
   }
@@ -51588,9 +51556,8 @@ const deserializeAws_ec2CreateFleetResult = (
     output["errorSet"] !== undefined &&
     output["errorSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["errorSet"]["item"]);
     contents.Errors = deserializeAws_ec2CreateFleetErrorsSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["errorSet"]["item"]),
       context
     );
   }
@@ -51607,11 +51574,8 @@ const deserializeAws_ec2CreateFleetResult = (
     output["fleetInstanceSet"] !== undefined &&
     output["fleetInstanceSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["fleetInstanceSet"]["item"]
-    );
     contents.Instances = deserializeAws_ec2CreateFleetInstancesSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["fleetInstanceSet"]["item"]),
       context
     );
   }
@@ -51641,9 +51605,8 @@ const deserializeAws_ec2CreateFlowLogsResult = (
     output["flowLogIdSet"] !== undefined &&
     output["flowLogIdSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["flowLogIdSet"]["item"]);
     contents.FlowLogIds = deserializeAws_ec2ValueStringList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["flowLogIdSet"]["item"]),
       context
     );
   }
@@ -51654,9 +51617,8 @@ const deserializeAws_ec2CreateFlowLogsResult = (
     output["unsuccessful"] !== undefined &&
     output["unsuccessful"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["unsuccessful"]["item"]);
     contents.Unsuccessful = deserializeAws_ec2UnsuccessfulItemSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["unsuccessful"]["item"]),
       context
     );
   }
@@ -51896,11 +51858,8 @@ const deserializeAws_ec2CreateReservedInstancesListingResult = (
     output["reservedInstancesListingsSet"] !== undefined &&
     output["reservedInstancesListingsSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["reservedInstancesListingsSet"]["item"]
-    );
     contents.ReservedInstancesListings = deserializeAws_ec2ReservedInstancesListingList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["reservedInstancesListingsSet"]["item"]),
       context
     );
   }
@@ -51973,8 +51932,10 @@ const deserializeAws_ec2CreateSnapshotsResult = (
     output["snapshotSet"] !== undefined &&
     output["snapshotSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["snapshotSet"]["item"]);
-    contents.Snapshots = deserializeAws_ec2SnapshotSet(wrappedItem, context);
+    contents.Snapshots = deserializeAws_ec2SnapshotSet(
+      __getArrayIfSingleItem(output["snapshotSet"]["item"]),
+      context
+    );
   }
   return contents;
 };
@@ -52455,8 +52416,10 @@ const deserializeAws_ec2CustomerGateway = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   if (output["type"] !== undefined) {
     contents.Type =
@@ -52646,11 +52609,8 @@ const deserializeAws_ec2DeleteFleetsResult = (
     output["successfulFleetDeletionSet"] !== undefined &&
     output["successfulFleetDeletionSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["successfulFleetDeletionSet"]["item"]
-    );
     contents.SuccessfulFleetDeletions = deserializeAws_ec2DeleteFleetSuccessSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["successfulFleetDeletionSet"]["item"]),
       context
     );
   }
@@ -52661,11 +52621,8 @@ const deserializeAws_ec2DeleteFleetsResult = (
     output["unsuccessfulFleetDeletionSet"] !== undefined &&
     output["unsuccessfulFleetDeletionSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["unsuccessfulFleetDeletionSet"]["item"]
-    );
     contents.UnsuccessfulFleetDeletions = deserializeAws_ec2DeleteFleetErrorSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["unsuccessfulFleetDeletionSet"]["item"]),
       context
     );
   }
@@ -52687,9 +52644,8 @@ const deserializeAws_ec2DeleteFlowLogsResult = (
     output["unsuccessful"] !== undefined &&
     output["unsuccessful"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["unsuccessful"]["item"]);
     contents.Unsuccessful = deserializeAws_ec2UnsuccessfulItemSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["unsuccessful"]["item"]),
       context
     );
   }
@@ -52849,11 +52805,10 @@ const deserializeAws_ec2DeleteLaunchTemplateVersionsResult = (
     output["successfullyDeletedLaunchTemplateVersionSet"] !== undefined &&
     output["successfullyDeletedLaunchTemplateVersionSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["successfullyDeletedLaunchTemplateVersionSet"]["item"]
-    );
     contents.SuccessfullyDeletedLaunchTemplateVersions = deserializeAws_ec2DeleteLaunchTemplateVersionsResponseSuccessSet(
-      wrappedItem,
+      __getArrayIfSingleItem(
+        output["successfullyDeletedLaunchTemplateVersionSet"]["item"]
+      ),
       context
     );
   }
@@ -52865,11 +52820,10 @@ const deserializeAws_ec2DeleteLaunchTemplateVersionsResult = (
     output["unsuccessfullyDeletedLaunchTemplateVersionSet"]["item"] !==
       undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["unsuccessfullyDeletedLaunchTemplateVersionSet"]["item"]
-    );
     contents.UnsuccessfullyDeletedLaunchTemplateVersions = deserializeAws_ec2DeleteLaunchTemplateVersionsResponseErrorSet(
-      wrappedItem,
+      __getArrayIfSingleItem(
+        output["unsuccessfullyDeletedLaunchTemplateVersionSet"]["item"]
+      ),
       context
     );
   }
@@ -52984,11 +52938,8 @@ const deserializeAws_ec2DeleteQueuedReservedInstancesResult = (
     output["failedQueuedPurchaseDeletionSet"] !== undefined &&
     output["failedQueuedPurchaseDeletionSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["failedQueuedPurchaseDeletionSet"]["item"]
-    );
     contents.FailedQueuedPurchaseDeletions = deserializeAws_ec2FailedQueuedPurchaseDeletionSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["failedQueuedPurchaseDeletionSet"]["item"]),
       context
     );
   }
@@ -52999,11 +52950,10 @@ const deserializeAws_ec2DeleteQueuedReservedInstancesResult = (
     output["successfulQueuedPurchaseDeletionSet"] !== undefined &&
     output["successfulQueuedPurchaseDeletionSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["successfulQueuedPurchaseDeletionSet"]["item"]
-    );
     contents.SuccessfulQueuedPurchaseDeletions = deserializeAws_ec2SuccessfulQueuedPurchaseDeletionSet(
-      wrappedItem,
+      __getArrayIfSingleItem(
+        output["successfulQueuedPurchaseDeletionSet"]["item"]
+      ),
       context
     );
   }
@@ -53195,9 +53145,8 @@ const deserializeAws_ec2DeleteVpcEndpointConnectionNotificationsResult = (
     output["unsuccessful"] !== undefined &&
     output["unsuccessful"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["unsuccessful"]["item"]);
     contents.Unsuccessful = deserializeAws_ec2UnsuccessfulItemSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["unsuccessful"]["item"]),
       context
     );
   }
@@ -53219,9 +53168,8 @@ const deserializeAws_ec2DeleteVpcEndpointServiceConfigurationsResult = (
     output["unsuccessful"] !== undefined &&
     output["unsuccessful"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["unsuccessful"]["item"]);
     contents.Unsuccessful = deserializeAws_ec2UnsuccessfulItemSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["unsuccessful"]["item"]),
       context
     );
   }
@@ -53243,9 +53191,8 @@ const deserializeAws_ec2DeleteVpcEndpointsResult = (
     output["unsuccessful"] !== undefined &&
     output["unsuccessful"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["unsuccessful"]["item"]);
     contents.Unsuccessful = deserializeAws_ec2UnsuccessfulItemSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["unsuccessful"]["item"]),
       context
     );
   }
@@ -53335,11 +53282,8 @@ const deserializeAws_ec2DescribeAccountAttributesResult = (
     output["accountAttributeSet"] !== undefined &&
     output["accountAttributeSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["accountAttributeSet"]["item"]
-    );
     contents.AccountAttributes = deserializeAws_ec2AccountAttributeList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["accountAttributeSet"]["item"]),
       context
     );
   }
@@ -53361,8 +53305,10 @@ const deserializeAws_ec2DescribeAddressesResult = (
     output["addressesSet"] !== undefined &&
     output["addressesSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["addressesSet"]["item"]);
-    contents.Addresses = deserializeAws_ec2AddressList(wrappedItem, context);
+    contents.Addresses = deserializeAws_ec2AddressList(
+      __getArrayIfSingleItem(output["addressesSet"]["item"]),
+      context
+    );
   }
   return contents;
 };
@@ -53383,8 +53329,10 @@ const deserializeAws_ec2DescribeAggregateIdFormatResult = (
     output["statusSet"] !== undefined &&
     output["statusSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["statusSet"]["item"]);
-    contents.Statuses = deserializeAws_ec2IdFormatList(wrappedItem, context);
+    contents.Statuses = deserializeAws_ec2IdFormatList(
+      __getArrayIfSingleItem(output["statusSet"]["item"]),
+      context
+    );
   }
   if (output["useLongIdsAggregated"] !== undefined) {
     contents.UseLongIdsAggregated =
@@ -53410,11 +53358,8 @@ const deserializeAws_ec2DescribeAvailabilityZonesResult = (
     output["availabilityZoneInfo"] !== undefined &&
     output["availabilityZoneInfo"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["availabilityZoneInfo"]["item"]
-    );
     contents.AvailabilityZones = deserializeAws_ec2AvailabilityZoneList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["availabilityZoneInfo"]["item"]),
       context
     );
   }
@@ -53436,11 +53381,8 @@ const deserializeAws_ec2DescribeBundleTasksResult = (
     output["bundleInstanceTasksSet"] !== undefined &&
     output["bundleInstanceTasksSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["bundleInstanceTasksSet"]["item"]
-    );
     contents.BundleTasks = deserializeAws_ec2BundleTaskList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["bundleInstanceTasksSet"]["item"]),
       context
     );
   }
@@ -53463,8 +53405,10 @@ const deserializeAws_ec2DescribeByoipCidrsResult = (
     output["byoipCidrSet"] !== undefined &&
     output["byoipCidrSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["byoipCidrSet"]["item"]);
-    contents.ByoipCidrs = deserializeAws_ec2ByoipCidrSet(wrappedItem, context);
+    contents.ByoipCidrs = deserializeAws_ec2ByoipCidrSet(
+      __getArrayIfSingleItem(output["byoipCidrSet"]["item"]),
+      context
+    );
   }
   if (output["nextToken"] !== undefined) {
     contents.NextToken =
@@ -53491,11 +53435,8 @@ const deserializeAws_ec2DescribeCapacityReservationsResult = (
     output["capacityReservationSet"] !== undefined &&
     output["capacityReservationSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["capacityReservationSet"]["item"]
-    );
     contents.CapacityReservations = deserializeAws_ec2CapacityReservationSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["capacityReservationSet"]["item"]),
       context
     );
   }
@@ -53524,9 +53465,8 @@ const deserializeAws_ec2DescribeClassicLinkInstancesResult = (
     output["instancesSet"] !== undefined &&
     output["instancesSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["instancesSet"]["item"]);
     contents.Instances = deserializeAws_ec2ClassicLinkInstanceList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["instancesSet"]["item"]),
       context
     );
   }
@@ -53555,11 +53495,8 @@ const deserializeAws_ec2DescribeClientVpnAuthorizationRulesResult = (
     output["authorizationRule"] !== undefined &&
     output["authorizationRule"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["authorizationRule"]["item"]
-    );
     contents.AuthorizationRules = deserializeAws_ec2AuthorizationRuleSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["authorizationRule"]["item"]),
       context
     );
   }
@@ -53588,9 +53525,8 @@ const deserializeAws_ec2DescribeClientVpnConnectionsResult = (
     output["connections"] !== undefined &&
     output["connections"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["connections"]["item"]);
     contents.Connections = deserializeAws_ec2ClientVpnConnectionSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["connections"]["item"]),
       context
     );
   }
@@ -53619,11 +53555,8 @@ const deserializeAws_ec2DescribeClientVpnEndpointsResult = (
     output["clientVpnEndpoint"] !== undefined &&
     output["clientVpnEndpoint"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["clientVpnEndpoint"]["item"]
-    );
     contents.ClientVpnEndpoints = deserializeAws_ec2EndpointSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["clientVpnEndpoint"]["item"]),
       context
     );
   }
@@ -53658,8 +53591,10 @@ const deserializeAws_ec2DescribeClientVpnRoutesResult = (
     output["routes"] !== undefined &&
     output["routes"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["routes"]["item"]);
-    contents.Routes = deserializeAws_ec2ClientVpnRouteSet(wrappedItem, context);
+    contents.Routes = deserializeAws_ec2ClientVpnRouteSet(
+      __getArrayIfSingleItem(output["routes"]["item"]),
+      context
+    );
   }
   return contents;
 };
@@ -53680,11 +53615,8 @@ const deserializeAws_ec2DescribeClientVpnTargetNetworksResult = (
     output["clientVpnTargetNetworks"] !== undefined &&
     output["clientVpnTargetNetworks"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["clientVpnTargetNetworks"]["item"]
-    );
     contents.ClientVpnTargetNetworks = deserializeAws_ec2TargetNetworkSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["clientVpnTargetNetworks"]["item"]),
       context
     );
   }
@@ -53713,8 +53645,10 @@ const deserializeAws_ec2DescribeCoipPoolsResult = (
     output["coipPoolSet"] !== undefined &&
     output["coipPoolSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["coipPoolSet"]["item"]);
-    contents.CoipPools = deserializeAws_ec2CoipPoolSet(wrappedItem, context);
+    contents.CoipPools = deserializeAws_ec2CoipPoolSet(
+      __getArrayIfSingleItem(output["coipPoolSet"]["item"]),
+      context
+    );
   }
   if (output["nextToken"] !== undefined) {
     contents.NextToken =
@@ -53751,11 +53685,8 @@ const deserializeAws_ec2DescribeConversionTasksResult = (
     output["conversionTasks"] !== undefined &&
     output["conversionTasks"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["conversionTasks"]["item"]
-    );
     contents.ConversionTasks = deserializeAws_ec2DescribeConversionTaskList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["conversionTasks"]["item"]),
       context
     );
   }
@@ -53777,11 +53708,8 @@ const deserializeAws_ec2DescribeCustomerGatewaysResult = (
     output["customerGatewaySet"] !== undefined &&
     output["customerGatewaySet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["customerGatewaySet"]["item"]
-    );
     contents.CustomerGateways = deserializeAws_ec2CustomerGatewayList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["customerGatewaySet"]["item"]),
       context
     );
   }
@@ -53804,11 +53732,8 @@ const deserializeAws_ec2DescribeDhcpOptionsResult = (
     output["dhcpOptionsSet"] !== undefined &&
     output["dhcpOptionsSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["dhcpOptionsSet"]["item"]
-    );
     contents.DhcpOptions = deserializeAws_ec2DhcpOptionsList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["dhcpOptionsSet"]["item"]),
       context
     );
   }
@@ -53837,11 +53762,8 @@ const deserializeAws_ec2DescribeEgressOnlyInternetGatewaysResult = (
     output["egressOnlyInternetGatewaySet"] !== undefined &&
     output["egressOnlyInternetGatewaySet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["egressOnlyInternetGatewaySet"]["item"]
-    );
     contents.EgressOnlyInternetGateways = deserializeAws_ec2EgressOnlyInternetGatewayList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["egressOnlyInternetGatewaySet"]["item"]),
       context
     );
   }
@@ -53871,9 +53793,8 @@ const deserializeAws_ec2DescribeElasticGpusResult = (
     output["elasticGpuSet"] !== undefined &&
     output["elasticGpuSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["elasticGpuSet"]["item"]);
     contents.ElasticGpuSet = deserializeAws_ec2ElasticGpuSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["elasticGpuSet"]["item"]),
       context
     );
   }
@@ -53909,11 +53830,8 @@ const deserializeAws_ec2DescribeExportImageTasksResult = (
     output["exportImageTaskSet"] !== undefined &&
     output["exportImageTaskSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["exportImageTaskSet"]["item"]
-    );
     contents.ExportImageTasks = deserializeAws_ec2ExportImageTaskList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["exportImageTaskSet"]["item"]),
       context
     );
   }
@@ -53941,9 +53859,8 @@ const deserializeAws_ec2DescribeExportTasksResult = (
     output["exportTaskSet"] !== undefined &&
     output["exportTaskSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["exportTaskSet"]["item"]);
     contents.ExportTasks = deserializeAws_ec2ExportTaskList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["exportTaskSet"]["item"]),
       context
     );
   }
@@ -54051,11 +53968,8 @@ const deserializeAws_ec2DescribeFastSnapshotRestoresResult = (
     output["fastSnapshotRestoreSet"] !== undefined &&
     output["fastSnapshotRestoreSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["fastSnapshotRestoreSet"]["item"]
-    );
     contents.FastSnapshotRestores = deserializeAws_ec2DescribeFastSnapshotRestoreSuccessSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["fastSnapshotRestoreSet"]["item"]),
       context
     );
   }
@@ -54131,11 +54045,8 @@ const deserializeAws_ec2DescribeFleetHistoryResult = (
     output["historyRecordSet"] !== undefined &&
     output["historyRecordSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["historyRecordSet"]["item"]
-    );
     contents.HistoryRecords = deserializeAws_ec2HistoryRecordSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["historyRecordSet"]["item"]),
       context
     );
   }
@@ -54171,11 +54082,8 @@ const deserializeAws_ec2DescribeFleetInstancesResult = (
     output["activeInstanceSet"] !== undefined &&
     output["activeInstanceSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["activeInstanceSet"]["item"]
-    );
     contents.ActiveInstances = deserializeAws_ec2ActiveInstanceSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["activeInstanceSet"]["item"]),
       context
     );
   }
@@ -54224,9 +54132,8 @@ const deserializeAws_ec2DescribeFleetsInstances = (
     output["instanceIds"] !== undefined &&
     output["instanceIds"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["instanceIds"]["item"]);
     contents.InstanceIds = deserializeAws_ec2InstanceIdsSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["instanceIds"]["item"]),
       context
     );
   }
@@ -54284,8 +54191,10 @@ const deserializeAws_ec2DescribeFleetsResult = (
     output["fleetSet"] !== undefined &&
     output["fleetSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["fleetSet"]["item"]);
-    contents.Fleets = deserializeAws_ec2FleetSet(wrappedItem, context);
+    contents.Fleets = deserializeAws_ec2FleetSet(
+      __getArrayIfSingleItem(output["fleetSet"]["item"]),
+      context
+    );
   }
   if (output["nextToken"] !== undefined) {
     contents.NextToken =
@@ -54312,8 +54221,10 @@ const deserializeAws_ec2DescribeFlowLogsResult = (
     output["flowLogSet"] !== undefined &&
     output["flowLogSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["flowLogSet"]["item"]);
-    contents.FlowLogs = deserializeAws_ec2FlowLogSet(wrappedItem, context);
+    contents.FlowLogs = deserializeAws_ec2FlowLogSet(
+      __getArrayIfSingleItem(output["flowLogSet"]["item"]),
+      context
+    );
   }
   if (output["nextToken"] !== undefined) {
     contents.NextToken =
@@ -54357,8 +54268,10 @@ const deserializeAws_ec2DescribeFpgaImagesResult = (
     output["fpgaImageSet"] !== undefined &&
     output["fpgaImageSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["fpgaImageSet"]["item"]);
-    contents.FpgaImages = deserializeAws_ec2FpgaImageList(wrappedItem, context);
+    contents.FpgaImages = deserializeAws_ec2FpgaImageList(
+      __getArrayIfSingleItem(output["fpgaImageSet"]["item"]),
+      context
+    );
   }
   if (output["nextToken"] !== undefined) {
     contents.NextToken =
@@ -54391,9 +54304,8 @@ const deserializeAws_ec2DescribeHostReservationOfferingsResult = (
     output["offeringSet"] !== undefined &&
     output["offeringSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["offeringSet"]["item"]);
     contents.OfferingSet = deserializeAws_ec2HostOfferingSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["offeringSet"]["item"]),
       context
     );
   }
@@ -54416,11 +54328,8 @@ const deserializeAws_ec2DescribeHostReservationsResult = (
     output["hostReservationSet"] !== undefined &&
     output["hostReservationSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["hostReservationSet"]["item"]
-    );
     contents.HostReservationSet = deserializeAws_ec2HostReservationSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["hostReservationSet"]["item"]),
       context
     );
   }
@@ -54449,8 +54358,10 @@ const deserializeAws_ec2DescribeHostsResult = (
     output["hostSet"] !== undefined &&
     output["hostSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["hostSet"]["item"]);
-    contents.Hosts = deserializeAws_ec2HostList(wrappedItem, context);
+    contents.Hosts = deserializeAws_ec2HostList(
+      __getArrayIfSingleItem(output["hostSet"]["item"]),
+      context
+    );
   }
   if (output["nextToken"] !== undefined) {
     contents.NextToken =
@@ -54477,11 +54388,10 @@ const deserializeAws_ec2DescribeIamInstanceProfileAssociationsResult = (
     output["iamInstanceProfileAssociationSet"] !== undefined &&
     output["iamInstanceProfileAssociationSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["iamInstanceProfileAssociationSet"]["item"]
-    );
     contents.IamInstanceProfileAssociations = deserializeAws_ec2IamInstanceProfileAssociationSet(
-      wrappedItem,
+      __getArrayIfSingleItem(
+        output["iamInstanceProfileAssociationSet"]["item"]
+      ),
       context
     );
   }
@@ -54509,8 +54419,10 @@ const deserializeAws_ec2DescribeIdFormatResult = (
     output["statusSet"] !== undefined &&
     output["statusSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["statusSet"]["item"]);
-    contents.Statuses = deserializeAws_ec2IdFormatList(wrappedItem, context);
+    contents.Statuses = deserializeAws_ec2IdFormatList(
+      __getArrayIfSingleItem(output["statusSet"]["item"]),
+      context
+    );
   }
   return contents;
 };
@@ -54530,8 +54442,10 @@ const deserializeAws_ec2DescribeIdentityIdFormatResult = (
     output["statusSet"] !== undefined &&
     output["statusSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["statusSet"]["item"]);
-    contents.Statuses = deserializeAws_ec2IdFormatList(wrappedItem, context);
+    contents.Statuses = deserializeAws_ec2IdFormatList(
+      __getArrayIfSingleItem(output["statusSet"]["item"]),
+      context
+    );
   }
   return contents;
 };
@@ -54551,8 +54465,10 @@ const deserializeAws_ec2DescribeImagesResult = (
     output["imagesSet"] !== undefined &&
     output["imagesSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["imagesSet"]["item"]);
-    contents.Images = deserializeAws_ec2ImageList(wrappedItem, context);
+    contents.Images = deserializeAws_ec2ImageList(
+      __getArrayIfSingleItem(output["imagesSet"]["item"]),
+      context
+    );
   }
   return contents;
 };
@@ -54573,11 +54489,8 @@ const deserializeAws_ec2DescribeImportImageTasksResult = (
     output["importImageTaskSet"] !== undefined &&
     output["importImageTaskSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["importImageTaskSet"]["item"]
-    );
     contents.ImportImageTasks = deserializeAws_ec2ImportImageTaskList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["importImageTaskSet"]["item"]),
       context
     );
   }
@@ -54606,11 +54519,8 @@ const deserializeAws_ec2DescribeImportSnapshotTasksResult = (
     output["importSnapshotTaskSet"] !== undefined &&
     output["importSnapshotTaskSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["importSnapshotTaskSet"]["item"]
-    );
     contents.ImportSnapshotTasks = deserializeAws_ec2ImportSnapshotTaskList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["importSnapshotTaskSet"]["item"]),
       context
     );
   }
@@ -54639,11 +54549,8 @@ const deserializeAws_ec2DescribeInstanceCreditSpecificationsResult = (
     output["instanceCreditSpecificationSet"] !== undefined &&
     output["instanceCreditSpecificationSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["instanceCreditSpecificationSet"]["item"]
-    );
     contents.InstanceCreditSpecifications = deserializeAws_ec2InstanceCreditSpecificationList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["instanceCreditSpecificationSet"]["item"]),
       context
     );
   }
@@ -54672,11 +54579,8 @@ const deserializeAws_ec2DescribeInstanceStatusResult = (
     output["instanceStatusSet"] !== undefined &&
     output["instanceStatusSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["instanceStatusSet"]["item"]
-    );
     contents.InstanceStatuses = deserializeAws_ec2InstanceStatusList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["instanceStatusSet"]["item"]),
       context
     );
   }
@@ -54705,11 +54609,8 @@ const deserializeAws_ec2DescribeInstanceTypeOfferingsResult = (
     output["instanceTypeOfferingSet"] !== undefined &&
     output["instanceTypeOfferingSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["instanceTypeOfferingSet"]["item"]
-    );
     contents.InstanceTypeOfferings = deserializeAws_ec2InstanceTypeOfferingsList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["instanceTypeOfferingSet"]["item"]),
       context
     );
   }
@@ -54738,11 +54639,8 @@ const deserializeAws_ec2DescribeInstanceTypesResult = (
     output["instanceTypeSet"] !== undefined &&
     output["instanceTypeSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["instanceTypeSet"]["item"]
-    );
     contents.InstanceTypes = deserializeAws_ec2InstanceTypeInfoList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["instanceTypeSet"]["item"]),
       context
     );
   }
@@ -54777,11 +54675,8 @@ const deserializeAws_ec2DescribeInstancesResult = (
     output["reservationSet"] !== undefined &&
     output["reservationSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["reservationSet"]["item"]
-    );
     contents.Reservations = deserializeAws_ec2ReservationList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["reservationSet"]["item"]),
       context
     );
   }
@@ -54804,11 +54699,8 @@ const deserializeAws_ec2DescribeInternetGatewaysResult = (
     output["internetGatewaySet"] !== undefined &&
     output["internetGatewaySet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["internetGatewaySet"]["item"]
-    );
     contents.InternetGateways = deserializeAws_ec2InternetGatewayList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["internetGatewaySet"]["item"]),
       context
     );
   }
@@ -54837,8 +54729,10 @@ const deserializeAws_ec2DescribeIpv6PoolsResult = (
     output["ipv6PoolSet"] !== undefined &&
     output["ipv6PoolSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["ipv6PoolSet"]["item"]);
-    contents.Ipv6Pools = deserializeAws_ec2Ipv6PoolSet(wrappedItem, context);
+    contents.Ipv6Pools = deserializeAws_ec2Ipv6PoolSet(
+      __getArrayIfSingleItem(output["ipv6PoolSet"]["item"]),
+      context
+    );
   }
   if (output["nextToken"] !== undefined) {
     contents.NextToken =
@@ -54864,8 +54758,10 @@ const deserializeAws_ec2DescribeKeyPairsResult = (
     output["keySet"] !== undefined &&
     output["keySet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["keySet"]["item"]);
-    contents.KeyPairs = deserializeAws_ec2KeyPairList(wrappedItem, context);
+    contents.KeyPairs = deserializeAws_ec2KeyPairList(
+      __getArrayIfSingleItem(output["keySet"]["item"]),
+      context
+    );
   }
   return contents;
 };
@@ -54886,11 +54782,8 @@ const deserializeAws_ec2DescribeLaunchTemplateVersionsResult = (
     output["launchTemplateVersionSet"] !== undefined &&
     output["launchTemplateVersionSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["launchTemplateVersionSet"]["item"]
-    );
     contents.LaunchTemplateVersions = deserializeAws_ec2LaunchTemplateVersionSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["launchTemplateVersionSet"]["item"]),
       context
     );
   }
@@ -54919,11 +54812,8 @@ const deserializeAws_ec2DescribeLaunchTemplatesResult = (
     output["launchTemplates"] !== undefined &&
     output["launchTemplates"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["launchTemplates"]["item"]
-    );
     contents.LaunchTemplates = deserializeAws_ec2LaunchTemplateSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["launchTemplates"]["item"]),
       context
     );
   }
@@ -54956,13 +54846,12 @@ const deserializeAws_ec2DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssoc
       "item"
     ] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["localGatewayRouteTableVirtualInterfaceGroupAssociationSet"][
-        "item"
-      ]
-    );
     contents.LocalGatewayRouteTableVirtualInterfaceGroupAssociations = deserializeAws_ec2LocalGatewayRouteTableVirtualInterfaceGroupAssociationSet(
-      wrappedItem,
+      __getArrayIfSingleItem(
+        output["localGatewayRouteTableVirtualInterfaceGroupAssociationSet"][
+          "item"
+        ]
+      ),
       context
     );
   }
@@ -54991,11 +54880,10 @@ const deserializeAws_ec2DescribeLocalGatewayRouteTableVpcAssociationsResult = (
     output["localGatewayRouteTableVpcAssociationSet"] !== undefined &&
     output["localGatewayRouteTableVpcAssociationSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["localGatewayRouteTableVpcAssociationSet"]["item"]
-    );
     contents.LocalGatewayRouteTableVpcAssociations = deserializeAws_ec2LocalGatewayRouteTableVpcAssociationSet(
-      wrappedItem,
+      __getArrayIfSingleItem(
+        output["localGatewayRouteTableVpcAssociationSet"]["item"]
+      ),
       context
     );
   }
@@ -55024,11 +54912,8 @@ const deserializeAws_ec2DescribeLocalGatewayRouteTablesResult = (
     output["localGatewayRouteTableSet"] !== undefined &&
     output["localGatewayRouteTableSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["localGatewayRouteTableSet"]["item"]
-    );
     contents.LocalGatewayRouteTables = deserializeAws_ec2LocalGatewayRouteTableSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["localGatewayRouteTableSet"]["item"]),
       context
     );
   }
@@ -55057,11 +54942,10 @@ const deserializeAws_ec2DescribeLocalGatewayVirtualInterfaceGroupsResult = (
     output["localGatewayVirtualInterfaceGroupSet"] !== undefined &&
     output["localGatewayVirtualInterfaceGroupSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["localGatewayVirtualInterfaceGroupSet"]["item"]
-    );
     contents.LocalGatewayVirtualInterfaceGroups = deserializeAws_ec2LocalGatewayVirtualInterfaceGroupSet(
-      wrappedItem,
+      __getArrayIfSingleItem(
+        output["localGatewayVirtualInterfaceGroupSet"]["item"]
+      ),
       context
     );
   }
@@ -55090,11 +54974,8 @@ const deserializeAws_ec2DescribeLocalGatewayVirtualInterfacesResult = (
     output["localGatewayVirtualInterfaceSet"] !== undefined &&
     output["localGatewayVirtualInterfaceSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["localGatewayVirtualInterfaceSet"]["item"]
-    );
     contents.LocalGatewayVirtualInterfaces = deserializeAws_ec2LocalGatewayVirtualInterfaceSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["localGatewayVirtualInterfaceSet"]["item"]),
       context
     );
   }
@@ -55123,11 +55004,8 @@ const deserializeAws_ec2DescribeLocalGatewaysResult = (
     output["localGatewaySet"] !== undefined &&
     output["localGatewaySet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["localGatewaySet"]["item"]
-    );
     contents.LocalGateways = deserializeAws_ec2LocalGatewaySet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["localGatewaySet"]["item"]),
       context
     );
   }
@@ -55156,11 +55034,8 @@ const deserializeAws_ec2DescribeMovingAddressesResult = (
     output["movingAddressStatusSet"] !== undefined &&
     output["movingAddressStatusSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["movingAddressStatusSet"]["item"]
-    );
     contents.MovingAddressStatuses = deserializeAws_ec2MovingAddressStatusSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["movingAddressStatusSet"]["item"]),
       context
     );
   }
@@ -55189,9 +55064,8 @@ const deserializeAws_ec2DescribeNatGatewaysResult = (
     output["natGatewaySet"] !== undefined &&
     output["natGatewaySet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["natGatewaySet"]["item"]);
     contents.NatGateways = deserializeAws_ec2NatGatewayList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["natGatewaySet"]["item"]),
       context
     );
   }
@@ -55220,9 +55094,8 @@ const deserializeAws_ec2DescribeNetworkAclsResult = (
     output["networkAclSet"] !== undefined &&
     output["networkAclSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["networkAclSet"]["item"]);
     contents.NetworkAcls = deserializeAws_ec2NetworkAclList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["networkAclSet"]["item"]),
       context
     );
   }
@@ -55266,9 +55139,8 @@ const deserializeAws_ec2DescribeNetworkInterfaceAttributeResult = (
     output["groupSet"] !== undefined &&
     output["groupSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["groupSet"]["item"]);
     contents.Groups = deserializeAws_ec2GroupIdentifierList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["groupSet"]["item"]),
       context
     );
   }
@@ -55303,11 +55175,8 @@ const deserializeAws_ec2DescribeNetworkInterfacePermissionsResult = (
     output["networkInterfacePermissions"] !== undefined &&
     output["networkInterfacePermissions"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["networkInterfacePermissions"]["item"]
-    );
     contents.NetworkInterfacePermissions = deserializeAws_ec2NetworkInterfacePermissionList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["networkInterfacePermissions"]["item"]),
       context
     );
   }
@@ -55336,11 +55205,8 @@ const deserializeAws_ec2DescribeNetworkInterfacesResult = (
     output["networkInterfaceSet"] !== undefined &&
     output["networkInterfaceSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["networkInterfaceSet"]["item"]
-    );
     contents.NetworkInterfaces = deserializeAws_ec2NetworkInterfaceList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["networkInterfaceSet"]["item"]),
       context
     );
   }
@@ -55368,11 +55234,8 @@ const deserializeAws_ec2DescribePlacementGroupsResult = (
     output["placementGroupSet"] !== undefined &&
     output["placementGroupSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["placementGroupSet"]["item"]
-    );
     contents.PlacementGroups = deserializeAws_ec2PlacementGroupList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["placementGroupSet"]["item"]),
       context
     );
   }
@@ -55401,9 +55264,8 @@ const deserializeAws_ec2DescribePrefixListsResult = (
     output["prefixListSet"] !== undefined &&
     output["prefixListSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["prefixListSet"]["item"]);
     contents.PrefixLists = deserializeAws_ec2PrefixListSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["prefixListSet"]["item"]),
       context
     );
   }
@@ -55432,9 +55294,8 @@ const deserializeAws_ec2DescribePrincipalIdFormatResult = (
     output["principalSet"] !== undefined &&
     output["principalSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["principalSet"]["item"]);
     contents.Principals = deserializeAws_ec2PrincipalIdFormatList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["principalSet"]["item"]),
       context
     );
   }
@@ -55463,11 +55324,8 @@ const deserializeAws_ec2DescribePublicIpv4PoolsResult = (
     output["publicIpv4PoolSet"] !== undefined &&
     output["publicIpv4PoolSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["publicIpv4PoolSet"]["item"]
-    );
     contents.PublicIpv4Pools = deserializeAws_ec2PublicIpv4PoolSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["publicIpv4PoolSet"]["item"]),
       context
     );
   }
@@ -55489,8 +55347,10 @@ const deserializeAws_ec2DescribeRegionsResult = (
     output["regionInfo"] !== undefined &&
     output["regionInfo"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["regionInfo"]["item"]);
-    contents.Regions = deserializeAws_ec2RegionList(wrappedItem, context);
+    contents.Regions = deserializeAws_ec2RegionList(
+      __getArrayIfSingleItem(output["regionInfo"]["item"]),
+      context
+    );
   }
   return contents;
 };
@@ -55510,11 +55370,8 @@ const deserializeAws_ec2DescribeReservedInstancesListingsResult = (
     output["reservedInstancesListingsSet"] !== undefined &&
     output["reservedInstancesListingsSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["reservedInstancesListingsSet"]["item"]
-    );
     contents.ReservedInstancesListings = deserializeAws_ec2ReservedInstancesListingList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["reservedInstancesListingsSet"]["item"]),
       context
     );
   }
@@ -55543,11 +55400,10 @@ const deserializeAws_ec2DescribeReservedInstancesModificationsResult = (
     output["reservedInstancesModificationsSet"] !== undefined &&
     output["reservedInstancesModificationsSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["reservedInstancesModificationsSet"]["item"]
-    );
     contents.ReservedInstancesModifications = deserializeAws_ec2ReservedInstancesModificationList(
-      wrappedItem,
+      __getArrayIfSingleItem(
+        output["reservedInstancesModificationsSet"]["item"]
+      ),
       context
     );
   }
@@ -55576,11 +55432,8 @@ const deserializeAws_ec2DescribeReservedInstancesOfferingsResult = (
     output["reservedInstancesOfferingsSet"] !== undefined &&
     output["reservedInstancesOfferingsSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["reservedInstancesOfferingsSet"]["item"]
-    );
     contents.ReservedInstancesOfferings = deserializeAws_ec2ReservedInstancesOfferingList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["reservedInstancesOfferingsSet"]["item"]),
       context
     );
   }
@@ -55602,11 +55455,8 @@ const deserializeAws_ec2DescribeReservedInstancesResult = (
     output["reservedInstancesSet"] !== undefined &&
     output["reservedInstancesSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["reservedInstancesSet"]["item"]
-    );
     contents.ReservedInstances = deserializeAws_ec2ReservedInstancesList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["reservedInstancesSet"]["item"]),
       context
     );
   }
@@ -55635,9 +55485,8 @@ const deserializeAws_ec2DescribeRouteTablesResult = (
     output["routeTableSet"] !== undefined &&
     output["routeTableSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["routeTableSet"]["item"]);
     contents.RouteTables = deserializeAws_ec2RouteTableList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["routeTableSet"]["item"]),
       context
     );
   }
@@ -55666,11 +55515,10 @@ const deserializeAws_ec2DescribeScheduledInstanceAvailabilityResult = (
     output["scheduledInstanceAvailabilitySet"] !== undefined &&
     output["scheduledInstanceAvailabilitySet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["scheduledInstanceAvailabilitySet"]["item"]
-    );
     contents.ScheduledInstanceAvailabilitySet = deserializeAws_ec2ScheduledInstanceAvailabilitySet(
-      wrappedItem,
+      __getArrayIfSingleItem(
+        output["scheduledInstanceAvailabilitySet"]["item"]
+      ),
       context
     );
   }
@@ -55699,11 +55547,8 @@ const deserializeAws_ec2DescribeScheduledInstancesResult = (
     output["scheduledInstanceSet"] !== undefined &&
     output["scheduledInstanceSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["scheduledInstanceSet"]["item"]
-    );
     contents.ScheduledInstanceSet = deserializeAws_ec2ScheduledInstanceSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["scheduledInstanceSet"]["item"]),
       context
     );
   }
@@ -55725,11 +55570,8 @@ const deserializeAws_ec2DescribeSecurityGroupReferencesResult = (
     output["securityGroupReferenceSet"] !== undefined &&
     output["securityGroupReferenceSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["securityGroupReferenceSet"]["item"]
-    );
     contents.SecurityGroupReferenceSet = deserializeAws_ec2SecurityGroupReferences(
-      wrappedItem,
+      __getArrayIfSingleItem(output["securityGroupReferenceSet"]["item"]),
       context
     );
   }
@@ -55758,11 +55600,8 @@ const deserializeAws_ec2DescribeSecurityGroupsResult = (
     output["securityGroupInfo"] !== undefined &&
     output["securityGroupInfo"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["securityGroupInfo"]["item"]
-    );
     contents.SecurityGroups = deserializeAws_ec2SecurityGroupList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["securityGroupInfo"]["item"]),
       context
     );
   }
@@ -55786,11 +55625,8 @@ const deserializeAws_ec2DescribeSnapshotAttributeResult = (
     output["createVolumePermission"] !== undefined &&
     output["createVolumePermission"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["createVolumePermission"]["item"]
-    );
     contents.CreateVolumePermissions = deserializeAws_ec2CreateVolumePermissionList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["createVolumePermission"]["item"]),
       context
     );
   }
@@ -55801,9 +55637,8 @@ const deserializeAws_ec2DescribeSnapshotAttributeResult = (
     output["productCodes"] !== undefined &&
     output["productCodes"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["productCodes"]["item"]);
     contents.ProductCodes = deserializeAws_ec2ProductCodeList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["productCodes"]["item"]),
       context
     );
   }
@@ -55838,8 +55673,10 @@ const deserializeAws_ec2DescribeSnapshotsResult = (
     output["snapshotSet"] !== undefined &&
     output["snapshotSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["snapshotSet"]["item"]);
-    contents.Snapshots = deserializeAws_ec2SnapshotList(wrappedItem, context);
+    contents.Snapshots = deserializeAws_ec2SnapshotList(
+      __getArrayIfSingleItem(output["snapshotSet"]["item"]),
+      context
+    );
   }
   return contents;
 };
@@ -55878,11 +55715,8 @@ const deserializeAws_ec2DescribeSpotFleetInstancesResponse = (
     output["activeInstanceSet"] !== undefined &&
     output["activeInstanceSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["activeInstanceSet"]["item"]
-    );
     contents.ActiveInstances = deserializeAws_ec2ActiveInstanceSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["activeInstanceSet"]["item"]),
       context
     );
   }
@@ -55920,11 +55754,8 @@ const deserializeAws_ec2DescribeSpotFleetRequestHistoryResponse = (
     output["historyRecordSet"] !== undefined &&
     output["historyRecordSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["historyRecordSet"]["item"]
-    );
     contents.HistoryRecords = deserializeAws_ec2HistoryRecords(
-      wrappedItem,
+      __getArrayIfSingleItem(output["historyRecordSet"]["item"]),
       context
     );
   }
@@ -55971,11 +55802,8 @@ const deserializeAws_ec2DescribeSpotFleetRequestsResponse = (
     output["spotFleetRequestConfigSet"] !== undefined &&
     output["spotFleetRequestConfigSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["spotFleetRequestConfigSet"]["item"]
-    );
     contents.SpotFleetRequestConfigs = deserializeAws_ec2SpotFleetRequestConfigSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["spotFleetRequestConfigSet"]["item"]),
       context
     );
   }
@@ -56004,11 +55832,8 @@ const deserializeAws_ec2DescribeSpotInstanceRequestsResult = (
     output["spotInstanceRequestSet"] !== undefined &&
     output["spotInstanceRequestSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["spotInstanceRequestSet"]["item"]
-    );
     contents.SpotInstanceRequests = deserializeAws_ec2SpotInstanceRequestList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["spotInstanceRequestSet"]["item"]),
       context
     );
   }
@@ -56037,11 +55862,8 @@ const deserializeAws_ec2DescribeSpotPriceHistoryResult = (
     output["spotPriceHistorySet"] !== undefined &&
     output["spotPriceHistorySet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["spotPriceHistorySet"]["item"]
-    );
     contents.SpotPriceHistory = deserializeAws_ec2SpotPriceHistoryList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["spotPriceHistorySet"]["item"]),
       context
     );
   }
@@ -56070,11 +55892,8 @@ const deserializeAws_ec2DescribeStaleSecurityGroupsResult = (
     output["staleSecurityGroupSet"] !== undefined &&
     output["staleSecurityGroupSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["staleSecurityGroupSet"]["item"]
-    );
     contents.StaleSecurityGroupSet = deserializeAws_ec2StaleSecurityGroupSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["staleSecurityGroupSet"]["item"]),
       context
     );
   }
@@ -56103,8 +55922,10 @@ const deserializeAws_ec2DescribeSubnetsResult = (
     output["subnetSet"] !== undefined &&
     output["subnetSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["subnetSet"]["item"]);
-    contents.Subnets = deserializeAws_ec2SubnetList(wrappedItem, context);
+    contents.Subnets = deserializeAws_ec2SubnetList(
+      __getArrayIfSingleItem(output["subnetSet"]["item"]),
+      context
+    );
   }
   return contents;
 };
@@ -56131,8 +55952,10 @@ const deserializeAws_ec2DescribeTagsResult = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagDescriptionList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagDescriptionList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   return contents;
 };
@@ -56159,11 +55982,8 @@ const deserializeAws_ec2DescribeTrafficMirrorFiltersResult = (
     output["trafficMirrorFilterSet"] !== undefined &&
     output["trafficMirrorFilterSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["trafficMirrorFilterSet"]["item"]
-    );
     contents.TrafficMirrorFilters = deserializeAws_ec2TrafficMirrorFilterSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["trafficMirrorFilterSet"]["item"]),
       context
     );
   }
@@ -56192,11 +56012,8 @@ const deserializeAws_ec2DescribeTrafficMirrorSessionsResult = (
     output["trafficMirrorSessionSet"] !== undefined &&
     output["trafficMirrorSessionSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["trafficMirrorSessionSet"]["item"]
-    );
     contents.TrafficMirrorSessions = deserializeAws_ec2TrafficMirrorSessionSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["trafficMirrorSessionSet"]["item"]),
       context
     );
   }
@@ -56225,11 +56042,8 @@ const deserializeAws_ec2DescribeTrafficMirrorTargetsResult = (
     output["trafficMirrorTargetSet"] !== undefined &&
     output["trafficMirrorTargetSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["trafficMirrorTargetSet"]["item"]
-    );
     contents.TrafficMirrorTargets = deserializeAws_ec2TrafficMirrorTargetSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["trafficMirrorTargetSet"]["item"]),
       context
     );
   }
@@ -56258,11 +56072,8 @@ const deserializeAws_ec2DescribeTransitGatewayAttachmentsResult = (
     output["transitGatewayAttachments"] !== undefined &&
     output["transitGatewayAttachments"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["transitGatewayAttachments"]["item"]
-    );
     contents.TransitGatewayAttachments = deserializeAws_ec2TransitGatewayAttachmentList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["transitGatewayAttachments"]["item"]),
       context
     );
   }
@@ -56291,11 +56102,8 @@ const deserializeAws_ec2DescribeTransitGatewayMulticastDomainsResult = (
     output["transitGatewayMulticastDomains"] !== undefined &&
     output["transitGatewayMulticastDomains"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["transitGatewayMulticastDomains"]["item"]
-    );
     contents.TransitGatewayMulticastDomains = deserializeAws_ec2TransitGatewayMulticastDomainList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["transitGatewayMulticastDomains"]["item"]),
       context
     );
   }
@@ -56324,11 +56132,10 @@ const deserializeAws_ec2DescribeTransitGatewayPeeringAttachmentsResult = (
     output["transitGatewayPeeringAttachments"] !== undefined &&
     output["transitGatewayPeeringAttachments"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["transitGatewayPeeringAttachments"]["item"]
-    );
     contents.TransitGatewayPeeringAttachments = deserializeAws_ec2TransitGatewayPeeringAttachmentList(
-      wrappedItem,
+      __getArrayIfSingleItem(
+        output["transitGatewayPeeringAttachments"]["item"]
+      ),
       context
     );
   }
@@ -56357,11 +56164,8 @@ const deserializeAws_ec2DescribeTransitGatewayRouteTablesResult = (
     output["transitGatewayRouteTables"] !== undefined &&
     output["transitGatewayRouteTables"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["transitGatewayRouteTables"]["item"]
-    );
     contents.TransitGatewayRouteTables = deserializeAws_ec2TransitGatewayRouteTableList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["transitGatewayRouteTables"]["item"]),
       context
     );
   }
@@ -56390,11 +56194,8 @@ const deserializeAws_ec2DescribeTransitGatewayVpcAttachmentsResult = (
     output["transitGatewayVpcAttachments"] !== undefined &&
     output["transitGatewayVpcAttachments"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["transitGatewayVpcAttachments"]["item"]
-    );
     contents.TransitGatewayVpcAttachments = deserializeAws_ec2TransitGatewayVpcAttachmentList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["transitGatewayVpcAttachments"]["item"]),
       context
     );
   }
@@ -56423,11 +56224,8 @@ const deserializeAws_ec2DescribeTransitGatewaysResult = (
     output["transitGatewaySet"] !== undefined &&
     output["transitGatewaySet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["transitGatewaySet"]["item"]
-    );
     contents.TransitGateways = deserializeAws_ec2TransitGatewayList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["transitGatewaySet"]["item"]),
       context
     );
   }
@@ -56457,9 +56255,8 @@ const deserializeAws_ec2DescribeVolumeAttributeResult = (
     output["productCodes"] !== undefined &&
     output["productCodes"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["productCodes"]["item"]);
     contents.ProductCodes = deserializeAws_ec2ProductCodeList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["productCodes"]["item"]),
       context
     );
   }
@@ -56494,11 +56291,8 @@ const deserializeAws_ec2DescribeVolumeStatusResult = (
     output["volumeStatusSet"] !== undefined &&
     output["volumeStatusSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["volumeStatusSet"]["item"]
-    );
     contents.VolumeStatuses = deserializeAws_ec2VolumeStatusList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["volumeStatusSet"]["item"]),
       context
     );
   }
@@ -56527,11 +56321,8 @@ const deserializeAws_ec2DescribeVolumesModificationsResult = (
     output["volumeModificationSet"] !== undefined &&
     output["volumeModificationSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["volumeModificationSet"]["item"]
-    );
     contents.VolumesModifications = deserializeAws_ec2VolumeModificationList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["volumeModificationSet"]["item"]),
       context
     );
   }
@@ -56560,8 +56351,10 @@ const deserializeAws_ec2DescribeVolumesResult = (
     output["volumeSet"] !== undefined &&
     output["volumeSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["volumeSet"]["item"]);
-    contents.Volumes = deserializeAws_ec2VolumeList(wrappedItem, context);
+    contents.Volumes = deserializeAws_ec2VolumeList(
+      __getArrayIfSingleItem(output["volumeSet"]["item"]),
+      context
+    );
   }
   return contents;
 };
@@ -56616,9 +56409,8 @@ const deserializeAws_ec2DescribeVpcClassicLinkDnsSupportResult = (
     contents.Vpcs = [];
   }
   if (output["vpcs"] !== undefined && output["vpcs"]["item"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(output["vpcs"]["item"]);
     contents.Vpcs = deserializeAws_ec2ClassicLinkDnsSupportList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["vpcs"]["item"]),
       context
     );
   }
@@ -56640,8 +56432,10 @@ const deserializeAws_ec2DescribeVpcClassicLinkResult = (
     output["vpcSet"] !== undefined &&
     output["vpcSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["vpcSet"]["item"]);
-    contents.Vpcs = deserializeAws_ec2VpcClassicLinkList(wrappedItem, context);
+    contents.Vpcs = deserializeAws_ec2VpcClassicLinkList(
+      __getArrayIfSingleItem(output["vpcSet"]["item"]),
+      context
+    );
   }
   return contents;
 };
@@ -56662,11 +56456,8 @@ const deserializeAws_ec2DescribeVpcEndpointConnectionNotificationsResult = (
     output["connectionNotificationSet"] !== undefined &&
     output["connectionNotificationSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["connectionNotificationSet"]["item"]
-    );
     contents.ConnectionNotificationSet = deserializeAws_ec2ConnectionNotificationSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["connectionNotificationSet"]["item"]),
       context
     );
   }
@@ -56701,11 +56492,8 @@ const deserializeAws_ec2DescribeVpcEndpointConnectionsResult = (
     output["vpcEndpointConnectionSet"] !== undefined &&
     output["vpcEndpointConnectionSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["vpcEndpointConnectionSet"]["item"]
-    );
     contents.VpcEndpointConnections = deserializeAws_ec2VpcEndpointConnectionSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["vpcEndpointConnectionSet"]["item"]),
       context
     );
   }
@@ -56734,11 +56522,8 @@ const deserializeAws_ec2DescribeVpcEndpointServiceConfigurationsResult = (
     output["serviceConfigurationSet"] !== undefined &&
     output["serviceConfigurationSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["serviceConfigurationSet"]["item"]
-    );
     contents.ServiceConfigurations = deserializeAws_ec2ServiceConfigurationSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["serviceConfigurationSet"]["item"]),
       context
     );
   }
@@ -56761,11 +56546,8 @@ const deserializeAws_ec2DescribeVpcEndpointServicePermissionsResult = (
     output["allowedPrincipals"] !== undefined &&
     output["allowedPrincipals"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["allowedPrincipals"]["item"]
-    );
     contents.AllowedPrincipals = deserializeAws_ec2AllowedPrincipalSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["allowedPrincipals"]["item"]),
       context
     );
   }
@@ -56801,11 +56583,8 @@ const deserializeAws_ec2DescribeVpcEndpointServicesResult = (
     output["serviceDetailSet"] !== undefined &&
     output["serviceDetailSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["serviceDetailSet"]["item"]
-    );
     contents.ServiceDetails = deserializeAws_ec2ServiceDetailSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["serviceDetailSet"]["item"]),
       context
     );
   }
@@ -56816,11 +56595,8 @@ const deserializeAws_ec2DescribeVpcEndpointServicesResult = (
     output["serviceNameSet"] !== undefined &&
     output["serviceNameSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["serviceNameSet"]["item"]
-    );
     contents.ServiceNames = deserializeAws_ec2ValueStringList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["serviceNameSet"]["item"]),
       context
     );
   }
@@ -56849,11 +56625,8 @@ const deserializeAws_ec2DescribeVpcEndpointsResult = (
     output["vpcEndpointSet"] !== undefined &&
     output["vpcEndpointSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["vpcEndpointSet"]["item"]
-    );
     contents.VpcEndpoints = deserializeAws_ec2VpcEndpointSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["vpcEndpointSet"]["item"]),
       context
     );
   }
@@ -56882,11 +56655,8 @@ const deserializeAws_ec2DescribeVpcPeeringConnectionsResult = (
     output["vpcPeeringConnectionSet"] !== undefined &&
     output["vpcPeeringConnectionSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["vpcPeeringConnectionSet"]["item"]
-    );
     contents.VpcPeeringConnections = deserializeAws_ec2VpcPeeringConnectionList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["vpcPeeringConnectionSet"]["item"]),
       context
     );
   }
@@ -56915,8 +56685,10 @@ const deserializeAws_ec2DescribeVpcsResult = (
     output["vpcSet"] !== undefined &&
     output["vpcSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["vpcSet"]["item"]);
-    contents.Vpcs = deserializeAws_ec2VpcList(wrappedItem, context);
+    contents.Vpcs = deserializeAws_ec2VpcList(
+      __getArrayIfSingleItem(output["vpcSet"]["item"]),
+      context
+    );
   }
   return contents;
 };
@@ -56936,11 +56708,8 @@ const deserializeAws_ec2DescribeVpnConnectionsResult = (
     output["vpnConnectionSet"] !== undefined &&
     output["vpnConnectionSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["vpnConnectionSet"]["item"]
-    );
     contents.VpnConnections = deserializeAws_ec2VpnConnectionList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["vpnConnectionSet"]["item"]),
       context
     );
   }
@@ -56962,9 +56731,8 @@ const deserializeAws_ec2DescribeVpnGatewaysResult = (
     output["vpnGatewaySet"] !== undefined &&
     output["vpnGatewaySet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["vpnGatewaySet"]["item"]);
     contents.VpnGateways = deserializeAws_ec2VpnGatewayList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["vpnGatewaySet"]["item"]),
       context
     );
   }
@@ -57010,9 +56778,8 @@ const deserializeAws_ec2DhcpConfiguration = (
     output["valueSet"] !== undefined &&
     output["valueSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["valueSet"]["item"]);
     contents.Values = deserializeAws_ec2DhcpConfigurationValueList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["valueSet"]["item"]),
       context
     );
   }
@@ -57059,11 +56826,8 @@ const deserializeAws_ec2DhcpOptions = (
     output["dhcpConfigurationSet"] !== undefined &&
     output["dhcpConfigurationSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["dhcpConfigurationSet"]["item"]
-    );
     contents.DhcpConfigurations = deserializeAws_ec2DhcpConfigurationList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["dhcpConfigurationSet"]["item"]),
       context
     );
   }
@@ -57086,8 +56850,10 @@ const deserializeAws_ec2DhcpOptions = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   return contents;
 };
@@ -57153,11 +56919,10 @@ const deserializeAws_ec2DisableFastSnapshotRestoreErrorItem = (
     output["fastSnapshotRestoreStateErrorSet"] !== undefined &&
     output["fastSnapshotRestoreStateErrorSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["fastSnapshotRestoreStateErrorSet"]["item"]
-    );
     contents.FastSnapshotRestoreStateErrors = deserializeAws_ec2DisableFastSnapshotRestoreStateErrorSet(
-      wrappedItem,
+      __getArrayIfSingleItem(
+        output["fastSnapshotRestoreStateErrorSet"]["item"]
+      ),
       context
     );
   }
@@ -57345,9 +57110,8 @@ const deserializeAws_ec2DisableFastSnapshotRestoresResult = (
     output["successful"] !== undefined &&
     output["successful"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["successful"]["item"]);
     contents.Successful = deserializeAws_ec2DisableFastSnapshotRestoreSuccessSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["successful"]["item"]),
       context
     );
   }
@@ -57358,9 +57122,8 @@ const deserializeAws_ec2DisableFastSnapshotRestoresResult = (
     output["unsuccessful"] !== undefined &&
     output["unsuccessful"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["unsuccessful"]["item"]);
     contents.Unsuccessful = deserializeAws_ec2DisableFastSnapshotRestoreErrorSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["unsuccessful"]["item"]),
       context
     );
   }
@@ -57828,9 +57591,8 @@ const deserializeAws_ec2EgressOnlyInternetGateway = (
     output["attachmentSet"] !== undefined &&
     output["attachmentSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["attachmentSet"]["item"]);
     contents.Attachments = deserializeAws_ec2InternetGatewayAttachmentList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["attachmentSet"]["item"]),
       context
     );
   }
@@ -57847,8 +57609,10 @@ const deserializeAws_ec2EgressOnlyInternetGateway = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   return contents;
 };
@@ -58028,8 +57792,10 @@ const deserializeAws_ec2ElasticGpus = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   return contents;
 };
@@ -58118,11 +57884,10 @@ const deserializeAws_ec2EnableFastSnapshotRestoreErrorItem = (
     output["fastSnapshotRestoreStateErrorSet"] !== undefined &&
     output["fastSnapshotRestoreStateErrorSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["fastSnapshotRestoreStateErrorSet"]["item"]
-    );
     contents.FastSnapshotRestoreStateErrors = deserializeAws_ec2EnableFastSnapshotRestoreStateErrorSet(
-      wrappedItem,
+      __getArrayIfSingleItem(
+        output["fastSnapshotRestoreStateErrorSet"]["item"]
+      ),
       context
     );
   }
@@ -58310,9 +58075,8 @@ const deserializeAws_ec2EnableFastSnapshotRestoresResult = (
     output["successful"] !== undefined &&
     output["successful"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["successful"]["item"]);
     contents.Successful = deserializeAws_ec2EnableFastSnapshotRestoreSuccessSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["successful"]["item"]),
       context
     );
   }
@@ -58323,9 +58087,8 @@ const deserializeAws_ec2EnableFastSnapshotRestoresResult = (
     output["unsuccessful"] !== undefined &&
     output["unsuccessful"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["unsuccessful"]["item"]);
     contents.Unsuccessful = deserializeAws_ec2EnableFastSnapshotRestoreErrorSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["unsuccessful"]["item"]),
       context
     );
   }
@@ -58666,8 +58429,10 @@ const deserializeAws_ec2ExportTask = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   return contents;
 };
@@ -58848,9 +58613,8 @@ const deserializeAws_ec2FleetData = (
     output["errorSet"] !== undefined &&
     output["errorSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["errorSet"]["item"]);
     contents.Errors = deserializeAws_ec2DescribeFleetsErrorSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["errorSet"]["item"]),
       context
     );
   }
@@ -58893,11 +58657,8 @@ const deserializeAws_ec2FleetData = (
     output["fleetInstanceSet"] !== undefined &&
     output["fleetInstanceSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["fleetInstanceSet"]["item"]
-    );
     contents.Instances = deserializeAws_ec2DescribeFleetsInstancesSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["fleetInstanceSet"]["item"]),
       context
     );
   }
@@ -58908,11 +58669,8 @@ const deserializeAws_ec2FleetData = (
     output["launchTemplateConfigs"] !== undefined &&
     output["launchTemplateConfigs"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["launchTemplateConfigs"]["item"]
-    );
     contents.LaunchTemplateConfigs = deserializeAws_ec2FleetLaunchTemplateConfigList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["launchTemplateConfigs"]["item"]),
       context
     );
   }
@@ -58941,8 +58699,10 @@ const deserializeAws_ec2FleetData = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   if (output["targetCapacitySpecification"] !== undefined) {
     contents.TargetCapacitySpecification = deserializeAws_ec2TargetCapacitySpecification(
@@ -58993,9 +58753,8 @@ const deserializeAws_ec2FleetLaunchTemplateConfig = (
     output["overrides"] !== undefined &&
     output["overrides"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["overrides"]["item"]);
     contents.Overrides = deserializeAws_ec2FleetLaunchTemplateOverridesList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["overrides"]["item"]),
       context
     );
   }
@@ -59376,9 +59135,8 @@ const deserializeAws_ec2FpgaImage = (
     output["productCodes"] !== undefined &&
     output["productCodes"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["productCodes"]["item"]);
     contents.ProductCodes = deserializeAws_ec2ProductCodeList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["productCodes"]["item"]),
       context
     );
   }
@@ -59401,8 +59159,10 @@ const deserializeAws_ec2FpgaImage = (
     contents.Tags = [];
   }
   if (output["tags"] !== undefined && output["tags"]["item"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(output["tags"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tags"]["item"]),
+      context
+    );
   }
   if (output["updateTime"] !== undefined) {
     contents.UpdateTime = new Date(output["updateTime"]);
@@ -59441,11 +59201,8 @@ const deserializeAws_ec2FpgaImageAttribute = (
     output["loadPermissions"] !== undefined &&
     output["loadPermissions"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["loadPermissions"]["item"]
-    );
     contents.LoadPermissions = deserializeAws_ec2LoadPermissionList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["loadPermissions"]["item"]),
       context
     );
   }
@@ -59462,9 +59219,8 @@ const deserializeAws_ec2FpgaImageAttribute = (
     output["productCodes"] !== undefined &&
     output["productCodes"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["productCodes"]["item"]);
     contents.ProductCodes = deserializeAws_ec2ProductCodeList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["productCodes"]["item"]),
       context
     );
   }
@@ -59519,8 +59275,10 @@ const deserializeAws_ec2FpgaInfo = (
     contents.Fpgas = [];
   }
   if (output["fpgas"] !== undefined && output["fpgas"]["item"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(output["fpgas"]["item"]);
-    contents.Fpgas = deserializeAws_ec2FpgaDeviceInfoList(wrappedItem, context);
+    contents.Fpgas = deserializeAws_ec2FpgaDeviceInfoList(
+      __getArrayIfSingleItem(output["fpgas"]["item"]),
+      context
+    );
   }
   if (output["totalFpgaMemoryInMiB"] !== undefined) {
     contents.TotalFpgaMemoryInMiB = parseInt(
@@ -59548,11 +59306,8 @@ const deserializeAws_ec2GetAssociatedIpv6PoolCidrsResult = (
     output["ipv6CidrAssociationSet"] !== undefined &&
     output["ipv6CidrAssociationSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["ipv6CidrAssociationSet"]["item"]
-    );
     contents.Ipv6CidrAssociations = deserializeAws_ec2Ipv6CidrAssociationSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["ipv6CidrAssociationSet"]["item"]),
       context
     );
   }
@@ -59605,11 +59360,8 @@ const deserializeAws_ec2GetCapacityReservationUsageResult = (
     output["instanceUsageSet"] !== undefined &&
     output["instanceUsageSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["instanceUsageSet"]["item"]
-    );
     contents.InstanceUsages = deserializeAws_ec2InstanceUsageSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["instanceUsageSet"]["item"]),
       context
     );
   }
@@ -59652,11 +59404,8 @@ const deserializeAws_ec2GetCoipPoolUsageResult = (
     output["coipAddressUsageSet"] !== undefined &&
     output["coipAddressUsageSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["coipAddressUsageSet"]["item"]
-    );
     contents.CoipAddressUsages = deserializeAws_ec2CoipAddressUsageSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["coipAddressUsageSet"]["item"]),
       context
     );
   }
@@ -59802,8 +59551,10 @@ const deserializeAws_ec2GetHostReservationPurchasePreviewResult = (
     output["purchase"] !== undefined &&
     output["purchase"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["purchase"]["item"]);
-    contents.Purchase = deserializeAws_ec2PurchaseSet(wrappedItem, context);
+    contents.Purchase = deserializeAws_ec2PurchaseSet(
+      __getArrayIfSingleItem(output["purchase"]["item"]),
+      context
+    );
   }
   if (output["totalHourlyPrice"] !== undefined) {
     contents.TotalHourlyPrice =
@@ -59917,11 +59668,8 @@ const deserializeAws_ec2GetReservedInstancesExchangeQuoteResult = (
     output["reservedInstanceValueSet"] !== undefined &&
     output["reservedInstanceValueSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["reservedInstanceValueSet"]["item"]
-    );
     contents.ReservedInstanceValueSet = deserializeAws_ec2ReservedInstanceReservationValueSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["reservedInstanceValueSet"]["item"]),
       context
     );
   }
@@ -59938,11 +59686,8 @@ const deserializeAws_ec2GetReservedInstancesExchangeQuoteResult = (
     output["targetConfigurationValueSet"] !== undefined &&
     output["targetConfigurationValueSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["targetConfigurationValueSet"]["item"]
-    );
     contents.TargetConfigurationValueSet = deserializeAws_ec2TargetReservationValueSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["targetConfigurationValueSet"]["item"]),
       context
     );
   }
@@ -59977,11 +59722,10 @@ const deserializeAws_ec2GetTransitGatewayAttachmentPropagationsResult = (
     output["transitGatewayAttachmentPropagations"] !== undefined &&
     output["transitGatewayAttachmentPropagations"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["transitGatewayAttachmentPropagations"]["item"]
-    );
     contents.TransitGatewayAttachmentPropagations = deserializeAws_ec2TransitGatewayAttachmentPropagationList(
-      wrappedItem,
+      __getArrayIfSingleItem(
+        output["transitGatewayAttachmentPropagations"]["item"]
+      ),
       context
     );
   }
@@ -60004,11 +59748,8 @@ const deserializeAws_ec2GetTransitGatewayMulticastDomainAssociationsResult = (
     output["multicastDomainAssociations"] !== undefined &&
     output["multicastDomainAssociations"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["multicastDomainAssociations"]["item"]
-    );
     contents.MulticastDomainAssociations = deserializeAws_ec2TransitGatewayMulticastDomainAssociationList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["multicastDomainAssociations"]["item"]),
       context
     );
   }
@@ -60037,9 +59778,8 @@ const deserializeAws_ec2GetTransitGatewayRouteTableAssociationsResult = (
     output["associations"] !== undefined &&
     output["associations"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["associations"]["item"]);
     contents.Associations = deserializeAws_ec2TransitGatewayRouteTableAssociationList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["associations"]["item"]),
       context
     );
   }
@@ -60074,11 +59814,10 @@ const deserializeAws_ec2GetTransitGatewayRouteTablePropagationsResult = (
     output["transitGatewayRouteTablePropagations"] !== undefined &&
     output["transitGatewayRouteTablePropagations"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["transitGatewayRouteTablePropagations"]["item"]
-    );
     contents.TransitGatewayRouteTablePropagations = deserializeAws_ec2TransitGatewayRouteTablePropagationList(
-      wrappedItem,
+      __getArrayIfSingleItem(
+        output["transitGatewayRouteTablePropagations"]["item"]
+      ),
       context
     );
   }
@@ -60166,8 +59905,10 @@ const deserializeAws_ec2GpuInfo = (
     contents.Gpus = [];
   }
   if (output["gpus"] !== undefined && output["gpus"]["item"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(output["gpus"]["item"]);
-    contents.Gpus = deserializeAws_ec2GpuDeviceInfoList(wrappedItem, context);
+    contents.Gpus = deserializeAws_ec2GpuDeviceInfoList(
+      __getArrayIfSingleItem(output["gpus"]["item"]),
+      context
+    );
   }
   if (output["totalGpuMemoryInMiB"] !== undefined) {
     contents.TotalGpuMemoryInMiB = parseInt(
@@ -60422,9 +60163,8 @@ const deserializeAws_ec2Host = (output: any, context: __SerdeContext): Host => {
     output["instances"] !== undefined &&
     output["instances"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["instances"]["item"]);
     contents.Instances = deserializeAws_ec2HostInstanceList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["instances"]["item"]),
       context
     );
   }
@@ -60456,8 +60196,10 @@ const deserializeAws_ec2Host = (output: any, context: __SerdeContext): Host => {
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   return contents;
 };
@@ -60685,9 +60427,8 @@ const deserializeAws_ec2HostReservation = (
     output["hostIdSet"] !== undefined &&
     output["hostIdSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["hostIdSet"]["item"]);
     contents.HostIdSet = deserializeAws_ec2ResponseHostIdSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["hostIdSet"]["item"]),
       context
     );
   }
@@ -60737,8 +60478,10 @@ const deserializeAws_ec2HostReservation = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   if (output["upfrontPrice"] !== undefined) {
     contents.UpfrontPrice =
@@ -61000,11 +60743,8 @@ const deserializeAws_ec2Image = (
     output["blockDeviceMapping"] !== undefined &&
     output["blockDeviceMapping"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["blockDeviceMapping"]["item"]
-    );
     contents.BlockDeviceMappings = deserializeAws_ec2BlockDeviceMappingList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["blockDeviceMapping"]["item"]),
       context
     );
   }
@@ -61087,9 +60827,8 @@ const deserializeAws_ec2Image = (
     output["productCodes"] !== undefined &&
     output["productCodes"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["productCodes"]["item"]);
     contents.ProductCodes = deserializeAws_ec2ProductCodeList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["productCodes"]["item"]),
       context
     );
   }
@@ -61142,8 +60881,10 @@ const deserializeAws_ec2Image = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   if (output["virtualizationType"] !== undefined) {
     contents.VirtualizationType =
@@ -61176,11 +60917,8 @@ const deserializeAws_ec2ImageAttribute = (
     output["blockDeviceMapping"] !== undefined &&
     output["blockDeviceMapping"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["blockDeviceMapping"]["item"]
-    );
     contents.BlockDeviceMappings = deserializeAws_ec2BlockDeviceMappingList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["blockDeviceMapping"]["item"]),
       context
     );
   }
@@ -61209,11 +60947,8 @@ const deserializeAws_ec2ImageAttribute = (
     output["launchPermission"] !== undefined &&
     output["launchPermission"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["launchPermission"]["item"]
-    );
     contents.LaunchPermissions = deserializeAws_ec2LaunchPermissionList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["launchPermission"]["item"]),
       context
     );
   }
@@ -61224,9 +60959,8 @@ const deserializeAws_ec2ImageAttribute = (
     output["productCodes"] !== undefined &&
     output["productCodes"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["productCodes"]["item"]);
     contents.ProductCodes = deserializeAws_ec2ProductCodeList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["productCodes"]["item"]),
       context
     );
   }
@@ -61373,11 +61107,8 @@ const deserializeAws_ec2ImportImageResult = (
     output["licenseSpecifications"] !== undefined &&
     output["licenseSpecifications"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["licenseSpecifications"]["item"]
-    );
     contents.LicenseSpecifications = deserializeAws_ec2ImportImageLicenseSpecificationListResponse(
-      wrappedItem,
+      __getArrayIfSingleItem(output["licenseSpecifications"]["item"]),
       context
     );
   }
@@ -61406,11 +61137,8 @@ const deserializeAws_ec2ImportImageResult = (
     output["snapshotDetailSet"] !== undefined &&
     output["snapshotDetailSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["snapshotDetailSet"]["item"]
-    );
     contents.SnapshotDetails = deserializeAws_ec2SnapshotDetailList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["snapshotDetailSet"]["item"]),
       context
     );
   }
@@ -61500,11 +61228,8 @@ const deserializeAws_ec2ImportImageTask = (
     output["licenseSpecifications"] !== undefined &&
     output["licenseSpecifications"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["licenseSpecifications"]["item"]
-    );
     contents.LicenseSpecifications = deserializeAws_ec2ImportImageLicenseSpecificationListResponse(
-      wrappedItem,
+      __getArrayIfSingleItem(output["licenseSpecifications"]["item"]),
       context
     );
   }
@@ -61533,11 +61258,8 @@ const deserializeAws_ec2ImportImageTask = (
     output["snapshotDetailSet"] !== undefined &&
     output["snapshotDetailSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["snapshotDetailSet"]["item"]
-    );
     contents.SnapshotDetails = deserializeAws_ec2SnapshotDetailList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["snapshotDetailSet"]["item"]),
       context
     );
   }
@@ -61560,8 +61282,10 @@ const deserializeAws_ec2ImportImageTask = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   return contents;
 };
@@ -61630,9 +61354,8 @@ const deserializeAws_ec2ImportInstanceTaskDetails = (
     output["volumes"] !== undefined &&
     output["volumes"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["volumes"]["item"]);
     contents.Volumes = deserializeAws_ec2ImportInstanceVolumeDetailSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["volumes"]["item"]),
       context
     );
   }
@@ -61803,8 +61526,10 @@ const deserializeAws_ec2ImportSnapshotTask = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   return contents;
 };
@@ -61898,11 +61623,8 @@ const deserializeAws_ec2InferenceAcceleratorInfo = (
     output["accelerators"] !== undefined &&
     output["accelerators"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["accelerators"]["member"]
-    );
     contents.Accelerators = deserializeAws_ec2InferenceDeviceInfoList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["accelerators"]["member"]),
       context
     );
   }
@@ -62026,11 +61748,8 @@ const deserializeAws_ec2Instance = (
     output["blockDeviceMapping"] !== undefined &&
     output["blockDeviceMapping"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["blockDeviceMapping"]["item"]
-    );
     contents.BlockDeviceMappings = deserializeAws_ec2InstanceBlockDeviceMappingList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["blockDeviceMapping"]["item"]),
       context
     );
   }
@@ -62071,11 +61790,8 @@ const deserializeAws_ec2Instance = (
     output["elasticGpuAssociationSet"] !== undefined &&
     output["elasticGpuAssociationSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["elasticGpuAssociationSet"]["item"]
-    );
     contents.ElasticGpuAssociations = deserializeAws_ec2ElasticGpuAssociationList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["elasticGpuAssociationSet"]["item"]),
       context
     );
   }
@@ -62086,11 +61802,10 @@ const deserializeAws_ec2Instance = (
     output["elasticInferenceAcceleratorAssociationSet"] !== undefined &&
     output["elasticInferenceAcceleratorAssociationSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["elasticInferenceAcceleratorAssociationSet"]["item"]
-    );
     contents.ElasticInferenceAcceleratorAssociations = deserializeAws_ec2ElasticInferenceAcceleratorAssociationList(
-      wrappedItem,
+      __getArrayIfSingleItem(
+        output["elasticInferenceAcceleratorAssociationSet"]["item"]
+      ),
       context
     );
   }
@@ -62164,8 +61879,10 @@ const deserializeAws_ec2Instance = (
     output["licenseSet"] !== undefined &&
     output["licenseSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["licenseSet"]["item"]);
-    contents.Licenses = deserializeAws_ec2LicenseList(wrappedItem, context);
+    contents.Licenses = deserializeAws_ec2LicenseList(
+      __getArrayIfSingleItem(output["licenseSet"]["item"]),
+      context
+    );
   }
   if (output["metadataOptions"] !== undefined) {
     contents.MetadataOptions = deserializeAws_ec2InstanceMetadataOptionsResponse(
@@ -62186,11 +61903,8 @@ const deserializeAws_ec2Instance = (
     output["networkInterfaceSet"] !== undefined &&
     output["networkInterfaceSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["networkInterfaceSet"]["item"]
-    );
     contents.NetworkInterfaces = deserializeAws_ec2InstanceNetworkInterfaceList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["networkInterfaceSet"]["item"]),
       context
     );
   }
@@ -62231,9 +61945,8 @@ const deserializeAws_ec2Instance = (
     output["productCodes"] !== undefined &&
     output["productCodes"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["productCodes"]["item"]);
     contents.ProductCodes = deserializeAws_ec2ProductCodeList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["productCodes"]["item"]),
       context
     );
   }
@@ -62274,9 +61987,8 @@ const deserializeAws_ec2Instance = (
     output["groupSet"] !== undefined &&
     output["groupSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["groupSet"]["item"]);
     contents.SecurityGroups = deserializeAws_ec2GroupIdentifierList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["groupSet"]["item"]),
       context
     );
   }
@@ -62329,8 +62041,10 @@ const deserializeAws_ec2Instance = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   if (output["virtualizationType"] !== undefined) {
     contents.VirtualizationType =
@@ -62376,11 +62090,8 @@ const deserializeAws_ec2InstanceAttribute = (
     output["blockDeviceMapping"] !== undefined &&
     output["blockDeviceMapping"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["blockDeviceMapping"]["item"]
-    );
     contents.BlockDeviceMappings = deserializeAws_ec2InstanceBlockDeviceMappingList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["blockDeviceMapping"]["item"]),
       context
     );
   }
@@ -62409,9 +62120,8 @@ const deserializeAws_ec2InstanceAttribute = (
     output["groupSet"] !== undefined &&
     output["groupSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["groupSet"]["item"]);
     contents.Groups = deserializeAws_ec2GroupIdentifierList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["groupSet"]["item"]),
       context
     );
   }
@@ -62446,9 +62156,8 @@ const deserializeAws_ec2InstanceAttribute = (
     output["productCodes"] !== undefined &&
     output["productCodes"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["productCodes"]["item"]);
     contents.ProductCodes = deserializeAws_ec2ProductCodeList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["productCodes"]["item"]),
       context
     );
   }
@@ -62857,9 +62566,8 @@ const deserializeAws_ec2InstanceNetworkInterface = (
     output["groupSet"] !== undefined &&
     output["groupSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["groupSet"]["item"]);
     contents.Groups = deserializeAws_ec2GroupIdentifierList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["groupSet"]["item"]),
       context
     );
   }
@@ -62876,11 +62584,8 @@ const deserializeAws_ec2InstanceNetworkInterface = (
     output["ipv6AddressesSet"] !== undefined &&
     output["ipv6AddressesSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["ipv6AddressesSet"]["item"]
-    );
     contents.Ipv6Addresses = deserializeAws_ec2InstanceIpv6AddressList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["ipv6AddressesSet"]["item"]),
       context
     );
   }
@@ -62921,11 +62626,8 @@ const deserializeAws_ec2InstanceNetworkInterface = (
     output["privateIpAddressesSet"] !== undefined &&
     output["privateIpAddressesSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["privateIpAddressesSet"]["item"]
-    );
     contents.PrivateIpAddresses = deserializeAws_ec2InstancePrivateIpAddressList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["privateIpAddressesSet"]["item"]),
       context
     );
   }
@@ -63093,11 +62795,8 @@ const deserializeAws_ec2InstanceNetworkInterfaceSpecification = (
     output["SecurityGroupId"] !== undefined &&
     output["SecurityGroupId"]["SecurityGroupId"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["SecurityGroupId"]["SecurityGroupId"]
-    );
     contents.Groups = deserializeAws_ec2SecurityGroupIdStringList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["SecurityGroupId"]["SecurityGroupId"]),
       context
     );
   }
@@ -63121,11 +62820,8 @@ const deserializeAws_ec2InstanceNetworkInterfaceSpecification = (
     output["ipv6AddressesSet"] !== undefined &&
     output["ipv6AddressesSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["ipv6AddressesSet"]["item"]
-    );
     contents.Ipv6Addresses = deserializeAws_ec2InstanceIpv6AddressList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["ipv6AddressesSet"]["item"]),
       context
     );
   }
@@ -63148,11 +62844,8 @@ const deserializeAws_ec2InstanceNetworkInterfaceSpecification = (
     output["privateIpAddressesSet"] !== undefined &&
     output["privateIpAddressesSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["privateIpAddressesSet"]["item"]
-    );
     contents.PrivateIpAddresses = deserializeAws_ec2PrivateIpAddressSpecificationList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["privateIpAddressesSet"]["item"]),
       context
     );
   }
@@ -63328,9 +63021,8 @@ const deserializeAws_ec2InstanceStatus = (
     output["eventsSet"] !== undefined &&
     output["eventsSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["eventsSet"]["item"]);
     contents.Events = deserializeAws_ec2InstanceStatusEventList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["eventsSet"]["item"]),
       context
     );
   }
@@ -63487,9 +63179,8 @@ const deserializeAws_ec2InstanceStatusSummary = (
     output["details"] !== undefined &&
     output["details"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["details"]["item"]);
     contents.Details = deserializeAws_ec2InstanceStatusDetailsList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["details"]["item"]),
       context
     );
   }
@@ -63515,8 +63206,10 @@ const deserializeAws_ec2InstanceStorageInfo = (
     contents.Disks = [];
   }
   if (output["disks"] !== undefined && output["disks"]["item"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(output["disks"]["item"]);
-    contents.Disks = deserializeAws_ec2DiskInfoList(wrappedItem, context);
+    contents.Disks = deserializeAws_ec2DiskInfoList(
+      __getArrayIfSingleItem(output["disks"]["item"]),
+      context
+    );
   }
   if (output["totalSizeInGB"] !== undefined) {
     contents.TotalSizeInGB = parseInt(
@@ -63669,11 +63362,8 @@ const deserializeAws_ec2InstanceTypeInfo = (
     output["supportedRootDeviceTypes"] !== undefined &&
     output["supportedRootDeviceTypes"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["supportedRootDeviceTypes"]["item"]
-    );
     contents.SupportedRootDeviceTypes = deserializeAws_ec2RootDeviceTypeList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["supportedRootDeviceTypes"]["item"]),
       context
     );
   }
@@ -63684,11 +63374,8 @@ const deserializeAws_ec2InstanceTypeInfo = (
     output["supportedUsageClasses"] !== undefined &&
     output["supportedUsageClasses"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["supportedUsageClasses"]["item"]
-    );
     contents.SupportedUsageClasses = deserializeAws_ec2UsageClassTypeList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["supportedUsageClasses"]["item"]),
       context
     );
   }
@@ -63805,9 +63492,8 @@ const deserializeAws_ec2InternetGateway = (
     output["attachmentSet"] !== undefined &&
     output["attachmentSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["attachmentSet"]["item"]);
     contents.Attachments = deserializeAws_ec2InternetGatewayAttachmentList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["attachmentSet"]["item"]),
       context
     );
   }
@@ -63830,8 +63516,10 @@ const deserializeAws_ec2InternetGateway = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   return contents;
 };
@@ -63916,8 +63604,10 @@ const deserializeAws_ec2IpPermission = (
     output["ipRanges"] !== undefined &&
     output["ipRanges"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["ipRanges"]["item"]);
-    contents.IpRanges = deserializeAws_ec2IpRangeList(wrappedItem, context);
+    contents.IpRanges = deserializeAws_ec2IpRangeList(
+      __getArrayIfSingleItem(output["ipRanges"]["item"]),
+      context
+    );
   }
   if (output.ipv6Ranges === "") {
     contents.Ipv6Ranges = [];
@@ -63926,8 +63616,10 @@ const deserializeAws_ec2IpPermission = (
     output["ipv6Ranges"] !== undefined &&
     output["ipv6Ranges"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["ipv6Ranges"]["item"]);
-    contents.Ipv6Ranges = deserializeAws_ec2Ipv6RangeList(wrappedItem, context);
+    contents.Ipv6Ranges = deserializeAws_ec2Ipv6RangeList(
+      __getArrayIfSingleItem(output["ipv6Ranges"]["item"]),
+      context
+    );
   }
   if (output.prefixListIds === "") {
     contents.PrefixListIds = [];
@@ -63936,9 +63628,8 @@ const deserializeAws_ec2IpPermission = (
     output["prefixListIds"] !== undefined &&
     output["prefixListIds"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["prefixListIds"]["item"]);
     contents.PrefixListIds = deserializeAws_ec2PrefixListIdList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["prefixListIds"]["item"]),
       context
     );
   }
@@ -63956,9 +63647,8 @@ const deserializeAws_ec2IpPermission = (
     output["groups"] !== undefined &&
     output["groups"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["groups"]["item"]);
     contents.UserIdGroupPairs = deserializeAws_ec2UserIdGroupPairList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["groups"]["item"]),
       context
     );
   }
@@ -64120,11 +63810,8 @@ const deserializeAws_ec2Ipv6Pool = (
     output["poolCidrBlockSet"] !== undefined &&
     output["poolCidrBlockSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["poolCidrBlockSet"]["item"]
-    );
     contents.PoolCidrBlocks = deserializeAws_ec2PoolCidrBlocksSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["poolCidrBlockSet"]["item"]),
       context
     );
   }
@@ -64141,8 +63828,10 @@ const deserializeAws_ec2Ipv6Pool = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   return contents;
 };
@@ -64267,8 +63956,10 @@ const deserializeAws_ec2KeyPairInfo = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   return contents;
 };
@@ -64378,11 +64069,8 @@ const deserializeAws_ec2LaunchSpecification = (
     output["blockDeviceMapping"] !== undefined &&
     output["blockDeviceMapping"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["blockDeviceMapping"]["item"]
-    );
     contents.BlockDeviceMappings = deserializeAws_ec2BlockDeviceMappingList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["blockDeviceMapping"]["item"]),
       context
     );
   }
@@ -64435,11 +64123,8 @@ const deserializeAws_ec2LaunchSpecification = (
     output["networkInterfaceSet"] !== undefined &&
     output["networkInterfaceSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["networkInterfaceSet"]["item"]
-    );
     contents.NetworkInterfaces = deserializeAws_ec2InstanceNetworkInterfaceSpecificationList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["networkInterfaceSet"]["item"]),
       context
     );
   }
@@ -64462,9 +64147,8 @@ const deserializeAws_ec2LaunchSpecification = (
     output["groupSet"] !== undefined &&
     output["groupSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["groupSet"]["item"]);
     contents.SecurityGroups = deserializeAws_ec2GroupIdentifierList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["groupSet"]["item"]),
       context
     );
   }
@@ -64552,8 +64236,10 @@ const deserializeAws_ec2LaunchTemplate = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   return contents;
 };
@@ -64679,9 +64365,8 @@ const deserializeAws_ec2LaunchTemplateConfig = (
     output["overrides"] !== undefined &&
     output["overrides"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["overrides"]["item"]);
     contents.Overrides = deserializeAws_ec2LaunchTemplateOverridesList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["overrides"]["item"]),
       context
     );
   }
@@ -64983,8 +64668,10 @@ const deserializeAws_ec2LaunchTemplateInstanceNetworkInterfaceSpecification = (
     output["groupSet"] !== undefined &&
     output["groupSet"]["groupId"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["groupSet"]["groupId"]);
-    contents.Groups = deserializeAws_ec2GroupIdStringList(wrappedItem, context);
+    contents.Groups = deserializeAws_ec2GroupIdStringList(
+      __getArrayIfSingleItem(output["groupSet"]["groupId"]),
+      context
+    );
   }
   if (output["interfaceType"] !== undefined) {
     contents.InterfaceType =
@@ -65006,11 +64693,8 @@ const deserializeAws_ec2LaunchTemplateInstanceNetworkInterfaceSpecification = (
     output["ipv6AddressesSet"] !== undefined &&
     output["ipv6AddressesSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["ipv6AddressesSet"]["item"]
-    );
     contents.Ipv6Addresses = deserializeAws_ec2InstanceIpv6AddressList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["ipv6AddressesSet"]["item"]),
       context
     );
   }
@@ -65033,11 +64717,8 @@ const deserializeAws_ec2LaunchTemplateInstanceNetworkInterfaceSpecification = (
     output["privateIpAddressesSet"] !== undefined &&
     output["privateIpAddressesSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["privateIpAddressesSet"]["item"]
-    );
     contents.PrivateIpAddresses = deserializeAws_ec2PrivateIpAddressSpecificationList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["privateIpAddressesSet"]["item"]),
       context
     );
   }
@@ -65311,8 +64992,10 @@ const deserializeAws_ec2LaunchTemplateTagSpecification = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   return contents;
 };
@@ -65552,8 +65235,10 @@ const deserializeAws_ec2LocalGateway = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   return contents;
 };
@@ -65657,8 +65342,10 @@ const deserializeAws_ec2LocalGatewayRouteTable = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   return contents;
 };
@@ -65731,8 +65418,10 @@ const deserializeAws_ec2LocalGatewayRouteTableVirtualInterfaceGroupAssociation =
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   return contents;
 };
@@ -65797,8 +65486,10 @@ const deserializeAws_ec2LocalGatewayRouteTableVpcAssociation = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   if (output["vpcId"] !== undefined) {
     contents.VpcId =
@@ -65893,8 +65584,10 @@ const deserializeAws_ec2LocalGatewayVirtualInterface = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   if (output["vlan"] !== undefined) {
     contents.Vlan = parseInt(
@@ -65936,11 +65629,10 @@ const deserializeAws_ec2LocalGatewayVirtualInterfaceGroup = (
     output["localGatewayVirtualInterfaceIdSet"] !== undefined &&
     output["localGatewayVirtualInterfaceIdSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["localGatewayVirtualInterfaceIdSet"]["item"]
-    );
     contents.LocalGatewayVirtualInterfaceIds = deserializeAws_ec2LocalGatewayVirtualInterfaceIdSet(
-      wrappedItem,
+      __getArrayIfSingleItem(
+        output["localGatewayVirtualInterfaceIdSet"]["item"]
+      ),
       context
     );
   }
@@ -65951,8 +65643,10 @@ const deserializeAws_ec2LocalGatewayVirtualInterfaceGroup = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   return contents;
 };
@@ -66130,9 +65824,8 @@ const deserializeAws_ec2ModifyHostsResult = (
     output["successful"] !== undefined &&
     output["successful"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["successful"]["item"]);
     contents.Successful = deserializeAws_ec2ResponseHostIdList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["successful"]["item"]),
       context
     );
   }
@@ -66143,9 +65836,8 @@ const deserializeAws_ec2ModifyHostsResult = (
     output["unsuccessful"] !== undefined &&
     output["unsuccessful"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["unsuccessful"]["item"]);
     contents.Unsuccessful = deserializeAws_ec2UnsuccessfulItemList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["unsuccessful"]["item"]),
       context
     );
   }
@@ -66185,11 +65877,10 @@ const deserializeAws_ec2ModifyInstanceCreditSpecificationResult = (
     output["successfulInstanceCreditSpecificationSet"] !== undefined &&
     output["successfulInstanceCreditSpecificationSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["successfulInstanceCreditSpecificationSet"]["item"]
-    );
     contents.SuccessfulInstanceCreditSpecifications = deserializeAws_ec2SuccessfulInstanceCreditSpecificationSet(
-      wrappedItem,
+      __getArrayIfSingleItem(
+        output["successfulInstanceCreditSpecificationSet"]["item"]
+      ),
       context
     );
   }
@@ -66200,11 +65891,10 @@ const deserializeAws_ec2ModifyInstanceCreditSpecificationResult = (
     output["unsuccessfulInstanceCreditSpecificationSet"] !== undefined &&
     output["unsuccessfulInstanceCreditSpecificationSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["unsuccessfulInstanceCreditSpecificationSet"]["item"]
-    );
     contents.UnsuccessfulInstanceCreditSpecifications = deserializeAws_ec2UnsuccessfulInstanceCreditSpecificationSet(
-      wrappedItem,
+      __getArrayIfSingleItem(
+        output["unsuccessfulInstanceCreditSpecificationSet"]["item"]
+      ),
       context
     );
   }
@@ -66580,9 +66270,8 @@ const deserializeAws_ec2MonitorInstancesResult = (
     output["instancesSet"] !== undefined &&
     output["instancesSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["instancesSet"]["item"]);
     contents.InstanceMonitorings = deserializeAws_ec2InstanceMonitoringList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["instancesSet"]["item"]),
       context
     );
   }
@@ -66708,11 +66397,8 @@ const deserializeAws_ec2NatGateway = (
     output["natGatewayAddressSet"] !== undefined &&
     output["natGatewayAddressSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["natGatewayAddressSet"]["item"]
-    );
     contents.NatGatewayAddresses = deserializeAws_ec2NatGatewayAddressList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["natGatewayAddressSet"]["item"]),
       context
     );
   }
@@ -66747,8 +66433,10 @@ const deserializeAws_ec2NatGateway = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   if (output["vpcId"] !== undefined) {
     contents.VpcId =
@@ -66840,11 +66528,8 @@ const deserializeAws_ec2NetworkAcl = (
     output["associationSet"] !== undefined &&
     output["associationSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["associationSet"]["item"]
-    );
     contents.Associations = deserializeAws_ec2NetworkAclAssociationList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["associationSet"]["item"]),
       context
     );
   }
@@ -66855,9 +66540,8 @@ const deserializeAws_ec2NetworkAcl = (
     output["entrySet"] !== undefined &&
     output["entrySet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["entrySet"]["item"]);
     contents.Entries = deserializeAws_ec2NetworkAclEntryList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["entrySet"]["item"]),
       context
     );
   }
@@ -66886,8 +66570,10 @@ const deserializeAws_ec2NetworkAcl = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   if (output["vpcId"] !== undefined) {
     contents.VpcId =
@@ -67143,9 +66829,8 @@ const deserializeAws_ec2NetworkInterface = (
     output["groupSet"] !== undefined &&
     output["groupSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["groupSet"]["item"]);
     contents.Groups = deserializeAws_ec2GroupIdentifierList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["groupSet"]["item"]),
       context
     );
   }
@@ -67162,11 +66847,8 @@ const deserializeAws_ec2NetworkInterface = (
     output["ipv6AddressesSet"] !== undefined &&
     output["ipv6AddressesSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["ipv6AddressesSet"]["item"]
-    );
     contents.Ipv6Addresses = deserializeAws_ec2NetworkInterfaceIpv6AddressesList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["ipv6AddressesSet"]["item"]),
       context
     );
   }
@@ -67213,11 +66895,8 @@ const deserializeAws_ec2NetworkInterface = (
     output["privateIpAddressesSet"] !== undefined &&
     output["privateIpAddressesSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["privateIpAddressesSet"]["item"]
-    );
     contents.PrivateIpAddresses = deserializeAws_ec2NetworkInterfacePrivateIpAddressList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["privateIpAddressesSet"]["item"]),
       context
     );
   }
@@ -67258,8 +66937,10 @@ const deserializeAws_ec2NetworkInterface = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.TagSet = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.TagSet = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   if (output["vpcId"] !== undefined) {
     contents.VpcId =
@@ -68043,8 +67724,10 @@ const deserializeAws_ec2PlacementGroup = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   return contents;
 };
@@ -68064,11 +67747,8 @@ const deserializeAws_ec2PlacementGroupInfo = (
     output["supportedStrategies"] !== undefined &&
     output["supportedStrategies"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["supportedStrategies"]["item"]
-    );
     contents.SupportedStrategies = deserializeAws_ec2PlacementGroupStrategyList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["supportedStrategies"]["item"]),
       context
     );
   }
@@ -68183,8 +67863,10 @@ const deserializeAws_ec2PrefixList = (
     output["cidrSet"] !== undefined &&
     output["cidrSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["cidrSet"]["item"]);
-    contents.Cidrs = deserializeAws_ec2ValueStringList(wrappedItem, context);
+    contents.Cidrs = deserializeAws_ec2ValueStringList(
+      __getArrayIfSingleItem(output["cidrSet"]["item"]),
+      context
+    );
   }
   if (output["prefixListId"] !== undefined) {
     contents.PrefixListId =
@@ -68368,8 +68050,10 @@ const deserializeAws_ec2PrincipalIdFormat = (
     output["statusSet"] !== undefined &&
     output["statusSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["statusSet"]["item"]);
-    contents.Statuses = deserializeAws_ec2IdFormatList(wrappedItem, context);
+    contents.Statuses = deserializeAws_ec2IdFormatList(
+      __getArrayIfSingleItem(output["statusSet"]["item"]),
+      context
+    );
   }
   return contents;
 };
@@ -68476,11 +68160,8 @@ const deserializeAws_ec2ProcessorInfo = (
     output["supportedArchitectures"] !== undefined &&
     output["supportedArchitectures"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["supportedArchitectures"]["item"]
-    );
     contents.SupportedArchitectures = deserializeAws_ec2ArchitectureTypeList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["supportedArchitectures"]["item"]),
       context
     );
   }
@@ -68638,11 +68319,8 @@ const deserializeAws_ec2PublicIpv4Pool = (
     output["poolAddressRangeSet"] !== undefined &&
     output["poolAddressRangeSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["poolAddressRangeSet"]["item"]
-    );
     contents.PoolAddressRanges = deserializeAws_ec2PublicIpv4PoolRangeSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["poolAddressRangeSet"]["item"]),
       context
     );
   }
@@ -68766,9 +68444,8 @@ const deserializeAws_ec2Purchase = (
     output["hostIdSet"] !== undefined &&
     output["hostIdSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["hostIdSet"]["item"]);
     contents.HostIdSet = deserializeAws_ec2ResponseHostIdSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["hostIdSet"]["item"]),
       context
     );
   }
@@ -68836,8 +68513,10 @@ const deserializeAws_ec2PurchaseHostReservationResult = (
     output["purchase"] !== undefined &&
     output["purchase"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["purchase"]["item"]);
-    contents.Purchase = deserializeAws_ec2PurchaseSet(wrappedItem, context);
+    contents.Purchase = deserializeAws_ec2PurchaseSet(
+      __getArrayIfSingleItem(output["purchase"]["item"]),
+      context
+    );
   }
   if (output["totalHourlyPrice"] !== undefined) {
     contents.TotalHourlyPrice =
@@ -68886,11 +68565,8 @@ const deserializeAws_ec2PurchaseScheduledInstancesResult = (
     output["scheduledInstanceSet"] !== undefined &&
     output["scheduledInstanceSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["scheduledInstanceSet"]["item"]
-    );
     contents.ScheduledInstanceSet = deserializeAws_ec2PurchasedScheduledInstanceSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["scheduledInstanceSet"]["item"]),
       context
     );
   }
@@ -69097,9 +68773,8 @@ const deserializeAws_ec2RejectVpcEndpointConnectionsResult = (
     output["unsuccessful"] !== undefined &&
     output["unsuccessful"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["unsuccessful"]["item"]);
     contents.Unsuccessful = deserializeAws_ec2UnsuccessfulItemSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["unsuccessful"]["item"]),
       context
     );
   }
@@ -69139,9 +68814,8 @@ const deserializeAws_ec2ReleaseHostsResult = (
     output["successful"] !== undefined &&
     output["successful"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["successful"]["item"]);
     contents.Successful = deserializeAws_ec2ResponseHostIdList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["successful"]["item"]),
       context
     );
   }
@@ -69152,9 +68826,8 @@ const deserializeAws_ec2ReleaseHostsResult = (
     output["unsuccessful"] !== undefined &&
     output["unsuccessful"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["unsuccessful"]["item"]);
     contents.Unsuccessful = deserializeAws_ec2UnsuccessfulItemList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["unsuccessful"]["item"]),
       context
     );
   }
@@ -69268,11 +68941,8 @@ const deserializeAws_ec2RequestSpotInstancesResult = (
     output["spotInstanceRequestSet"] !== undefined &&
     output["spotInstanceRequestSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["spotInstanceRequestSet"]["item"]
-    );
     contents.SpotInstanceRequests = deserializeAws_ec2SpotInstanceRequestList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["spotInstanceRequestSet"]["item"]),
       context
     );
   }
@@ -69298,9 +68968,8 @@ const deserializeAws_ec2Reservation = (
     output["groupSet"] !== undefined &&
     output["groupSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["groupSet"]["item"]);
     contents.Groups = deserializeAws_ec2GroupIdentifierList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["groupSet"]["item"]),
       context
     );
   }
@@ -69311,8 +68980,10 @@ const deserializeAws_ec2Reservation = (
     output["instancesSet"] !== undefined &&
     output["instancesSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["instancesSet"]["item"]);
-    contents.Instances = deserializeAws_ec2InstanceList(wrappedItem, context);
+    contents.Instances = deserializeAws_ec2InstanceList(
+      __getArrayIfSingleItem(output["instancesSet"]["item"]),
+      context
+    );
   }
   if (output["ownerId"] !== undefined) {
     contents.OwnerId =
@@ -69512,11 +69183,8 @@ const deserializeAws_ec2ReservedInstances = (
     output["recurringCharges"] !== undefined &&
     output["recurringCharges"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["recurringCharges"]["item"]
-    );
     contents.RecurringCharges = deserializeAws_ec2RecurringChargesList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["recurringCharges"]["item"]),
       context
     );
   }
@@ -69548,8 +69216,10 @@ const deserializeAws_ec2ReservedInstances = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   if (output["usagePrice"] !== undefined) {
     contents.UsagePrice = parseFloat(
@@ -69668,11 +69338,8 @@ const deserializeAws_ec2ReservedInstancesListing = (
     output["instanceCounts"] !== undefined &&
     output["instanceCounts"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["instanceCounts"]["item"]
-    );
     contents.InstanceCounts = deserializeAws_ec2InstanceCountList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["instanceCounts"]["item"]),
       context
     );
   }
@@ -69683,11 +69350,8 @@ const deserializeAws_ec2ReservedInstancesListing = (
     output["priceSchedules"] !== undefined &&
     output["priceSchedules"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["priceSchedules"]["item"]
-    );
     contents.PriceSchedules = deserializeAws_ec2PriceScheduleList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["priceSchedules"]["item"]),
       context
     );
   }
@@ -69722,8 +69386,10 @@ const deserializeAws_ec2ReservedInstancesListing = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   if (output["updateDate"] !== undefined) {
     contents.UpdateDate = new Date(output["updateDate"]);
@@ -69777,11 +69443,8 @@ const deserializeAws_ec2ReservedInstancesModification = (
     output["modificationResultSet"] !== undefined &&
     output["modificationResultSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["modificationResultSet"]["item"]
-    );
     contents.ModificationResults = deserializeAws_ec2ReservedInstancesModificationResultList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["modificationResultSet"]["item"]),
       context
     );
   }
@@ -69792,11 +69455,8 @@ const deserializeAws_ec2ReservedInstancesModification = (
     output["reservedInstancesSet"] !== undefined &&
     output["reservedInstancesSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["reservedInstancesSet"]["item"]
-    );
     contents.ReservedInstancesIds = deserializeAws_ec2ReservedIntancesIds(
-      wrappedItem,
+      __getArrayIfSingleItem(output["reservedInstancesSet"]["item"]),
       context
     );
   }
@@ -69959,11 +69619,8 @@ const deserializeAws_ec2ReservedInstancesOffering = (
     output["pricingDetailsSet"] !== undefined &&
     output["pricingDetailsSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["pricingDetailsSet"]["item"]
-    );
     contents.PricingDetails = deserializeAws_ec2PricingDetailsList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["pricingDetailsSet"]["item"]),
       context
     );
   }
@@ -69980,11 +69637,8 @@ const deserializeAws_ec2ReservedInstancesOffering = (
     output["recurringCharges"] !== undefined &&
     output["recurringCharges"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["recurringCharges"]["item"]
-    );
     contents.RecurringCharges = deserializeAws_ec2RecurringChargesList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["recurringCharges"]["item"]),
       context
     );
   }
@@ -70152,11 +69806,8 @@ const deserializeAws_ec2ResponseLaunchTemplateData = (
     output["blockDeviceMappingSet"] !== undefined &&
     output["blockDeviceMappingSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["blockDeviceMappingSet"]["item"]
-    );
     contents.BlockDeviceMappings = deserializeAws_ec2LaunchTemplateBlockDeviceMappingList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["blockDeviceMappingSet"]["item"]),
       context
     );
   }
@@ -70197,11 +69848,8 @@ const deserializeAws_ec2ResponseLaunchTemplateData = (
     output["elasticGpuSpecificationSet"] !== undefined &&
     output["elasticGpuSpecificationSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["elasticGpuSpecificationSet"]["item"]
-    );
     contents.ElasticGpuSpecifications = deserializeAws_ec2ElasticGpuSpecificationResponseList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["elasticGpuSpecificationSet"]["item"]),
       context
     );
   }
@@ -70212,11 +69860,8 @@ const deserializeAws_ec2ResponseLaunchTemplateData = (
     output["elasticInferenceAcceleratorSet"] !== undefined &&
     output["elasticInferenceAcceleratorSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["elasticInferenceAcceleratorSet"]["item"]
-    );
     contents.ElasticInferenceAccelerators = deserializeAws_ec2LaunchTemplateElasticInferenceAcceleratorResponseList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["elasticInferenceAcceleratorSet"]["item"]),
       context
     );
   }
@@ -70275,9 +69920,8 @@ const deserializeAws_ec2ResponseLaunchTemplateData = (
     output["licenseSet"] !== undefined &&
     output["licenseSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["licenseSet"]["item"]);
     contents.LicenseSpecifications = deserializeAws_ec2LaunchTemplateLicenseList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["licenseSet"]["item"]),
       context
     );
   }
@@ -70300,11 +69944,8 @@ const deserializeAws_ec2ResponseLaunchTemplateData = (
     output["networkInterfaceSet"] !== undefined &&
     output["networkInterfaceSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["networkInterfaceSet"]["item"]
-    );
     contents.NetworkInterfaces = deserializeAws_ec2LaunchTemplateInstanceNetworkInterfaceSpecificationList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["networkInterfaceSet"]["item"]),
       context
     );
   }
@@ -70327,11 +69968,8 @@ const deserializeAws_ec2ResponseLaunchTemplateData = (
     output["securityGroupIdSet"] !== undefined &&
     output["securityGroupIdSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["securityGroupIdSet"]["item"]
-    );
     contents.SecurityGroupIds = deserializeAws_ec2ValueStringList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["securityGroupIdSet"]["item"]),
       context
     );
   }
@@ -70342,11 +69980,8 @@ const deserializeAws_ec2ResponseLaunchTemplateData = (
     output["securityGroupSet"] !== undefined &&
     output["securityGroupSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["securityGroupSet"]["item"]
-    );
     contents.SecurityGroups = deserializeAws_ec2ValueStringList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["securityGroupSet"]["item"]),
       context
     );
   }
@@ -70357,11 +69992,8 @@ const deserializeAws_ec2ResponseLaunchTemplateData = (
     output["tagSpecificationSet"] !== undefined &&
     output["tagSpecificationSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["tagSpecificationSet"]["item"]
-    );
     contents.TagSpecifications = deserializeAws_ec2LaunchTemplateTagSpecificationList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["tagSpecificationSet"]["item"]),
       context
     );
   }
@@ -70566,11 +70198,8 @@ const deserializeAws_ec2RouteTable = (
     output["associationSet"] !== undefined &&
     output["associationSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["associationSet"]["item"]
-    );
     contents.Associations = deserializeAws_ec2RouteTableAssociationList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["associationSet"]["item"]),
       context
     );
   }
@@ -70587,11 +70216,8 @@ const deserializeAws_ec2RouteTable = (
     output["propagatingVgwSet"] !== undefined &&
     output["propagatingVgwSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["propagatingVgwSet"]["item"]
-    );
     contents.PropagatingVgws = deserializeAws_ec2PropagatingVgwList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["propagatingVgwSet"]["item"]),
       context
     );
   }
@@ -70608,8 +70234,10 @@ const deserializeAws_ec2RouteTable = (
     output["routeSet"] !== undefined &&
     output["routeSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["routeSet"]["item"]);
-    contents.Routes = deserializeAws_ec2RouteList(wrappedItem, context);
+    contents.Routes = deserializeAws_ec2RouteList(
+      __getArrayIfSingleItem(output["routeSet"]["item"]),
+      context
+    );
   }
   if (output.tagSet === "") {
     contents.Tags = [];
@@ -70618,8 +70246,10 @@ const deserializeAws_ec2RouteTable = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   if (output["vpcId"] !== undefined) {
     contents.VpcId =
@@ -70760,9 +70390,8 @@ const deserializeAws_ec2RunScheduledInstancesResult = (
     output["instanceIdSet"] !== undefined &&
     output["instanceIdSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["instanceIdSet"]["item"]);
     contents.InstanceIdSet = deserializeAws_ec2InstanceIdSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["instanceIdSet"]["item"]),
       context
     );
   }
@@ -71066,11 +70695,8 @@ const deserializeAws_ec2ScheduledInstanceRecurrence = (
     output["occurrenceDaySet"] !== undefined &&
     output["occurrenceDaySet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["occurrenceDaySet"]["item"]
-    );
     contents.OccurrenceDaySet = deserializeAws_ec2OccurrenceDaySet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["occurrenceDaySet"]["item"]),
       context
     );
   }
@@ -71122,9 +70748,8 @@ const deserializeAws_ec2SearchLocalGatewayRoutesResult = (
     output["routeSet"] !== undefined &&
     output["routeSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["routeSet"]["item"]);
     contents.Routes = deserializeAws_ec2LocalGatewayRouteList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["routeSet"]["item"]),
       context
     );
   }
@@ -71147,11 +70772,8 @@ const deserializeAws_ec2SearchTransitGatewayMulticastGroupsResult = (
     output["multicastGroups"] !== undefined &&
     output["multicastGroups"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["multicastGroups"]["item"]
-    );
     contents.MulticastGroups = deserializeAws_ec2TransitGatewayMulticastGroupList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["multicastGroups"]["item"]),
       context
     );
   }
@@ -71186,9 +70808,8 @@ const deserializeAws_ec2SearchTransitGatewayRoutesResult = (
     output["routeSet"] !== undefined &&
     output["routeSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["routeSet"]["item"]);
     contents.Routes = deserializeAws_ec2TransitGatewayRouteList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["routeSet"]["item"]),
       context
     );
   }
@@ -71235,9 +70856,8 @@ const deserializeAws_ec2SecurityGroup = (
     output["ipPermissions"] !== undefined &&
     output["ipPermissions"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["ipPermissions"]["item"]);
     contents.IpPermissions = deserializeAws_ec2IpPermissionList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["ipPermissions"]["item"]),
       context
     );
   }
@@ -71248,11 +70868,8 @@ const deserializeAws_ec2SecurityGroup = (
     output["ipPermissionsEgress"] !== undefined &&
     output["ipPermissionsEgress"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["ipPermissionsEgress"]["item"]
-    );
     contents.IpPermissionsEgress = deserializeAws_ec2IpPermissionList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["ipPermissionsEgress"]["item"]),
       context
     );
   }
@@ -71269,8 +70886,10 @@ const deserializeAws_ec2SecurityGroup = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   if (output["vpcId"] !== undefined) {
     contents.VpcId =
@@ -71401,11 +71020,8 @@ const deserializeAws_ec2ServiceConfiguration = (
     output["availabilityZoneSet"] !== undefined &&
     output["availabilityZoneSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["availabilityZoneSet"]["item"]
-    );
     contents.AvailabilityZones = deserializeAws_ec2ValueStringList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["availabilityZoneSet"]["item"]),
       context
     );
   }
@@ -71416,11 +71032,8 @@ const deserializeAws_ec2ServiceConfiguration = (
     output["baseEndpointDnsNameSet"] !== undefined &&
     output["baseEndpointDnsNameSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["baseEndpointDnsNameSet"]["item"]
-    );
     contents.BaseEndpointDnsNames = deserializeAws_ec2ValueStringList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["baseEndpointDnsNameSet"]["item"]),
       context
     );
   }
@@ -71437,11 +71050,8 @@ const deserializeAws_ec2ServiceConfiguration = (
     output["networkLoadBalancerArnSet"] !== undefined &&
     output["networkLoadBalancerArnSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["networkLoadBalancerArnSet"]["item"]
-    );
     contents.NetworkLoadBalancerArns = deserializeAws_ec2ValueStringList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["networkLoadBalancerArnSet"]["item"]),
       context
     );
   }
@@ -71482,9 +71092,8 @@ const deserializeAws_ec2ServiceConfiguration = (
     output["serviceType"] !== undefined &&
     output["serviceType"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["serviceType"]["item"]);
     contents.ServiceType = deserializeAws_ec2ServiceTypeDetailSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["serviceType"]["item"]),
       context
     );
   }
@@ -71495,8 +71104,10 @@ const deserializeAws_ec2ServiceConfiguration = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   return contents;
 };
@@ -71544,11 +71155,8 @@ const deserializeAws_ec2ServiceDetail = (
     output["availabilityZoneSet"] !== undefined &&
     output["availabilityZoneSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["availabilityZoneSet"]["item"]
-    );
     contents.AvailabilityZones = deserializeAws_ec2ValueStringList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["availabilityZoneSet"]["item"]),
       context
     );
   }
@@ -71559,11 +71167,8 @@ const deserializeAws_ec2ServiceDetail = (
     output["baseEndpointDnsNameSet"] !== undefined &&
     output["baseEndpointDnsNameSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["baseEndpointDnsNameSet"]["item"]
-    );
     contents.BaseEndpointDnsNames = deserializeAws_ec2ValueStringList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["baseEndpointDnsNameSet"]["item"]),
       context
     );
   }
@@ -71610,9 +71215,8 @@ const deserializeAws_ec2ServiceDetail = (
     output["serviceType"] !== undefined &&
     output["serviceType"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["serviceType"]["item"]);
     contents.ServiceType = deserializeAws_ec2ServiceTypeDetailSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["serviceType"]["item"]),
       context
     );
   }
@@ -71623,8 +71227,10 @@ const deserializeAws_ec2ServiceDetail = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   if (output["vpcEndpointPolicySupported"] !== undefined) {
     contents.VpcEndpointPolicySupported =
@@ -71765,8 +71371,10 @@ const deserializeAws_ec2Snapshot = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   if (output["volumeId"] !== undefined) {
     contents.VolumeId =
@@ -71939,8 +71547,10 @@ const deserializeAws_ec2SnapshotInfo = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   if (output["volumeId"] !== undefined) {
     contents.VolumeId =
@@ -72151,11 +71761,8 @@ const deserializeAws_ec2SpotFleetLaunchSpecification = (
     output["blockDeviceMapping"] !== undefined &&
     output["blockDeviceMapping"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["blockDeviceMapping"]["item"]
-    );
     contents.BlockDeviceMappings = deserializeAws_ec2BlockDeviceMappingList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["blockDeviceMapping"]["item"]),
       context
     );
   }
@@ -72208,11 +71815,8 @@ const deserializeAws_ec2SpotFleetLaunchSpecification = (
     output["networkInterfaceSet"] !== undefined &&
     output["networkInterfaceSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["networkInterfaceSet"]["item"]
-    );
     contents.NetworkInterfaces = deserializeAws_ec2InstanceNetworkInterfaceSpecificationList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["networkInterfaceSet"]["item"]),
       context
     );
   }
@@ -72235,9 +71839,8 @@ const deserializeAws_ec2SpotFleetLaunchSpecification = (
     output["groupSet"] !== undefined &&
     output["groupSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["groupSet"]["item"]);
     contents.SecurityGroups = deserializeAws_ec2GroupIdentifierList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["groupSet"]["item"]),
       context
     );
   }
@@ -72260,11 +71863,8 @@ const deserializeAws_ec2SpotFleetLaunchSpecification = (
     output["tagSpecificationSet"] !== undefined &&
     output["tagSpecificationSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["tagSpecificationSet"]["item"]
-    );
     contents.TagSpecifications = deserializeAws_ec2SpotFleetTagSpecificationList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["tagSpecificationSet"]["item"]),
       context
     );
   }
@@ -72423,11 +72023,8 @@ const deserializeAws_ec2SpotFleetRequestConfigData = (
     output["launchSpecifications"] !== undefined &&
     output["launchSpecifications"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["launchSpecifications"]["item"]
-    );
     contents.LaunchSpecifications = deserializeAws_ec2LaunchSpecsList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["launchSpecifications"]["item"]),
       context
     );
   }
@@ -72438,11 +72035,8 @@ const deserializeAws_ec2SpotFleetRequestConfigData = (
     output["launchTemplateConfigs"] !== undefined &&
     output["launchTemplateConfigs"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["launchTemplateConfigs"]["item"]
-    );
     contents.LaunchTemplateConfigs = deserializeAws_ec2LaunchTemplateConfigList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["launchTemplateConfigs"]["item"]),
       context
     );
   }
@@ -72554,8 +72148,10 @@ const deserializeAws_ec2SpotFleetTagSpecification = (
     contents.Tags = [];
   }
   if (output["tag"] !== undefined && output["tag"]["item"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(output["tag"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tag"]["item"]),
+      context
+    );
   }
   return contents;
 };
@@ -72692,8 +72288,10 @@ const deserializeAws_ec2SpotInstanceRequest = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   if (output["type"] !== undefined) {
     contents.Type =
@@ -72951,8 +72549,10 @@ const deserializeAws_ec2StaleIpPermission = (
     output["ipRanges"] !== undefined &&
     output["ipRanges"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["ipRanges"]["item"]);
-    contents.IpRanges = deserializeAws_ec2IpRanges(wrappedItem, context);
+    contents.IpRanges = deserializeAws_ec2IpRanges(
+      __getArrayIfSingleItem(output["ipRanges"]["item"]),
+      context
+    );
   }
   if (output.prefixListIds === "") {
     contents.PrefixListIds = [];
@@ -72961,9 +72561,8 @@ const deserializeAws_ec2StaleIpPermission = (
     output["prefixListIds"] !== undefined &&
     output["prefixListIds"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["prefixListIds"]["item"]);
     contents.PrefixListIds = deserializeAws_ec2PrefixListIdSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["prefixListIds"]["item"]),
       context
     );
   }
@@ -72981,9 +72580,8 @@ const deserializeAws_ec2StaleIpPermission = (
     output["groups"] !== undefined &&
     output["groups"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["groups"]["item"]);
     contents.UserIdGroupPairs = deserializeAws_ec2UserIdGroupPairSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["groups"]["item"]),
       context
     );
   }
@@ -73039,11 +72637,8 @@ const deserializeAws_ec2StaleSecurityGroup = (
     output["staleIpPermissions"] !== undefined &&
     output["staleIpPermissions"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["staleIpPermissions"]["item"]
-    );
     contents.StaleIpPermissions = deserializeAws_ec2StaleIpPermissionSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["staleIpPermissions"]["item"]),
       context
     );
   }
@@ -73054,11 +72649,8 @@ const deserializeAws_ec2StaleSecurityGroup = (
     output["staleIpPermissionsEgress"] !== undefined &&
     output["staleIpPermissionsEgress"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["staleIpPermissionsEgress"]["item"]
-    );
     contents.StaleIpPermissionsEgress = deserializeAws_ec2StaleIpPermissionSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["staleIpPermissionsEgress"]["item"]),
       context
     );
   }
@@ -73097,9 +72689,8 @@ const deserializeAws_ec2StartInstancesResult = (
     output["instancesSet"] !== undefined &&
     output["instancesSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["instancesSet"]["item"]);
     contents.StartingInstances = deserializeAws_ec2InstanceStateChangeList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["instancesSet"]["item"]),
       context
     );
   }
@@ -73162,9 +72753,8 @@ const deserializeAws_ec2StopInstancesResult = (
     output["instancesSet"] !== undefined &&
     output["instancesSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["instancesSet"]["item"]);
     contents.StoppingInstances = deserializeAws_ec2InstanceStateChangeList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["instancesSet"]["item"]),
       context
     );
   }
@@ -73251,11 +72841,8 @@ const deserializeAws_ec2Subnet = (
     output["ipv6CidrBlockAssociationSet"] !== undefined &&
     output["ipv6CidrBlockAssociationSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["ipv6CidrBlockAssociationSet"]["item"]
-    );
     contents.Ipv6CidrBlockAssociationSet = deserializeAws_ec2SubnetIpv6CidrBlockAssociationSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["ipv6CidrBlockAssociationSet"]["item"]),
       context
     );
   }
@@ -73302,8 +72889,10 @@ const deserializeAws_ec2Subnet = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   if (output["vpcId"] !== undefined) {
     contents.VpcId =
@@ -73681,9 +73270,8 @@ const deserializeAws_ec2TargetGroupsConfig = (
     output["targetGroups"] !== undefined &&
     output["targetGroups"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["targetGroups"]["item"]);
     contents.TargetGroups = deserializeAws_ec2TargetGroups(
-      wrappedItem,
+      __getArrayIfSingleItem(output["targetGroups"]["item"]),
       context
     );
   }
@@ -73722,11 +73310,8 @@ const deserializeAws_ec2TargetNetwork = (
     output["securityGroups"] !== undefined &&
     output["securityGroups"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["securityGroups"]["item"]
-    );
     contents.SecurityGroups = deserializeAws_ec2ValueStringList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["securityGroups"]["item"]),
       context
     );
   }
@@ -73820,11 +73405,8 @@ const deserializeAws_ec2TerminateClientVpnConnectionsResult = (
     output["connectionStatuses"] !== undefined &&
     output["connectionStatuses"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["connectionStatuses"]["item"]
-    );
     contents.ConnectionStatuses = deserializeAws_ec2TerminateConnectionStatusSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["connectionStatuses"]["item"]),
       context
     );
   }
@@ -73894,9 +73476,8 @@ const deserializeAws_ec2TerminateInstancesResult = (
     output["instancesSet"] !== undefined &&
     output["instancesSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["instancesSet"]["item"]);
     contents.TerminatingInstances = deserializeAws_ec2InstanceStateChangeList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["instancesSet"]["item"]),
       context
     );
   }
@@ -73942,11 +73523,8 @@ const deserializeAws_ec2TrafficMirrorFilter = (
     output["egressFilterRuleSet"] !== undefined &&
     output["egressFilterRuleSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["egressFilterRuleSet"]["item"]
-    );
     contents.EgressFilterRules = deserializeAws_ec2TrafficMirrorFilterRuleList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["egressFilterRuleSet"]["item"]),
       context
     );
   }
@@ -73957,11 +73535,8 @@ const deserializeAws_ec2TrafficMirrorFilter = (
     output["ingressFilterRuleSet"] !== undefined &&
     output["ingressFilterRuleSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["ingressFilterRuleSet"]["item"]
-    );
     contents.IngressFilterRules = deserializeAws_ec2TrafficMirrorFilterRuleList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["ingressFilterRuleSet"]["item"]),
       context
     );
   }
@@ -73972,11 +73547,8 @@ const deserializeAws_ec2TrafficMirrorFilter = (
     output["networkServiceSet"] !== undefined &&
     output["networkServiceSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["networkServiceSet"]["item"]
-    );
     contents.NetworkServices = deserializeAws_ec2TrafficMirrorNetworkServiceList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["networkServiceSet"]["item"]),
       context
     );
   }
@@ -73987,8 +73559,10 @@ const deserializeAws_ec2TrafficMirrorFilter = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   if (output["trafficMirrorFilterId"] !== undefined) {
     contents.TrafficMirrorFilterId =
@@ -74203,8 +73777,10 @@ const deserializeAws_ec2TrafficMirrorSession = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   if (output["trafficMirrorFilterId"] !== undefined) {
     contents.TrafficMirrorFilterId =
@@ -74290,8 +73866,10 @@ const deserializeAws_ec2TrafficMirrorTarget = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   if (output["trafficMirrorTargetId"] !== undefined) {
     contents.TrafficMirrorTargetId =
@@ -74368,8 +73946,10 @@ const deserializeAws_ec2TransitGateway = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   if (output["transitGatewayArn"] !== undefined) {
     contents.TransitGatewayArn =
@@ -74488,8 +74068,10 @@ const deserializeAws_ec2TransitGatewayAttachment = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   if (output["transitGatewayAttachmentId"] !== undefined) {
     contents.TransitGatewayAttachmentId =
@@ -74612,11 +74194,8 @@ const deserializeAws_ec2TransitGatewayMulticastDeregisteredGroupMembers = (
     output["deregisteredNetworkInterfaceIds"] !== undefined &&
     output["deregisteredNetworkInterfaceIds"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["deregisteredNetworkInterfaceIds"]["item"]
-    );
     contents.DeregisteredNetworkInterfaceIds = deserializeAws_ec2ValueStringList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["deregisteredNetworkInterfaceIds"]["item"]),
       context
     );
   }
@@ -74652,11 +74231,8 @@ const deserializeAws_ec2TransitGatewayMulticastDeregisteredGroupSources = (
     output["deregisteredNetworkInterfaceIds"] !== undefined &&
     output["deregisteredNetworkInterfaceIds"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["deregisteredNetworkInterfaceIds"]["item"]
-    );
     contents.DeregisteredNetworkInterfaceIds = deserializeAws_ec2ValueStringList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["deregisteredNetworkInterfaceIds"]["item"]),
       context
     );
   }
@@ -74703,8 +74279,10 @@ const deserializeAws_ec2TransitGatewayMulticastDomain = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   if (output["transitGatewayId"] !== undefined) {
     contents.TransitGatewayId =
@@ -74803,9 +74381,8 @@ const deserializeAws_ec2TransitGatewayMulticastDomainAssociations = (
     output["subnets"] !== undefined &&
     output["subnets"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["subnets"]["item"]);
     contents.Subnets = deserializeAws_ec2SubnetAssociationList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["subnets"]["item"]),
       context
     );
   }
@@ -74953,11 +74530,8 @@ const deserializeAws_ec2TransitGatewayMulticastRegisteredGroupMembers = (
     output["registeredNetworkInterfaceIds"] !== undefined &&
     output["registeredNetworkInterfaceIds"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["registeredNetworkInterfaceIds"]["item"]
-    );
     contents.RegisteredNetworkInterfaceIds = deserializeAws_ec2ValueStringList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["registeredNetworkInterfaceIds"]["item"]),
       context
     );
   }
@@ -74993,11 +74567,8 @@ const deserializeAws_ec2TransitGatewayMulticastRegisteredGroupSources = (
     output["registeredNetworkInterfaceIds"] !== undefined &&
     output["registeredNetworkInterfaceIds"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["registeredNetworkInterfaceIds"]["item"]
-    );
     contents.RegisteredNetworkInterfaceIds = deserializeAws_ec2ValueStringList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["registeredNetworkInterfaceIds"]["item"]),
       context
     );
   }
@@ -75132,8 +74703,10 @@ const deserializeAws_ec2TransitGatewayPeeringAttachment = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   if (output["transitGatewayAttachmentId"] !== undefined) {
     contents.TransitGatewayAttachmentId =
@@ -75232,11 +74805,8 @@ const deserializeAws_ec2TransitGatewayRoute = (
     output["transitGatewayAttachments"] !== undefined &&
     output["transitGatewayAttachments"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["transitGatewayAttachments"]["item"]
-    );
     contents.TransitGatewayAttachments = deserializeAws_ec2TransitGatewayRouteAttachmentList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["transitGatewayAttachments"]["item"]),
       context
     );
   }
@@ -75346,8 +74916,10 @@ const deserializeAws_ec2TransitGatewayRouteTable = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   if (output["transitGatewayId"] !== undefined) {
     contents.TransitGatewayId =
@@ -75515,9 +75087,8 @@ const deserializeAws_ec2TransitGatewayVpcAttachment = (
     output["subnetIds"] !== undefined &&
     output["subnetIds"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["subnetIds"]["item"]);
     contents.SubnetIds = deserializeAws_ec2ValueStringList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["subnetIds"]["item"]),
       context
     );
   }
@@ -75528,8 +75099,10 @@ const deserializeAws_ec2TransitGatewayVpcAttachment = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   if (output["transitGatewayAttachmentId"] !== undefined) {
     contents.TransitGatewayAttachmentId =
@@ -75632,9 +75205,8 @@ const deserializeAws_ec2TunnelOption = (
     output["ikeVersionSet"] !== undefined &&
     output["ikeVersionSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["ikeVersionSet"]["item"]);
     contents.IkeVersions = deserializeAws_ec2IKEVersionsList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["ikeVersionSet"]["item"]),
       context
     );
   }
@@ -75651,11 +75223,8 @@ const deserializeAws_ec2TunnelOption = (
     output["phase1DHGroupNumberSet"] !== undefined &&
     output["phase1DHGroupNumberSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["phase1DHGroupNumberSet"]["item"]
-    );
     contents.Phase1DHGroupNumbers = deserializeAws_ec2Phase1DHGroupNumbersList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["phase1DHGroupNumberSet"]["item"]),
       context
     );
   }
@@ -75666,11 +75235,8 @@ const deserializeAws_ec2TunnelOption = (
     output["phase1EncryptionAlgorithmSet"] !== undefined &&
     output["phase1EncryptionAlgorithmSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["phase1EncryptionAlgorithmSet"]["item"]
-    );
     contents.Phase1EncryptionAlgorithms = deserializeAws_ec2Phase1EncryptionAlgorithmsList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["phase1EncryptionAlgorithmSet"]["item"]),
       context
     );
   }
@@ -75681,11 +75247,8 @@ const deserializeAws_ec2TunnelOption = (
     output["phase1IntegrityAlgorithmSet"] !== undefined &&
     output["phase1IntegrityAlgorithmSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["phase1IntegrityAlgorithmSet"]["item"]
-    );
     contents.Phase1IntegrityAlgorithms = deserializeAws_ec2Phase1IntegrityAlgorithmsList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["phase1IntegrityAlgorithmSet"]["item"]),
       context
     );
   }
@@ -75703,11 +75266,8 @@ const deserializeAws_ec2TunnelOption = (
     output["phase2DHGroupNumberSet"] !== undefined &&
     output["phase2DHGroupNumberSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["phase2DHGroupNumberSet"]["item"]
-    );
     contents.Phase2DHGroupNumbers = deserializeAws_ec2Phase2DHGroupNumbersList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["phase2DHGroupNumberSet"]["item"]),
       context
     );
   }
@@ -75718,11 +75278,8 @@ const deserializeAws_ec2TunnelOption = (
     output["phase2EncryptionAlgorithmSet"] !== undefined &&
     output["phase2EncryptionAlgorithmSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["phase2EncryptionAlgorithmSet"]["item"]
-    );
     contents.Phase2EncryptionAlgorithms = deserializeAws_ec2Phase2EncryptionAlgorithmsList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["phase2EncryptionAlgorithmSet"]["item"]),
       context
     );
   }
@@ -75733,11 +75290,8 @@ const deserializeAws_ec2TunnelOption = (
     output["phase2IntegrityAlgorithmSet"] !== undefined &&
     output["phase2IntegrityAlgorithmSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["phase2IntegrityAlgorithmSet"]["item"]
-    );
     contents.Phase2IntegrityAlgorithms = deserializeAws_ec2Phase2IntegrityAlgorithmsList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["phase2IntegrityAlgorithmSet"]["item"]),
       context
     );
   }
@@ -75817,11 +75371,8 @@ const deserializeAws_ec2UnassignIpv6AddressesResult = (
     output["unassignedIpv6Addresses"] !== undefined &&
     output["unassignedIpv6Addresses"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["unassignedIpv6Addresses"]["item"]
-    );
     contents.UnassignedIpv6Addresses = deserializeAws_ec2Ipv6AddressList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["unassignedIpv6Addresses"]["item"]),
       context
     );
   }
@@ -75843,9 +75394,8 @@ const deserializeAws_ec2UnmonitorInstancesResult = (
     output["instancesSet"] !== undefined &&
     output["instancesSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["instancesSet"]["item"]);
     contents.InstanceMonitorings = deserializeAws_ec2InstanceMonitoringList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["instancesSet"]["item"]),
       context
     );
   }
@@ -76176,8 +75726,10 @@ const deserializeAws_ec2VCpuInfo = (
     output["validCores"] !== undefined &&
     output["validCores"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["validCores"]["item"]);
-    contents.ValidCores = deserializeAws_ec2CoreCountList(wrappedItem, context);
+    contents.ValidCores = deserializeAws_ec2CoreCountList(
+      __getArrayIfSingleItem(output["validCores"]["item"]),
+      context
+    );
   }
   if (output.validThreadsPerCore === "") {
     contents.ValidThreadsPerCore = [];
@@ -76186,11 +75738,8 @@ const deserializeAws_ec2VCpuInfo = (
     output["validThreadsPerCore"] !== undefined &&
     output["validThreadsPerCore"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["validThreadsPerCore"]["item"]
-    );
     contents.ValidThreadsPerCore = deserializeAws_ec2ThreadsPerCoreList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["validThreadsPerCore"]["item"]),
       context
     );
   }
@@ -76297,9 +75846,8 @@ const deserializeAws_ec2Volume = (
     output["attachmentSet"] !== undefined &&
     output["attachmentSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["attachmentSet"]["item"]);
     contents.Attachments = deserializeAws_ec2VolumeAttachmentList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["attachmentSet"]["item"]),
       context
     );
   }
@@ -76369,8 +75917,10 @@ const deserializeAws_ec2Volume = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   if (output["volumeId"] !== undefined) {
     contents.VolumeId =
@@ -76712,9 +76262,8 @@ const deserializeAws_ec2VolumeStatusInfo = (
     output["details"] !== undefined &&
     output["details"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["details"]["item"]);
     contents.Details = deserializeAws_ec2VolumeStatusDetailsList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["details"]["item"]),
       context
     );
   }
@@ -76747,9 +76296,8 @@ const deserializeAws_ec2VolumeStatusItem = (
     output["actionsSet"] !== undefined &&
     output["actionsSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["actionsSet"]["item"]);
     contents.Actions = deserializeAws_ec2VolumeStatusActionsList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["actionsSet"]["item"]),
       context
     );
   }
@@ -76766,9 +76314,8 @@ const deserializeAws_ec2VolumeStatusItem = (
     output["eventsSet"] !== undefined &&
     output["eventsSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["eventsSet"]["item"]);
     contents.Events = deserializeAws_ec2VolumeStatusEventsList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["eventsSet"]["item"]),
       context
     );
   }
@@ -76831,11 +76378,8 @@ const deserializeAws_ec2Vpc = (output: any, context: __SerdeContext): Vpc => {
     output["cidrBlockAssociationSet"] !== undefined &&
     output["cidrBlockAssociationSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["cidrBlockAssociationSet"]["item"]
-    );
     contents.CidrBlockAssociationSet = deserializeAws_ec2VpcCidrBlockAssociationSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["cidrBlockAssociationSet"]["item"]),
       context
     );
   }
@@ -76858,11 +76402,8 @@ const deserializeAws_ec2Vpc = (output: any, context: __SerdeContext): Vpc => {
     output["ipv6CidrBlockAssociationSet"] !== undefined &&
     output["ipv6CidrBlockAssociationSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["ipv6CidrBlockAssociationSet"]["item"]
-    );
     contents.Ipv6CidrBlockAssociationSet = deserializeAws_ec2VpcIpv6CidrBlockAssociationSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["ipv6CidrBlockAssociationSet"]["item"]),
       context
     );
   }
@@ -76891,8 +76432,10 @@ const deserializeAws_ec2Vpc = (output: any, context: __SerdeContext): Vpc => {
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   if (output["vpcId"] !== undefined) {
     contents.VpcId =
@@ -77027,8 +76570,10 @@ const deserializeAws_ec2VpcClassicLink = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   if (output["vpcId"] !== undefined) {
     contents.VpcId =
@@ -77084,8 +76629,10 @@ const deserializeAws_ec2VpcEndpoint = (
     output["dnsEntrySet"] !== undefined &&
     output["dnsEntrySet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["dnsEntrySet"]["item"]);
-    contents.DnsEntries = deserializeAws_ec2DnsEntrySet(wrappedItem, context);
+    contents.DnsEntries = deserializeAws_ec2DnsEntrySet(
+      __getArrayIfSingleItem(output["dnsEntrySet"]["item"]),
+      context
+    );
   }
   if (output.groupSet === "") {
     contents.Groups = [];
@@ -77094,9 +76641,8 @@ const deserializeAws_ec2VpcEndpoint = (
     output["groupSet"] !== undefined &&
     output["groupSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["groupSet"]["item"]);
     contents.Groups = deserializeAws_ec2GroupIdentifierSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["groupSet"]["item"]),
       context
     );
   }
@@ -77113,11 +76659,8 @@ const deserializeAws_ec2VpcEndpoint = (
     output["networkInterfaceIdSet"] !== undefined &&
     output["networkInterfaceIdSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["networkInterfaceIdSet"]["item"]
-    );
     contents.NetworkInterfaceIds = deserializeAws_ec2ValueStringList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["networkInterfaceIdSet"]["item"]),
       context
     );
   }
@@ -77152,11 +76695,8 @@ const deserializeAws_ec2VpcEndpoint = (
     output["routeTableIdSet"] !== undefined &&
     output["routeTableIdSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["routeTableIdSet"]["item"]
-    );
     contents.RouteTableIds = deserializeAws_ec2ValueStringList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["routeTableIdSet"]["item"]),
       context
     );
   }
@@ -77179,9 +76719,8 @@ const deserializeAws_ec2VpcEndpoint = (
     output["subnetIdSet"] !== undefined &&
     output["subnetIdSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["subnetIdSet"]["item"]);
     contents.SubnetIds = deserializeAws_ec2ValueStringList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["subnetIdSet"]["item"]),
       context
     );
   }
@@ -77192,8 +76731,10 @@ const deserializeAws_ec2VpcEndpoint = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   if (output["vpcEndpointId"] !== undefined) {
     contents.VpcEndpointId =
@@ -77240,8 +76781,10 @@ const deserializeAws_ec2VpcEndpointConnection = (
     output["dnsEntrySet"] !== undefined &&
     output["dnsEntrySet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["dnsEntrySet"]["item"]);
-    contents.DnsEntries = deserializeAws_ec2DnsEntrySet(wrappedItem, context);
+    contents.DnsEntries = deserializeAws_ec2DnsEntrySet(
+      __getArrayIfSingleItem(output["dnsEntrySet"]["item"]),
+      context
+    );
   }
   if (output.networkLoadBalancerArnSet === "") {
     contents.NetworkLoadBalancerArns = [];
@@ -77250,11 +76793,8 @@ const deserializeAws_ec2VpcEndpointConnection = (
     output["networkLoadBalancerArnSet"] !== undefined &&
     output["networkLoadBalancerArnSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["networkLoadBalancerArnSet"]["item"]
-    );
     contents.NetworkLoadBalancerArns = deserializeAws_ec2ValueStringList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["networkLoadBalancerArnSet"]["item"]),
       context
     );
   }
@@ -77417,8 +76957,10 @@ const deserializeAws_ec2VpcPeeringConnection = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   if (output["vpcPeeringConnectionId"] !== undefined) {
     contents.VpcPeeringConnectionId =
@@ -77524,9 +77066,8 @@ const deserializeAws_ec2VpcPeeringConnectionVpcInfo = (
     output["cidrBlockSet"] !== undefined &&
     output["cidrBlockSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["cidrBlockSet"]["item"]);
     contents.CidrBlockSet = deserializeAws_ec2CidrBlockSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["cidrBlockSet"]["item"]),
       context
     );
   }
@@ -77537,11 +77078,8 @@ const deserializeAws_ec2VpcPeeringConnectionVpcInfo = (
     output["ipv6CidrBlockSet"] !== undefined &&
     output["ipv6CidrBlockSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["ipv6CidrBlockSet"]["item"]
-    );
     contents.Ipv6CidrBlockSet = deserializeAws_ec2Ipv6CidrBlockSet(
-      wrappedItem,
+      __getArrayIfSingleItem(output["ipv6CidrBlockSet"]["item"]),
       context
     );
   }
@@ -77622,9 +77160,8 @@ const deserializeAws_ec2VpnConnection = (
     output["routes"] !== undefined &&
     output["routes"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["routes"]["item"]);
     contents.Routes = deserializeAws_ec2VpnStaticRouteList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["routes"]["item"]),
       context
     );
   }
@@ -77641,8 +77178,10 @@ const deserializeAws_ec2VpnConnection = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   if (output["transitGatewayId"] !== undefined) {
     contents.TransitGatewayId =
@@ -77663,9 +77202,8 @@ const deserializeAws_ec2VpnConnection = (
     output["vgwTelemetry"] !== undefined &&
     output["vgwTelemetry"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["vgwTelemetry"]["item"]);
     contents.VgwTelemetry = deserializeAws_ec2VgwTelemetryList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["vgwTelemetry"]["item"]),
       context
     );
   }
@@ -77724,11 +77262,8 @@ const deserializeAws_ec2VpnConnectionOptions = (
     output["tunnelOptionSet"] !== undefined &&
     output["tunnelOptionSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["tunnelOptionSet"]["item"]
-    );
     contents.TunnelOptions = deserializeAws_ec2TunnelOptionsList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["tunnelOptionSet"]["item"]),
       context
     );
   }
@@ -77775,8 +77310,10 @@ const deserializeAws_ec2VpnGateway = (
     output["tagSet"] !== undefined &&
     output["tagSet"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["tagSet"]["item"]);
-    contents.Tags = deserializeAws_ec2TagList(wrappedItem, context);
+    contents.Tags = deserializeAws_ec2TagList(
+      __getArrayIfSingleItem(output["tagSet"]["item"]),
+      context
+    );
   }
   if (output["type"] !== undefined) {
     contents.Type =
@@ -77791,9 +77328,8 @@ const deserializeAws_ec2VpnGateway = (
     output["attachments"] !== undefined &&
     output["attachments"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["attachments"]["item"]);
     contents.VpcAttachments = deserializeAws_ec2VpcAttachmentList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["attachments"]["item"]),
       context
     );
   }

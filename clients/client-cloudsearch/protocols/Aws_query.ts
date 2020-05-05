@@ -4450,9 +4450,8 @@ const deserializeAws_queryBuildSuggestersResponse = (
     output["FieldNames"] !== undefined &&
     output["FieldNames"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["FieldNames"]["member"]);
     contents.FieldNames = deserializeAws_queryFieldNameList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["FieldNames"]["member"]),
       context
     );
   }
@@ -4741,11 +4740,8 @@ const deserializeAws_queryDescribeAnalysisSchemesResponse = (
     output["AnalysisSchemes"] !== undefined &&
     output["AnalysisSchemes"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["AnalysisSchemes"]["member"]
-    );
     contents.AnalysisSchemes = deserializeAws_queryAnalysisSchemeStatusList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["AnalysisSchemes"]["member"]),
       context
     );
   }
@@ -4801,11 +4797,8 @@ const deserializeAws_queryDescribeDomainsResponse = (
     output["DomainStatusList"] !== undefined &&
     output["DomainStatusList"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["DomainStatusList"]["member"]
-    );
     contents.DomainStatusList = deserializeAws_queryDomainStatusList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["DomainStatusList"]["member"]),
       context
     );
   }
@@ -4827,9 +4820,8 @@ const deserializeAws_queryDescribeExpressionsResponse = (
     output["Expressions"] !== undefined &&
     output["Expressions"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["Expressions"]["member"]);
     contents.Expressions = deserializeAws_queryExpressionStatusList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Expressions"]["member"]),
       context
     );
   }
@@ -4851,9 +4843,8 @@ const deserializeAws_queryDescribeIndexFieldsResponse = (
     output["IndexFields"] !== undefined &&
     output["IndexFields"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["IndexFields"]["member"]);
     contents.IndexFields = deserializeAws_queryIndexFieldStatusList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["IndexFields"]["member"]),
       context
     );
   }
@@ -4909,9 +4900,8 @@ const deserializeAws_queryDescribeSuggestersResponse = (
     output["Suggesters"] !== undefined &&
     output["Suggesters"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["Suggesters"]["member"]);
     contents.Suggesters = deserializeAws_querySuggesterStatusList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Suggesters"]["member"]),
       context
     );
   }
@@ -5330,9 +5320,8 @@ const deserializeAws_queryIndexDocumentsResponse = (
     output["FieldNames"] !== undefined &&
     output["FieldNames"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["FieldNames"]["member"]);
     contents.FieldNames = deserializeAws_queryFieldNameList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["FieldNames"]["member"]),
       context
     );
   }
@@ -5739,9 +5728,8 @@ const deserializeAws_queryListDomainNamesResponse = (
     output["DomainNames"] !== undefined &&
     output["DomainNames"]["entry"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["DomainNames"]["entry"]);
     contents.DomainNames = deserializeAws_queryDomainNameMap(
-      wrappedItem,
+      __getArrayIfSingleItem(output["DomainNames"]["entry"]),
       context
     );
   }

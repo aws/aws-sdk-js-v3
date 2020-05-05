@@ -4419,8 +4419,10 @@ const deserializeAws_queryAnomalyDetector = (
     output["Dimensions"] !== undefined &&
     output["Dimensions"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["Dimensions"]["member"]);
-    contents.Dimensions = deserializeAws_queryDimensions(wrappedItem, context);
+    contents.Dimensions = deserializeAws_queryDimensions(
+      __getArrayIfSingleItem(output["Dimensions"]["member"]),
+      context
+    );
   }
   if (output["MetricName"] !== undefined) {
     contents.MetricName =
@@ -4465,11 +4467,8 @@ const deserializeAws_queryAnomalyDetectorConfiguration = (
     output["ExcludedTimeRanges"] !== undefined &&
     output["ExcludedTimeRanges"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["ExcludedTimeRanges"]["member"]
-    );
     contents.ExcludedTimeRanges = deserializeAws_queryAnomalyDetectorExcludedTimeRanges(
-      wrappedItem,
+      __getArrayIfSingleItem(output["ExcludedTimeRanges"]["member"]),
       context
     );
   }
@@ -4595,11 +4594,8 @@ const deserializeAws_queryDashboardInvalidInputError = (
     output["dashboardValidationMessages"] !== undefined &&
     output["dashboardValidationMessages"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["dashboardValidationMessages"]["member"]
-    );
     contents.dashboardValidationMessages = deserializeAws_queryDashboardValidationMessages(
-      wrappedItem,
+      __getArrayIfSingleItem(output["dashboardValidationMessages"]["member"]),
       context
     );
   }
@@ -4695,11 +4691,8 @@ const deserializeAws_queryDatapoint = (
     output["ExtendedStatistics"] !== undefined &&
     output["ExtendedStatistics"]["entry"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["ExtendedStatistics"]["entry"]
-    );
     contents.ExtendedStatistics = deserializeAws_queryDatapointValueMap(
-      wrappedItem,
+      __getArrayIfSingleItem(output["ExtendedStatistics"]["entry"]),
       context
     );
   }
@@ -4817,8 +4810,10 @@ const deserializeAws_queryDeleteInsightRulesOutput = (
     output["Failures"] !== undefined &&
     output["Failures"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["Failures"]["member"]);
-    contents.Failures = deserializeAws_queryBatchFailures(wrappedItem, context);
+    contents.Failures = deserializeAws_queryBatchFailures(
+      __getArrayIfSingleItem(output["Failures"]["member"]),
+      context
+    );
   }
   return contents;
 };
@@ -4839,11 +4834,8 @@ const deserializeAws_queryDescribeAlarmHistoryOutput = (
     output["AlarmHistoryItems"] !== undefined &&
     output["AlarmHistoryItems"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["AlarmHistoryItems"]["member"]
-    );
     contents.AlarmHistoryItems = deserializeAws_queryAlarmHistoryItems(
-      wrappedItem,
+      __getArrayIfSingleItem(output["AlarmHistoryItems"]["member"]),
       context
     );
   }
@@ -4871,11 +4863,8 @@ const deserializeAws_queryDescribeAlarmsForMetricOutput = (
     output["MetricAlarms"] !== undefined &&
     output["MetricAlarms"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["MetricAlarms"]["member"]
-    );
     contents.MetricAlarms = deserializeAws_queryMetricAlarms(
-      wrappedItem,
+      __getArrayIfSingleItem(output["MetricAlarms"]["member"]),
       context
     );
   }
@@ -4898,11 +4887,8 @@ const deserializeAws_queryDescribeAlarmsOutput = (
     output["MetricAlarms"] !== undefined &&
     output["MetricAlarms"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["MetricAlarms"]["member"]
-    );
     contents.MetricAlarms = deserializeAws_queryMetricAlarms(
-      wrappedItem,
+      __getArrayIfSingleItem(output["MetricAlarms"]["member"]),
       context
     );
   }
@@ -4931,11 +4917,8 @@ const deserializeAws_queryDescribeAnomalyDetectorsOutput = (
     output["AnomalyDetectors"] !== undefined &&
     output["AnomalyDetectors"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["AnomalyDetectors"]["member"]
-    );
     contents.AnomalyDetectors = deserializeAws_queryAnomalyDetectors(
-      wrappedItem,
+      __getArrayIfSingleItem(output["AnomalyDetectors"]["member"]),
       context
     );
   }
@@ -4964,11 +4947,8 @@ const deserializeAws_queryDescribeInsightRulesOutput = (
     output["InsightRules"] !== undefined &&
     output["InsightRules"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["InsightRules"]["member"]
-    );
     contents.InsightRules = deserializeAws_queryInsightRules(
-      wrappedItem,
+      __getArrayIfSingleItem(output["InsightRules"]["member"]),
       context
     );
   }
@@ -5031,8 +5011,10 @@ const deserializeAws_queryDisableInsightRulesOutput = (
     output["Failures"] !== undefined &&
     output["Failures"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["Failures"]["member"]);
-    contents.Failures = deserializeAws_queryBatchFailures(wrappedItem, context);
+    contents.Failures = deserializeAws_queryBatchFailures(
+      __getArrayIfSingleItem(output["Failures"]["member"]),
+      context
+    );
   }
   return contents;
 };
@@ -5052,8 +5034,10 @@ const deserializeAws_queryEnableInsightRulesOutput = (
     output["Failures"] !== undefined &&
     output["Failures"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["Failures"]["member"]);
-    contents.Failures = deserializeAws_queryBatchFailures(wrappedItem, context);
+    contents.Failures = deserializeAws_queryBatchFailures(
+      __getArrayIfSingleItem(output["Failures"]["member"]),
+      context
+    );
   }
   return contents;
 };
@@ -5129,11 +5113,8 @@ const deserializeAws_queryGetInsightRuleReportOutput = (
     output["Contributors"] !== undefined &&
     output["Contributors"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["Contributors"]["member"]
-    );
     contents.Contributors = deserializeAws_queryInsightRuleContributors(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Contributors"]["member"]),
       context
     );
   }
@@ -5144,9 +5125,8 @@ const deserializeAws_queryGetInsightRuleReportOutput = (
     output["KeyLabels"] !== undefined &&
     output["KeyLabels"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["KeyLabels"]["member"]);
     contents.KeyLabels = deserializeAws_queryInsightRuleContributorKeyLabels(
-      wrappedItem,
+      __getArrayIfSingleItem(output["KeyLabels"]["member"]),
       context
     );
   }
@@ -5157,11 +5137,8 @@ const deserializeAws_queryGetInsightRuleReportOutput = (
     output["MetricDatapoints"] !== undefined &&
     output["MetricDatapoints"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["MetricDatapoints"]["member"]
-    );
     contents.MetricDatapoints = deserializeAws_queryInsightRuleMetricDatapoints(
-      wrappedItem,
+      __getArrayIfSingleItem(output["MetricDatapoints"]["member"]),
       context
     );
   }
@@ -5185,9 +5162,8 @@ const deserializeAws_queryGetMetricDataOutput = (
     output["Messages"] !== undefined &&
     output["Messages"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["Messages"]["member"]);
     contents.Messages = deserializeAws_queryMetricDataResultMessages(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Messages"]["member"]),
       context
     );
   }
@@ -5198,11 +5174,8 @@ const deserializeAws_queryGetMetricDataOutput = (
     output["MetricDataResults"] !== undefined &&
     output["MetricDataResults"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["MetricDataResults"]["member"]
-    );
     contents.MetricDataResults = deserializeAws_queryMetricDataResults(
-      wrappedItem,
+      __getArrayIfSingleItem(output["MetricDataResults"]["member"]),
       context
     );
   }
@@ -5231,8 +5204,10 @@ const deserializeAws_queryGetMetricStatisticsOutput = (
     output["Datapoints"] !== undefined &&
     output["Datapoints"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["Datapoints"]["member"]);
-    contents.Datapoints = deserializeAws_queryDatapoints(wrappedItem, context);
+    contents.Datapoints = deserializeAws_queryDatapoints(
+      __getArrayIfSingleItem(output["Datapoints"]["member"]),
+      context
+    );
   }
   if (output["Label"] !== undefined) {
     contents.Label =
@@ -5323,9 +5298,8 @@ const deserializeAws_queryInsightRuleContributor = (
     output["Datapoints"] !== undefined &&
     output["Datapoints"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["Datapoints"]["member"]);
     contents.Datapoints = deserializeAws_queryInsightRuleContributorDatapoints(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Datapoints"]["member"]),
       context
     );
   }
@@ -5333,9 +5307,8 @@ const deserializeAws_queryInsightRuleContributor = (
     contents.Keys = [];
   }
   if (output["Keys"] !== undefined && output["Keys"]["member"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(output["Keys"]["member"]);
     contents.Keys = deserializeAws_queryInsightRuleContributorKeys(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Keys"]["member"]),
       context
     );
   }
@@ -5605,11 +5578,8 @@ const deserializeAws_queryListDashboardsOutput = (
     output["DashboardEntries"] !== undefined &&
     output["DashboardEntries"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["DashboardEntries"]["member"]
-    );
     contents.DashboardEntries = deserializeAws_queryDashboardEntries(
-      wrappedItem,
+      __getArrayIfSingleItem(output["DashboardEntries"]["member"]),
       context
     );
   }
@@ -5638,8 +5608,10 @@ const deserializeAws_queryListMetricsOutput = (
     output["Metrics"] !== undefined &&
     output["Metrics"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["Metrics"]["member"]);
-    contents.Metrics = deserializeAws_queryMetrics(wrappedItem, context);
+    contents.Metrics = deserializeAws_queryMetrics(
+      __getArrayIfSingleItem(output["Metrics"]["member"]),
+      context
+    );
   }
   if (output["NextToken"] !== undefined) {
     contents.NextToken =
@@ -5662,8 +5634,10 @@ const deserializeAws_queryListTagsForResourceOutput = (
     contents.Tags = [];
   }
   if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(output["Tags"]["member"]);
-    contents.Tags = deserializeAws_queryTagList(wrappedItem, context);
+    contents.Tags = deserializeAws_queryTagList(
+      __getArrayIfSingleItem(output["Tags"]["member"]),
+      context
+    );
   }
   return contents;
 };
@@ -5709,8 +5683,10 @@ const deserializeAws_queryMetric = (
     output["Dimensions"] !== undefined &&
     output["Dimensions"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["Dimensions"]["member"]);
-    contents.Dimensions = deserializeAws_queryDimensions(wrappedItem, context);
+    contents.Dimensions = deserializeAws_queryDimensions(
+      __getArrayIfSingleItem(output["Dimensions"]["member"]),
+      context
+    );
   }
   if (output["MetricName"] !== undefined) {
     contents.MetricName =
@@ -5774,11 +5750,8 @@ const deserializeAws_queryMetricAlarm = (
     output["AlarmActions"] !== undefined &&
     output["AlarmActions"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["AlarmActions"]["member"]
-    );
     contents.AlarmActions = deserializeAws_queryResourceList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["AlarmActions"]["member"]),
       context
     );
   }
@@ -5825,8 +5798,10 @@ const deserializeAws_queryMetricAlarm = (
     output["Dimensions"] !== undefined &&
     output["Dimensions"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["Dimensions"]["member"]);
-    contents.Dimensions = deserializeAws_queryDimensions(wrappedItem, context);
+    contents.Dimensions = deserializeAws_queryDimensions(
+      __getArrayIfSingleItem(output["Dimensions"]["member"]),
+      context
+    );
   }
   if (output["EvaluateLowSampleCountPercentile"] !== undefined) {
     contents.EvaluateLowSampleCountPercentile =
@@ -5854,11 +5829,8 @@ const deserializeAws_queryMetricAlarm = (
     output["InsufficientDataActions"] !== undefined &&
     output["InsufficientDataActions"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["InsufficientDataActions"]["member"]
-    );
     contents.InsufficientDataActions = deserializeAws_queryResourceList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["InsufficientDataActions"]["member"]),
       context
     );
   }
@@ -5875,9 +5847,8 @@ const deserializeAws_queryMetricAlarm = (
     output["Metrics"] !== undefined &&
     output["Metrics"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["Metrics"]["member"]);
     contents.Metrics = deserializeAws_queryMetricDataQueries(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Metrics"]["member"]),
       context
     );
   }
@@ -5894,8 +5865,10 @@ const deserializeAws_queryMetricAlarm = (
     output["OKActions"] !== undefined &&
     output["OKActions"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["OKActions"]["member"]);
-    contents.OKActions = deserializeAws_queryResourceList(wrappedItem, context);
+    contents.OKActions = deserializeAws_queryResourceList(
+      __getArrayIfSingleItem(output["OKActions"]["member"]),
+      context
+    );
   }
   if (output["Period"] !== undefined) {
     contents.Period = parseInt(
@@ -6066,9 +6039,8 @@ const deserializeAws_queryMetricDataResult = (
     output["Messages"] !== undefined &&
     output["Messages"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["Messages"]["member"]);
     contents.Messages = deserializeAws_queryMetricDataResultMessages(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Messages"]["member"]),
       context
     );
   }
@@ -6085,8 +6057,10 @@ const deserializeAws_queryMetricDataResult = (
     output["Timestamps"] !== undefined &&
     output["Timestamps"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["Timestamps"]["member"]);
-    contents.Timestamps = deserializeAws_queryTimestamps(wrappedItem, context);
+    contents.Timestamps = deserializeAws_queryTimestamps(
+      __getArrayIfSingleItem(output["Timestamps"]["member"]),
+      context
+    );
   }
   if (output.Values === "") {
     contents.Values = [];
@@ -6095,8 +6069,10 @@ const deserializeAws_queryMetricDataResult = (
     output["Values"] !== undefined &&
     output["Values"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["Values"]["member"]);
-    contents.Values = deserializeAws_queryDatapointValues(wrappedItem, context);
+    contents.Values = deserializeAws_queryDatapointValues(
+      __getArrayIfSingleItem(output["Values"]["member"]),
+      context
+    );
   }
   return contents;
 };
@@ -6233,11 +6209,8 @@ const deserializeAws_queryPutDashboardOutput = (
     output["DashboardValidationMessages"] !== undefined &&
     output["DashboardValidationMessages"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["DashboardValidationMessages"]["member"]
-    );
     contents.DashboardValidationMessages = deserializeAws_queryDashboardValidationMessages(
-      wrappedItem,
+      __getArrayIfSingleItem(output["DashboardValidationMessages"]["member"]),
       context
     );
   }

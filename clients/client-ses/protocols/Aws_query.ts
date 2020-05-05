@@ -9507,11 +9507,8 @@ const deserializeAws_queryCloudWatchDestination = (
     output["DimensionConfigurations"] !== undefined &&
     output["DimensionConfigurations"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["DimensionConfigurations"]["member"]
-    );
     contents.DimensionConfigurations = deserializeAws_queryCloudWatchDimensionConfigurations(
-      wrappedItem,
+      __getArrayIfSingleItem(output["DimensionConfigurations"]["member"]),
       context
     );
   }
@@ -9984,8 +9981,10 @@ const deserializeAws_queryDescribeActiveReceiptRuleSetResponse = (
     output["Rules"] !== undefined &&
     output["Rules"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["Rules"]["member"]);
-    contents.Rules = deserializeAws_queryReceiptRulesList(wrappedItem, context);
+    contents.Rules = deserializeAws_queryReceiptRulesList(
+      __getArrayIfSingleItem(output["Rules"]["member"]),
+      context
+    );
   }
   return contents;
 };
@@ -10021,11 +10020,8 @@ const deserializeAws_queryDescribeConfigurationSetResponse = (
     output["EventDestinations"] !== undefined &&
     output["EventDestinations"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["EventDestinations"]["member"]
-    );
     contents.EventDestinations = deserializeAws_queryEventDestinations(
-      wrappedItem,
+      __getArrayIfSingleItem(output["EventDestinations"]["member"]),
       context
     );
   }
@@ -10080,8 +10076,10 @@ const deserializeAws_queryDescribeReceiptRuleSetResponse = (
     output["Rules"] !== undefined &&
     output["Rules"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["Rules"]["member"]);
-    contents.Rules = deserializeAws_queryReceiptRulesList(wrappedItem, context);
+    contents.Rules = deserializeAws_queryReceiptRulesList(
+      __getArrayIfSingleItem(output["Rules"]["member"]),
+      context
+    );
   }
   return contents;
 };
@@ -10138,11 +10136,8 @@ const deserializeAws_queryEventDestination = (
     output["MatchingEventTypes"] !== undefined &&
     output["MatchingEventTypes"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["MatchingEventTypes"]["member"]
-    );
     contents.MatchingEventTypes = deserializeAws_queryEventTypes(
-      wrappedItem,
+      __getArrayIfSingleItem(output["MatchingEventTypes"]["member"]),
       context
     );
   }
@@ -10353,11 +10348,8 @@ const deserializeAws_queryGetIdentityDkimAttributesResponse = (
     output["DkimAttributes"] !== undefined &&
     output["DkimAttributes"]["entry"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["DkimAttributes"]["entry"]
-    );
     contents.DkimAttributes = deserializeAws_queryDkimAttributes(
-      wrappedItem,
+      __getArrayIfSingleItem(output["DkimAttributes"]["entry"]),
       context
     );
   }
@@ -10379,11 +10371,8 @@ const deserializeAws_queryGetIdentityMailFromDomainAttributesResponse = (
     output["MailFromDomainAttributes"] !== undefined &&
     output["MailFromDomainAttributes"]["entry"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["MailFromDomainAttributes"]["entry"]
-    );
     contents.MailFromDomainAttributes = deserializeAws_queryMailFromDomainAttributes(
-      wrappedItem,
+      __getArrayIfSingleItem(output["MailFromDomainAttributes"]["entry"]),
       context
     );
   }
@@ -10405,11 +10394,8 @@ const deserializeAws_queryGetIdentityNotificationAttributesResponse = (
     output["NotificationAttributes"] !== undefined &&
     output["NotificationAttributes"]["entry"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["NotificationAttributes"]["entry"]
-    );
     contents.NotificationAttributes = deserializeAws_queryNotificationAttributes(
-      wrappedItem,
+      __getArrayIfSingleItem(output["NotificationAttributes"]["entry"]),
       context
     );
   }
@@ -10431,8 +10417,10 @@ const deserializeAws_queryGetIdentityPoliciesResponse = (
     output["Policies"] !== undefined &&
     output["Policies"]["entry"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["Policies"]["entry"]);
-    contents.Policies = deserializeAws_queryPolicyMap(wrappedItem, context);
+    contents.Policies = deserializeAws_queryPolicyMap(
+      __getArrayIfSingleItem(output["Policies"]["entry"]),
+      context
+    );
   }
   return contents;
 };
@@ -10452,11 +10440,8 @@ const deserializeAws_queryGetIdentityVerificationAttributesResponse = (
     output["VerificationAttributes"] !== undefined &&
     output["VerificationAttributes"]["entry"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["VerificationAttributes"]["entry"]
-    );
     contents.VerificationAttributes = deserializeAws_queryVerificationAttributes(
-      wrappedItem,
+      __getArrayIfSingleItem(output["VerificationAttributes"]["entry"]),
       context
     );
   }
@@ -10512,11 +10497,8 @@ const deserializeAws_queryGetSendStatisticsResponse = (
     output["SendDataPoints"] !== undefined &&
     output["SendDataPoints"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["SendDataPoints"]["member"]
-    );
     contents.SendDataPoints = deserializeAws_querySendDataPointList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["SendDataPoints"]["member"]),
       context
     );
   }
@@ -10563,9 +10545,8 @@ const deserializeAws_queryIdentityDkimAttributes = (
     output["DkimTokens"] !== undefined &&
     output["DkimTokens"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["DkimTokens"]["member"]);
     contents.DkimTokens = deserializeAws_queryVerificationTokenList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["DkimTokens"]["member"]),
       context
     );
   }
@@ -11072,11 +11053,8 @@ const deserializeAws_queryListConfigurationSetsResponse = (
     output["ConfigurationSets"] !== undefined &&
     output["ConfigurationSets"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["ConfigurationSets"]["member"]
-    );
     contents.ConfigurationSets = deserializeAws_queryConfigurationSets(
-      wrappedItem,
+      __getArrayIfSingleItem(output["ConfigurationSets"]["member"]),
       context
     );
   }
@@ -11105,11 +11083,10 @@ const deserializeAws_queryListCustomVerificationEmailTemplatesResponse = (
     output["CustomVerificationEmailTemplates"] !== undefined &&
     output["CustomVerificationEmailTemplates"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["CustomVerificationEmailTemplates"]["member"]
-    );
     contents.CustomVerificationEmailTemplates = deserializeAws_queryCustomVerificationEmailTemplates(
-      wrappedItem,
+      __getArrayIfSingleItem(
+        output["CustomVerificationEmailTemplates"]["member"]
+      ),
       context
     );
   }
@@ -11138,9 +11115,8 @@ const deserializeAws_queryListIdentitiesResponse = (
     output["Identities"] !== undefined &&
     output["Identities"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["Identities"]["member"]);
     contents.Identities = deserializeAws_queryIdentityList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Identities"]["member"]),
       context
     );
   }
@@ -11168,9 +11144,8 @@ const deserializeAws_queryListIdentityPoliciesResponse = (
     output["PolicyNames"] !== undefined &&
     output["PolicyNames"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["PolicyNames"]["member"]);
     contents.PolicyNames = deserializeAws_queryPolicyNameList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["PolicyNames"]["member"]),
       context
     );
   }
@@ -11192,9 +11167,8 @@ const deserializeAws_queryListReceiptFiltersResponse = (
     output["Filters"] !== undefined &&
     output["Filters"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["Filters"]["member"]);
     contents.Filters = deserializeAws_queryReceiptFilterList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Filters"]["member"]),
       context
     );
   }
@@ -11223,9 +11197,8 @@ const deserializeAws_queryListReceiptRuleSetsResponse = (
     output["RuleSets"] !== undefined &&
     output["RuleSets"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["RuleSets"]["member"]);
     contents.RuleSets = deserializeAws_queryReceiptRuleSetsLists(
-      wrappedItem,
+      __getArrayIfSingleItem(output["RuleSets"]["member"]),
       context
     );
   }
@@ -11254,11 +11227,8 @@ const deserializeAws_queryListTemplatesResponse = (
     output["TemplatesMetadata"] !== undefined &&
     output["TemplatesMetadata"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["TemplatesMetadata"]["member"]
-    );
     contents.TemplatesMetadata = deserializeAws_queryTemplateMetadataList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["TemplatesMetadata"]["member"]),
       context
     );
   }
@@ -11280,11 +11250,8 @@ const deserializeAws_queryListVerifiedEmailAddressesResponse = (
     output["VerifiedEmailAddresses"] !== undefined &&
     output["VerifiedEmailAddresses"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["VerifiedEmailAddresses"]["member"]
-    );
     contents.VerifiedEmailAddresses = deserializeAws_queryAddressList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["VerifiedEmailAddresses"]["member"]),
       context
     );
   }
@@ -11590,9 +11557,8 @@ const deserializeAws_queryReceiptRule = (
     output["Actions"] !== undefined &&
     output["Actions"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["Actions"]["member"]);
     contents.Actions = deserializeAws_queryReceiptActionsList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Actions"]["member"]),
       context
     );
   }
@@ -11615,9 +11581,8 @@ const deserializeAws_queryReceiptRule = (
     output["Recipients"] !== undefined &&
     output["Recipients"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["Recipients"]["member"]);
     contents.Recipients = deserializeAws_queryRecipientsList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Recipients"]["member"]),
       context
     );
   }
@@ -11887,9 +11852,8 @@ const deserializeAws_querySendBulkTemplatedEmailResponse = (
     output["Status"] !== undefined &&
     output["Status"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["Status"]["member"]);
     contents.Status = deserializeAws_queryBulkEmailDestinationStatusList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Status"]["member"]),
       context
     );
   }
@@ -12371,9 +12335,8 @@ const deserializeAws_queryVerifyDomainDkimResponse = (
     output["DkimTokens"] !== undefined &&
     output["DkimTokens"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["DkimTokens"]["member"]);
     contents.DkimTokens = deserializeAws_queryVerificationTokenList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["DkimTokens"]["member"]),
       context
     );
   }

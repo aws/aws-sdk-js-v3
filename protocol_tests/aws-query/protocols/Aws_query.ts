@@ -2006,8 +2006,10 @@ const deserializeAws_queryFlattenedXmlMapOutput = (
     contents.myMap = {};
   }
   if (output["myMap"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(output["myMap"]);
-    contents.myMap = deserializeAws_queryFooEnumMap(wrappedItem, context);
+    contents.myMap = deserializeAws_queryFooEnumMap(
+      __getArrayIfSingleItem(output["myMap"]),
+      context
+    );
   }
   return contents;
 };
@@ -2024,9 +2026,8 @@ const deserializeAws_queryFlattenedXmlMapWithXmlNameOutput = (
     contents.myMap = {};
   }
   if (output["KVP"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(output["KVP"]);
     contents.myMap = deserializeAws_queryFlattenedXmlMapWithXmlNameOutputMap(
-      wrappedItem,
+      __getArrayIfSingleItem(output["KVP"]),
       context
     );
   }
@@ -2349,9 +2350,8 @@ const deserializeAws_queryXmlEnumsOutput = (
     output["fooEnumList"] !== undefined &&
     output["fooEnumList"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["fooEnumList"]["member"]);
     contents.fooEnumList = deserializeAws_queryFooEnumList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["fooEnumList"]["member"]),
       context
     );
   }
@@ -2362,8 +2362,10 @@ const deserializeAws_queryXmlEnumsOutput = (
     output["fooEnumMap"] !== undefined &&
     output["fooEnumMap"]["entry"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["fooEnumMap"]["entry"]);
-    contents.fooEnumMap = deserializeAws_queryFooEnumMap(wrappedItem, context);
+    contents.fooEnumMap = deserializeAws_queryFooEnumMap(
+      __getArrayIfSingleItem(output["fooEnumMap"]["entry"]),
+      context
+    );
   }
   if (output.fooEnumSet === "") {
     contents.fooEnumSet = new Set([]);
@@ -2372,8 +2374,10 @@ const deserializeAws_queryXmlEnumsOutput = (
     output["fooEnumSet"] !== undefined &&
     output["fooEnumSet"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["fooEnumSet"]["member"]);
-    contents.fooEnumSet = deserializeAws_queryFooEnumSet(wrappedItem, context);
+    contents.fooEnumSet = deserializeAws_queryFooEnumSet(
+      __getArrayIfSingleItem(output["fooEnumSet"]["member"]),
+      context
+    );
   }
   return contents;
 };
@@ -2403,9 +2407,8 @@ const deserializeAws_queryXmlListsOutput = (
     output["booleanList"] !== undefined &&
     output["booleanList"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["booleanList"]["member"]);
     contents.booleanList = deserializeAws_queryBooleanList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["booleanList"]["member"]),
       context
     );
   }
@@ -2416,16 +2419,17 @@ const deserializeAws_queryXmlListsOutput = (
     output["enumList"] !== undefined &&
     output["enumList"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["enumList"]["member"]);
-    contents.enumList = deserializeAws_queryFooEnumList(wrappedItem, context);
+    contents.enumList = deserializeAws_queryFooEnumList(
+      __getArrayIfSingleItem(output["enumList"]["member"]),
+      context
+    );
   }
   if (output.flattenedList === "") {
     contents.flattenedList = [];
   }
   if (output["flattenedList"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(output["flattenedList"]);
     contents.flattenedList = deserializeAws_queryRenamedListMembers(
-      wrappedItem,
+      __getArrayIfSingleItem(output["flattenedList"]),
       context
     );
   }
@@ -2433,9 +2437,8 @@ const deserializeAws_queryXmlListsOutput = (
     contents.flattenedList2 = [];
   }
   if (output["customName"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(output["customName"]);
     contents.flattenedList2 = deserializeAws_queryRenamedListMembers(
-      wrappedItem,
+      __getArrayIfSingleItem(output["customName"]),
       context
     );
   }
@@ -2446,9 +2449,8 @@ const deserializeAws_queryXmlListsOutput = (
     output["integerList"] !== undefined &&
     output["integerList"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["integerList"]["member"]);
     contents.integerList = deserializeAws_queryIntegerList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["integerList"]["member"]),
       context
     );
   }
@@ -2459,11 +2461,8 @@ const deserializeAws_queryXmlListsOutput = (
     output["nestedStringList"] !== undefined &&
     output["nestedStringList"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["nestedStringList"]["member"]
-    );
     contents.nestedStringList = deserializeAws_queryNestedStringList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["nestedStringList"]["member"]),
       context
     );
   }
@@ -2474,9 +2473,8 @@ const deserializeAws_queryXmlListsOutput = (
     output["renamed"] !== undefined &&
     output["renamed"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["renamed"]["item"]);
     contents.renamedListMembers = deserializeAws_queryRenamedListMembers(
-      wrappedItem,
+      __getArrayIfSingleItem(output["renamed"]["item"]),
       context
     );
   }
@@ -2487,8 +2485,10 @@ const deserializeAws_queryXmlListsOutput = (
     output["stringList"] !== undefined &&
     output["stringList"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["stringList"]["member"]);
-    contents.stringList = deserializeAws_queryStringList(wrappedItem, context);
+    contents.stringList = deserializeAws_queryStringList(
+      __getArrayIfSingleItem(output["stringList"]["member"]),
+      context
+    );
   }
   if (output.stringSet === "") {
     contents.stringSet = new Set([]);
@@ -2497,8 +2497,10 @@ const deserializeAws_queryXmlListsOutput = (
     output["stringSet"] !== undefined &&
     output["stringSet"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["stringSet"]["member"]);
-    contents.stringSet = deserializeAws_queryStringSet(wrappedItem, context);
+    contents.stringSet = deserializeAws_queryStringSet(
+      __getArrayIfSingleItem(output["stringSet"]["member"]),
+      context
+    );
   }
   if (output.myStructureList === "") {
     contents.structureList = [];
@@ -2507,11 +2509,8 @@ const deserializeAws_queryXmlListsOutput = (
     output["myStructureList"] !== undefined &&
     output["myStructureList"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["myStructureList"]["item"]
-    );
     contents.structureList = deserializeAws_queryStructureList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["myStructureList"]["item"]),
       context
     );
   }
@@ -2522,11 +2521,8 @@ const deserializeAws_queryXmlListsOutput = (
     output["timestampList"] !== undefined &&
     output["timestampList"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["timestampList"]["member"]
-    );
     contents.timestampList = deserializeAws_queryTimestampList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["timestampList"]["member"]),
       context
     );
   }
@@ -2545,8 +2541,10 @@ const deserializeAws_queryXmlMapsOutput = (
     contents.myMap = {};
   }
   if (output["myMap"] !== undefined && output["myMap"]["entry"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(output["myMap"]["entry"]);
-    contents.myMap = deserializeAws_queryXmlMapsOutputMap(wrappedItem, context);
+    contents.myMap = deserializeAws_queryXmlMapsOutputMap(
+      __getArrayIfSingleItem(output["myMap"]["entry"]),
+      context
+    );
   }
   return contents;
 };
@@ -2577,9 +2575,8 @@ const deserializeAws_queryXmlMapsXmlNameOutput = (
     contents.myMap = {};
   }
   if (output["myMap"] !== undefined && output["myMap"]["entry"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(output["myMap"]["entry"]);
     contents.myMap = deserializeAws_queryXmlMapsXmlNameOutputMap(
-      wrappedItem,
+      __getArrayIfSingleItem(output["myMap"]["entry"]),
       context
     );
   }
@@ -2622,9 +2619,8 @@ const deserializeAws_queryXmlNamespaceNested = (
     output["values"] !== undefined &&
     output["values"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["values"]["member"]);
     contents.values = deserializeAws_queryXmlNamespacedList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["values"]["member"]),
       context
     );
   }
@@ -2770,8 +2766,12 @@ const deserializeAws_queryNestedStringList = (
 ): string[][] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
-    const wrappedItem = __getArrayIfSingleItem(entry["member"]);
-    contents.push(deserializeAws_queryStringList(wrappedItem, context));
+    contents.push(
+      deserializeAws_queryStringList(
+        __getArrayIfSingleItem(entry["member"]),
+        context
+      )
+    );
   });
   return contents;
 };

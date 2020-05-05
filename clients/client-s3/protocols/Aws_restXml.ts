@@ -6078,9 +6078,8 @@ export const deserializeAws_restXmlDeleteObjectsCommand = async (
     contents.Deleted = [];
   }
   if (data["Deleted"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(data["Deleted"]);
     contents.Deleted = deserializeAws_restXmlDeletedObjects(
-      wrappedItem,
+      __getArrayIfSingleItem(data["Deleted"]),
       context
     );
   }
@@ -6088,8 +6087,10 @@ export const deserializeAws_restXmlDeleteObjectsCommand = async (
     contents.Errors = [];
   }
   if (data["Error"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(data["Error"]);
-    contents.Errors = deserializeAws_restXmlErrors(wrappedItem, context);
+    contents.Errors = deserializeAws_restXmlErrors(
+      __getArrayIfSingleItem(data["Error"]),
+      context
+    );
   }
   return Promise.resolve(contents);
 };
@@ -6244,10 +6245,10 @@ export const deserializeAws_restXmlGetBucketAclCommand = async (
     data["AccessControlList"] !== undefined &&
     data["AccessControlList"]["Grant"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      data["AccessControlList"]["Grant"]
+    contents.Grants = deserializeAws_restXmlGrants(
+      __getArrayIfSingleItem(data["AccessControlList"]["Grant"]),
+      context
     );
-    contents.Grants = deserializeAws_restXmlGrants(wrappedItem, context);
   }
   if (data["Owner"] !== undefined) {
     contents.Owner = deserializeAws_restXmlOwner(data["Owner"], context);
@@ -6353,8 +6354,10 @@ export const deserializeAws_restXmlGetBucketCorsCommand = async (
     contents.CORSRules = [];
   }
   if (data["CORSRule"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(data["CORSRule"]);
-    contents.CORSRules = deserializeAws_restXmlCORSRules(wrappedItem, context);
+    contents.CORSRules = deserializeAws_restXmlCORSRules(
+      __getArrayIfSingleItem(data["CORSRule"]),
+      context
+    );
   }
   return Promise.resolve(contents);
 };
@@ -6512,8 +6515,10 @@ export const deserializeAws_restXmlGetBucketLifecycleConfigurationCommand = asyn
     contents.Rules = [];
   }
   if (data["Rule"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(data["Rule"]);
-    contents.Rules = deserializeAws_restXmlLifecycleRules(wrappedItem, context);
+    contents.Rules = deserializeAws_restXmlLifecycleRules(
+      __getArrayIfSingleItem(data["Rule"]),
+      context
+    );
   }
   return Promise.resolve(contents);
 };
@@ -6723,11 +6728,8 @@ export const deserializeAws_restXmlGetBucketNotificationConfigurationCommand = a
     contents.LambdaFunctionConfigurations = [];
   }
   if (data["CloudFunctionConfiguration"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(
-      data["CloudFunctionConfiguration"]
-    );
     contents.LambdaFunctionConfigurations = deserializeAws_restXmlLambdaFunctionConfigurationList(
-      wrappedItem,
+      __getArrayIfSingleItem(data["CloudFunctionConfiguration"]),
       context
     );
   }
@@ -6735,9 +6737,8 @@ export const deserializeAws_restXmlGetBucketNotificationConfigurationCommand = a
     contents.QueueConfigurations = [];
   }
   if (data["QueueConfiguration"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(data["QueueConfiguration"]);
     contents.QueueConfigurations = deserializeAws_restXmlQueueConfigurationList(
-      wrappedItem,
+      __getArrayIfSingleItem(data["QueueConfiguration"]),
       context
     );
   }
@@ -6745,9 +6746,8 @@ export const deserializeAws_restXmlGetBucketNotificationConfigurationCommand = a
     contents.TopicConfigurations = [];
   }
   if (data["TopicConfiguration"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(data["TopicConfiguration"]);
     contents.TopicConfigurations = deserializeAws_restXmlTopicConfigurationList(
-      wrappedItem,
+      __getArrayIfSingleItem(data["TopicConfiguration"]),
       context
     );
   }
@@ -7006,8 +7006,10 @@ export const deserializeAws_restXmlGetBucketTaggingCommand = async (
     contents.TagSet = [];
   }
   if (data["TagSet"] !== undefined && data["TagSet"]["Tag"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(data["TagSet"]["Tag"]);
-    contents.TagSet = deserializeAws_restXmlTagSet(wrappedItem, context);
+    contents.TagSet = deserializeAws_restXmlTagSet(
+      __getArrayIfSingleItem(data["TagSet"]["Tag"]),
+      context
+    );
   }
   return Promise.resolve(contents);
 };
@@ -7143,11 +7145,8 @@ export const deserializeAws_restXmlGetBucketWebsiteCommand = async (
     data["RoutingRules"] !== undefined &&
     data["RoutingRules"]["RoutingRule"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      data["RoutingRules"]["RoutingRule"]
-    );
     contents.RoutingRules = deserializeAws_restXmlRoutingRules(
-      wrappedItem,
+      __getArrayIfSingleItem(data["RoutingRules"]["RoutingRule"]),
       context
     );
   }
@@ -7406,10 +7405,10 @@ export const deserializeAws_restXmlGetObjectAclCommand = async (
     data["AccessControlList"] !== undefined &&
     data["AccessControlList"]["Grant"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      data["AccessControlList"]["Grant"]
+    contents.Grants = deserializeAws_restXmlGrants(
+      __getArrayIfSingleItem(data["AccessControlList"]["Grant"]),
+      context
     );
-    contents.Grants = deserializeAws_restXmlGrants(wrappedItem, context);
   }
   if (data["Owner"] !== undefined) {
     contents.Owner = deserializeAws_restXmlOwner(data["Owner"], context);
@@ -7628,8 +7627,10 @@ export const deserializeAws_restXmlGetObjectTaggingCommand = async (
     contents.TagSet = [];
   }
   if (data["TagSet"] !== undefined && data["TagSet"]["Tag"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(data["TagSet"]["Tag"]);
-    contents.TagSet = deserializeAws_restXmlTagSet(wrappedItem, context);
+    contents.TagSet = deserializeAws_restXmlTagSet(
+      __getArrayIfSingleItem(data["TagSet"]["Tag"]),
+      context
+    );
   }
   return Promise.resolve(contents);
 };
@@ -8030,9 +8031,8 @@ export const deserializeAws_restXmlListBucketAnalyticsConfigurationsCommand = as
     contents.AnalyticsConfigurationList = [];
   }
   if (data["AnalyticsConfiguration"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(data["AnalyticsConfiguration"]);
     contents.AnalyticsConfigurationList = deserializeAws_restXmlAnalyticsConfigurationList(
-      wrappedItem,
+      __getArrayIfSingleItem(data["AnalyticsConfiguration"]),
       context
     );
   }
@@ -8115,9 +8115,8 @@ export const deserializeAws_restXmlListBucketInventoryConfigurationsCommand = as
     contents.InventoryConfigurationList = [];
   }
   if (data["InventoryConfiguration"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(data["InventoryConfiguration"]);
     contents.InventoryConfigurationList = deserializeAws_restXmlInventoryConfigurationList(
-      wrappedItem,
+      __getArrayIfSingleItem(data["InventoryConfiguration"]),
       context
     );
   }
@@ -8200,9 +8199,8 @@ export const deserializeAws_restXmlListBucketMetricsConfigurationsCommand = asyn
     contents.MetricsConfigurationList = [];
   }
   if (data["MetricsConfiguration"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(data["MetricsConfiguration"]);
     contents.MetricsConfigurationList = deserializeAws_restXmlMetricsConfigurationList(
-      wrappedItem,
+      __getArrayIfSingleItem(data["MetricsConfiguration"]),
       context
     );
   }
@@ -8265,8 +8263,10 @@ export const deserializeAws_restXmlListBucketsCommand = async (
     data["Buckets"] !== undefined &&
     data["Buckets"]["Bucket"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(data["Buckets"]["Bucket"]);
-    contents.Buckets = deserializeAws_restXmlBuckets(wrappedItem, context);
+    contents.Buckets = deserializeAws_restXmlBuckets(
+      __getArrayIfSingleItem(data["Buckets"]["Bucket"]),
+      context
+    );
   }
   if (data["Owner"] !== undefined) {
     contents.Owner = deserializeAws_restXmlOwner(data["Owner"], context);
@@ -8340,9 +8340,8 @@ export const deserializeAws_restXmlListMultipartUploadsCommand = async (
     contents.CommonPrefixes = [];
   }
   if (data["CommonPrefixes"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(data["CommonPrefixes"]);
     contents.CommonPrefixes = deserializeAws_restXmlCommonPrefixList(
-      wrappedItem,
+      __getArrayIfSingleItem(data["CommonPrefixes"]),
       context
     );
   }
@@ -8405,9 +8404,8 @@ export const deserializeAws_restXmlListMultipartUploadsCommand = async (
     contents.Uploads = [];
   }
   if (data["Upload"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(data["Upload"]);
     contents.Uploads = deserializeAws_restXmlMultipartUploadList(
-      wrappedItem,
+      __getArrayIfSingleItem(data["Upload"]),
       context
     );
   }
@@ -8475,9 +8473,8 @@ export const deserializeAws_restXmlListObjectVersionsCommand = async (
     contents.CommonPrefixes = [];
   }
   if (data["CommonPrefixes"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(data["CommonPrefixes"]);
     contents.CommonPrefixes = deserializeAws_restXmlCommonPrefixList(
-      wrappedItem,
+      __getArrayIfSingleItem(data["CommonPrefixes"]),
       context
     );
   }
@@ -8485,9 +8482,8 @@ export const deserializeAws_restXmlListObjectVersionsCommand = async (
     contents.DeleteMarkers = [];
   }
   if (data["DeleteMarker"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(data["DeleteMarker"]);
     contents.DeleteMarkers = deserializeAws_restXmlDeleteMarkers(
-      wrappedItem,
+      __getArrayIfSingleItem(data["DeleteMarker"]),
       context
     );
   }
@@ -8556,9 +8552,8 @@ export const deserializeAws_restXmlListObjectVersionsCommand = async (
     contents.Versions = [];
   }
   if (data["Version"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(data["Version"]);
     contents.Versions = deserializeAws_restXmlObjectVersionList(
-      wrappedItem,
+      __getArrayIfSingleItem(data["Version"]),
       context
     );
   }
@@ -8620,9 +8615,8 @@ export const deserializeAws_restXmlListObjectsCommand = async (
     contents.CommonPrefixes = [];
   }
   if (data["CommonPrefixes"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(data["CommonPrefixes"]);
     contents.CommonPrefixes = deserializeAws_restXmlCommonPrefixList(
-      wrappedItem,
+      __getArrayIfSingleItem(data["CommonPrefixes"]),
       context
     );
   }
@@ -8630,8 +8624,10 @@ export const deserializeAws_restXmlListObjectsCommand = async (
     contents.Contents = [];
   }
   if (data["Contents"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(data["Contents"]);
-    contents.Contents = deserializeAws_restXmlObjectList(wrappedItem, context);
+    contents.Contents = deserializeAws_restXmlObjectList(
+      __getArrayIfSingleItem(data["Contents"]),
+      context
+    );
   }
   if (data["Delimiter"] !== undefined) {
     contents.Delimiter =
@@ -8753,9 +8749,8 @@ export const deserializeAws_restXmlListObjectsV2Command = async (
     contents.CommonPrefixes = [];
   }
   if (data["CommonPrefixes"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(data["CommonPrefixes"]);
     contents.CommonPrefixes = deserializeAws_restXmlCommonPrefixList(
-      wrappedItem,
+      __getArrayIfSingleItem(data["CommonPrefixes"]),
       context
     );
   }
@@ -8763,8 +8758,10 @@ export const deserializeAws_restXmlListObjectsV2Command = async (
     contents.Contents = [];
   }
   if (data["Contents"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(data["Contents"]);
-    contents.Contents = deserializeAws_restXmlObjectList(wrappedItem, context);
+    contents.Contents = deserializeAws_restXmlObjectList(
+      __getArrayIfSingleItem(data["Contents"]),
+      context
+    );
   }
   if (data["ContinuationToken"] !== undefined) {
     contents.ContinuationToken =
@@ -8956,8 +8953,10 @@ export const deserializeAws_restXmlListPartsCommand = async (
     contents.Parts = [];
   }
   if (data["Part"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(data["Part"]);
-    contents.Parts = deserializeAws_restXmlParts(wrappedItem, context);
+    contents.Parts = deserializeAws_restXmlParts(
+      __getArrayIfSingleItem(data["Part"]),
+      context
+    );
   }
   if (data["StorageClass"] !== undefined) {
     contents.StorageClass =
@@ -13319,8 +13318,10 @@ const deserializeAws_restXmlAnalyticsAndOperator = (
     contents.Tags = [];
   }
   if (output["Tag"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(output["Tag"]);
-    contents.Tags = deserializeAws_restXmlTagSet(wrappedItem, context);
+    contents.Tags = deserializeAws_restXmlTagSet(
+      __getArrayIfSingleItem(output["Tag"]),
+      context
+    );
   }
   return contents;
 };
@@ -13498,9 +13499,8 @@ const deserializeAws_restXmlCORSRule = (
     contents.AllowedHeaders = [];
   }
   if (output["AllowedHeader"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(output["AllowedHeader"]);
     contents.AllowedHeaders = deserializeAws_restXmlAllowedHeaders(
-      wrappedItem,
+      __getArrayIfSingleItem(output["AllowedHeader"]),
       context
     );
   }
@@ -13508,9 +13508,8 @@ const deserializeAws_restXmlCORSRule = (
     contents.AllowedMethods = [];
   }
   if (output["AllowedMethod"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(output["AllowedMethod"]);
     contents.AllowedMethods = deserializeAws_restXmlAllowedMethods(
-      wrappedItem,
+      __getArrayIfSingleItem(output["AllowedMethod"]),
       context
     );
   }
@@ -13518,9 +13517,8 @@ const deserializeAws_restXmlCORSRule = (
     contents.AllowedOrigins = [];
   }
   if (output["AllowedOrigin"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(output["AllowedOrigin"]);
     contents.AllowedOrigins = deserializeAws_restXmlAllowedOrigins(
-      wrappedItem,
+      __getArrayIfSingleItem(output["AllowedOrigin"]),
       context
     );
   }
@@ -13528,9 +13526,8 @@ const deserializeAws_restXmlCORSRule = (
     contents.ExposeHeaders = [];
   }
   if (output["ExposeHeader"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(output["ExposeHeader"]);
     contents.ExposeHeaders = deserializeAws_restXmlExposeHeaders(
-      wrappedItem,
+      __getArrayIfSingleItem(output["ExposeHeader"]),
       context
     );
   }
@@ -14186,11 +14183,8 @@ const deserializeAws_restXmlInventoryConfiguration = (
     output["OptionalFields"] !== undefined &&
     output["OptionalFields"]["Field"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["OptionalFields"]["Field"]
-    );
     contents.OptionalFields = deserializeAws_restXmlInventoryOptionalFields(
-      wrappedItem,
+      __getArrayIfSingleItem(output["OptionalFields"]["Field"]),
       context
     );
   }
@@ -14354,8 +14348,10 @@ const deserializeAws_restXmlLambdaFunctionConfiguration = (
     contents.Events = [];
   }
   if (output["Event"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(output["Event"]);
-    contents.Events = deserializeAws_restXmlEventList(wrappedItem, context);
+    contents.Events = deserializeAws_restXmlEventList(
+      __getArrayIfSingleItem(output["Event"]),
+      context
+    );
   }
   if (output["Filter"] !== undefined) {
     contents.Filter = deserializeAws_restXmlNotificationConfigurationFilter(
@@ -14470,11 +14466,8 @@ const deserializeAws_restXmlLifecycleRule = (
     contents.NoncurrentVersionTransitions = [];
   }
   if (output["NoncurrentVersionTransition"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["NoncurrentVersionTransition"]
-    );
     contents.NoncurrentVersionTransitions = deserializeAws_restXmlNoncurrentVersionTransitionList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["NoncurrentVersionTransition"]),
       context
     );
   }
@@ -14494,9 +14487,8 @@ const deserializeAws_restXmlLifecycleRule = (
     contents.Transitions = [];
   }
   if (output["Transition"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(output["Transition"]);
     contents.Transitions = deserializeAws_restXmlTransitionList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Transition"]),
       context
     );
   }
@@ -14522,8 +14514,10 @@ const deserializeAws_restXmlLifecycleRuleAndOperator = (
     contents.Tags = [];
   }
   if (output["Tag"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(output["Tag"]);
-    contents.Tags = deserializeAws_restXmlTagSet(wrappedItem, context);
+    contents.Tags = deserializeAws_restXmlTagSet(
+      __getArrayIfSingleItem(output["Tag"]),
+      context
+    );
   }
   return contents;
 };
@@ -14590,9 +14584,8 @@ const deserializeAws_restXmlLoggingEnabled = (
     output["TargetGrants"] !== undefined &&
     output["TargetGrants"]["Grant"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["TargetGrants"]["Grant"]);
     contents.TargetGrants = deserializeAws_restXmlTargetGrants(
-      wrappedItem,
+      __getArrayIfSingleItem(output["TargetGrants"]["Grant"]),
       context
     );
   }
@@ -14648,8 +14641,10 @@ const deserializeAws_restXmlMetricsAndOperator = (
     contents.Tags = [];
   }
   if (output["Tag"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(output["Tag"]);
-    contents.Tags = deserializeAws_restXmlTagSet(wrappedItem, context);
+    contents.Tags = deserializeAws_restXmlTagSet(
+      __getArrayIfSingleItem(output["Tag"]),
+      context
+    );
   }
   return contents;
 };
@@ -15195,8 +15190,10 @@ const deserializeAws_restXmlQueueConfiguration = (
     contents.Events = [];
   }
   if (output["Event"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(output["Event"]);
-    contents.Events = deserializeAws_restXmlEventList(wrappedItem, context);
+    contents.Events = deserializeAws_restXmlEventList(
+      __getArrayIfSingleItem(output["Event"]),
+      context
+    );
   }
   if (output["Filter"] !== undefined) {
     contents.Filter = deserializeAws_restXmlNotificationConfigurationFilter(
@@ -15318,9 +15315,8 @@ const deserializeAws_restXmlReplicationConfiguration = (
     contents.Rules = [];
   }
   if (output["Rule"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(output["Rule"]);
     contents.Rules = deserializeAws_restXmlReplicationRules(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Rule"]),
       context
     );
   }
@@ -15420,8 +15416,10 @@ const deserializeAws_restXmlReplicationRuleAndOperator = (
     contents.Tags = [];
   }
   if (output["Tag"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(output["Tag"]);
-    contents.Tags = deserializeAws_restXmlTagSet(wrappedItem, context);
+    contents.Tags = deserializeAws_restXmlTagSet(
+      __getArrayIfSingleItem(output["Tag"]),
+      context
+    );
   }
   return contents;
 };
@@ -15554,9 +15552,8 @@ const deserializeAws_restXmlS3KeyFilter = (
     contents.FilterRules = [];
   }
   if (output["FilterRule"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(output["FilterRule"]);
     contents.FilterRules = deserializeAws_restXmlFilterRuleList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["FilterRule"]),
       context
     );
   }
@@ -15626,9 +15623,8 @@ const deserializeAws_restXmlServerSideEncryptionConfiguration = (
     contents.Rules = [];
   }
   if (output["Rule"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(output["Rule"]);
     contents.Rules = deserializeAws_restXmlServerSideEncryptionRules(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Rule"]),
       context
     );
   }
@@ -15825,8 +15821,10 @@ const deserializeAws_restXmlTopicConfiguration = (
     contents.Events = [];
   }
   if (output["Event"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(output["Event"]);
-    contents.Events = deserializeAws_restXmlEventList(wrappedItem, context);
+    contents.Events = deserializeAws_restXmlEventList(
+      __getArrayIfSingleItem(output["Event"]),
+      context
+    );
   }
   if (output["Filter"] !== undefined) {
     contents.Filter = deserializeAws_restXmlNotificationConfigurationFilter(

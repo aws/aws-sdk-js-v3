@@ -2934,9 +2934,8 @@ const deserializeAws_queryChangeMessageVisibilityBatchResult = (
     contents.Failed = [];
   }
   if (output["BatchResultErrorEntry"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(output["BatchResultErrorEntry"]);
     contents.Failed = deserializeAws_queryBatchResultErrorEntryList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["BatchResultErrorEntry"]),
       context
     );
   }
@@ -2944,11 +2943,8 @@ const deserializeAws_queryChangeMessageVisibilityBatchResult = (
     contents.Successful = [];
   }
   if (output["ChangeMessageVisibilityBatchResultEntry"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["ChangeMessageVisibilityBatchResultEntry"]
-    );
     contents.Successful = deserializeAws_queryChangeMessageVisibilityBatchResultEntryList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["ChangeMessageVisibilityBatchResultEntry"]),
       context
     );
   }
@@ -3018,9 +3014,8 @@ const deserializeAws_queryDeleteMessageBatchResult = (
     contents.Failed = [];
   }
   if (output["BatchResultErrorEntry"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(output["BatchResultErrorEntry"]);
     contents.Failed = deserializeAws_queryBatchResultErrorEntryList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["BatchResultErrorEntry"]),
       context
     );
   }
@@ -3028,11 +3023,8 @@ const deserializeAws_queryDeleteMessageBatchResult = (
     contents.Successful = [];
   }
   if (output["DeleteMessageBatchResultEntry"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["DeleteMessageBatchResultEntry"]
-    );
     contents.Successful = deserializeAws_queryDeleteMessageBatchResultEntryList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["DeleteMessageBatchResultEntry"]),
       context
     );
   }
@@ -3091,9 +3083,8 @@ const deserializeAws_queryGetQueueAttributesResult = (
     contents.Attributes = {};
   }
   if (output["Attribute"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(output["Attribute"]);
     contents.Attributes = deserializeAws_queryQueueAttributeMap(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Attribute"]),
       context
     );
   }
@@ -3169,8 +3160,10 @@ const deserializeAws_queryListDeadLetterSourceQueuesResult = (
     contents.queueUrls = [];
   }
   if (output["QueueUrl"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(output["QueueUrl"]);
-    contents.queueUrls = deserializeAws_queryQueueUrlList(wrappedItem, context);
+    contents.queueUrls = deserializeAws_queryQueueUrlList(
+      __getArrayIfSingleItem(output["QueueUrl"]),
+      context
+    );
   }
   return contents;
 };
@@ -3187,8 +3180,10 @@ const deserializeAws_queryListQueueTagsResult = (
     contents.Tags = {};
   }
   if (output["Tag"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(output["Tag"]);
-    contents.Tags = deserializeAws_queryTagMap(wrappedItem, context);
+    contents.Tags = deserializeAws_queryTagMap(
+      __getArrayIfSingleItem(output["Tag"]),
+      context
+    );
   }
   return contents;
 };
@@ -3205,8 +3200,10 @@ const deserializeAws_queryListQueuesResult = (
     contents.QueueUrls = [];
   }
   if (output["QueueUrl"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(output["QueueUrl"]);
-    contents.QueueUrls = deserializeAws_queryQueueUrlList(wrappedItem, context);
+    contents.QueueUrls = deserializeAws_queryQueueUrlList(
+      __getArrayIfSingleItem(output["QueueUrl"]),
+      context
+    );
   }
   return contents;
 };
@@ -3229,9 +3226,8 @@ const deserializeAws_queryMessage = (
     contents.Attributes = {};
   }
   if (output["Attribute"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(output["Attribute"]);
     contents.Attributes = deserializeAws_queryMessageSystemAttributeMap(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Attribute"]),
       context
     );
   }
@@ -3257,9 +3253,8 @@ const deserializeAws_queryMessage = (
     contents.MessageAttributes = {};
   }
   if (output["MessageAttribute"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(output["MessageAttribute"]);
     contents.MessageAttributes = deserializeAws_queryMessageBodyAttributeMap(
-      wrappedItem,
+      __getArrayIfSingleItem(output["MessageAttribute"]),
       context
     );
   }
@@ -3294,9 +3289,8 @@ const deserializeAws_queryMessageAttributeValue = (
     contents.BinaryListValues = [];
   }
   if (output["BinaryListValue"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(output["BinaryListValue"]);
     contents.BinaryListValues = deserializeAws_queryBinaryList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["BinaryListValue"]),
       context
     );
   }
@@ -3317,9 +3311,8 @@ const deserializeAws_queryMessageAttributeValue = (
     contents.StringListValues = [];
   }
   if (output["StringListValue"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(output["StringListValue"]);
     contents.StringListValues = deserializeAws_queryStringList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["StringListValue"]),
       context
     );
   }
@@ -3478,8 +3471,10 @@ const deserializeAws_queryReceiveMessageResult = (
     contents.Messages = [];
   }
   if (output["Message"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(output["Message"]);
-    contents.Messages = deserializeAws_queryMessageList(wrappedItem, context);
+    contents.Messages = deserializeAws_queryMessageList(
+      __getArrayIfSingleItem(output["Message"]),
+      context
+    );
   }
   return contents;
 };
@@ -3497,9 +3492,8 @@ const deserializeAws_querySendMessageBatchResult = (
     contents.Failed = [];
   }
   if (output["BatchResultErrorEntry"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(output["BatchResultErrorEntry"]);
     contents.Failed = deserializeAws_queryBatchResultErrorEntryList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["BatchResultErrorEntry"]),
       context
     );
   }
@@ -3507,11 +3501,8 @@ const deserializeAws_querySendMessageBatchResult = (
     contents.Successful = [];
   }
   if (output["SendMessageBatchResultEntry"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["SendMessageBatchResultEntry"]
-    );
     contents.Successful = deserializeAws_querySendMessageBatchResultEntryList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["SendMessageBatchResultEntry"]),
       context
     );
   }

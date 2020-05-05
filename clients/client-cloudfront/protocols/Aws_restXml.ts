@@ -11479,8 +11479,10 @@ const deserializeAws_restXmlActiveTrustedSigners = (
     output["Items"] !== undefined &&
     output["Items"]["Signer"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["Items"]["Signer"]);
-    contents.Items = deserializeAws_restXmlSignerList(wrappedItem, context);
+    contents.Items = deserializeAws_restXmlSignerList(
+      __getArrayIfSingleItem(output["Items"]["Signer"]),
+      context
+    );
   }
   if (output["Quantity"] !== undefined) {
     contents.Quantity = parseInt(
@@ -11551,8 +11553,10 @@ const deserializeAws_restXmlAliases = (
     contents.Items = [];
   }
   if (output["Items"] !== undefined && output["Items"]["CNAME"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(output["Items"]["CNAME"]);
-    contents.Items = deserializeAws_restXmlAliasList(wrappedItem, context);
+    contents.Items = deserializeAws_restXmlAliasList(
+      __getArrayIfSingleItem(output["Items"]["CNAME"]),
+      context
+    );
   }
   if (output["Quantity"] !== undefined) {
     contents.Quantity = parseInt(
@@ -11587,8 +11591,10 @@ const deserializeAws_restXmlAllowedMethods = (
     output["Items"] !== undefined &&
     output["Items"]["Method"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["Items"]["Method"]);
-    contents.Items = deserializeAws_restXmlMethodsList(wrappedItem, context);
+    contents.Items = deserializeAws_restXmlMethodsList(
+      __getArrayIfSingleItem(output["Items"]["Method"]),
+      context
+    );
   }
   if (output["Quantity"] !== undefined) {
     contents.Quantity = parseInt(
@@ -11742,11 +11748,8 @@ const deserializeAws_restXmlCacheBehaviors = (
     output["Items"] !== undefined &&
     output["Items"]["CacheBehavior"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["Items"]["CacheBehavior"]
-    );
     contents.Items = deserializeAws_restXmlCacheBehaviorList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Items"]["CacheBehavior"]),
       context
     );
   }
@@ -11776,8 +11779,10 @@ const deserializeAws_restXmlCachedMethods = (
     output["Items"] !== undefined &&
     output["Items"]["Method"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["Items"]["Method"]);
-    contents.Items = deserializeAws_restXmlMethodsList(wrappedItem, context);
+    contents.Items = deserializeAws_restXmlMethodsList(
+      __getArrayIfSingleItem(output["Items"]["Method"]),
+      context
+    );
   }
   if (output["Quantity"] !== undefined) {
     contents.Quantity = parseInt(
@@ -11870,11 +11875,10 @@ const deserializeAws_restXmlCloudFrontOriginAccessIdentityList = (
     output["Items"] !== undefined &&
     output["Items"]["CloudFrontOriginAccessIdentitySummary"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["Items"]["CloudFrontOriginAccessIdentitySummary"]
-    );
     contents.Items = deserializeAws_restXmlCloudFrontOriginAccessIdentitySummaryList(
-      wrappedItem,
+      __getArrayIfSingleItem(
+        output["Items"]["CloudFrontOriginAccessIdentitySummary"]
+      ),
       context
     );
   }
@@ -12036,11 +12040,8 @@ const deserializeAws_restXmlContentTypeProfiles = (
     output["Items"] !== undefined &&
     output["Items"]["ContentTypeProfile"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["Items"]["ContentTypeProfile"]
-    );
     contents.Items = deserializeAws_restXmlContentTypeProfileList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Items"]["ContentTypeProfile"]),
       context
     );
   }
@@ -12078,8 +12079,10 @@ const deserializeAws_restXmlCookieNames = (
     contents.Items = [];
   }
   if (output["Items"] !== undefined && output["Items"]["Name"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(output["Items"]["Name"]);
-    contents.Items = deserializeAws_restXmlCookieNameList(wrappedItem, context);
+    contents.Items = deserializeAws_restXmlCookieNameList(
+      __getArrayIfSingleItem(output["Items"]["Name"]),
+      context
+    );
   }
   if (output["Quantity"] !== undefined) {
     contents.Quantity = parseInt(
@@ -12182,11 +12185,8 @@ const deserializeAws_restXmlCustomErrorResponses = (
     output["Items"] !== undefined &&
     output["Items"]["CustomErrorResponse"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["Items"]["CustomErrorResponse"]
-    );
     contents.Items = deserializeAws_restXmlCustomErrorResponseList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Items"]["CustomErrorResponse"]),
       context
     );
   }
@@ -12216,11 +12216,8 @@ const deserializeAws_restXmlCustomHeaders = (
     output["Items"] !== undefined &&
     output["Items"]["OriginCustomHeader"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["Items"]["OriginCustomHeader"]
-    );
     contents.Items = deserializeAws_restXmlOriginCustomHeadersList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Items"]["OriginCustomHeader"]),
       context
     );
   }
@@ -12422,11 +12419,8 @@ const deserializeAws_restXmlDistribution = (
     output["AliasICPRecordals"] !== undefined &&
     output["AliasICPRecordals"]["AliasICPRecordal"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["AliasICPRecordals"]["AliasICPRecordal"]
-    );
     contents.AliasICPRecordals = deserializeAws_restXmlAliasICPRecordals(
-      wrappedItem,
+      __getArrayIfSingleItem(output["AliasICPRecordals"]["AliasICPRecordal"]),
       context
     );
   }
@@ -12622,11 +12616,8 @@ const deserializeAws_restXmlDistributionList = (
     output["Items"] !== undefined &&
     output["Items"]["DistributionSummary"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["Items"]["DistributionSummary"]
-    );
     contents.Items = deserializeAws_restXmlDistributionSummaryList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Items"]["DistributionSummary"]),
       context
     );
   }
@@ -12699,11 +12690,8 @@ const deserializeAws_restXmlDistributionSummary = (
     output["AliasICPRecordals"] !== undefined &&
     output["AliasICPRecordals"]["AliasICPRecordal"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["AliasICPRecordals"]["AliasICPRecordal"]
-    );
     contents.AliasICPRecordals = deserializeAws_restXmlAliasICPRecordals(
-      wrappedItem,
+      __getArrayIfSingleItem(output["AliasICPRecordals"]["AliasICPRecordal"]),
       context
     );
   }
@@ -12842,11 +12830,8 @@ const deserializeAws_restXmlEncryptionEntities = (
     output["Items"] !== undefined &&
     output["Items"]["EncryptionEntity"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["Items"]["EncryptionEntity"]
-    );
     contents.Items = deserializeAws_restXmlEncryptionEntityList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Items"]["EncryptionEntity"]),
       context
     );
   }
@@ -12986,11 +12971,8 @@ const deserializeAws_restXmlFieldLevelEncryptionList = (
     output["Items"] !== undefined &&
     output["Items"]["FieldLevelEncryptionSummary"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["Items"]["FieldLevelEncryptionSummary"]
-    );
     contents.Items = deserializeAws_restXmlFieldLevelEncryptionSummaryList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Items"]["FieldLevelEncryptionSummary"]),
       context
     );
   }
@@ -13101,11 +13083,10 @@ const deserializeAws_restXmlFieldLevelEncryptionProfileList = (
     output["Items"] !== undefined &&
     output["Items"]["FieldLevelEncryptionProfileSummary"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["Items"]["FieldLevelEncryptionProfileSummary"]
-    );
     contents.Items = deserializeAws_restXmlFieldLevelEncryptionProfileSummaryList(
-      wrappedItem,
+      __getArrayIfSingleItem(
+        output["Items"]["FieldLevelEncryptionProfileSummary"]
+      ),
       context
     );
   }
@@ -13269,9 +13250,8 @@ const deserializeAws_restXmlFieldPatterns = (
     output["Items"] !== undefined &&
     output["Items"]["FieldPattern"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["Items"]["FieldPattern"]);
     contents.Items = deserializeAws_restXmlFieldPatternList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Items"]["FieldPattern"]),
       context
     );
   }
@@ -13340,8 +13320,10 @@ const deserializeAws_restXmlGeoRestriction = (
     output["Items"] !== undefined &&
     output["Items"]["Location"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["Items"]["Location"]);
-    contents.Items = deserializeAws_restXmlLocationList(wrappedItem, context);
+    contents.Items = deserializeAws_restXmlLocationList(
+      __getArrayIfSingleItem(output["Items"]["Location"]),
+      context
+    );
   }
   if (output["Quantity"] !== undefined) {
     contents.Quantity = parseInt(
@@ -13383,8 +13365,10 @@ const deserializeAws_restXmlHeaders = (
     contents.Items = [];
   }
   if (output["Items"] !== undefined && output["Items"]["Name"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(output["Items"]["Name"]);
-    contents.Items = deserializeAws_restXmlHeaderList(wrappedItem, context);
+    contents.Items = deserializeAws_restXmlHeaderList(
+      __getArrayIfSingleItem(output["Items"]["Name"]),
+      context
+    );
   }
   if (output["Quantity"] !== undefined) {
     contents.Quantity = parseInt(
@@ -13478,11 +13462,8 @@ const deserializeAws_restXmlInvalidationList = (
     output["Items"] !== undefined &&
     output["Items"]["InvalidationSummary"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["Items"]["InvalidationSummary"]
-    );
     contents.Items = deserializeAws_restXmlInvalidationSummaryList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Items"]["InvalidationSummary"]),
       context
     );
   }
@@ -13581,8 +13562,10 @@ const deserializeAws_restXmlKeyPairIds = (
     output["Items"] !== undefined &&
     output["Items"]["KeyPairId"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["Items"]["KeyPairId"]);
-    contents.Items = deserializeAws_restXmlKeyPairIdList(wrappedItem, context);
+    contents.Items = deserializeAws_restXmlKeyPairIdList(
+      __getArrayIfSingleItem(output["Items"]["KeyPairId"]),
+      context
+    );
   }
   if (output["Quantity"] !== undefined) {
     contents.Quantity = parseInt(
@@ -13654,11 +13637,8 @@ const deserializeAws_restXmlLambdaFunctionAssociations = (
     output["Items"] !== undefined &&
     output["Items"]["LambdaFunctionAssociation"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["Items"]["LambdaFunctionAssociation"]
-    );
     contents.Items = deserializeAws_restXmlLambdaFunctionAssociationList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Items"]["LambdaFunctionAssociation"]),
       context
     );
   }
@@ -13922,11 +13902,8 @@ const deserializeAws_restXmlOriginGroupMembers = (
     output["Items"] !== undefined &&
     output["Items"]["OriginGroupMember"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["Items"]["OriginGroupMember"]
-    );
     contents.Items = deserializeAws_restXmlOriginGroupMemberList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Items"]["OriginGroupMember"]),
       context
     );
   }
@@ -13956,9 +13933,8 @@ const deserializeAws_restXmlOriginGroups = (
     output["Items"] !== undefined &&
     output["Items"]["OriginGroup"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["Items"]["OriginGroup"]);
     contents.Items = deserializeAws_restXmlOriginGroupList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Items"]["OriginGroup"]),
       context
     );
   }
@@ -13999,9 +13975,8 @@ const deserializeAws_restXmlOriginSslProtocols = (
     output["Items"] !== undefined &&
     output["Items"]["SslProtocol"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["Items"]["SslProtocol"]);
     contents.Items = deserializeAws_restXmlSslProtocolsList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Items"]["SslProtocol"]),
       context
     );
   }
@@ -14031,8 +14006,10 @@ const deserializeAws_restXmlOrigins = (
     output["Items"] !== undefined &&
     output["Items"]["Origin"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["Items"]["Origin"]);
-    contents.Items = deserializeAws_restXmlOriginList(wrappedItem, context);
+    contents.Items = deserializeAws_restXmlOriginList(
+      __getArrayIfSingleItem(output["Items"]["Origin"]),
+      context
+    );
   }
   if (output["Quantity"] !== undefined) {
     contents.Quantity = parseInt(
@@ -14068,8 +14045,10 @@ const deserializeAws_restXmlPaths = (
     contents.Items = [];
   }
   if (output["Items"] !== undefined && output["Items"]["Path"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(output["Items"]["Path"]);
-    contents.Items = deserializeAws_restXmlPathList(wrappedItem, context);
+    contents.Items = deserializeAws_restXmlPathList(
+      __getArrayIfSingleItem(output["Items"]["Path"]),
+      context
+    );
   }
   if (output["Quantity"] !== undefined) {
     contents.Quantity = parseInt(
@@ -14165,11 +14144,8 @@ const deserializeAws_restXmlPublicKeyList = (
     output["Items"] !== undefined &&
     output["Items"]["PublicKeySummary"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["Items"]["PublicKeySummary"]
-    );
     contents.Items = deserializeAws_restXmlPublicKeySummaryList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Items"]["PublicKeySummary"]),
       context
     );
   }
@@ -14324,11 +14300,8 @@ const deserializeAws_restXmlQueryArgProfiles = (
     output["Items"] !== undefined &&
     output["Items"]["QueryArgProfile"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["Items"]["QueryArgProfile"]
-    );
     contents.Items = deserializeAws_restXmlQueryArgProfileList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Items"]["QueryArgProfile"]),
       context
     );
   }
@@ -14355,9 +14328,8 @@ const deserializeAws_restXmlQueryStringCacheKeys = (
     contents.Items = [];
   }
   if (output["Items"] !== undefined && output["Items"]["Name"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(output["Items"]["Name"]);
     contents.Items = deserializeAws_restXmlQueryStringCacheKeysList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Items"]["Name"]),
       context
     );
   }
@@ -14515,8 +14487,10 @@ const deserializeAws_restXmlStatusCodes = (
     output["Items"] !== undefined &&
     output["Items"]["StatusCode"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["Items"]["StatusCode"]);
-    contents.Items = deserializeAws_restXmlStatusCodeList(wrappedItem, context);
+    contents.Items = deserializeAws_restXmlStatusCodeList(
+      __getArrayIfSingleItem(output["Items"]["StatusCode"]),
+      context
+    );
   }
   if (output["Quantity"] !== undefined) {
     contents.Quantity = parseInt(
@@ -14676,11 +14650,8 @@ const deserializeAws_restXmlStreamingDistributionList = (
     output["Items"] !== undefined &&
     output["Items"]["StreamingDistributionSummary"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["Items"]["StreamingDistributionSummary"]
-    );
     contents.Items = deserializeAws_restXmlStreamingDistributionSummaryList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Items"]["StreamingDistributionSummary"]),
       context
     );
   }
@@ -14888,8 +14859,10 @@ const deserializeAws_restXmlTags = (
     contents.Items = [];
   }
   if (output["Items"] !== undefined && output["Items"]["Tag"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(output["Items"]["Tag"]);
-    contents.Items = deserializeAws_restXmlTagList(wrappedItem, context);
+    contents.Items = deserializeAws_restXmlTagList(
+      __getArrayIfSingleItem(output["Items"]["Tag"]),
+      context
+    );
   }
   return contents;
 };
@@ -14917,11 +14890,8 @@ const deserializeAws_restXmlTrustedSigners = (
     output["Items"] !== undefined &&
     output["Items"]["AwsAccountNumber"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["Items"]["AwsAccountNumber"]
-    );
     contents.Items = deserializeAws_restXmlAwsAccountNumberList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Items"]["AwsAccountNumber"]),
       context
     );
   }

@@ -5466,9 +5466,8 @@ const deserializeAws_queryEndpoint = (
     output["Attributes"] !== undefined &&
     output["Attributes"]["entry"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["Attributes"]["entry"]);
     contents.Attributes = deserializeAws_queryMapStringToString(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Attributes"]["entry"]),
       context
     );
   }
@@ -5530,9 +5529,8 @@ const deserializeAws_queryGetEndpointAttributesResponse = (
     output["Attributes"] !== undefined &&
     output["Attributes"]["entry"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["Attributes"]["entry"]);
     contents.Attributes = deserializeAws_queryMapStringToString(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Attributes"]["entry"]),
       context
     );
   }
@@ -5554,9 +5552,8 @@ const deserializeAws_queryGetPlatformApplicationAttributesResponse = (
     output["Attributes"] !== undefined &&
     output["Attributes"]["entry"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["Attributes"]["entry"]);
     contents.Attributes = deserializeAws_queryMapStringToString(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Attributes"]["entry"]),
       context
     );
   }
@@ -5578,9 +5575,8 @@ const deserializeAws_queryGetSMSAttributesResponse = (
     output["attributes"] !== undefined &&
     output["attributes"]["entry"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["attributes"]["entry"]);
     contents.attributes = deserializeAws_queryMapStringToString(
-      wrappedItem,
+      __getArrayIfSingleItem(output["attributes"]["entry"]),
       context
     );
   }
@@ -5602,9 +5598,8 @@ const deserializeAws_queryGetSubscriptionAttributesResponse = (
     output["Attributes"] !== undefined &&
     output["Attributes"]["entry"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["Attributes"]["entry"]);
     contents.Attributes = deserializeAws_querySubscriptionAttributesMap(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Attributes"]["entry"]),
       context
     );
   }
@@ -5626,9 +5621,8 @@ const deserializeAws_queryGetTopicAttributesResponse = (
     output["Attributes"] !== undefined &&
     output["Attributes"]["entry"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["Attributes"]["entry"]);
     contents.Attributes = deserializeAws_queryTopicAttributesMap(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Attributes"]["entry"]),
       context
     );
   }
@@ -5821,9 +5815,8 @@ const deserializeAws_queryListEndpointsByPlatformApplicationResponse = (
     output["Endpoints"] !== undefined &&
     output["Endpoints"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["Endpoints"]["member"]);
     contents.Endpoints = deserializeAws_queryListOfEndpoints(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Endpoints"]["member"]),
       context
     );
   }
@@ -5880,11 +5873,8 @@ const deserializeAws_queryListPhoneNumbersOptedOutResponse = (
     output["phoneNumbers"] !== undefined &&
     output["phoneNumbers"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["phoneNumbers"]["member"]
-    );
     contents.phoneNumbers = deserializeAws_queryPhoneNumberList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["phoneNumbers"]["member"]),
       context
     );
   }
@@ -5913,11 +5903,8 @@ const deserializeAws_queryListPlatformApplicationsResponse = (
     output["PlatformApplications"] !== undefined &&
     output["PlatformApplications"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["PlatformApplications"]["member"]
-    );
     contents.PlatformApplications = deserializeAws_queryListOfPlatformApplications(
-      wrappedItem,
+      __getArrayIfSingleItem(output["PlatformApplications"]["member"]),
       context
     );
   }
@@ -5946,11 +5933,8 @@ const deserializeAws_queryListSubscriptionsByTopicResponse = (
     output["Subscriptions"] !== undefined &&
     output["Subscriptions"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["Subscriptions"]["member"]
-    );
     contents.Subscriptions = deserializeAws_querySubscriptionsList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Subscriptions"]["member"]),
       context
     );
   }
@@ -5979,11 +5963,8 @@ const deserializeAws_queryListSubscriptionsResponse = (
     output["Subscriptions"] !== undefined &&
     output["Subscriptions"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      output["Subscriptions"]["member"]
-    );
     contents.Subscriptions = deserializeAws_querySubscriptionsList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Subscriptions"]["member"]),
       context
     );
   }
@@ -6002,8 +5983,10 @@ const deserializeAws_queryListTagsForResourceResponse = (
     contents.Tags = [];
   }
   if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(output["Tags"]["member"]);
-    contents.Tags = deserializeAws_queryTagList(wrappedItem, context);
+    contents.Tags = deserializeAws_queryTagList(
+      __getArrayIfSingleItem(output["Tags"]["member"]),
+      context
+    );
   }
   return contents;
 };
@@ -6030,8 +6013,10 @@ const deserializeAws_queryListTopicsResponse = (
     output["Topics"] !== undefined &&
     output["Topics"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["Topics"]["member"]);
-    contents.Topics = deserializeAws_queryTopicsList(wrappedItem, context);
+    contents.Topics = deserializeAws_queryTopicsList(
+      __getArrayIfSingleItem(output["Topics"]["member"]),
+      context
+    );
   }
   return contents;
 };
@@ -6104,9 +6089,8 @@ const deserializeAws_queryPlatformApplication = (
     output["Attributes"] !== undefined &&
     output["Attributes"]["entry"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["Attributes"]["entry"]);
     contents.Attributes = deserializeAws_queryMapStringToString(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Attributes"]["entry"]),
       context
     );
   }

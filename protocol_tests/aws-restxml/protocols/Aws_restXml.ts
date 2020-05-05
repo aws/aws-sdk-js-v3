@@ -2024,8 +2024,10 @@ export const deserializeAws_restXmlFlattenedXmlMapCommand = async (
     contents.myMap = {};
   }
   if (data["myMap"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(data["myMap"]);
-    contents.myMap = deserializeAws_restXmlFooEnumMap(wrappedItem, context);
+    contents.myMap = deserializeAws_restXmlFooEnumMap(
+      __getArrayIfSingleItem(data["myMap"]),
+      context
+    );
   }
   return Promise.resolve(contents);
 };
@@ -2080,9 +2082,8 @@ export const deserializeAws_restXmlFlattenedXmlMapWithXmlNameCommand = async (
     contents.myMap = {};
   }
   if (data["KVP"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(data["KVP"]);
     contents.myMap = deserializeAws_restXmlFlattenedXmlMapWithXmlNameInputOutputMap(
-      wrappedItem,
+      __getArrayIfSingleItem(data["KVP"]),
       context
     );
   }
@@ -3651,9 +3652,8 @@ export const deserializeAws_restXmlXmlEnumsCommand = async (
     data["fooEnumList"] !== undefined &&
     data["fooEnumList"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(data["fooEnumList"]["member"]);
     contents.fooEnumList = deserializeAws_restXmlFooEnumList(
-      wrappedItem,
+      __getArrayIfSingleItem(data["fooEnumList"]["member"]),
       context
     );
   }
@@ -3664,9 +3664,8 @@ export const deserializeAws_restXmlXmlEnumsCommand = async (
     data["fooEnumMap"] !== undefined &&
     data["fooEnumMap"]["entry"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(data["fooEnumMap"]["entry"]);
     contents.fooEnumMap = deserializeAws_restXmlFooEnumMap(
-      wrappedItem,
+      __getArrayIfSingleItem(data["fooEnumMap"]["entry"]),
       context
     );
   }
@@ -3677,9 +3676,8 @@ export const deserializeAws_restXmlXmlEnumsCommand = async (
     data["fooEnumSet"] !== undefined &&
     data["fooEnumSet"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(data["fooEnumSet"]["member"]);
     contents.fooEnumSet = deserializeAws_restXmlFooEnumSet(
-      wrappedItem,
+      __getArrayIfSingleItem(data["fooEnumSet"]["member"]),
       context
     );
   }
@@ -3746,9 +3744,8 @@ export const deserializeAws_restXmlXmlListsCommand = async (
     data["booleanList"] !== undefined &&
     data["booleanList"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(data["booleanList"]["member"]);
     contents.booleanList = deserializeAws_restXmlBooleanList(
-      wrappedItem,
+      __getArrayIfSingleItem(data["booleanList"]["member"]),
       context
     );
   }
@@ -3759,16 +3756,17 @@ export const deserializeAws_restXmlXmlListsCommand = async (
     data["enumList"] !== undefined &&
     data["enumList"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(data["enumList"]["member"]);
-    contents.enumList = deserializeAws_restXmlFooEnumList(wrappedItem, context);
+    contents.enumList = deserializeAws_restXmlFooEnumList(
+      __getArrayIfSingleItem(data["enumList"]["member"]),
+      context
+    );
   }
   if (data.flattenedList === "") {
     contents.flattenedList = [];
   }
   if (data["flattenedList"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(data["flattenedList"]);
     contents.flattenedList = deserializeAws_restXmlRenamedListMembers(
-      wrappedItem,
+      __getArrayIfSingleItem(data["flattenedList"]),
       context
     );
   }
@@ -3776,9 +3774,8 @@ export const deserializeAws_restXmlXmlListsCommand = async (
     contents.flattenedList2 = [];
   }
   if (data["customName"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(data["customName"]);
     contents.flattenedList2 = deserializeAws_restXmlRenamedListMembers(
-      wrappedItem,
+      __getArrayIfSingleItem(data["customName"]),
       context
     );
   }
@@ -3789,9 +3786,8 @@ export const deserializeAws_restXmlXmlListsCommand = async (
     data["integerList"] !== undefined &&
     data["integerList"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(data["integerList"]["member"]);
     contents.integerList = deserializeAws_restXmlIntegerList(
-      wrappedItem,
+      __getArrayIfSingleItem(data["integerList"]["member"]),
       context
     );
   }
@@ -3802,11 +3798,8 @@ export const deserializeAws_restXmlXmlListsCommand = async (
     data["nestedStringList"] !== undefined &&
     data["nestedStringList"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(
-      data["nestedStringList"]["member"]
-    );
     contents.nestedStringList = deserializeAws_restXmlNestedStringList(
-      wrappedItem,
+      __getArrayIfSingleItem(data["nestedStringList"]["member"]),
       context
     );
   }
@@ -3814,9 +3807,8 @@ export const deserializeAws_restXmlXmlListsCommand = async (
     contents.renamedListMembers = [];
   }
   if (data["renamed"] !== undefined && data["renamed"]["item"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(data["renamed"]["item"]);
     contents.renamedListMembers = deserializeAws_restXmlRenamedListMembers(
-      wrappedItem,
+      __getArrayIfSingleItem(data["renamed"]["item"]),
       context
     );
   }
@@ -3827,9 +3819,8 @@ export const deserializeAws_restXmlXmlListsCommand = async (
     data["stringList"] !== undefined &&
     data["stringList"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(data["stringList"]["member"]);
     contents.stringList = deserializeAws_restXmlStringList(
-      wrappedItem,
+      __getArrayIfSingleItem(data["stringList"]["member"]),
       context
     );
   }
@@ -3840,8 +3831,10 @@ export const deserializeAws_restXmlXmlListsCommand = async (
     data["stringSet"] !== undefined &&
     data["stringSet"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(data["stringSet"]["member"]);
-    contents.stringSet = deserializeAws_restXmlStringSet(wrappedItem, context);
+    contents.stringSet = deserializeAws_restXmlStringSet(
+      __getArrayIfSingleItem(data["stringSet"]["member"]),
+      context
+    );
   }
   if (data.myStructureList === "") {
     contents.structureList = [];
@@ -3850,9 +3843,8 @@ export const deserializeAws_restXmlXmlListsCommand = async (
     data["myStructureList"] !== undefined &&
     data["myStructureList"]["item"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(data["myStructureList"]["item"]);
     contents.structureList = deserializeAws_restXmlStructureList(
-      wrappedItem,
+      __getArrayIfSingleItem(data["myStructureList"]["item"]),
       context
     );
   }
@@ -3863,9 +3855,8 @@ export const deserializeAws_restXmlXmlListsCommand = async (
     data["timestampList"] !== undefined &&
     data["timestampList"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(data["timestampList"]["member"]);
     contents.timestampList = deserializeAws_restXmlTimestampList(
-      wrappedItem,
+      __getArrayIfSingleItem(data["timestampList"]["member"]),
       context
     );
   }
@@ -3919,9 +3910,8 @@ export const deserializeAws_restXmlXmlMapsCommand = async (
     contents.myMap = {};
   }
   if (data["myMap"] !== undefined && data["myMap"]["entry"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(data["myMap"]["entry"]);
     contents.myMap = deserializeAws_restXmlXmlMapsInputOutputMap(
-      wrappedItem,
+      __getArrayIfSingleItem(data["myMap"]["entry"]),
       context
     );
   }
@@ -3975,9 +3965,8 @@ export const deserializeAws_restXmlXmlMapsXmlNameCommand = async (
     contents.myMap = {};
   }
   if (data["myMap"] !== undefined && data["myMap"]["entry"] !== undefined) {
-    const wrappedItem = __getArrayIfSingleItem(data["myMap"]["entry"]);
     contents.myMap = deserializeAws_restXmlXmlMapsXmlNameInputOutputMap(
-      wrappedItem,
+      __getArrayIfSingleItem(data["myMap"]["entry"]),
       context
     );
   }
@@ -4849,9 +4838,8 @@ const deserializeAws_restXmlXmlNamespaceNested = (
     output["values"] !== undefined &&
     output["values"]["member"] !== undefined
   ) {
-    const wrappedItem = __getArrayIfSingleItem(output["values"]["member"]);
     contents.values = deserializeAws_restXmlXmlNamespacedList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["values"]["member"]),
       context
     );
   }
@@ -4954,8 +4942,12 @@ const deserializeAws_restXmlNestedStringList = (
 ): string[][] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
-    const wrappedItem = __getArrayIfSingleItem(entry["member"]);
-    contents.push(deserializeAws_restXmlStringList(wrappedItem, context));
+    contents.push(
+      deserializeAws_restXmlStringList(
+        __getArrayIfSingleItem(entry["member"]),
+        context
+      )
+    );
   });
   return contents;
 };
