@@ -13894,14 +13894,13 @@ const buildHttpRpcRequest = async (
   return new __HttpRequest(contents);
 };
 
-const decodeEscapedXML = (str: string) => {
-  return str
+const decodeEscapedXML = (str: string) =>
+  str
     .replace(/&amp;/g, "&")
     .replace(/&apos;/g, "'")
     .replace(/&quot;/g, '"')
     .replace(/&gt;/g, ">")
     .replace(/&lt;/g, "<");
-};
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then(encoded => {
