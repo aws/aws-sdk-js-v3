@@ -239,10 +239,10 @@ import {
 } from "@aws-sdk/types";
 import { parse as xmlParse } from "fast-xml-parser";
 
-export async function serializeAws_queryAddTagsCommand(
+export const serializeAws_queryAddTagsCommand = async (
   input: AddTagsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -253,12 +253,12 @@ export async function serializeAws_queryAddTagsCommand(
     Version: "2012-06-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryApplySecurityGroupsToLoadBalancerCommand(
+export const serializeAws_queryApplySecurityGroupsToLoadBalancerCommand = async (
   input: ApplySecurityGroupsToLoadBalancerCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -272,12 +272,12 @@ export async function serializeAws_queryApplySecurityGroupsToLoadBalancerCommand
     Version: "2012-06-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryAttachLoadBalancerToSubnetsCommand(
+export const serializeAws_queryAttachLoadBalancerToSubnetsCommand = async (
   input: AttachLoadBalancerToSubnetsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -291,12 +291,12 @@ export async function serializeAws_queryAttachLoadBalancerToSubnetsCommand(
     Version: "2012-06-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryConfigureHealthCheckCommand(
+export const serializeAws_queryConfigureHealthCheckCommand = async (
   input: ConfigureHealthCheckCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -307,12 +307,12 @@ export async function serializeAws_queryConfigureHealthCheckCommand(
     Version: "2012-06-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryCreateAppCookieStickinessPolicyCommand(
+export const serializeAws_queryCreateAppCookieStickinessPolicyCommand = async (
   input: CreateAppCookieStickinessPolicyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -326,12 +326,12 @@ export async function serializeAws_queryCreateAppCookieStickinessPolicyCommand(
     Version: "2012-06-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryCreateLBCookieStickinessPolicyCommand(
+export const serializeAws_queryCreateLBCookieStickinessPolicyCommand = async (
   input: CreateLBCookieStickinessPolicyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -345,12 +345,12 @@ export async function serializeAws_queryCreateLBCookieStickinessPolicyCommand(
     Version: "2012-06-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryCreateLoadBalancerCommand(
+export const serializeAws_queryCreateLoadBalancerCommand = async (
   input: CreateLoadBalancerCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -361,12 +361,12 @@ export async function serializeAws_queryCreateLoadBalancerCommand(
     Version: "2012-06-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryCreateLoadBalancerListenersCommand(
+export const serializeAws_queryCreateLoadBalancerListenersCommand = async (
   input: CreateLoadBalancerListenersCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -380,12 +380,12 @@ export async function serializeAws_queryCreateLoadBalancerListenersCommand(
     Version: "2012-06-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryCreateLoadBalancerPolicyCommand(
+export const serializeAws_queryCreateLoadBalancerPolicyCommand = async (
   input: CreateLoadBalancerPolicyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -399,12 +399,12 @@ export async function serializeAws_queryCreateLoadBalancerPolicyCommand(
     Version: "2012-06-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDeleteLoadBalancerCommand(
+export const serializeAws_queryDeleteLoadBalancerCommand = async (
   input: DeleteLoadBalancerCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -415,12 +415,12 @@ export async function serializeAws_queryDeleteLoadBalancerCommand(
     Version: "2012-06-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDeleteLoadBalancerListenersCommand(
+export const serializeAws_queryDeleteLoadBalancerListenersCommand = async (
   input: DeleteLoadBalancerListenersCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -434,12 +434,12 @@ export async function serializeAws_queryDeleteLoadBalancerListenersCommand(
     Version: "2012-06-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDeleteLoadBalancerPolicyCommand(
+export const serializeAws_queryDeleteLoadBalancerPolicyCommand = async (
   input: DeleteLoadBalancerPolicyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -453,12 +453,12 @@ export async function serializeAws_queryDeleteLoadBalancerPolicyCommand(
     Version: "2012-06-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDeregisterInstancesFromLoadBalancerCommand(
+export const serializeAws_queryDeregisterInstancesFromLoadBalancerCommand = async (
   input: DeregisterInstancesFromLoadBalancerCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -469,12 +469,12 @@ export async function serializeAws_queryDeregisterInstancesFromLoadBalancerComma
     Version: "2012-06-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDescribeAccountLimitsCommand(
+export const serializeAws_queryDescribeAccountLimitsCommand = async (
   input: DescribeAccountLimitsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -485,12 +485,12 @@ export async function serializeAws_queryDescribeAccountLimitsCommand(
     Version: "2012-06-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDescribeInstanceHealthCommand(
+export const serializeAws_queryDescribeInstanceHealthCommand = async (
   input: DescribeInstanceHealthCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -501,12 +501,12 @@ export async function serializeAws_queryDescribeInstanceHealthCommand(
     Version: "2012-06-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDescribeLoadBalancerAttributesCommand(
+export const serializeAws_queryDescribeLoadBalancerAttributesCommand = async (
   input: DescribeLoadBalancerAttributesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -520,12 +520,12 @@ export async function serializeAws_queryDescribeLoadBalancerAttributesCommand(
     Version: "2012-06-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDescribeLoadBalancerPoliciesCommand(
+export const serializeAws_queryDescribeLoadBalancerPoliciesCommand = async (
   input: DescribeLoadBalancerPoliciesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -539,12 +539,12 @@ export async function serializeAws_queryDescribeLoadBalancerPoliciesCommand(
     Version: "2012-06-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDescribeLoadBalancerPolicyTypesCommand(
+export const serializeAws_queryDescribeLoadBalancerPolicyTypesCommand = async (
   input: DescribeLoadBalancerPolicyTypesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -558,12 +558,12 @@ export async function serializeAws_queryDescribeLoadBalancerPolicyTypesCommand(
     Version: "2012-06-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDescribeLoadBalancersCommand(
+export const serializeAws_queryDescribeLoadBalancersCommand = async (
   input: DescribeLoadBalancersCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -574,12 +574,12 @@ export async function serializeAws_queryDescribeLoadBalancersCommand(
     Version: "2012-06-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDescribeTagsCommand(
+export const serializeAws_queryDescribeTagsCommand = async (
   input: DescribeTagsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -590,12 +590,12 @@ export async function serializeAws_queryDescribeTagsCommand(
     Version: "2012-06-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDetachLoadBalancerFromSubnetsCommand(
+export const serializeAws_queryDetachLoadBalancerFromSubnetsCommand = async (
   input: DetachLoadBalancerFromSubnetsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -609,12 +609,12 @@ export async function serializeAws_queryDetachLoadBalancerFromSubnetsCommand(
     Version: "2012-06-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDisableAvailabilityZonesForLoadBalancerCommand(
+export const serializeAws_queryDisableAvailabilityZonesForLoadBalancerCommand = async (
   input: DisableAvailabilityZonesForLoadBalancerCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -628,12 +628,12 @@ export async function serializeAws_queryDisableAvailabilityZonesForLoadBalancerC
     Version: "2012-06-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryEnableAvailabilityZonesForLoadBalancerCommand(
+export const serializeAws_queryEnableAvailabilityZonesForLoadBalancerCommand = async (
   input: EnableAvailabilityZonesForLoadBalancerCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -644,12 +644,12 @@ export async function serializeAws_queryEnableAvailabilityZonesForLoadBalancerCo
     Version: "2012-06-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryModifyLoadBalancerAttributesCommand(
+export const serializeAws_queryModifyLoadBalancerAttributesCommand = async (
   input: ModifyLoadBalancerAttributesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -663,12 +663,12 @@ export async function serializeAws_queryModifyLoadBalancerAttributesCommand(
     Version: "2012-06-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryRegisterInstancesWithLoadBalancerCommand(
+export const serializeAws_queryRegisterInstancesWithLoadBalancerCommand = async (
   input: RegisterInstancesWithLoadBalancerCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -679,12 +679,12 @@ export async function serializeAws_queryRegisterInstancesWithLoadBalancerCommand
     Version: "2012-06-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryRemoveTagsCommand(
+export const serializeAws_queryRemoveTagsCommand = async (
   input: RemoveTagsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -695,12 +695,12 @@ export async function serializeAws_queryRemoveTagsCommand(
     Version: "2012-06-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_querySetLoadBalancerListenerSSLCertificateCommand(
+export const serializeAws_querySetLoadBalancerListenerSSLCertificateCommand = async (
   input: SetLoadBalancerListenerSSLCertificateCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -714,12 +714,12 @@ export async function serializeAws_querySetLoadBalancerListenerSSLCertificateCom
     Version: "2012-06-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_querySetLoadBalancerPoliciesForBackendServerCommand(
+export const serializeAws_querySetLoadBalancerPoliciesForBackendServerCommand = async (
   input: SetLoadBalancerPoliciesForBackendServerCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -733,12 +733,12 @@ export async function serializeAws_querySetLoadBalancerPoliciesForBackendServerC
     Version: "2012-06-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_querySetLoadBalancerPoliciesOfListenerCommand(
+export const serializeAws_querySetLoadBalancerPoliciesOfListenerCommand = async (
   input: SetLoadBalancerPoliciesOfListenerCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -752,12 +752,12 @@ export async function serializeAws_querySetLoadBalancerPoliciesOfListenerCommand
     Version: "2012-06-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_queryAddTagsCommand(
+export const deserializeAws_queryAddTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AddTagsCommandOutput> {
+): Promise<AddTagsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryAddTagsCommandError(output, context);
   }
@@ -770,12 +770,12 @@ export async function deserializeAws_queryAddTagsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryAddTagsCommandError(
+const deserializeAws_queryAddTagsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AddTagsCommandOutput> {
+): Promise<AddTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -833,12 +833,12 @@ async function deserializeAws_queryAddTagsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryApplySecurityGroupsToLoadBalancerCommand(
+export const deserializeAws_queryApplySecurityGroupsToLoadBalancerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ApplySecurityGroupsToLoadBalancerCommandOutput> {
+): Promise<ApplySecurityGroupsToLoadBalancerCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryApplySecurityGroupsToLoadBalancerCommandError(
       output,
@@ -857,12 +857,12 @@ export async function deserializeAws_queryApplySecurityGroupsToLoadBalancerComma
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryApplySecurityGroupsToLoadBalancerCommandError(
+const deserializeAws_queryApplySecurityGroupsToLoadBalancerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ApplySecurityGroupsToLoadBalancerCommandOutput> {
+): Promise<ApplySecurityGroupsToLoadBalancerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -920,12 +920,12 @@ async function deserializeAws_queryApplySecurityGroupsToLoadBalancerCommandError
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryAttachLoadBalancerToSubnetsCommand(
+export const deserializeAws_queryAttachLoadBalancerToSubnetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AttachLoadBalancerToSubnetsCommandOutput> {
+): Promise<AttachLoadBalancerToSubnetsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryAttachLoadBalancerToSubnetsCommandError(
       output,
@@ -944,12 +944,12 @@ export async function deserializeAws_queryAttachLoadBalancerToSubnetsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryAttachLoadBalancerToSubnetsCommandError(
+const deserializeAws_queryAttachLoadBalancerToSubnetsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AttachLoadBalancerToSubnetsCommandOutput> {
+): Promise<AttachLoadBalancerToSubnetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1018,12 +1018,12 @@ async function deserializeAws_queryAttachLoadBalancerToSubnetsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryConfigureHealthCheckCommand(
+export const deserializeAws_queryConfigureHealthCheckCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ConfigureHealthCheckCommandOutput> {
+): Promise<ConfigureHealthCheckCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryConfigureHealthCheckCommandError(
       output,
@@ -1042,12 +1042,12 @@ export async function deserializeAws_queryConfigureHealthCheckCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryConfigureHealthCheckCommandError(
+const deserializeAws_queryConfigureHealthCheckCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ConfigureHealthCheckCommandOutput> {
+): Promise<ConfigureHealthCheckCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1083,12 +1083,12 @@ async function deserializeAws_queryConfigureHealthCheckCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryCreateAppCookieStickinessPolicyCommand(
+export const deserializeAws_queryCreateAppCookieStickinessPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateAppCookieStickinessPolicyCommandOutput> {
+): Promise<CreateAppCookieStickinessPolicyCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryCreateAppCookieStickinessPolicyCommandError(
       output,
@@ -1107,12 +1107,12 @@ export async function deserializeAws_queryCreateAppCookieStickinessPolicyCommand
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryCreateAppCookieStickinessPolicyCommandError(
+const deserializeAws_queryCreateAppCookieStickinessPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateAppCookieStickinessPolicyCommandOutput> {
+): Promise<CreateAppCookieStickinessPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1181,12 +1181,12 @@ async function deserializeAws_queryCreateAppCookieStickinessPolicyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryCreateLBCookieStickinessPolicyCommand(
+export const deserializeAws_queryCreateLBCookieStickinessPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateLBCookieStickinessPolicyCommandOutput> {
+): Promise<CreateLBCookieStickinessPolicyCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryCreateLBCookieStickinessPolicyCommandError(
       output,
@@ -1205,12 +1205,12 @@ export async function deserializeAws_queryCreateLBCookieStickinessPolicyCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryCreateLBCookieStickinessPolicyCommandError(
+const deserializeAws_queryCreateLBCookieStickinessPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateLBCookieStickinessPolicyCommandOutput> {
+): Promise<CreateLBCookieStickinessPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1279,12 +1279,12 @@ async function deserializeAws_queryCreateLBCookieStickinessPolicyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryCreateLoadBalancerCommand(
+export const deserializeAws_queryCreateLoadBalancerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateLoadBalancerCommandOutput> {
+): Promise<CreateLoadBalancerCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryCreateLoadBalancerCommandError(output, context);
   }
@@ -1300,12 +1300,12 @@ export async function deserializeAws_queryCreateLoadBalancerCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryCreateLoadBalancerCommandError(
+const deserializeAws_queryCreateLoadBalancerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateLoadBalancerCommandOutput> {
+): Promise<CreateLoadBalancerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1462,12 +1462,12 @@ async function deserializeAws_queryCreateLoadBalancerCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryCreateLoadBalancerListenersCommand(
+export const deserializeAws_queryCreateLoadBalancerListenersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateLoadBalancerListenersCommandOutput> {
+): Promise<CreateLoadBalancerListenersCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryCreateLoadBalancerListenersCommandError(
       output,
@@ -1486,12 +1486,12 @@ export async function deserializeAws_queryCreateLoadBalancerListenersCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryCreateLoadBalancerListenersCommandError(
+const deserializeAws_queryCreateLoadBalancerListenersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateLoadBalancerListenersCommandOutput> {
+): Promise<CreateLoadBalancerListenersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1571,12 +1571,12 @@ async function deserializeAws_queryCreateLoadBalancerListenersCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryCreateLoadBalancerPolicyCommand(
+export const deserializeAws_queryCreateLoadBalancerPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateLoadBalancerPolicyCommandOutput> {
+): Promise<CreateLoadBalancerPolicyCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryCreateLoadBalancerPolicyCommandError(
       output,
@@ -1595,12 +1595,12 @@ export async function deserializeAws_queryCreateLoadBalancerPolicyCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryCreateLoadBalancerPolicyCommandError(
+const deserializeAws_queryCreateLoadBalancerPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateLoadBalancerPolicyCommandOutput> {
+): Promise<CreateLoadBalancerPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1680,12 +1680,12 @@ async function deserializeAws_queryCreateLoadBalancerPolicyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDeleteLoadBalancerCommand(
+export const deserializeAws_queryDeleteLoadBalancerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteLoadBalancerCommandOutput> {
+): Promise<DeleteLoadBalancerCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDeleteLoadBalancerCommandError(output, context);
   }
@@ -1701,12 +1701,12 @@ export async function deserializeAws_queryDeleteLoadBalancerCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDeleteLoadBalancerCommandError(
+const deserializeAws_queryDeleteLoadBalancerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteLoadBalancerCommandOutput> {
+): Promise<DeleteLoadBalancerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1731,12 +1731,12 @@ async function deserializeAws_queryDeleteLoadBalancerCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDeleteLoadBalancerListenersCommand(
+export const deserializeAws_queryDeleteLoadBalancerListenersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteLoadBalancerListenersCommandOutput> {
+): Promise<DeleteLoadBalancerListenersCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDeleteLoadBalancerListenersCommandError(
       output,
@@ -1755,12 +1755,12 @@ export async function deserializeAws_queryDeleteLoadBalancerListenersCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDeleteLoadBalancerListenersCommandError(
+const deserializeAws_queryDeleteLoadBalancerListenersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteLoadBalancerListenersCommandOutput> {
+): Promise<DeleteLoadBalancerListenersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1796,12 +1796,12 @@ async function deserializeAws_queryDeleteLoadBalancerListenersCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDeleteLoadBalancerPolicyCommand(
+export const deserializeAws_queryDeleteLoadBalancerPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteLoadBalancerPolicyCommandOutput> {
+): Promise<DeleteLoadBalancerPolicyCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDeleteLoadBalancerPolicyCommandError(
       output,
@@ -1820,12 +1820,12 @@ export async function deserializeAws_queryDeleteLoadBalancerPolicyCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDeleteLoadBalancerPolicyCommandError(
+const deserializeAws_queryDeleteLoadBalancerPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteLoadBalancerPolicyCommandOutput> {
+): Promise<DeleteLoadBalancerPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1872,12 +1872,12 @@ async function deserializeAws_queryDeleteLoadBalancerPolicyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDeregisterInstancesFromLoadBalancerCommand(
+export const deserializeAws_queryDeregisterInstancesFromLoadBalancerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeregisterInstancesFromLoadBalancerCommandOutput> {
+): Promise<DeregisterInstancesFromLoadBalancerCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDeregisterInstancesFromLoadBalancerCommandError(
       output,
@@ -1896,12 +1896,12 @@ export async function deserializeAws_queryDeregisterInstancesFromLoadBalancerCom
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDeregisterInstancesFromLoadBalancerCommandError(
+const deserializeAws_queryDeregisterInstancesFromLoadBalancerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeregisterInstancesFromLoadBalancerCommandOutput> {
+): Promise<DeregisterInstancesFromLoadBalancerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1948,12 +1948,12 @@ async function deserializeAws_queryDeregisterInstancesFromLoadBalancerCommandErr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDescribeAccountLimitsCommand(
+export const deserializeAws_queryDescribeAccountLimitsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeAccountLimitsCommandOutput> {
+): Promise<DescribeAccountLimitsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDescribeAccountLimitsCommandError(
       output,
@@ -1972,12 +1972,12 @@ export async function deserializeAws_queryDescribeAccountLimitsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDescribeAccountLimitsCommandError(
+const deserializeAws_queryDescribeAccountLimitsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeAccountLimitsCommandOutput> {
+): Promise<DescribeAccountLimitsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2002,12 +2002,12 @@ async function deserializeAws_queryDescribeAccountLimitsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDescribeInstanceHealthCommand(
+export const deserializeAws_queryDescribeInstanceHealthCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeInstanceHealthCommandOutput> {
+): Promise<DescribeInstanceHealthCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDescribeInstanceHealthCommandError(
       output,
@@ -2026,12 +2026,12 @@ export async function deserializeAws_queryDescribeInstanceHealthCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDescribeInstanceHealthCommandError(
+const deserializeAws_queryDescribeInstanceHealthCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeInstanceHealthCommandOutput> {
+): Promise<DescribeInstanceHealthCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2078,12 +2078,12 @@ async function deserializeAws_queryDescribeInstanceHealthCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDescribeLoadBalancerAttributesCommand(
+export const deserializeAws_queryDescribeLoadBalancerAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeLoadBalancerAttributesCommandOutput> {
+): Promise<DescribeLoadBalancerAttributesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDescribeLoadBalancerAttributesCommandError(
       output,
@@ -2102,12 +2102,12 @@ export async function deserializeAws_queryDescribeLoadBalancerAttributesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDescribeLoadBalancerAttributesCommandError(
+const deserializeAws_queryDescribeLoadBalancerAttributesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeLoadBalancerAttributesCommandOutput> {
+): Promise<DescribeLoadBalancerAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2154,12 +2154,12 @@ async function deserializeAws_queryDescribeLoadBalancerAttributesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDescribeLoadBalancerPoliciesCommand(
+export const deserializeAws_queryDescribeLoadBalancerPoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeLoadBalancerPoliciesCommandOutput> {
+): Promise<DescribeLoadBalancerPoliciesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDescribeLoadBalancerPoliciesCommandError(
       output,
@@ -2178,12 +2178,12 @@ export async function deserializeAws_queryDescribeLoadBalancerPoliciesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDescribeLoadBalancerPoliciesCommandError(
+const deserializeAws_queryDescribeLoadBalancerPoliciesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeLoadBalancerPoliciesCommandOutput> {
+): Promise<DescribeLoadBalancerPoliciesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2230,12 +2230,12 @@ async function deserializeAws_queryDescribeLoadBalancerPoliciesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDescribeLoadBalancerPolicyTypesCommand(
+export const deserializeAws_queryDescribeLoadBalancerPolicyTypesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeLoadBalancerPolicyTypesCommandOutput> {
+): Promise<DescribeLoadBalancerPolicyTypesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDescribeLoadBalancerPolicyTypesCommandError(
       output,
@@ -2254,12 +2254,12 @@ export async function deserializeAws_queryDescribeLoadBalancerPolicyTypesCommand
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDescribeLoadBalancerPolicyTypesCommandError(
+const deserializeAws_queryDescribeLoadBalancerPolicyTypesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeLoadBalancerPolicyTypesCommandOutput> {
+): Promise<DescribeLoadBalancerPolicyTypesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2295,12 +2295,12 @@ async function deserializeAws_queryDescribeLoadBalancerPolicyTypesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDescribeLoadBalancersCommand(
+export const deserializeAws_queryDescribeLoadBalancersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeLoadBalancersCommandOutput> {
+): Promise<DescribeLoadBalancersCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDescribeLoadBalancersCommandError(
       output,
@@ -2319,12 +2319,12 @@ export async function deserializeAws_queryDescribeLoadBalancersCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDescribeLoadBalancersCommandError(
+const deserializeAws_queryDescribeLoadBalancersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeLoadBalancersCommandOutput> {
+): Promise<DescribeLoadBalancersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2371,12 +2371,12 @@ async function deserializeAws_queryDescribeLoadBalancersCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDescribeTagsCommand(
+export const deserializeAws_queryDescribeTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeTagsCommandOutput> {
+): Promise<DescribeTagsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDescribeTagsCommandError(output, context);
   }
@@ -2392,12 +2392,12 @@ export async function deserializeAws_queryDescribeTagsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDescribeTagsCommandError(
+const deserializeAws_queryDescribeTagsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeTagsCommandOutput> {
+): Promise<DescribeTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2433,12 +2433,12 @@ async function deserializeAws_queryDescribeTagsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDetachLoadBalancerFromSubnetsCommand(
+export const deserializeAws_queryDetachLoadBalancerFromSubnetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DetachLoadBalancerFromSubnetsCommandOutput> {
+): Promise<DetachLoadBalancerFromSubnetsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDetachLoadBalancerFromSubnetsCommandError(
       output,
@@ -2457,12 +2457,12 @@ export async function deserializeAws_queryDetachLoadBalancerFromSubnetsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDetachLoadBalancerFromSubnetsCommandError(
+const deserializeAws_queryDetachLoadBalancerFromSubnetsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DetachLoadBalancerFromSubnetsCommandOutput> {
+): Promise<DetachLoadBalancerFromSubnetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2509,12 +2509,12 @@ async function deserializeAws_queryDetachLoadBalancerFromSubnetsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDisableAvailabilityZonesForLoadBalancerCommand(
+export const deserializeAws_queryDisableAvailabilityZonesForLoadBalancerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisableAvailabilityZonesForLoadBalancerCommandOutput> {
+): Promise<DisableAvailabilityZonesForLoadBalancerCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDisableAvailabilityZonesForLoadBalancerCommandError(
       output,
@@ -2533,12 +2533,12 @@ export async function deserializeAws_queryDisableAvailabilityZonesForLoadBalance
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDisableAvailabilityZonesForLoadBalancerCommandError(
+const deserializeAws_queryDisableAvailabilityZonesForLoadBalancerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisableAvailabilityZonesForLoadBalancerCommandOutput> {
+): Promise<DisableAvailabilityZonesForLoadBalancerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2585,12 +2585,12 @@ async function deserializeAws_queryDisableAvailabilityZonesForLoadBalancerComman
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryEnableAvailabilityZonesForLoadBalancerCommand(
+export const deserializeAws_queryEnableAvailabilityZonesForLoadBalancerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<EnableAvailabilityZonesForLoadBalancerCommandOutput> {
+): Promise<EnableAvailabilityZonesForLoadBalancerCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryEnableAvailabilityZonesForLoadBalancerCommandError(
       output,
@@ -2609,12 +2609,12 @@ export async function deserializeAws_queryEnableAvailabilityZonesForLoadBalancer
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryEnableAvailabilityZonesForLoadBalancerCommandError(
+const deserializeAws_queryEnableAvailabilityZonesForLoadBalancerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<EnableAvailabilityZonesForLoadBalancerCommandOutput> {
+): Promise<EnableAvailabilityZonesForLoadBalancerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2650,12 +2650,12 @@ async function deserializeAws_queryEnableAvailabilityZonesForLoadBalancerCommand
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryModifyLoadBalancerAttributesCommand(
+export const deserializeAws_queryModifyLoadBalancerAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ModifyLoadBalancerAttributesCommandOutput> {
+): Promise<ModifyLoadBalancerAttributesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryModifyLoadBalancerAttributesCommandError(
       output,
@@ -2674,12 +2674,12 @@ export async function deserializeAws_queryModifyLoadBalancerAttributesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryModifyLoadBalancerAttributesCommandError(
+const deserializeAws_queryModifyLoadBalancerAttributesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ModifyLoadBalancerAttributesCommandOutput> {
+): Promise<ModifyLoadBalancerAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2737,12 +2737,12 @@ async function deserializeAws_queryModifyLoadBalancerAttributesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryRegisterInstancesWithLoadBalancerCommand(
+export const deserializeAws_queryRegisterInstancesWithLoadBalancerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RegisterInstancesWithLoadBalancerCommandOutput> {
+): Promise<RegisterInstancesWithLoadBalancerCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryRegisterInstancesWithLoadBalancerCommandError(
       output,
@@ -2761,12 +2761,12 @@ export async function deserializeAws_queryRegisterInstancesWithLoadBalancerComma
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryRegisterInstancesWithLoadBalancerCommandError(
+const deserializeAws_queryRegisterInstancesWithLoadBalancerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RegisterInstancesWithLoadBalancerCommandOutput> {
+): Promise<RegisterInstancesWithLoadBalancerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2813,12 +2813,12 @@ async function deserializeAws_queryRegisterInstancesWithLoadBalancerCommandError
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryRemoveTagsCommand(
+export const deserializeAws_queryRemoveTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RemoveTagsCommandOutput> {
+): Promise<RemoveTagsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryRemoveTagsCommandError(output, context);
   }
@@ -2834,12 +2834,12 @@ export async function deserializeAws_queryRemoveTagsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryRemoveTagsCommandError(
+const deserializeAws_queryRemoveTagsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RemoveTagsCommandOutput> {
+): Promise<RemoveTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2875,12 +2875,12 @@ async function deserializeAws_queryRemoveTagsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_querySetLoadBalancerListenerSSLCertificateCommand(
+export const deserializeAws_querySetLoadBalancerListenerSSLCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SetLoadBalancerListenerSSLCertificateCommandOutput> {
+): Promise<SetLoadBalancerListenerSSLCertificateCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_querySetLoadBalancerListenerSSLCertificateCommandError(
       output,
@@ -2899,12 +2899,12 @@ export async function deserializeAws_querySetLoadBalancerListenerSSLCertificateC
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_querySetLoadBalancerListenerSSLCertificateCommandError(
+const deserializeAws_querySetLoadBalancerListenerSSLCertificateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SetLoadBalancerListenerSSLCertificateCommandOutput> {
+): Promise<SetLoadBalancerListenerSSLCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2984,12 +2984,12 @@ async function deserializeAws_querySetLoadBalancerListenerSSLCertificateCommandE
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_querySetLoadBalancerPoliciesForBackendServerCommand(
+export const deserializeAws_querySetLoadBalancerPoliciesForBackendServerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SetLoadBalancerPoliciesForBackendServerCommandOutput> {
+): Promise<SetLoadBalancerPoliciesForBackendServerCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_querySetLoadBalancerPoliciesForBackendServerCommandError(
       output,
@@ -3008,12 +3008,12 @@ export async function deserializeAws_querySetLoadBalancerPoliciesForBackendServe
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_querySetLoadBalancerPoliciesForBackendServerCommandError(
+const deserializeAws_querySetLoadBalancerPoliciesForBackendServerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SetLoadBalancerPoliciesForBackendServerCommandOutput> {
+): Promise<SetLoadBalancerPoliciesForBackendServerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3071,12 +3071,12 @@ async function deserializeAws_querySetLoadBalancerPoliciesForBackendServerComman
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_querySetLoadBalancerPoliciesOfListenerCommand(
+export const deserializeAws_querySetLoadBalancerPoliciesOfListenerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SetLoadBalancerPoliciesOfListenerCommandOutput> {
+): Promise<SetLoadBalancerPoliciesOfListenerCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_querySetLoadBalancerPoliciesOfListenerCommandError(
       output,
@@ -3095,12 +3095,12 @@ export async function deserializeAws_querySetLoadBalancerPoliciesOfListenerComma
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_querySetLoadBalancerPoliciesOfListenerCommandError(
+const deserializeAws_querySetLoadBalancerPoliciesOfListenerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SetLoadBalancerPoliciesOfListenerCommandOutput> {
+): Promise<SetLoadBalancerPoliciesOfListenerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3169,7 +3169,7 @@ async function deserializeAws_querySetLoadBalancerPoliciesOfListenerCommandError
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_queryAccessPointNotFoundExceptionResponse = async (
   parsedOutput: any,

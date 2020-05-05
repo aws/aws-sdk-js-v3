@@ -326,10 +326,10 @@ import {
 } from "@aws-sdk/xml-builder";
 import { parse as xmlParse } from "fast-xml-parser";
 
-export async function serializeAws_restXmlAssociateVPCWithHostedZoneCommand(
+export const serializeAws_restXmlAssociateVPCWithHostedZoneCommand = async (
   input: AssociateVPCWithHostedZoneCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2013-04-01/hostedzone/{HostedZoneId}/associatevpc";
@@ -375,12 +375,12 @@ export async function serializeAws_restXmlAssociateVPCWithHostedZoneCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlChangeResourceRecordSetsCommand(
+export const serializeAws_restXmlChangeResourceRecordSetsCommand = async (
   input: ChangeResourceRecordSetsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2013-04-01/hostedzone/{HostedZoneId}/rrset";
@@ -423,12 +423,12 @@ export async function serializeAws_restXmlChangeResourceRecordSetsCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlChangeTagsForResourceCommand(
+export const serializeAws_restXmlChangeTagsForResourceCommand = async (
   input: ChangeTagsForResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2013-04-01/tags/{ResourceType}/{ResourceId}";
@@ -492,12 +492,12 @@ export async function serializeAws_restXmlChangeTagsForResourceCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlCreateHealthCheckCommand(
+export const serializeAws_restXmlCreateHealthCheckCommand = async (
   input: CreateHealthCheckCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2013-04-01/healthcheck";
@@ -532,12 +532,12 @@ export async function serializeAws_restXmlCreateHealthCheckCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlCreateHostedZoneCommand(
+export const serializeAws_restXmlCreateHostedZoneCommand = async (
   input: CreateHostedZoneCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2013-04-01/hostedzone";
@@ -588,12 +588,12 @@ export async function serializeAws_restXmlCreateHostedZoneCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlCreateQueryLoggingConfigCommand(
+export const serializeAws_restXmlCreateQueryLoggingConfigCommand = async (
   input: CreateQueryLoggingConfigCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2013-04-01/queryloggingconfig";
@@ -627,12 +627,12 @@ export async function serializeAws_restXmlCreateQueryLoggingConfigCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlCreateReusableDelegationSetCommand(
+export const serializeAws_restXmlCreateReusableDelegationSetCommand = async (
   input: CreateReusableDelegationSetCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2013-04-01/delegationset";
@@ -666,12 +666,12 @@ export async function serializeAws_restXmlCreateReusableDelegationSetCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlCreateTrafficPolicyCommand(
+export const serializeAws_restXmlCreateTrafficPolicyCommand = async (
   input: CreateTrafficPolicyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2013-04-01/trafficpolicy";
@@ -711,12 +711,12 @@ export async function serializeAws_restXmlCreateTrafficPolicyCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlCreateTrafficPolicyInstanceCommand(
+export const serializeAws_restXmlCreateTrafficPolicyInstanceCommand = async (
   input: CreateTrafficPolicyInstanceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2013-04-01/trafficpolicyinstance";
@@ -768,12 +768,12 @@ export async function serializeAws_restXmlCreateTrafficPolicyInstanceCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlCreateTrafficPolicyVersionCommand(
+export const serializeAws_restXmlCreateTrafficPolicyVersionCommand = async (
   input: CreateTrafficPolicyVersionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2013-04-01/trafficpolicy/{Id}";
@@ -819,12 +819,12 @@ export async function serializeAws_restXmlCreateTrafficPolicyVersionCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlCreateVPCAssociationAuthorizationCommand(
+export const serializeAws_restXmlCreateVPCAssociationAuthorizationCommand = async (
   input: CreateVPCAssociationAuthorizationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   let resolvedPath =
@@ -865,12 +865,12 @@ export async function serializeAws_restXmlCreateVPCAssociationAuthorizationComma
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlDeleteHealthCheckCommand(
+export const serializeAws_restXmlDeleteHealthCheckCommand = async (
   input: DeleteHealthCheckCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/healthcheck/{HealthCheckId}";
@@ -899,12 +899,12 @@ export async function serializeAws_restXmlDeleteHealthCheckCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlDeleteHostedZoneCommand(
+export const serializeAws_restXmlDeleteHostedZoneCommand = async (
   input: DeleteHostedZoneCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/hostedzone/{Id}";
@@ -931,12 +931,12 @@ export async function serializeAws_restXmlDeleteHostedZoneCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlDeleteQueryLoggingConfigCommand(
+export const serializeAws_restXmlDeleteQueryLoggingConfigCommand = async (
   input: DeleteQueryLoggingConfigCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/queryloggingconfig/{Id}";
@@ -963,12 +963,12 @@ export async function serializeAws_restXmlDeleteQueryLoggingConfigCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlDeleteReusableDelegationSetCommand(
+export const serializeAws_restXmlDeleteReusableDelegationSetCommand = async (
   input: DeleteReusableDelegationSetCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/delegationset/{Id}";
@@ -995,12 +995,12 @@ export async function serializeAws_restXmlDeleteReusableDelegationSetCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlDeleteTrafficPolicyCommand(
+export const serializeAws_restXmlDeleteTrafficPolicyCommand = async (
   input: DeleteTrafficPolicyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/trafficpolicy/{Id}/{Version}";
@@ -1039,12 +1039,12 @@ export async function serializeAws_restXmlDeleteTrafficPolicyCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlDeleteTrafficPolicyInstanceCommand(
+export const serializeAws_restXmlDeleteTrafficPolicyInstanceCommand = async (
   input: DeleteTrafficPolicyInstanceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/trafficpolicyinstance/{Id}";
@@ -1071,12 +1071,12 @@ export async function serializeAws_restXmlDeleteTrafficPolicyInstanceCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlDeleteVPCAssociationAuthorizationCommand(
+export const serializeAws_restXmlDeleteVPCAssociationAuthorizationCommand = async (
   input: DeleteVPCAssociationAuthorizationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   let resolvedPath =
@@ -1117,12 +1117,12 @@ export async function serializeAws_restXmlDeleteVPCAssociationAuthorizationComma
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlDisassociateVPCFromHostedZoneCommand(
+export const serializeAws_restXmlDisassociateVPCFromHostedZoneCommand = async (
   input: DisassociateVPCFromHostedZoneCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2013-04-01/hostedzone/{HostedZoneId}/disassociatevpc";
@@ -1168,12 +1168,12 @@ export async function serializeAws_restXmlDisassociateVPCFromHostedZoneCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetAccountLimitCommand(
+export const serializeAws_restXmlGetAccountLimitCommand = async (
   input: GetAccountLimitCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/accountlimit/{Type}";
@@ -1200,12 +1200,12 @@ export async function serializeAws_restXmlGetAccountLimitCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetChangeCommand(
+export const serializeAws_restXmlGetChangeCommand = async (
   input: GetChangeCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/change/{Id}";
@@ -1232,12 +1232,12 @@ export async function serializeAws_restXmlGetChangeCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetCheckerIpRangesCommand(
+export const serializeAws_restXmlGetCheckerIpRangesCommand = async (
   input: GetCheckerIpRangesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/checkeripranges";
@@ -1253,12 +1253,12 @@ export async function serializeAws_restXmlGetCheckerIpRangesCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetGeoLocationCommand(
+export const serializeAws_restXmlGetGeoLocationCommand = async (
   input: GetGeoLocationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/geolocation";
@@ -1284,12 +1284,12 @@ export async function serializeAws_restXmlGetGeoLocationCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetHealthCheckCommand(
+export const serializeAws_restXmlGetHealthCheckCommand = async (
   input: GetHealthCheckCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/healthcheck/{HealthCheckId}";
@@ -1318,12 +1318,12 @@ export async function serializeAws_restXmlGetHealthCheckCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetHealthCheckCountCommand(
+export const serializeAws_restXmlGetHealthCheckCountCommand = async (
   input: GetHealthCheckCountCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/healthcheckcount";
@@ -1339,12 +1339,12 @@ export async function serializeAws_restXmlGetHealthCheckCountCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetHealthCheckLastFailureReasonCommand(
+export const serializeAws_restXmlGetHealthCheckLastFailureReasonCommand = async (
   input: GetHealthCheckLastFailureReasonCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath =
@@ -1374,12 +1374,12 @@ export async function serializeAws_restXmlGetHealthCheckLastFailureReasonCommand
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetHealthCheckStatusCommand(
+export const serializeAws_restXmlGetHealthCheckStatusCommand = async (
   input: GetHealthCheckStatusCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/healthcheck/{HealthCheckId}/status";
@@ -1408,12 +1408,12 @@ export async function serializeAws_restXmlGetHealthCheckStatusCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetHostedZoneCommand(
+export const serializeAws_restXmlGetHostedZoneCommand = async (
   input: GetHostedZoneCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/hostedzone/{Id}";
@@ -1440,12 +1440,12 @@ export async function serializeAws_restXmlGetHostedZoneCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetHostedZoneCountCommand(
+export const serializeAws_restXmlGetHostedZoneCountCommand = async (
   input: GetHostedZoneCountCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/hostedzonecount";
@@ -1461,12 +1461,12 @@ export async function serializeAws_restXmlGetHostedZoneCountCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetHostedZoneLimitCommand(
+export const serializeAws_restXmlGetHostedZoneLimitCommand = async (
   input: GetHostedZoneLimitCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/hostedzonelimit/{HostedZoneId}/{Type}";
@@ -1507,12 +1507,12 @@ export async function serializeAws_restXmlGetHostedZoneLimitCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetQueryLoggingConfigCommand(
+export const serializeAws_restXmlGetQueryLoggingConfigCommand = async (
   input: GetQueryLoggingConfigCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/queryloggingconfig/{Id}";
@@ -1539,12 +1539,12 @@ export async function serializeAws_restXmlGetQueryLoggingConfigCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetReusableDelegationSetCommand(
+export const serializeAws_restXmlGetReusableDelegationSetCommand = async (
   input: GetReusableDelegationSetCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/delegationset/{Id}";
@@ -1571,12 +1571,12 @@ export async function serializeAws_restXmlGetReusableDelegationSetCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetReusableDelegationSetLimitCommand(
+export const serializeAws_restXmlGetReusableDelegationSetLimitCommand = async (
   input: GetReusableDelegationSetLimitCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath =
@@ -1618,12 +1618,12 @@ export async function serializeAws_restXmlGetReusableDelegationSetLimitCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetTrafficPolicyCommand(
+export const serializeAws_restXmlGetTrafficPolicyCommand = async (
   input: GetTrafficPolicyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/trafficpolicy/{Id}/{Version}";
@@ -1662,12 +1662,12 @@ export async function serializeAws_restXmlGetTrafficPolicyCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetTrafficPolicyInstanceCommand(
+export const serializeAws_restXmlGetTrafficPolicyInstanceCommand = async (
   input: GetTrafficPolicyInstanceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/trafficpolicyinstance/{Id}";
@@ -1694,12 +1694,12 @@ export async function serializeAws_restXmlGetTrafficPolicyInstanceCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetTrafficPolicyInstanceCountCommand(
+export const serializeAws_restXmlGetTrafficPolicyInstanceCountCommand = async (
   input: GetTrafficPolicyInstanceCountCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/trafficpolicyinstancecount";
@@ -1715,12 +1715,12 @@ export async function serializeAws_restXmlGetTrafficPolicyInstanceCountCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlListGeoLocationsCommand(
+export const serializeAws_restXmlListGeoLocationsCommand = async (
   input: ListGeoLocationsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/geolocations";
@@ -1749,12 +1749,12 @@ export async function serializeAws_restXmlListGeoLocationsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlListHealthChecksCommand(
+export const serializeAws_restXmlListHealthChecksCommand = async (
   input: ListHealthChecksCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/healthcheck";
@@ -1777,12 +1777,12 @@ export async function serializeAws_restXmlListHealthChecksCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlListHostedZonesCommand(
+export const serializeAws_restXmlListHostedZonesCommand = async (
   input: ListHostedZonesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/hostedzone";
@@ -1808,12 +1808,12 @@ export async function serializeAws_restXmlListHostedZonesCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlListHostedZonesByNameCommand(
+export const serializeAws_restXmlListHostedZonesByNameCommand = async (
   input: ListHostedZonesByNameCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/hostedzonesbyname";
@@ -1839,12 +1839,12 @@ export async function serializeAws_restXmlListHostedZonesByNameCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlListQueryLoggingConfigsCommand(
+export const serializeAws_restXmlListQueryLoggingConfigsCommand = async (
   input: ListQueryLoggingConfigsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/queryloggingconfig";
@@ -1870,12 +1870,12 @@ export async function serializeAws_restXmlListQueryLoggingConfigsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlListResourceRecordSetsCommand(
+export const serializeAws_restXmlListResourceRecordSetsCommand = async (
   input: ListResourceRecordSetsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/hostedzone/{HostedZoneId}/rrset";
@@ -1918,12 +1918,12 @@ export async function serializeAws_restXmlListResourceRecordSetsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlListReusableDelegationSetsCommand(
+export const serializeAws_restXmlListReusableDelegationSetsCommand = async (
   input: ListReusableDelegationSetsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/delegationset";
@@ -1946,12 +1946,12 @@ export async function serializeAws_restXmlListReusableDelegationSetsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlListTagsForResourceCommand(
+export const serializeAws_restXmlListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/tags/{ResourceType}/{ResourceId}";
@@ -1992,12 +1992,12 @@ export async function serializeAws_restXmlListTagsForResourceCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlListTagsForResourcesCommand(
+export const serializeAws_restXmlListTagsForResourcesCommand = async (
   input: ListTagsForResourcesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2013-04-01/tags/{ResourceType}";
@@ -2044,12 +2044,12 @@ export async function serializeAws_restXmlListTagsForResourcesCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlListTrafficPoliciesCommand(
+export const serializeAws_restXmlListTrafficPoliciesCommand = async (
   input: ListTrafficPoliciesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/trafficpolicies";
@@ -2072,12 +2072,12 @@ export async function serializeAws_restXmlListTrafficPoliciesCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlListTrafficPolicyInstancesCommand(
+export const serializeAws_restXmlListTrafficPolicyInstancesCommand = async (
   input: ListTrafficPolicyInstancesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/trafficpolicyinstances";
@@ -2106,12 +2106,12 @@ export async function serializeAws_restXmlListTrafficPolicyInstancesCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlListTrafficPolicyInstancesByHostedZoneCommand(
+export const serializeAws_restXmlListTrafficPolicyInstancesByHostedZoneCommand = async (
   input: ListTrafficPolicyInstancesByHostedZoneCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/trafficpolicyinstances/hostedzone";
@@ -2140,12 +2140,12 @@ export async function serializeAws_restXmlListTrafficPolicyInstancesByHostedZone
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlListTrafficPolicyInstancesByPolicyCommand(
+export const serializeAws_restXmlListTrafficPolicyInstancesByPolicyCommand = async (
   input: ListTrafficPolicyInstancesByPolicyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/trafficpolicyinstances/trafficpolicy";
@@ -2180,12 +2180,12 @@ export async function serializeAws_restXmlListTrafficPolicyInstancesByPolicyComm
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlListTrafficPolicyVersionsCommand(
+export const serializeAws_restXmlListTrafficPolicyVersionsCommand = async (
   input: ListTrafficPolicyVersionsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/trafficpolicies/{Id}/versions";
@@ -2220,12 +2220,12 @@ export async function serializeAws_restXmlListTrafficPolicyVersionsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlListVPCAssociationAuthorizationsCommand(
+export const serializeAws_restXmlListVPCAssociationAuthorizationsCommand = async (
   input: ListVPCAssociationAuthorizationsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath =
@@ -2263,12 +2263,12 @@ export async function serializeAws_restXmlListVPCAssociationAuthorizationsComman
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlTestDNSAnswerCommand(
+export const serializeAws_restXmlTestDNSAnswerCommand = async (
   input: TestDNSAnswerCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/testdnsanswer";
@@ -2303,12 +2303,12 @@ export async function serializeAws_restXmlTestDNSAnswerCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlUpdateHealthCheckCommand(
+export const serializeAws_restXmlUpdateHealthCheckCommand = async (
   input: UpdateHealthCheckCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2013-04-01/healthcheck/{HealthCheckId}";
@@ -2456,12 +2456,12 @@ export async function serializeAws_restXmlUpdateHealthCheckCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlUpdateHostedZoneCommentCommand(
+export const serializeAws_restXmlUpdateHostedZoneCommentCommand = async (
   input: UpdateHostedZoneCommentCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2013-04-01/hostedzone/{Id}";
@@ -2501,12 +2501,12 @@ export async function serializeAws_restXmlUpdateHostedZoneCommentCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlUpdateTrafficPolicyCommentCommand(
+export const serializeAws_restXmlUpdateTrafficPolicyCommentCommand = async (
   input: UpdateTrafficPolicyCommentCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2013-04-01/trafficpolicy/{Id}/{Version}";
@@ -2558,12 +2558,12 @@ export async function serializeAws_restXmlUpdateTrafficPolicyCommentCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlUpdateTrafficPolicyInstanceCommand(
+export const serializeAws_restXmlUpdateTrafficPolicyInstanceCommand = async (
   input: UpdateTrafficPolicyInstanceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2013-04-01/trafficpolicyinstance/{Id}";
@@ -2615,12 +2615,12 @@ export async function serializeAws_restXmlUpdateTrafficPolicyInstanceCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function deserializeAws_restXmlAssociateVPCWithHostedZoneCommand(
+export const deserializeAws_restXmlAssociateVPCWithHostedZoneCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AssociateVPCWithHostedZoneCommandOutput> {
+): Promise<AssociateVPCWithHostedZoneCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlAssociateVPCWithHostedZoneCommandError(
       output,
@@ -2640,12 +2640,12 @@ export async function deserializeAws_restXmlAssociateVPCWithHostedZoneCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlAssociateVPCWithHostedZoneCommandError(
+const deserializeAws_restXmlAssociateVPCWithHostedZoneCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AssociateVPCWithHostedZoneCommandOutput> {
+): Promise<AssociateVPCWithHostedZoneCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2747,12 +2747,12 @@ async function deserializeAws_restXmlAssociateVPCWithHostedZoneCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlChangeResourceRecordSetsCommand(
+export const deserializeAws_restXmlChangeResourceRecordSetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ChangeResourceRecordSetsCommandOutput> {
+): Promise<ChangeResourceRecordSetsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlChangeResourceRecordSetsCommandError(
       output,
@@ -2772,12 +2772,12 @@ export async function deserializeAws_restXmlChangeResourceRecordSetsCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlChangeResourceRecordSetsCommandError(
+const deserializeAws_restXmlChangeResourceRecordSetsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ChangeResourceRecordSetsCommandOutput> {
+): Promise<ChangeResourceRecordSetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2857,12 +2857,12 @@ async function deserializeAws_restXmlChangeResourceRecordSetsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlChangeTagsForResourceCommand(
+export const deserializeAws_restXmlChangeTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ChangeTagsForResourceCommandOutput> {
+): Promise<ChangeTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlChangeTagsForResourceCommandError(
       output,
@@ -2875,12 +2875,12 @@ export async function deserializeAws_restXmlChangeTagsForResourceCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlChangeTagsForResourceCommandError(
+const deserializeAws_restXmlChangeTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ChangeTagsForResourceCommandOutput> {
+): Promise<ChangeTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2960,12 +2960,12 @@ async function deserializeAws_restXmlChangeTagsForResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlCreateHealthCheckCommand(
+export const deserializeAws_restXmlCreateHealthCheckCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateHealthCheckCommandOutput> {
+): Promise<CreateHealthCheckCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restXmlCreateHealthCheckCommandError(output, context);
   }
@@ -2986,12 +2986,12 @@ export async function deserializeAws_restXmlCreateHealthCheckCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlCreateHealthCheckCommandError(
+const deserializeAws_restXmlCreateHealthCheckCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateHealthCheckCommandOutput> {
+): Promise<CreateHealthCheckCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3049,12 +3049,12 @@ async function deserializeAws_restXmlCreateHealthCheckCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlCreateHostedZoneCommand(
+export const deserializeAws_restXmlCreateHostedZoneCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateHostedZoneCommandOutput> {
+): Promise<CreateHostedZoneCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restXmlCreateHostedZoneCommandError(output, context);
   }
@@ -3093,12 +3093,12 @@ export async function deserializeAws_restXmlCreateHostedZoneCommand(
     contents.VPC = deserializeAws_restXmlVPC(data["VPC"], context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlCreateHostedZoneCommandError(
+const deserializeAws_restXmlCreateHostedZoneCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateHostedZoneCommandOutput> {
+): Promise<CreateHostedZoneCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3222,12 +3222,12 @@ async function deserializeAws_restXmlCreateHostedZoneCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlCreateQueryLoggingConfigCommand(
+export const deserializeAws_restXmlCreateQueryLoggingConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateQueryLoggingConfigCommandOutput> {
+): Promise<CreateQueryLoggingConfigCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restXmlCreateQueryLoggingConfigCommandError(
       output,
@@ -3251,12 +3251,12 @@ export async function deserializeAws_restXmlCreateQueryLoggingConfigCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlCreateQueryLoggingConfigCommandError(
+const deserializeAws_restXmlCreateQueryLoggingConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateQueryLoggingConfigCommandOutput> {
+): Promise<CreateQueryLoggingConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3347,12 +3347,12 @@ async function deserializeAws_restXmlCreateQueryLoggingConfigCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlCreateReusableDelegationSetCommand(
+export const deserializeAws_restXmlCreateReusableDelegationSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateReusableDelegationSetCommandOutput> {
+): Promise<CreateReusableDelegationSetCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restXmlCreateReusableDelegationSetCommandError(
       output,
@@ -3376,12 +3376,12 @@ export async function deserializeAws_restXmlCreateReusableDelegationSetCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlCreateReusableDelegationSetCommandError(
+const deserializeAws_restXmlCreateReusableDelegationSetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateReusableDelegationSetCommandOutput> {
+): Promise<CreateReusableDelegationSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3483,12 +3483,12 @@ async function deserializeAws_restXmlCreateReusableDelegationSetCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlCreateTrafficPolicyCommand(
+export const deserializeAws_restXmlCreateTrafficPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateTrafficPolicyCommandOutput> {
+): Promise<CreateTrafficPolicyCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restXmlCreateTrafficPolicyCommandError(
       output,
@@ -3512,12 +3512,12 @@ export async function deserializeAws_restXmlCreateTrafficPolicyCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlCreateTrafficPolicyCommandError(
+const deserializeAws_restXmlCreateTrafficPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateTrafficPolicyCommandOutput> {
+): Promise<CreateTrafficPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3586,12 +3586,12 @@ async function deserializeAws_restXmlCreateTrafficPolicyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlCreateTrafficPolicyInstanceCommand(
+export const deserializeAws_restXmlCreateTrafficPolicyInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateTrafficPolicyInstanceCommandOutput> {
+): Promise<CreateTrafficPolicyInstanceCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restXmlCreateTrafficPolicyInstanceCommandError(
       output,
@@ -3615,12 +3615,12 @@ export async function deserializeAws_restXmlCreateTrafficPolicyInstanceCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlCreateTrafficPolicyInstanceCommandError(
+const deserializeAws_restXmlCreateTrafficPolicyInstanceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateTrafficPolicyInstanceCommandOutput> {
+): Promise<CreateTrafficPolicyInstanceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3700,12 +3700,12 @@ async function deserializeAws_restXmlCreateTrafficPolicyInstanceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlCreateTrafficPolicyVersionCommand(
+export const deserializeAws_restXmlCreateTrafficPolicyVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateTrafficPolicyVersionCommandOutput> {
+): Promise<CreateTrafficPolicyVersionCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restXmlCreateTrafficPolicyVersionCommandError(
       output,
@@ -3729,12 +3729,12 @@ export async function deserializeAws_restXmlCreateTrafficPolicyVersionCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlCreateTrafficPolicyVersionCommandError(
+const deserializeAws_restXmlCreateTrafficPolicyVersionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateTrafficPolicyVersionCommandOutput> {
+): Promise<CreateTrafficPolicyVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3814,12 +3814,12 @@ async function deserializeAws_restXmlCreateTrafficPolicyVersionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlCreateVPCAssociationAuthorizationCommand(
+export const deserializeAws_restXmlCreateVPCAssociationAuthorizationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateVPCAssociationAuthorizationCommandOutput> {
+): Promise<CreateVPCAssociationAuthorizationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlCreateVPCAssociationAuthorizationCommandError(
       output,
@@ -3843,12 +3843,12 @@ export async function deserializeAws_restXmlCreateVPCAssociationAuthorizationCom
     contents.VPC = deserializeAws_restXmlVPC(data["VPC"], context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlCreateVPCAssociationAuthorizationCommandError(
+const deserializeAws_restXmlCreateVPCAssociationAuthorizationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateVPCAssociationAuthorizationCommandOutput> {
+): Promise<CreateVPCAssociationAuthorizationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3928,12 +3928,12 @@ async function deserializeAws_restXmlCreateVPCAssociationAuthorizationCommandErr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlDeleteHealthCheckCommand(
+export const deserializeAws_restXmlDeleteHealthCheckCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteHealthCheckCommandOutput> {
+): Promise<DeleteHealthCheckCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlDeleteHealthCheckCommandError(output, context);
   }
@@ -3943,12 +3943,12 @@ export async function deserializeAws_restXmlDeleteHealthCheckCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlDeleteHealthCheckCommandError(
+const deserializeAws_restXmlDeleteHealthCheckCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteHealthCheckCommandOutput> {
+): Promise<DeleteHealthCheckCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4006,12 +4006,12 @@ async function deserializeAws_restXmlDeleteHealthCheckCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlDeleteHostedZoneCommand(
+export const deserializeAws_restXmlDeleteHostedZoneCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteHostedZoneCommandOutput> {
+): Promise<DeleteHostedZoneCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlDeleteHostedZoneCommandError(output, context);
   }
@@ -4028,12 +4028,12 @@ export async function deserializeAws_restXmlDeleteHostedZoneCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlDeleteHostedZoneCommandError(
+const deserializeAws_restXmlDeleteHostedZoneCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteHostedZoneCommandOutput> {
+): Promise<DeleteHostedZoneCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4113,12 +4113,12 @@ async function deserializeAws_restXmlDeleteHostedZoneCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlDeleteQueryLoggingConfigCommand(
+export const deserializeAws_restXmlDeleteQueryLoggingConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteQueryLoggingConfigCommandOutput> {
+): Promise<DeleteQueryLoggingConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlDeleteQueryLoggingConfigCommandError(
       output,
@@ -4131,12 +4131,12 @@ export async function deserializeAws_restXmlDeleteQueryLoggingConfigCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlDeleteQueryLoggingConfigCommandError(
+const deserializeAws_restXmlDeleteQueryLoggingConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteQueryLoggingConfigCommandOutput> {
+): Promise<DeleteQueryLoggingConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4194,12 +4194,12 @@ async function deserializeAws_restXmlDeleteQueryLoggingConfigCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlDeleteReusableDelegationSetCommand(
+export const deserializeAws_restXmlDeleteReusableDelegationSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteReusableDelegationSetCommandOutput> {
+): Promise<DeleteReusableDelegationSetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlDeleteReusableDelegationSetCommandError(
       output,
@@ -4212,12 +4212,12 @@ export async function deserializeAws_restXmlDeleteReusableDelegationSetCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlDeleteReusableDelegationSetCommandError(
+const deserializeAws_restXmlDeleteReusableDelegationSetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteReusableDelegationSetCommandOutput> {
+): Promise<DeleteReusableDelegationSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4286,12 +4286,12 @@ async function deserializeAws_restXmlDeleteReusableDelegationSetCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlDeleteTrafficPolicyCommand(
+export const deserializeAws_restXmlDeleteTrafficPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteTrafficPolicyCommandOutput> {
+): Promise<DeleteTrafficPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlDeleteTrafficPolicyCommandError(
       output,
@@ -4304,12 +4304,12 @@ export async function deserializeAws_restXmlDeleteTrafficPolicyCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlDeleteTrafficPolicyCommandError(
+const deserializeAws_restXmlDeleteTrafficPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteTrafficPolicyCommandOutput> {
+): Promise<DeleteTrafficPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4378,12 +4378,12 @@ async function deserializeAws_restXmlDeleteTrafficPolicyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlDeleteTrafficPolicyInstanceCommand(
+export const deserializeAws_restXmlDeleteTrafficPolicyInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteTrafficPolicyInstanceCommandOutput> {
+): Promise<DeleteTrafficPolicyInstanceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlDeleteTrafficPolicyInstanceCommandError(
       output,
@@ -4396,12 +4396,12 @@ export async function deserializeAws_restXmlDeleteTrafficPolicyInstanceCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlDeleteTrafficPolicyInstanceCommandError(
+const deserializeAws_restXmlDeleteTrafficPolicyInstanceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteTrafficPolicyInstanceCommandOutput> {
+): Promise<DeleteTrafficPolicyInstanceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4459,12 +4459,12 @@ async function deserializeAws_restXmlDeleteTrafficPolicyInstanceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlDeleteVPCAssociationAuthorizationCommand(
+export const deserializeAws_restXmlDeleteVPCAssociationAuthorizationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteVPCAssociationAuthorizationCommandOutput> {
+): Promise<DeleteVPCAssociationAuthorizationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlDeleteVPCAssociationAuthorizationCommandError(
       output,
@@ -4477,12 +4477,12 @@ export async function deserializeAws_restXmlDeleteVPCAssociationAuthorizationCom
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlDeleteVPCAssociationAuthorizationCommandError(
+const deserializeAws_restXmlDeleteVPCAssociationAuthorizationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteVPCAssociationAuthorizationCommandOutput> {
+): Promise<DeleteVPCAssociationAuthorizationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4562,12 +4562,12 @@ async function deserializeAws_restXmlDeleteVPCAssociationAuthorizationCommandErr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlDisassociateVPCFromHostedZoneCommand(
+export const deserializeAws_restXmlDisassociateVPCFromHostedZoneCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisassociateVPCFromHostedZoneCommandOutput> {
+): Promise<DisassociateVPCFromHostedZoneCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlDisassociateVPCFromHostedZoneCommandError(
       output,
@@ -4587,12 +4587,12 @@ export async function deserializeAws_restXmlDisassociateVPCFromHostedZoneCommand
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlDisassociateVPCFromHostedZoneCommandError(
+const deserializeAws_restXmlDisassociateVPCFromHostedZoneCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisassociateVPCFromHostedZoneCommandOutput> {
+): Promise<DisassociateVPCFromHostedZoneCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4672,12 +4672,12 @@ async function deserializeAws_restXmlDisassociateVPCFromHostedZoneCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetAccountLimitCommand(
+export const deserializeAws_restXmlGetAccountLimitCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetAccountLimitCommandOutput> {
+): Promise<GetAccountLimitCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetAccountLimitCommandError(output, context);
   }
@@ -4699,12 +4699,12 @@ export async function deserializeAws_restXmlGetAccountLimitCommand(
     contents.Limit = deserializeAws_restXmlAccountLimit(data["Limit"], context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetAccountLimitCommandError(
+const deserializeAws_restXmlGetAccountLimitCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetAccountLimitCommandOutput> {
+): Promise<GetAccountLimitCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4740,12 +4740,12 @@ async function deserializeAws_restXmlGetAccountLimitCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetChangeCommand(
+export const deserializeAws_restXmlGetChangeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetChangeCommandOutput> {
+): Promise<GetChangeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetChangeCommandError(output, context);
   }
@@ -4762,12 +4762,12 @@ export async function deserializeAws_restXmlGetChangeCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetChangeCommandError(
+const deserializeAws_restXmlGetChangeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetChangeCommandOutput> {
+): Promise<GetChangeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4814,12 +4814,12 @@ async function deserializeAws_restXmlGetChangeCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetCheckerIpRangesCommand(
+export const deserializeAws_restXmlGetCheckerIpRangesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetCheckerIpRangesCommandOutput> {
+): Promise<GetCheckerIpRangesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetCheckerIpRangesCommandError(
       output,
@@ -4849,12 +4849,12 @@ export async function deserializeAws_restXmlGetCheckerIpRangesCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetCheckerIpRangesCommandError(
+const deserializeAws_restXmlGetCheckerIpRangesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetCheckerIpRangesCommandOutput> {
+): Promise<GetCheckerIpRangesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4879,12 +4879,12 @@ async function deserializeAws_restXmlGetCheckerIpRangesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetGeoLocationCommand(
+export const deserializeAws_restXmlGetGeoLocationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetGeoLocationCommandOutput> {
+): Promise<GetGeoLocationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetGeoLocationCommandError(output, context);
   }
@@ -4901,12 +4901,12 @@ export async function deserializeAws_restXmlGetGeoLocationCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetGeoLocationCommandError(
+const deserializeAws_restXmlGetGeoLocationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetGeoLocationCommandOutput> {
+): Promise<GetGeoLocationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4953,12 +4953,12 @@ async function deserializeAws_restXmlGetGeoLocationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetHealthCheckCommand(
+export const deserializeAws_restXmlGetHealthCheckCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetHealthCheckCommandOutput> {
+): Promise<GetHealthCheckCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetHealthCheckCommandError(output, context);
   }
@@ -4975,12 +4975,12 @@ export async function deserializeAws_restXmlGetHealthCheckCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetHealthCheckCommandError(
+const deserializeAws_restXmlGetHealthCheckCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetHealthCheckCommandOutput> {
+): Promise<GetHealthCheckCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5038,12 +5038,12 @@ async function deserializeAws_restXmlGetHealthCheckCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetHealthCheckCountCommand(
+export const deserializeAws_restXmlGetHealthCheckCountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetHealthCheckCountCommandOutput> {
+): Promise<GetHealthCheckCountCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetHealthCheckCountCommandError(
       output,
@@ -5064,12 +5064,12 @@ export async function deserializeAws_restXmlGetHealthCheckCountCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetHealthCheckCountCommandError(
+const deserializeAws_restXmlGetHealthCheckCountCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetHealthCheckCountCommandOutput> {
+): Promise<GetHealthCheckCountCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5094,12 +5094,12 @@ async function deserializeAws_restXmlGetHealthCheckCountCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetHealthCheckLastFailureReasonCommand(
+export const deserializeAws_restXmlGetHealthCheckLastFailureReasonCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetHealthCheckLastFailureReasonCommandOutput> {
+): Promise<GetHealthCheckLastFailureReasonCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetHealthCheckLastFailureReasonCommandError(
       output,
@@ -5129,12 +5129,12 @@ export async function deserializeAws_restXmlGetHealthCheckLastFailureReasonComma
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetHealthCheckLastFailureReasonCommandError(
+const deserializeAws_restXmlGetHealthCheckLastFailureReasonCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetHealthCheckLastFailureReasonCommandOutput> {
+): Promise<GetHealthCheckLastFailureReasonCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5181,12 +5181,12 @@ async function deserializeAws_restXmlGetHealthCheckLastFailureReasonCommandError
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetHealthCheckStatusCommand(
+export const deserializeAws_restXmlGetHealthCheckStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetHealthCheckStatusCommandOutput> {
+): Promise<GetHealthCheckStatusCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetHealthCheckStatusCommandError(
       output,
@@ -5216,12 +5216,12 @@ export async function deserializeAws_restXmlGetHealthCheckStatusCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetHealthCheckStatusCommandError(
+const deserializeAws_restXmlGetHealthCheckStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetHealthCheckStatusCommandOutput> {
+): Promise<GetHealthCheckStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5268,12 +5268,12 @@ async function deserializeAws_restXmlGetHealthCheckStatusCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetHostedZoneCommand(
+export const deserializeAws_restXmlGetHostedZoneCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetHostedZoneCommandOutput> {
+): Promise<GetHostedZoneCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetHostedZoneCommandError(output, context);
   }
@@ -5308,12 +5308,12 @@ export async function deserializeAws_restXmlGetHostedZoneCommand(
     contents.VPCs = deserializeAws_restXmlVPCs(wrappedItem, context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetHostedZoneCommandError(
+const deserializeAws_restXmlGetHostedZoneCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetHostedZoneCommandOutput> {
+): Promise<GetHostedZoneCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5360,12 +5360,12 @@ async function deserializeAws_restXmlGetHostedZoneCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetHostedZoneCountCommand(
+export const deserializeAws_restXmlGetHostedZoneCountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetHostedZoneCountCommandOutput> {
+): Promise<GetHostedZoneCountCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetHostedZoneCountCommandError(
       output,
@@ -5386,12 +5386,12 @@ export async function deserializeAws_restXmlGetHostedZoneCountCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetHostedZoneCountCommandError(
+const deserializeAws_restXmlGetHostedZoneCountCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetHostedZoneCountCommandOutput> {
+): Promise<GetHostedZoneCountCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5427,12 +5427,12 @@ async function deserializeAws_restXmlGetHostedZoneCountCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetHostedZoneLimitCommand(
+export const deserializeAws_restXmlGetHostedZoneLimitCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetHostedZoneLimitCommandOutput> {
+): Promise<GetHostedZoneLimitCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetHostedZoneLimitCommandError(
       output,
@@ -5460,12 +5460,12 @@ export async function deserializeAws_restXmlGetHostedZoneLimitCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetHostedZoneLimitCommandError(
+const deserializeAws_restXmlGetHostedZoneLimitCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetHostedZoneLimitCommandOutput> {
+): Promise<GetHostedZoneLimitCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5523,12 +5523,12 @@ async function deserializeAws_restXmlGetHostedZoneLimitCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetQueryLoggingConfigCommand(
+export const deserializeAws_restXmlGetQueryLoggingConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetQueryLoggingConfigCommandOutput> {
+): Promise<GetQueryLoggingConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetQueryLoggingConfigCommandError(
       output,
@@ -5548,12 +5548,12 @@ export async function deserializeAws_restXmlGetQueryLoggingConfigCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetQueryLoggingConfigCommandError(
+const deserializeAws_restXmlGetQueryLoggingConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetQueryLoggingConfigCommandOutput> {
+): Promise<GetQueryLoggingConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5600,12 +5600,12 @@ async function deserializeAws_restXmlGetQueryLoggingConfigCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetReusableDelegationSetCommand(
+export const deserializeAws_restXmlGetReusableDelegationSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetReusableDelegationSetCommandOutput> {
+): Promise<GetReusableDelegationSetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetReusableDelegationSetCommandError(
       output,
@@ -5625,12 +5625,12 @@ export async function deserializeAws_restXmlGetReusableDelegationSetCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetReusableDelegationSetCommandError(
+const deserializeAws_restXmlGetReusableDelegationSetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetReusableDelegationSetCommandOutput> {
+): Promise<GetReusableDelegationSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5688,12 +5688,12 @@ async function deserializeAws_restXmlGetReusableDelegationSetCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetReusableDelegationSetLimitCommand(
+export const deserializeAws_restXmlGetReusableDelegationSetLimitCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetReusableDelegationSetLimitCommandOutput> {
+): Promise<GetReusableDelegationSetLimitCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetReusableDelegationSetLimitCommandError(
       output,
@@ -5721,12 +5721,12 @@ export async function deserializeAws_restXmlGetReusableDelegationSetLimitCommand
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetReusableDelegationSetLimitCommandError(
+const deserializeAws_restXmlGetReusableDelegationSetLimitCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetReusableDelegationSetLimitCommandOutput> {
+): Promise<GetReusableDelegationSetLimitCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5773,12 +5773,12 @@ async function deserializeAws_restXmlGetReusableDelegationSetLimitCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetTrafficPolicyCommand(
+export const deserializeAws_restXmlGetTrafficPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetTrafficPolicyCommandOutput> {
+): Promise<GetTrafficPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetTrafficPolicyCommandError(output, context);
   }
@@ -5795,12 +5795,12 @@ export async function deserializeAws_restXmlGetTrafficPolicyCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetTrafficPolicyCommandError(
+const deserializeAws_restXmlGetTrafficPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetTrafficPolicyCommandOutput> {
+): Promise<GetTrafficPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5847,12 +5847,12 @@ async function deserializeAws_restXmlGetTrafficPolicyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetTrafficPolicyInstanceCommand(
+export const deserializeAws_restXmlGetTrafficPolicyInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetTrafficPolicyInstanceCommandOutput> {
+): Promise<GetTrafficPolicyInstanceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetTrafficPolicyInstanceCommandError(
       output,
@@ -5872,12 +5872,12 @@ export async function deserializeAws_restXmlGetTrafficPolicyInstanceCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetTrafficPolicyInstanceCommandError(
+const deserializeAws_restXmlGetTrafficPolicyInstanceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetTrafficPolicyInstanceCommandOutput> {
+): Promise<GetTrafficPolicyInstanceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5924,12 +5924,12 @@ async function deserializeAws_restXmlGetTrafficPolicyInstanceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetTrafficPolicyInstanceCountCommand(
+export const deserializeAws_restXmlGetTrafficPolicyInstanceCountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetTrafficPolicyInstanceCountCommandOutput> {
+): Promise<GetTrafficPolicyInstanceCountCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetTrafficPolicyInstanceCountCommandError(
       output,
@@ -5950,12 +5950,12 @@ export async function deserializeAws_restXmlGetTrafficPolicyInstanceCountCommand
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetTrafficPolicyInstanceCountCommandError(
+const deserializeAws_restXmlGetTrafficPolicyInstanceCountCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetTrafficPolicyInstanceCountCommandOutput> {
+): Promise<GetTrafficPolicyInstanceCountCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5980,12 +5980,12 @@ async function deserializeAws_restXmlGetTrafficPolicyInstanceCountCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlListGeoLocationsCommand(
+export const deserializeAws_restXmlListGeoLocationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListGeoLocationsCommandOutput> {
+): Promise<ListGeoLocationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlListGeoLocationsCommandError(output, context);
   }
@@ -6047,12 +6047,12 @@ export async function deserializeAws_restXmlListGeoLocationsCommand(
         : data["NextSubdivisionCode"];
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlListGeoLocationsCommandError(
+const deserializeAws_restXmlListGeoLocationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListGeoLocationsCommandOutput> {
+): Promise<ListGeoLocationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6088,12 +6088,12 @@ async function deserializeAws_restXmlListGeoLocationsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlListHealthChecksCommand(
+export const deserializeAws_restXmlListHealthChecksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListHealthChecksCommandOutput> {
+): Promise<ListHealthChecksCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlListHealthChecksCommandError(output, context);
   }
@@ -6148,12 +6148,12 @@ export async function deserializeAws_restXmlListHealthChecksCommand(
         : data["NextMarker"];
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlListHealthChecksCommandError(
+const deserializeAws_restXmlListHealthChecksCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListHealthChecksCommandOutput> {
+): Promise<ListHealthChecksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6200,12 +6200,12 @@ async function deserializeAws_restXmlListHealthChecksCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlListHostedZonesCommand(
+export const deserializeAws_restXmlListHostedZonesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListHostedZonesCommandOutput> {
+): Promise<ListHostedZonesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlListHostedZonesCommandError(output, context);
   }
@@ -6260,12 +6260,12 @@ export async function deserializeAws_restXmlListHostedZonesCommand(
         : data["NextMarker"];
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlListHostedZonesCommandError(
+const deserializeAws_restXmlListHostedZonesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListHostedZonesCommandOutput> {
+): Promise<ListHostedZonesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6323,12 +6323,12 @@ async function deserializeAws_restXmlListHostedZonesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlListHostedZonesByNameCommand(
+export const deserializeAws_restXmlListHostedZonesByNameCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListHostedZonesByNameCommandOutput> {
+): Promise<ListHostedZonesByNameCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlListHostedZonesByNameCommandError(
       output,
@@ -6400,12 +6400,12 @@ export async function deserializeAws_restXmlListHostedZonesByNameCommand(
         : data["NextHostedZoneId"];
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlListHostedZonesByNameCommandError(
+const deserializeAws_restXmlListHostedZonesByNameCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListHostedZonesByNameCommandOutput> {
+): Promise<ListHostedZonesByNameCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6452,12 +6452,12 @@ async function deserializeAws_restXmlListHostedZonesByNameCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlListQueryLoggingConfigsCommand(
+export const deserializeAws_restXmlListQueryLoggingConfigsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListQueryLoggingConfigsCommandOutput> {
+): Promise<ListQueryLoggingConfigsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlListQueryLoggingConfigsCommandError(
       output,
@@ -6494,12 +6494,12 @@ export async function deserializeAws_restXmlListQueryLoggingConfigsCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlListQueryLoggingConfigsCommandError(
+const deserializeAws_restXmlListQueryLoggingConfigsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListQueryLoggingConfigsCommandOutput> {
+): Promise<ListQueryLoggingConfigsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6557,12 +6557,12 @@ async function deserializeAws_restXmlListQueryLoggingConfigsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlListResourceRecordSetsCommand(
+export const deserializeAws_restXmlListResourceRecordSetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListResourceRecordSetsCommandOutput> {
+): Promise<ListResourceRecordSetsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlListResourceRecordSetsCommandError(
       output,
@@ -6627,12 +6627,12 @@ export async function deserializeAws_restXmlListResourceRecordSetsCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlListResourceRecordSetsCommandError(
+const deserializeAws_restXmlListResourceRecordSetsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListResourceRecordSetsCommandOutput> {
+): Promise<ListResourceRecordSetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6679,12 +6679,12 @@ async function deserializeAws_restXmlListResourceRecordSetsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlListReusableDelegationSetsCommand(
+export const deserializeAws_restXmlListReusableDelegationSetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListReusableDelegationSetsCommandOutput> {
+): Promise<ListReusableDelegationSetsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlListReusableDelegationSetsCommandError(
       output,
@@ -6742,12 +6742,12 @@ export async function deserializeAws_restXmlListReusableDelegationSetsCommand(
         : data["NextMarker"];
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlListReusableDelegationSetsCommandError(
+const deserializeAws_restXmlListReusableDelegationSetsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListReusableDelegationSetsCommandOutput> {
+): Promise<ListReusableDelegationSetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6783,12 +6783,12 @@ async function deserializeAws_restXmlListReusableDelegationSetsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlListTagsForResourceCommand(
+export const deserializeAws_restXmlListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlListTagsForResourceCommandError(
       output,
@@ -6808,12 +6808,12 @@ export async function deserializeAws_restXmlListTagsForResourceCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlListTagsForResourceCommandError(
+const deserializeAws_restXmlListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6893,12 +6893,12 @@ async function deserializeAws_restXmlListTagsForResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlListTagsForResourcesCommand(
+export const deserializeAws_restXmlListTagsForResourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourcesCommandOutput> {
+): Promise<ListTagsForResourcesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlListTagsForResourcesCommandError(
       output,
@@ -6928,12 +6928,12 @@ export async function deserializeAws_restXmlListTagsForResourcesCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlListTagsForResourcesCommandError(
+const deserializeAws_restXmlListTagsForResourcesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourcesCommandOutput> {
+): Promise<ListTagsForResourcesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -7013,12 +7013,12 @@ async function deserializeAws_restXmlListTagsForResourcesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlListTrafficPoliciesCommand(
+export const deserializeAws_restXmlListTrafficPoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTrafficPoliciesCommandOutput> {
+): Promise<ListTrafficPoliciesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlListTrafficPoliciesCommandError(
       output,
@@ -7069,12 +7069,12 @@ export async function deserializeAws_restXmlListTrafficPoliciesCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlListTrafficPoliciesCommandError(
+const deserializeAws_restXmlListTrafficPoliciesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTrafficPoliciesCommandOutput> {
+): Promise<ListTrafficPoliciesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -7110,12 +7110,12 @@ async function deserializeAws_restXmlListTrafficPoliciesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlListTrafficPolicyInstancesCommand(
+export const deserializeAws_restXmlListTrafficPolicyInstancesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTrafficPolicyInstancesCommandOutput> {
+): Promise<ListTrafficPolicyInstancesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlListTrafficPolicyInstancesCommandError(
       output,
@@ -7180,12 +7180,12 @@ export async function deserializeAws_restXmlListTrafficPolicyInstancesCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlListTrafficPolicyInstancesCommandError(
+const deserializeAws_restXmlListTrafficPolicyInstancesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTrafficPolicyInstancesCommandOutput> {
+): Promise<ListTrafficPolicyInstancesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -7232,12 +7232,12 @@ async function deserializeAws_restXmlListTrafficPolicyInstancesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlListTrafficPolicyInstancesByHostedZoneCommand(
+export const deserializeAws_restXmlListTrafficPolicyInstancesByHostedZoneCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTrafficPolicyInstancesByHostedZoneCommandOutput> {
+): Promise<ListTrafficPolicyInstancesByHostedZoneCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlListTrafficPolicyInstancesByHostedZoneCommandError(
       output,
@@ -7295,12 +7295,12 @@ export async function deserializeAws_restXmlListTrafficPolicyInstancesByHostedZo
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlListTrafficPolicyInstancesByHostedZoneCommandError(
+const deserializeAws_restXmlListTrafficPolicyInstancesByHostedZoneCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTrafficPolicyInstancesByHostedZoneCommandOutput> {
+): Promise<ListTrafficPolicyInstancesByHostedZoneCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -7358,12 +7358,12 @@ async function deserializeAws_restXmlListTrafficPolicyInstancesByHostedZoneComma
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlListTrafficPolicyInstancesByPolicyCommand(
+export const deserializeAws_restXmlListTrafficPolicyInstancesByPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTrafficPolicyInstancesByPolicyCommandOutput> {
+): Promise<ListTrafficPolicyInstancesByPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlListTrafficPolicyInstancesByPolicyCommandError(
       output,
@@ -7428,12 +7428,12 @@ export async function deserializeAws_restXmlListTrafficPolicyInstancesByPolicyCo
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlListTrafficPolicyInstancesByPolicyCommandError(
+const deserializeAws_restXmlListTrafficPolicyInstancesByPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTrafficPolicyInstancesByPolicyCommandOutput> {
+): Promise<ListTrafficPolicyInstancesByPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -7491,12 +7491,12 @@ async function deserializeAws_restXmlListTrafficPolicyInstancesByPolicyCommandEr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlListTrafficPolicyVersionsCommand(
+export const deserializeAws_restXmlListTrafficPolicyVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTrafficPolicyVersionsCommandOutput> {
+): Promise<ListTrafficPolicyVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlListTrafficPolicyVersionsCommandError(
       output,
@@ -7547,12 +7547,12 @@ export async function deserializeAws_restXmlListTrafficPolicyVersionsCommand(
         : data["TrafficPolicyVersionMarker"];
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlListTrafficPolicyVersionsCommandError(
+const deserializeAws_restXmlListTrafficPolicyVersionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTrafficPolicyVersionsCommandOutput> {
+): Promise<ListTrafficPolicyVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -7599,12 +7599,12 @@ async function deserializeAws_restXmlListTrafficPolicyVersionsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlListVPCAssociationAuthorizationsCommand(
+export const deserializeAws_restXmlListVPCAssociationAuthorizationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListVPCAssociationAuthorizationsCommandOutput> {
+): Promise<ListVPCAssociationAuthorizationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlListVPCAssociationAuthorizationsCommandError(
       output,
@@ -7642,12 +7642,12 @@ export async function deserializeAws_restXmlListVPCAssociationAuthorizationsComm
     contents.VPCs = deserializeAws_restXmlVPCs(wrappedItem, context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlListVPCAssociationAuthorizationsCommandError(
+const deserializeAws_restXmlListVPCAssociationAuthorizationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListVPCAssociationAuthorizationsCommandOutput> {
+): Promise<ListVPCAssociationAuthorizationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -7705,12 +7705,12 @@ async function deserializeAws_restXmlListVPCAssociationAuthorizationsCommandErro
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlTestDNSAnswerCommand(
+export const deserializeAws_restXmlTestDNSAnswerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TestDNSAnswerCommandOutput> {
+): Promise<TestDNSAnswerCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlTestDNSAnswerCommandError(output, context);
   }
@@ -7772,12 +7772,12 @@ export async function deserializeAws_restXmlTestDNSAnswerCommand(
         : data["ResponseCode"];
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlTestDNSAnswerCommandError(
+const deserializeAws_restXmlTestDNSAnswerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TestDNSAnswerCommandOutput> {
+): Promise<TestDNSAnswerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -7824,12 +7824,12 @@ async function deserializeAws_restXmlTestDNSAnswerCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlUpdateHealthCheckCommand(
+export const deserializeAws_restXmlUpdateHealthCheckCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateHealthCheckCommandOutput> {
+): Promise<UpdateHealthCheckCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlUpdateHealthCheckCommandError(output, context);
   }
@@ -7846,12 +7846,12 @@ export async function deserializeAws_restXmlUpdateHealthCheckCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlUpdateHealthCheckCommandError(
+const deserializeAws_restXmlUpdateHealthCheckCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateHealthCheckCommandOutput> {
+): Promise<UpdateHealthCheckCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -7909,12 +7909,12 @@ async function deserializeAws_restXmlUpdateHealthCheckCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlUpdateHostedZoneCommentCommand(
+export const deserializeAws_restXmlUpdateHostedZoneCommentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateHostedZoneCommentCommandOutput> {
+): Promise<UpdateHostedZoneCommentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlUpdateHostedZoneCommentCommandError(
       output,
@@ -7934,12 +7934,12 @@ export async function deserializeAws_restXmlUpdateHostedZoneCommentCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlUpdateHostedZoneCommentCommandError(
+const deserializeAws_restXmlUpdateHostedZoneCommentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateHostedZoneCommentCommandOutput> {
+): Promise<UpdateHostedZoneCommentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -7986,12 +7986,12 @@ async function deserializeAws_restXmlUpdateHostedZoneCommentCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlUpdateTrafficPolicyCommentCommand(
+export const deserializeAws_restXmlUpdateTrafficPolicyCommentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateTrafficPolicyCommentCommandOutput> {
+): Promise<UpdateTrafficPolicyCommentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlUpdateTrafficPolicyCommentCommandError(
       output,
@@ -8011,12 +8011,12 @@ export async function deserializeAws_restXmlUpdateTrafficPolicyCommentCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlUpdateTrafficPolicyCommentCommandError(
+const deserializeAws_restXmlUpdateTrafficPolicyCommentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateTrafficPolicyCommentCommandOutput> {
+): Promise<UpdateTrafficPolicyCommentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -8074,12 +8074,12 @@ async function deserializeAws_restXmlUpdateTrafficPolicyCommentCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlUpdateTrafficPolicyInstanceCommand(
+export const deserializeAws_restXmlUpdateTrafficPolicyInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateTrafficPolicyInstanceCommandOutput> {
+): Promise<UpdateTrafficPolicyInstanceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlUpdateTrafficPolicyInstanceCommandError(
       output,
@@ -8099,12 +8099,12 @@ export async function deserializeAws_restXmlUpdateTrafficPolicyInstanceCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlUpdateTrafficPolicyInstanceCommandError(
+const deserializeAws_restXmlUpdateTrafficPolicyInstanceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateTrafficPolicyInstanceCommandOutput> {
+): Promise<UpdateTrafficPolicyInstanceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -8184,7 +8184,7 @@ async function deserializeAws_restXmlUpdateTrafficPolicyInstanceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restXmlConcurrentModificationResponse = async (
   parsedOutput: any,

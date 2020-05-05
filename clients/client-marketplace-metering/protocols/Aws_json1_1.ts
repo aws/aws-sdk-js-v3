@@ -54,10 +54,10 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_json1_1BatchMeterUsageCommand(
+export const serializeAws_json1_1BatchMeterUsageCommand = async (
   input: BatchMeterUsageCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSMPMeteringService.BatchMeterUsage";
@@ -66,24 +66,24 @@ export async function serializeAws_json1_1BatchMeterUsageCommand(
     serializeAws_json1_1BatchMeterUsageRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1MeterUsageCommand(
+export const serializeAws_json1_1MeterUsageCommand = async (
   input: MeterUsageCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSMPMeteringService.MeterUsage";
   let body: any;
   body = JSON.stringify(serializeAws_json1_1MeterUsageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1RegisterUsageCommand(
+export const serializeAws_json1_1RegisterUsageCommand = async (
   input: RegisterUsageCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSMPMeteringService.RegisterUsage";
@@ -92,12 +92,12 @@ export async function serializeAws_json1_1RegisterUsageCommand(
     serializeAws_json1_1RegisterUsageRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ResolveCustomerCommand(
+export const serializeAws_json1_1ResolveCustomerCommand = async (
   input: ResolveCustomerCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSMPMeteringService.ResolveCustomer";
@@ -106,12 +106,12 @@ export async function serializeAws_json1_1ResolveCustomerCommand(
     serializeAws_json1_1ResolveCustomerRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_1BatchMeterUsageCommand(
+export const deserializeAws_json1_1BatchMeterUsageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchMeterUsageCommandOutput> {
+): Promise<BatchMeterUsageCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1BatchMeterUsageCommandError(output, context);
   }
@@ -124,12 +124,12 @@ export async function deserializeAws_json1_1BatchMeterUsageCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1BatchMeterUsageCommandError(
+const deserializeAws_json1_1BatchMeterUsageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchMeterUsageCommandOutput> {
+): Promise<BatchMeterUsageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -232,12 +232,12 @@ async function deserializeAws_json1_1BatchMeterUsageCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1MeterUsageCommand(
+export const deserializeAws_json1_1MeterUsageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<MeterUsageCommandOutput> {
+): Promise<MeterUsageCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1MeterUsageCommandError(output, context);
   }
@@ -250,12 +250,12 @@ export async function deserializeAws_json1_1MeterUsageCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1MeterUsageCommandError(
+const deserializeAws_json1_1MeterUsageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<MeterUsageCommandOutput> {
+): Promise<MeterUsageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -369,12 +369,12 @@ async function deserializeAws_json1_1MeterUsageCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1RegisterUsageCommand(
+export const deserializeAws_json1_1RegisterUsageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RegisterUsageCommandOutput> {
+): Promise<RegisterUsageCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1RegisterUsageCommandError(output, context);
   }
@@ -387,12 +387,12 @@ export async function deserializeAws_json1_1RegisterUsageCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1RegisterUsageCommandError(
+const deserializeAws_json1_1RegisterUsageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RegisterUsageCommandOutput> {
+): Promise<RegisterUsageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -506,12 +506,12 @@ async function deserializeAws_json1_1RegisterUsageCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ResolveCustomerCommand(
+export const deserializeAws_json1_1ResolveCustomerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ResolveCustomerCommandOutput> {
+): Promise<ResolveCustomerCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ResolveCustomerCommandError(output, context);
   }
@@ -524,12 +524,12 @@ export async function deserializeAws_json1_1ResolveCustomerCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ResolveCustomerCommandError(
+const deserializeAws_json1_1ResolveCustomerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ResolveCustomerCommandOutput> {
+): Promise<ResolveCustomerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -610,7 +610,7 @@ async function deserializeAws_json1_1ResolveCustomerCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_1CustomerNotEntitledExceptionResponse = async (
   parsedOutput: any,

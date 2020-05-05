@@ -107,10 +107,10 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_json1_1CreateVocabularyCommand(
+export const serializeAws_json1_1CreateVocabularyCommand = async (
   input: CreateVocabularyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Transcribe.CreateVocabulary";
@@ -119,12 +119,12 @@ export async function serializeAws_json1_1CreateVocabularyCommand(
     serializeAws_json1_1CreateVocabularyRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreateVocabularyFilterCommand(
+export const serializeAws_json1_1CreateVocabularyFilterCommand = async (
   input: CreateVocabularyFilterCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Transcribe.CreateVocabularyFilter";
@@ -133,12 +133,12 @@ export async function serializeAws_json1_1CreateVocabularyFilterCommand(
     serializeAws_json1_1CreateVocabularyFilterRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteTranscriptionJobCommand(
+export const serializeAws_json1_1DeleteTranscriptionJobCommand = async (
   input: DeleteTranscriptionJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Transcribe.DeleteTranscriptionJob";
@@ -147,12 +147,12 @@ export async function serializeAws_json1_1DeleteTranscriptionJobCommand(
     serializeAws_json1_1DeleteTranscriptionJobRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteVocabularyCommand(
+export const serializeAws_json1_1DeleteVocabularyCommand = async (
   input: DeleteVocabularyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Transcribe.DeleteVocabulary";
@@ -161,12 +161,12 @@ export async function serializeAws_json1_1DeleteVocabularyCommand(
     serializeAws_json1_1DeleteVocabularyRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteVocabularyFilterCommand(
+export const serializeAws_json1_1DeleteVocabularyFilterCommand = async (
   input: DeleteVocabularyFilterCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Transcribe.DeleteVocabularyFilter";
@@ -175,12 +175,12 @@ export async function serializeAws_json1_1DeleteVocabularyFilterCommand(
     serializeAws_json1_1DeleteVocabularyFilterRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetTranscriptionJobCommand(
+export const serializeAws_json1_1GetTranscriptionJobCommand = async (
   input: GetTranscriptionJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Transcribe.GetTranscriptionJob";
@@ -189,12 +189,12 @@ export async function serializeAws_json1_1GetTranscriptionJobCommand(
     serializeAws_json1_1GetTranscriptionJobRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetVocabularyCommand(
+export const serializeAws_json1_1GetVocabularyCommand = async (
   input: GetVocabularyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Transcribe.GetVocabulary";
@@ -203,12 +203,12 @@ export async function serializeAws_json1_1GetVocabularyCommand(
     serializeAws_json1_1GetVocabularyRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetVocabularyFilterCommand(
+export const serializeAws_json1_1GetVocabularyFilterCommand = async (
   input: GetVocabularyFilterCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Transcribe.GetVocabularyFilter";
@@ -217,12 +217,12 @@ export async function serializeAws_json1_1GetVocabularyFilterCommand(
     serializeAws_json1_1GetVocabularyFilterRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListTranscriptionJobsCommand(
+export const serializeAws_json1_1ListTranscriptionJobsCommand = async (
   input: ListTranscriptionJobsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Transcribe.ListTranscriptionJobs";
@@ -231,12 +231,12 @@ export async function serializeAws_json1_1ListTranscriptionJobsCommand(
     serializeAws_json1_1ListTranscriptionJobsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListVocabulariesCommand(
+export const serializeAws_json1_1ListVocabulariesCommand = async (
   input: ListVocabulariesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Transcribe.ListVocabularies";
@@ -245,12 +245,12 @@ export async function serializeAws_json1_1ListVocabulariesCommand(
     serializeAws_json1_1ListVocabulariesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListVocabularyFiltersCommand(
+export const serializeAws_json1_1ListVocabularyFiltersCommand = async (
   input: ListVocabularyFiltersCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Transcribe.ListVocabularyFilters";
@@ -259,12 +259,12 @@ export async function serializeAws_json1_1ListVocabularyFiltersCommand(
     serializeAws_json1_1ListVocabularyFiltersRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1StartTranscriptionJobCommand(
+export const serializeAws_json1_1StartTranscriptionJobCommand = async (
   input: StartTranscriptionJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Transcribe.StartTranscriptionJob";
@@ -273,12 +273,12 @@ export async function serializeAws_json1_1StartTranscriptionJobCommand(
     serializeAws_json1_1StartTranscriptionJobRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateVocabularyCommand(
+export const serializeAws_json1_1UpdateVocabularyCommand = async (
   input: UpdateVocabularyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Transcribe.UpdateVocabulary";
@@ -287,12 +287,12 @@ export async function serializeAws_json1_1UpdateVocabularyCommand(
     serializeAws_json1_1UpdateVocabularyRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateVocabularyFilterCommand(
+export const serializeAws_json1_1UpdateVocabularyFilterCommand = async (
   input: UpdateVocabularyFilterCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Transcribe.UpdateVocabularyFilter";
@@ -301,12 +301,12 @@ export async function serializeAws_json1_1UpdateVocabularyFilterCommand(
     serializeAws_json1_1UpdateVocabularyFilterRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_1CreateVocabularyCommand(
+export const deserializeAws_json1_1CreateVocabularyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateVocabularyCommandOutput> {
+): Promise<CreateVocabularyCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateVocabularyCommandError(output, context);
   }
@@ -319,12 +319,12 @@ export async function deserializeAws_json1_1CreateVocabularyCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateVocabularyCommandError(
+const deserializeAws_json1_1CreateVocabularyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateVocabularyCommandOutput> {
+): Promise<CreateVocabularyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -394,12 +394,12 @@ async function deserializeAws_json1_1CreateVocabularyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreateVocabularyFilterCommand(
+export const deserializeAws_json1_1CreateVocabularyFilterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateVocabularyFilterCommandOutput> {
+): Promise<CreateVocabularyFilterCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateVocabularyFilterCommandError(
       output,
@@ -418,12 +418,12 @@ export async function deserializeAws_json1_1CreateVocabularyFilterCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateVocabularyFilterCommandError(
+const deserializeAws_json1_1CreateVocabularyFilterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateVocabularyFilterCommandOutput> {
+): Promise<CreateVocabularyFilterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -493,12 +493,12 @@ async function deserializeAws_json1_1CreateVocabularyFilterCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteTranscriptionJobCommand(
+export const deserializeAws_json1_1DeleteTranscriptionJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteTranscriptionJobCommandOutput> {
+): Promise<DeleteTranscriptionJobCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteTranscriptionJobCommandError(
       output,
@@ -510,12 +510,12 @@ export async function deserializeAws_json1_1DeleteTranscriptionJobCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteTranscriptionJobCommandError(
+const deserializeAws_json1_1DeleteTranscriptionJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteTranscriptionJobCommandOutput> {
+): Promise<DeleteTranscriptionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -574,12 +574,12 @@ async function deserializeAws_json1_1DeleteTranscriptionJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteVocabularyCommand(
+export const deserializeAws_json1_1DeleteVocabularyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteVocabularyCommandOutput> {
+): Promise<DeleteVocabularyCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteVocabularyCommandError(output, context);
   }
@@ -588,12 +588,12 @@ export async function deserializeAws_json1_1DeleteVocabularyCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteVocabularyCommandError(
+const deserializeAws_json1_1DeleteVocabularyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteVocabularyCommandOutput> {
+): Promise<DeleteVocabularyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -663,12 +663,12 @@ async function deserializeAws_json1_1DeleteVocabularyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteVocabularyFilterCommand(
+export const deserializeAws_json1_1DeleteVocabularyFilterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteVocabularyFilterCommandOutput> {
+): Promise<DeleteVocabularyFilterCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteVocabularyFilterCommandError(
       output,
@@ -680,12 +680,12 @@ export async function deserializeAws_json1_1DeleteVocabularyFilterCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteVocabularyFilterCommandError(
+const deserializeAws_json1_1DeleteVocabularyFilterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteVocabularyFilterCommandOutput> {
+): Promise<DeleteVocabularyFilterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -755,12 +755,12 @@ async function deserializeAws_json1_1DeleteVocabularyFilterCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetTranscriptionJobCommand(
+export const deserializeAws_json1_1GetTranscriptionJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetTranscriptionJobCommandOutput> {
+): Promise<GetTranscriptionJobCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetTranscriptionJobCommandError(
       output,
@@ -776,12 +776,12 @@ export async function deserializeAws_json1_1GetTranscriptionJobCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetTranscriptionJobCommandError(
+const deserializeAws_json1_1GetTranscriptionJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetTranscriptionJobCommandOutput> {
+): Promise<GetTranscriptionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -851,12 +851,12 @@ async function deserializeAws_json1_1GetTranscriptionJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetVocabularyCommand(
+export const deserializeAws_json1_1GetVocabularyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetVocabularyCommandOutput> {
+): Promise<GetVocabularyCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetVocabularyCommandError(output, context);
   }
@@ -869,12 +869,12 @@ export async function deserializeAws_json1_1GetVocabularyCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetVocabularyCommandError(
+const deserializeAws_json1_1GetVocabularyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetVocabularyCommandOutput> {
+): Promise<GetVocabularyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -944,12 +944,12 @@ async function deserializeAws_json1_1GetVocabularyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetVocabularyFilterCommand(
+export const deserializeAws_json1_1GetVocabularyFilterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetVocabularyFilterCommandOutput> {
+): Promise<GetVocabularyFilterCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetVocabularyFilterCommandError(
       output,
@@ -965,12 +965,12 @@ export async function deserializeAws_json1_1GetVocabularyFilterCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetVocabularyFilterCommandError(
+const deserializeAws_json1_1GetVocabularyFilterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetVocabularyFilterCommandOutput> {
+): Promise<GetVocabularyFilterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1040,12 +1040,12 @@ async function deserializeAws_json1_1GetVocabularyFilterCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListTranscriptionJobsCommand(
+export const deserializeAws_json1_1ListTranscriptionJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTranscriptionJobsCommandOutput> {
+): Promise<ListTranscriptionJobsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListTranscriptionJobsCommandError(
       output,
@@ -1061,12 +1061,12 @@ export async function deserializeAws_json1_1ListTranscriptionJobsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListTranscriptionJobsCommandError(
+const deserializeAws_json1_1ListTranscriptionJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTranscriptionJobsCommandOutput> {
+): Promise<ListTranscriptionJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1125,12 +1125,12 @@ async function deserializeAws_json1_1ListTranscriptionJobsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListVocabulariesCommand(
+export const deserializeAws_json1_1ListVocabulariesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListVocabulariesCommandOutput> {
+): Promise<ListVocabulariesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListVocabulariesCommandError(output, context);
   }
@@ -1143,12 +1143,12 @@ export async function deserializeAws_json1_1ListVocabulariesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListVocabulariesCommandError(
+const deserializeAws_json1_1ListVocabulariesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListVocabulariesCommandOutput> {
+): Promise<ListVocabulariesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1207,12 +1207,12 @@ async function deserializeAws_json1_1ListVocabulariesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListVocabularyFiltersCommand(
+export const deserializeAws_json1_1ListVocabularyFiltersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListVocabularyFiltersCommandOutput> {
+): Promise<ListVocabularyFiltersCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListVocabularyFiltersCommandError(
       output,
@@ -1228,12 +1228,12 @@ export async function deserializeAws_json1_1ListVocabularyFiltersCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListVocabularyFiltersCommandError(
+const deserializeAws_json1_1ListVocabularyFiltersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListVocabularyFiltersCommandOutput> {
+): Promise<ListVocabularyFiltersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1292,12 +1292,12 @@ async function deserializeAws_json1_1ListVocabularyFiltersCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1StartTranscriptionJobCommand(
+export const deserializeAws_json1_1StartTranscriptionJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartTranscriptionJobCommandOutput> {
+): Promise<StartTranscriptionJobCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StartTranscriptionJobCommandError(
       output,
@@ -1313,12 +1313,12 @@ export async function deserializeAws_json1_1StartTranscriptionJobCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1StartTranscriptionJobCommandError(
+const deserializeAws_json1_1StartTranscriptionJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartTranscriptionJobCommandOutput> {
+): Promise<StartTranscriptionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1388,12 +1388,12 @@ async function deserializeAws_json1_1StartTranscriptionJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateVocabularyCommand(
+export const deserializeAws_json1_1UpdateVocabularyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateVocabularyCommandOutput> {
+): Promise<UpdateVocabularyCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateVocabularyCommandError(output, context);
   }
@@ -1406,12 +1406,12 @@ export async function deserializeAws_json1_1UpdateVocabularyCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateVocabularyCommandError(
+const deserializeAws_json1_1UpdateVocabularyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateVocabularyCommandOutput> {
+): Promise<UpdateVocabularyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1492,12 +1492,12 @@ async function deserializeAws_json1_1UpdateVocabularyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateVocabularyFilterCommand(
+export const deserializeAws_json1_1UpdateVocabularyFilterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateVocabularyFilterCommandOutput> {
+): Promise<UpdateVocabularyFilterCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateVocabularyFilterCommandError(
       output,
@@ -1516,12 +1516,12 @@ export async function deserializeAws_json1_1UpdateVocabularyFilterCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateVocabularyFilterCommandError(
+const deserializeAws_json1_1UpdateVocabularyFilterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateVocabularyFilterCommandOutput> {
+): Promise<UpdateVocabularyFilterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1591,7 +1591,7 @@ async function deserializeAws_json1_1UpdateVocabularyFilterCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_1BadRequestExceptionResponse = async (
   parsedOutput: any,

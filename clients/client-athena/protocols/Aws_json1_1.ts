@@ -152,10 +152,10 @@ import {
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
-export async function serializeAws_json1_1BatchGetNamedQueryCommand(
+export const serializeAws_json1_1BatchGetNamedQueryCommand = async (
   input: BatchGetNamedQueryCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonAthena.BatchGetNamedQuery";
@@ -164,12 +164,12 @@ export async function serializeAws_json1_1BatchGetNamedQueryCommand(
     serializeAws_json1_1BatchGetNamedQueryInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1BatchGetQueryExecutionCommand(
+export const serializeAws_json1_1BatchGetQueryExecutionCommand = async (
   input: BatchGetQueryExecutionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonAthena.BatchGetQueryExecution";
@@ -178,12 +178,12 @@ export async function serializeAws_json1_1BatchGetQueryExecutionCommand(
     serializeAws_json1_1BatchGetQueryExecutionInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreateNamedQueryCommand(
+export const serializeAws_json1_1CreateNamedQueryCommand = async (
   input: CreateNamedQueryCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonAthena.CreateNamedQuery";
@@ -192,12 +192,12 @@ export async function serializeAws_json1_1CreateNamedQueryCommand(
     serializeAws_json1_1CreateNamedQueryInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreateWorkGroupCommand(
+export const serializeAws_json1_1CreateWorkGroupCommand = async (
   input: CreateWorkGroupCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonAthena.CreateWorkGroup";
@@ -206,12 +206,12 @@ export async function serializeAws_json1_1CreateWorkGroupCommand(
     serializeAws_json1_1CreateWorkGroupInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteNamedQueryCommand(
+export const serializeAws_json1_1DeleteNamedQueryCommand = async (
   input: DeleteNamedQueryCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonAthena.DeleteNamedQuery";
@@ -220,12 +220,12 @@ export async function serializeAws_json1_1DeleteNamedQueryCommand(
     serializeAws_json1_1DeleteNamedQueryInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteWorkGroupCommand(
+export const serializeAws_json1_1DeleteWorkGroupCommand = async (
   input: DeleteWorkGroupCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonAthena.DeleteWorkGroup";
@@ -234,24 +234,24 @@ export async function serializeAws_json1_1DeleteWorkGroupCommand(
     serializeAws_json1_1DeleteWorkGroupInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetNamedQueryCommand(
+export const serializeAws_json1_1GetNamedQueryCommand = async (
   input: GetNamedQueryCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonAthena.GetNamedQuery";
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetNamedQueryInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetQueryExecutionCommand(
+export const serializeAws_json1_1GetQueryExecutionCommand = async (
   input: GetQueryExecutionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonAthena.GetQueryExecution";
@@ -260,12 +260,12 @@ export async function serializeAws_json1_1GetQueryExecutionCommand(
     serializeAws_json1_1GetQueryExecutionInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetQueryResultsCommand(
+export const serializeAws_json1_1GetQueryResultsCommand = async (
   input: GetQueryResultsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonAthena.GetQueryResults";
@@ -274,24 +274,24 @@ export async function serializeAws_json1_1GetQueryResultsCommand(
     serializeAws_json1_1GetQueryResultsInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetWorkGroupCommand(
+export const serializeAws_json1_1GetWorkGroupCommand = async (
   input: GetWorkGroupCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonAthena.GetWorkGroup";
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetWorkGroupInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListNamedQueriesCommand(
+export const serializeAws_json1_1ListNamedQueriesCommand = async (
   input: ListNamedQueriesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonAthena.ListNamedQueries";
@@ -300,12 +300,12 @@ export async function serializeAws_json1_1ListNamedQueriesCommand(
     serializeAws_json1_1ListNamedQueriesInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListQueryExecutionsCommand(
+export const serializeAws_json1_1ListQueryExecutionsCommand = async (
   input: ListQueryExecutionsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonAthena.ListQueryExecutions";
@@ -314,12 +314,12 @@ export async function serializeAws_json1_1ListQueryExecutionsCommand(
     serializeAws_json1_1ListQueryExecutionsInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListTagsForResourceCommand(
+export const serializeAws_json1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonAthena.ListTagsForResource";
@@ -328,12 +328,12 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
     serializeAws_json1_1ListTagsForResourceInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListWorkGroupsCommand(
+export const serializeAws_json1_1ListWorkGroupsCommand = async (
   input: ListWorkGroupsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonAthena.ListWorkGroups";
@@ -342,12 +342,12 @@ export async function serializeAws_json1_1ListWorkGroupsCommand(
     serializeAws_json1_1ListWorkGroupsInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1StartQueryExecutionCommand(
+export const serializeAws_json1_1StartQueryExecutionCommand = async (
   input: StartQueryExecutionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonAthena.StartQueryExecution";
@@ -356,12 +356,12 @@ export async function serializeAws_json1_1StartQueryExecutionCommand(
     serializeAws_json1_1StartQueryExecutionInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1StopQueryExecutionCommand(
+export const serializeAws_json1_1StopQueryExecutionCommand = async (
   input: StopQueryExecutionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonAthena.StopQueryExecution";
@@ -370,36 +370,36 @@ export async function serializeAws_json1_1StopQueryExecutionCommand(
     serializeAws_json1_1StopQueryExecutionInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1TagResourceCommand(
+export const serializeAws_json1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonAthena.TagResource";
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UntagResourceCommand(
+export const serializeAws_json1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonAthena.UntagResource";
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UntagResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateWorkGroupCommand(
+export const serializeAws_json1_1UpdateWorkGroupCommand = async (
   input: UpdateWorkGroupCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonAthena.UpdateWorkGroup";
@@ -408,12 +408,12 @@ export async function serializeAws_json1_1UpdateWorkGroupCommand(
     serializeAws_json1_1UpdateWorkGroupInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_1BatchGetNamedQueryCommand(
+export const deserializeAws_json1_1BatchGetNamedQueryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchGetNamedQueryCommandOutput> {
+): Promise<BatchGetNamedQueryCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1BatchGetNamedQueryCommandError(
       output,
@@ -429,12 +429,12 @@ export async function deserializeAws_json1_1BatchGetNamedQueryCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1BatchGetNamedQueryCommandError(
+const deserializeAws_json1_1BatchGetNamedQueryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchGetNamedQueryCommandOutput> {
+): Promise<BatchGetNamedQueryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -482,12 +482,12 @@ async function deserializeAws_json1_1BatchGetNamedQueryCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1BatchGetQueryExecutionCommand(
+export const deserializeAws_json1_1BatchGetQueryExecutionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchGetQueryExecutionCommandOutput> {
+): Promise<BatchGetQueryExecutionCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1BatchGetQueryExecutionCommandError(
       output,
@@ -503,12 +503,12 @@ export async function deserializeAws_json1_1BatchGetQueryExecutionCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1BatchGetQueryExecutionCommandError(
+const deserializeAws_json1_1BatchGetQueryExecutionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchGetQueryExecutionCommandOutput> {
+): Promise<BatchGetQueryExecutionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -556,12 +556,12 @@ async function deserializeAws_json1_1BatchGetQueryExecutionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreateNamedQueryCommand(
+export const deserializeAws_json1_1CreateNamedQueryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateNamedQueryCommandOutput> {
+): Promise<CreateNamedQueryCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateNamedQueryCommandError(output, context);
   }
@@ -574,12 +574,12 @@ export async function deserializeAws_json1_1CreateNamedQueryCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateNamedQueryCommandError(
+const deserializeAws_json1_1CreateNamedQueryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateNamedQueryCommandOutput> {
+): Promise<CreateNamedQueryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -627,12 +627,12 @@ async function deserializeAws_json1_1CreateNamedQueryCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreateWorkGroupCommand(
+export const deserializeAws_json1_1CreateWorkGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateWorkGroupCommandOutput> {
+): Promise<CreateWorkGroupCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateWorkGroupCommandError(output, context);
   }
@@ -645,12 +645,12 @@ export async function deserializeAws_json1_1CreateWorkGroupCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateWorkGroupCommandError(
+const deserializeAws_json1_1CreateWorkGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateWorkGroupCommandOutput> {
+): Promise<CreateWorkGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -698,12 +698,12 @@ async function deserializeAws_json1_1CreateWorkGroupCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteNamedQueryCommand(
+export const deserializeAws_json1_1DeleteNamedQueryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteNamedQueryCommandOutput> {
+): Promise<DeleteNamedQueryCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteNamedQueryCommandError(output, context);
   }
@@ -716,12 +716,12 @@ export async function deserializeAws_json1_1DeleteNamedQueryCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteNamedQueryCommandError(
+const deserializeAws_json1_1DeleteNamedQueryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteNamedQueryCommandOutput> {
+): Promise<DeleteNamedQueryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -769,12 +769,12 @@ async function deserializeAws_json1_1DeleteNamedQueryCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteWorkGroupCommand(
+export const deserializeAws_json1_1DeleteWorkGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteWorkGroupCommandOutput> {
+): Promise<DeleteWorkGroupCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteWorkGroupCommandError(output, context);
   }
@@ -787,12 +787,12 @@ export async function deserializeAws_json1_1DeleteWorkGroupCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteWorkGroupCommandError(
+const deserializeAws_json1_1DeleteWorkGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteWorkGroupCommandOutput> {
+): Promise<DeleteWorkGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -840,12 +840,12 @@ async function deserializeAws_json1_1DeleteWorkGroupCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetNamedQueryCommand(
+export const deserializeAws_json1_1GetNamedQueryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetNamedQueryCommandOutput> {
+): Promise<GetNamedQueryCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetNamedQueryCommandError(output, context);
   }
@@ -858,12 +858,12 @@ export async function deserializeAws_json1_1GetNamedQueryCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetNamedQueryCommandError(
+const deserializeAws_json1_1GetNamedQueryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetNamedQueryCommandOutput> {
+): Promise<GetNamedQueryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -911,12 +911,12 @@ async function deserializeAws_json1_1GetNamedQueryCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetQueryExecutionCommand(
+export const deserializeAws_json1_1GetQueryExecutionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetQueryExecutionCommandOutput> {
+): Promise<GetQueryExecutionCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetQueryExecutionCommandError(output, context);
   }
@@ -929,12 +929,12 @@ export async function deserializeAws_json1_1GetQueryExecutionCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetQueryExecutionCommandError(
+const deserializeAws_json1_1GetQueryExecutionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetQueryExecutionCommandOutput> {
+): Promise<GetQueryExecutionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -982,12 +982,12 @@ async function deserializeAws_json1_1GetQueryExecutionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetQueryResultsCommand(
+export const deserializeAws_json1_1GetQueryResultsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetQueryResultsCommandOutput> {
+): Promise<GetQueryResultsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetQueryResultsCommandError(output, context);
   }
@@ -1000,12 +1000,12 @@ export async function deserializeAws_json1_1GetQueryResultsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetQueryResultsCommandError(
+const deserializeAws_json1_1GetQueryResultsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetQueryResultsCommandOutput> {
+): Promise<GetQueryResultsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1053,12 +1053,12 @@ async function deserializeAws_json1_1GetQueryResultsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetWorkGroupCommand(
+export const deserializeAws_json1_1GetWorkGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetWorkGroupCommandOutput> {
+): Promise<GetWorkGroupCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetWorkGroupCommandError(output, context);
   }
@@ -1071,12 +1071,12 @@ export async function deserializeAws_json1_1GetWorkGroupCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetWorkGroupCommandError(
+const deserializeAws_json1_1GetWorkGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetWorkGroupCommandOutput> {
+): Promise<GetWorkGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1124,12 +1124,12 @@ async function deserializeAws_json1_1GetWorkGroupCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListNamedQueriesCommand(
+export const deserializeAws_json1_1ListNamedQueriesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListNamedQueriesCommandOutput> {
+): Promise<ListNamedQueriesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListNamedQueriesCommandError(output, context);
   }
@@ -1142,12 +1142,12 @@ export async function deserializeAws_json1_1ListNamedQueriesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListNamedQueriesCommandError(
+const deserializeAws_json1_1ListNamedQueriesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListNamedQueriesCommandOutput> {
+): Promise<ListNamedQueriesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1195,12 +1195,12 @@ async function deserializeAws_json1_1ListNamedQueriesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListQueryExecutionsCommand(
+export const deserializeAws_json1_1ListQueryExecutionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListQueryExecutionsCommandOutput> {
+): Promise<ListQueryExecutionsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListQueryExecutionsCommandError(
       output,
@@ -1216,12 +1216,12 @@ export async function deserializeAws_json1_1ListQueryExecutionsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListQueryExecutionsCommandError(
+const deserializeAws_json1_1ListQueryExecutionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListQueryExecutionsCommandOutput> {
+): Promise<ListQueryExecutionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1269,12 +1269,12 @@ async function deserializeAws_json1_1ListQueryExecutionsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListTagsForResourceCommand(
+export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListTagsForResourceCommandError(
       output,
@@ -1290,12 +1290,12 @@ export async function deserializeAws_json1_1ListTagsForResourceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListTagsForResourceCommandError(
+const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1354,12 +1354,12 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListWorkGroupsCommand(
+export const deserializeAws_json1_1ListWorkGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListWorkGroupsCommandOutput> {
+): Promise<ListWorkGroupsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListWorkGroupsCommandError(output, context);
   }
@@ -1372,12 +1372,12 @@ export async function deserializeAws_json1_1ListWorkGroupsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListWorkGroupsCommandError(
+const deserializeAws_json1_1ListWorkGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListWorkGroupsCommandOutput> {
+): Promise<ListWorkGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1425,12 +1425,12 @@ async function deserializeAws_json1_1ListWorkGroupsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1StartQueryExecutionCommand(
+export const deserializeAws_json1_1StartQueryExecutionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartQueryExecutionCommandOutput> {
+): Promise<StartQueryExecutionCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StartQueryExecutionCommandError(
       output,
@@ -1446,12 +1446,12 @@ export async function deserializeAws_json1_1StartQueryExecutionCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1StartQueryExecutionCommandError(
+const deserializeAws_json1_1StartQueryExecutionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartQueryExecutionCommandOutput> {
+): Promise<StartQueryExecutionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1510,12 +1510,12 @@ async function deserializeAws_json1_1StartQueryExecutionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1StopQueryExecutionCommand(
+export const deserializeAws_json1_1StopQueryExecutionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StopQueryExecutionCommandOutput> {
+): Promise<StopQueryExecutionCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StopQueryExecutionCommandError(
       output,
@@ -1531,12 +1531,12 @@ export async function deserializeAws_json1_1StopQueryExecutionCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1StopQueryExecutionCommandError(
+const deserializeAws_json1_1StopQueryExecutionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StopQueryExecutionCommandOutput> {
+): Promise<StopQueryExecutionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1584,12 +1584,12 @@ async function deserializeAws_json1_1StopQueryExecutionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1TagResourceCommand(
+export const deserializeAws_json1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1TagResourceCommandError(output, context);
   }
@@ -1602,12 +1602,12 @@ export async function deserializeAws_json1_1TagResourceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1TagResourceCommandError(
+const deserializeAws_json1_1TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1666,12 +1666,12 @@ async function deserializeAws_json1_1TagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UntagResourceCommand(
+export const deserializeAws_json1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UntagResourceCommandError(output, context);
   }
@@ -1684,12 +1684,12 @@ export async function deserializeAws_json1_1UntagResourceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UntagResourceCommandError(
+const deserializeAws_json1_1UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1748,12 +1748,12 @@ async function deserializeAws_json1_1UntagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateWorkGroupCommand(
+export const deserializeAws_json1_1UpdateWorkGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateWorkGroupCommandOutput> {
+): Promise<UpdateWorkGroupCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateWorkGroupCommandError(output, context);
   }
@@ -1766,12 +1766,12 @@ export async function deserializeAws_json1_1UpdateWorkGroupCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateWorkGroupCommandError(
+const deserializeAws_json1_1UpdateWorkGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateWorkGroupCommandOutput> {
+): Promise<UpdateWorkGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1819,7 +1819,7 @@ async function deserializeAws_json1_1UpdateWorkGroupCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_1InternalServerExceptionResponse = async (
   parsedOutput: any,

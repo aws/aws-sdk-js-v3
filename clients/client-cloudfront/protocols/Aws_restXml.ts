@@ -365,10 +365,10 @@ import {
 } from "@aws-sdk/xml-builder";
 import { parse as xmlParse } from "fast-xml-parser";
 
-export async function serializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommand(
+export const serializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommand = async (
   input: CreateCloudFrontOriginAccessIdentityCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2019-03-26/origin-access-identity/cloudfront";
@@ -396,12 +396,12 @@ export async function serializeAws_restXmlCreateCloudFrontOriginAccessIdentityCo
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlCreateDistributionCommand(
+export const serializeAws_restXmlCreateDistributionCommand = async (
   input: CreateDistributionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2019-03-26/distribution";
@@ -429,12 +429,12 @@ export async function serializeAws_restXmlCreateDistributionCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlCreateDistributionWithTagsCommand(
+export const serializeAws_restXmlCreateDistributionWithTagsCommand = async (
   input: CreateDistributionWithTagsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2019-03-26/distribution";
@@ -466,12 +466,12 @@ export async function serializeAws_restXmlCreateDistributionWithTagsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlCreateFieldLevelEncryptionConfigCommand(
+export const serializeAws_restXmlCreateFieldLevelEncryptionConfigCommand = async (
   input: CreateFieldLevelEncryptionConfigCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2019-03-26/field-level-encryption";
@@ -499,12 +499,12 @@ export async function serializeAws_restXmlCreateFieldLevelEncryptionConfigComman
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlCreateFieldLevelEncryptionProfileCommand(
+export const serializeAws_restXmlCreateFieldLevelEncryptionProfileCommand = async (
   input: CreateFieldLevelEncryptionProfileCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2019-03-26/field-level-encryption-profile";
@@ -532,12 +532,12 @@ export async function serializeAws_restXmlCreateFieldLevelEncryptionProfileComma
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlCreateInvalidationCommand(
+export const serializeAws_restXmlCreateInvalidationCommand = async (
   input: CreateInvalidationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2019-03-26/distribution/{DistributionId}/invalidation";
@@ -579,12 +579,12 @@ export async function serializeAws_restXmlCreateInvalidationCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlCreatePublicKeyCommand(
+export const serializeAws_restXmlCreatePublicKeyCommand = async (
   input: CreatePublicKeyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2019-03-26/public-key";
@@ -612,12 +612,12 @@ export async function serializeAws_restXmlCreatePublicKeyCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlCreateStreamingDistributionCommand(
+export const serializeAws_restXmlCreateStreamingDistributionCommand = async (
   input: CreateStreamingDistributionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2019-03-26/streaming-distribution";
@@ -645,12 +645,12 @@ export async function serializeAws_restXmlCreateStreamingDistributionCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlCreateStreamingDistributionWithTagsCommand(
+export const serializeAws_restXmlCreateStreamingDistributionWithTagsCommand = async (
   input: CreateStreamingDistributionWithTagsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2019-03-26/streaming-distribution";
@@ -682,12 +682,12 @@ export async function serializeAws_restXmlCreateStreamingDistributionWithTagsCom
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommand(
+export const serializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommand = async (
   input: DeleteCloudFrontOriginAccessIdentityCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   if (isSerializableHeaderValue(input.IfMatch)) {
@@ -717,12 +717,12 @@ export async function serializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCo
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlDeleteDistributionCommand(
+export const serializeAws_restXmlDeleteDistributionCommand = async (
   input: DeleteDistributionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   if (isSerializableHeaderValue(input.IfMatch)) {
@@ -752,12 +752,12 @@ export async function serializeAws_restXmlDeleteDistributionCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlDeleteFieldLevelEncryptionConfigCommand(
+export const serializeAws_restXmlDeleteFieldLevelEncryptionConfigCommand = async (
   input: DeleteFieldLevelEncryptionConfigCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   if (isSerializableHeaderValue(input.IfMatch)) {
@@ -787,12 +787,12 @@ export async function serializeAws_restXmlDeleteFieldLevelEncryptionConfigComman
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlDeleteFieldLevelEncryptionProfileCommand(
+export const serializeAws_restXmlDeleteFieldLevelEncryptionProfileCommand = async (
   input: DeleteFieldLevelEncryptionProfileCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   if (isSerializableHeaderValue(input.IfMatch)) {
@@ -822,12 +822,12 @@ export async function serializeAws_restXmlDeleteFieldLevelEncryptionProfileComma
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlDeletePublicKeyCommand(
+export const serializeAws_restXmlDeletePublicKeyCommand = async (
   input: DeletePublicKeyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   if (isSerializableHeaderValue(input.IfMatch)) {
@@ -857,12 +857,12 @@ export async function serializeAws_restXmlDeletePublicKeyCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlDeleteStreamingDistributionCommand(
+export const serializeAws_restXmlDeleteStreamingDistributionCommand = async (
   input: DeleteStreamingDistributionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   if (isSerializableHeaderValue(input.IfMatch)) {
@@ -892,12 +892,12 @@ export async function serializeAws_restXmlDeleteStreamingDistributionCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetCloudFrontOriginAccessIdentityCommand(
+export const serializeAws_restXmlGetCloudFrontOriginAccessIdentityCommand = async (
   input: GetCloudFrontOriginAccessIdentityCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2019-03-26/origin-access-identity/cloudfront/{Id}";
@@ -924,12 +924,12 @@ export async function serializeAws_restXmlGetCloudFrontOriginAccessIdentityComma
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigCommand(
+export const serializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigCommand = async (
   input: GetCloudFrontOriginAccessIdentityConfigCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath =
@@ -957,12 +957,12 @@ export async function serializeAws_restXmlGetCloudFrontOriginAccessIdentityConfi
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetDistributionCommand(
+export const serializeAws_restXmlGetDistributionCommand = async (
   input: GetDistributionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2019-03-26/distribution/{Id}";
@@ -989,12 +989,12 @@ export async function serializeAws_restXmlGetDistributionCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetDistributionConfigCommand(
+export const serializeAws_restXmlGetDistributionConfigCommand = async (
   input: GetDistributionConfigCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2019-03-26/distribution/{Id}/config";
@@ -1021,12 +1021,12 @@ export async function serializeAws_restXmlGetDistributionConfigCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetFieldLevelEncryptionCommand(
+export const serializeAws_restXmlGetFieldLevelEncryptionCommand = async (
   input: GetFieldLevelEncryptionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2019-03-26/field-level-encryption/{Id}";
@@ -1053,12 +1053,12 @@ export async function serializeAws_restXmlGetFieldLevelEncryptionCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetFieldLevelEncryptionConfigCommand(
+export const serializeAws_restXmlGetFieldLevelEncryptionConfigCommand = async (
   input: GetFieldLevelEncryptionConfigCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2019-03-26/field-level-encryption/{Id}/config";
@@ -1085,12 +1085,12 @@ export async function serializeAws_restXmlGetFieldLevelEncryptionConfigCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetFieldLevelEncryptionProfileCommand(
+export const serializeAws_restXmlGetFieldLevelEncryptionProfileCommand = async (
   input: GetFieldLevelEncryptionProfileCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2019-03-26/field-level-encryption-profile/{Id}";
@@ -1117,12 +1117,12 @@ export async function serializeAws_restXmlGetFieldLevelEncryptionProfileCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetFieldLevelEncryptionProfileConfigCommand(
+export const serializeAws_restXmlGetFieldLevelEncryptionProfileConfigCommand = async (
   input: GetFieldLevelEncryptionProfileConfigCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2019-03-26/field-level-encryption-profile/{Id}/config";
@@ -1149,12 +1149,12 @@ export async function serializeAws_restXmlGetFieldLevelEncryptionProfileConfigCo
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetInvalidationCommand(
+export const serializeAws_restXmlGetInvalidationCommand = async (
   input: GetInvalidationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath =
@@ -1196,12 +1196,12 @@ export async function serializeAws_restXmlGetInvalidationCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetPublicKeyCommand(
+export const serializeAws_restXmlGetPublicKeyCommand = async (
   input: GetPublicKeyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2019-03-26/public-key/{Id}";
@@ -1228,12 +1228,12 @@ export async function serializeAws_restXmlGetPublicKeyCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetPublicKeyConfigCommand(
+export const serializeAws_restXmlGetPublicKeyConfigCommand = async (
   input: GetPublicKeyConfigCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2019-03-26/public-key/{Id}/config";
@@ -1260,12 +1260,12 @@ export async function serializeAws_restXmlGetPublicKeyConfigCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetStreamingDistributionCommand(
+export const serializeAws_restXmlGetStreamingDistributionCommand = async (
   input: GetStreamingDistributionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2019-03-26/streaming-distribution/{Id}";
@@ -1292,12 +1292,12 @@ export async function serializeAws_restXmlGetStreamingDistributionCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetStreamingDistributionConfigCommand(
+export const serializeAws_restXmlGetStreamingDistributionConfigCommand = async (
   input: GetStreamingDistributionConfigCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2019-03-26/streaming-distribution/{Id}/config";
@@ -1324,12 +1324,12 @@ export async function serializeAws_restXmlGetStreamingDistributionConfigCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommand(
+export const serializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommand = async (
   input: ListCloudFrontOriginAccessIdentitiesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2019-03-26/origin-access-identity/cloudfront";
@@ -1352,12 +1352,12 @@ export async function serializeAws_restXmlListCloudFrontOriginAccessIdentitiesCo
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlListDistributionsCommand(
+export const serializeAws_restXmlListDistributionsCommand = async (
   input: ListDistributionsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2019-03-26/distribution";
@@ -1380,12 +1380,12 @@ export async function serializeAws_restXmlListDistributionsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlListDistributionsByWebACLIdCommand(
+export const serializeAws_restXmlListDistributionsByWebACLIdCommand = async (
   input: ListDistributionsByWebACLIdCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2019-03-26/distributionsByWebACLId/{WebACLId}";
@@ -1420,12 +1420,12 @@ export async function serializeAws_restXmlListDistributionsByWebACLIdCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlListFieldLevelEncryptionConfigsCommand(
+export const serializeAws_restXmlListFieldLevelEncryptionConfigsCommand = async (
   input: ListFieldLevelEncryptionConfigsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2019-03-26/field-level-encryption";
@@ -1448,12 +1448,12 @@ export async function serializeAws_restXmlListFieldLevelEncryptionConfigsCommand
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlListFieldLevelEncryptionProfilesCommand(
+export const serializeAws_restXmlListFieldLevelEncryptionProfilesCommand = async (
   input: ListFieldLevelEncryptionProfilesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2019-03-26/field-level-encryption-profile";
@@ -1476,12 +1476,12 @@ export async function serializeAws_restXmlListFieldLevelEncryptionProfilesComman
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlListInvalidationsCommand(
+export const serializeAws_restXmlListInvalidationsCommand = async (
   input: ListInvalidationsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2019-03-26/distribution/{DistributionId}/invalidation";
@@ -1518,12 +1518,12 @@ export async function serializeAws_restXmlListInvalidationsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlListPublicKeysCommand(
+export const serializeAws_restXmlListPublicKeysCommand = async (
   input: ListPublicKeysCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2019-03-26/public-key";
@@ -1546,12 +1546,12 @@ export async function serializeAws_restXmlListPublicKeysCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlListStreamingDistributionsCommand(
+export const serializeAws_restXmlListStreamingDistributionsCommand = async (
   input: ListStreamingDistributionsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2019-03-26/streaming-distribution";
@@ -1574,12 +1574,12 @@ export async function serializeAws_restXmlListStreamingDistributionsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlListTagsForResourceCommand(
+export const serializeAws_restXmlListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2019-03-26/tagging";
@@ -1599,12 +1599,12 @@ export async function serializeAws_restXmlListTagsForResourceCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlTagResourceCommand(
+export const serializeAws_restXmlTagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2019-03-26/tagging";
@@ -1636,12 +1636,12 @@ export async function serializeAws_restXmlTagResourceCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlUntagResourceCommand(
+export const serializeAws_restXmlUntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2019-03-26/tagging";
@@ -1673,12 +1673,12 @@ export async function serializeAws_restXmlUntagResourceCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommand(
+export const serializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommand = async (
   input: UpdateCloudFrontOriginAccessIdentityCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (isSerializableHeaderValue(input.IfMatch)) {
@@ -1722,12 +1722,12 @@ export async function serializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCo
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlUpdateDistributionCommand(
+export const serializeAws_restXmlUpdateDistributionCommand = async (
   input: UpdateDistributionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (isSerializableHeaderValue(input.IfMatch)) {
@@ -1770,12 +1770,12 @@ export async function serializeAws_restXmlUpdateDistributionCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlUpdateFieldLevelEncryptionConfigCommand(
+export const serializeAws_restXmlUpdateFieldLevelEncryptionConfigCommand = async (
   input: UpdateFieldLevelEncryptionConfigCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (isSerializableHeaderValue(input.IfMatch)) {
@@ -1818,12 +1818,12 @@ export async function serializeAws_restXmlUpdateFieldLevelEncryptionConfigComman
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlUpdateFieldLevelEncryptionProfileCommand(
+export const serializeAws_restXmlUpdateFieldLevelEncryptionProfileCommand = async (
   input: UpdateFieldLevelEncryptionProfileCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (isSerializableHeaderValue(input.IfMatch)) {
@@ -1866,12 +1866,12 @@ export async function serializeAws_restXmlUpdateFieldLevelEncryptionProfileComma
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlUpdatePublicKeyCommand(
+export const serializeAws_restXmlUpdatePublicKeyCommand = async (
   input: UpdatePublicKeyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (isSerializableHeaderValue(input.IfMatch)) {
@@ -1914,12 +1914,12 @@ export async function serializeAws_restXmlUpdatePublicKeyCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlUpdateStreamingDistributionCommand(
+export const serializeAws_restXmlUpdateStreamingDistributionCommand = async (
   input: UpdateStreamingDistributionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (isSerializableHeaderValue(input.IfMatch)) {
@@ -1962,12 +1962,12 @@ export async function serializeAws_restXmlUpdateStreamingDistributionCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function deserializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommand(
+export const deserializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateCloudFrontOriginAccessIdentityCommandOutput> {
+): Promise<CreateCloudFrontOriginAccessIdentityCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommandError(
       output,
@@ -1993,12 +1993,12 @@ export async function deserializeAws_restXmlCreateCloudFrontOriginAccessIdentity
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommandError(
+const deserializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateCloudFrontOriginAccessIdentityCommandOutput> {
+): Promise<CreateCloudFrontOriginAccessIdentityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2078,12 +2078,12 @@ async function deserializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommand
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlCreateDistributionCommand(
+export const deserializeAws_restXmlCreateDistributionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateDistributionCommandOutput> {
+): Promise<CreateDistributionCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restXmlCreateDistributionCommandError(
       output,
@@ -2106,12 +2106,12 @@ export async function deserializeAws_restXmlCreateDistributionCommand(
   const data: any = await parseBody(output.body, context);
   contents.Distribution = deserializeAws_restXmlDistribution(data, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlCreateDistributionCommandError(
+const deserializeAws_restXmlCreateDistributionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateDistributionCommandOutput> {
+): Promise<CreateDistributionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2620,12 +2620,12 @@ async function deserializeAws_restXmlCreateDistributionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlCreateDistributionWithTagsCommand(
+export const deserializeAws_restXmlCreateDistributionWithTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateDistributionWithTagsCommandOutput> {
+): Promise<CreateDistributionWithTagsCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restXmlCreateDistributionWithTagsCommandError(
       output,
@@ -2648,12 +2648,12 @@ export async function deserializeAws_restXmlCreateDistributionWithTagsCommand(
   const data: any = await parseBody(output.body, context);
   contents.Distribution = deserializeAws_restXmlDistribution(data, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlCreateDistributionWithTagsCommandError(
+const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateDistributionWithTagsCommandOutput> {
+): Promise<CreateDistributionWithTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3173,12 +3173,12 @@ async function deserializeAws_restXmlCreateDistributionWithTagsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlCreateFieldLevelEncryptionConfigCommand(
+export const deserializeAws_restXmlCreateFieldLevelEncryptionConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateFieldLevelEncryptionConfigCommandOutput> {
+): Promise<CreateFieldLevelEncryptionConfigCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restXmlCreateFieldLevelEncryptionConfigCommandError(
       output,
@@ -3204,12 +3204,12 @@ export async function deserializeAws_restXmlCreateFieldLevelEncryptionConfigComm
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlCreateFieldLevelEncryptionConfigCommandError(
+const deserializeAws_restXmlCreateFieldLevelEncryptionConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateFieldLevelEncryptionConfigCommandOutput> {
+): Promise<CreateFieldLevelEncryptionConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3322,12 +3322,12 @@ async function deserializeAws_restXmlCreateFieldLevelEncryptionConfigCommandErro
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlCreateFieldLevelEncryptionProfileCommand(
+export const deserializeAws_restXmlCreateFieldLevelEncryptionProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateFieldLevelEncryptionProfileCommandOutput> {
+): Promise<CreateFieldLevelEncryptionProfileCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restXmlCreateFieldLevelEncryptionProfileCommandError(
       output,
@@ -3353,12 +3353,12 @@ export async function deserializeAws_restXmlCreateFieldLevelEncryptionProfileCom
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlCreateFieldLevelEncryptionProfileCommandError(
+const deserializeAws_restXmlCreateFieldLevelEncryptionProfileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateFieldLevelEncryptionProfileCommandOutput> {
+): Promise<CreateFieldLevelEncryptionProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3471,12 +3471,12 @@ async function deserializeAws_restXmlCreateFieldLevelEncryptionProfileCommandErr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlCreateInvalidationCommand(
+export const deserializeAws_restXmlCreateInvalidationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateInvalidationCommandOutput> {
+): Promise<CreateInvalidationCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restXmlCreateInvalidationCommandError(
       output,
@@ -3495,12 +3495,12 @@ export async function deserializeAws_restXmlCreateInvalidationCommand(
   const data: any = await parseBody(output.body, context);
   contents.Invalidation = deserializeAws_restXmlInvalidation(data, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlCreateInvalidationCommandError(
+const deserializeAws_restXmlCreateInvalidationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateInvalidationCommandOutput> {
+): Promise<CreateInvalidationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3602,12 +3602,12 @@ async function deserializeAws_restXmlCreateInvalidationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlCreatePublicKeyCommand(
+export const deserializeAws_restXmlCreatePublicKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreatePublicKeyCommandOutput> {
+): Promise<CreatePublicKeyCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restXmlCreatePublicKeyCommandError(output, context);
   }
@@ -3627,12 +3627,12 @@ export async function deserializeAws_restXmlCreatePublicKeyCommand(
   const data: any = await parseBody(output.body, context);
   contents.PublicKey = deserializeAws_restXmlPublicKey(data, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlCreatePublicKeyCommandError(
+const deserializeAws_restXmlCreatePublicKeyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreatePublicKeyCommandOutput> {
+): Promise<CreatePublicKeyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3690,12 +3690,12 @@ async function deserializeAws_restXmlCreatePublicKeyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlCreateStreamingDistributionCommand(
+export const deserializeAws_restXmlCreateStreamingDistributionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateStreamingDistributionCommandOutput> {
+): Promise<CreateStreamingDistributionCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restXmlCreateStreamingDistributionCommandError(
       output,
@@ -3721,12 +3721,12 @@ export async function deserializeAws_restXmlCreateStreamingDistributionCommand(
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlCreateStreamingDistributionCommandError(
+const deserializeAws_restXmlCreateStreamingDistributionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateStreamingDistributionCommandOutput> {
+): Promise<CreateStreamingDistributionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3883,12 +3883,12 @@ async function deserializeAws_restXmlCreateStreamingDistributionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlCreateStreamingDistributionWithTagsCommand(
+export const deserializeAws_restXmlCreateStreamingDistributionWithTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateStreamingDistributionWithTagsCommandOutput> {
+): Promise<CreateStreamingDistributionWithTagsCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restXmlCreateStreamingDistributionWithTagsCommandError(
       output,
@@ -3914,12 +3914,12 @@ export async function deserializeAws_restXmlCreateStreamingDistributionWithTagsC
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlCreateStreamingDistributionWithTagsCommandError(
+const deserializeAws_restXmlCreateStreamingDistributionWithTagsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateStreamingDistributionWithTagsCommandOutput> {
+): Promise<CreateStreamingDistributionWithTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4087,12 +4087,12 @@ async function deserializeAws_restXmlCreateStreamingDistributionWithTagsCommandE
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommand(
+export const deserializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteCloudFrontOriginAccessIdentityCommandOutput> {
+): Promise<DeleteCloudFrontOriginAccessIdentityCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommandError(
       output,
@@ -4104,12 +4104,12 @@ export async function deserializeAws_restXmlDeleteCloudFrontOriginAccessIdentity
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommandError(
+const deserializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteCloudFrontOriginAccessIdentityCommandOutput> {
+): Promise<DeleteCloudFrontOriginAccessIdentityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4189,12 +4189,12 @@ async function deserializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommand
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlDeleteDistributionCommand(
+export const deserializeAws_restXmlDeleteDistributionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteDistributionCommandOutput> {
+): Promise<DeleteDistributionCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restXmlDeleteDistributionCommandError(
       output,
@@ -4206,12 +4206,12 @@ export async function deserializeAws_restXmlDeleteDistributionCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlDeleteDistributionCommandError(
+const deserializeAws_restXmlDeleteDistributionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteDistributionCommandOutput> {
+): Promise<DeleteDistributionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4291,12 +4291,12 @@ async function deserializeAws_restXmlDeleteDistributionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlDeleteFieldLevelEncryptionConfigCommand(
+export const deserializeAws_restXmlDeleteFieldLevelEncryptionConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteFieldLevelEncryptionConfigCommandOutput> {
+): Promise<DeleteFieldLevelEncryptionConfigCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restXmlDeleteFieldLevelEncryptionConfigCommandError(
       output,
@@ -4308,12 +4308,12 @@ export async function deserializeAws_restXmlDeleteFieldLevelEncryptionConfigComm
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlDeleteFieldLevelEncryptionConfigCommandError(
+const deserializeAws_restXmlDeleteFieldLevelEncryptionConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteFieldLevelEncryptionConfigCommandOutput> {
+): Promise<DeleteFieldLevelEncryptionConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4393,12 +4393,12 @@ async function deserializeAws_restXmlDeleteFieldLevelEncryptionConfigCommandErro
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlDeleteFieldLevelEncryptionProfileCommand(
+export const deserializeAws_restXmlDeleteFieldLevelEncryptionProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteFieldLevelEncryptionProfileCommandOutput> {
+): Promise<DeleteFieldLevelEncryptionProfileCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restXmlDeleteFieldLevelEncryptionProfileCommandError(
       output,
@@ -4410,12 +4410,12 @@ export async function deserializeAws_restXmlDeleteFieldLevelEncryptionProfileCom
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlDeleteFieldLevelEncryptionProfileCommandError(
+const deserializeAws_restXmlDeleteFieldLevelEncryptionProfileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteFieldLevelEncryptionProfileCommandOutput> {
+): Promise<DeleteFieldLevelEncryptionProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4495,12 +4495,12 @@ async function deserializeAws_restXmlDeleteFieldLevelEncryptionProfileCommandErr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlDeletePublicKeyCommand(
+export const deserializeAws_restXmlDeletePublicKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeletePublicKeyCommandOutput> {
+): Promise<DeletePublicKeyCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restXmlDeletePublicKeyCommandError(output, context);
   }
@@ -4509,12 +4509,12 @@ export async function deserializeAws_restXmlDeletePublicKeyCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlDeletePublicKeyCommandError(
+const deserializeAws_restXmlDeletePublicKeyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeletePublicKeyCommandOutput> {
+): Promise<DeletePublicKeyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4594,12 +4594,12 @@ async function deserializeAws_restXmlDeletePublicKeyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlDeleteStreamingDistributionCommand(
+export const deserializeAws_restXmlDeleteStreamingDistributionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteStreamingDistributionCommandOutput> {
+): Promise<DeleteStreamingDistributionCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restXmlDeleteStreamingDistributionCommandError(
       output,
@@ -4611,12 +4611,12 @@ export async function deserializeAws_restXmlDeleteStreamingDistributionCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlDeleteStreamingDistributionCommandError(
+const deserializeAws_restXmlDeleteStreamingDistributionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteStreamingDistributionCommandOutput> {
+): Promise<DeleteStreamingDistributionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4696,12 +4696,12 @@ async function deserializeAws_restXmlDeleteStreamingDistributionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetCloudFrontOriginAccessIdentityCommand(
+export const deserializeAws_restXmlGetCloudFrontOriginAccessIdentityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetCloudFrontOriginAccessIdentityCommandOutput> {
+): Promise<GetCloudFrontOriginAccessIdentityCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetCloudFrontOriginAccessIdentityCommandError(
       output,
@@ -4723,12 +4723,12 @@ export async function deserializeAws_restXmlGetCloudFrontOriginAccessIdentityCom
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetCloudFrontOriginAccessIdentityCommandError(
+const deserializeAws_restXmlGetCloudFrontOriginAccessIdentityCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetCloudFrontOriginAccessIdentityCommandOutput> {
+): Promise<GetCloudFrontOriginAccessIdentityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4775,12 +4775,12 @@ async function deserializeAws_restXmlGetCloudFrontOriginAccessIdentityCommandErr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigCommand(
+export const deserializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetCloudFrontOriginAccessIdentityConfigCommandOutput> {
+): Promise<GetCloudFrontOriginAccessIdentityConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigCommandError(
       output,
@@ -4802,12 +4802,12 @@ export async function deserializeAws_restXmlGetCloudFrontOriginAccessIdentityCon
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigCommandError(
+const deserializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetCloudFrontOriginAccessIdentityConfigCommandOutput> {
+): Promise<GetCloudFrontOriginAccessIdentityConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4854,12 +4854,12 @@ async function deserializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigComm
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetDistributionCommand(
+export const deserializeAws_restXmlGetDistributionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetDistributionCommandOutput> {
+): Promise<GetDistributionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetDistributionCommandError(output, context);
   }
@@ -4875,12 +4875,12 @@ export async function deserializeAws_restXmlGetDistributionCommand(
   const data: any = await parseBody(output.body, context);
   contents.Distribution = deserializeAws_restXmlDistribution(data, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetDistributionCommandError(
+const deserializeAws_restXmlGetDistributionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetDistributionCommandOutput> {
+): Promise<GetDistributionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4927,12 +4927,12 @@ async function deserializeAws_restXmlGetDistributionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetDistributionConfigCommand(
+export const deserializeAws_restXmlGetDistributionConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetDistributionConfigCommandOutput> {
+): Promise<GetDistributionConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetDistributionConfigCommandError(
       output,
@@ -4954,12 +4954,12 @@ export async function deserializeAws_restXmlGetDistributionConfigCommand(
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetDistributionConfigCommandError(
+const deserializeAws_restXmlGetDistributionConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetDistributionConfigCommandOutput> {
+): Promise<GetDistributionConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5006,12 +5006,12 @@ async function deserializeAws_restXmlGetDistributionConfigCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetFieldLevelEncryptionCommand(
+export const deserializeAws_restXmlGetFieldLevelEncryptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetFieldLevelEncryptionCommandOutput> {
+): Promise<GetFieldLevelEncryptionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetFieldLevelEncryptionCommandError(
       output,
@@ -5033,12 +5033,12 @@ export async function deserializeAws_restXmlGetFieldLevelEncryptionCommand(
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetFieldLevelEncryptionCommandError(
+const deserializeAws_restXmlGetFieldLevelEncryptionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetFieldLevelEncryptionCommandOutput> {
+): Promise<GetFieldLevelEncryptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5085,12 +5085,12 @@ async function deserializeAws_restXmlGetFieldLevelEncryptionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetFieldLevelEncryptionConfigCommand(
+export const deserializeAws_restXmlGetFieldLevelEncryptionConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetFieldLevelEncryptionConfigCommandOutput> {
+): Promise<GetFieldLevelEncryptionConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetFieldLevelEncryptionConfigCommandError(
       output,
@@ -5112,12 +5112,12 @@ export async function deserializeAws_restXmlGetFieldLevelEncryptionConfigCommand
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetFieldLevelEncryptionConfigCommandError(
+const deserializeAws_restXmlGetFieldLevelEncryptionConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetFieldLevelEncryptionConfigCommandOutput> {
+): Promise<GetFieldLevelEncryptionConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5164,12 +5164,12 @@ async function deserializeAws_restXmlGetFieldLevelEncryptionConfigCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetFieldLevelEncryptionProfileCommand(
+export const deserializeAws_restXmlGetFieldLevelEncryptionProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetFieldLevelEncryptionProfileCommandOutput> {
+): Promise<GetFieldLevelEncryptionProfileCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetFieldLevelEncryptionProfileCommandError(
       output,
@@ -5191,12 +5191,12 @@ export async function deserializeAws_restXmlGetFieldLevelEncryptionProfileComman
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetFieldLevelEncryptionProfileCommandError(
+const deserializeAws_restXmlGetFieldLevelEncryptionProfileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetFieldLevelEncryptionProfileCommandOutput> {
+): Promise<GetFieldLevelEncryptionProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5243,12 +5243,12 @@ async function deserializeAws_restXmlGetFieldLevelEncryptionProfileCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetFieldLevelEncryptionProfileConfigCommand(
+export const deserializeAws_restXmlGetFieldLevelEncryptionProfileConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetFieldLevelEncryptionProfileConfigCommandOutput> {
+): Promise<GetFieldLevelEncryptionProfileConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetFieldLevelEncryptionProfileConfigCommandError(
       output,
@@ -5270,12 +5270,12 @@ export async function deserializeAws_restXmlGetFieldLevelEncryptionProfileConfig
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetFieldLevelEncryptionProfileConfigCommandError(
+const deserializeAws_restXmlGetFieldLevelEncryptionProfileConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetFieldLevelEncryptionProfileConfigCommandOutput> {
+): Promise<GetFieldLevelEncryptionProfileConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5322,12 +5322,12 @@ async function deserializeAws_restXmlGetFieldLevelEncryptionProfileConfigCommand
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetInvalidationCommand(
+export const deserializeAws_restXmlGetInvalidationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetInvalidationCommandOutput> {
+): Promise<GetInvalidationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetInvalidationCommandError(output, context);
   }
@@ -5339,12 +5339,12 @@ export async function deserializeAws_restXmlGetInvalidationCommand(
   const data: any = await parseBody(output.body, context);
   contents.Invalidation = deserializeAws_restXmlInvalidation(data, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetInvalidationCommandError(
+const deserializeAws_restXmlGetInvalidationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetInvalidationCommandOutput> {
+): Promise<GetInvalidationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5402,12 +5402,12 @@ async function deserializeAws_restXmlGetInvalidationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetPublicKeyCommand(
+export const deserializeAws_restXmlGetPublicKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetPublicKeyCommandOutput> {
+): Promise<GetPublicKeyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetPublicKeyCommandError(output, context);
   }
@@ -5423,12 +5423,12 @@ export async function deserializeAws_restXmlGetPublicKeyCommand(
   const data: any = await parseBody(output.body, context);
   contents.PublicKey = deserializeAws_restXmlPublicKey(data, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetPublicKeyCommandError(
+const deserializeAws_restXmlGetPublicKeyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetPublicKeyCommandOutput> {
+): Promise<GetPublicKeyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5475,12 +5475,12 @@ async function deserializeAws_restXmlGetPublicKeyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetPublicKeyConfigCommand(
+export const deserializeAws_restXmlGetPublicKeyConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetPublicKeyConfigCommandOutput> {
+): Promise<GetPublicKeyConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetPublicKeyConfigCommandError(
       output,
@@ -5502,12 +5502,12 @@ export async function deserializeAws_restXmlGetPublicKeyConfigCommand(
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetPublicKeyConfigCommandError(
+const deserializeAws_restXmlGetPublicKeyConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetPublicKeyConfigCommandOutput> {
+): Promise<GetPublicKeyConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5554,12 +5554,12 @@ async function deserializeAws_restXmlGetPublicKeyConfigCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetStreamingDistributionCommand(
+export const deserializeAws_restXmlGetStreamingDistributionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetStreamingDistributionCommandOutput> {
+): Promise<GetStreamingDistributionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetStreamingDistributionCommandError(
       output,
@@ -5581,12 +5581,12 @@ export async function deserializeAws_restXmlGetStreamingDistributionCommand(
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetStreamingDistributionCommandError(
+const deserializeAws_restXmlGetStreamingDistributionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetStreamingDistributionCommandOutput> {
+): Promise<GetStreamingDistributionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5633,12 +5633,12 @@ async function deserializeAws_restXmlGetStreamingDistributionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetStreamingDistributionConfigCommand(
+export const deserializeAws_restXmlGetStreamingDistributionConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetStreamingDistributionConfigCommandOutput> {
+): Promise<GetStreamingDistributionConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetStreamingDistributionConfigCommandError(
       output,
@@ -5660,12 +5660,12 @@ export async function deserializeAws_restXmlGetStreamingDistributionConfigComman
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetStreamingDistributionConfigCommandError(
+const deserializeAws_restXmlGetStreamingDistributionConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetStreamingDistributionConfigCommandOutput> {
+): Promise<GetStreamingDistributionConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5712,12 +5712,12 @@ async function deserializeAws_restXmlGetStreamingDistributionConfigCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommand(
+export const deserializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListCloudFrontOriginAccessIdentitiesCommandOutput> {
+): Promise<ListCloudFrontOriginAccessIdentitiesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommandError(
       output,
@@ -5735,12 +5735,12 @@ export async function deserializeAws_restXmlListCloudFrontOriginAccessIdentities
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommandError(
+const deserializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListCloudFrontOriginAccessIdentitiesCommandOutput> {
+): Promise<ListCloudFrontOriginAccessIdentitiesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5776,12 +5776,12 @@ async function deserializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommand
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlListDistributionsCommand(
+export const deserializeAws_restXmlListDistributionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListDistributionsCommandOutput> {
+): Promise<ListDistributionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlListDistributionsCommandError(output, context);
   }
@@ -5796,12 +5796,12 @@ export async function deserializeAws_restXmlListDistributionsCommand(
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlListDistributionsCommandError(
+const deserializeAws_restXmlListDistributionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListDistributionsCommandOutput> {
+): Promise<ListDistributionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5837,12 +5837,12 @@ async function deserializeAws_restXmlListDistributionsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlListDistributionsByWebACLIdCommand(
+export const deserializeAws_restXmlListDistributionsByWebACLIdCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListDistributionsByWebACLIdCommandOutput> {
+): Promise<ListDistributionsByWebACLIdCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlListDistributionsByWebACLIdCommandError(
       output,
@@ -5860,12 +5860,12 @@ export async function deserializeAws_restXmlListDistributionsByWebACLIdCommand(
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlListDistributionsByWebACLIdCommandError(
+const deserializeAws_restXmlListDistributionsByWebACLIdCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListDistributionsByWebACLIdCommandOutput> {
+): Promise<ListDistributionsByWebACLIdCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5912,12 +5912,12 @@ async function deserializeAws_restXmlListDistributionsByWebACLIdCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlListFieldLevelEncryptionConfigsCommand(
+export const deserializeAws_restXmlListFieldLevelEncryptionConfigsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListFieldLevelEncryptionConfigsCommandOutput> {
+): Promise<ListFieldLevelEncryptionConfigsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlListFieldLevelEncryptionConfigsCommandError(
       output,
@@ -5935,12 +5935,12 @@ export async function deserializeAws_restXmlListFieldLevelEncryptionConfigsComma
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlListFieldLevelEncryptionConfigsCommandError(
+const deserializeAws_restXmlListFieldLevelEncryptionConfigsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListFieldLevelEncryptionConfigsCommandOutput> {
+): Promise<ListFieldLevelEncryptionConfigsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5976,12 +5976,12 @@ async function deserializeAws_restXmlListFieldLevelEncryptionConfigsCommandError
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlListFieldLevelEncryptionProfilesCommand(
+export const deserializeAws_restXmlListFieldLevelEncryptionProfilesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListFieldLevelEncryptionProfilesCommandOutput> {
+): Promise<ListFieldLevelEncryptionProfilesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlListFieldLevelEncryptionProfilesCommandError(
       output,
@@ -5999,12 +5999,12 @@ export async function deserializeAws_restXmlListFieldLevelEncryptionProfilesComm
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlListFieldLevelEncryptionProfilesCommandError(
+const deserializeAws_restXmlListFieldLevelEncryptionProfilesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListFieldLevelEncryptionProfilesCommandOutput> {
+): Promise<ListFieldLevelEncryptionProfilesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6040,12 +6040,12 @@ async function deserializeAws_restXmlListFieldLevelEncryptionProfilesCommandErro
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlListInvalidationsCommand(
+export const deserializeAws_restXmlListInvalidationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListInvalidationsCommandOutput> {
+): Promise<ListInvalidationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlListInvalidationsCommandError(output, context);
   }
@@ -6060,12 +6060,12 @@ export async function deserializeAws_restXmlListInvalidationsCommand(
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlListInvalidationsCommandError(
+const deserializeAws_restXmlListInvalidationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListInvalidationsCommandOutput> {
+): Promise<ListInvalidationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6123,12 +6123,12 @@ async function deserializeAws_restXmlListInvalidationsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlListPublicKeysCommand(
+export const deserializeAws_restXmlListPublicKeysCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListPublicKeysCommandOutput> {
+): Promise<ListPublicKeysCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlListPublicKeysCommandError(output, context);
   }
@@ -6140,12 +6140,12 @@ export async function deserializeAws_restXmlListPublicKeysCommand(
   const data: any = await parseBody(output.body, context);
   contents.PublicKeyList = deserializeAws_restXmlPublicKeyList(data, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlListPublicKeysCommandError(
+const deserializeAws_restXmlListPublicKeysCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListPublicKeysCommandOutput> {
+): Promise<ListPublicKeysCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6181,12 +6181,12 @@ async function deserializeAws_restXmlListPublicKeysCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlListStreamingDistributionsCommand(
+export const deserializeAws_restXmlListStreamingDistributionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListStreamingDistributionsCommandOutput> {
+): Promise<ListStreamingDistributionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlListStreamingDistributionsCommandError(
       output,
@@ -6204,12 +6204,12 @@ export async function deserializeAws_restXmlListStreamingDistributionsCommand(
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlListStreamingDistributionsCommandError(
+const deserializeAws_restXmlListStreamingDistributionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListStreamingDistributionsCommandOutput> {
+): Promise<ListStreamingDistributionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6245,12 +6245,12 @@ async function deserializeAws_restXmlListStreamingDistributionsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlListTagsForResourceCommand(
+export const deserializeAws_restXmlListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlListTagsForResourceCommandError(
       output,
@@ -6265,12 +6265,12 @@ export async function deserializeAws_restXmlListTagsForResourceCommand(
   const data: any = await parseBody(output.body, context);
   contents.Tags = deserializeAws_restXmlTags(data, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlListTagsForResourceCommandError(
+const deserializeAws_restXmlListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6339,12 +6339,12 @@ async function deserializeAws_restXmlListTagsForResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlTagResourceCommand(
+export const deserializeAws_restXmlTagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restXmlTagResourceCommandError(output, context);
   }
@@ -6353,12 +6353,12 @@ export async function deserializeAws_restXmlTagResourceCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlTagResourceCommandError(
+const deserializeAws_restXmlTagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6427,12 +6427,12 @@ async function deserializeAws_restXmlTagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlUntagResourceCommand(
+export const deserializeAws_restXmlUntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restXmlUntagResourceCommandError(output, context);
   }
@@ -6441,12 +6441,12 @@ export async function deserializeAws_restXmlUntagResourceCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlUntagResourceCommandError(
+const deserializeAws_restXmlUntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6515,12 +6515,12 @@ async function deserializeAws_restXmlUntagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommand(
+export const deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateCloudFrontOriginAccessIdentityCommandOutput> {
+): Promise<UpdateCloudFrontOriginAccessIdentityCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommandError(
       output,
@@ -6542,12 +6542,12 @@ export async function deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentity
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommandError(
+const deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateCloudFrontOriginAccessIdentityCommandOutput> {
+): Promise<UpdateCloudFrontOriginAccessIdentityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6660,12 +6660,12 @@ async function deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommand
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlUpdateDistributionCommand(
+export const deserializeAws_restXmlUpdateDistributionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateDistributionCommandOutput> {
+): Promise<UpdateDistributionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlUpdateDistributionCommandError(
       output,
@@ -6684,12 +6684,12 @@ export async function deserializeAws_restXmlUpdateDistributionCommand(
   const data: any = await parseBody(output.body, context);
   contents.Distribution = deserializeAws_restXmlDistribution(data, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlUpdateDistributionCommandError(
+const deserializeAws_restXmlUpdateDistributionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateDistributionCommandOutput> {
+): Promise<UpdateDistributionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -7198,12 +7198,12 @@ async function deserializeAws_restXmlUpdateDistributionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlUpdateFieldLevelEncryptionConfigCommand(
+export const deserializeAws_restXmlUpdateFieldLevelEncryptionConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateFieldLevelEncryptionConfigCommandOutput> {
+): Promise<UpdateFieldLevelEncryptionConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlUpdateFieldLevelEncryptionConfigCommandError(
       output,
@@ -7225,12 +7225,12 @@ export async function deserializeAws_restXmlUpdateFieldLevelEncryptionConfigComm
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlUpdateFieldLevelEncryptionConfigCommandError(
+const deserializeAws_restXmlUpdateFieldLevelEncryptionConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateFieldLevelEncryptionConfigCommandOutput> {
+): Promise<UpdateFieldLevelEncryptionConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -7376,12 +7376,12 @@ async function deserializeAws_restXmlUpdateFieldLevelEncryptionConfigCommandErro
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlUpdateFieldLevelEncryptionProfileCommand(
+export const deserializeAws_restXmlUpdateFieldLevelEncryptionProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateFieldLevelEncryptionProfileCommandOutput> {
+): Promise<UpdateFieldLevelEncryptionProfileCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlUpdateFieldLevelEncryptionProfileCommandError(
       output,
@@ -7403,12 +7403,12 @@ export async function deserializeAws_restXmlUpdateFieldLevelEncryptionProfileCom
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlUpdateFieldLevelEncryptionProfileCommandError(
+const deserializeAws_restXmlUpdateFieldLevelEncryptionProfileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateFieldLevelEncryptionProfileCommandOutput> {
+): Promise<UpdateFieldLevelEncryptionProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -7565,12 +7565,12 @@ async function deserializeAws_restXmlUpdateFieldLevelEncryptionProfileCommandErr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlUpdatePublicKeyCommand(
+export const deserializeAws_restXmlUpdatePublicKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdatePublicKeyCommandOutput> {
+): Promise<UpdatePublicKeyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlUpdatePublicKeyCommandError(output, context);
   }
@@ -7586,12 +7586,12 @@ export async function deserializeAws_restXmlUpdatePublicKeyCommand(
   const data: any = await parseBody(output.body, context);
   contents.PublicKey = deserializeAws_restXmlPublicKey(data, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlUpdatePublicKeyCommandError(
+const deserializeAws_restXmlUpdatePublicKeyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdatePublicKeyCommandOutput> {
+): Promise<UpdatePublicKeyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -7693,12 +7693,12 @@ async function deserializeAws_restXmlUpdatePublicKeyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlUpdateStreamingDistributionCommand(
+export const deserializeAws_restXmlUpdateStreamingDistributionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateStreamingDistributionCommandOutput> {
+): Promise<UpdateStreamingDistributionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlUpdateStreamingDistributionCommandError(
       output,
@@ -7720,12 +7720,12 @@ export async function deserializeAws_restXmlUpdateStreamingDistributionCommand(
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlUpdateStreamingDistributionCommandError(
+const deserializeAws_restXmlUpdateStreamingDistributionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateStreamingDistributionCommandOutput> {
+): Promise<UpdateStreamingDistributionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -7893,7 +7893,7 @@ async function deserializeAws_restXmlUpdateStreamingDistributionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restXmlAccessDeniedResponse = async (
   parsedOutput: any,

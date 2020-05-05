@@ -36,44 +36,44 @@ import {
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
-export async function serializeAws_json1_1EmptyOperationCommand(
+export const serializeAws_json1_1EmptyOperationCommand = async (
   input: EmptyOperationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "JsonProtocol.EmptyOperation";
   return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
-}
+};
 
-export async function serializeAws_json1_1KitchenSinkOperationCommand(
+export const serializeAws_json1_1KitchenSinkOperationCommand = async (
   input: KitchenSinkOperationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "JsonProtocol.KitchenSinkOperation";
   let body: any;
   body = JSON.stringify(serializeAws_json1_1KitchenSink(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1OperationWithOptionalInputOutputCommand(
+export const serializeAws_json1_1OperationWithOptionalInputOutputCommand = async (
   input: OperationWithOptionalInputOutputCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "JsonProtocol.OperationWithOptionalInputOutput";
   let body: any;
   body = JSON.stringify(serializeAws_json1_1SimpleStruct(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_1EmptyOperationCommand(
+export const deserializeAws_json1_1EmptyOperationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<EmptyOperationCommandOutput> {
+): Promise<EmptyOperationCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1EmptyOperationCommandError(output, context);
   }
@@ -82,12 +82,12 @@ export async function deserializeAws_json1_1EmptyOperationCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1EmptyOperationCommandError(
+const deserializeAws_json1_1EmptyOperationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<EmptyOperationCommandOutput> {
+): Promise<EmptyOperationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -113,12 +113,12 @@ async function deserializeAws_json1_1EmptyOperationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1KitchenSinkOperationCommand(
+export const deserializeAws_json1_1KitchenSinkOperationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<KitchenSinkOperationCommandOutput> {
+): Promise<KitchenSinkOperationCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1KitchenSinkOperationCommandError(
       output,
@@ -134,12 +134,12 @@ export async function deserializeAws_json1_1KitchenSinkOperationCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1KitchenSinkOperationCommandError(
+const deserializeAws_json1_1KitchenSinkOperationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<KitchenSinkOperationCommandOutput> {
+): Promise<KitchenSinkOperationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -187,12 +187,12 @@ async function deserializeAws_json1_1KitchenSinkOperationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1OperationWithOptionalInputOutputCommand(
+export const deserializeAws_json1_1OperationWithOptionalInputOutputCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<OperationWithOptionalInputOutputCommandOutput> {
+): Promise<OperationWithOptionalInputOutputCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1OperationWithOptionalInputOutputCommandError(
       output,
@@ -208,12 +208,12 @@ export async function deserializeAws_json1_1OperationWithOptionalInputOutputComm
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1OperationWithOptionalInputOutputCommandError(
+const deserializeAws_json1_1OperationWithOptionalInputOutputCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<OperationWithOptionalInputOutputCommandOutput> {
+): Promise<OperationWithOptionalInputOutputCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -239,7 +239,7 @@ async function deserializeAws_json1_1OperationWithOptionalInputOutputCommandErro
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_1ErrorWithMembersResponse = async (
   parsedOutput: any,

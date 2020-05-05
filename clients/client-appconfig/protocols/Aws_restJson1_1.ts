@@ -143,10 +143,10 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_restJson1_1CreateApplicationCommand(
+export const serializeAws_restJson1_1CreateApplicationCommand = async (
   input: CreateApplicationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/applications";
@@ -172,12 +172,12 @@ export async function serializeAws_restJson1_1CreateApplicationCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1CreateConfigurationProfileCommand(
+export const serializeAws_restJson1_1CreateConfigurationProfileCommand = async (
   input: CreateConfigurationProfileCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/applications/{ApplicationId}/configurationprofiles";
@@ -229,12 +229,12 @@ export async function serializeAws_restJson1_1CreateConfigurationProfileCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1CreateDeploymentStrategyCommand(
+export const serializeAws_restJson1_1CreateDeploymentStrategyCommand = async (
   input: CreateDeploymentStrategyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/deploymentstrategies";
@@ -276,12 +276,12 @@ export async function serializeAws_restJson1_1CreateDeploymentStrategyCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1CreateEnvironmentCommand(
+export const serializeAws_restJson1_1CreateEnvironmentCommand = async (
   input: CreateEnvironmentCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/applications/{ApplicationId}/environments";
@@ -327,12 +327,12 @@ export async function serializeAws_restJson1_1CreateEnvironmentCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeleteApplicationCommand(
+export const serializeAws_restJson1_1DeleteApplicationCommand = async (
   input: DeleteApplicationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/applications/{ApplicationId}";
@@ -361,12 +361,12 @@ export async function serializeAws_restJson1_1DeleteApplicationCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeleteConfigurationProfileCommand(
+export const serializeAws_restJson1_1DeleteConfigurationProfileCommand = async (
   input: DeleteConfigurationProfileCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath =
@@ -412,12 +412,12 @@ export async function serializeAws_restJson1_1DeleteConfigurationProfileCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeleteDeploymentStrategyCommand(
+export const serializeAws_restJson1_1DeleteDeploymentStrategyCommand = async (
   input: DeleteDeploymentStrategyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/deployementstrategies/{DeploymentStrategyId}";
@@ -448,12 +448,12 @@ export async function serializeAws_restJson1_1DeleteDeploymentStrategyCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeleteEnvironmentCommand(
+export const serializeAws_restJson1_1DeleteEnvironmentCommand = async (
   input: DeleteEnvironmentCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath =
@@ -497,12 +497,12 @@ export async function serializeAws_restJson1_1DeleteEnvironmentCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetApplicationCommand(
+export const serializeAws_restJson1_1GetApplicationCommand = async (
   input: GetApplicationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/applications/{ApplicationId}";
@@ -531,12 +531,12 @@ export async function serializeAws_restJson1_1GetApplicationCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetConfigurationCommand(
+export const serializeAws_restJson1_1GetConfigurationCommand = async (
   input: GetConfigurationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath =
@@ -602,12 +602,12 @@ export async function serializeAws_restJson1_1GetConfigurationCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetConfigurationProfileCommand(
+export const serializeAws_restJson1_1GetConfigurationProfileCommand = async (
   input: GetConfigurationProfileCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath =
@@ -653,12 +653,12 @@ export async function serializeAws_restJson1_1GetConfigurationProfileCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetDeploymentCommand(
+export const serializeAws_restJson1_1GetDeploymentCommand = async (
   input: GetDeploymentCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath =
@@ -718,12 +718,12 @@ export async function serializeAws_restJson1_1GetDeploymentCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetDeploymentStrategyCommand(
+export const serializeAws_restJson1_1GetDeploymentStrategyCommand = async (
   input: GetDeploymentStrategyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/deploymentstrategies/{DeploymentStrategyId}";
@@ -754,12 +754,12 @@ export async function serializeAws_restJson1_1GetDeploymentStrategyCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetEnvironmentCommand(
+export const serializeAws_restJson1_1GetEnvironmentCommand = async (
   input: GetEnvironmentCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath =
@@ -803,12 +803,12 @@ export async function serializeAws_restJson1_1GetEnvironmentCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListApplicationsCommand(
+export const serializeAws_restJson1_1ListApplicationsCommand = async (
   input: ListApplicationsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/applications";
@@ -831,12 +831,12 @@ export async function serializeAws_restJson1_1ListApplicationsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListConfigurationProfilesCommand(
+export const serializeAws_restJson1_1ListConfigurationProfilesCommand = async (
   input: ListConfigurationProfilesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/applications/{ApplicationId}/configurationprofiles";
@@ -873,12 +873,12 @@ export async function serializeAws_restJson1_1ListConfigurationProfilesCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListDeploymentStrategiesCommand(
+export const serializeAws_restJson1_1ListDeploymentStrategiesCommand = async (
   input: ListDeploymentStrategiesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/deploymentstrategies";
@@ -901,12 +901,12 @@ export async function serializeAws_restJson1_1ListDeploymentStrategiesCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListDeploymentsCommand(
+export const serializeAws_restJson1_1ListDeploymentsCommand = async (
   input: ListDeploymentsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath =
@@ -958,12 +958,12 @@ export async function serializeAws_restJson1_1ListDeploymentsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListEnvironmentsCommand(
+export const serializeAws_restJson1_1ListEnvironmentsCommand = async (
   input: ListEnvironmentsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/applications/{ApplicationId}/environments";
@@ -1000,12 +1000,12 @@ export async function serializeAws_restJson1_1ListEnvironmentsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListTagsForResourceCommand(
+export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{ResourceArn}";
@@ -1034,12 +1034,12 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1StartDeploymentCommand(
+export const serializeAws_restJson1_1StartDeploymentCommand = async (
   input: StartDeploymentCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath =
@@ -1100,12 +1100,12 @@ export async function serializeAws_restJson1_1StartDeploymentCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1StopDeploymentCommand(
+export const serializeAws_restJson1_1StopDeploymentCommand = async (
   input: StopDeploymentCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath =
@@ -1165,12 +1165,12 @@ export async function serializeAws_restJson1_1StopDeploymentCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1TagResourceCommand(
+export const serializeAws_restJson1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/tags/{ResourceArn}";
@@ -1204,12 +1204,12 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UntagResourceCommand(
+export const serializeAws_restJson1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{ResourceArn}";
@@ -1243,12 +1243,12 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UpdateApplicationCommand(
+export const serializeAws_restJson1_1UpdateApplicationCommand = async (
   input: UpdateApplicationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/applications/{ApplicationId}";
@@ -1285,12 +1285,12 @@ export async function serializeAws_restJson1_1UpdateApplicationCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UpdateConfigurationProfileCommand(
+export const serializeAws_restJson1_1UpdateConfigurationProfileCommand = async (
   input: UpdateConfigurationProfileCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath =
@@ -1353,12 +1353,12 @@ export async function serializeAws_restJson1_1UpdateConfigurationProfileCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UpdateDeploymentStrategyCommand(
+export const serializeAws_restJson1_1UpdateDeploymentStrategyCommand = async (
   input: UpdateDeploymentStrategyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/deploymentstrategies/{DeploymentStrategyId}";
@@ -1407,12 +1407,12 @@ export async function serializeAws_restJson1_1UpdateDeploymentStrategyCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UpdateEnvironmentCommand(
+export const serializeAws_restJson1_1UpdateEnvironmentCommand = async (
   input: UpdateEnvironmentCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath =
@@ -1470,12 +1470,12 @@ export async function serializeAws_restJson1_1UpdateEnvironmentCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ValidateConfigurationCommand(
+export const serializeAws_restJson1_1ValidateConfigurationCommand = async (
   input: ValidateConfigurationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath =
@@ -1526,12 +1526,12 @@ export async function serializeAws_restJson1_1ValidateConfigurationCommand(
     query,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1CreateApplicationCommand(
+export const deserializeAws_restJson1_1CreateApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateApplicationCommandOutput> {
+): Promise<CreateApplicationCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateApplicationCommandError(
       output,
@@ -1556,12 +1556,12 @@ export async function deserializeAws_restJson1_1CreateApplicationCommand(
     contents.Name = data.Name;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreateApplicationCommandError(
+const deserializeAws_restJson1_1CreateApplicationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateApplicationCommandOutput> {
+): Promise<CreateApplicationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1607,12 +1607,12 @@ async function deserializeAws_restJson1_1CreateApplicationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1CreateConfigurationProfileCommand(
+export const deserializeAws_restJson1_1CreateConfigurationProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateConfigurationProfileCommandOutput> {
+): Promise<CreateConfigurationProfileCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateConfigurationProfileCommandError(
       output,
@@ -1656,12 +1656,12 @@ export async function deserializeAws_restJson1_1CreateConfigurationProfileComman
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreateConfigurationProfileCommandError(
+const deserializeAws_restJson1_1CreateConfigurationProfileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateConfigurationProfileCommandOutput> {
+): Promise<CreateConfigurationProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1718,12 +1718,12 @@ async function deserializeAws_restJson1_1CreateConfigurationProfileCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1CreateDeploymentStrategyCommand(
+export const deserializeAws_restJson1_1CreateDeploymentStrategyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateDeploymentStrategyCommandOutput> {
+): Promise<CreateDeploymentStrategyCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateDeploymentStrategyCommandError(
       output,
@@ -1774,12 +1774,12 @@ export async function deserializeAws_restJson1_1CreateDeploymentStrategyCommand(
     contents.ReplicateTo = data.ReplicateTo;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreateDeploymentStrategyCommandError(
+const deserializeAws_restJson1_1CreateDeploymentStrategyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateDeploymentStrategyCommandOutput> {
+): Promise<CreateDeploymentStrategyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1825,12 +1825,12 @@ async function deserializeAws_restJson1_1CreateDeploymentStrategyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1CreateEnvironmentCommand(
+export const deserializeAws_restJson1_1CreateEnvironmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateEnvironmentCommandOutput> {
+): Promise<CreateEnvironmentCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateEnvironmentCommandError(
       output,
@@ -1870,12 +1870,12 @@ export async function deserializeAws_restJson1_1CreateEnvironmentCommand(
     contents.State = data.State;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreateEnvironmentCommandError(
+const deserializeAws_restJson1_1CreateEnvironmentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateEnvironmentCommandOutput> {
+): Promise<CreateEnvironmentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1932,12 +1932,12 @@ async function deserializeAws_restJson1_1CreateEnvironmentCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteApplicationCommand(
+export const deserializeAws_restJson1_1DeleteApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteApplicationCommandOutput> {
+): Promise<DeleteApplicationCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteApplicationCommandError(
       output,
@@ -1949,12 +1949,12 @@ export async function deserializeAws_restJson1_1DeleteApplicationCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteApplicationCommandError(
+const deserializeAws_restJson1_1DeleteApplicationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteApplicationCommandOutput> {
+): Promise<DeleteApplicationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2011,12 +2011,12 @@ async function deserializeAws_restJson1_1DeleteApplicationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteConfigurationProfileCommand(
+export const deserializeAws_restJson1_1DeleteConfigurationProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteConfigurationProfileCommandOutput> {
+): Promise<DeleteConfigurationProfileCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteConfigurationProfileCommandError(
       output,
@@ -2028,12 +2028,12 @@ export async function deserializeAws_restJson1_1DeleteConfigurationProfileComman
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteConfigurationProfileCommandError(
+const deserializeAws_restJson1_1DeleteConfigurationProfileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteConfigurationProfileCommandOutput> {
+): Promise<DeleteConfigurationProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2101,12 +2101,12 @@ async function deserializeAws_restJson1_1DeleteConfigurationProfileCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteDeploymentStrategyCommand(
+export const deserializeAws_restJson1_1DeleteDeploymentStrategyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteDeploymentStrategyCommandOutput> {
+): Promise<DeleteDeploymentStrategyCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteDeploymentStrategyCommandError(
       output,
@@ -2118,12 +2118,12 @@ export async function deserializeAws_restJson1_1DeleteDeploymentStrategyCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteDeploymentStrategyCommandError(
+const deserializeAws_restJson1_1DeleteDeploymentStrategyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteDeploymentStrategyCommandOutput> {
+): Promise<DeleteDeploymentStrategyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2180,12 +2180,12 @@ async function deserializeAws_restJson1_1DeleteDeploymentStrategyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteEnvironmentCommand(
+export const deserializeAws_restJson1_1DeleteEnvironmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteEnvironmentCommandOutput> {
+): Promise<DeleteEnvironmentCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteEnvironmentCommandError(
       output,
@@ -2197,12 +2197,12 @@ export async function deserializeAws_restJson1_1DeleteEnvironmentCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteEnvironmentCommandError(
+const deserializeAws_restJson1_1DeleteEnvironmentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteEnvironmentCommandOutput> {
+): Promise<DeleteEnvironmentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2270,12 +2270,12 @@ async function deserializeAws_restJson1_1DeleteEnvironmentCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetApplicationCommand(
+export const deserializeAws_restJson1_1GetApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetApplicationCommandOutput> {
+): Promise<GetApplicationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetApplicationCommandError(
       output,
@@ -2300,12 +2300,12 @@ export async function deserializeAws_restJson1_1GetApplicationCommand(
     contents.Name = data.Name;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetApplicationCommandError(
+const deserializeAws_restJson1_1GetApplicationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetApplicationCommandOutput> {
+): Promise<GetApplicationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2362,12 +2362,12 @@ async function deserializeAws_restJson1_1GetApplicationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetConfigurationCommand(
+export const deserializeAws_restJson1_1GetConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetConfigurationCommandOutput> {
+): Promise<GetConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetConfigurationCommandError(
       output,
@@ -2390,12 +2390,12 @@ export async function deserializeAws_restJson1_1GetConfigurationCommand(
   const data: any = await collectBody(output.body, context);
   contents.Content = data;
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetConfigurationCommandError(
+const deserializeAws_restJson1_1GetConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetConfigurationCommandOutput> {
+): Promise<GetConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2452,12 +2452,12 @@ async function deserializeAws_restJson1_1GetConfigurationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetConfigurationProfileCommand(
+export const deserializeAws_restJson1_1GetConfigurationProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetConfigurationProfileCommandOutput> {
+): Promise<GetConfigurationProfileCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetConfigurationProfileCommandError(
       output,
@@ -2501,12 +2501,12 @@ export async function deserializeAws_restJson1_1GetConfigurationProfileCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetConfigurationProfileCommandError(
+const deserializeAws_restJson1_1GetConfigurationProfileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetConfigurationProfileCommandOutput> {
+): Promise<GetConfigurationProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2563,12 +2563,12 @@ async function deserializeAws_restJson1_1GetConfigurationProfileCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetDeploymentCommand(
+export const deserializeAws_restJson1_1GetDeploymentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetDeploymentCommandOutput> {
+): Promise<GetDeploymentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetDeploymentCommandError(output, context);
   }
@@ -2667,12 +2667,12 @@ export async function deserializeAws_restJson1_1GetDeploymentCommand(
     contents.State = data.State;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetDeploymentCommandError(
+const deserializeAws_restJson1_1GetDeploymentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetDeploymentCommandOutput> {
+): Promise<GetDeploymentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2729,12 +2729,12 @@ async function deserializeAws_restJson1_1GetDeploymentCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetDeploymentStrategyCommand(
+export const deserializeAws_restJson1_1GetDeploymentStrategyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetDeploymentStrategyCommandOutput> {
+): Promise<GetDeploymentStrategyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetDeploymentStrategyCommandError(
       output,
@@ -2785,12 +2785,12 @@ export async function deserializeAws_restJson1_1GetDeploymentStrategyCommand(
     contents.ReplicateTo = data.ReplicateTo;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetDeploymentStrategyCommandError(
+const deserializeAws_restJson1_1GetDeploymentStrategyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetDeploymentStrategyCommandOutput> {
+): Promise<GetDeploymentStrategyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2847,12 +2847,12 @@ async function deserializeAws_restJson1_1GetDeploymentStrategyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetEnvironmentCommand(
+export const deserializeAws_restJson1_1GetEnvironmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetEnvironmentCommandOutput> {
+): Promise<GetEnvironmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetEnvironmentCommandError(
       output,
@@ -2892,12 +2892,12 @@ export async function deserializeAws_restJson1_1GetEnvironmentCommand(
     contents.State = data.State;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetEnvironmentCommandError(
+const deserializeAws_restJson1_1GetEnvironmentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetEnvironmentCommandOutput> {
+): Promise<GetEnvironmentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2954,12 +2954,12 @@ async function deserializeAws_restJson1_1GetEnvironmentCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListApplicationsCommand(
+export const deserializeAws_restJson1_1ListApplicationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListApplicationsCommandOutput> {
+): Promise<ListApplicationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListApplicationsCommandError(
       output,
@@ -2983,12 +2983,12 @@ export async function deserializeAws_restJson1_1ListApplicationsCommand(
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListApplicationsCommandError(
+const deserializeAws_restJson1_1ListApplicationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListApplicationsCommandOutput> {
+): Promise<ListApplicationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3034,12 +3034,12 @@ async function deserializeAws_restJson1_1ListApplicationsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListConfigurationProfilesCommand(
+export const deserializeAws_restJson1_1ListConfigurationProfilesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListConfigurationProfilesCommandOutput> {
+): Promise<ListConfigurationProfilesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListConfigurationProfilesCommandError(
       output,
@@ -3063,12 +3063,12 @@ export async function deserializeAws_restJson1_1ListConfigurationProfilesCommand
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListConfigurationProfilesCommandError(
+const deserializeAws_restJson1_1ListConfigurationProfilesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListConfigurationProfilesCommandOutput> {
+): Promise<ListConfigurationProfilesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3125,12 +3125,12 @@ async function deserializeAws_restJson1_1ListConfigurationProfilesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListDeploymentStrategiesCommand(
+export const deserializeAws_restJson1_1ListDeploymentStrategiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListDeploymentStrategiesCommandOutput> {
+): Promise<ListDeploymentStrategiesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListDeploymentStrategiesCommandError(
       output,
@@ -3154,12 +3154,12 @@ export async function deserializeAws_restJson1_1ListDeploymentStrategiesCommand(
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListDeploymentStrategiesCommandError(
+const deserializeAws_restJson1_1ListDeploymentStrategiesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListDeploymentStrategiesCommandOutput> {
+): Promise<ListDeploymentStrategiesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3205,12 +3205,12 @@ async function deserializeAws_restJson1_1ListDeploymentStrategiesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListDeploymentsCommand(
+export const deserializeAws_restJson1_1ListDeploymentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListDeploymentsCommandOutput> {
+): Promise<ListDeploymentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListDeploymentsCommandError(
       output,
@@ -3234,12 +3234,12 @@ export async function deserializeAws_restJson1_1ListDeploymentsCommand(
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListDeploymentsCommandError(
+const deserializeAws_restJson1_1ListDeploymentsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListDeploymentsCommandOutput> {
+): Promise<ListDeploymentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3296,12 +3296,12 @@ async function deserializeAws_restJson1_1ListDeploymentsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListEnvironmentsCommand(
+export const deserializeAws_restJson1_1ListEnvironmentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListEnvironmentsCommandOutput> {
+): Promise<ListEnvironmentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListEnvironmentsCommandError(
       output,
@@ -3325,12 +3325,12 @@ export async function deserializeAws_restJson1_1ListEnvironmentsCommand(
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListEnvironmentsCommandError(
+const deserializeAws_restJson1_1ListEnvironmentsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListEnvironmentsCommandOutput> {
+): Promise<ListEnvironmentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3387,12 +3387,12 @@ async function deserializeAws_restJson1_1ListEnvironmentsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
+export const deserializeAws_restJson1_1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListTagsForResourceCommandError(
       output,
@@ -3409,12 +3409,12 @@ export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
     contents.Tags = deserializeAws_restJson1_1TagMap(data.Tags, context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
+const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3471,12 +3471,12 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1StartDeploymentCommand(
+export const deserializeAws_restJson1_1StartDeploymentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartDeploymentCommandOutput> {
+): Promise<StartDeploymentCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1StartDeploymentCommandError(
       output,
@@ -3578,12 +3578,12 @@ export async function deserializeAws_restJson1_1StartDeploymentCommand(
     contents.State = data.State;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1StartDeploymentCommandError(
+const deserializeAws_restJson1_1StartDeploymentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartDeploymentCommandOutput> {
+): Promise<StartDeploymentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3651,12 +3651,12 @@ async function deserializeAws_restJson1_1StartDeploymentCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1StopDeploymentCommand(
+export const deserializeAws_restJson1_1StopDeploymentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StopDeploymentCommandOutput> {
+): Promise<StopDeploymentCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1StopDeploymentCommandError(
       output,
@@ -3758,12 +3758,12 @@ export async function deserializeAws_restJson1_1StopDeploymentCommand(
     contents.State = data.State;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1StopDeploymentCommandError(
+const deserializeAws_restJson1_1StopDeploymentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StopDeploymentCommandOutput> {
+): Promise<StopDeploymentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3820,12 +3820,12 @@ async function deserializeAws_restJson1_1StopDeploymentCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1TagResourceCommand(
+export const deserializeAws_restJson1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1TagResourceCommandError(output, context);
   }
@@ -3834,12 +3834,12 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1TagResourceCommandError(
+const deserializeAws_restJson1_1TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3896,12 +3896,12 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UntagResourceCommand(
+export const deserializeAws_restJson1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UntagResourceCommandError(output, context);
   }
@@ -3910,12 +3910,12 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UntagResourceCommandError(
+const deserializeAws_restJson1_1UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3972,12 +3972,12 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UpdateApplicationCommand(
+export const deserializeAws_restJson1_1UpdateApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateApplicationCommandOutput> {
+): Promise<UpdateApplicationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateApplicationCommandError(
       output,
@@ -4002,12 +4002,12 @@ export async function deserializeAws_restJson1_1UpdateApplicationCommand(
     contents.Name = data.Name;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UpdateApplicationCommandError(
+const deserializeAws_restJson1_1UpdateApplicationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateApplicationCommandOutput> {
+): Promise<UpdateApplicationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4064,12 +4064,12 @@ async function deserializeAws_restJson1_1UpdateApplicationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UpdateConfigurationProfileCommand(
+export const deserializeAws_restJson1_1UpdateConfigurationProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateConfigurationProfileCommandOutput> {
+): Promise<UpdateConfigurationProfileCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateConfigurationProfileCommandError(
       output,
@@ -4113,12 +4113,12 @@ export async function deserializeAws_restJson1_1UpdateConfigurationProfileComman
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UpdateConfigurationProfileCommandError(
+const deserializeAws_restJson1_1UpdateConfigurationProfileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateConfigurationProfileCommandOutput> {
+): Promise<UpdateConfigurationProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4175,12 +4175,12 @@ async function deserializeAws_restJson1_1UpdateConfigurationProfileCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UpdateDeploymentStrategyCommand(
+export const deserializeAws_restJson1_1UpdateDeploymentStrategyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateDeploymentStrategyCommandOutput> {
+): Promise<UpdateDeploymentStrategyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateDeploymentStrategyCommandError(
       output,
@@ -4231,12 +4231,12 @@ export async function deserializeAws_restJson1_1UpdateDeploymentStrategyCommand(
     contents.ReplicateTo = data.ReplicateTo;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UpdateDeploymentStrategyCommandError(
+const deserializeAws_restJson1_1UpdateDeploymentStrategyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateDeploymentStrategyCommandOutput> {
+): Promise<UpdateDeploymentStrategyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4293,12 +4293,12 @@ async function deserializeAws_restJson1_1UpdateDeploymentStrategyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UpdateEnvironmentCommand(
+export const deserializeAws_restJson1_1UpdateEnvironmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateEnvironmentCommandOutput> {
+): Promise<UpdateEnvironmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateEnvironmentCommandError(
       output,
@@ -4338,12 +4338,12 @@ export async function deserializeAws_restJson1_1UpdateEnvironmentCommand(
     contents.State = data.State;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UpdateEnvironmentCommandError(
+const deserializeAws_restJson1_1UpdateEnvironmentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateEnvironmentCommandOutput> {
+): Promise<UpdateEnvironmentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4400,12 +4400,12 @@ async function deserializeAws_restJson1_1UpdateEnvironmentCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ValidateConfigurationCommand(
+export const deserializeAws_restJson1_1ValidateConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ValidateConfigurationCommandOutput> {
+): Promise<ValidateConfigurationCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ValidateConfigurationCommandError(
       output,
@@ -4417,12 +4417,12 @@ export async function deserializeAws_restJson1_1ValidateConfigurationCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ValidateConfigurationCommandError(
+const deserializeAws_restJson1_1ValidateConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ValidateConfigurationCommandOutput> {
+): Promise<ValidateConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4479,7 +4479,7 @@ async function deserializeAws_restJson1_1ValidateConfigurationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
   parsedOutput: any,

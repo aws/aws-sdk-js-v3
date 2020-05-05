@@ -40,22 +40,22 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_json1_0SendCommandCommand(
+export const serializeAws_json1_0SendCommandCommand = async (
   input: SendCommandCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "QLDBSession.SendCommand";
   let body: any;
   body = JSON.stringify(serializeAws_json1_0SendCommandRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_0SendCommandCommand(
+export const deserializeAws_json1_0SendCommandCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SendCommandCommandOutput> {
+): Promise<SendCommandCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0SendCommandCommandError(output, context);
   }
@@ -68,12 +68,12 @@ export async function deserializeAws_json1_0SendCommandCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0SendCommandCommandError(
+const deserializeAws_json1_0SendCommandCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SendCommandCommandOutput> {
+): Promise<SendCommandCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -154,7 +154,7 @@ async function deserializeAws_json1_0SendCommandCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_0BadRequestExceptionResponse = async (
   parsedOutput: any,

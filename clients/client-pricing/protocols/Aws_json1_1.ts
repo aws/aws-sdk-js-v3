@@ -42,10 +42,10 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_json1_1DescribeServicesCommand(
+export const serializeAws_json1_1DescribeServicesCommand = async (
   input: DescribeServicesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSPriceListService.DescribeServices";
@@ -54,12 +54,12 @@ export async function serializeAws_json1_1DescribeServicesCommand(
     serializeAws_json1_1DescribeServicesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetAttributeValuesCommand(
+export const serializeAws_json1_1GetAttributeValuesCommand = async (
   input: GetAttributeValuesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSPriceListService.GetAttributeValues";
@@ -68,24 +68,24 @@ export async function serializeAws_json1_1GetAttributeValuesCommand(
     serializeAws_json1_1GetAttributeValuesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetProductsCommand(
+export const serializeAws_json1_1GetProductsCommand = async (
   input: GetProductsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSPriceListService.GetProducts";
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetProductsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_1DescribeServicesCommand(
+export const deserializeAws_json1_1DescribeServicesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeServicesCommandOutput> {
+): Promise<DescribeServicesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeServicesCommandError(output, context);
   }
@@ -98,12 +98,12 @@ export async function deserializeAws_json1_1DescribeServicesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeServicesCommandError(
+const deserializeAws_json1_1DescribeServicesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeServicesCommandOutput> {
+): Promise<DescribeServicesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -184,12 +184,12 @@ async function deserializeAws_json1_1DescribeServicesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetAttributeValuesCommand(
+export const deserializeAws_json1_1GetAttributeValuesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetAttributeValuesCommandOutput> {
+): Promise<GetAttributeValuesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetAttributeValuesCommandError(
       output,
@@ -205,12 +205,12 @@ export async function deserializeAws_json1_1GetAttributeValuesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetAttributeValuesCommandError(
+const deserializeAws_json1_1GetAttributeValuesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetAttributeValuesCommandOutput> {
+): Promise<GetAttributeValuesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -291,12 +291,12 @@ async function deserializeAws_json1_1GetAttributeValuesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetProductsCommand(
+export const deserializeAws_json1_1GetProductsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetProductsCommandOutput> {
+): Promise<GetProductsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetProductsCommandError(output, context);
   }
@@ -309,12 +309,12 @@ export async function deserializeAws_json1_1GetProductsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetProductsCommandError(
+const deserializeAws_json1_1GetProductsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetProductsCommandOutput> {
+): Promise<GetProductsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -395,7 +395,7 @@ async function deserializeAws_json1_1GetProductsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_1ExpiredNextTokenExceptionResponse = async (
   parsedOutput: any,

@@ -190,10 +190,10 @@ import {
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
-export async function serializeAws_json1_1AssociateConfigurationItemsToApplicationCommand(
+export const serializeAws_json1_1AssociateConfigurationItemsToApplicationCommand = async (
   input: AssociateConfigurationItemsToApplicationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -206,12 +206,12 @@ export async function serializeAws_json1_1AssociateConfigurationItemsToApplicati
     )
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1BatchDeleteImportDataCommand(
+export const serializeAws_json1_1BatchDeleteImportDataCommand = async (
   input: BatchDeleteImportDataCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -221,12 +221,12 @@ export async function serializeAws_json1_1BatchDeleteImportDataCommand(
     serializeAws_json1_1BatchDeleteImportDataRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreateApplicationCommand(
+export const serializeAws_json1_1CreateApplicationCommand = async (
   input: CreateApplicationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSPoseidonService_V2015_11_01.CreateApplication";
@@ -235,24 +235,24 @@ export async function serializeAws_json1_1CreateApplicationCommand(
     serializeAws_json1_1CreateApplicationRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreateTagsCommand(
+export const serializeAws_json1_1CreateTagsCommand = async (
   input: CreateTagsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSPoseidonService_V2015_11_01.CreateTags";
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateTagsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteApplicationsCommand(
+export const serializeAws_json1_1DeleteApplicationsCommand = async (
   input: DeleteApplicationsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSPoseidonService_V2015_11_01.DeleteApplications";
@@ -261,24 +261,24 @@ export async function serializeAws_json1_1DeleteApplicationsCommand(
     serializeAws_json1_1DeleteApplicationsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteTagsCommand(
+export const serializeAws_json1_1DeleteTagsCommand = async (
   input: DeleteTagsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSPoseidonService_V2015_11_01.DeleteTags";
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteTagsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeAgentsCommand(
+export const serializeAws_json1_1DescribeAgentsCommand = async (
   input: DescribeAgentsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSPoseidonService_V2015_11_01.DescribeAgents";
@@ -287,12 +287,12 @@ export async function serializeAws_json1_1DescribeAgentsCommand(
     serializeAws_json1_1DescribeAgentsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeConfigurationsCommand(
+export const serializeAws_json1_1DescribeConfigurationsCommand = async (
   input: DescribeConfigurationsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -302,12 +302,12 @@ export async function serializeAws_json1_1DescribeConfigurationsCommand(
     serializeAws_json1_1DescribeConfigurationsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeContinuousExportsCommand(
+export const serializeAws_json1_1DescribeContinuousExportsCommand = async (
   input: DescribeContinuousExportsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -317,12 +317,12 @@ export async function serializeAws_json1_1DescribeContinuousExportsCommand(
     serializeAws_json1_1DescribeContinuousExportsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeExportConfigurationsCommand(
+export const serializeAws_json1_1DescribeExportConfigurationsCommand = async (
   input: DescribeExportConfigurationsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -332,12 +332,12 @@ export async function serializeAws_json1_1DescribeExportConfigurationsCommand(
     serializeAws_json1_1DescribeExportConfigurationsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeExportTasksCommand(
+export const serializeAws_json1_1DescribeExportTasksCommand = async (
   input: DescribeExportTasksCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -347,12 +347,12 @@ export async function serializeAws_json1_1DescribeExportTasksCommand(
     serializeAws_json1_1DescribeExportTasksRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeImportTasksCommand(
+export const serializeAws_json1_1DescribeImportTasksCommand = async (
   input: DescribeImportTasksCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -362,12 +362,12 @@ export async function serializeAws_json1_1DescribeImportTasksCommand(
     serializeAws_json1_1DescribeImportTasksRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeTagsCommand(
+export const serializeAws_json1_1DescribeTagsCommand = async (
   input: DescribeTagsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSPoseidonService_V2015_11_01.DescribeTags";
@@ -376,12 +376,12 @@ export async function serializeAws_json1_1DescribeTagsCommand(
     serializeAws_json1_1DescribeTagsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DisassociateConfigurationItemsFromApplicationCommand(
+export const serializeAws_json1_1DisassociateConfigurationItemsFromApplicationCommand = async (
   input: DisassociateConfigurationItemsFromApplicationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -394,23 +394,23 @@ export async function serializeAws_json1_1DisassociateConfigurationItemsFromAppl
     )
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ExportConfigurationsCommand(
+export const serializeAws_json1_1ExportConfigurationsCommand = async (
   input: ExportConfigurationsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSPoseidonService_V2015_11_01.ExportConfigurations";
   return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
-}
+};
 
-export async function serializeAws_json1_1GetDiscoverySummaryCommand(
+export const serializeAws_json1_1GetDiscoverySummaryCommand = async (
   input: GetDiscoverySummaryCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -420,12 +420,12 @@ export async function serializeAws_json1_1GetDiscoverySummaryCommand(
     serializeAws_json1_1GetDiscoverySummaryRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListConfigurationsCommand(
+export const serializeAws_json1_1ListConfigurationsCommand = async (
   input: ListConfigurationsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSPoseidonService_V2015_11_01.ListConfigurations";
@@ -434,12 +434,12 @@ export async function serializeAws_json1_1ListConfigurationsCommand(
     serializeAws_json1_1ListConfigurationsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListServerNeighborsCommand(
+export const serializeAws_json1_1ListServerNeighborsCommand = async (
   input: ListServerNeighborsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -449,12 +449,12 @@ export async function serializeAws_json1_1ListServerNeighborsCommand(
     serializeAws_json1_1ListServerNeighborsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1StartContinuousExportCommand(
+export const serializeAws_json1_1StartContinuousExportCommand = async (
   input: StartContinuousExportCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -464,12 +464,12 @@ export async function serializeAws_json1_1StartContinuousExportCommand(
     serializeAws_json1_1StartContinuousExportRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1StartDataCollectionByAgentIdsCommand(
+export const serializeAws_json1_1StartDataCollectionByAgentIdsCommand = async (
   input: StartDataCollectionByAgentIdsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -479,12 +479,12 @@ export async function serializeAws_json1_1StartDataCollectionByAgentIdsCommand(
     serializeAws_json1_1StartDataCollectionByAgentIdsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1StartExportTaskCommand(
+export const serializeAws_json1_1StartExportTaskCommand = async (
   input: StartExportTaskCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSPoseidonService_V2015_11_01.StartExportTask";
@@ -493,12 +493,12 @@ export async function serializeAws_json1_1StartExportTaskCommand(
     serializeAws_json1_1StartExportTaskRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1StartImportTaskCommand(
+export const serializeAws_json1_1StartImportTaskCommand = async (
   input: StartImportTaskCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSPoseidonService_V2015_11_01.StartImportTask";
@@ -507,12 +507,12 @@ export async function serializeAws_json1_1StartImportTaskCommand(
     serializeAws_json1_1StartImportTaskRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1StopContinuousExportCommand(
+export const serializeAws_json1_1StopContinuousExportCommand = async (
   input: StopContinuousExportCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -522,12 +522,12 @@ export async function serializeAws_json1_1StopContinuousExportCommand(
     serializeAws_json1_1StopContinuousExportRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1StopDataCollectionByAgentIdsCommand(
+export const serializeAws_json1_1StopDataCollectionByAgentIdsCommand = async (
   input: StopDataCollectionByAgentIdsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -537,12 +537,12 @@ export async function serializeAws_json1_1StopDataCollectionByAgentIdsCommand(
     serializeAws_json1_1StopDataCollectionByAgentIdsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateApplicationCommand(
+export const serializeAws_json1_1UpdateApplicationCommand = async (
   input: UpdateApplicationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSPoseidonService_V2015_11_01.UpdateApplication";
@@ -551,12 +551,12 @@ export async function serializeAws_json1_1UpdateApplicationCommand(
     serializeAws_json1_1UpdateApplicationRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_1AssociateConfigurationItemsToApplicationCommand(
+export const deserializeAws_json1_1AssociateConfigurationItemsToApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AssociateConfigurationItemsToApplicationCommandOutput> {
+): Promise<AssociateConfigurationItemsToApplicationCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1AssociateConfigurationItemsToApplicationCommandError(
       output,
@@ -575,12 +575,12 @@ export async function deserializeAws_json1_1AssociateConfigurationItemsToApplica
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1AssociateConfigurationItemsToApplicationCommandError(
+const deserializeAws_json1_1AssociateConfigurationItemsToApplicationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AssociateConfigurationItemsToApplicationCommandOutput> {
+): Promise<AssociateConfigurationItemsToApplicationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -661,12 +661,12 @@ async function deserializeAws_json1_1AssociateConfigurationItemsToApplicationCom
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1BatchDeleteImportDataCommand(
+export const deserializeAws_json1_1BatchDeleteImportDataCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchDeleteImportDataCommandOutput> {
+): Promise<BatchDeleteImportDataCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1BatchDeleteImportDataCommandError(
       output,
@@ -682,12 +682,12 @@ export async function deserializeAws_json1_1BatchDeleteImportDataCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1BatchDeleteImportDataCommandError(
+const deserializeAws_json1_1BatchDeleteImportDataCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchDeleteImportDataCommandOutput> {
+): Promise<BatchDeleteImportDataCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -768,12 +768,12 @@ async function deserializeAws_json1_1BatchDeleteImportDataCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreateApplicationCommand(
+export const deserializeAws_json1_1CreateApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateApplicationCommandOutput> {
+): Promise<CreateApplicationCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateApplicationCommandError(output, context);
   }
@@ -786,12 +786,12 @@ export async function deserializeAws_json1_1CreateApplicationCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateApplicationCommandError(
+const deserializeAws_json1_1CreateApplicationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateApplicationCommandOutput> {
+): Promise<CreateApplicationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -872,12 +872,12 @@ async function deserializeAws_json1_1CreateApplicationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreateTagsCommand(
+export const deserializeAws_json1_1CreateTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateTagsCommandOutput> {
+): Promise<CreateTagsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateTagsCommandError(output, context);
   }
@@ -890,12 +890,12 @@ export async function deserializeAws_json1_1CreateTagsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateTagsCommandError(
+const deserializeAws_json1_1CreateTagsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateTagsCommandOutput> {
+): Promise<CreateTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -987,12 +987,12 @@ async function deserializeAws_json1_1CreateTagsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteApplicationsCommand(
+export const deserializeAws_json1_1DeleteApplicationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteApplicationsCommandOutput> {
+): Promise<DeleteApplicationsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteApplicationsCommandError(
       output,
@@ -1008,12 +1008,12 @@ export async function deserializeAws_json1_1DeleteApplicationsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteApplicationsCommandError(
+const deserializeAws_json1_1DeleteApplicationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteApplicationsCommandOutput> {
+): Promise<DeleteApplicationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1094,12 +1094,12 @@ async function deserializeAws_json1_1DeleteApplicationsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteTagsCommand(
+export const deserializeAws_json1_1DeleteTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteTagsCommandOutput> {
+): Promise<DeleteTagsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteTagsCommandError(output, context);
   }
@@ -1112,12 +1112,12 @@ export async function deserializeAws_json1_1DeleteTagsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteTagsCommandError(
+const deserializeAws_json1_1DeleteTagsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteTagsCommandOutput> {
+): Promise<DeleteTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1209,12 +1209,12 @@ async function deserializeAws_json1_1DeleteTagsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeAgentsCommand(
+export const deserializeAws_json1_1DescribeAgentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeAgentsCommandOutput> {
+): Promise<DescribeAgentsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeAgentsCommandError(output, context);
   }
@@ -1227,12 +1227,12 @@ export async function deserializeAws_json1_1DescribeAgentsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeAgentsCommandError(
+const deserializeAws_json1_1DescribeAgentsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeAgentsCommandOutput> {
+): Promise<DescribeAgentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1313,12 +1313,12 @@ async function deserializeAws_json1_1DescribeAgentsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeConfigurationsCommand(
+export const deserializeAws_json1_1DescribeConfigurationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeConfigurationsCommandOutput> {
+): Promise<DescribeConfigurationsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeConfigurationsCommandError(
       output,
@@ -1337,12 +1337,12 @@ export async function deserializeAws_json1_1DescribeConfigurationsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeConfigurationsCommandError(
+const deserializeAws_json1_1DescribeConfigurationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeConfigurationsCommandOutput> {
+): Promise<DescribeConfigurationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1423,12 +1423,12 @@ async function deserializeAws_json1_1DescribeConfigurationsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeContinuousExportsCommand(
+export const deserializeAws_json1_1DescribeContinuousExportsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeContinuousExportsCommandOutput> {
+): Promise<DescribeContinuousExportsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeContinuousExportsCommandError(
       output,
@@ -1447,12 +1447,12 @@ export async function deserializeAws_json1_1DescribeContinuousExportsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeContinuousExportsCommandError(
+const deserializeAws_json1_1DescribeContinuousExportsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeContinuousExportsCommandOutput> {
+): Promise<DescribeContinuousExportsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1555,12 +1555,12 @@ async function deserializeAws_json1_1DescribeContinuousExportsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeExportConfigurationsCommand(
+export const deserializeAws_json1_1DescribeExportConfigurationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeExportConfigurationsCommandOutput> {
+): Promise<DescribeExportConfigurationsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeExportConfigurationsCommandError(
       output,
@@ -1579,12 +1579,12 @@ export async function deserializeAws_json1_1DescribeExportConfigurationsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeExportConfigurationsCommandError(
+const deserializeAws_json1_1DescribeExportConfigurationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeExportConfigurationsCommandOutput> {
+): Promise<DescribeExportConfigurationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1676,12 +1676,12 @@ async function deserializeAws_json1_1DescribeExportConfigurationsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeExportTasksCommand(
+export const deserializeAws_json1_1DescribeExportTasksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeExportTasksCommandOutput> {
+): Promise<DescribeExportTasksCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeExportTasksCommandError(
       output,
@@ -1697,12 +1697,12 @@ export async function deserializeAws_json1_1DescribeExportTasksCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeExportTasksCommandError(
+const deserializeAws_json1_1DescribeExportTasksCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeExportTasksCommandOutput> {
+): Promise<DescribeExportTasksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1783,12 +1783,12 @@ async function deserializeAws_json1_1DescribeExportTasksCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeImportTasksCommand(
+export const deserializeAws_json1_1DescribeImportTasksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeImportTasksCommandOutput> {
+): Promise<DescribeImportTasksCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeImportTasksCommandError(
       output,
@@ -1804,12 +1804,12 @@ export async function deserializeAws_json1_1DescribeImportTasksCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeImportTasksCommandError(
+const deserializeAws_json1_1DescribeImportTasksCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeImportTasksCommandOutput> {
+): Promise<DescribeImportTasksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1890,12 +1890,12 @@ async function deserializeAws_json1_1DescribeImportTasksCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeTagsCommand(
+export const deserializeAws_json1_1DescribeTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeTagsCommandOutput> {
+): Promise<DescribeTagsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeTagsCommandError(output, context);
   }
@@ -1908,12 +1908,12 @@ export async function deserializeAws_json1_1DescribeTagsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeTagsCommandError(
+const deserializeAws_json1_1DescribeTagsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeTagsCommandOutput> {
+): Promise<DescribeTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2005,12 +2005,12 @@ async function deserializeAws_json1_1DescribeTagsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DisassociateConfigurationItemsFromApplicationCommand(
+export const deserializeAws_json1_1DisassociateConfigurationItemsFromApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisassociateConfigurationItemsFromApplicationCommandOutput> {
+): Promise<DisassociateConfigurationItemsFromApplicationCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DisassociateConfigurationItemsFromApplicationCommandError(
       output,
@@ -2029,12 +2029,12 @@ export async function deserializeAws_json1_1DisassociateConfigurationItemsFromAp
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DisassociateConfigurationItemsFromApplicationCommandError(
+const deserializeAws_json1_1DisassociateConfigurationItemsFromApplicationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisassociateConfigurationItemsFromApplicationCommandOutput> {
+): Promise<DisassociateConfigurationItemsFromApplicationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2115,12 +2115,12 @@ async function deserializeAws_json1_1DisassociateConfigurationItemsFromApplicati
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ExportConfigurationsCommand(
+export const deserializeAws_json1_1ExportConfigurationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ExportConfigurationsCommandOutput> {
+): Promise<ExportConfigurationsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ExportConfigurationsCommandError(
       output,
@@ -2136,12 +2136,12 @@ export async function deserializeAws_json1_1ExportConfigurationsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ExportConfigurationsCommandError(
+const deserializeAws_json1_1ExportConfigurationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ExportConfigurationsCommandOutput> {
+): Promise<ExportConfigurationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2233,12 +2233,12 @@ async function deserializeAws_json1_1ExportConfigurationsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetDiscoverySummaryCommand(
+export const deserializeAws_json1_1GetDiscoverySummaryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetDiscoverySummaryCommandOutput> {
+): Promise<GetDiscoverySummaryCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetDiscoverySummaryCommandError(
       output,
@@ -2254,12 +2254,12 @@ export async function deserializeAws_json1_1GetDiscoverySummaryCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetDiscoverySummaryCommandError(
+const deserializeAws_json1_1GetDiscoverySummaryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetDiscoverySummaryCommandOutput> {
+): Promise<GetDiscoverySummaryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2340,12 +2340,12 @@ async function deserializeAws_json1_1GetDiscoverySummaryCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListConfigurationsCommand(
+export const deserializeAws_json1_1ListConfigurationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListConfigurationsCommandOutput> {
+): Promise<ListConfigurationsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListConfigurationsCommandError(
       output,
@@ -2361,12 +2361,12 @@ export async function deserializeAws_json1_1ListConfigurationsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListConfigurationsCommandError(
+const deserializeAws_json1_1ListConfigurationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListConfigurationsCommandOutput> {
+): Promise<ListConfigurationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2458,12 +2458,12 @@ async function deserializeAws_json1_1ListConfigurationsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListServerNeighborsCommand(
+export const deserializeAws_json1_1ListServerNeighborsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListServerNeighborsCommandOutput> {
+): Promise<ListServerNeighborsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListServerNeighborsCommandError(
       output,
@@ -2479,12 +2479,12 @@ export async function deserializeAws_json1_1ListServerNeighborsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListServerNeighborsCommandError(
+const deserializeAws_json1_1ListServerNeighborsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListServerNeighborsCommandOutput> {
+): Promise<ListServerNeighborsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2565,12 +2565,12 @@ async function deserializeAws_json1_1ListServerNeighborsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1StartContinuousExportCommand(
+export const deserializeAws_json1_1StartContinuousExportCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartContinuousExportCommandOutput> {
+): Promise<StartContinuousExportCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StartContinuousExportCommandError(
       output,
@@ -2586,12 +2586,12 @@ export async function deserializeAws_json1_1StartContinuousExportCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1StartContinuousExportCommandError(
+const deserializeAws_json1_1StartContinuousExportCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartContinuousExportCommandOutput> {
+): Promise<StartContinuousExportCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2705,12 +2705,12 @@ async function deserializeAws_json1_1StartContinuousExportCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1StartDataCollectionByAgentIdsCommand(
+export const deserializeAws_json1_1StartDataCollectionByAgentIdsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartDataCollectionByAgentIdsCommandOutput> {
+): Promise<StartDataCollectionByAgentIdsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StartDataCollectionByAgentIdsCommandError(
       output,
@@ -2729,12 +2729,12 @@ export async function deserializeAws_json1_1StartDataCollectionByAgentIdsCommand
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1StartDataCollectionByAgentIdsCommandError(
+const deserializeAws_json1_1StartDataCollectionByAgentIdsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartDataCollectionByAgentIdsCommandOutput> {
+): Promise<StartDataCollectionByAgentIdsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2815,12 +2815,12 @@ async function deserializeAws_json1_1StartDataCollectionByAgentIdsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1StartExportTaskCommand(
+export const deserializeAws_json1_1StartExportTaskCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartExportTaskCommandOutput> {
+): Promise<StartExportTaskCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StartExportTaskCommandError(output, context);
   }
@@ -2833,12 +2833,12 @@ export async function deserializeAws_json1_1StartExportTaskCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1StartExportTaskCommandError(
+const deserializeAws_json1_1StartExportTaskCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartExportTaskCommandOutput> {
+): Promise<StartExportTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2930,12 +2930,12 @@ async function deserializeAws_json1_1StartExportTaskCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1StartImportTaskCommand(
+export const deserializeAws_json1_1StartImportTaskCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartImportTaskCommandOutput> {
+): Promise<StartImportTaskCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StartImportTaskCommandError(output, context);
   }
@@ -2948,12 +2948,12 @@ export async function deserializeAws_json1_1StartImportTaskCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1StartImportTaskCommandError(
+const deserializeAws_json1_1StartImportTaskCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartImportTaskCommandOutput> {
+): Promise<StartImportTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3045,12 +3045,12 @@ async function deserializeAws_json1_1StartImportTaskCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1StopContinuousExportCommand(
+export const deserializeAws_json1_1StopContinuousExportCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StopContinuousExportCommandOutput> {
+): Promise<StopContinuousExportCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StopContinuousExportCommandError(
       output,
@@ -3066,12 +3066,12 @@ export async function deserializeAws_json1_1StopContinuousExportCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1StopContinuousExportCommandError(
+const deserializeAws_json1_1StopContinuousExportCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StopContinuousExportCommandOutput> {
+): Promise<StopContinuousExportCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3185,12 +3185,12 @@ async function deserializeAws_json1_1StopContinuousExportCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1StopDataCollectionByAgentIdsCommand(
+export const deserializeAws_json1_1StopDataCollectionByAgentIdsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StopDataCollectionByAgentIdsCommandOutput> {
+): Promise<StopDataCollectionByAgentIdsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StopDataCollectionByAgentIdsCommandError(
       output,
@@ -3209,12 +3209,12 @@ export async function deserializeAws_json1_1StopDataCollectionByAgentIdsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1StopDataCollectionByAgentIdsCommandError(
+const deserializeAws_json1_1StopDataCollectionByAgentIdsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StopDataCollectionByAgentIdsCommandOutput> {
+): Promise<StopDataCollectionByAgentIdsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3295,12 +3295,12 @@ async function deserializeAws_json1_1StopDataCollectionByAgentIdsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateApplicationCommand(
+export const deserializeAws_json1_1UpdateApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateApplicationCommandOutput> {
+): Promise<UpdateApplicationCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateApplicationCommandError(output, context);
   }
@@ -3313,12 +3313,12 @@ export async function deserializeAws_json1_1UpdateApplicationCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateApplicationCommandError(
+const deserializeAws_json1_1UpdateApplicationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateApplicationCommandOutput> {
+): Promise<UpdateApplicationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3399,7 +3399,7 @@ async function deserializeAws_json1_1UpdateApplicationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_1AuthorizationErrorExceptionResponse = async (
   parsedOutput: any,

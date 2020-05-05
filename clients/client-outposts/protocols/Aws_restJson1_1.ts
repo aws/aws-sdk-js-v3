@@ -43,10 +43,10 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_restJson1_1CreateOutpostCommand(
+export const serializeAws_restJson1_1CreateOutpostCommand = async (
   input: CreateOutpostCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/outposts";
@@ -78,12 +78,12 @@ export async function serializeAws_restJson1_1CreateOutpostCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetOutpostCommand(
+export const serializeAws_restJson1_1GetOutpostCommand = async (
   input: GetOutpostCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/outposts/{OutpostId}";
@@ -110,12 +110,12 @@ export async function serializeAws_restJson1_1GetOutpostCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetOutpostInstanceTypesCommand(
+export const serializeAws_restJson1_1GetOutpostInstanceTypesCommand = async (
   input: GetOutpostInstanceTypesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/outposts/{OutpostId}/instanceTypes";
@@ -150,12 +150,12 @@ export async function serializeAws_restJson1_1GetOutpostInstanceTypesCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListOutpostsCommand(
+export const serializeAws_restJson1_1ListOutpostsCommand = async (
   input: ListOutpostsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/outposts";
@@ -178,12 +178,12 @@ export async function serializeAws_restJson1_1ListOutpostsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListSitesCommand(
+export const serializeAws_restJson1_1ListSitesCommand = async (
   input: ListSitesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/sites";
@@ -206,12 +206,12 @@ export async function serializeAws_restJson1_1ListSitesCommand(
     query,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1CreateOutpostCommand(
+export const deserializeAws_restJson1_1CreateOutpostCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateOutpostCommandOutput> {
+): Promise<CreateOutpostCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateOutpostCommandError(output, context);
   }
@@ -225,12 +225,12 @@ export async function deserializeAws_restJson1_1CreateOutpostCommand(
     contents.Outpost = deserializeAws_restJson1_1Outpost(data.Outpost, context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreateOutpostCommandError(
+const deserializeAws_restJson1_1CreateOutpostCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateOutpostCommandOutput> {
+): Promise<CreateOutpostCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -309,12 +309,12 @@ async function deserializeAws_restJson1_1CreateOutpostCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetOutpostCommand(
+export const deserializeAws_restJson1_1GetOutpostCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetOutpostCommandOutput> {
+): Promise<GetOutpostCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetOutpostCommandError(output, context);
   }
@@ -328,12 +328,12 @@ export async function deserializeAws_restJson1_1GetOutpostCommand(
     contents.Outpost = deserializeAws_restJson1_1Outpost(data.Outpost, context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetOutpostCommandError(
+const deserializeAws_restJson1_1GetOutpostCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetOutpostCommandOutput> {
+): Promise<GetOutpostCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -401,12 +401,12 @@ async function deserializeAws_restJson1_1GetOutpostCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetOutpostInstanceTypesCommand(
+export const deserializeAws_restJson1_1GetOutpostInstanceTypesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetOutpostInstanceTypesCommandOutput> {
+): Promise<GetOutpostInstanceTypesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetOutpostInstanceTypesCommandError(
       output,
@@ -438,12 +438,12 @@ export async function deserializeAws_restJson1_1GetOutpostInstanceTypesCommand(
     contents.OutpostId = data.OutpostId;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetOutpostInstanceTypesCommandError(
+const deserializeAws_restJson1_1GetOutpostInstanceTypesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetOutpostInstanceTypesCommandOutput> {
+): Promise<GetOutpostInstanceTypesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -511,12 +511,12 @@ async function deserializeAws_restJson1_1GetOutpostInstanceTypesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListOutpostsCommand(
+export const deserializeAws_restJson1_1ListOutpostsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListOutpostsCommandOutput> {
+): Promise<ListOutpostsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListOutpostsCommandError(output, context);
   }
@@ -537,12 +537,12 @@ export async function deserializeAws_restJson1_1ListOutpostsCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListOutpostsCommandError(
+const deserializeAws_restJson1_1ListOutpostsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListOutpostsCommandOutput> {
+): Promise<ListOutpostsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -599,12 +599,12 @@ async function deserializeAws_restJson1_1ListOutpostsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListSitesCommand(
+export const deserializeAws_restJson1_1ListSitesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListSitesCommandOutput> {
+): Promise<ListSitesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListSitesCommandError(output, context);
   }
@@ -625,12 +625,12 @@ export async function deserializeAws_restJson1_1ListSitesCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListSitesCommandError(
+const deserializeAws_restJson1_1ListSitesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListSitesCommandOutput> {
+): Promise<ListSitesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -687,7 +687,7 @@ async function deserializeAws_restJson1_1ListSitesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
   parsedOutput: any,

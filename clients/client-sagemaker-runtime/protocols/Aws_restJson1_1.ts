@@ -23,10 +23,10 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_restJson1_1InvokeEndpointCommand(
+export const serializeAws_restJson1_1InvokeEndpointCommand = async (
   input: InvokeEndpointCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/octet-stream";
   if (isSerializableHeaderValue(input.Accept)) {
@@ -70,12 +70,12 @@ export async function serializeAws_restJson1_1InvokeEndpointCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1InvokeEndpointCommand(
+export const deserializeAws_restJson1_1InvokeEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<InvokeEndpointCommandOutput> {
+): Promise<InvokeEndpointCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1InvokeEndpointCommandError(
       output,
@@ -104,12 +104,12 @@ export async function deserializeAws_restJson1_1InvokeEndpointCommand(
   const data: any = await collectBody(output.body, context);
   contents.Body = data;
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1InvokeEndpointCommandError(
+const deserializeAws_restJson1_1InvokeEndpointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<InvokeEndpointCommandOutput> {
+): Promise<InvokeEndpointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -177,7 +177,7 @@ async function deserializeAws_restJson1_1InvokeEndpointCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1InternalFailureResponse = async (
   parsedOutput: any,

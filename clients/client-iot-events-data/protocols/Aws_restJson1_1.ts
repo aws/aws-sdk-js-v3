@@ -49,10 +49,10 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_restJson1_1BatchPutMessageCommand(
+export const serializeAws_restJson1_1BatchPutMessageCommand = async (
   input: BatchPutMessageCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/inputs/messages";
@@ -75,12 +75,12 @@ export async function serializeAws_restJson1_1BatchPutMessageCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1BatchUpdateDetectorCommand(
+export const serializeAws_restJson1_1BatchUpdateDetectorCommand = async (
   input: BatchUpdateDetectorCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/detectors";
@@ -103,12 +103,12 @@ export async function serializeAws_restJson1_1BatchUpdateDetectorCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribeDetectorCommand(
+export const serializeAws_restJson1_1DescribeDetectorCommand = async (
   input: DescribeDetectorCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/detectors/{detectorModelName}/keyValues";
@@ -144,12 +144,12 @@ export async function serializeAws_restJson1_1DescribeDetectorCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListDetectorsCommand(
+export const serializeAws_restJson1_1ListDetectorsCommand = async (
   input: ListDetectorsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/detectors/{detectorModelName}";
@@ -191,12 +191,12 @@ export async function serializeAws_restJson1_1ListDetectorsCommand(
     query,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1BatchPutMessageCommand(
+export const deserializeAws_restJson1_1BatchPutMessageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchPutMessageCommandOutput> {
+): Promise<BatchPutMessageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1BatchPutMessageCommandError(
       output,
@@ -219,12 +219,12 @@ export async function deserializeAws_restJson1_1BatchPutMessageCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1BatchPutMessageCommandError(
+const deserializeAws_restJson1_1BatchPutMessageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchPutMessageCommandOutput> {
+): Promise<BatchPutMessageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -292,12 +292,12 @@ async function deserializeAws_restJson1_1BatchPutMessageCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1BatchUpdateDetectorCommand(
+export const deserializeAws_restJson1_1BatchUpdateDetectorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchUpdateDetectorCommandOutput> {
+): Promise<BatchUpdateDetectorCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1BatchUpdateDetectorCommandError(
       output,
@@ -320,12 +320,12 @@ export async function deserializeAws_restJson1_1BatchUpdateDetectorCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1BatchUpdateDetectorCommandError(
+const deserializeAws_restJson1_1BatchUpdateDetectorCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchUpdateDetectorCommandOutput> {
+): Promise<BatchUpdateDetectorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -393,12 +393,12 @@ async function deserializeAws_restJson1_1BatchUpdateDetectorCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeDetectorCommand(
+export const deserializeAws_restJson1_1DescribeDetectorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeDetectorCommandOutput> {
+): Promise<DescribeDetectorCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeDetectorCommandError(
       output,
@@ -418,12 +418,12 @@ export async function deserializeAws_restJson1_1DescribeDetectorCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeDetectorCommandError(
+const deserializeAws_restJson1_1DescribeDetectorCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeDetectorCommandOutput> {
+): Promise<DescribeDetectorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -502,12 +502,12 @@ async function deserializeAws_restJson1_1DescribeDetectorCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListDetectorsCommand(
+export const deserializeAws_restJson1_1ListDetectorsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListDetectorsCommandOutput> {
+): Promise<ListDetectorsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListDetectorsCommandError(output, context);
   }
@@ -528,12 +528,12 @@ export async function deserializeAws_restJson1_1ListDetectorsCommand(
     contents.nextToken = data.nextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListDetectorsCommandError(
+const deserializeAws_restJson1_1ListDetectorsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListDetectorsCommandOutput> {
+): Promise<ListDetectorsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -612,7 +612,7 @@ async function deserializeAws_restJson1_1ListDetectorsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1InternalFailureExceptionResponse = async (
   parsedOutput: any,

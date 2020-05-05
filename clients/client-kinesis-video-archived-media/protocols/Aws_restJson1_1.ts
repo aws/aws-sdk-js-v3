@@ -43,10 +43,10 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_restJson1_1GetDASHStreamingSessionURLCommand(
+export const serializeAws_restJson1_1GetDASHStreamingSessionURLCommand = async (
   input: GetDASHStreamingSessionURLCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/getDASHStreamingSessionURL";
@@ -92,12 +92,12 @@ export async function serializeAws_restJson1_1GetDASHStreamingSessionURLCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetHLSStreamingSessionURLCommand(
+export const serializeAws_restJson1_1GetHLSStreamingSessionURLCommand = async (
   input: GetHLSStreamingSessionURLCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/getHLSStreamingSessionURL";
@@ -147,12 +147,12 @@ export async function serializeAws_restJson1_1GetHLSStreamingSessionURLCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetMediaForFragmentListCommand(
+export const serializeAws_restJson1_1GetMediaForFragmentListCommand = async (
   input: GetMediaForFragmentListCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/getMediaForFragmentList";
@@ -178,12 +178,12 @@ export async function serializeAws_restJson1_1GetMediaForFragmentListCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListFragmentsCommand(
+export const serializeAws_restJson1_1ListFragmentsCommand = async (
   input: ListFragmentsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/listFragments";
@@ -215,12 +215,12 @@ export async function serializeAws_restJson1_1ListFragmentsCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1GetDASHStreamingSessionURLCommand(
+export const deserializeAws_restJson1_1GetDASHStreamingSessionURLCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetDASHStreamingSessionURLCommandOutput> {
+): Promise<GetDASHStreamingSessionURLCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetDASHStreamingSessionURLCommandError(
       output,
@@ -240,12 +240,12 @@ export async function deserializeAws_restJson1_1GetDASHStreamingSessionURLComman
     contents.DASHStreamingSessionURL = data.DASHStreamingSessionURL;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetDASHStreamingSessionURLCommandError(
+const deserializeAws_restJson1_1GetDASHStreamingSessionURLCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetDASHStreamingSessionURLCommandOutput> {
+): Promise<GetDASHStreamingSessionURLCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -357,12 +357,12 @@ async function deserializeAws_restJson1_1GetDASHStreamingSessionURLCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetHLSStreamingSessionURLCommand(
+export const deserializeAws_restJson1_1GetHLSStreamingSessionURLCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetHLSStreamingSessionURLCommandOutput> {
+): Promise<GetHLSStreamingSessionURLCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetHLSStreamingSessionURLCommandError(
       output,
@@ -382,12 +382,12 @@ export async function deserializeAws_restJson1_1GetHLSStreamingSessionURLCommand
     contents.HLSStreamingSessionURL = data.HLSStreamingSessionURL;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetHLSStreamingSessionURLCommandError(
+const deserializeAws_restJson1_1GetHLSStreamingSessionURLCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetHLSStreamingSessionURLCommandOutput> {
+): Promise<GetHLSStreamingSessionURLCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -499,12 +499,12 @@ async function deserializeAws_restJson1_1GetHLSStreamingSessionURLCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetMediaForFragmentListCommand(
+export const deserializeAws_restJson1_1GetMediaForFragmentListCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetMediaForFragmentListCommandOutput> {
+): Promise<GetMediaForFragmentListCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetMediaForFragmentListCommandError(
       output,
@@ -523,12 +523,12 @@ export async function deserializeAws_restJson1_1GetMediaForFragmentListCommand(
   const data: any = output.body;
   contents.Payload = data;
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetMediaForFragmentListCommandError(
+const deserializeAws_restJson1_1GetMediaForFragmentListCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetMediaForFragmentListCommandOutput> {
+): Promise<GetMediaForFragmentListCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -596,12 +596,12 @@ async function deserializeAws_restJson1_1GetMediaForFragmentListCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListFragmentsCommand(
+export const deserializeAws_restJson1_1ListFragmentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListFragmentsCommandOutput> {
+): Promise<ListFragmentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListFragmentsCommandError(output, context);
   }
@@ -622,12 +622,12 @@ export async function deserializeAws_restJson1_1ListFragmentsCommand(
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListFragmentsCommandError(
+const deserializeAws_restJson1_1ListFragmentsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListFragmentsCommandOutput> {
+): Promise<ListFragmentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -695,7 +695,7 @@ async function deserializeAws_restJson1_1ListFragmentsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1ClientLimitExceededExceptionResponse = async (
   parsedOutput: any,

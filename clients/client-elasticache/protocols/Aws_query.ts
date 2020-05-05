@@ -397,10 +397,10 @@ import {
 } from "@aws-sdk/types";
 import { parse as xmlParse } from "fast-xml-parser";
 
-export async function serializeAws_queryAddTagsToResourceCommand(
+export const serializeAws_queryAddTagsToResourceCommand = async (
   input: AddTagsToResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -411,12 +411,12 @@ export async function serializeAws_queryAddTagsToResourceCommand(
     Version: "2015-02-02"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryAuthorizeCacheSecurityGroupIngressCommand(
+export const serializeAws_queryAuthorizeCacheSecurityGroupIngressCommand = async (
   input: AuthorizeCacheSecurityGroupIngressCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -430,12 +430,12 @@ export async function serializeAws_queryAuthorizeCacheSecurityGroupIngressComman
     Version: "2015-02-02"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryBatchApplyUpdateActionCommand(
+export const serializeAws_queryBatchApplyUpdateActionCommand = async (
   input: BatchApplyUpdateActionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -449,12 +449,12 @@ export async function serializeAws_queryBatchApplyUpdateActionCommand(
     Version: "2015-02-02"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryBatchStopUpdateActionCommand(
+export const serializeAws_queryBatchStopUpdateActionCommand = async (
   input: BatchStopUpdateActionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -468,12 +468,12 @@ export async function serializeAws_queryBatchStopUpdateActionCommand(
     Version: "2015-02-02"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryCompleteMigrationCommand(
+export const serializeAws_queryCompleteMigrationCommand = async (
   input: CompleteMigrationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -484,12 +484,12 @@ export async function serializeAws_queryCompleteMigrationCommand(
     Version: "2015-02-02"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryCopySnapshotCommand(
+export const serializeAws_queryCopySnapshotCommand = async (
   input: CopySnapshotCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -500,12 +500,12 @@ export async function serializeAws_queryCopySnapshotCommand(
     Version: "2015-02-02"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryCreateCacheClusterCommand(
+export const serializeAws_queryCreateCacheClusterCommand = async (
   input: CreateCacheClusterCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -516,12 +516,12 @@ export async function serializeAws_queryCreateCacheClusterCommand(
     Version: "2015-02-02"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryCreateCacheParameterGroupCommand(
+export const serializeAws_queryCreateCacheParameterGroupCommand = async (
   input: CreateCacheParameterGroupCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -535,12 +535,12 @@ export async function serializeAws_queryCreateCacheParameterGroupCommand(
     Version: "2015-02-02"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryCreateCacheSecurityGroupCommand(
+export const serializeAws_queryCreateCacheSecurityGroupCommand = async (
   input: CreateCacheSecurityGroupCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -554,12 +554,12 @@ export async function serializeAws_queryCreateCacheSecurityGroupCommand(
     Version: "2015-02-02"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryCreateCacheSubnetGroupCommand(
+export const serializeAws_queryCreateCacheSubnetGroupCommand = async (
   input: CreateCacheSubnetGroupCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -573,12 +573,12 @@ export async function serializeAws_queryCreateCacheSubnetGroupCommand(
     Version: "2015-02-02"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryCreateReplicationGroupCommand(
+export const serializeAws_queryCreateReplicationGroupCommand = async (
   input: CreateReplicationGroupCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -592,12 +592,12 @@ export async function serializeAws_queryCreateReplicationGroupCommand(
     Version: "2015-02-02"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryCreateSnapshotCommand(
+export const serializeAws_queryCreateSnapshotCommand = async (
   input: CreateSnapshotCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -608,12 +608,12 @@ export async function serializeAws_queryCreateSnapshotCommand(
     Version: "2015-02-02"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDecreaseReplicaCountCommand(
+export const serializeAws_queryDecreaseReplicaCountCommand = async (
   input: DecreaseReplicaCountCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -624,12 +624,12 @@ export async function serializeAws_queryDecreaseReplicaCountCommand(
     Version: "2015-02-02"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDeleteCacheClusterCommand(
+export const serializeAws_queryDeleteCacheClusterCommand = async (
   input: DeleteCacheClusterCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -640,12 +640,12 @@ export async function serializeAws_queryDeleteCacheClusterCommand(
     Version: "2015-02-02"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDeleteCacheParameterGroupCommand(
+export const serializeAws_queryDeleteCacheParameterGroupCommand = async (
   input: DeleteCacheParameterGroupCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -659,12 +659,12 @@ export async function serializeAws_queryDeleteCacheParameterGroupCommand(
     Version: "2015-02-02"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDeleteCacheSecurityGroupCommand(
+export const serializeAws_queryDeleteCacheSecurityGroupCommand = async (
   input: DeleteCacheSecurityGroupCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -678,12 +678,12 @@ export async function serializeAws_queryDeleteCacheSecurityGroupCommand(
     Version: "2015-02-02"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDeleteCacheSubnetGroupCommand(
+export const serializeAws_queryDeleteCacheSubnetGroupCommand = async (
   input: DeleteCacheSubnetGroupCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -697,12 +697,12 @@ export async function serializeAws_queryDeleteCacheSubnetGroupCommand(
     Version: "2015-02-02"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDeleteReplicationGroupCommand(
+export const serializeAws_queryDeleteReplicationGroupCommand = async (
   input: DeleteReplicationGroupCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -716,12 +716,12 @@ export async function serializeAws_queryDeleteReplicationGroupCommand(
     Version: "2015-02-02"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDeleteSnapshotCommand(
+export const serializeAws_queryDeleteSnapshotCommand = async (
   input: DeleteSnapshotCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -732,12 +732,12 @@ export async function serializeAws_queryDeleteSnapshotCommand(
     Version: "2015-02-02"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDescribeCacheClustersCommand(
+export const serializeAws_queryDescribeCacheClustersCommand = async (
   input: DescribeCacheClustersCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -751,12 +751,12 @@ export async function serializeAws_queryDescribeCacheClustersCommand(
     Version: "2015-02-02"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDescribeCacheEngineVersionsCommand(
+export const serializeAws_queryDescribeCacheEngineVersionsCommand = async (
   input: DescribeCacheEngineVersionsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -770,12 +770,12 @@ export async function serializeAws_queryDescribeCacheEngineVersionsCommand(
     Version: "2015-02-02"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDescribeCacheParameterGroupsCommand(
+export const serializeAws_queryDescribeCacheParameterGroupsCommand = async (
   input: DescribeCacheParameterGroupsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -789,12 +789,12 @@ export async function serializeAws_queryDescribeCacheParameterGroupsCommand(
     Version: "2015-02-02"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDescribeCacheParametersCommand(
+export const serializeAws_queryDescribeCacheParametersCommand = async (
   input: DescribeCacheParametersCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -808,12 +808,12 @@ export async function serializeAws_queryDescribeCacheParametersCommand(
     Version: "2015-02-02"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDescribeCacheSecurityGroupsCommand(
+export const serializeAws_queryDescribeCacheSecurityGroupsCommand = async (
   input: DescribeCacheSecurityGroupsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -827,12 +827,12 @@ export async function serializeAws_queryDescribeCacheSecurityGroupsCommand(
     Version: "2015-02-02"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDescribeCacheSubnetGroupsCommand(
+export const serializeAws_queryDescribeCacheSubnetGroupsCommand = async (
   input: DescribeCacheSubnetGroupsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -846,12 +846,12 @@ export async function serializeAws_queryDescribeCacheSubnetGroupsCommand(
     Version: "2015-02-02"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDescribeEngineDefaultParametersCommand(
+export const serializeAws_queryDescribeEngineDefaultParametersCommand = async (
   input: DescribeEngineDefaultParametersCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -865,12 +865,12 @@ export async function serializeAws_queryDescribeEngineDefaultParametersCommand(
     Version: "2015-02-02"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDescribeEventsCommand(
+export const serializeAws_queryDescribeEventsCommand = async (
   input: DescribeEventsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -881,12 +881,12 @@ export async function serializeAws_queryDescribeEventsCommand(
     Version: "2015-02-02"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDescribeReplicationGroupsCommand(
+export const serializeAws_queryDescribeReplicationGroupsCommand = async (
   input: DescribeReplicationGroupsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -900,12 +900,12 @@ export async function serializeAws_queryDescribeReplicationGroupsCommand(
     Version: "2015-02-02"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDescribeReservedCacheNodesCommand(
+export const serializeAws_queryDescribeReservedCacheNodesCommand = async (
   input: DescribeReservedCacheNodesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -919,12 +919,12 @@ export async function serializeAws_queryDescribeReservedCacheNodesCommand(
     Version: "2015-02-02"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDescribeReservedCacheNodesOfferingsCommand(
+export const serializeAws_queryDescribeReservedCacheNodesOfferingsCommand = async (
   input: DescribeReservedCacheNodesOfferingsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -938,12 +938,12 @@ export async function serializeAws_queryDescribeReservedCacheNodesOfferingsComma
     Version: "2015-02-02"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDescribeServiceUpdatesCommand(
+export const serializeAws_queryDescribeServiceUpdatesCommand = async (
   input: DescribeServiceUpdatesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -957,12 +957,12 @@ export async function serializeAws_queryDescribeServiceUpdatesCommand(
     Version: "2015-02-02"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDescribeSnapshotsCommand(
+export const serializeAws_queryDescribeSnapshotsCommand = async (
   input: DescribeSnapshotsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -973,12 +973,12 @@ export async function serializeAws_queryDescribeSnapshotsCommand(
     Version: "2015-02-02"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDescribeUpdateActionsCommand(
+export const serializeAws_queryDescribeUpdateActionsCommand = async (
   input: DescribeUpdateActionsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -992,12 +992,12 @@ export async function serializeAws_queryDescribeUpdateActionsCommand(
     Version: "2015-02-02"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryIncreaseReplicaCountCommand(
+export const serializeAws_queryIncreaseReplicaCountCommand = async (
   input: IncreaseReplicaCountCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -1008,12 +1008,12 @@ export async function serializeAws_queryIncreaseReplicaCountCommand(
     Version: "2015-02-02"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryListAllowedNodeTypeModificationsCommand(
+export const serializeAws_queryListAllowedNodeTypeModificationsCommand = async (
   input: ListAllowedNodeTypeModificationsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -1027,12 +1027,12 @@ export async function serializeAws_queryListAllowedNodeTypeModificationsCommand(
     Version: "2015-02-02"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryListTagsForResourceCommand(
+export const serializeAws_queryListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -1043,12 +1043,12 @@ export async function serializeAws_queryListTagsForResourceCommand(
     Version: "2015-02-02"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryModifyCacheClusterCommand(
+export const serializeAws_queryModifyCacheClusterCommand = async (
   input: ModifyCacheClusterCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -1059,12 +1059,12 @@ export async function serializeAws_queryModifyCacheClusterCommand(
     Version: "2015-02-02"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryModifyCacheParameterGroupCommand(
+export const serializeAws_queryModifyCacheParameterGroupCommand = async (
   input: ModifyCacheParameterGroupCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -1078,12 +1078,12 @@ export async function serializeAws_queryModifyCacheParameterGroupCommand(
     Version: "2015-02-02"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryModifyCacheSubnetGroupCommand(
+export const serializeAws_queryModifyCacheSubnetGroupCommand = async (
   input: ModifyCacheSubnetGroupCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -1097,12 +1097,12 @@ export async function serializeAws_queryModifyCacheSubnetGroupCommand(
     Version: "2015-02-02"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryModifyReplicationGroupCommand(
+export const serializeAws_queryModifyReplicationGroupCommand = async (
   input: ModifyReplicationGroupCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -1116,12 +1116,12 @@ export async function serializeAws_queryModifyReplicationGroupCommand(
     Version: "2015-02-02"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryModifyReplicationGroupShardConfigurationCommand(
+export const serializeAws_queryModifyReplicationGroupShardConfigurationCommand = async (
   input: ModifyReplicationGroupShardConfigurationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -1135,12 +1135,12 @@ export async function serializeAws_queryModifyReplicationGroupShardConfiguration
     Version: "2015-02-02"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryPurchaseReservedCacheNodesOfferingCommand(
+export const serializeAws_queryPurchaseReservedCacheNodesOfferingCommand = async (
   input: PurchaseReservedCacheNodesOfferingCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -1154,12 +1154,12 @@ export async function serializeAws_queryPurchaseReservedCacheNodesOfferingComman
     Version: "2015-02-02"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryRebootCacheClusterCommand(
+export const serializeAws_queryRebootCacheClusterCommand = async (
   input: RebootCacheClusterCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -1170,12 +1170,12 @@ export async function serializeAws_queryRebootCacheClusterCommand(
     Version: "2015-02-02"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryRemoveTagsFromResourceCommand(
+export const serializeAws_queryRemoveTagsFromResourceCommand = async (
   input: RemoveTagsFromResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -1189,12 +1189,12 @@ export async function serializeAws_queryRemoveTagsFromResourceCommand(
     Version: "2015-02-02"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryResetCacheParameterGroupCommand(
+export const serializeAws_queryResetCacheParameterGroupCommand = async (
   input: ResetCacheParameterGroupCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -1208,12 +1208,12 @@ export async function serializeAws_queryResetCacheParameterGroupCommand(
     Version: "2015-02-02"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryRevokeCacheSecurityGroupIngressCommand(
+export const serializeAws_queryRevokeCacheSecurityGroupIngressCommand = async (
   input: RevokeCacheSecurityGroupIngressCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -1227,12 +1227,12 @@ export async function serializeAws_queryRevokeCacheSecurityGroupIngressCommand(
     Version: "2015-02-02"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryStartMigrationCommand(
+export const serializeAws_queryStartMigrationCommand = async (
   input: StartMigrationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -1243,12 +1243,12 @@ export async function serializeAws_queryStartMigrationCommand(
     Version: "2015-02-02"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryTestFailoverCommand(
+export const serializeAws_queryTestFailoverCommand = async (
   input: TestFailoverCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -1259,12 +1259,12 @@ export async function serializeAws_queryTestFailoverCommand(
     Version: "2015-02-02"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_queryAddTagsToResourceCommand(
+export const deserializeAws_queryAddTagsToResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AddTagsToResourceCommandOutput> {
+): Promise<AddTagsToResourceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryAddTagsToResourceCommandError(output, context);
   }
@@ -1280,12 +1280,12 @@ export async function deserializeAws_queryAddTagsToResourceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryAddTagsToResourceCommandError(
+const deserializeAws_queryAddTagsToResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AddTagsToResourceCommandOutput> {
+): Promise<AddTagsToResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1354,12 +1354,12 @@ async function deserializeAws_queryAddTagsToResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryAuthorizeCacheSecurityGroupIngressCommand(
+export const deserializeAws_queryAuthorizeCacheSecurityGroupIngressCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AuthorizeCacheSecurityGroupIngressCommandOutput> {
+): Promise<AuthorizeCacheSecurityGroupIngressCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryAuthorizeCacheSecurityGroupIngressCommandError(
       output,
@@ -1378,12 +1378,12 @@ export async function deserializeAws_queryAuthorizeCacheSecurityGroupIngressComm
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryAuthorizeCacheSecurityGroupIngressCommandError(
+const deserializeAws_queryAuthorizeCacheSecurityGroupIngressCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AuthorizeCacheSecurityGroupIngressCommandOutput> {
+): Promise<AuthorizeCacheSecurityGroupIngressCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1463,12 +1463,12 @@ async function deserializeAws_queryAuthorizeCacheSecurityGroupIngressCommandErro
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryBatchApplyUpdateActionCommand(
+export const deserializeAws_queryBatchApplyUpdateActionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchApplyUpdateActionCommandOutput> {
+): Promise<BatchApplyUpdateActionCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryBatchApplyUpdateActionCommandError(
       output,
@@ -1487,12 +1487,12 @@ export async function deserializeAws_queryBatchApplyUpdateActionCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryBatchApplyUpdateActionCommandError(
+const deserializeAws_queryBatchApplyUpdateActionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchApplyUpdateActionCommandOutput> {
+): Promise<BatchApplyUpdateActionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1539,12 +1539,12 @@ async function deserializeAws_queryBatchApplyUpdateActionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryBatchStopUpdateActionCommand(
+export const deserializeAws_queryBatchStopUpdateActionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchStopUpdateActionCommandOutput> {
+): Promise<BatchStopUpdateActionCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryBatchStopUpdateActionCommandError(
       output,
@@ -1563,12 +1563,12 @@ export async function deserializeAws_queryBatchStopUpdateActionCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryBatchStopUpdateActionCommandError(
+const deserializeAws_queryBatchStopUpdateActionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchStopUpdateActionCommandOutput> {
+): Promise<BatchStopUpdateActionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1615,12 +1615,12 @@ async function deserializeAws_queryBatchStopUpdateActionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryCompleteMigrationCommand(
+export const deserializeAws_queryCompleteMigrationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CompleteMigrationCommandOutput> {
+): Promise<CompleteMigrationCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryCompleteMigrationCommandError(output, context);
   }
@@ -1636,12 +1636,12 @@ export async function deserializeAws_queryCompleteMigrationCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryCompleteMigrationCommandError(
+const deserializeAws_queryCompleteMigrationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CompleteMigrationCommandOutput> {
+): Promise<CompleteMigrationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1699,12 +1699,12 @@ async function deserializeAws_queryCompleteMigrationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryCopySnapshotCommand(
+export const deserializeAws_queryCopySnapshotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CopySnapshotCommandOutput> {
+): Promise<CopySnapshotCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryCopySnapshotCommandError(output, context);
   }
@@ -1720,12 +1720,12 @@ export async function deserializeAws_queryCopySnapshotCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryCopySnapshotCommandError(
+const deserializeAws_queryCopySnapshotCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CopySnapshotCommandOutput> {
+): Promise<CopySnapshotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1816,12 +1816,12 @@ async function deserializeAws_queryCopySnapshotCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryCreateCacheClusterCommand(
+export const deserializeAws_queryCreateCacheClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateCacheClusterCommandOutput> {
+): Promise<CreateCacheClusterCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryCreateCacheClusterCommandError(output, context);
   }
@@ -1837,12 +1837,12 @@ export async function deserializeAws_queryCreateCacheClusterCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryCreateCacheClusterCommandError(
+const deserializeAws_queryCreateCacheClusterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateCacheClusterCommandOutput> {
+): Promise<CreateCacheClusterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2021,12 +2021,12 @@ async function deserializeAws_queryCreateCacheClusterCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryCreateCacheParameterGroupCommand(
+export const deserializeAws_queryCreateCacheParameterGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateCacheParameterGroupCommandOutput> {
+): Promise<CreateCacheParameterGroupCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryCreateCacheParameterGroupCommandError(
       output,
@@ -2045,12 +2045,12 @@ export async function deserializeAws_queryCreateCacheParameterGroupCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryCreateCacheParameterGroupCommandError(
+const deserializeAws_queryCreateCacheParameterGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateCacheParameterGroupCommandOutput> {
+): Promise<CreateCacheParameterGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2130,12 +2130,12 @@ async function deserializeAws_queryCreateCacheParameterGroupCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryCreateCacheSecurityGroupCommand(
+export const deserializeAws_queryCreateCacheSecurityGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateCacheSecurityGroupCommandOutput> {
+): Promise<CreateCacheSecurityGroupCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryCreateCacheSecurityGroupCommandError(
       output,
@@ -2154,12 +2154,12 @@ export async function deserializeAws_queryCreateCacheSecurityGroupCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryCreateCacheSecurityGroupCommandError(
+const deserializeAws_queryCreateCacheSecurityGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateCacheSecurityGroupCommandOutput> {
+): Promise<CreateCacheSecurityGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2228,12 +2228,12 @@ async function deserializeAws_queryCreateCacheSecurityGroupCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryCreateCacheSubnetGroupCommand(
+export const deserializeAws_queryCreateCacheSubnetGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateCacheSubnetGroupCommandOutput> {
+): Promise<CreateCacheSubnetGroupCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryCreateCacheSubnetGroupCommandError(
       output,
@@ -2252,12 +2252,12 @@ export async function deserializeAws_queryCreateCacheSubnetGroupCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryCreateCacheSubnetGroupCommandError(
+const deserializeAws_queryCreateCacheSubnetGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateCacheSubnetGroupCommandOutput> {
+): Promise<CreateCacheSubnetGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2326,12 +2326,12 @@ async function deserializeAws_queryCreateCacheSubnetGroupCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryCreateReplicationGroupCommand(
+export const deserializeAws_queryCreateReplicationGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateReplicationGroupCommandOutput> {
+): Promise<CreateReplicationGroupCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryCreateReplicationGroupCommandError(
       output,
@@ -2350,12 +2350,12 @@ export async function deserializeAws_queryCreateReplicationGroupCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryCreateReplicationGroupCommandError(
+const deserializeAws_queryCreateReplicationGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateReplicationGroupCommandOutput> {
+): Promise<CreateReplicationGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2545,12 +2545,12 @@ async function deserializeAws_queryCreateReplicationGroupCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryCreateSnapshotCommand(
+export const deserializeAws_queryCreateSnapshotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateSnapshotCommandOutput> {
+): Promise<CreateSnapshotCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryCreateSnapshotCommandError(output, context);
   }
@@ -2566,12 +2566,12 @@ export async function deserializeAws_queryCreateSnapshotCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryCreateSnapshotCommandError(
+const deserializeAws_queryCreateSnapshotCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateSnapshotCommandOutput> {
+): Promise<CreateSnapshotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2695,12 +2695,12 @@ async function deserializeAws_queryCreateSnapshotCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDecreaseReplicaCountCommand(
+export const deserializeAws_queryDecreaseReplicaCountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DecreaseReplicaCountCommandOutput> {
+): Promise<DecreaseReplicaCountCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDecreaseReplicaCountCommandError(
       output,
@@ -2719,12 +2719,12 @@ export async function deserializeAws_queryDecreaseReplicaCountCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDecreaseReplicaCountCommandError(
+const deserializeAws_queryDecreaseReplicaCountCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DecreaseReplicaCountCommandOutput> {
+): Promise<DecreaseReplicaCountCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2881,12 +2881,12 @@ async function deserializeAws_queryDecreaseReplicaCountCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDeleteCacheClusterCommand(
+export const deserializeAws_queryDeleteCacheClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteCacheClusterCommandOutput> {
+): Promise<DeleteCacheClusterCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDeleteCacheClusterCommandError(output, context);
   }
@@ -2902,12 +2902,12 @@ export async function deserializeAws_queryDeleteCacheClusterCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDeleteCacheClusterCommandError(
+const deserializeAws_queryDeleteCacheClusterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteCacheClusterCommandOutput> {
+): Promise<DeleteCacheClusterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3009,12 +3009,12 @@ async function deserializeAws_queryDeleteCacheClusterCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDeleteCacheParameterGroupCommand(
+export const deserializeAws_queryDeleteCacheParameterGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteCacheParameterGroupCommandOutput> {
+): Promise<DeleteCacheParameterGroupCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDeleteCacheParameterGroupCommandError(
       output,
@@ -3026,12 +3026,12 @@ export async function deserializeAws_queryDeleteCacheParameterGroupCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDeleteCacheParameterGroupCommandError(
+const deserializeAws_queryDeleteCacheParameterGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteCacheParameterGroupCommandOutput> {
+): Promise<DeleteCacheParameterGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3100,12 +3100,12 @@ async function deserializeAws_queryDeleteCacheParameterGroupCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDeleteCacheSecurityGroupCommand(
+export const deserializeAws_queryDeleteCacheSecurityGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteCacheSecurityGroupCommandOutput> {
+): Promise<DeleteCacheSecurityGroupCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDeleteCacheSecurityGroupCommandError(
       output,
@@ -3117,12 +3117,12 @@ export async function deserializeAws_queryDeleteCacheSecurityGroupCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDeleteCacheSecurityGroupCommandError(
+const deserializeAws_queryDeleteCacheSecurityGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteCacheSecurityGroupCommandOutput> {
+): Promise<DeleteCacheSecurityGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3191,12 +3191,12 @@ async function deserializeAws_queryDeleteCacheSecurityGroupCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDeleteCacheSubnetGroupCommand(
+export const deserializeAws_queryDeleteCacheSubnetGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteCacheSubnetGroupCommandOutput> {
+): Promise<DeleteCacheSubnetGroupCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDeleteCacheSubnetGroupCommandError(
       output,
@@ -3208,12 +3208,12 @@ export async function deserializeAws_queryDeleteCacheSubnetGroupCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDeleteCacheSubnetGroupCommandError(
+const deserializeAws_queryDeleteCacheSubnetGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteCacheSubnetGroupCommandOutput> {
+): Promise<DeleteCacheSubnetGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3260,12 +3260,12 @@ async function deserializeAws_queryDeleteCacheSubnetGroupCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDeleteReplicationGroupCommand(
+export const deserializeAws_queryDeleteReplicationGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteReplicationGroupCommandOutput> {
+): Promise<DeleteReplicationGroupCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDeleteReplicationGroupCommandError(
       output,
@@ -3284,12 +3284,12 @@ export async function deserializeAws_queryDeleteReplicationGroupCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDeleteReplicationGroupCommandError(
+const deserializeAws_queryDeleteReplicationGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteReplicationGroupCommandOutput> {
+): Promise<DeleteReplicationGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3391,12 +3391,12 @@ async function deserializeAws_queryDeleteReplicationGroupCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDeleteSnapshotCommand(
+export const deserializeAws_queryDeleteSnapshotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteSnapshotCommandOutput> {
+): Promise<DeleteSnapshotCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDeleteSnapshotCommandError(output, context);
   }
@@ -3412,12 +3412,12 @@ export async function deserializeAws_queryDeleteSnapshotCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDeleteSnapshotCommandError(
+const deserializeAws_queryDeleteSnapshotCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteSnapshotCommandOutput> {
+): Promise<DeleteSnapshotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3486,12 +3486,12 @@ async function deserializeAws_queryDeleteSnapshotCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDescribeCacheClustersCommand(
+export const deserializeAws_queryDescribeCacheClustersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeCacheClustersCommandOutput> {
+): Promise<DescribeCacheClustersCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDescribeCacheClustersCommandError(
       output,
@@ -3510,12 +3510,12 @@ export async function deserializeAws_queryDescribeCacheClustersCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDescribeCacheClustersCommandError(
+const deserializeAws_queryDescribeCacheClustersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeCacheClustersCommandOutput> {
+): Promise<DescribeCacheClustersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3573,12 +3573,12 @@ async function deserializeAws_queryDescribeCacheClustersCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDescribeCacheEngineVersionsCommand(
+export const deserializeAws_queryDescribeCacheEngineVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeCacheEngineVersionsCommandOutput> {
+): Promise<DescribeCacheEngineVersionsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDescribeCacheEngineVersionsCommandError(
       output,
@@ -3597,12 +3597,12 @@ export async function deserializeAws_queryDescribeCacheEngineVersionsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDescribeCacheEngineVersionsCommandError(
+const deserializeAws_queryDescribeCacheEngineVersionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeCacheEngineVersionsCommandOutput> {
+): Promise<DescribeCacheEngineVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3627,12 +3627,12 @@ async function deserializeAws_queryDescribeCacheEngineVersionsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDescribeCacheParameterGroupsCommand(
+export const deserializeAws_queryDescribeCacheParameterGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeCacheParameterGroupsCommandOutput> {
+): Promise<DescribeCacheParameterGroupsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDescribeCacheParameterGroupsCommandError(
       output,
@@ -3651,12 +3651,12 @@ export async function deserializeAws_queryDescribeCacheParameterGroupsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDescribeCacheParameterGroupsCommandError(
+const deserializeAws_queryDescribeCacheParameterGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeCacheParameterGroupsCommandOutput> {
+): Promise<DescribeCacheParameterGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3714,12 +3714,12 @@ async function deserializeAws_queryDescribeCacheParameterGroupsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDescribeCacheParametersCommand(
+export const deserializeAws_queryDescribeCacheParametersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeCacheParametersCommandOutput> {
+): Promise<DescribeCacheParametersCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDescribeCacheParametersCommandError(
       output,
@@ -3738,12 +3738,12 @@ export async function deserializeAws_queryDescribeCacheParametersCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDescribeCacheParametersCommandError(
+const deserializeAws_queryDescribeCacheParametersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeCacheParametersCommandOutput> {
+): Promise<DescribeCacheParametersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3801,12 +3801,12 @@ async function deserializeAws_queryDescribeCacheParametersCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDescribeCacheSecurityGroupsCommand(
+export const deserializeAws_queryDescribeCacheSecurityGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeCacheSecurityGroupsCommandOutput> {
+): Promise<DescribeCacheSecurityGroupsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDescribeCacheSecurityGroupsCommandError(
       output,
@@ -3825,12 +3825,12 @@ export async function deserializeAws_queryDescribeCacheSecurityGroupsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDescribeCacheSecurityGroupsCommandError(
+const deserializeAws_queryDescribeCacheSecurityGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeCacheSecurityGroupsCommandOutput> {
+): Promise<DescribeCacheSecurityGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3888,12 +3888,12 @@ async function deserializeAws_queryDescribeCacheSecurityGroupsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDescribeCacheSubnetGroupsCommand(
+export const deserializeAws_queryDescribeCacheSubnetGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeCacheSubnetGroupsCommandOutput> {
+): Promise<DescribeCacheSubnetGroupsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDescribeCacheSubnetGroupsCommandError(
       output,
@@ -3912,12 +3912,12 @@ export async function deserializeAws_queryDescribeCacheSubnetGroupsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDescribeCacheSubnetGroupsCommandError(
+const deserializeAws_queryDescribeCacheSubnetGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeCacheSubnetGroupsCommandOutput> {
+): Promise<DescribeCacheSubnetGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3953,12 +3953,12 @@ async function deserializeAws_queryDescribeCacheSubnetGroupsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDescribeEngineDefaultParametersCommand(
+export const deserializeAws_queryDescribeEngineDefaultParametersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeEngineDefaultParametersCommandOutput> {
+): Promise<DescribeEngineDefaultParametersCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDescribeEngineDefaultParametersCommandError(
       output,
@@ -3977,12 +3977,12 @@ export async function deserializeAws_queryDescribeEngineDefaultParametersCommand
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDescribeEngineDefaultParametersCommandError(
+const deserializeAws_queryDescribeEngineDefaultParametersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeEngineDefaultParametersCommandOutput> {
+): Promise<DescribeEngineDefaultParametersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4029,12 +4029,12 @@ async function deserializeAws_queryDescribeEngineDefaultParametersCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDescribeEventsCommand(
+export const deserializeAws_queryDescribeEventsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeEventsCommandOutput> {
+): Promise<DescribeEventsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDescribeEventsCommandError(output, context);
   }
@@ -4050,12 +4050,12 @@ export async function deserializeAws_queryDescribeEventsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDescribeEventsCommandError(
+const deserializeAws_queryDescribeEventsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeEventsCommandOutput> {
+): Promise<DescribeEventsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4102,12 +4102,12 @@ async function deserializeAws_queryDescribeEventsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDescribeReplicationGroupsCommand(
+export const deserializeAws_queryDescribeReplicationGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeReplicationGroupsCommandOutput> {
+): Promise<DescribeReplicationGroupsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDescribeReplicationGroupsCommandError(
       output,
@@ -4126,12 +4126,12 @@ export async function deserializeAws_queryDescribeReplicationGroupsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDescribeReplicationGroupsCommandError(
+const deserializeAws_queryDescribeReplicationGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeReplicationGroupsCommandOutput> {
+): Promise<DescribeReplicationGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4189,12 +4189,12 @@ async function deserializeAws_queryDescribeReplicationGroupsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDescribeReservedCacheNodesCommand(
+export const deserializeAws_queryDescribeReservedCacheNodesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeReservedCacheNodesCommandOutput> {
+): Promise<DescribeReservedCacheNodesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDescribeReservedCacheNodesCommandError(
       output,
@@ -4213,12 +4213,12 @@ export async function deserializeAws_queryDescribeReservedCacheNodesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDescribeReservedCacheNodesCommandError(
+const deserializeAws_queryDescribeReservedCacheNodesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeReservedCacheNodesCommandOutput> {
+): Promise<DescribeReservedCacheNodesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4276,12 +4276,12 @@ async function deserializeAws_queryDescribeReservedCacheNodesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDescribeReservedCacheNodesOfferingsCommand(
+export const deserializeAws_queryDescribeReservedCacheNodesOfferingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeReservedCacheNodesOfferingsCommandOutput> {
+): Promise<DescribeReservedCacheNodesOfferingsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDescribeReservedCacheNodesOfferingsCommandError(
       output,
@@ -4300,12 +4300,12 @@ export async function deserializeAws_queryDescribeReservedCacheNodesOfferingsCom
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDescribeReservedCacheNodesOfferingsCommandError(
+const deserializeAws_queryDescribeReservedCacheNodesOfferingsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeReservedCacheNodesOfferingsCommandOutput> {
+): Promise<DescribeReservedCacheNodesOfferingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4363,12 +4363,12 @@ async function deserializeAws_queryDescribeReservedCacheNodesOfferingsCommandErr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDescribeServiceUpdatesCommand(
+export const deserializeAws_queryDescribeServiceUpdatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeServiceUpdatesCommandOutput> {
+): Promise<DescribeServiceUpdatesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDescribeServiceUpdatesCommandError(
       output,
@@ -4387,12 +4387,12 @@ export async function deserializeAws_queryDescribeServiceUpdatesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDescribeServiceUpdatesCommandError(
+const deserializeAws_queryDescribeServiceUpdatesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeServiceUpdatesCommandOutput> {
+): Promise<DescribeServiceUpdatesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4450,12 +4450,12 @@ async function deserializeAws_queryDescribeServiceUpdatesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDescribeSnapshotsCommand(
+export const deserializeAws_queryDescribeSnapshotsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeSnapshotsCommandOutput> {
+): Promise<DescribeSnapshotsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDescribeSnapshotsCommandError(output, context);
   }
@@ -4471,12 +4471,12 @@ export async function deserializeAws_queryDescribeSnapshotsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDescribeSnapshotsCommandError(
+const deserializeAws_queryDescribeSnapshotsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeSnapshotsCommandOutput> {
+): Promise<DescribeSnapshotsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4545,12 +4545,12 @@ async function deserializeAws_queryDescribeSnapshotsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDescribeUpdateActionsCommand(
+export const deserializeAws_queryDescribeUpdateActionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeUpdateActionsCommandOutput> {
+): Promise<DescribeUpdateActionsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDescribeUpdateActionsCommandError(
       output,
@@ -4569,12 +4569,12 @@ export async function deserializeAws_queryDescribeUpdateActionsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDescribeUpdateActionsCommandError(
+const deserializeAws_queryDescribeUpdateActionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeUpdateActionsCommandOutput> {
+): Promise<DescribeUpdateActionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4621,12 +4621,12 @@ async function deserializeAws_queryDescribeUpdateActionsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryIncreaseReplicaCountCommand(
+export const deserializeAws_queryIncreaseReplicaCountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<IncreaseReplicaCountCommandOutput> {
+): Promise<IncreaseReplicaCountCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryIncreaseReplicaCountCommandError(
       output,
@@ -4645,12 +4645,12 @@ export async function deserializeAws_queryIncreaseReplicaCountCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryIncreaseReplicaCountCommandError(
+const deserializeAws_queryIncreaseReplicaCountCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<IncreaseReplicaCountCommandOutput> {
+): Promise<IncreaseReplicaCountCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4807,12 +4807,12 @@ async function deserializeAws_queryIncreaseReplicaCountCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryListAllowedNodeTypeModificationsCommand(
+export const deserializeAws_queryListAllowedNodeTypeModificationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListAllowedNodeTypeModificationsCommandOutput> {
+): Promise<ListAllowedNodeTypeModificationsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryListAllowedNodeTypeModificationsCommandError(
       output,
@@ -4831,12 +4831,12 @@ export async function deserializeAws_queryListAllowedNodeTypeModificationsComman
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryListAllowedNodeTypeModificationsCommandError(
+const deserializeAws_queryListAllowedNodeTypeModificationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListAllowedNodeTypeModificationsCommandOutput> {
+): Promise<ListAllowedNodeTypeModificationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4905,12 +4905,12 @@ async function deserializeAws_queryListAllowedNodeTypeModificationsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryListTagsForResourceCommand(
+export const deserializeAws_queryListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryListTagsForResourceCommandError(output, context);
   }
@@ -4926,12 +4926,12 @@ export async function deserializeAws_queryListTagsForResourceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryListTagsForResourceCommandError(
+const deserializeAws_queryListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4989,12 +4989,12 @@ async function deserializeAws_queryListTagsForResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryModifyCacheClusterCommand(
+export const deserializeAws_queryModifyCacheClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ModifyCacheClusterCommandOutput> {
+): Promise<ModifyCacheClusterCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryModifyCacheClusterCommandError(output, context);
   }
@@ -5010,12 +5010,12 @@ export async function deserializeAws_queryModifyCacheClusterCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryModifyCacheClusterCommandError(
+const deserializeAws_queryModifyCacheClusterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ModifyCacheClusterCommandOutput> {
+): Promise<ModifyCacheClusterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5161,12 +5161,12 @@ async function deserializeAws_queryModifyCacheClusterCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryModifyCacheParameterGroupCommand(
+export const deserializeAws_queryModifyCacheParameterGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ModifyCacheParameterGroupCommandOutput> {
+): Promise<ModifyCacheParameterGroupCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryModifyCacheParameterGroupCommandError(
       output,
@@ -5185,12 +5185,12 @@ export async function deserializeAws_queryModifyCacheParameterGroupCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryModifyCacheParameterGroupCommandError(
+const deserializeAws_queryModifyCacheParameterGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ModifyCacheParameterGroupCommandOutput> {
+): Promise<ModifyCacheParameterGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5259,12 +5259,12 @@ async function deserializeAws_queryModifyCacheParameterGroupCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryModifyCacheSubnetGroupCommand(
+export const deserializeAws_queryModifyCacheSubnetGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ModifyCacheSubnetGroupCommandOutput> {
+): Promise<ModifyCacheSubnetGroupCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryModifyCacheSubnetGroupCommandError(
       output,
@@ -5283,12 +5283,12 @@ export async function deserializeAws_queryModifyCacheSubnetGroupCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryModifyCacheSubnetGroupCommandError(
+const deserializeAws_queryModifyCacheSubnetGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ModifyCacheSubnetGroupCommandOutput> {
+): Promise<ModifyCacheSubnetGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5357,12 +5357,12 @@ async function deserializeAws_queryModifyCacheSubnetGroupCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryModifyReplicationGroupCommand(
+export const deserializeAws_queryModifyReplicationGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ModifyReplicationGroupCommandOutput> {
+): Promise<ModifyReplicationGroupCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryModifyReplicationGroupCommandError(
       output,
@@ -5381,12 +5381,12 @@ export async function deserializeAws_queryModifyReplicationGroupCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryModifyReplicationGroupCommandError(
+const deserializeAws_queryModifyReplicationGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ModifyReplicationGroupCommandOutput> {
+): Promise<ModifyReplicationGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5565,12 +5565,12 @@ async function deserializeAws_queryModifyReplicationGroupCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryModifyReplicationGroupShardConfigurationCommand(
+export const deserializeAws_queryModifyReplicationGroupShardConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ModifyReplicationGroupShardConfigurationCommandOutput> {
+): Promise<ModifyReplicationGroupShardConfigurationCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryModifyReplicationGroupShardConfigurationCommandError(
       output,
@@ -5589,12 +5589,12 @@ export async function deserializeAws_queryModifyReplicationGroupShardConfigurati
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryModifyReplicationGroupShardConfigurationCommandError(
+const deserializeAws_queryModifyReplicationGroupShardConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ModifyReplicationGroupShardConfigurationCommandOutput> {
+): Promise<ModifyReplicationGroupShardConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5729,12 +5729,12 @@ async function deserializeAws_queryModifyReplicationGroupShardConfigurationComma
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryPurchaseReservedCacheNodesOfferingCommand(
+export const deserializeAws_queryPurchaseReservedCacheNodesOfferingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PurchaseReservedCacheNodesOfferingCommandOutput> {
+): Promise<PurchaseReservedCacheNodesOfferingCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryPurchaseReservedCacheNodesOfferingCommandError(
       output,
@@ -5753,12 +5753,12 @@ export async function deserializeAws_queryPurchaseReservedCacheNodesOfferingComm
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryPurchaseReservedCacheNodesOfferingCommandError(
+const deserializeAws_queryPurchaseReservedCacheNodesOfferingCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PurchaseReservedCacheNodesOfferingCommandOutput> {
+): Promise<PurchaseReservedCacheNodesOfferingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5838,12 +5838,12 @@ async function deserializeAws_queryPurchaseReservedCacheNodesOfferingCommandErro
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryRebootCacheClusterCommand(
+export const deserializeAws_queryRebootCacheClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RebootCacheClusterCommandOutput> {
+): Promise<RebootCacheClusterCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryRebootCacheClusterCommandError(output, context);
   }
@@ -5859,12 +5859,12 @@ export async function deserializeAws_queryRebootCacheClusterCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryRebootCacheClusterCommandError(
+const deserializeAws_queryRebootCacheClusterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RebootCacheClusterCommandOutput> {
+): Promise<RebootCacheClusterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5911,12 +5911,12 @@ async function deserializeAws_queryRebootCacheClusterCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryRemoveTagsFromResourceCommand(
+export const deserializeAws_queryRemoveTagsFromResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RemoveTagsFromResourceCommandOutput> {
+): Promise<RemoveTagsFromResourceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryRemoveTagsFromResourceCommandError(
       output,
@@ -5935,12 +5935,12 @@ export async function deserializeAws_queryRemoveTagsFromResourceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryRemoveTagsFromResourceCommandError(
+const deserializeAws_queryRemoveTagsFromResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RemoveTagsFromResourceCommandOutput> {
+): Promise<RemoveTagsFromResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6009,12 +6009,12 @@ async function deserializeAws_queryRemoveTagsFromResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryResetCacheParameterGroupCommand(
+export const deserializeAws_queryResetCacheParameterGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ResetCacheParameterGroupCommandOutput> {
+): Promise<ResetCacheParameterGroupCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryResetCacheParameterGroupCommandError(
       output,
@@ -6033,12 +6033,12 @@ export async function deserializeAws_queryResetCacheParameterGroupCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryResetCacheParameterGroupCommandError(
+const deserializeAws_queryResetCacheParameterGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ResetCacheParameterGroupCommandOutput> {
+): Promise<ResetCacheParameterGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6107,12 +6107,12 @@ async function deserializeAws_queryResetCacheParameterGroupCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryRevokeCacheSecurityGroupIngressCommand(
+export const deserializeAws_queryRevokeCacheSecurityGroupIngressCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RevokeCacheSecurityGroupIngressCommandOutput> {
+): Promise<RevokeCacheSecurityGroupIngressCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryRevokeCacheSecurityGroupIngressCommandError(
       output,
@@ -6131,12 +6131,12 @@ export async function deserializeAws_queryRevokeCacheSecurityGroupIngressCommand
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryRevokeCacheSecurityGroupIngressCommandError(
+const deserializeAws_queryRevokeCacheSecurityGroupIngressCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RevokeCacheSecurityGroupIngressCommandOutput> {
+): Promise<RevokeCacheSecurityGroupIngressCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6216,12 +6216,12 @@ async function deserializeAws_queryRevokeCacheSecurityGroupIngressCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryStartMigrationCommand(
+export const deserializeAws_queryStartMigrationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartMigrationCommandOutput> {
+): Promise<StartMigrationCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryStartMigrationCommandError(output, context);
   }
@@ -6237,12 +6237,12 @@ export async function deserializeAws_queryStartMigrationCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryStartMigrationCommandError(
+const deserializeAws_queryStartMigrationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartMigrationCommandOutput> {
+): Promise<StartMigrationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6311,12 +6311,12 @@ async function deserializeAws_queryStartMigrationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryTestFailoverCommand(
+export const deserializeAws_queryTestFailoverCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TestFailoverCommandOutput> {
+): Promise<TestFailoverCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryTestFailoverCommandError(output, context);
   }
@@ -6332,12 +6332,12 @@ export async function deserializeAws_queryTestFailoverCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryTestFailoverCommandError(
+const deserializeAws_queryTestFailoverCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TestFailoverCommandOutput> {
+): Promise<TestFailoverCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6461,7 +6461,7 @@ async function deserializeAws_queryTestFailoverCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_queryInvalidParameterCombinationExceptionResponse = async (
   parsedOutput: any,

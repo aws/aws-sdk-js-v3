@@ -194,10 +194,10 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_json1_1CreateCostCategoryDefinitionCommand(
+export const serializeAws_json1_1CreateCostCategoryDefinitionCommand = async (
   input: CreateCostCategoryDefinitionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -207,12 +207,12 @@ export async function serializeAws_json1_1CreateCostCategoryDefinitionCommand(
     serializeAws_json1_1CreateCostCategoryDefinitionRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteCostCategoryDefinitionCommand(
+export const serializeAws_json1_1DeleteCostCategoryDefinitionCommand = async (
   input: DeleteCostCategoryDefinitionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -222,12 +222,12 @@ export async function serializeAws_json1_1DeleteCostCategoryDefinitionCommand(
     serializeAws_json1_1DeleteCostCategoryDefinitionRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeCostCategoryDefinitionCommand(
+export const serializeAws_json1_1DescribeCostCategoryDefinitionCommand = async (
   input: DescribeCostCategoryDefinitionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -237,12 +237,12 @@ export async function serializeAws_json1_1DescribeCostCategoryDefinitionCommand(
     serializeAws_json1_1DescribeCostCategoryDefinitionRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetCostAndUsageCommand(
+export const serializeAws_json1_1GetCostAndUsageCommand = async (
   input: GetCostAndUsageCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSInsightsIndexService.GetCostAndUsage";
@@ -251,12 +251,12 @@ export async function serializeAws_json1_1GetCostAndUsageCommand(
     serializeAws_json1_1GetCostAndUsageRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetCostAndUsageWithResourcesCommand(
+export const serializeAws_json1_1GetCostAndUsageWithResourcesCommand = async (
   input: GetCostAndUsageWithResourcesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -266,12 +266,12 @@ export async function serializeAws_json1_1GetCostAndUsageWithResourcesCommand(
     serializeAws_json1_1GetCostAndUsageWithResourcesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetCostForecastCommand(
+export const serializeAws_json1_1GetCostForecastCommand = async (
   input: GetCostForecastCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSInsightsIndexService.GetCostForecast";
@@ -280,12 +280,12 @@ export async function serializeAws_json1_1GetCostForecastCommand(
     serializeAws_json1_1GetCostForecastRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetDimensionValuesCommand(
+export const serializeAws_json1_1GetDimensionValuesCommand = async (
   input: GetDimensionValuesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSInsightsIndexService.GetDimensionValues";
@@ -294,12 +294,12 @@ export async function serializeAws_json1_1GetDimensionValuesCommand(
     serializeAws_json1_1GetDimensionValuesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetReservationCoverageCommand(
+export const serializeAws_json1_1GetReservationCoverageCommand = async (
   input: GetReservationCoverageCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSInsightsIndexService.GetReservationCoverage";
@@ -308,12 +308,12 @@ export async function serializeAws_json1_1GetReservationCoverageCommand(
     serializeAws_json1_1GetReservationCoverageRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetReservationPurchaseRecommendationCommand(
+export const serializeAws_json1_1GetReservationPurchaseRecommendationCommand = async (
   input: GetReservationPurchaseRecommendationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -326,12 +326,12 @@ export async function serializeAws_json1_1GetReservationPurchaseRecommendationCo
     )
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetReservationUtilizationCommand(
+export const serializeAws_json1_1GetReservationUtilizationCommand = async (
   input: GetReservationUtilizationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSInsightsIndexService.GetReservationUtilization";
@@ -340,12 +340,12 @@ export async function serializeAws_json1_1GetReservationUtilizationCommand(
     serializeAws_json1_1GetReservationUtilizationRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetRightsizingRecommendationCommand(
+export const serializeAws_json1_1GetRightsizingRecommendationCommand = async (
   input: GetRightsizingRecommendationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -355,12 +355,12 @@ export async function serializeAws_json1_1GetRightsizingRecommendationCommand(
     serializeAws_json1_1GetRightsizingRecommendationRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetSavingsPlansCoverageCommand(
+export const serializeAws_json1_1GetSavingsPlansCoverageCommand = async (
   input: GetSavingsPlansCoverageCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSInsightsIndexService.GetSavingsPlansCoverage";
@@ -369,12 +369,12 @@ export async function serializeAws_json1_1GetSavingsPlansCoverageCommand(
     serializeAws_json1_1GetSavingsPlansCoverageRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetSavingsPlansPurchaseRecommendationCommand(
+export const serializeAws_json1_1GetSavingsPlansPurchaseRecommendationCommand = async (
   input: GetSavingsPlansPurchaseRecommendationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -387,12 +387,12 @@ export async function serializeAws_json1_1GetSavingsPlansPurchaseRecommendationC
     )
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetSavingsPlansUtilizationCommand(
+export const serializeAws_json1_1GetSavingsPlansUtilizationCommand = async (
   input: GetSavingsPlansUtilizationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -402,12 +402,12 @@ export async function serializeAws_json1_1GetSavingsPlansUtilizationCommand(
     serializeAws_json1_1GetSavingsPlansUtilizationRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetSavingsPlansUtilizationDetailsCommand(
+export const serializeAws_json1_1GetSavingsPlansUtilizationDetailsCommand = async (
   input: GetSavingsPlansUtilizationDetailsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -417,24 +417,24 @@ export async function serializeAws_json1_1GetSavingsPlansUtilizationDetailsComma
     serializeAws_json1_1GetSavingsPlansUtilizationDetailsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetTagsCommand(
+export const serializeAws_json1_1GetTagsCommand = async (
   input: GetTagsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSInsightsIndexService.GetTags";
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetTagsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetUsageForecastCommand(
+export const serializeAws_json1_1GetUsageForecastCommand = async (
   input: GetUsageForecastCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSInsightsIndexService.GetUsageForecast";
@@ -443,12 +443,12 @@ export async function serializeAws_json1_1GetUsageForecastCommand(
     serializeAws_json1_1GetUsageForecastRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListCostCategoryDefinitionsCommand(
+export const serializeAws_json1_1ListCostCategoryDefinitionsCommand = async (
   input: ListCostCategoryDefinitionsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -458,12 +458,12 @@ export async function serializeAws_json1_1ListCostCategoryDefinitionsCommand(
     serializeAws_json1_1ListCostCategoryDefinitionsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateCostCategoryDefinitionCommand(
+export const serializeAws_json1_1UpdateCostCategoryDefinitionCommand = async (
   input: UpdateCostCategoryDefinitionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -473,12 +473,12 @@ export async function serializeAws_json1_1UpdateCostCategoryDefinitionCommand(
     serializeAws_json1_1UpdateCostCategoryDefinitionRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_1CreateCostCategoryDefinitionCommand(
+export const deserializeAws_json1_1CreateCostCategoryDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateCostCategoryDefinitionCommandOutput> {
+): Promise<CreateCostCategoryDefinitionCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateCostCategoryDefinitionCommandError(
       output,
@@ -497,12 +497,12 @@ export async function deserializeAws_json1_1CreateCostCategoryDefinitionCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateCostCategoryDefinitionCommandError(
+const deserializeAws_json1_1CreateCostCategoryDefinitionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateCostCategoryDefinitionCommandOutput> {
+): Promise<CreateCostCategoryDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -550,12 +550,12 @@ async function deserializeAws_json1_1CreateCostCategoryDefinitionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteCostCategoryDefinitionCommand(
+export const deserializeAws_json1_1DeleteCostCategoryDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteCostCategoryDefinitionCommandOutput> {
+): Promise<DeleteCostCategoryDefinitionCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteCostCategoryDefinitionCommandError(
       output,
@@ -574,12 +574,12 @@ export async function deserializeAws_json1_1DeleteCostCategoryDefinitionCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteCostCategoryDefinitionCommandError(
+const deserializeAws_json1_1DeleteCostCategoryDefinitionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteCostCategoryDefinitionCommandOutput> {
+): Promise<DeleteCostCategoryDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -627,12 +627,12 @@ async function deserializeAws_json1_1DeleteCostCategoryDefinitionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeCostCategoryDefinitionCommand(
+export const deserializeAws_json1_1DescribeCostCategoryDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeCostCategoryDefinitionCommandOutput> {
+): Promise<DescribeCostCategoryDefinitionCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeCostCategoryDefinitionCommandError(
       output,
@@ -651,12 +651,12 @@ export async function deserializeAws_json1_1DescribeCostCategoryDefinitionComman
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeCostCategoryDefinitionCommandError(
+const deserializeAws_json1_1DescribeCostCategoryDefinitionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeCostCategoryDefinitionCommandOutput> {
+): Promise<DescribeCostCategoryDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -704,12 +704,12 @@ async function deserializeAws_json1_1DescribeCostCategoryDefinitionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetCostAndUsageCommand(
+export const deserializeAws_json1_1GetCostAndUsageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetCostAndUsageCommandOutput> {
+): Promise<GetCostAndUsageCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetCostAndUsageCommandError(output, context);
   }
@@ -722,12 +722,12 @@ export async function deserializeAws_json1_1GetCostAndUsageCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetCostAndUsageCommandError(
+const deserializeAws_json1_1GetCostAndUsageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetCostAndUsageCommandOutput> {
+): Promise<GetCostAndUsageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -808,12 +808,12 @@ async function deserializeAws_json1_1GetCostAndUsageCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetCostAndUsageWithResourcesCommand(
+export const deserializeAws_json1_1GetCostAndUsageWithResourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetCostAndUsageWithResourcesCommandOutput> {
+): Promise<GetCostAndUsageWithResourcesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetCostAndUsageWithResourcesCommandError(
       output,
@@ -832,12 +832,12 @@ export async function deserializeAws_json1_1GetCostAndUsageWithResourcesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetCostAndUsageWithResourcesCommandError(
+const deserializeAws_json1_1GetCostAndUsageWithResourcesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetCostAndUsageWithResourcesCommandOutput> {
+): Promise<GetCostAndUsageWithResourcesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -918,12 +918,12 @@ async function deserializeAws_json1_1GetCostAndUsageWithResourcesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetCostForecastCommand(
+export const deserializeAws_json1_1GetCostForecastCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetCostForecastCommandOutput> {
+): Promise<GetCostForecastCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetCostForecastCommandError(output, context);
   }
@@ -936,12 +936,12 @@ export async function deserializeAws_json1_1GetCostForecastCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetCostForecastCommandError(
+const deserializeAws_json1_1GetCostForecastCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetCostForecastCommandOutput> {
+): Promise<GetCostForecastCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -989,12 +989,12 @@ async function deserializeAws_json1_1GetCostForecastCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetDimensionValuesCommand(
+export const deserializeAws_json1_1GetDimensionValuesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetDimensionValuesCommandOutput> {
+): Promise<GetDimensionValuesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetDimensionValuesCommandError(
       output,
@@ -1010,12 +1010,12 @@ export async function deserializeAws_json1_1GetDimensionValuesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetDimensionValuesCommandError(
+const deserializeAws_json1_1GetDimensionValuesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetDimensionValuesCommandOutput> {
+): Promise<GetDimensionValuesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1096,12 +1096,12 @@ async function deserializeAws_json1_1GetDimensionValuesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetReservationCoverageCommand(
+export const deserializeAws_json1_1GetReservationCoverageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetReservationCoverageCommandOutput> {
+): Promise<GetReservationCoverageCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetReservationCoverageCommandError(
       output,
@@ -1120,12 +1120,12 @@ export async function deserializeAws_json1_1GetReservationCoverageCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetReservationCoverageCommandError(
+const deserializeAws_json1_1GetReservationCoverageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetReservationCoverageCommandOutput> {
+): Promise<GetReservationCoverageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1184,12 +1184,12 @@ async function deserializeAws_json1_1GetReservationCoverageCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetReservationPurchaseRecommendationCommand(
+export const deserializeAws_json1_1GetReservationPurchaseRecommendationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetReservationPurchaseRecommendationCommandOutput> {
+): Promise<GetReservationPurchaseRecommendationCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetReservationPurchaseRecommendationCommandError(
       output,
@@ -1208,12 +1208,12 @@ export async function deserializeAws_json1_1GetReservationPurchaseRecommendation
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetReservationPurchaseRecommendationCommandError(
+const deserializeAws_json1_1GetReservationPurchaseRecommendationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetReservationPurchaseRecommendationCommandOutput> {
+): Promise<GetReservationPurchaseRecommendationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1272,12 +1272,12 @@ async function deserializeAws_json1_1GetReservationPurchaseRecommendationCommand
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetReservationUtilizationCommand(
+export const deserializeAws_json1_1GetReservationUtilizationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetReservationUtilizationCommandOutput> {
+): Promise<GetReservationUtilizationCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetReservationUtilizationCommandError(
       output,
@@ -1296,12 +1296,12 @@ export async function deserializeAws_json1_1GetReservationUtilizationCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetReservationUtilizationCommandError(
+const deserializeAws_json1_1GetReservationUtilizationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetReservationUtilizationCommandOutput> {
+): Promise<GetReservationUtilizationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1360,12 +1360,12 @@ async function deserializeAws_json1_1GetReservationUtilizationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetRightsizingRecommendationCommand(
+export const deserializeAws_json1_1GetRightsizingRecommendationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetRightsizingRecommendationCommandOutput> {
+): Promise<GetRightsizingRecommendationCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetRightsizingRecommendationCommandError(
       output,
@@ -1384,12 +1384,12 @@ export async function deserializeAws_json1_1GetRightsizingRecommendationCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetRightsizingRecommendationCommandError(
+const deserializeAws_json1_1GetRightsizingRecommendationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetRightsizingRecommendationCommandOutput> {
+): Promise<GetRightsizingRecommendationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1437,12 +1437,12 @@ async function deserializeAws_json1_1GetRightsizingRecommendationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetSavingsPlansCoverageCommand(
+export const deserializeAws_json1_1GetSavingsPlansCoverageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetSavingsPlansCoverageCommandOutput> {
+): Promise<GetSavingsPlansCoverageCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetSavingsPlansCoverageCommandError(
       output,
@@ -1461,12 +1461,12 @@ export async function deserializeAws_json1_1GetSavingsPlansCoverageCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetSavingsPlansCoverageCommandError(
+const deserializeAws_json1_1GetSavingsPlansCoverageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetSavingsPlansCoverageCommandOutput> {
+): Promise<GetSavingsPlansCoverageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1525,12 +1525,12 @@ async function deserializeAws_json1_1GetSavingsPlansCoverageCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetSavingsPlansPurchaseRecommendationCommand(
+export const deserializeAws_json1_1GetSavingsPlansPurchaseRecommendationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetSavingsPlansPurchaseRecommendationCommandOutput> {
+): Promise<GetSavingsPlansPurchaseRecommendationCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetSavingsPlansPurchaseRecommendationCommandError(
       output,
@@ -1549,12 +1549,12 @@ export async function deserializeAws_json1_1GetSavingsPlansPurchaseRecommendatio
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetSavingsPlansPurchaseRecommendationCommandError(
+const deserializeAws_json1_1GetSavingsPlansPurchaseRecommendationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetSavingsPlansPurchaseRecommendationCommandOutput> {
+): Promise<GetSavingsPlansPurchaseRecommendationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1602,12 +1602,12 @@ async function deserializeAws_json1_1GetSavingsPlansPurchaseRecommendationComman
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetSavingsPlansUtilizationCommand(
+export const deserializeAws_json1_1GetSavingsPlansUtilizationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetSavingsPlansUtilizationCommandOutput> {
+): Promise<GetSavingsPlansUtilizationCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetSavingsPlansUtilizationCommandError(
       output,
@@ -1626,12 +1626,12 @@ export async function deserializeAws_json1_1GetSavingsPlansUtilizationCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetSavingsPlansUtilizationCommandError(
+const deserializeAws_json1_1GetSavingsPlansUtilizationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetSavingsPlansUtilizationCommandOutput> {
+): Promise<GetSavingsPlansUtilizationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1679,12 +1679,12 @@ async function deserializeAws_json1_1GetSavingsPlansUtilizationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetSavingsPlansUtilizationDetailsCommand(
+export const deserializeAws_json1_1GetSavingsPlansUtilizationDetailsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetSavingsPlansUtilizationDetailsCommandOutput> {
+): Promise<GetSavingsPlansUtilizationDetailsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetSavingsPlansUtilizationDetailsCommandError(
       output,
@@ -1703,12 +1703,12 @@ export async function deserializeAws_json1_1GetSavingsPlansUtilizationDetailsCom
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetSavingsPlansUtilizationDetailsCommandError(
+const deserializeAws_json1_1GetSavingsPlansUtilizationDetailsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetSavingsPlansUtilizationDetailsCommandOutput> {
+): Promise<GetSavingsPlansUtilizationDetailsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1767,12 +1767,12 @@ async function deserializeAws_json1_1GetSavingsPlansUtilizationDetailsCommandErr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetTagsCommand(
+export const deserializeAws_json1_1GetTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetTagsCommandOutput> {
+): Promise<GetTagsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetTagsCommandError(output, context);
   }
@@ -1785,12 +1785,12 @@ export async function deserializeAws_json1_1GetTagsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetTagsCommandError(
+const deserializeAws_json1_1GetTagsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetTagsCommandOutput> {
+): Promise<GetTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1871,12 +1871,12 @@ async function deserializeAws_json1_1GetTagsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetUsageForecastCommand(
+export const deserializeAws_json1_1GetUsageForecastCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetUsageForecastCommandOutput> {
+): Promise<GetUsageForecastCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetUsageForecastCommandError(output, context);
   }
@@ -1889,12 +1889,12 @@ export async function deserializeAws_json1_1GetUsageForecastCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetUsageForecastCommandError(
+const deserializeAws_json1_1GetUsageForecastCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetUsageForecastCommandOutput> {
+): Promise<GetUsageForecastCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1953,12 +1953,12 @@ async function deserializeAws_json1_1GetUsageForecastCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListCostCategoryDefinitionsCommand(
+export const deserializeAws_json1_1ListCostCategoryDefinitionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListCostCategoryDefinitionsCommandOutput> {
+): Promise<ListCostCategoryDefinitionsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListCostCategoryDefinitionsCommandError(
       output,
@@ -1977,12 +1977,12 @@ export async function deserializeAws_json1_1ListCostCategoryDefinitionsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListCostCategoryDefinitionsCommandError(
+const deserializeAws_json1_1ListCostCategoryDefinitionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListCostCategoryDefinitionsCommandOutput> {
+): Promise<ListCostCategoryDefinitionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2019,12 +2019,12 @@ async function deserializeAws_json1_1ListCostCategoryDefinitionsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateCostCategoryDefinitionCommand(
+export const deserializeAws_json1_1UpdateCostCategoryDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateCostCategoryDefinitionCommandOutput> {
+): Promise<UpdateCostCategoryDefinitionCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateCostCategoryDefinitionCommandError(
       output,
@@ -2043,12 +2043,12 @@ export async function deserializeAws_json1_1UpdateCostCategoryDefinitionCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateCostCategoryDefinitionCommandError(
+const deserializeAws_json1_1UpdateCostCategoryDefinitionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateCostCategoryDefinitionCommandOutput> {
+): Promise<UpdateCostCategoryDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2107,7 +2107,7 @@ async function deserializeAws_json1_1UpdateCostCategoryDefinitionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_1BillExpirationExceptionResponse = async (
   parsedOutput: any,

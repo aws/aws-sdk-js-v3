@@ -110,10 +110,10 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_json1_1DescribeAffectedAccountsForOrganizationCommand(
+export const serializeAws_json1_1DescribeAffectedAccountsForOrganizationCommand = async (
   input: DescribeAffectedAccountsForOrganizationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -126,12 +126,12 @@ export async function serializeAws_json1_1DescribeAffectedAccountsForOrganizatio
     )
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeAffectedEntitiesCommand(
+export const serializeAws_json1_1DescribeAffectedEntitiesCommand = async (
   input: DescribeAffectedEntitiesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHealth_20160804.DescribeAffectedEntities";
@@ -140,12 +140,12 @@ export async function serializeAws_json1_1DescribeAffectedEntitiesCommand(
     serializeAws_json1_1DescribeAffectedEntitiesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeAffectedEntitiesForOrganizationCommand(
+export const serializeAws_json1_1DescribeAffectedEntitiesForOrganizationCommand = async (
   input: DescribeAffectedEntitiesForOrganizationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -158,12 +158,12 @@ export async function serializeAws_json1_1DescribeAffectedEntitiesForOrganizatio
     )
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeEntityAggregatesCommand(
+export const serializeAws_json1_1DescribeEntityAggregatesCommand = async (
   input: DescribeEntityAggregatesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHealth_20160804.DescribeEntityAggregates";
@@ -172,12 +172,12 @@ export async function serializeAws_json1_1DescribeEntityAggregatesCommand(
     serializeAws_json1_1DescribeEntityAggregatesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeEventAggregatesCommand(
+export const serializeAws_json1_1DescribeEventAggregatesCommand = async (
   input: DescribeEventAggregatesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHealth_20160804.DescribeEventAggregates";
@@ -186,12 +186,12 @@ export async function serializeAws_json1_1DescribeEventAggregatesCommand(
     serializeAws_json1_1DescribeEventAggregatesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeEventDetailsCommand(
+export const serializeAws_json1_1DescribeEventDetailsCommand = async (
   input: DescribeEventDetailsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHealth_20160804.DescribeEventDetails";
@@ -200,12 +200,12 @@ export async function serializeAws_json1_1DescribeEventDetailsCommand(
     serializeAws_json1_1DescribeEventDetailsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeEventDetailsForOrganizationCommand(
+export const serializeAws_json1_1DescribeEventDetailsForOrganizationCommand = async (
   input: DescribeEventDetailsForOrganizationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -218,12 +218,12 @@ export async function serializeAws_json1_1DescribeEventDetailsForOrganizationCom
     )
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeEventTypesCommand(
+export const serializeAws_json1_1DescribeEventTypesCommand = async (
   input: DescribeEventTypesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHealth_20160804.DescribeEventTypes";
@@ -232,12 +232,12 @@ export async function serializeAws_json1_1DescribeEventTypesCommand(
     serializeAws_json1_1DescribeEventTypesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeEventsCommand(
+export const serializeAws_json1_1DescribeEventsCommand = async (
   input: DescribeEventsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHealth_20160804.DescribeEvents";
@@ -246,12 +246,12 @@ export async function serializeAws_json1_1DescribeEventsCommand(
     serializeAws_json1_1DescribeEventsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeEventsForOrganizationCommand(
+export const serializeAws_json1_1DescribeEventsForOrganizationCommand = async (
   input: DescribeEventsForOrganizationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHealth_20160804.DescribeEventsForOrganization";
@@ -260,45 +260,45 @@ export async function serializeAws_json1_1DescribeEventsForOrganizationCommand(
     serializeAws_json1_1DescribeEventsForOrganizationRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeHealthServiceStatusForOrganizationCommand(
+export const serializeAws_json1_1DescribeHealthServiceStatusForOrganizationCommand = async (
   input: DescribeHealthServiceStatusForOrganizationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSHealth_20160804.DescribeHealthServiceStatusForOrganization";
   return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
-}
+};
 
-export async function serializeAws_json1_1DisableHealthServiceAccessForOrganizationCommand(
+export const serializeAws_json1_1DisableHealthServiceAccessForOrganizationCommand = async (
   input: DisableHealthServiceAccessForOrganizationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSHealth_20160804.DisableHealthServiceAccessForOrganization";
   return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
-}
+};
 
-export async function serializeAws_json1_1EnableHealthServiceAccessForOrganizationCommand(
+export const serializeAws_json1_1EnableHealthServiceAccessForOrganizationCommand = async (
   input: EnableHealthServiceAccessForOrganizationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
     "AWSHealth_20160804.EnableHealthServiceAccessForOrganization";
   return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
-}
+};
 
-export async function deserializeAws_json1_1DescribeAffectedAccountsForOrganizationCommand(
+export const deserializeAws_json1_1DescribeAffectedAccountsForOrganizationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeAffectedAccountsForOrganizationCommandOutput> {
+): Promise<DescribeAffectedAccountsForOrganizationCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeAffectedAccountsForOrganizationCommandError(
       output,
@@ -317,12 +317,12 @@ export async function deserializeAws_json1_1DescribeAffectedAccountsForOrganizat
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeAffectedAccountsForOrganizationCommandError(
+const deserializeAws_json1_1DescribeAffectedAccountsForOrganizationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeAffectedAccountsForOrganizationCommandOutput> {
+): Promise<DescribeAffectedAccountsForOrganizationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -359,12 +359,12 @@ async function deserializeAws_json1_1DescribeAffectedAccountsForOrganizationComm
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeAffectedEntitiesCommand(
+export const deserializeAws_json1_1DescribeAffectedEntitiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeAffectedEntitiesCommandOutput> {
+): Promise<DescribeAffectedEntitiesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeAffectedEntitiesCommandError(
       output,
@@ -383,12 +383,12 @@ export async function deserializeAws_json1_1DescribeAffectedEntitiesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeAffectedEntitiesCommandError(
+const deserializeAws_json1_1DescribeAffectedEntitiesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeAffectedEntitiesCommandOutput> {
+): Promise<DescribeAffectedEntitiesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -436,12 +436,12 @@ async function deserializeAws_json1_1DescribeAffectedEntitiesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeAffectedEntitiesForOrganizationCommand(
+export const deserializeAws_json1_1DescribeAffectedEntitiesForOrganizationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeAffectedEntitiesForOrganizationCommandOutput> {
+): Promise<DescribeAffectedEntitiesForOrganizationCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeAffectedEntitiesForOrganizationCommandError(
       output,
@@ -460,12 +460,12 @@ export async function deserializeAws_json1_1DescribeAffectedEntitiesForOrganizat
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeAffectedEntitiesForOrganizationCommandError(
+const deserializeAws_json1_1DescribeAffectedEntitiesForOrganizationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeAffectedEntitiesForOrganizationCommandOutput> {
+): Promise<DescribeAffectedEntitiesForOrganizationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -513,12 +513,12 @@ async function deserializeAws_json1_1DescribeAffectedEntitiesForOrganizationComm
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeEntityAggregatesCommand(
+export const deserializeAws_json1_1DescribeEntityAggregatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeEntityAggregatesCommandOutput> {
+): Promise<DescribeEntityAggregatesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeEntityAggregatesCommandError(
       output,
@@ -537,12 +537,12 @@ export async function deserializeAws_json1_1DescribeEntityAggregatesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeEntityAggregatesCommandError(
+const deserializeAws_json1_1DescribeEntityAggregatesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeEntityAggregatesCommandOutput> {
+): Promise<DescribeEntityAggregatesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -568,12 +568,12 @@ async function deserializeAws_json1_1DescribeEntityAggregatesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeEventAggregatesCommand(
+export const deserializeAws_json1_1DescribeEventAggregatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeEventAggregatesCommandOutput> {
+): Promise<DescribeEventAggregatesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeEventAggregatesCommandError(
       output,
@@ -592,12 +592,12 @@ export async function deserializeAws_json1_1DescribeEventAggregatesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeEventAggregatesCommandError(
+const deserializeAws_json1_1DescribeEventAggregatesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeEventAggregatesCommandOutput> {
+): Promise<DescribeEventAggregatesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -634,12 +634,12 @@ async function deserializeAws_json1_1DescribeEventAggregatesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeEventDetailsCommand(
+export const deserializeAws_json1_1DescribeEventDetailsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeEventDetailsCommandOutput> {
+): Promise<DescribeEventDetailsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeEventDetailsCommandError(
       output,
@@ -655,12 +655,12 @@ export async function deserializeAws_json1_1DescribeEventDetailsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeEventDetailsCommandError(
+const deserializeAws_json1_1DescribeEventDetailsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeEventDetailsCommandOutput> {
+): Promise<DescribeEventDetailsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -697,12 +697,12 @@ async function deserializeAws_json1_1DescribeEventDetailsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeEventDetailsForOrganizationCommand(
+export const deserializeAws_json1_1DescribeEventDetailsForOrganizationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeEventDetailsForOrganizationCommandOutput> {
+): Promise<DescribeEventDetailsForOrganizationCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeEventDetailsForOrganizationCommandError(
       output,
@@ -721,12 +721,12 @@ export async function deserializeAws_json1_1DescribeEventDetailsForOrganizationC
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeEventDetailsForOrganizationCommandError(
+const deserializeAws_json1_1DescribeEventDetailsForOrganizationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeEventDetailsForOrganizationCommandOutput> {
+): Promise<DescribeEventDetailsForOrganizationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -763,12 +763,12 @@ async function deserializeAws_json1_1DescribeEventDetailsForOrganizationCommandE
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeEventTypesCommand(
+export const deserializeAws_json1_1DescribeEventTypesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeEventTypesCommandOutput> {
+): Promise<DescribeEventTypesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeEventTypesCommandError(
       output,
@@ -784,12 +784,12 @@ export async function deserializeAws_json1_1DescribeEventTypesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeEventTypesCommandError(
+const deserializeAws_json1_1DescribeEventTypesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeEventTypesCommandOutput> {
+): Promise<DescribeEventTypesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -837,12 +837,12 @@ async function deserializeAws_json1_1DescribeEventTypesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeEventsCommand(
+export const deserializeAws_json1_1DescribeEventsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeEventsCommandOutput> {
+): Promise<DescribeEventsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeEventsCommandError(output, context);
   }
@@ -855,12 +855,12 @@ export async function deserializeAws_json1_1DescribeEventsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeEventsCommandError(
+const deserializeAws_json1_1DescribeEventsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeEventsCommandOutput> {
+): Promise<DescribeEventsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -908,12 +908,12 @@ async function deserializeAws_json1_1DescribeEventsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeEventsForOrganizationCommand(
+export const deserializeAws_json1_1DescribeEventsForOrganizationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeEventsForOrganizationCommandOutput> {
+): Promise<DescribeEventsForOrganizationCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeEventsForOrganizationCommandError(
       output,
@@ -932,12 +932,12 @@ export async function deserializeAws_json1_1DescribeEventsForOrganizationCommand
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeEventsForOrganizationCommandError(
+const deserializeAws_json1_1DescribeEventsForOrganizationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeEventsForOrganizationCommandOutput> {
+): Promise<DescribeEventsForOrganizationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -985,12 +985,12 @@ async function deserializeAws_json1_1DescribeEventsForOrganizationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeHealthServiceStatusForOrganizationCommand(
+export const deserializeAws_json1_1DescribeHealthServiceStatusForOrganizationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeHealthServiceStatusForOrganizationCommandOutput> {
+): Promise<DescribeHealthServiceStatusForOrganizationCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeHealthServiceStatusForOrganizationCommandError(
       output,
@@ -1009,12 +1009,12 @@ export async function deserializeAws_json1_1DescribeHealthServiceStatusForOrgani
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeHealthServiceStatusForOrganizationCommandError(
+const deserializeAws_json1_1DescribeHealthServiceStatusForOrganizationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeHealthServiceStatusForOrganizationCommandOutput> {
+): Promise<DescribeHealthServiceStatusForOrganizationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1040,12 +1040,12 @@ async function deserializeAws_json1_1DescribeHealthServiceStatusForOrganizationC
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DisableHealthServiceAccessForOrganizationCommand(
+export const deserializeAws_json1_1DisableHealthServiceAccessForOrganizationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisableHealthServiceAccessForOrganizationCommandOutput> {
+): Promise<DisableHealthServiceAccessForOrganizationCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DisableHealthServiceAccessForOrganizationCommandError(
       output,
@@ -1057,12 +1057,12 @@ export async function deserializeAws_json1_1DisableHealthServiceAccessForOrganiz
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DisableHealthServiceAccessForOrganizationCommandError(
+const deserializeAws_json1_1DisableHealthServiceAccessForOrganizationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisableHealthServiceAccessForOrganizationCommandOutput> {
+): Promise<DisableHealthServiceAccessForOrganizationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1099,12 +1099,12 @@ async function deserializeAws_json1_1DisableHealthServiceAccessForOrganizationCo
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1EnableHealthServiceAccessForOrganizationCommand(
+export const deserializeAws_json1_1EnableHealthServiceAccessForOrganizationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<EnableHealthServiceAccessForOrganizationCommandOutput> {
+): Promise<EnableHealthServiceAccessForOrganizationCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1EnableHealthServiceAccessForOrganizationCommandError(
       output,
@@ -1116,12 +1116,12 @@ export async function deserializeAws_json1_1EnableHealthServiceAccessForOrganiza
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1EnableHealthServiceAccessForOrganizationCommandError(
+const deserializeAws_json1_1EnableHealthServiceAccessForOrganizationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<EnableHealthServiceAccessForOrganizationCommandOutput> {
+): Promise<EnableHealthServiceAccessForOrganizationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1158,7 +1158,7 @@ async function deserializeAws_json1_1EnableHealthServiceAccessForOrganizationCom
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
   parsedOutput: any,

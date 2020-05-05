@@ -24,10 +24,10 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_json1_1GetEntitlementsCommand(
+export const serializeAws_json1_1GetEntitlementsCommand = async (
   input: GetEntitlementsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSMPEntitlementService.GetEntitlements";
@@ -36,12 +36,12 @@ export async function serializeAws_json1_1GetEntitlementsCommand(
     serializeAws_json1_1GetEntitlementsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_1GetEntitlementsCommand(
+export const deserializeAws_json1_1GetEntitlementsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetEntitlementsCommandOutput> {
+): Promise<GetEntitlementsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetEntitlementsCommandError(output, context);
   }
@@ -54,12 +54,12 @@ export async function deserializeAws_json1_1GetEntitlementsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetEntitlementsCommandError(
+const deserializeAws_json1_1GetEntitlementsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetEntitlementsCommandOutput> {
+): Promise<GetEntitlementsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -118,7 +118,7 @@ async function deserializeAws_json1_1GetEntitlementsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_1InternalServiceErrorExceptionResponse = async (
   parsedOutput: any,

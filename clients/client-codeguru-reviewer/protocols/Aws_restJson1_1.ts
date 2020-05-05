@@ -42,10 +42,10 @@ import {
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
-export async function serializeAws_restJson1_1AssociateRepositoryCommand(
+export const serializeAws_restJson1_1AssociateRepositoryCommand = async (
   input: AssociateRepositoryCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/associations";
@@ -74,12 +74,12 @@ export async function serializeAws_restJson1_1AssociateRepositoryCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribeRepositoryAssociationCommand(
+export const serializeAws_restJson1_1DescribeRepositoryAssociationCommand = async (
   input: DescribeRepositoryAssociationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/associations/{AssociationArn}";
@@ -108,12 +108,12 @@ export async function serializeAws_restJson1_1DescribeRepositoryAssociationComma
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DisassociateRepositoryCommand(
+export const serializeAws_restJson1_1DisassociateRepositoryCommand = async (
   input: DisassociateRepositoryCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/associations/{AssociationArn}";
@@ -142,12 +142,12 @@ export async function serializeAws_restJson1_1DisassociateRepositoryCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListRepositoryAssociationsCommand(
+export const serializeAws_restJson1_1ListRepositoryAssociationsCommand = async (
   input: ListRepositoryAssociationsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/associations";
@@ -182,12 +182,12 @@ export async function serializeAws_restJson1_1ListRepositoryAssociationsCommand(
     query,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1AssociateRepositoryCommand(
+export const deserializeAws_restJson1_1AssociateRepositoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AssociateRepositoryCommandOutput> {
+): Promise<AssociateRepositoryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1AssociateRepositoryCommandError(
       output,
@@ -210,12 +210,12 @@ export async function deserializeAws_restJson1_1AssociateRepositoryCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1AssociateRepositoryCommandError(
+const deserializeAws_restJson1_1AssociateRepositoryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AssociateRepositoryCommandOutput> {
+): Promise<AssociateRepositoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -294,12 +294,12 @@ async function deserializeAws_restJson1_1AssociateRepositoryCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeRepositoryAssociationCommand(
+export const deserializeAws_restJson1_1DescribeRepositoryAssociationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeRepositoryAssociationCommandOutput> {
+): Promise<DescribeRepositoryAssociationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeRepositoryAssociationCommandError(
       output,
@@ -322,12 +322,12 @@ export async function deserializeAws_restJson1_1DescribeRepositoryAssociationCom
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeRepositoryAssociationCommandError(
+const deserializeAws_restJson1_1DescribeRepositoryAssociationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeRepositoryAssociationCommandOutput> {
+): Promise<DescribeRepositoryAssociationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -406,12 +406,12 @@ async function deserializeAws_restJson1_1DescribeRepositoryAssociationCommandErr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DisassociateRepositoryCommand(
+export const deserializeAws_restJson1_1DisassociateRepositoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisassociateRepositoryCommandOutput> {
+): Promise<DisassociateRepositoryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DisassociateRepositoryCommandError(
       output,
@@ -434,12 +434,12 @@ export async function deserializeAws_restJson1_1DisassociateRepositoryCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DisassociateRepositoryCommandError(
+const deserializeAws_restJson1_1DisassociateRepositoryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisassociateRepositoryCommandOutput> {
+): Promise<DisassociateRepositoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -529,12 +529,12 @@ async function deserializeAws_restJson1_1DisassociateRepositoryCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListRepositoryAssociationsCommand(
+export const deserializeAws_restJson1_1ListRepositoryAssociationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListRepositoryAssociationsCommandOutput> {
+): Promise<ListRepositoryAssociationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListRepositoryAssociationsCommandError(
       output,
@@ -561,12 +561,12 @@ export async function deserializeAws_restJson1_1ListRepositoryAssociationsComman
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListRepositoryAssociationsCommandError(
+const deserializeAws_restJson1_1ListRepositoryAssociationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListRepositoryAssociationsCommandOutput> {
+): Promise<ListRepositoryAssociationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -623,7 +623,7 @@ async function deserializeAws_restJson1_1ListRepositoryAssociationsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
   parsedOutput: any,

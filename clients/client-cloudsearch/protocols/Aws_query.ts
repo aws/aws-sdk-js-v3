@@ -210,10 +210,10 @@ import {
 } from "@aws-sdk/types";
 import { parse as xmlParse } from "fast-xml-parser";
 
-export async function serializeAws_queryBuildSuggestersCommand(
+export const serializeAws_queryBuildSuggestersCommand = async (
   input: BuildSuggestersCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -224,12 +224,12 @@ export async function serializeAws_queryBuildSuggestersCommand(
     Version: "2013-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryCreateDomainCommand(
+export const serializeAws_queryCreateDomainCommand = async (
   input: CreateDomainCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -240,12 +240,12 @@ export async function serializeAws_queryCreateDomainCommand(
     Version: "2013-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDefineAnalysisSchemeCommand(
+export const serializeAws_queryDefineAnalysisSchemeCommand = async (
   input: DefineAnalysisSchemeCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -256,12 +256,12 @@ export async function serializeAws_queryDefineAnalysisSchemeCommand(
     Version: "2013-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDefineExpressionCommand(
+export const serializeAws_queryDefineExpressionCommand = async (
   input: DefineExpressionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -272,12 +272,12 @@ export async function serializeAws_queryDefineExpressionCommand(
     Version: "2013-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDefineIndexFieldCommand(
+export const serializeAws_queryDefineIndexFieldCommand = async (
   input: DefineIndexFieldCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -288,12 +288,12 @@ export async function serializeAws_queryDefineIndexFieldCommand(
     Version: "2013-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDefineSuggesterCommand(
+export const serializeAws_queryDefineSuggesterCommand = async (
   input: DefineSuggesterCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -304,12 +304,12 @@ export async function serializeAws_queryDefineSuggesterCommand(
     Version: "2013-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDeleteAnalysisSchemeCommand(
+export const serializeAws_queryDeleteAnalysisSchemeCommand = async (
   input: DeleteAnalysisSchemeCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -320,12 +320,12 @@ export async function serializeAws_queryDeleteAnalysisSchemeCommand(
     Version: "2013-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDeleteDomainCommand(
+export const serializeAws_queryDeleteDomainCommand = async (
   input: DeleteDomainCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -336,12 +336,12 @@ export async function serializeAws_queryDeleteDomainCommand(
     Version: "2013-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDeleteExpressionCommand(
+export const serializeAws_queryDeleteExpressionCommand = async (
   input: DeleteExpressionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -352,12 +352,12 @@ export async function serializeAws_queryDeleteExpressionCommand(
     Version: "2013-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDeleteIndexFieldCommand(
+export const serializeAws_queryDeleteIndexFieldCommand = async (
   input: DeleteIndexFieldCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -368,12 +368,12 @@ export async function serializeAws_queryDeleteIndexFieldCommand(
     Version: "2013-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDeleteSuggesterCommand(
+export const serializeAws_queryDeleteSuggesterCommand = async (
   input: DeleteSuggesterCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -384,12 +384,12 @@ export async function serializeAws_queryDeleteSuggesterCommand(
     Version: "2013-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDescribeAnalysisSchemesCommand(
+export const serializeAws_queryDescribeAnalysisSchemesCommand = async (
   input: DescribeAnalysisSchemesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -403,12 +403,12 @@ export async function serializeAws_queryDescribeAnalysisSchemesCommand(
     Version: "2013-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDescribeAvailabilityOptionsCommand(
+export const serializeAws_queryDescribeAvailabilityOptionsCommand = async (
   input: DescribeAvailabilityOptionsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -422,12 +422,12 @@ export async function serializeAws_queryDescribeAvailabilityOptionsCommand(
     Version: "2013-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDescribeDomainEndpointOptionsCommand(
+export const serializeAws_queryDescribeDomainEndpointOptionsCommand = async (
   input: DescribeDomainEndpointOptionsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -441,12 +441,12 @@ export async function serializeAws_queryDescribeDomainEndpointOptionsCommand(
     Version: "2013-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDescribeDomainsCommand(
+export const serializeAws_queryDescribeDomainsCommand = async (
   input: DescribeDomainsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -457,12 +457,12 @@ export async function serializeAws_queryDescribeDomainsCommand(
     Version: "2013-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDescribeExpressionsCommand(
+export const serializeAws_queryDescribeExpressionsCommand = async (
   input: DescribeExpressionsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -473,12 +473,12 @@ export async function serializeAws_queryDescribeExpressionsCommand(
     Version: "2013-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDescribeIndexFieldsCommand(
+export const serializeAws_queryDescribeIndexFieldsCommand = async (
   input: DescribeIndexFieldsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -489,12 +489,12 @@ export async function serializeAws_queryDescribeIndexFieldsCommand(
     Version: "2013-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDescribeScalingParametersCommand(
+export const serializeAws_queryDescribeScalingParametersCommand = async (
   input: DescribeScalingParametersCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -508,12 +508,12 @@ export async function serializeAws_queryDescribeScalingParametersCommand(
     Version: "2013-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDescribeServiceAccessPoliciesCommand(
+export const serializeAws_queryDescribeServiceAccessPoliciesCommand = async (
   input: DescribeServiceAccessPoliciesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -527,12 +527,12 @@ export async function serializeAws_queryDescribeServiceAccessPoliciesCommand(
     Version: "2013-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDescribeSuggestersCommand(
+export const serializeAws_queryDescribeSuggestersCommand = async (
   input: DescribeSuggestersCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -543,12 +543,12 @@ export async function serializeAws_queryDescribeSuggestersCommand(
     Version: "2013-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryIndexDocumentsCommand(
+export const serializeAws_queryIndexDocumentsCommand = async (
   input: IndexDocumentsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -559,12 +559,12 @@ export async function serializeAws_queryIndexDocumentsCommand(
     Version: "2013-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryListDomainNamesCommand(
+export const serializeAws_queryListDomainNamesCommand = async (
   input: ListDomainNamesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   const body = buildFormUrlencodedString({
@@ -572,12 +572,12 @@ export async function serializeAws_queryListDomainNamesCommand(
     Version: "2013-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryUpdateAvailabilityOptionsCommand(
+export const serializeAws_queryUpdateAvailabilityOptionsCommand = async (
   input: UpdateAvailabilityOptionsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -591,12 +591,12 @@ export async function serializeAws_queryUpdateAvailabilityOptionsCommand(
     Version: "2013-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryUpdateDomainEndpointOptionsCommand(
+export const serializeAws_queryUpdateDomainEndpointOptionsCommand = async (
   input: UpdateDomainEndpointOptionsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -610,12 +610,12 @@ export async function serializeAws_queryUpdateDomainEndpointOptionsCommand(
     Version: "2013-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryUpdateScalingParametersCommand(
+export const serializeAws_queryUpdateScalingParametersCommand = async (
   input: UpdateScalingParametersCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -629,12 +629,12 @@ export async function serializeAws_queryUpdateScalingParametersCommand(
     Version: "2013-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryUpdateServiceAccessPoliciesCommand(
+export const serializeAws_queryUpdateServiceAccessPoliciesCommand = async (
   input: UpdateServiceAccessPoliciesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-www-form-urlencoded";
   let body: any;
@@ -648,12 +648,12 @@ export async function serializeAws_queryUpdateServiceAccessPoliciesCommand(
     Version: "2013-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_queryBuildSuggestersCommand(
+export const deserializeAws_queryBuildSuggestersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BuildSuggestersCommandOutput> {
+): Promise<BuildSuggestersCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryBuildSuggestersCommandError(output, context);
   }
@@ -669,12 +669,12 @@ export async function deserializeAws_queryBuildSuggestersCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryBuildSuggestersCommandError(
+const deserializeAws_queryBuildSuggestersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BuildSuggestersCommandOutput> {
+): Promise<BuildSuggestersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -732,12 +732,12 @@ async function deserializeAws_queryBuildSuggestersCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryCreateDomainCommand(
+export const deserializeAws_queryCreateDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateDomainCommandOutput> {
+): Promise<CreateDomainCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryCreateDomainCommandError(output, context);
   }
@@ -753,12 +753,12 @@ export async function deserializeAws_queryCreateDomainCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryCreateDomainCommandError(
+const deserializeAws_queryCreateDomainCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateDomainCommandOutput> {
+): Promise<CreateDomainCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -816,12 +816,12 @@ async function deserializeAws_queryCreateDomainCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDefineAnalysisSchemeCommand(
+export const deserializeAws_queryDefineAnalysisSchemeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DefineAnalysisSchemeCommandOutput> {
+): Promise<DefineAnalysisSchemeCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDefineAnalysisSchemeCommandError(
       output,
@@ -840,12 +840,12 @@ export async function deserializeAws_queryDefineAnalysisSchemeCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDefineAnalysisSchemeCommandError(
+const deserializeAws_queryDefineAnalysisSchemeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DefineAnalysisSchemeCommandOutput> {
+): Promise<DefineAnalysisSchemeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -925,12 +925,12 @@ async function deserializeAws_queryDefineAnalysisSchemeCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDefineExpressionCommand(
+export const deserializeAws_queryDefineExpressionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DefineExpressionCommandOutput> {
+): Promise<DefineExpressionCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDefineExpressionCommandError(output, context);
   }
@@ -946,12 +946,12 @@ export async function deserializeAws_queryDefineExpressionCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDefineExpressionCommandError(
+const deserializeAws_queryDefineExpressionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DefineExpressionCommandOutput> {
+): Promise<DefineExpressionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1031,12 +1031,12 @@ async function deserializeAws_queryDefineExpressionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDefineIndexFieldCommand(
+export const deserializeAws_queryDefineIndexFieldCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DefineIndexFieldCommandOutput> {
+): Promise<DefineIndexFieldCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDefineIndexFieldCommandError(output, context);
   }
@@ -1052,12 +1052,12 @@ export async function deserializeAws_queryDefineIndexFieldCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDefineIndexFieldCommandError(
+const deserializeAws_queryDefineIndexFieldCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DefineIndexFieldCommandOutput> {
+): Promise<DefineIndexFieldCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1137,12 +1137,12 @@ async function deserializeAws_queryDefineIndexFieldCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDefineSuggesterCommand(
+export const deserializeAws_queryDefineSuggesterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DefineSuggesterCommandOutput> {
+): Promise<DefineSuggesterCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDefineSuggesterCommandError(output, context);
   }
@@ -1158,12 +1158,12 @@ export async function deserializeAws_queryDefineSuggesterCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDefineSuggesterCommandError(
+const deserializeAws_queryDefineSuggesterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DefineSuggesterCommandOutput> {
+): Promise<DefineSuggesterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1243,12 +1243,12 @@ async function deserializeAws_queryDefineSuggesterCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDeleteAnalysisSchemeCommand(
+export const deserializeAws_queryDeleteAnalysisSchemeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteAnalysisSchemeCommandOutput> {
+): Promise<DeleteAnalysisSchemeCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDeleteAnalysisSchemeCommandError(
       output,
@@ -1267,12 +1267,12 @@ export async function deserializeAws_queryDeleteAnalysisSchemeCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDeleteAnalysisSchemeCommandError(
+const deserializeAws_queryDeleteAnalysisSchemeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteAnalysisSchemeCommandOutput> {
+): Promise<DeleteAnalysisSchemeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1341,12 +1341,12 @@ async function deserializeAws_queryDeleteAnalysisSchemeCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDeleteDomainCommand(
+export const deserializeAws_queryDeleteDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteDomainCommandOutput> {
+): Promise<DeleteDomainCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDeleteDomainCommandError(output, context);
   }
@@ -1362,12 +1362,12 @@ export async function deserializeAws_queryDeleteDomainCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDeleteDomainCommandError(
+const deserializeAws_queryDeleteDomainCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteDomainCommandOutput> {
+): Promise<DeleteDomainCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1414,12 +1414,12 @@ async function deserializeAws_queryDeleteDomainCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDeleteExpressionCommand(
+export const deserializeAws_queryDeleteExpressionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteExpressionCommandOutput> {
+): Promise<DeleteExpressionCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDeleteExpressionCommandError(output, context);
   }
@@ -1435,12 +1435,12 @@ export async function deserializeAws_queryDeleteExpressionCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDeleteExpressionCommandError(
+const deserializeAws_queryDeleteExpressionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteExpressionCommandOutput> {
+): Promise<DeleteExpressionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1509,12 +1509,12 @@ async function deserializeAws_queryDeleteExpressionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDeleteIndexFieldCommand(
+export const deserializeAws_queryDeleteIndexFieldCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteIndexFieldCommandOutput> {
+): Promise<DeleteIndexFieldCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDeleteIndexFieldCommandError(output, context);
   }
@@ -1530,12 +1530,12 @@ export async function deserializeAws_queryDeleteIndexFieldCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDeleteIndexFieldCommandError(
+const deserializeAws_queryDeleteIndexFieldCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteIndexFieldCommandOutput> {
+): Promise<DeleteIndexFieldCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1604,12 +1604,12 @@ async function deserializeAws_queryDeleteIndexFieldCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDeleteSuggesterCommand(
+export const deserializeAws_queryDeleteSuggesterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteSuggesterCommandOutput> {
+): Promise<DeleteSuggesterCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDeleteSuggesterCommandError(output, context);
   }
@@ -1625,12 +1625,12 @@ export async function deserializeAws_queryDeleteSuggesterCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDeleteSuggesterCommandError(
+const deserializeAws_queryDeleteSuggesterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteSuggesterCommandOutput> {
+): Promise<DeleteSuggesterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1699,12 +1699,12 @@ async function deserializeAws_queryDeleteSuggesterCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDescribeAnalysisSchemesCommand(
+export const deserializeAws_queryDescribeAnalysisSchemesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeAnalysisSchemesCommandOutput> {
+): Promise<DescribeAnalysisSchemesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDescribeAnalysisSchemesCommandError(
       output,
@@ -1723,12 +1723,12 @@ export async function deserializeAws_queryDescribeAnalysisSchemesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDescribeAnalysisSchemesCommandError(
+const deserializeAws_queryDescribeAnalysisSchemesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeAnalysisSchemesCommandOutput> {
+): Promise<DescribeAnalysisSchemesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1786,12 +1786,12 @@ async function deserializeAws_queryDescribeAnalysisSchemesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDescribeAvailabilityOptionsCommand(
+export const deserializeAws_queryDescribeAvailabilityOptionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeAvailabilityOptionsCommandOutput> {
+): Promise<DescribeAvailabilityOptionsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDescribeAvailabilityOptionsCommandError(
       output,
@@ -1810,12 +1810,12 @@ export async function deserializeAws_queryDescribeAvailabilityOptionsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDescribeAvailabilityOptionsCommandError(
+const deserializeAws_queryDescribeAvailabilityOptionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeAvailabilityOptionsCommandOutput> {
+): Promise<DescribeAvailabilityOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1906,12 +1906,12 @@ async function deserializeAws_queryDescribeAvailabilityOptionsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDescribeDomainEndpointOptionsCommand(
+export const deserializeAws_queryDescribeDomainEndpointOptionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeDomainEndpointOptionsCommandOutput> {
+): Promise<DescribeDomainEndpointOptionsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDescribeDomainEndpointOptionsCommandError(
       output,
@@ -1930,12 +1930,12 @@ export async function deserializeAws_queryDescribeDomainEndpointOptionsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDescribeDomainEndpointOptionsCommandError(
+const deserializeAws_queryDescribeDomainEndpointOptionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeDomainEndpointOptionsCommandOutput> {
+): Promise<DescribeDomainEndpointOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2015,12 +2015,12 @@ async function deserializeAws_queryDescribeDomainEndpointOptionsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDescribeDomainsCommand(
+export const deserializeAws_queryDescribeDomainsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeDomainsCommandOutput> {
+): Promise<DescribeDomainsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDescribeDomainsCommandError(output, context);
   }
@@ -2036,12 +2036,12 @@ export async function deserializeAws_queryDescribeDomainsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDescribeDomainsCommandError(
+const deserializeAws_queryDescribeDomainsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeDomainsCommandOutput> {
+): Promise<DescribeDomainsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2088,12 +2088,12 @@ async function deserializeAws_queryDescribeDomainsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDescribeExpressionsCommand(
+export const deserializeAws_queryDescribeExpressionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeExpressionsCommandOutput> {
+): Promise<DescribeExpressionsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDescribeExpressionsCommandError(output, context);
   }
@@ -2109,12 +2109,12 @@ export async function deserializeAws_queryDescribeExpressionsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDescribeExpressionsCommandError(
+const deserializeAws_queryDescribeExpressionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeExpressionsCommandOutput> {
+): Promise<DescribeExpressionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2172,12 +2172,12 @@ async function deserializeAws_queryDescribeExpressionsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDescribeIndexFieldsCommand(
+export const deserializeAws_queryDescribeIndexFieldsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeIndexFieldsCommandOutput> {
+): Promise<DescribeIndexFieldsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDescribeIndexFieldsCommandError(output, context);
   }
@@ -2193,12 +2193,12 @@ export async function deserializeAws_queryDescribeIndexFieldsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDescribeIndexFieldsCommandError(
+const deserializeAws_queryDescribeIndexFieldsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeIndexFieldsCommandOutput> {
+): Promise<DescribeIndexFieldsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2256,12 +2256,12 @@ async function deserializeAws_queryDescribeIndexFieldsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDescribeScalingParametersCommand(
+export const deserializeAws_queryDescribeScalingParametersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeScalingParametersCommandOutput> {
+): Promise<DescribeScalingParametersCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDescribeScalingParametersCommandError(
       output,
@@ -2280,12 +2280,12 @@ export async function deserializeAws_queryDescribeScalingParametersCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDescribeScalingParametersCommandError(
+const deserializeAws_queryDescribeScalingParametersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeScalingParametersCommandOutput> {
+): Promise<DescribeScalingParametersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2343,12 +2343,12 @@ async function deserializeAws_queryDescribeScalingParametersCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDescribeServiceAccessPoliciesCommand(
+export const deserializeAws_queryDescribeServiceAccessPoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeServiceAccessPoliciesCommandOutput> {
+): Promise<DescribeServiceAccessPoliciesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDescribeServiceAccessPoliciesCommandError(
       output,
@@ -2367,12 +2367,12 @@ export async function deserializeAws_queryDescribeServiceAccessPoliciesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDescribeServiceAccessPoliciesCommandError(
+const deserializeAws_queryDescribeServiceAccessPoliciesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeServiceAccessPoliciesCommandOutput> {
+): Promise<DescribeServiceAccessPoliciesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2430,12 +2430,12 @@ async function deserializeAws_queryDescribeServiceAccessPoliciesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDescribeSuggestersCommand(
+export const deserializeAws_queryDescribeSuggestersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeSuggestersCommandOutput> {
+): Promise<DescribeSuggestersCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDescribeSuggestersCommandError(output, context);
   }
@@ -2451,12 +2451,12 @@ export async function deserializeAws_queryDescribeSuggestersCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDescribeSuggestersCommandError(
+const deserializeAws_queryDescribeSuggestersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeSuggestersCommandOutput> {
+): Promise<DescribeSuggestersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2514,12 +2514,12 @@ async function deserializeAws_queryDescribeSuggestersCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryIndexDocumentsCommand(
+export const deserializeAws_queryIndexDocumentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<IndexDocumentsCommandOutput> {
+): Promise<IndexDocumentsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryIndexDocumentsCommandError(output, context);
   }
@@ -2535,12 +2535,12 @@ export async function deserializeAws_queryIndexDocumentsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryIndexDocumentsCommandError(
+const deserializeAws_queryIndexDocumentsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<IndexDocumentsCommandOutput> {
+): Promise<IndexDocumentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2598,12 +2598,12 @@ async function deserializeAws_queryIndexDocumentsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryListDomainNamesCommand(
+export const deserializeAws_queryListDomainNamesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListDomainNamesCommandOutput> {
+): Promise<ListDomainNamesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryListDomainNamesCommandError(output, context);
   }
@@ -2619,12 +2619,12 @@ export async function deserializeAws_queryListDomainNamesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryListDomainNamesCommandError(
+const deserializeAws_queryListDomainNamesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListDomainNamesCommandOutput> {
+): Promise<ListDomainNamesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2660,12 +2660,12 @@ async function deserializeAws_queryListDomainNamesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryUpdateAvailabilityOptionsCommand(
+export const deserializeAws_queryUpdateAvailabilityOptionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateAvailabilityOptionsCommandOutput> {
+): Promise<UpdateAvailabilityOptionsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryUpdateAvailabilityOptionsCommandError(
       output,
@@ -2684,12 +2684,12 @@ export async function deserializeAws_queryUpdateAvailabilityOptionsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryUpdateAvailabilityOptionsCommandError(
+const deserializeAws_queryUpdateAvailabilityOptionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateAvailabilityOptionsCommandOutput> {
+): Promise<UpdateAvailabilityOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2791,12 +2791,12 @@ async function deserializeAws_queryUpdateAvailabilityOptionsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryUpdateDomainEndpointOptionsCommand(
+export const deserializeAws_queryUpdateDomainEndpointOptionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateDomainEndpointOptionsCommandOutput> {
+): Promise<UpdateDomainEndpointOptionsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryUpdateDomainEndpointOptionsCommandError(
       output,
@@ -2815,12 +2815,12 @@ export async function deserializeAws_queryUpdateDomainEndpointOptionsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryUpdateDomainEndpointOptionsCommandError(
+const deserializeAws_queryUpdateDomainEndpointOptionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateDomainEndpointOptionsCommandOutput> {
+): Promise<UpdateDomainEndpointOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2922,12 +2922,12 @@ async function deserializeAws_queryUpdateDomainEndpointOptionsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryUpdateScalingParametersCommand(
+export const deserializeAws_queryUpdateScalingParametersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateScalingParametersCommandOutput> {
+): Promise<UpdateScalingParametersCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryUpdateScalingParametersCommandError(
       output,
@@ -2946,12 +2946,12 @@ export async function deserializeAws_queryUpdateScalingParametersCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryUpdateScalingParametersCommandError(
+const deserializeAws_queryUpdateScalingParametersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateScalingParametersCommandOutput> {
+): Promise<UpdateScalingParametersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3031,12 +3031,12 @@ async function deserializeAws_queryUpdateScalingParametersCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryUpdateServiceAccessPoliciesCommand(
+export const deserializeAws_queryUpdateServiceAccessPoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateServiceAccessPoliciesCommandOutput> {
+): Promise<UpdateServiceAccessPoliciesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryUpdateServiceAccessPoliciesCommandError(
       output,
@@ -3055,12 +3055,12 @@ export async function deserializeAws_queryUpdateServiceAccessPoliciesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryUpdateServiceAccessPoliciesCommandError(
+const deserializeAws_queryUpdateServiceAccessPoliciesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateServiceAccessPoliciesCommandOutput> {
+): Promise<UpdateServiceAccessPoliciesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3140,7 +3140,7 @@ async function deserializeAws_queryUpdateServiceAccessPoliciesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_queryBaseExceptionResponse = async (
   parsedOutput: any,

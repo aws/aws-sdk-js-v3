@@ -53,10 +53,10 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_restJson1_1DeleteSessionCommand(
+export const serializeAws_restJson1_1DeleteSessionCommand = async (
   input: DeleteSessionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/bot/{botName}/alias/{botAlias}/user/{userId}/session";
@@ -107,12 +107,12 @@ export async function serializeAws_restJson1_1DeleteSessionCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetSessionCommand(
+export const serializeAws_restJson1_1GetSessionCommand = async (
   input: GetSessionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/bot/{botName}/alias/{botAlias}/user/{userId}/session";
@@ -168,12 +168,12 @@ export async function serializeAws_restJson1_1GetSessionCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1PostContentCommand(
+export const serializeAws_restJson1_1PostContentCommand = async (
   input: PostContentCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/octet-stream";
   headers["x-amz-content-sha256"] = "UNSIGNED_PAYLOAD";
@@ -244,12 +244,12 @@ export async function serializeAws_restJson1_1PostContentCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1PostTextCommand(
+export const serializeAws_restJson1_1PostTextCommand = async (
   input: PostTextCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/bot/{botName}/alias/{botAlias}/user/{userId}/text";
@@ -317,12 +317,12 @@ export async function serializeAws_restJson1_1PostTextCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1PutSessionCommand(
+export const serializeAws_restJson1_1PutSessionCommand = async (
   input: PutSessionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   if (isSerializableHeaderValue(input.accept)) {
@@ -398,12 +398,12 @@ export async function serializeAws_restJson1_1PutSessionCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteSessionCommand(
+export const deserializeAws_restJson1_1DeleteSessionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteSessionCommandOutput> {
+): Promise<DeleteSessionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteSessionCommandError(output, context);
   }
@@ -429,12 +429,12 @@ export async function deserializeAws_restJson1_1DeleteSessionCommand(
     contents.userId = data.userId;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteSessionCommandError(
+const deserializeAws_restJson1_1DeleteSessionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteSessionCommandOutput> {
+): Promise<DeleteSessionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -513,12 +513,12 @@ async function deserializeAws_restJson1_1DeleteSessionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetSessionCommand(
+export const deserializeAws_restJson1_1GetSessionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetSessionCommandOutput> {
+): Promise<GetSessionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetSessionCommandError(output, context);
   }
@@ -556,12 +556,12 @@ export async function deserializeAws_restJson1_1GetSessionCommand(
     contents.sessionId = data.sessionId;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetSessionCommandError(
+const deserializeAws_restJson1_1GetSessionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetSessionCommandOutput> {
+): Promise<GetSessionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -629,12 +629,12 @@ async function deserializeAws_restJson1_1GetSessionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1PostContentCommand(
+export const deserializeAws_restJson1_1PostContentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PostContentCommandOutput> {
+): Promise<PostContentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1PostContentCommandError(output, context);
   }
@@ -692,12 +692,12 @@ export async function deserializeAws_restJson1_1PostContentCommand(
   const data: any = output.body;
   contents.audioStream = data;
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1PostContentCommandError(
+const deserializeAws_restJson1_1PostContentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PostContentCommandOutput> {
+): Promise<PostContentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -842,12 +842,12 @@ async function deserializeAws_restJson1_1PostContentCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1PostTextCommand(
+export const deserializeAws_restJson1_1PostTextCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PostTextCommandOutput> {
+): Promise<PostTextCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1PostTextCommandError(output, context);
   }
@@ -906,12 +906,12 @@ export async function deserializeAws_restJson1_1PostTextCommand(
     contents.slots = deserializeAws_restJson1_1StringMap(data.slots, context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1PostTextCommandError(
+const deserializeAws_restJson1_1PostTextCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PostTextCommandOutput> {
+): Promise<PostTextCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1023,12 +1023,12 @@ async function deserializeAws_restJson1_1PostTextCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1PutSessionCommand(
+export const deserializeAws_restJson1_1PutSessionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutSessionCommandOutput> {
+): Promise<PutSessionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1PutSessionCommandError(output, context);
   }
@@ -1078,12 +1078,12 @@ export async function deserializeAws_restJson1_1PutSessionCommand(
   const data: any = output.body;
   contents.audioStream = data;
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1PutSessionCommandError(
+const deserializeAws_restJson1_1PutSessionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutSessionCommandOutput> {
+): Promise<PutSessionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1195,7 +1195,7 @@ async function deserializeAws_restJson1_1PutSessionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
   parsedOutput: any,

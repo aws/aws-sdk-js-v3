@@ -63,10 +63,10 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_restJson1_1CreateLifecyclePolicyCommand(
+export const serializeAws_restJson1_1CreateLifecyclePolicyCommand = async (
   input: CreateLifecyclePolicyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/policies";
@@ -101,12 +101,12 @@ export async function serializeAws_restJson1_1CreateLifecyclePolicyCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeleteLifecyclePolicyCommand(
+export const serializeAws_restJson1_1DeleteLifecyclePolicyCommand = async (
   input: DeleteLifecyclePolicyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/policies/{PolicyId}";
@@ -133,12 +133,12 @@ export async function serializeAws_restJson1_1DeleteLifecyclePolicyCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetLifecyclePoliciesCommand(
+export const serializeAws_restJson1_1GetLifecyclePoliciesCommand = async (
   input: GetLifecyclePoliciesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/policies";
@@ -170,12 +170,12 @@ export async function serializeAws_restJson1_1GetLifecyclePoliciesCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetLifecyclePolicyCommand(
+export const serializeAws_restJson1_1GetLifecyclePolicyCommand = async (
   input: GetLifecyclePolicyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/policies/{PolicyId}";
@@ -202,12 +202,12 @@ export async function serializeAws_restJson1_1GetLifecyclePolicyCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListTagsForResourceCommand(
+export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{ResourceArn}";
@@ -236,12 +236,12 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1TagResourceCommand(
+export const serializeAws_restJson1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/tags/{ResourceArn}";
@@ -275,12 +275,12 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UntagResourceCommand(
+export const serializeAws_restJson1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{ResourceArn}";
@@ -314,12 +314,12 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UpdateLifecyclePolicyCommand(
+export const serializeAws_restJson1_1UpdateLifecyclePolicyCommand = async (
   input: UpdateLifecyclePolicyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/policies/{PolicyId}";
@@ -363,12 +363,12 @@ export async function serializeAws_restJson1_1UpdateLifecyclePolicyCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1CreateLifecyclePolicyCommand(
+export const deserializeAws_restJson1_1CreateLifecyclePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateLifecyclePolicyCommandOutput> {
+): Promise<CreateLifecyclePolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateLifecyclePolicyCommandError(
       output,
@@ -385,12 +385,12 @@ export async function deserializeAws_restJson1_1CreateLifecyclePolicyCommand(
     contents.PolicyId = data.PolicyId;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreateLifecyclePolicyCommandError(
+const deserializeAws_restJson1_1CreateLifecyclePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateLifecyclePolicyCommandOutput> {
+): Promise<CreateLifecyclePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -447,12 +447,12 @@ async function deserializeAws_restJson1_1CreateLifecyclePolicyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteLifecyclePolicyCommand(
+export const deserializeAws_restJson1_1DeleteLifecyclePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteLifecyclePolicyCommandOutput> {
+): Promise<DeleteLifecyclePolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteLifecyclePolicyCommandError(
       output,
@@ -465,12 +465,12 @@ export async function deserializeAws_restJson1_1DeleteLifecyclePolicyCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteLifecyclePolicyCommandError(
+const deserializeAws_restJson1_1DeleteLifecyclePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteLifecyclePolicyCommandOutput> {
+): Promise<DeleteLifecyclePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -527,12 +527,12 @@ async function deserializeAws_restJson1_1DeleteLifecyclePolicyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetLifecyclePoliciesCommand(
+export const deserializeAws_restJson1_1GetLifecyclePoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetLifecyclePoliciesCommandOutput> {
+): Promise<GetLifecyclePoliciesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetLifecyclePoliciesCommandError(
       output,
@@ -552,12 +552,12 @@ export async function deserializeAws_restJson1_1GetLifecyclePoliciesCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetLifecyclePoliciesCommandError(
+const deserializeAws_restJson1_1GetLifecyclePoliciesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetLifecyclePoliciesCommandOutput> {
+): Promise<GetLifecyclePoliciesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -625,12 +625,12 @@ async function deserializeAws_restJson1_1GetLifecyclePoliciesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetLifecyclePolicyCommand(
+export const deserializeAws_restJson1_1GetLifecyclePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetLifecyclePolicyCommandOutput> {
+): Promise<GetLifecyclePolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetLifecyclePolicyCommandError(
       output,
@@ -650,12 +650,12 @@ export async function deserializeAws_restJson1_1GetLifecyclePolicyCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetLifecyclePolicyCommandError(
+const deserializeAws_restJson1_1GetLifecyclePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetLifecyclePolicyCommandOutput> {
+): Promise<GetLifecyclePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -712,12 +712,12 @@ async function deserializeAws_restJson1_1GetLifecyclePolicyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
+export const deserializeAws_restJson1_1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListTagsForResourceCommandError(
       output,
@@ -734,12 +734,12 @@ export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
     contents.Tags = deserializeAws_restJson1_1TagMap(data.Tags, context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
+const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -796,12 +796,12 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1TagResourceCommand(
+export const deserializeAws_restJson1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1TagResourceCommandError(output, context);
   }
@@ -811,12 +811,12 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1TagResourceCommandError(
+const deserializeAws_restJson1_1TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -873,12 +873,12 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UntagResourceCommand(
+export const deserializeAws_restJson1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UntagResourceCommandError(output, context);
   }
@@ -888,12 +888,12 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UntagResourceCommandError(
+const deserializeAws_restJson1_1UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -950,12 +950,12 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UpdateLifecyclePolicyCommand(
+export const deserializeAws_restJson1_1UpdateLifecyclePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateLifecyclePolicyCommandOutput> {
+): Promise<UpdateLifecyclePolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateLifecyclePolicyCommandError(
       output,
@@ -968,12 +968,12 @@ export async function deserializeAws_restJson1_1UpdateLifecyclePolicyCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UpdateLifecyclePolicyCommandError(
+const deserializeAws_restJson1_1UpdateLifecyclePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateLifecyclePolicyCommandOutput> {
+): Promise<UpdateLifecyclePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1041,7 +1041,7 @@ async function deserializeAws_restJson1_1UpdateLifecyclePolicyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1InternalServerExceptionResponse = async (
   parsedOutput: any,

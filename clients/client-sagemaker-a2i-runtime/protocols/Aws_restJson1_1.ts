@@ -47,10 +47,10 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_restJson1_1DeleteHumanLoopCommand(
+export const serializeAws_restJson1_1DeleteHumanLoopCommand = async (
   input: DeleteHumanLoopCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/human-loops/{HumanLoopName}";
@@ -79,12 +79,12 @@ export async function serializeAws_restJson1_1DeleteHumanLoopCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribeHumanLoopCommand(
+export const serializeAws_restJson1_1DescribeHumanLoopCommand = async (
   input: DescribeHumanLoopCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/human-loops/{HumanLoopName}";
@@ -113,12 +113,12 @@ export async function serializeAws_restJson1_1DescribeHumanLoopCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListHumanLoopsCommand(
+export const serializeAws_restJson1_1ListHumanLoopsCommand = async (
   input: ListHumanLoopsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/human-loops";
@@ -154,12 +154,12 @@ export async function serializeAws_restJson1_1ListHumanLoopsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1StartHumanLoopCommand(
+export const serializeAws_restJson1_1StartHumanLoopCommand = async (
   input: StartHumanLoopCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/human-loops";
@@ -198,12 +198,12 @@ export async function serializeAws_restJson1_1StartHumanLoopCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1StopHumanLoopCommand(
+export const serializeAws_restJson1_1StopHumanLoopCommand = async (
   input: StopHumanLoopCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/human-loops/stop";
@@ -223,12 +223,12 @@ export async function serializeAws_restJson1_1StopHumanLoopCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteHumanLoopCommand(
+export const deserializeAws_restJson1_1DeleteHumanLoopCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteHumanLoopCommandOutput> {
+): Promise<DeleteHumanLoopCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteHumanLoopCommandError(
       output,
@@ -241,12 +241,12 @@ export async function deserializeAws_restJson1_1DeleteHumanLoopCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteHumanLoopCommandError(
+const deserializeAws_restJson1_1DeleteHumanLoopCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteHumanLoopCommandOutput> {
+): Promise<DeleteHumanLoopCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -314,12 +314,12 @@ async function deserializeAws_restJson1_1DeleteHumanLoopCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeHumanLoopCommand(
+export const deserializeAws_restJson1_1DescribeHumanLoopCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeHumanLoopCommandOutput> {
+): Promise<DescribeHumanLoopCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeHumanLoopCommandError(
       output,
@@ -376,12 +376,12 @@ export async function deserializeAws_restJson1_1DescribeHumanLoopCommand(
     contents.HumanLoopStatus = data.HumanLoopStatus;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeHumanLoopCommandError(
+const deserializeAws_restJson1_1DescribeHumanLoopCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeHumanLoopCommandOutput> {
+): Promise<DescribeHumanLoopCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -449,12 +449,12 @@ async function deserializeAws_restJson1_1DescribeHumanLoopCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListHumanLoopsCommand(
+export const deserializeAws_restJson1_1ListHumanLoopsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListHumanLoopsCommandOutput> {
+): Promise<ListHumanLoopsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListHumanLoopsCommandError(
       output,
@@ -481,12 +481,12 @@ export async function deserializeAws_restJson1_1ListHumanLoopsCommand(
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListHumanLoopsCommandError(
+const deserializeAws_restJson1_1ListHumanLoopsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListHumanLoopsCommandOutput> {
+): Promise<ListHumanLoopsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -543,12 +543,12 @@ async function deserializeAws_restJson1_1ListHumanLoopsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1StartHumanLoopCommand(
+export const deserializeAws_restJson1_1StartHumanLoopCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartHumanLoopCommandOutput> {
+): Promise<StartHumanLoopCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1StartHumanLoopCommandError(
       output,
@@ -575,12 +575,12 @@ export async function deserializeAws_restJson1_1StartHumanLoopCommand(
     contents.HumanLoopArn = data.HumanLoopArn;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1StartHumanLoopCommandError(
+const deserializeAws_restJson1_1StartHumanLoopCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartHumanLoopCommandOutput> {
+): Promise<StartHumanLoopCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -648,12 +648,12 @@ async function deserializeAws_restJson1_1StartHumanLoopCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1StopHumanLoopCommand(
+export const deserializeAws_restJson1_1StopHumanLoopCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StopHumanLoopCommandOutput> {
+): Promise<StopHumanLoopCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1StopHumanLoopCommandError(output, context);
   }
@@ -663,12 +663,12 @@ export async function deserializeAws_restJson1_1StopHumanLoopCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1StopHumanLoopCommandError(
+const deserializeAws_restJson1_1StopHumanLoopCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StopHumanLoopCommandOutput> {
+): Promise<StopHumanLoopCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -736,7 +736,7 @@ async function deserializeAws_restJson1_1StopHumanLoopCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1InternalServerExceptionResponse = async (
   parsedOutput: any,

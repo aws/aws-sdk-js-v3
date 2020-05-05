@@ -36,10 +36,10 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_restJson1_1CreateTokenCommand(
+export const serializeAws_restJson1_1CreateTokenCommand = async (
   input: CreateTokenCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/token";
@@ -80,12 +80,12 @@ export async function serializeAws_restJson1_1CreateTokenCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1RegisterClientCommand(
+export const serializeAws_restJson1_1RegisterClientCommand = async (
   input: RegisterClientCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/client/register";
@@ -114,12 +114,12 @@ export async function serializeAws_restJson1_1RegisterClientCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1StartDeviceAuthorizationCommand(
+export const serializeAws_restJson1_1StartDeviceAuthorizationCommand = async (
   input: StartDeviceAuthorizationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/device_authorization";
@@ -145,12 +145,12 @@ export async function serializeAws_restJson1_1StartDeviceAuthorizationCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1CreateTokenCommand(
+export const deserializeAws_restJson1_1CreateTokenCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateTokenCommandOutput> {
+): Promise<CreateTokenCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateTokenCommandError(output, context);
   }
@@ -180,12 +180,12 @@ export async function deserializeAws_restJson1_1CreateTokenCommand(
     contents.tokenType = data.tokenType;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreateTokenCommandError(
+const deserializeAws_restJson1_1CreateTokenCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateTokenCommandOutput> {
+): Promise<CreateTokenCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -330,12 +330,12 @@ async function deserializeAws_restJson1_1CreateTokenCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1RegisterClientCommand(
+export const deserializeAws_restJson1_1RegisterClientCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RegisterClientCommandOutput> {
+): Promise<RegisterClientCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1RegisterClientCommandError(
       output,
@@ -378,12 +378,12 @@ export async function deserializeAws_restJson1_1RegisterClientCommand(
     contents.tokenEndpoint = data.tokenEndpoint;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1RegisterClientCommandError(
+const deserializeAws_restJson1_1RegisterClientCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RegisterClientCommandOutput> {
+): Promise<RegisterClientCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -451,12 +451,12 @@ async function deserializeAws_restJson1_1RegisterClientCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1StartDeviceAuthorizationCommand(
+export const deserializeAws_restJson1_1StartDeviceAuthorizationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartDeviceAuthorizationCommandOutput> {
+): Promise<StartDeviceAuthorizationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1StartDeviceAuthorizationCommandError(
       output,
@@ -496,12 +496,12 @@ export async function deserializeAws_restJson1_1StartDeviceAuthorizationCommand(
     contents.verificationUriComplete = data.verificationUriComplete;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1StartDeviceAuthorizationCommandError(
+const deserializeAws_restJson1_1StartDeviceAuthorizationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartDeviceAuthorizationCommandOutput> {
+): Promise<StartDeviceAuthorizationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -580,7 +580,7 @@ async function deserializeAws_restJson1_1StartDeviceAuthorizationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
   parsedOutput: any,

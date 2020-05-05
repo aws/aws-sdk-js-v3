@@ -133,10 +133,10 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_json1_1CreateAcceleratorCommand(
+export const serializeAws_json1_1CreateAcceleratorCommand = async (
   input: CreateAcceleratorCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.CreateAccelerator";
@@ -145,12 +145,12 @@ export async function serializeAws_json1_1CreateAcceleratorCommand(
     serializeAws_json1_1CreateAcceleratorRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreateEndpointGroupCommand(
+export const serializeAws_json1_1CreateEndpointGroupCommand = async (
   input: CreateEndpointGroupCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.CreateEndpointGroup";
@@ -159,12 +159,12 @@ export async function serializeAws_json1_1CreateEndpointGroupCommand(
     serializeAws_json1_1CreateEndpointGroupRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreateListenerCommand(
+export const serializeAws_json1_1CreateListenerCommand = async (
   input: CreateListenerCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.CreateListener";
@@ -173,12 +173,12 @@ export async function serializeAws_json1_1CreateListenerCommand(
     serializeAws_json1_1CreateListenerRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteAcceleratorCommand(
+export const serializeAws_json1_1DeleteAcceleratorCommand = async (
   input: DeleteAcceleratorCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.DeleteAccelerator";
@@ -187,12 +187,12 @@ export async function serializeAws_json1_1DeleteAcceleratorCommand(
     serializeAws_json1_1DeleteAcceleratorRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteEndpointGroupCommand(
+export const serializeAws_json1_1DeleteEndpointGroupCommand = async (
   input: DeleteEndpointGroupCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.DeleteEndpointGroup";
@@ -201,12 +201,12 @@ export async function serializeAws_json1_1DeleteEndpointGroupCommand(
     serializeAws_json1_1DeleteEndpointGroupRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteListenerCommand(
+export const serializeAws_json1_1DeleteListenerCommand = async (
   input: DeleteListenerCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.DeleteListener";
@@ -215,12 +215,12 @@ export async function serializeAws_json1_1DeleteListenerCommand(
     serializeAws_json1_1DeleteListenerRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeAcceleratorCommand(
+export const serializeAws_json1_1DescribeAcceleratorCommand = async (
   input: DescribeAcceleratorCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.DescribeAccelerator";
@@ -229,12 +229,12 @@ export async function serializeAws_json1_1DescribeAcceleratorCommand(
     serializeAws_json1_1DescribeAcceleratorRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeAcceleratorAttributesCommand(
+export const serializeAws_json1_1DescribeAcceleratorAttributesCommand = async (
   input: DescribeAcceleratorAttributesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -244,12 +244,12 @@ export async function serializeAws_json1_1DescribeAcceleratorAttributesCommand(
     serializeAws_json1_1DescribeAcceleratorAttributesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeEndpointGroupCommand(
+export const serializeAws_json1_1DescribeEndpointGroupCommand = async (
   input: DescribeEndpointGroupCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.DescribeEndpointGroup";
@@ -258,12 +258,12 @@ export async function serializeAws_json1_1DescribeEndpointGroupCommand(
     serializeAws_json1_1DescribeEndpointGroupRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeListenerCommand(
+export const serializeAws_json1_1DescribeListenerCommand = async (
   input: DescribeListenerCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.DescribeListener";
@@ -272,12 +272,12 @@ export async function serializeAws_json1_1DescribeListenerCommand(
     serializeAws_json1_1DescribeListenerRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListAcceleratorsCommand(
+export const serializeAws_json1_1ListAcceleratorsCommand = async (
   input: ListAcceleratorsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.ListAccelerators";
@@ -286,12 +286,12 @@ export async function serializeAws_json1_1ListAcceleratorsCommand(
     serializeAws_json1_1ListAcceleratorsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListEndpointGroupsCommand(
+export const serializeAws_json1_1ListEndpointGroupsCommand = async (
   input: ListEndpointGroupsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.ListEndpointGroups";
@@ -300,12 +300,12 @@ export async function serializeAws_json1_1ListEndpointGroupsCommand(
     serializeAws_json1_1ListEndpointGroupsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListListenersCommand(
+export const serializeAws_json1_1ListListenersCommand = async (
   input: ListListenersCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.ListListeners";
@@ -314,12 +314,12 @@ export async function serializeAws_json1_1ListListenersCommand(
     serializeAws_json1_1ListListenersRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateAcceleratorCommand(
+export const serializeAws_json1_1UpdateAcceleratorCommand = async (
   input: UpdateAcceleratorCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.UpdateAccelerator";
@@ -328,12 +328,12 @@ export async function serializeAws_json1_1UpdateAcceleratorCommand(
     serializeAws_json1_1UpdateAcceleratorRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateAcceleratorAttributesCommand(
+export const serializeAws_json1_1UpdateAcceleratorAttributesCommand = async (
   input: UpdateAcceleratorAttributesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -343,12 +343,12 @@ export async function serializeAws_json1_1UpdateAcceleratorAttributesCommand(
     serializeAws_json1_1UpdateAcceleratorAttributesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateEndpointGroupCommand(
+export const serializeAws_json1_1UpdateEndpointGroupCommand = async (
   input: UpdateEndpointGroupCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.UpdateEndpointGroup";
@@ -357,12 +357,12 @@ export async function serializeAws_json1_1UpdateEndpointGroupCommand(
     serializeAws_json1_1UpdateEndpointGroupRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateListenerCommand(
+export const serializeAws_json1_1UpdateListenerCommand = async (
   input: UpdateListenerCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.UpdateListener";
@@ -371,12 +371,12 @@ export async function serializeAws_json1_1UpdateListenerCommand(
     serializeAws_json1_1UpdateListenerRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_1CreateAcceleratorCommand(
+export const deserializeAws_json1_1CreateAcceleratorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateAcceleratorCommandOutput> {
+): Promise<CreateAcceleratorCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateAcceleratorCommandError(output, context);
   }
@@ -389,12 +389,12 @@ export async function deserializeAws_json1_1CreateAcceleratorCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateAcceleratorCommandError(
+const deserializeAws_json1_1CreateAcceleratorCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateAcceleratorCommandOutput> {
+): Promise<CreateAcceleratorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -453,12 +453,12 @@ async function deserializeAws_json1_1CreateAcceleratorCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreateEndpointGroupCommand(
+export const deserializeAws_json1_1CreateEndpointGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateEndpointGroupCommandOutput> {
+): Promise<CreateEndpointGroupCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateEndpointGroupCommandError(
       output,
@@ -474,12 +474,12 @@ export async function deserializeAws_json1_1CreateEndpointGroupCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateEndpointGroupCommandError(
+const deserializeAws_json1_1CreateEndpointGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateEndpointGroupCommandOutput> {
+): Promise<CreateEndpointGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -582,12 +582,12 @@ async function deserializeAws_json1_1CreateEndpointGroupCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreateListenerCommand(
+export const deserializeAws_json1_1CreateListenerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateListenerCommandOutput> {
+): Promise<CreateListenerCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateListenerCommandError(output, context);
   }
@@ -600,12 +600,12 @@ export async function deserializeAws_json1_1CreateListenerCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateListenerCommandError(
+const deserializeAws_json1_1CreateListenerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateListenerCommandOutput> {
+): Promise<CreateListenerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -686,12 +686,12 @@ async function deserializeAws_json1_1CreateListenerCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteAcceleratorCommand(
+export const deserializeAws_json1_1DeleteAcceleratorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteAcceleratorCommandOutput> {
+): Promise<DeleteAcceleratorCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteAcceleratorCommandError(output, context);
   }
@@ -700,12 +700,12 @@ export async function deserializeAws_json1_1DeleteAcceleratorCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteAcceleratorCommandError(
+const deserializeAws_json1_1DeleteAcceleratorCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteAcceleratorCommandOutput> {
+): Promise<DeleteAcceleratorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -786,12 +786,12 @@ async function deserializeAws_json1_1DeleteAcceleratorCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteEndpointGroupCommand(
+export const deserializeAws_json1_1DeleteEndpointGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteEndpointGroupCommandOutput> {
+): Promise<DeleteEndpointGroupCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteEndpointGroupCommandError(
       output,
@@ -803,12 +803,12 @@ export async function deserializeAws_json1_1DeleteEndpointGroupCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteEndpointGroupCommandError(
+const deserializeAws_json1_1DeleteEndpointGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteEndpointGroupCommandOutput> {
+): Promise<DeleteEndpointGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -867,12 +867,12 @@ async function deserializeAws_json1_1DeleteEndpointGroupCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteListenerCommand(
+export const deserializeAws_json1_1DeleteListenerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteListenerCommandOutput> {
+): Promise<DeleteListenerCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteListenerCommandError(output, context);
   }
@@ -881,12 +881,12 @@ export async function deserializeAws_json1_1DeleteListenerCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteListenerCommandError(
+const deserializeAws_json1_1DeleteListenerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteListenerCommandOutput> {
+): Promise<DeleteListenerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -956,12 +956,12 @@ async function deserializeAws_json1_1DeleteListenerCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeAcceleratorCommand(
+export const deserializeAws_json1_1DescribeAcceleratorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeAcceleratorCommandOutput> {
+): Promise<DescribeAcceleratorCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeAcceleratorCommandError(
       output,
@@ -977,12 +977,12 @@ export async function deserializeAws_json1_1DescribeAcceleratorCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeAcceleratorCommandError(
+const deserializeAws_json1_1DescribeAcceleratorCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeAcceleratorCommandOutput> {
+): Promise<DescribeAcceleratorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1041,12 +1041,12 @@ async function deserializeAws_json1_1DescribeAcceleratorCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeAcceleratorAttributesCommand(
+export const deserializeAws_json1_1DescribeAcceleratorAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeAcceleratorAttributesCommandOutput> {
+): Promise<DescribeAcceleratorAttributesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeAcceleratorAttributesCommandError(
       output,
@@ -1065,12 +1065,12 @@ export async function deserializeAws_json1_1DescribeAcceleratorAttributesCommand
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeAcceleratorAttributesCommandError(
+const deserializeAws_json1_1DescribeAcceleratorAttributesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeAcceleratorAttributesCommandOutput> {
+): Promise<DescribeAcceleratorAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1129,12 +1129,12 @@ async function deserializeAws_json1_1DescribeAcceleratorAttributesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeEndpointGroupCommand(
+export const deserializeAws_json1_1DescribeEndpointGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeEndpointGroupCommandOutput> {
+): Promise<DescribeEndpointGroupCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeEndpointGroupCommandError(
       output,
@@ -1150,12 +1150,12 @@ export async function deserializeAws_json1_1DescribeEndpointGroupCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeEndpointGroupCommandError(
+const deserializeAws_json1_1DescribeEndpointGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeEndpointGroupCommandOutput> {
+): Promise<DescribeEndpointGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1214,12 +1214,12 @@ async function deserializeAws_json1_1DescribeEndpointGroupCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeListenerCommand(
+export const deserializeAws_json1_1DescribeListenerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeListenerCommandOutput> {
+): Promise<DescribeListenerCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeListenerCommandError(output, context);
   }
@@ -1232,12 +1232,12 @@ export async function deserializeAws_json1_1DescribeListenerCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeListenerCommandError(
+const deserializeAws_json1_1DescribeListenerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeListenerCommandOutput> {
+): Promise<DescribeListenerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1296,12 +1296,12 @@ async function deserializeAws_json1_1DescribeListenerCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListAcceleratorsCommand(
+export const deserializeAws_json1_1ListAcceleratorsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListAcceleratorsCommandOutput> {
+): Promise<ListAcceleratorsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListAcceleratorsCommandError(output, context);
   }
@@ -1314,12 +1314,12 @@ export async function deserializeAws_json1_1ListAcceleratorsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListAcceleratorsCommandError(
+const deserializeAws_json1_1ListAcceleratorsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListAcceleratorsCommandOutput> {
+): Promise<ListAcceleratorsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1378,12 +1378,12 @@ async function deserializeAws_json1_1ListAcceleratorsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListEndpointGroupsCommand(
+export const deserializeAws_json1_1ListEndpointGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListEndpointGroupsCommandOutput> {
+): Promise<ListEndpointGroupsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListEndpointGroupsCommandError(
       output,
@@ -1399,12 +1399,12 @@ export async function deserializeAws_json1_1ListEndpointGroupsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListEndpointGroupsCommandError(
+const deserializeAws_json1_1ListEndpointGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListEndpointGroupsCommandOutput> {
+): Promise<ListEndpointGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1474,12 +1474,12 @@ async function deserializeAws_json1_1ListEndpointGroupsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListListenersCommand(
+export const deserializeAws_json1_1ListListenersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListListenersCommandOutput> {
+): Promise<ListListenersCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListListenersCommandError(output, context);
   }
@@ -1492,12 +1492,12 @@ export async function deserializeAws_json1_1ListListenersCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListListenersCommandError(
+const deserializeAws_json1_1ListListenersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListListenersCommandOutput> {
+): Promise<ListListenersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1567,12 +1567,12 @@ async function deserializeAws_json1_1ListListenersCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateAcceleratorCommand(
+export const deserializeAws_json1_1UpdateAcceleratorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateAcceleratorCommandOutput> {
+): Promise<UpdateAcceleratorCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateAcceleratorCommandError(output, context);
   }
@@ -1585,12 +1585,12 @@ export async function deserializeAws_json1_1UpdateAcceleratorCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateAcceleratorCommandError(
+const deserializeAws_json1_1UpdateAcceleratorCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateAcceleratorCommandOutput> {
+): Promise<UpdateAcceleratorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1649,12 +1649,12 @@ async function deserializeAws_json1_1UpdateAcceleratorCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateAcceleratorAttributesCommand(
+export const deserializeAws_json1_1UpdateAcceleratorAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateAcceleratorAttributesCommandOutput> {
+): Promise<UpdateAcceleratorAttributesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateAcceleratorAttributesCommandError(
       output,
@@ -1673,12 +1673,12 @@ export async function deserializeAws_json1_1UpdateAcceleratorAttributesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateAcceleratorAttributesCommandError(
+const deserializeAws_json1_1UpdateAcceleratorAttributesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateAcceleratorAttributesCommandOutput> {
+): Promise<UpdateAcceleratorAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1748,12 +1748,12 @@ async function deserializeAws_json1_1UpdateAcceleratorAttributesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateEndpointGroupCommand(
+export const deserializeAws_json1_1UpdateEndpointGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateEndpointGroupCommandOutput> {
+): Promise<UpdateEndpointGroupCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateEndpointGroupCommandError(
       output,
@@ -1769,12 +1769,12 @@ export async function deserializeAws_json1_1UpdateEndpointGroupCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateEndpointGroupCommandError(
+const deserializeAws_json1_1UpdateEndpointGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateEndpointGroupCommandOutput> {
+): Promise<UpdateEndpointGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1855,12 +1855,12 @@ async function deserializeAws_json1_1UpdateEndpointGroupCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateListenerCommand(
+export const deserializeAws_json1_1UpdateListenerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateListenerCommandOutput> {
+): Promise<UpdateListenerCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateListenerCommandError(output, context);
   }
@@ -1873,12 +1873,12 @@ export async function deserializeAws_json1_1UpdateListenerCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateListenerCommandError(
+const deserializeAws_json1_1UpdateListenerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateListenerCommandOutput> {
+): Promise<UpdateListenerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1959,7 +1959,7 @@ async function deserializeAws_json1_1UpdateListenerCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_1AcceleratorNotDisabledExceptionResponse = async (
   parsedOutput: any,

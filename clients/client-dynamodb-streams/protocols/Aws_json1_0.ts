@@ -51,10 +51,10 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_json1_0DescribeStreamCommand(
+export const serializeAws_json1_0DescribeStreamCommand = async (
   input: DescribeStreamCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDBStreams_20120810.DescribeStream";
@@ -63,24 +63,24 @@ export async function serializeAws_json1_0DescribeStreamCommand(
     serializeAws_json1_0DescribeStreamInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0GetRecordsCommand(
+export const serializeAws_json1_0GetRecordsCommand = async (
   input: GetRecordsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDBStreams_20120810.GetRecords";
   let body: any;
   body = JSON.stringify(serializeAws_json1_0GetRecordsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0GetShardIteratorCommand(
+export const serializeAws_json1_0GetShardIteratorCommand = async (
   input: GetShardIteratorCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDBStreams_20120810.GetShardIterator";
@@ -89,24 +89,24 @@ export async function serializeAws_json1_0GetShardIteratorCommand(
     serializeAws_json1_0GetShardIteratorInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0ListStreamsCommand(
+export const serializeAws_json1_0ListStreamsCommand = async (
   input: ListStreamsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDBStreams_20120810.ListStreams";
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ListStreamsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_0DescribeStreamCommand(
+export const deserializeAws_json1_0DescribeStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeStreamCommandOutput> {
+): Promise<DescribeStreamCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0DescribeStreamCommandError(output, context);
   }
@@ -119,12 +119,12 @@ export async function deserializeAws_json1_0DescribeStreamCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0DescribeStreamCommandError(
+const deserializeAws_json1_0DescribeStreamCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeStreamCommandOutput> {
+): Promise<DescribeStreamCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -172,12 +172,12 @@ async function deserializeAws_json1_0DescribeStreamCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0GetRecordsCommand(
+export const deserializeAws_json1_0GetRecordsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetRecordsCommandOutput> {
+): Promise<GetRecordsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0GetRecordsCommandError(output, context);
   }
@@ -190,12 +190,12 @@ export async function deserializeAws_json1_0GetRecordsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0GetRecordsCommandError(
+const deserializeAws_json1_0GetRecordsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetRecordsCommandOutput> {
+): Promise<GetRecordsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -276,12 +276,12 @@ async function deserializeAws_json1_0GetRecordsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0GetShardIteratorCommand(
+export const deserializeAws_json1_0GetShardIteratorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetShardIteratorCommandOutput> {
+): Promise<GetShardIteratorCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0GetShardIteratorCommandError(output, context);
   }
@@ -294,12 +294,12 @@ export async function deserializeAws_json1_0GetShardIteratorCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0GetShardIteratorCommandError(
+const deserializeAws_json1_0GetShardIteratorCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetShardIteratorCommandOutput> {
+): Promise<GetShardIteratorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -358,12 +358,12 @@ async function deserializeAws_json1_0GetShardIteratorCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0ListStreamsCommand(
+export const deserializeAws_json1_0ListStreamsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListStreamsCommandOutput> {
+): Promise<ListStreamsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0ListStreamsCommandError(output, context);
   }
@@ -376,12 +376,12 @@ export async function deserializeAws_json1_0ListStreamsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0ListStreamsCommandError(
+const deserializeAws_json1_0ListStreamsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListStreamsCommandOutput> {
+): Promise<ListStreamsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -429,7 +429,7 @@ async function deserializeAws_json1_0ListStreamsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_0ExpiredIteratorExceptionResponse = async (
   parsedOutput: any,

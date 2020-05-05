@@ -90,10 +90,10 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_restJson1_1AssociateDeviceWithPlacementCommand(
+export const serializeAws_restJson1_1AssociateDeviceWithPlacementCommand = async (
   input: AssociateDeviceWithPlacementCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath =
@@ -158,12 +158,12 @@ export async function serializeAws_restJson1_1AssociateDeviceWithPlacementComman
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1CreatePlacementCommand(
+export const serializeAws_restJson1_1CreatePlacementCommand = async (
   input: CreatePlacementCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/projects/{projectName}/placements";
@@ -203,12 +203,12 @@ export async function serializeAws_restJson1_1CreatePlacementCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1CreateProjectCommand(
+export const serializeAws_restJson1_1CreateProjectCommand = async (
   input: CreateProjectCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/projects";
@@ -240,12 +240,12 @@ export async function serializeAws_restJson1_1CreateProjectCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeletePlacementCommand(
+export const serializeAws_restJson1_1DeletePlacementCommand = async (
   input: DeletePlacementCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/projects/{projectName}/placements/{placementName}";
@@ -288,12 +288,12 @@ export async function serializeAws_restJson1_1DeletePlacementCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeleteProjectCommand(
+export const serializeAws_restJson1_1DeleteProjectCommand = async (
   input: DeleteProjectCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/projects/{projectName}";
@@ -322,12 +322,12 @@ export async function serializeAws_restJson1_1DeleteProjectCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribePlacementCommand(
+export const serializeAws_restJson1_1DescribePlacementCommand = async (
   input: DescribePlacementCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/projects/{projectName}/placements/{placementName}";
@@ -370,12 +370,12 @@ export async function serializeAws_restJson1_1DescribePlacementCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribeProjectCommand(
+export const serializeAws_restJson1_1DescribeProjectCommand = async (
   input: DescribeProjectCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/projects/{projectName}";
@@ -404,12 +404,12 @@ export async function serializeAws_restJson1_1DescribeProjectCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DisassociateDeviceFromPlacementCommand(
+export const serializeAws_restJson1_1DisassociateDeviceFromPlacementCommand = async (
   input: DisassociateDeviceFromPlacementCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath =
@@ -469,12 +469,12 @@ export async function serializeAws_restJson1_1DisassociateDeviceFromPlacementCom
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetDevicesInPlacementCommand(
+export const serializeAws_restJson1_1GetDevicesInPlacementCommand = async (
   input: GetDevicesInPlacementCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath =
@@ -518,12 +518,12 @@ export async function serializeAws_restJson1_1GetDevicesInPlacementCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListPlacementsCommand(
+export const serializeAws_restJson1_1ListPlacementsCommand = async (
   input: ListPlacementsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/projects/{projectName}/placements";
@@ -560,12 +560,12 @@ export async function serializeAws_restJson1_1ListPlacementsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListProjectsCommand(
+export const serializeAws_restJson1_1ListProjectsCommand = async (
   input: ListProjectsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/projects";
@@ -588,12 +588,12 @@ export async function serializeAws_restJson1_1ListProjectsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListTagsForResourceCommand(
+export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{resourceArn}";
@@ -622,12 +622,12 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1TagResourceCommand(
+export const serializeAws_restJson1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/tags/{resourceArn}";
@@ -661,12 +661,12 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UntagResourceCommand(
+export const serializeAws_restJson1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{resourceArn}";
@@ -700,12 +700,12 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UpdatePlacementCommand(
+export const serializeAws_restJson1_1UpdatePlacementCommand = async (
   input: UpdatePlacementCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/projects/{projectName}/placements/{placementName}";
@@ -756,12 +756,12 @@ export async function serializeAws_restJson1_1UpdatePlacementCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UpdateProjectCommand(
+export const serializeAws_restJson1_1UpdateProjectCommand = async (
   input: UpdateProjectCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/projects/{projectName}";
@@ -801,12 +801,12 @@ export async function serializeAws_restJson1_1UpdateProjectCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1AssociateDeviceWithPlacementCommand(
+export const deserializeAws_restJson1_1AssociateDeviceWithPlacementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AssociateDeviceWithPlacementCommandOutput> {
+): Promise<AssociateDeviceWithPlacementCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1AssociateDeviceWithPlacementCommandError(
       output,
@@ -819,12 +819,12 @@ export async function deserializeAws_restJson1_1AssociateDeviceWithPlacementComm
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1AssociateDeviceWithPlacementCommandError(
+const deserializeAws_restJson1_1AssociateDeviceWithPlacementCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AssociateDeviceWithPlacementCommandOutput> {
+): Promise<AssociateDeviceWithPlacementCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -892,12 +892,12 @@ async function deserializeAws_restJson1_1AssociateDeviceWithPlacementCommandErro
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1CreatePlacementCommand(
+export const deserializeAws_restJson1_1CreatePlacementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreatePlacementCommandOutput> {
+): Promise<CreatePlacementCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreatePlacementCommandError(
       output,
@@ -910,12 +910,12 @@ export async function deserializeAws_restJson1_1CreatePlacementCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreatePlacementCommandError(
+const deserializeAws_restJson1_1CreatePlacementCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreatePlacementCommandOutput> {
+): Promise<CreatePlacementCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -983,12 +983,12 @@ async function deserializeAws_restJson1_1CreatePlacementCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1CreateProjectCommand(
+export const deserializeAws_restJson1_1CreateProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateProjectCommandOutput> {
+): Promise<CreateProjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateProjectCommandError(output, context);
   }
@@ -998,12 +998,12 @@ export async function deserializeAws_restJson1_1CreateProjectCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreateProjectCommandError(
+const deserializeAws_restJson1_1CreateProjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateProjectCommandOutput> {
+): Promise<CreateProjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1060,12 +1060,12 @@ async function deserializeAws_restJson1_1CreateProjectCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeletePlacementCommand(
+export const deserializeAws_restJson1_1DeletePlacementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeletePlacementCommandOutput> {
+): Promise<DeletePlacementCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeletePlacementCommandError(
       output,
@@ -1078,12 +1078,12 @@ export async function deserializeAws_restJson1_1DeletePlacementCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeletePlacementCommandError(
+const deserializeAws_restJson1_1DeletePlacementCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeletePlacementCommandOutput> {
+): Promise<DeletePlacementCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1151,12 +1151,12 @@ async function deserializeAws_restJson1_1DeletePlacementCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteProjectCommand(
+export const deserializeAws_restJson1_1DeleteProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteProjectCommandOutput> {
+): Promise<DeleteProjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteProjectCommandError(output, context);
   }
@@ -1166,12 +1166,12 @@ export async function deserializeAws_restJson1_1DeleteProjectCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteProjectCommandError(
+const deserializeAws_restJson1_1DeleteProjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteProjectCommandOutput> {
+): Promise<DeleteProjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1239,12 +1239,12 @@ async function deserializeAws_restJson1_1DeleteProjectCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribePlacementCommand(
+export const deserializeAws_restJson1_1DescribePlacementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribePlacementCommandOutput> {
+): Promise<DescribePlacementCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribePlacementCommandError(
       output,
@@ -1264,12 +1264,12 @@ export async function deserializeAws_restJson1_1DescribePlacementCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribePlacementCommandError(
+const deserializeAws_restJson1_1DescribePlacementCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribePlacementCommandOutput> {
+): Promise<DescribePlacementCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1326,12 +1326,12 @@ async function deserializeAws_restJson1_1DescribePlacementCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeProjectCommand(
+export const deserializeAws_restJson1_1DescribeProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeProjectCommandOutput> {
+): Promise<DescribeProjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeProjectCommandError(
       output,
@@ -1351,12 +1351,12 @@ export async function deserializeAws_restJson1_1DescribeProjectCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeProjectCommandError(
+const deserializeAws_restJson1_1DescribeProjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeProjectCommandOutput> {
+): Promise<DescribeProjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1413,12 +1413,12 @@ async function deserializeAws_restJson1_1DescribeProjectCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DisassociateDeviceFromPlacementCommand(
+export const deserializeAws_restJson1_1DisassociateDeviceFromPlacementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisassociateDeviceFromPlacementCommandOutput> {
+): Promise<DisassociateDeviceFromPlacementCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DisassociateDeviceFromPlacementCommandError(
       output,
@@ -1431,12 +1431,12 @@ export async function deserializeAws_restJson1_1DisassociateDeviceFromPlacementC
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DisassociateDeviceFromPlacementCommandError(
+const deserializeAws_restJson1_1DisassociateDeviceFromPlacementCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisassociateDeviceFromPlacementCommandOutput> {
+): Promise<DisassociateDeviceFromPlacementCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1504,12 +1504,12 @@ async function deserializeAws_restJson1_1DisassociateDeviceFromPlacementCommandE
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetDevicesInPlacementCommand(
+export const deserializeAws_restJson1_1GetDevicesInPlacementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetDevicesInPlacementCommandOutput> {
+): Promise<GetDevicesInPlacementCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetDevicesInPlacementCommandError(
       output,
@@ -1529,12 +1529,12 @@ export async function deserializeAws_restJson1_1GetDevicesInPlacementCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetDevicesInPlacementCommandError(
+const deserializeAws_restJson1_1GetDevicesInPlacementCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetDevicesInPlacementCommandOutput> {
+): Promise<GetDevicesInPlacementCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1591,12 +1591,12 @@ async function deserializeAws_restJson1_1GetDevicesInPlacementCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListPlacementsCommand(
+export const deserializeAws_restJson1_1ListPlacementsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListPlacementsCommandOutput> {
+): Promise<ListPlacementsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListPlacementsCommandError(
       output,
@@ -1620,12 +1620,12 @@ export async function deserializeAws_restJson1_1ListPlacementsCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListPlacementsCommandError(
+const deserializeAws_restJson1_1ListPlacementsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListPlacementsCommandOutput> {
+): Promise<ListPlacementsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1682,12 +1682,12 @@ async function deserializeAws_restJson1_1ListPlacementsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListProjectsCommand(
+export const deserializeAws_restJson1_1ListProjectsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListProjectsCommandOutput> {
+): Promise<ListProjectsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListProjectsCommandError(output, context);
   }
@@ -1708,12 +1708,12 @@ export async function deserializeAws_restJson1_1ListProjectsCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListProjectsCommandError(
+const deserializeAws_restJson1_1ListProjectsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListProjectsCommandOutput> {
+): Promise<ListProjectsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1759,12 +1759,12 @@ async function deserializeAws_restJson1_1ListProjectsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
+export const deserializeAws_restJson1_1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListTagsForResourceCommandError(
       output,
@@ -1781,12 +1781,12 @@ export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
     contents.tags = deserializeAws_restJson1_1TagMap(data.tags, context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
+const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1843,12 +1843,12 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1TagResourceCommand(
+export const deserializeAws_restJson1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1TagResourceCommandError(output, context);
   }
@@ -1858,12 +1858,12 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1TagResourceCommandError(
+const deserializeAws_restJson1_1TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1920,12 +1920,12 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UntagResourceCommand(
+export const deserializeAws_restJson1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UntagResourceCommandError(output, context);
   }
@@ -1935,12 +1935,12 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UntagResourceCommandError(
+const deserializeAws_restJson1_1UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1997,12 +1997,12 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UpdatePlacementCommand(
+export const deserializeAws_restJson1_1UpdatePlacementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdatePlacementCommandOutput> {
+): Promise<UpdatePlacementCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdatePlacementCommandError(
       output,
@@ -2015,12 +2015,12 @@ export async function deserializeAws_restJson1_1UpdatePlacementCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UpdatePlacementCommandError(
+const deserializeAws_restJson1_1UpdatePlacementCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdatePlacementCommandOutput> {
+): Promise<UpdatePlacementCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2088,12 +2088,12 @@ async function deserializeAws_restJson1_1UpdatePlacementCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UpdateProjectCommand(
+export const deserializeAws_restJson1_1UpdateProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateProjectCommandOutput> {
+): Promise<UpdateProjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateProjectCommandError(output, context);
   }
@@ -2103,12 +2103,12 @@ export async function deserializeAws_restJson1_1UpdateProjectCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UpdateProjectCommandError(
+const deserializeAws_restJson1_1UpdateProjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateProjectCommandOutput> {
+): Promise<UpdateProjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2176,7 +2176,7 @@ async function deserializeAws_restJson1_1UpdateProjectCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1InternalFailureExceptionResponse = async (
   parsedOutput: any,

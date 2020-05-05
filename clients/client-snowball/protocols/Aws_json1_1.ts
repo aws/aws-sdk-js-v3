@@ -154,10 +154,10 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_json1_1CancelClusterCommand(
+export const serializeAws_json1_1CancelClusterCommand = async (
   input: CancelClusterCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.CancelCluster";
@@ -166,24 +166,24 @@ export async function serializeAws_json1_1CancelClusterCommand(
     serializeAws_json1_1CancelClusterRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CancelJobCommand(
+export const serializeAws_json1_1CancelJobCommand = async (
   input: CancelJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.CancelJob";
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CancelJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreateAddressCommand(
+export const serializeAws_json1_1CreateAddressCommand = async (
   input: CreateAddressCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.CreateAddress";
@@ -192,12 +192,12 @@ export async function serializeAws_json1_1CreateAddressCommand(
     serializeAws_json1_1CreateAddressRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreateClusterCommand(
+export const serializeAws_json1_1CreateClusterCommand = async (
   input: CreateClusterCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.CreateCluster";
@@ -206,24 +206,24 @@ export async function serializeAws_json1_1CreateClusterCommand(
     serializeAws_json1_1CreateClusterRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreateJobCommand(
+export const serializeAws_json1_1CreateJobCommand = async (
   input: CreateJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.CreateJob";
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeAddressCommand(
+export const serializeAws_json1_1DescribeAddressCommand = async (
   input: DescribeAddressCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.DescribeAddress";
@@ -232,12 +232,12 @@ export async function serializeAws_json1_1DescribeAddressCommand(
     serializeAws_json1_1DescribeAddressRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeAddressesCommand(
+export const serializeAws_json1_1DescribeAddressesCommand = async (
   input: DescribeAddressesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -247,12 +247,12 @@ export async function serializeAws_json1_1DescribeAddressesCommand(
     serializeAws_json1_1DescribeAddressesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeClusterCommand(
+export const serializeAws_json1_1DescribeClusterCommand = async (
   input: DescribeClusterCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.DescribeCluster";
@@ -261,24 +261,24 @@ export async function serializeAws_json1_1DescribeClusterCommand(
     serializeAws_json1_1DescribeClusterRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeJobCommand(
+export const serializeAws_json1_1DescribeJobCommand = async (
   input: DescribeJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.DescribeJob";
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetJobManifestCommand(
+export const serializeAws_json1_1GetJobManifestCommand = async (
   input: GetJobManifestCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.GetJobManifest";
@@ -287,12 +287,12 @@ export async function serializeAws_json1_1GetJobManifestCommand(
     serializeAws_json1_1GetJobManifestRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetJobUnlockCodeCommand(
+export const serializeAws_json1_1GetJobUnlockCodeCommand = async (
   input: GetJobUnlockCodeCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -302,12 +302,12 @@ export async function serializeAws_json1_1GetJobUnlockCodeCommand(
     serializeAws_json1_1GetJobUnlockCodeRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetSnowballUsageCommand(
+export const serializeAws_json1_1GetSnowballUsageCommand = async (
   input: GetSnowballUsageCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -317,12 +317,12 @@ export async function serializeAws_json1_1GetSnowballUsageCommand(
     serializeAws_json1_1GetSnowballUsageRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetSoftwareUpdatesCommand(
+export const serializeAws_json1_1GetSoftwareUpdatesCommand = async (
   input: GetSoftwareUpdatesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -332,12 +332,12 @@ export async function serializeAws_json1_1GetSoftwareUpdatesCommand(
     serializeAws_json1_1GetSoftwareUpdatesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListClusterJobsCommand(
+export const serializeAws_json1_1ListClusterJobsCommand = async (
   input: ListClusterJobsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.ListClusterJobs";
@@ -346,12 +346,12 @@ export async function serializeAws_json1_1ListClusterJobsCommand(
     serializeAws_json1_1ListClusterJobsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListClustersCommand(
+export const serializeAws_json1_1ListClustersCommand = async (
   input: ListClustersCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.ListClusters";
@@ -360,12 +360,12 @@ export async function serializeAws_json1_1ListClustersCommand(
     serializeAws_json1_1ListClustersRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListCompatibleImagesCommand(
+export const serializeAws_json1_1ListCompatibleImagesCommand = async (
   input: ListCompatibleImagesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -375,24 +375,24 @@ export async function serializeAws_json1_1ListCompatibleImagesCommand(
     serializeAws_json1_1ListCompatibleImagesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListJobsCommand(
+export const serializeAws_json1_1ListJobsCommand = async (
   input: ListJobsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.ListJobs";
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateClusterCommand(
+export const serializeAws_json1_1UpdateClusterCommand = async (
   input: UpdateClusterCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.UpdateCluster";
@@ -401,24 +401,24 @@ export async function serializeAws_json1_1UpdateClusterCommand(
     serializeAws_json1_1UpdateClusterRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateJobCommand(
+export const serializeAws_json1_1UpdateJobCommand = async (
   input: UpdateJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.UpdateJob";
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_1CancelClusterCommand(
+export const deserializeAws_json1_1CancelClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CancelClusterCommandOutput> {
+): Promise<CancelClusterCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CancelClusterCommandError(output, context);
   }
@@ -431,12 +431,12 @@ export async function deserializeAws_json1_1CancelClusterCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CancelClusterCommandError(
+const deserializeAws_json1_1CancelClusterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CancelClusterCommandOutput> {
+): Promise<CancelClusterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -495,12 +495,12 @@ async function deserializeAws_json1_1CancelClusterCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CancelJobCommand(
+export const deserializeAws_json1_1CancelJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CancelJobCommandOutput> {
+): Promise<CancelJobCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CancelJobCommandError(output, context);
   }
@@ -513,12 +513,12 @@ export async function deserializeAws_json1_1CancelJobCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CancelJobCommandError(
+const deserializeAws_json1_1CancelJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CancelJobCommandOutput> {
+): Promise<CancelJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -577,12 +577,12 @@ async function deserializeAws_json1_1CancelJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreateAddressCommand(
+export const deserializeAws_json1_1CreateAddressCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateAddressCommandOutput> {
+): Promise<CreateAddressCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateAddressCommandError(output, context);
   }
@@ -595,12 +595,12 @@ export async function deserializeAws_json1_1CreateAddressCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateAddressCommandError(
+const deserializeAws_json1_1CreateAddressCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateAddressCommandOutput> {
+): Promise<CreateAddressCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -648,12 +648,12 @@ async function deserializeAws_json1_1CreateAddressCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreateClusterCommand(
+export const deserializeAws_json1_1CreateClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateClusterCommandOutput> {
+): Promise<CreateClusterCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateClusterCommandError(output, context);
   }
@@ -666,12 +666,12 @@ export async function deserializeAws_json1_1CreateClusterCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateClusterCommandError(
+const deserializeAws_json1_1CreateClusterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateClusterCommandOutput> {
+): Promise<CreateClusterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -741,12 +741,12 @@ async function deserializeAws_json1_1CreateClusterCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreateJobCommand(
+export const deserializeAws_json1_1CreateJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateJobCommandOutput> {
+): Promise<CreateJobCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateJobCommandError(output, context);
   }
@@ -759,12 +759,12 @@ export async function deserializeAws_json1_1CreateJobCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateJobCommandError(
+const deserializeAws_json1_1CreateJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateJobCommandOutput> {
+): Promise<CreateJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -845,12 +845,12 @@ async function deserializeAws_json1_1CreateJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeAddressCommand(
+export const deserializeAws_json1_1DescribeAddressCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeAddressCommandOutput> {
+): Promise<DescribeAddressCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeAddressCommandError(output, context);
   }
@@ -863,12 +863,12 @@ export async function deserializeAws_json1_1DescribeAddressCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeAddressCommandError(
+const deserializeAws_json1_1DescribeAddressCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeAddressCommandOutput> {
+): Promise<DescribeAddressCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -905,12 +905,12 @@ async function deserializeAws_json1_1DescribeAddressCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeAddressesCommand(
+export const deserializeAws_json1_1DescribeAddressesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeAddressesCommandOutput> {
+): Promise<DescribeAddressesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeAddressesCommandError(output, context);
   }
@@ -923,12 +923,12 @@ export async function deserializeAws_json1_1DescribeAddressesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeAddressesCommandError(
+const deserializeAws_json1_1DescribeAddressesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeAddressesCommandOutput> {
+): Promise<DescribeAddressesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -976,12 +976,12 @@ async function deserializeAws_json1_1DescribeAddressesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeClusterCommand(
+export const deserializeAws_json1_1DescribeClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeClusterCommandOutput> {
+): Promise<DescribeClusterCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeClusterCommandError(output, context);
   }
@@ -994,12 +994,12 @@ export async function deserializeAws_json1_1DescribeClusterCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeClusterCommandError(
+const deserializeAws_json1_1DescribeClusterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeClusterCommandOutput> {
+): Promise<DescribeClusterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1036,12 +1036,12 @@ async function deserializeAws_json1_1DescribeClusterCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeJobCommand(
+export const deserializeAws_json1_1DescribeJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeJobCommandOutput> {
+): Promise<DescribeJobCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeJobCommandError(output, context);
   }
@@ -1054,12 +1054,12 @@ export async function deserializeAws_json1_1DescribeJobCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeJobCommandError(
+const deserializeAws_json1_1DescribeJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeJobCommandOutput> {
+): Promise<DescribeJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1096,12 +1096,12 @@ async function deserializeAws_json1_1DescribeJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetJobManifestCommand(
+export const deserializeAws_json1_1GetJobManifestCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetJobManifestCommandOutput> {
+): Promise<GetJobManifestCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetJobManifestCommandError(output, context);
   }
@@ -1114,12 +1114,12 @@ export async function deserializeAws_json1_1GetJobManifestCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetJobManifestCommandError(
+const deserializeAws_json1_1GetJobManifestCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetJobManifestCommandOutput> {
+): Promise<GetJobManifestCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1167,12 +1167,12 @@ async function deserializeAws_json1_1GetJobManifestCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetJobUnlockCodeCommand(
+export const deserializeAws_json1_1GetJobUnlockCodeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetJobUnlockCodeCommandOutput> {
+): Promise<GetJobUnlockCodeCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetJobUnlockCodeCommandError(output, context);
   }
@@ -1185,12 +1185,12 @@ export async function deserializeAws_json1_1GetJobUnlockCodeCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetJobUnlockCodeCommandError(
+const deserializeAws_json1_1GetJobUnlockCodeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetJobUnlockCodeCommandOutput> {
+): Promise<GetJobUnlockCodeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1238,12 +1238,12 @@ async function deserializeAws_json1_1GetJobUnlockCodeCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetSnowballUsageCommand(
+export const deserializeAws_json1_1GetSnowballUsageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetSnowballUsageCommandOutput> {
+): Promise<GetSnowballUsageCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetSnowballUsageCommandError(output, context);
   }
@@ -1256,12 +1256,12 @@ export async function deserializeAws_json1_1GetSnowballUsageCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetSnowballUsageCommandError(
+const deserializeAws_json1_1GetSnowballUsageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetSnowballUsageCommandOutput> {
+): Promise<GetSnowballUsageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1287,12 +1287,12 @@ async function deserializeAws_json1_1GetSnowballUsageCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetSoftwareUpdatesCommand(
+export const deserializeAws_json1_1GetSoftwareUpdatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetSoftwareUpdatesCommandOutput> {
+): Promise<GetSoftwareUpdatesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetSoftwareUpdatesCommandError(
       output,
@@ -1308,12 +1308,12 @@ export async function deserializeAws_json1_1GetSoftwareUpdatesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetSoftwareUpdatesCommandError(
+const deserializeAws_json1_1GetSoftwareUpdatesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetSoftwareUpdatesCommandOutput> {
+): Promise<GetSoftwareUpdatesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1361,12 +1361,12 @@ async function deserializeAws_json1_1GetSoftwareUpdatesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListClusterJobsCommand(
+export const deserializeAws_json1_1ListClusterJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListClusterJobsCommandOutput> {
+): Promise<ListClusterJobsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListClusterJobsCommandError(output, context);
   }
@@ -1379,12 +1379,12 @@ export async function deserializeAws_json1_1ListClusterJobsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListClusterJobsCommandError(
+const deserializeAws_json1_1ListClusterJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListClusterJobsCommandOutput> {
+): Promise<ListClusterJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1432,12 +1432,12 @@ async function deserializeAws_json1_1ListClusterJobsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListClustersCommand(
+export const deserializeAws_json1_1ListClustersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListClustersCommandOutput> {
+): Promise<ListClustersCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListClustersCommandError(output, context);
   }
@@ -1450,12 +1450,12 @@ export async function deserializeAws_json1_1ListClustersCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListClustersCommandError(
+const deserializeAws_json1_1ListClustersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListClustersCommandOutput> {
+): Promise<ListClustersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1492,12 +1492,12 @@ async function deserializeAws_json1_1ListClustersCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListCompatibleImagesCommand(
+export const deserializeAws_json1_1ListCompatibleImagesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListCompatibleImagesCommandOutput> {
+): Promise<ListCompatibleImagesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListCompatibleImagesCommandError(
       output,
@@ -1513,12 +1513,12 @@ export async function deserializeAws_json1_1ListCompatibleImagesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListCompatibleImagesCommandError(
+const deserializeAws_json1_1ListCompatibleImagesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListCompatibleImagesCommandOutput> {
+): Promise<ListCompatibleImagesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1566,12 +1566,12 @@ async function deserializeAws_json1_1ListCompatibleImagesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListJobsCommand(
+export const deserializeAws_json1_1ListJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListJobsCommandOutput> {
+): Promise<ListJobsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListJobsCommandError(output, context);
   }
@@ -1584,12 +1584,12 @@ export async function deserializeAws_json1_1ListJobsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListJobsCommandError(
+const deserializeAws_json1_1ListJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListJobsCommandOutput> {
+): Promise<ListJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1626,12 +1626,12 @@ async function deserializeAws_json1_1ListJobsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateClusterCommand(
+export const deserializeAws_json1_1UpdateClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateClusterCommandOutput> {
+): Promise<UpdateClusterCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateClusterCommandError(output, context);
   }
@@ -1644,12 +1644,12 @@ export async function deserializeAws_json1_1UpdateClusterCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateClusterCommandError(
+const deserializeAws_json1_1UpdateClusterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateClusterCommandOutput> {
+): Promise<UpdateClusterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1730,12 +1730,12 @@ async function deserializeAws_json1_1UpdateClusterCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateJobCommand(
+export const deserializeAws_json1_1UpdateJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateJobCommandOutput> {
+): Promise<UpdateJobCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateJobCommandError(output, context);
   }
@@ -1748,12 +1748,12 @@ export async function deserializeAws_json1_1UpdateJobCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateJobCommandError(
+const deserializeAws_json1_1UpdateJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateJobCommandOutput> {
+): Promise<UpdateJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1845,7 +1845,7 @@ async function deserializeAws_json1_1UpdateJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_1ClusterLimitExceededExceptionResponse = async (
   parsedOutput: any,

@@ -23,10 +23,10 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_restJson1_1GetMediaCommand(
+export const serializeAws_restJson1_1GetMediaCommand = async (
   input: GetMediaCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/getMedia";
@@ -55,12 +55,12 @@ export async function serializeAws_restJson1_1GetMediaCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1GetMediaCommand(
+export const deserializeAws_restJson1_1GetMediaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetMediaCommandOutput> {
+): Promise<GetMediaCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetMediaCommandError(output, context);
   }
@@ -76,12 +76,12 @@ export async function deserializeAws_restJson1_1GetMediaCommand(
   const data: any = output.body;
   contents.Payload = data;
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetMediaCommandError(
+const deserializeAws_restJson1_1GetMediaCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetMediaCommandOutput> {
+): Promise<GetMediaCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -171,7 +171,7 @@ async function deserializeAws_restJson1_1GetMediaCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1ClientLimitExceededExceptionResponse = async (
   parsedOutput: any,

@@ -27,10 +27,10 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_restJson1_1GetIceServerConfigCommand(
+export const serializeAws_restJson1_1GetIceServerConfigCommand = async (
   input: GetIceServerConfigCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/get-ice-server-config";
@@ -59,12 +59,12 @@ export async function serializeAws_restJson1_1GetIceServerConfigCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1SendAlexaOfferToMasterCommand(
+export const serializeAws_restJson1_1SendAlexaOfferToMasterCommand = async (
   input: SendAlexaOfferToMasterCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/send-alexa-offer-to-master";
@@ -90,12 +90,12 @@ export async function serializeAws_restJson1_1SendAlexaOfferToMasterCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1GetIceServerConfigCommand(
+export const deserializeAws_restJson1_1GetIceServerConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetIceServerConfigCommandOutput> {
+): Promise<GetIceServerConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetIceServerConfigCommandError(
       output,
@@ -115,12 +115,12 @@ export async function deserializeAws_restJson1_1GetIceServerConfigCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetIceServerConfigCommandError(
+const deserializeAws_restJson1_1GetIceServerConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetIceServerConfigCommandOutput> {
+): Promise<GetIceServerConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -210,12 +210,12 @@ async function deserializeAws_restJson1_1GetIceServerConfigCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1SendAlexaOfferToMasterCommand(
+export const deserializeAws_restJson1_1SendAlexaOfferToMasterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SendAlexaOfferToMasterCommandOutput> {
+): Promise<SendAlexaOfferToMasterCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1SendAlexaOfferToMasterCommandError(
       output,
@@ -232,12 +232,12 @@ export async function deserializeAws_restJson1_1SendAlexaOfferToMasterCommand(
     contents.Answer = data.Answer;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1SendAlexaOfferToMasterCommandError(
+const deserializeAws_restJson1_1SendAlexaOfferToMasterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SendAlexaOfferToMasterCommandOutput> {
+): Promise<SendAlexaOfferToMasterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -305,7 +305,7 @@ async function deserializeAws_restJson1_1SendAlexaOfferToMasterCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1ClientLimitExceededExceptionResponse = async (
   parsedOutput: any,

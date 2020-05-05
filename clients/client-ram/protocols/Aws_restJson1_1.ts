@@ -137,10 +137,10 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_restJson1_1AcceptResourceShareInvitationCommand(
+export const serializeAws_restJson1_1AcceptResourceShareInvitationCommand = async (
   input: AcceptResourceShareInvitationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/acceptresourceshareinvitation";
@@ -163,12 +163,12 @@ export async function serializeAws_restJson1_1AcceptResourceShareInvitationComma
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1AssociateResourceShareCommand(
+export const serializeAws_restJson1_1AssociateResourceShareCommand = async (
   input: AssociateResourceShareCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/associateresourceshare";
@@ -203,12 +203,12 @@ export async function serializeAws_restJson1_1AssociateResourceShareCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1AssociateResourceSharePermissionCommand(
+export const serializeAws_restJson1_1AssociateResourceSharePermissionCommand = async (
   input: AssociateResourceSharePermissionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/associateresourcesharepermission";
@@ -237,12 +237,12 @@ export async function serializeAws_restJson1_1AssociateResourceSharePermissionCo
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1CreateResourceShareCommand(
+export const serializeAws_restJson1_1CreateResourceShareCommand = async (
   input: CreateResourceShareCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/createresourceshare";
@@ -289,12 +289,12 @@ export async function serializeAws_restJson1_1CreateResourceShareCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeleteResourceShareCommand(
+export const serializeAws_restJson1_1DeleteResourceShareCommand = async (
   input: DeleteResourceShareCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/deleteresourceshare";
@@ -317,12 +317,12 @@ export async function serializeAws_restJson1_1DeleteResourceShareCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DisassociateResourceShareCommand(
+export const serializeAws_restJson1_1DisassociateResourceShareCommand = async (
   input: DisassociateResourceShareCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/disassociateresourceshare";
@@ -357,12 +357,12 @@ export async function serializeAws_restJson1_1DisassociateResourceShareCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DisassociateResourceSharePermissionCommand(
+export const serializeAws_restJson1_1DisassociateResourceSharePermissionCommand = async (
   input: DisassociateResourceSharePermissionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/disassociateresourcesharepermission";
@@ -388,12 +388,12 @@ export async function serializeAws_restJson1_1DisassociateResourceSharePermissio
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1EnableSharingWithAwsOrganizationCommand(
+export const serializeAws_restJson1_1EnableSharingWithAwsOrganizationCommand = async (
   input: EnableSharingWithAwsOrganizationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/enablesharingwithawsorganization";
@@ -409,12 +409,12 @@ export async function serializeAws_restJson1_1EnableSharingWithAwsOrganizationCo
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetPermissionCommand(
+export const serializeAws_restJson1_1GetPermissionCommand = async (
   input: GetPermissionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/getpermission";
@@ -437,12 +437,12 @@ export async function serializeAws_restJson1_1GetPermissionCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetResourcePoliciesCommand(
+export const serializeAws_restJson1_1GetResourcePoliciesCommand = async (
   input: GetResourcePoliciesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/getresourcepolicies";
@@ -474,12 +474,12 @@ export async function serializeAws_restJson1_1GetResourcePoliciesCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetResourceShareAssociationsCommand(
+export const serializeAws_restJson1_1GetResourceShareAssociationsCommand = async (
   input: GetResourceShareAssociationsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/getresourceshareassociations";
@@ -522,12 +522,12 @@ export async function serializeAws_restJson1_1GetResourceShareAssociationsComman
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetResourceShareInvitationsCommand(
+export const serializeAws_restJson1_1GetResourceShareInvitationsCommand = async (
   input: GetResourceShareInvitationsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/getresourceshareinvitations";
@@ -566,12 +566,12 @@ export async function serializeAws_restJson1_1GetResourceShareInvitationsCommand
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetResourceSharesCommand(
+export const serializeAws_restJson1_1GetResourceSharesCommand = async (
   input: GetResourceSharesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/getresourceshares";
@@ -617,12 +617,12 @@ export async function serializeAws_restJson1_1GetResourceSharesCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListPendingInvitationResourcesCommand(
+export const serializeAws_restJson1_1ListPendingInvitationResourcesCommand = async (
   input: ListPendingInvitationResourcesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/listpendinginvitationresources";
@@ -648,12 +648,12 @@ export async function serializeAws_restJson1_1ListPendingInvitationResourcesComm
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListPermissionsCommand(
+export const serializeAws_restJson1_1ListPermissionsCommand = async (
   input: ListPermissionsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/listpermissions";
@@ -679,12 +679,12 @@ export async function serializeAws_restJson1_1ListPermissionsCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListPrincipalsCommand(
+export const serializeAws_restJson1_1ListPrincipalsCommand = async (
   input: ListPrincipalsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/listprincipals";
@@ -730,12 +730,12 @@ export async function serializeAws_restJson1_1ListPrincipalsCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListResourceSharePermissionsCommand(
+export const serializeAws_restJson1_1ListResourceSharePermissionsCommand = async (
   input: ListResourceSharePermissionsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/listresourcesharepermissions";
@@ -761,12 +761,12 @@ export async function serializeAws_restJson1_1ListResourceSharePermissionsComman
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListResourcesCommand(
+export const serializeAws_restJson1_1ListResourcesCommand = async (
   input: ListResourcesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/listresources";
@@ -812,12 +812,12 @@ export async function serializeAws_restJson1_1ListResourcesCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1PromoteResourceShareCreatedFromPolicyCommand(
+export const serializeAws_restJson1_1PromoteResourceShareCreatedFromPolicyCommand = async (
   input: PromoteResourceShareCreatedFromPolicyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/promoteresourcesharecreatedfrompolicy";
@@ -837,12 +837,12 @@ export async function serializeAws_restJson1_1PromoteResourceShareCreatedFromPol
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1RejectResourceShareInvitationCommand(
+export const serializeAws_restJson1_1RejectResourceShareInvitationCommand = async (
   input: RejectResourceShareInvitationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/rejectresourceshareinvitation";
@@ -865,12 +865,12 @@ export async function serializeAws_restJson1_1RejectResourceShareInvitationComma
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1TagResourceCommand(
+export const serializeAws_restJson1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/tagresource";
@@ -893,12 +893,12 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UntagResourceCommand(
+export const serializeAws_restJson1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/untagresource";
@@ -924,12 +924,12 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UpdateResourceShareCommand(
+export const serializeAws_restJson1_1UpdateResourceShareCommand = async (
   input: UpdateResourceShareCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/updateresourceshare";
@@ -958,12 +958,12 @@ export async function serializeAws_restJson1_1UpdateResourceShareCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1AcceptResourceShareInvitationCommand(
+export const deserializeAws_restJson1_1AcceptResourceShareInvitationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AcceptResourceShareInvitationCommandOutput> {
+): Promise<AcceptResourceShareInvitationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1AcceptResourceShareInvitationCommandError(
       output,
@@ -990,12 +990,12 @@ export async function deserializeAws_restJson1_1AcceptResourceShareInvitationCom
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1AcceptResourceShareInvitationCommandError(
+const deserializeAws_restJson1_1AcceptResourceShareInvitationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AcceptResourceShareInvitationCommandOutput> {
+): Promise<AcceptResourceShareInvitationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1129,12 +1129,12 @@ async function deserializeAws_restJson1_1AcceptResourceShareInvitationCommandErr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1AssociateResourceShareCommand(
+export const deserializeAws_restJson1_1AssociateResourceShareCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AssociateResourceShareCommandOutput> {
+): Promise<AssociateResourceShareCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1AssociateResourceShareCommandError(
       output,
@@ -1161,12 +1161,12 @@ export async function deserializeAws_restJson1_1AssociateResourceShareCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1AssociateResourceShareCommandError(
+const deserializeAws_restJson1_1AssociateResourceShareCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AssociateResourceShareCommandOutput> {
+): Promise<AssociateResourceShareCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1300,12 +1300,12 @@ async function deserializeAws_restJson1_1AssociateResourceShareCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1AssociateResourceSharePermissionCommand(
+export const deserializeAws_restJson1_1AssociateResourceSharePermissionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AssociateResourceSharePermissionCommandOutput> {
+): Promise<AssociateResourceSharePermissionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1AssociateResourceSharePermissionCommandError(
       output,
@@ -1326,12 +1326,12 @@ export async function deserializeAws_restJson1_1AssociateResourceSharePermission
     contents.returnValue = data.returnValue;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1AssociateResourceSharePermissionCommandError(
+const deserializeAws_restJson1_1AssociateResourceSharePermissionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AssociateResourceSharePermissionCommandOutput> {
+): Promise<AssociateResourceSharePermissionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1432,12 +1432,12 @@ async function deserializeAws_restJson1_1AssociateResourceSharePermissionCommand
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1CreateResourceShareCommand(
+export const deserializeAws_restJson1_1CreateResourceShareCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateResourceShareCommandOutput> {
+): Promise<CreateResourceShareCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateResourceShareCommandError(
       output,
@@ -1461,12 +1461,12 @@ export async function deserializeAws_restJson1_1CreateResourceShareCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreateResourceShareCommandError(
+const deserializeAws_restJson1_1CreateResourceShareCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateResourceShareCommandOutput> {
+): Promise<CreateResourceShareCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1611,12 +1611,12 @@ async function deserializeAws_restJson1_1CreateResourceShareCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteResourceShareCommand(
+export const deserializeAws_restJson1_1DeleteResourceShareCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteResourceShareCommandOutput> {
+): Promise<DeleteResourceShareCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteResourceShareCommandError(
       output,
@@ -1637,12 +1637,12 @@ export async function deserializeAws_restJson1_1DeleteResourceShareCommand(
     contents.returnValue = data.returnValue;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteResourceShareCommandError(
+const deserializeAws_restJson1_1DeleteResourceShareCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteResourceShareCommandOutput> {
+): Promise<DeleteResourceShareCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1765,12 +1765,12 @@ async function deserializeAws_restJson1_1DeleteResourceShareCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DisassociateResourceShareCommand(
+export const deserializeAws_restJson1_1DisassociateResourceShareCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisassociateResourceShareCommandOutput> {
+): Promise<DisassociateResourceShareCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DisassociateResourceShareCommandError(
       output,
@@ -1797,12 +1797,12 @@ export async function deserializeAws_restJson1_1DisassociateResourceShareCommand
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DisassociateResourceShareCommandError(
+const deserializeAws_restJson1_1DisassociateResourceShareCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisassociateResourceShareCommandOutput> {
+): Promise<DisassociateResourceShareCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1936,12 +1936,12 @@ async function deserializeAws_restJson1_1DisassociateResourceShareCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DisassociateResourceSharePermissionCommand(
+export const deserializeAws_restJson1_1DisassociateResourceSharePermissionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisassociateResourceSharePermissionCommandOutput> {
+): Promise<DisassociateResourceSharePermissionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DisassociateResourceSharePermissionCommandError(
       output,
@@ -1962,12 +1962,12 @@ export async function deserializeAws_restJson1_1DisassociateResourceSharePermiss
     contents.returnValue = data.returnValue;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DisassociateResourceSharePermissionCommandError(
+const deserializeAws_restJson1_1DisassociateResourceSharePermissionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisassociateResourceSharePermissionCommandOutput> {
+): Promise<DisassociateResourceSharePermissionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2068,12 +2068,12 @@ async function deserializeAws_restJson1_1DisassociateResourceSharePermissionComm
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1EnableSharingWithAwsOrganizationCommand(
+export const deserializeAws_restJson1_1EnableSharingWithAwsOrganizationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<EnableSharingWithAwsOrganizationCommandOutput> {
+): Promise<EnableSharingWithAwsOrganizationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1EnableSharingWithAwsOrganizationCommandError(
       output,
@@ -2090,12 +2090,12 @@ export async function deserializeAws_restJson1_1EnableSharingWithAwsOrganization
     contents.returnValue = data.returnValue;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1EnableSharingWithAwsOrganizationCommandError(
+const deserializeAws_restJson1_1EnableSharingWithAwsOrganizationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<EnableSharingWithAwsOrganizationCommandOutput> {
+): Promise<EnableSharingWithAwsOrganizationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2152,12 +2152,12 @@ async function deserializeAws_restJson1_1EnableSharingWithAwsOrganizationCommand
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetPermissionCommand(
+export const deserializeAws_restJson1_1GetPermissionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetPermissionCommandOutput> {
+): Promise<GetPermissionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetPermissionCommandError(output, context);
   }
@@ -2174,12 +2174,12 @@ export async function deserializeAws_restJson1_1GetPermissionCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetPermissionCommandError(
+const deserializeAws_restJson1_1GetPermissionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetPermissionCommandOutput> {
+): Promise<GetPermissionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2269,12 +2269,12 @@ async function deserializeAws_restJson1_1GetPermissionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetResourcePoliciesCommand(
+export const deserializeAws_restJson1_1GetResourcePoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetResourcePoliciesCommandOutput> {
+): Promise<GetResourcePoliciesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetResourcePoliciesCommandError(
       output,
@@ -2298,12 +2298,12 @@ export async function deserializeAws_restJson1_1GetResourcePoliciesCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetResourcePoliciesCommandError(
+const deserializeAws_restJson1_1GetResourcePoliciesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetResourcePoliciesCommandOutput> {
+): Promise<GetResourcePoliciesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2382,12 +2382,12 @@ async function deserializeAws_restJson1_1GetResourcePoliciesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetResourceShareAssociationsCommand(
+export const deserializeAws_restJson1_1GetResourceShareAssociationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetResourceShareAssociationsCommandOutput> {
+): Promise<GetResourceShareAssociationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetResourceShareAssociationsCommandError(
       output,
@@ -2414,12 +2414,12 @@ export async function deserializeAws_restJson1_1GetResourceShareAssociationsComm
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetResourceShareAssociationsCommandError(
+const deserializeAws_restJson1_1GetResourceShareAssociationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetResourceShareAssociationsCommandOutput> {
+): Promise<GetResourceShareAssociationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2520,12 +2520,12 @@ async function deserializeAws_restJson1_1GetResourceShareAssociationsCommandErro
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetResourceShareInvitationsCommand(
+export const deserializeAws_restJson1_1GetResourceShareInvitationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetResourceShareInvitationsCommandOutput> {
+): Promise<GetResourceShareInvitationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetResourceShareInvitationsCommandError(
       output,
@@ -2552,12 +2552,12 @@ export async function deserializeAws_restJson1_1GetResourceShareInvitationsComma
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetResourceShareInvitationsCommandError(
+const deserializeAws_restJson1_1GetResourceShareInvitationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetResourceShareInvitationsCommandOutput> {
+): Promise<GetResourceShareInvitationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2658,12 +2658,12 @@ async function deserializeAws_restJson1_1GetResourceShareInvitationsCommandError
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetResourceSharesCommand(
+export const deserializeAws_restJson1_1GetResourceSharesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetResourceSharesCommandOutput> {
+): Promise<GetResourceSharesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetResourceSharesCommandError(
       output,
@@ -2687,12 +2687,12 @@ export async function deserializeAws_restJson1_1GetResourceSharesCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetResourceSharesCommandError(
+const deserializeAws_restJson1_1GetResourceSharesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetResourceSharesCommandOutput> {
+): Promise<GetResourceSharesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2782,12 +2782,12 @@ async function deserializeAws_restJson1_1GetResourceSharesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListPendingInvitationResourcesCommand(
+export const deserializeAws_restJson1_1ListPendingInvitationResourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListPendingInvitationResourcesCommandOutput> {
+): Promise<ListPendingInvitationResourcesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListPendingInvitationResourcesCommandError(
       output,
@@ -2811,12 +2811,12 @@ export async function deserializeAws_restJson1_1ListPendingInvitationResourcesCo
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListPendingInvitationResourcesCommandError(
+const deserializeAws_restJson1_1ListPendingInvitationResourcesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListPendingInvitationResourcesCommandOutput> {
+): Promise<ListPendingInvitationResourcesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2939,12 +2939,12 @@ async function deserializeAws_restJson1_1ListPendingInvitationResourcesCommandEr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListPermissionsCommand(
+export const deserializeAws_restJson1_1ListPermissionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListPermissionsCommandOutput> {
+): Promise<ListPermissionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListPermissionsCommandError(
       output,
@@ -2968,12 +2968,12 @@ export async function deserializeAws_restJson1_1ListPermissionsCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListPermissionsCommandError(
+const deserializeAws_restJson1_1ListPermissionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListPermissionsCommandOutput> {
+): Promise<ListPermissionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3052,12 +3052,12 @@ async function deserializeAws_restJson1_1ListPermissionsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListPrincipalsCommand(
+export const deserializeAws_restJson1_1ListPrincipalsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListPrincipalsCommandOutput> {
+): Promise<ListPrincipalsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListPrincipalsCommandError(
       output,
@@ -3081,12 +3081,12 @@ export async function deserializeAws_restJson1_1ListPrincipalsCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListPrincipalsCommandError(
+const deserializeAws_restJson1_1ListPrincipalsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListPrincipalsCommandOutput> {
+): Promise<ListPrincipalsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3176,12 +3176,12 @@ async function deserializeAws_restJson1_1ListPrincipalsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListResourceSharePermissionsCommand(
+export const deserializeAws_restJson1_1ListResourceSharePermissionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListResourceSharePermissionsCommandOutput> {
+): Promise<ListResourceSharePermissionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListResourceSharePermissionsCommandError(
       output,
@@ -3205,12 +3205,12 @@ export async function deserializeAws_restJson1_1ListResourceSharePermissionsComm
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListResourceSharePermissionsCommandError(
+const deserializeAws_restJson1_1ListResourceSharePermissionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListResourceSharePermissionsCommandOutput> {
+): Promise<ListResourceSharePermissionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3311,12 +3311,12 @@ async function deserializeAws_restJson1_1ListResourceSharePermissionsCommandErro
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListResourcesCommand(
+export const deserializeAws_restJson1_1ListResourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListResourcesCommandOutput> {
+): Promise<ListResourcesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListResourcesCommandError(output, context);
   }
@@ -3337,12 +3337,12 @@ export async function deserializeAws_restJson1_1ListResourcesCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListResourcesCommandError(
+const deserializeAws_restJson1_1ListResourcesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListResourcesCommandOutput> {
+): Promise<ListResourcesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3443,12 +3443,12 @@ async function deserializeAws_restJson1_1ListResourcesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1PromoteResourceShareCreatedFromPolicyCommand(
+export const deserializeAws_restJson1_1PromoteResourceShareCreatedFromPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PromoteResourceShareCreatedFromPolicyCommandOutput> {
+): Promise<PromoteResourceShareCreatedFromPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1PromoteResourceShareCreatedFromPolicyCommandError(
       output,
@@ -3465,12 +3465,12 @@ export async function deserializeAws_restJson1_1PromoteResourceShareCreatedFromP
     contents.returnValue = data.returnValue;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1PromoteResourceShareCreatedFromPolicyCommandError(
+const deserializeAws_restJson1_1PromoteResourceShareCreatedFromPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PromoteResourceShareCreatedFromPolicyCommandOutput> {
+): Promise<PromoteResourceShareCreatedFromPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3560,12 +3560,12 @@ async function deserializeAws_restJson1_1PromoteResourceShareCreatedFromPolicyCo
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1RejectResourceShareInvitationCommand(
+export const deserializeAws_restJson1_1RejectResourceShareInvitationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RejectResourceShareInvitationCommandOutput> {
+): Promise<RejectResourceShareInvitationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1RejectResourceShareInvitationCommandError(
       output,
@@ -3592,12 +3592,12 @@ export async function deserializeAws_restJson1_1RejectResourceShareInvitationCom
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1RejectResourceShareInvitationCommandError(
+const deserializeAws_restJson1_1RejectResourceShareInvitationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RejectResourceShareInvitationCommandOutput> {
+): Promise<RejectResourceShareInvitationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3731,12 +3731,12 @@ async function deserializeAws_restJson1_1RejectResourceShareInvitationCommandErr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1TagResourceCommand(
+export const deserializeAws_restJson1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1TagResourceCommandError(output, context);
   }
@@ -3746,12 +3746,12 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1TagResourceCommandError(
+const deserializeAws_restJson1_1TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3852,12 +3852,12 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UntagResourceCommand(
+export const deserializeAws_restJson1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UntagResourceCommandError(output, context);
   }
@@ -3867,12 +3867,12 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UntagResourceCommandError(
+const deserializeAws_restJson1_1UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3929,12 +3929,12 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UpdateResourceShareCommand(
+export const deserializeAws_restJson1_1UpdateResourceShareCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateResourceShareCommandOutput> {
+): Promise<UpdateResourceShareCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateResourceShareCommandError(
       output,
@@ -3958,12 +3958,12 @@ export async function deserializeAws_restJson1_1UpdateResourceShareCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UpdateResourceShareCommandError(
+const deserializeAws_restJson1_1UpdateResourceShareCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateResourceShareCommandOutput> {
+): Promise<UpdateResourceShareCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4086,7 +4086,7 @@ async function deserializeAws_restJson1_1UpdateResourceShareCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse = async (
   parsedOutput: any,

@@ -86,10 +86,10 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_restJson1_1CreateLedgerCommand(
+export const serializeAws_restJson1_1CreateLedgerCommand = async (
   input: CreateLedgerCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/ledgers";
@@ -118,12 +118,12 @@ export async function serializeAws_restJson1_1CreateLedgerCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeleteLedgerCommand(
+export const serializeAws_restJson1_1DeleteLedgerCommand = async (
   input: DeleteLedgerCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/ledgers/{Name}";
@@ -150,12 +150,12 @@ export async function serializeAws_restJson1_1DeleteLedgerCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribeJournalS3ExportCommand(
+export const serializeAws_restJson1_1DescribeJournalS3ExportCommand = async (
   input: DescribeJournalS3ExportCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/ledgers/{Name}/journal-s3-exports/{ExportId}";
@@ -194,12 +194,12 @@ export async function serializeAws_restJson1_1DescribeJournalS3ExportCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribeLedgerCommand(
+export const serializeAws_restJson1_1DescribeLedgerCommand = async (
   input: DescribeLedgerCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/ledgers/{Name}";
@@ -226,12 +226,12 @@ export async function serializeAws_restJson1_1DescribeLedgerCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ExportJournalToS3Command(
+export const serializeAws_restJson1_1ExportJournalToS3Command = async (
   input: ExportJournalToS3CommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/ledgers/{Name}/journal-s3-exports";
@@ -281,12 +281,12 @@ export async function serializeAws_restJson1_1ExportJournalToS3Command(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetBlockCommand(
+export const serializeAws_restJson1_1GetBlockCommand = async (
   input: GetBlockCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/ledgers/{Name}/block";
@@ -327,12 +327,12 @@ export async function serializeAws_restJson1_1GetBlockCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetDigestCommand(
+export const serializeAws_restJson1_1GetDigestCommand = async (
   input: GetDigestCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/ledgers/{Name}/digest";
@@ -359,12 +359,12 @@ export async function serializeAws_restJson1_1GetDigestCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetRevisionCommand(
+export const serializeAws_restJson1_1GetRevisionCommand = async (
   input: GetRevisionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/ledgers/{Name}/revision";
@@ -408,12 +408,12 @@ export async function serializeAws_restJson1_1GetRevisionCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListJournalS3ExportsCommand(
+export const serializeAws_restJson1_1ListJournalS3ExportsCommand = async (
   input: ListJournalS3ExportsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/journal-s3-exports";
@@ -436,12 +436,12 @@ export async function serializeAws_restJson1_1ListJournalS3ExportsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListJournalS3ExportsForLedgerCommand(
+export const serializeAws_restJson1_1ListJournalS3ExportsForLedgerCommand = async (
   input: ListJournalS3ExportsForLedgerCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/ledgers/{Name}/journal-s3-exports";
@@ -476,12 +476,12 @@ export async function serializeAws_restJson1_1ListJournalS3ExportsForLedgerComma
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListLedgersCommand(
+export const serializeAws_restJson1_1ListLedgersCommand = async (
   input: ListLedgersCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/ledgers";
@@ -504,12 +504,12 @@ export async function serializeAws_restJson1_1ListLedgersCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListTagsForResourceCommand(
+export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{ResourceArn}";
@@ -538,12 +538,12 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1TagResourceCommand(
+export const serializeAws_restJson1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/tags/{ResourceArn}";
@@ -577,12 +577,12 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UntagResourceCommand(
+export const serializeAws_restJson1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{ResourceArn}";
@@ -616,12 +616,12 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UpdateLedgerCommand(
+export const serializeAws_restJson1_1UpdateLedgerCommand = async (
   input: UpdateLedgerCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/ledgers/{Name}";
@@ -653,12 +653,12 @@ export async function serializeAws_restJson1_1UpdateLedgerCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1CreateLedgerCommand(
+export const deserializeAws_restJson1_1CreateLedgerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateLedgerCommandOutput> {
+): Promise<CreateLedgerCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateLedgerCommandError(output, context);
   }
@@ -693,12 +693,12 @@ export async function deserializeAws_restJson1_1CreateLedgerCommand(
     contents.State = data.State;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreateLedgerCommandError(
+const deserializeAws_restJson1_1CreateLedgerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateLedgerCommandOutput> {
+): Promise<CreateLedgerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -766,12 +766,12 @@ async function deserializeAws_restJson1_1CreateLedgerCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteLedgerCommand(
+export const deserializeAws_restJson1_1DeleteLedgerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteLedgerCommandOutput> {
+): Promise<DeleteLedgerCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteLedgerCommandError(output, context);
   }
@@ -780,12 +780,12 @@ export async function deserializeAws_restJson1_1DeleteLedgerCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteLedgerCommandError(
+const deserializeAws_restJson1_1DeleteLedgerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteLedgerCommandOutput> {
+): Promise<DeleteLedgerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -853,12 +853,12 @@ async function deserializeAws_restJson1_1DeleteLedgerCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeJournalS3ExportCommand(
+export const deserializeAws_restJson1_1DescribeJournalS3ExportCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeJournalS3ExportCommandOutput> {
+): Promise<DescribeJournalS3ExportCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeJournalS3ExportCommandError(
       output,
@@ -878,12 +878,12 @@ export async function deserializeAws_restJson1_1DescribeJournalS3ExportCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeJournalS3ExportCommandError(
+const deserializeAws_restJson1_1DescribeJournalS3ExportCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeJournalS3ExportCommandOutput> {
+): Promise<DescribeJournalS3ExportCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -918,12 +918,12 @@ async function deserializeAws_restJson1_1DescribeJournalS3ExportCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeLedgerCommand(
+export const deserializeAws_restJson1_1DescribeLedgerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeLedgerCommandOutput> {
+): Promise<DescribeLedgerCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeLedgerCommandError(
       output,
@@ -961,12 +961,12 @@ export async function deserializeAws_restJson1_1DescribeLedgerCommand(
     contents.State = data.State;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeLedgerCommandError(
+const deserializeAws_restJson1_1DescribeLedgerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeLedgerCommandOutput> {
+): Promise<DescribeLedgerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1012,12 +1012,12 @@ async function deserializeAws_restJson1_1DescribeLedgerCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ExportJournalToS3Command(
+export const deserializeAws_restJson1_1ExportJournalToS3Command = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ExportJournalToS3CommandOutput> {
+): Promise<ExportJournalToS3CommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ExportJournalToS3CommandError(
       output,
@@ -1034,12 +1034,12 @@ export async function deserializeAws_restJson1_1ExportJournalToS3Command(
     contents.ExportId = data.ExportId;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ExportJournalToS3CommandError(
+const deserializeAws_restJson1_1ExportJournalToS3CommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ExportJournalToS3CommandOutput> {
+): Promise<ExportJournalToS3CommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1085,12 +1085,12 @@ async function deserializeAws_restJson1_1ExportJournalToS3CommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetBlockCommand(
+export const deserializeAws_restJson1_1GetBlockCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBlockCommandOutput> {
+): Promise<GetBlockCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetBlockCommandError(output, context);
   }
@@ -1108,12 +1108,12 @@ export async function deserializeAws_restJson1_1GetBlockCommand(
     contents.Proof = deserializeAws_restJson1_1ValueHolder(data.Proof, context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetBlockCommandError(
+const deserializeAws_restJson1_1GetBlockCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBlockCommandOutput> {
+): Promise<GetBlockCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1170,12 +1170,12 @@ async function deserializeAws_restJson1_1GetBlockCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetDigestCommand(
+export const deserializeAws_restJson1_1GetDigestCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetDigestCommandOutput> {
+): Promise<GetDigestCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetDigestCommandError(output, context);
   }
@@ -1196,12 +1196,12 @@ export async function deserializeAws_restJson1_1GetDigestCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetDigestCommandError(
+const deserializeAws_restJson1_1GetDigestCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetDigestCommandOutput> {
+): Promise<GetDigestCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1258,12 +1258,12 @@ async function deserializeAws_restJson1_1GetDigestCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetRevisionCommand(
+export const deserializeAws_restJson1_1GetRevisionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetRevisionCommandOutput> {
+): Promise<GetRevisionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetRevisionCommandError(output, context);
   }
@@ -1284,12 +1284,12 @@ export async function deserializeAws_restJson1_1GetRevisionCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetRevisionCommandError(
+const deserializeAws_restJson1_1GetRevisionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetRevisionCommandOutput> {
+): Promise<GetRevisionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1346,12 +1346,12 @@ async function deserializeAws_restJson1_1GetRevisionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListJournalS3ExportsCommand(
+export const deserializeAws_restJson1_1ListJournalS3ExportsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListJournalS3ExportsCommandOutput> {
+): Promise<ListJournalS3ExportsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListJournalS3ExportsCommandError(
       output,
@@ -1375,12 +1375,12 @@ export async function deserializeAws_restJson1_1ListJournalS3ExportsCommand(
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListJournalS3ExportsCommandError(
+const deserializeAws_restJson1_1ListJournalS3ExportsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListJournalS3ExportsCommandOutput> {
+): Promise<ListJournalS3ExportsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1404,12 +1404,12 @@ async function deserializeAws_restJson1_1ListJournalS3ExportsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListJournalS3ExportsForLedgerCommand(
+export const deserializeAws_restJson1_1ListJournalS3ExportsForLedgerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListJournalS3ExportsForLedgerCommandOutput> {
+): Promise<ListJournalS3ExportsForLedgerCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListJournalS3ExportsForLedgerCommandError(
       output,
@@ -1433,12 +1433,12 @@ export async function deserializeAws_restJson1_1ListJournalS3ExportsForLedgerCom
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListJournalS3ExportsForLedgerCommandError(
+const deserializeAws_restJson1_1ListJournalS3ExportsForLedgerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListJournalS3ExportsForLedgerCommandOutput> {
+): Promise<ListJournalS3ExportsForLedgerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1462,12 +1462,12 @@ async function deserializeAws_restJson1_1ListJournalS3ExportsForLedgerCommandErr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListLedgersCommand(
+export const deserializeAws_restJson1_1ListLedgersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListLedgersCommandOutput> {
+): Promise<ListLedgersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListLedgersCommandError(output, context);
   }
@@ -1488,12 +1488,12 @@ export async function deserializeAws_restJson1_1ListLedgersCommand(
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListLedgersCommandError(
+const deserializeAws_restJson1_1ListLedgersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListLedgersCommandOutput> {
+): Promise<ListLedgersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1517,12 +1517,12 @@ async function deserializeAws_restJson1_1ListLedgersCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
+export const deserializeAws_restJson1_1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListTagsForResourceCommandError(
       output,
@@ -1539,12 +1539,12 @@ export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
     contents.Tags = deserializeAws_restJson1_1Tags(data.Tags, context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
+const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1590,12 +1590,12 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1TagResourceCommand(
+export const deserializeAws_restJson1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1TagResourceCommandError(output, context);
   }
@@ -1605,12 +1605,12 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1TagResourceCommandError(
+const deserializeAws_restJson1_1TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1656,12 +1656,12 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UntagResourceCommand(
+export const deserializeAws_restJson1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UntagResourceCommandError(output, context);
   }
@@ -1671,12 +1671,12 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UntagResourceCommandError(
+const deserializeAws_restJson1_1UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1722,12 +1722,12 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UpdateLedgerCommand(
+export const deserializeAws_restJson1_1UpdateLedgerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateLedgerCommandOutput> {
+): Promise<UpdateLedgerCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateLedgerCommandError(output, context);
   }
@@ -1762,12 +1762,12 @@ export async function deserializeAws_restJson1_1UpdateLedgerCommand(
     contents.State = data.State;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UpdateLedgerCommandError(
+const deserializeAws_restJson1_1UpdateLedgerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateLedgerCommandOutput> {
+): Promise<UpdateLedgerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1813,7 +1813,7 @@ async function deserializeAws_restJson1_1UpdateLedgerCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1InvalidParameterExceptionResponse = async (
   parsedOutput: any,

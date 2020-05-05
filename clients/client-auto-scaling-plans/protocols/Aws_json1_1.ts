@@ -68,10 +68,10 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_json1_1CreateScalingPlanCommand(
+export const serializeAws_json1_1CreateScalingPlanCommand = async (
   input: CreateScalingPlanCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -81,12 +81,12 @@ export async function serializeAws_json1_1CreateScalingPlanCommand(
     serializeAws_json1_1CreateScalingPlanRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteScalingPlanCommand(
+export const serializeAws_json1_1DeleteScalingPlanCommand = async (
   input: DeleteScalingPlanCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -96,12 +96,12 @@ export async function serializeAws_json1_1DeleteScalingPlanCommand(
     serializeAws_json1_1DeleteScalingPlanRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeScalingPlanResourcesCommand(
+export const serializeAws_json1_1DescribeScalingPlanResourcesCommand = async (
   input: DescribeScalingPlanResourcesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -111,12 +111,12 @@ export async function serializeAws_json1_1DescribeScalingPlanResourcesCommand(
     serializeAws_json1_1DescribeScalingPlanResourcesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeScalingPlansCommand(
+export const serializeAws_json1_1DescribeScalingPlansCommand = async (
   input: DescribeScalingPlansCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -126,12 +126,12 @@ export async function serializeAws_json1_1DescribeScalingPlansCommand(
     serializeAws_json1_1DescribeScalingPlansRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetScalingPlanResourceForecastDataCommand(
+export const serializeAws_json1_1GetScalingPlanResourceForecastDataCommand = async (
   input: GetScalingPlanResourceForecastDataCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -144,12 +144,12 @@ export async function serializeAws_json1_1GetScalingPlanResourceForecastDataComm
     )
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateScalingPlanCommand(
+export const serializeAws_json1_1UpdateScalingPlanCommand = async (
   input: UpdateScalingPlanCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -159,12 +159,12 @@ export async function serializeAws_json1_1UpdateScalingPlanCommand(
     serializeAws_json1_1UpdateScalingPlanRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_1CreateScalingPlanCommand(
+export const deserializeAws_json1_1CreateScalingPlanCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateScalingPlanCommandOutput> {
+): Promise<CreateScalingPlanCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateScalingPlanCommandError(output, context);
   }
@@ -177,12 +177,12 @@ export async function deserializeAws_json1_1CreateScalingPlanCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateScalingPlanCommandError(
+const deserializeAws_json1_1CreateScalingPlanCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateScalingPlanCommandOutput> {
+): Promise<CreateScalingPlanCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -252,12 +252,12 @@ async function deserializeAws_json1_1CreateScalingPlanCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteScalingPlanCommand(
+export const deserializeAws_json1_1DeleteScalingPlanCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteScalingPlanCommandOutput> {
+): Promise<DeleteScalingPlanCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteScalingPlanCommandError(output, context);
   }
@@ -270,12 +270,12 @@ export async function deserializeAws_json1_1DeleteScalingPlanCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteScalingPlanCommandError(
+const deserializeAws_json1_1DeleteScalingPlanCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteScalingPlanCommandOutput> {
+): Promise<DeleteScalingPlanCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -345,12 +345,12 @@ async function deserializeAws_json1_1DeleteScalingPlanCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeScalingPlanResourcesCommand(
+export const deserializeAws_json1_1DescribeScalingPlanResourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeScalingPlanResourcesCommandOutput> {
+): Promise<DescribeScalingPlanResourcesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeScalingPlanResourcesCommandError(
       output,
@@ -369,12 +369,12 @@ export async function deserializeAws_json1_1DescribeScalingPlanResourcesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeScalingPlanResourcesCommandError(
+const deserializeAws_json1_1DescribeScalingPlanResourcesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeScalingPlanResourcesCommandOutput> {
+): Promise<DescribeScalingPlanResourcesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -444,12 +444,12 @@ async function deserializeAws_json1_1DescribeScalingPlanResourcesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeScalingPlansCommand(
+export const deserializeAws_json1_1DescribeScalingPlansCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeScalingPlansCommandOutput> {
+): Promise<DescribeScalingPlansCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeScalingPlansCommandError(
       output,
@@ -465,12 +465,12 @@ export async function deserializeAws_json1_1DescribeScalingPlansCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeScalingPlansCommandError(
+const deserializeAws_json1_1DescribeScalingPlansCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeScalingPlansCommandOutput> {
+): Promise<DescribeScalingPlansCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -540,12 +540,12 @@ async function deserializeAws_json1_1DescribeScalingPlansCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetScalingPlanResourceForecastDataCommand(
+export const deserializeAws_json1_1GetScalingPlanResourceForecastDataCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetScalingPlanResourceForecastDataCommandOutput> {
+): Promise<GetScalingPlanResourceForecastDataCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetScalingPlanResourceForecastDataCommandError(
       output,
@@ -564,12 +564,12 @@ export async function deserializeAws_json1_1GetScalingPlanResourceForecastDataCo
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetScalingPlanResourceForecastDataCommandError(
+const deserializeAws_json1_1GetScalingPlanResourceForecastDataCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetScalingPlanResourceForecastDataCommandOutput> {
+): Promise<GetScalingPlanResourceForecastDataCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -617,12 +617,12 @@ async function deserializeAws_json1_1GetScalingPlanResourceForecastDataCommandEr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateScalingPlanCommand(
+export const deserializeAws_json1_1UpdateScalingPlanCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateScalingPlanCommandOutput> {
+): Promise<UpdateScalingPlanCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateScalingPlanCommandError(output, context);
   }
@@ -635,12 +635,12 @@ export async function deserializeAws_json1_1UpdateScalingPlanCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateScalingPlanCommandError(
+const deserializeAws_json1_1UpdateScalingPlanCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateScalingPlanCommandOutput> {
+): Promise<UpdateScalingPlanCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -710,7 +710,7 @@ async function deserializeAws_json1_1UpdateScalingPlanCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_1ConcurrentUpdateExceptionResponse = async (
   parsedOutput: any,

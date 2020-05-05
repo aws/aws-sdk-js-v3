@@ -172,10 +172,10 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_json1_1CheckDomainAvailabilityCommand(
+export const serializeAws_json1_1CheckDomainAvailabilityCommand = async (
   input: CheckDomainAvailabilityCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Domains_v20140515.CheckDomainAvailability";
@@ -184,12 +184,12 @@ export async function serializeAws_json1_1CheckDomainAvailabilityCommand(
     serializeAws_json1_1CheckDomainAvailabilityRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CheckDomainTransferabilityCommand(
+export const serializeAws_json1_1CheckDomainTransferabilityCommand = async (
   input: CheckDomainTransferabilityCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -199,12 +199,12 @@ export async function serializeAws_json1_1CheckDomainTransferabilityCommand(
     serializeAws_json1_1CheckDomainTransferabilityRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteTagsForDomainCommand(
+export const serializeAws_json1_1DeleteTagsForDomainCommand = async (
   input: DeleteTagsForDomainCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Domains_v20140515.DeleteTagsForDomain";
@@ -213,12 +213,12 @@ export async function serializeAws_json1_1DeleteTagsForDomainCommand(
     serializeAws_json1_1DeleteTagsForDomainRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DisableDomainAutoRenewCommand(
+export const serializeAws_json1_1DisableDomainAutoRenewCommand = async (
   input: DisableDomainAutoRenewCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Domains_v20140515.DisableDomainAutoRenew";
@@ -227,12 +227,12 @@ export async function serializeAws_json1_1DisableDomainAutoRenewCommand(
     serializeAws_json1_1DisableDomainAutoRenewRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DisableDomainTransferLockCommand(
+export const serializeAws_json1_1DisableDomainTransferLockCommand = async (
   input: DisableDomainTransferLockCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -242,12 +242,12 @@ export async function serializeAws_json1_1DisableDomainTransferLockCommand(
     serializeAws_json1_1DisableDomainTransferLockRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1EnableDomainAutoRenewCommand(
+export const serializeAws_json1_1EnableDomainAutoRenewCommand = async (
   input: EnableDomainAutoRenewCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Domains_v20140515.EnableDomainAutoRenew";
@@ -256,12 +256,12 @@ export async function serializeAws_json1_1EnableDomainAutoRenewCommand(
     serializeAws_json1_1EnableDomainAutoRenewRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1EnableDomainTransferLockCommand(
+export const serializeAws_json1_1EnableDomainTransferLockCommand = async (
   input: EnableDomainTransferLockCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Domains_v20140515.EnableDomainTransferLock";
@@ -270,12 +270,12 @@ export async function serializeAws_json1_1EnableDomainTransferLockCommand(
     serializeAws_json1_1EnableDomainTransferLockRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetContactReachabilityStatusCommand(
+export const serializeAws_json1_1GetContactReachabilityStatusCommand = async (
   input: GetContactReachabilityStatusCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -285,12 +285,12 @@ export async function serializeAws_json1_1GetContactReachabilityStatusCommand(
     serializeAws_json1_1GetContactReachabilityStatusRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetDomainDetailCommand(
+export const serializeAws_json1_1GetDomainDetailCommand = async (
   input: GetDomainDetailCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Domains_v20140515.GetDomainDetail";
@@ -299,12 +299,12 @@ export async function serializeAws_json1_1GetDomainDetailCommand(
     serializeAws_json1_1GetDomainDetailRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetDomainSuggestionsCommand(
+export const serializeAws_json1_1GetDomainSuggestionsCommand = async (
   input: GetDomainSuggestionsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Domains_v20140515.GetDomainSuggestions";
@@ -313,12 +313,12 @@ export async function serializeAws_json1_1GetDomainSuggestionsCommand(
     serializeAws_json1_1GetDomainSuggestionsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetOperationDetailCommand(
+export const serializeAws_json1_1GetOperationDetailCommand = async (
   input: GetOperationDetailCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Domains_v20140515.GetOperationDetail";
@@ -327,24 +327,24 @@ export async function serializeAws_json1_1GetOperationDetailCommand(
     serializeAws_json1_1GetOperationDetailRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListDomainsCommand(
+export const serializeAws_json1_1ListDomainsCommand = async (
   input: ListDomainsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Domains_v20140515.ListDomains";
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListDomainsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListOperationsCommand(
+export const serializeAws_json1_1ListOperationsCommand = async (
   input: ListOperationsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Domains_v20140515.ListOperations";
@@ -353,12 +353,12 @@ export async function serializeAws_json1_1ListOperationsCommand(
     serializeAws_json1_1ListOperationsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListTagsForDomainCommand(
+export const serializeAws_json1_1ListTagsForDomainCommand = async (
   input: ListTagsForDomainCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Domains_v20140515.ListTagsForDomain";
@@ -367,12 +367,12 @@ export async function serializeAws_json1_1ListTagsForDomainCommand(
     serializeAws_json1_1ListTagsForDomainRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1RegisterDomainCommand(
+export const serializeAws_json1_1RegisterDomainCommand = async (
   input: RegisterDomainCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Domains_v20140515.RegisterDomain";
@@ -381,24 +381,24 @@ export async function serializeAws_json1_1RegisterDomainCommand(
     serializeAws_json1_1RegisterDomainRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1RenewDomainCommand(
+export const serializeAws_json1_1RenewDomainCommand = async (
   input: RenewDomainCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Domains_v20140515.RenewDomain";
   let body: any;
   body = JSON.stringify(serializeAws_json1_1RenewDomainRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ResendContactReachabilityEmailCommand(
+export const serializeAws_json1_1ResendContactReachabilityEmailCommand = async (
   input: ResendContactReachabilityEmailCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -408,12 +408,12 @@ export async function serializeAws_json1_1ResendContactReachabilityEmailCommand(
     serializeAws_json1_1ResendContactReachabilityEmailRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1RetrieveDomainAuthCodeCommand(
+export const serializeAws_json1_1RetrieveDomainAuthCodeCommand = async (
   input: RetrieveDomainAuthCodeCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Domains_v20140515.RetrieveDomainAuthCode";
@@ -422,12 +422,12 @@ export async function serializeAws_json1_1RetrieveDomainAuthCodeCommand(
     serializeAws_json1_1RetrieveDomainAuthCodeRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1TransferDomainCommand(
+export const serializeAws_json1_1TransferDomainCommand = async (
   input: TransferDomainCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Domains_v20140515.TransferDomain";
@@ -436,12 +436,12 @@ export async function serializeAws_json1_1TransferDomainCommand(
     serializeAws_json1_1TransferDomainRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateDomainContactCommand(
+export const serializeAws_json1_1UpdateDomainContactCommand = async (
   input: UpdateDomainContactCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Domains_v20140515.UpdateDomainContact";
@@ -450,12 +450,12 @@ export async function serializeAws_json1_1UpdateDomainContactCommand(
     serializeAws_json1_1UpdateDomainContactRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateDomainContactPrivacyCommand(
+export const serializeAws_json1_1UpdateDomainContactPrivacyCommand = async (
   input: UpdateDomainContactPrivacyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -465,12 +465,12 @@ export async function serializeAws_json1_1UpdateDomainContactPrivacyCommand(
     serializeAws_json1_1UpdateDomainContactPrivacyRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateDomainNameserversCommand(
+export const serializeAws_json1_1UpdateDomainNameserversCommand = async (
   input: UpdateDomainNameserversCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Domains_v20140515.UpdateDomainNameservers";
@@ -479,12 +479,12 @@ export async function serializeAws_json1_1UpdateDomainNameserversCommand(
     serializeAws_json1_1UpdateDomainNameserversRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateTagsForDomainCommand(
+export const serializeAws_json1_1UpdateTagsForDomainCommand = async (
   input: UpdateTagsForDomainCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Domains_v20140515.UpdateTagsForDomain";
@@ -493,24 +493,24 @@ export async function serializeAws_json1_1UpdateTagsForDomainCommand(
     serializeAws_json1_1UpdateTagsForDomainRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ViewBillingCommand(
+export const serializeAws_json1_1ViewBillingCommand = async (
   input: ViewBillingCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Domains_v20140515.ViewBilling";
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ViewBillingRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_1CheckDomainAvailabilityCommand(
+export const deserializeAws_json1_1CheckDomainAvailabilityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CheckDomainAvailabilityCommandOutput> {
+): Promise<CheckDomainAvailabilityCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CheckDomainAvailabilityCommandError(
       output,
@@ -529,12 +529,12 @@ export async function deserializeAws_json1_1CheckDomainAvailabilityCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CheckDomainAvailabilityCommandError(
+const deserializeAws_json1_1CheckDomainAvailabilityCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CheckDomainAvailabilityCommandOutput> {
+): Promise<CheckDomainAvailabilityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -582,12 +582,12 @@ async function deserializeAws_json1_1CheckDomainAvailabilityCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CheckDomainTransferabilityCommand(
+export const deserializeAws_json1_1CheckDomainTransferabilityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CheckDomainTransferabilityCommandOutput> {
+): Promise<CheckDomainTransferabilityCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CheckDomainTransferabilityCommandError(
       output,
@@ -606,12 +606,12 @@ export async function deserializeAws_json1_1CheckDomainTransferabilityCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CheckDomainTransferabilityCommandError(
+const deserializeAws_json1_1CheckDomainTransferabilityCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CheckDomainTransferabilityCommandOutput> {
+): Promise<CheckDomainTransferabilityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -659,12 +659,12 @@ async function deserializeAws_json1_1CheckDomainTransferabilityCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteTagsForDomainCommand(
+export const deserializeAws_json1_1DeleteTagsForDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteTagsForDomainCommandOutput> {
+): Promise<DeleteTagsForDomainCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteTagsForDomainCommandError(
       output,
@@ -680,12 +680,12 @@ export async function deserializeAws_json1_1DeleteTagsForDomainCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteTagsForDomainCommandError(
+const deserializeAws_json1_1DeleteTagsForDomainCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteTagsForDomainCommandOutput> {
+): Promise<DeleteTagsForDomainCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -744,12 +744,12 @@ async function deserializeAws_json1_1DeleteTagsForDomainCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DisableDomainAutoRenewCommand(
+export const deserializeAws_json1_1DisableDomainAutoRenewCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisableDomainAutoRenewCommandOutput> {
+): Promise<DisableDomainAutoRenewCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DisableDomainAutoRenewCommandError(
       output,
@@ -768,12 +768,12 @@ export async function deserializeAws_json1_1DisableDomainAutoRenewCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DisableDomainAutoRenewCommandError(
+const deserializeAws_json1_1DisableDomainAutoRenewCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisableDomainAutoRenewCommandOutput> {
+): Promise<DisableDomainAutoRenewCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -821,12 +821,12 @@ async function deserializeAws_json1_1DisableDomainAutoRenewCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DisableDomainTransferLockCommand(
+export const deserializeAws_json1_1DisableDomainTransferLockCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisableDomainTransferLockCommandOutput> {
+): Promise<DisableDomainTransferLockCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DisableDomainTransferLockCommandError(
       output,
@@ -845,12 +845,12 @@ export async function deserializeAws_json1_1DisableDomainTransferLockCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DisableDomainTransferLockCommandError(
+const deserializeAws_json1_1DisableDomainTransferLockCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisableDomainTransferLockCommandOutput> {
+): Promise<DisableDomainTransferLockCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -931,12 +931,12 @@ async function deserializeAws_json1_1DisableDomainTransferLockCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1EnableDomainAutoRenewCommand(
+export const deserializeAws_json1_1EnableDomainAutoRenewCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<EnableDomainAutoRenewCommandOutput> {
+): Promise<EnableDomainAutoRenewCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1EnableDomainAutoRenewCommandError(
       output,
@@ -952,12 +952,12 @@ export async function deserializeAws_json1_1EnableDomainAutoRenewCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1EnableDomainAutoRenewCommandError(
+const deserializeAws_json1_1EnableDomainAutoRenewCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<EnableDomainAutoRenewCommandOutput> {
+): Promise<EnableDomainAutoRenewCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1016,12 +1016,12 @@ async function deserializeAws_json1_1EnableDomainAutoRenewCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1EnableDomainTransferLockCommand(
+export const deserializeAws_json1_1EnableDomainTransferLockCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<EnableDomainTransferLockCommandOutput> {
+): Promise<EnableDomainTransferLockCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1EnableDomainTransferLockCommandError(
       output,
@@ -1040,12 +1040,12 @@ export async function deserializeAws_json1_1EnableDomainTransferLockCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1EnableDomainTransferLockCommandError(
+const deserializeAws_json1_1EnableDomainTransferLockCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<EnableDomainTransferLockCommandOutput> {
+): Promise<EnableDomainTransferLockCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1126,12 +1126,12 @@ async function deserializeAws_json1_1EnableDomainTransferLockCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetContactReachabilityStatusCommand(
+export const deserializeAws_json1_1GetContactReachabilityStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetContactReachabilityStatusCommandOutput> {
+): Promise<GetContactReachabilityStatusCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetContactReachabilityStatusCommandError(
       output,
@@ -1150,12 +1150,12 @@ export async function deserializeAws_json1_1GetContactReachabilityStatusCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetContactReachabilityStatusCommandError(
+const deserializeAws_json1_1GetContactReachabilityStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetContactReachabilityStatusCommandOutput> {
+): Promise<GetContactReachabilityStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1214,12 +1214,12 @@ async function deserializeAws_json1_1GetContactReachabilityStatusCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetDomainDetailCommand(
+export const deserializeAws_json1_1GetDomainDetailCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetDomainDetailCommandOutput> {
+): Promise<GetDomainDetailCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetDomainDetailCommandError(output, context);
   }
@@ -1232,12 +1232,12 @@ export async function deserializeAws_json1_1GetDomainDetailCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetDomainDetailCommandError(
+const deserializeAws_json1_1GetDomainDetailCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetDomainDetailCommandOutput> {
+): Promise<GetDomainDetailCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1285,12 +1285,12 @@ async function deserializeAws_json1_1GetDomainDetailCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetDomainSuggestionsCommand(
+export const deserializeAws_json1_1GetDomainSuggestionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetDomainSuggestionsCommandOutput> {
+): Promise<GetDomainSuggestionsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetDomainSuggestionsCommandError(
       output,
@@ -1306,12 +1306,12 @@ export async function deserializeAws_json1_1GetDomainSuggestionsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetDomainSuggestionsCommandError(
+const deserializeAws_json1_1GetDomainSuggestionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetDomainSuggestionsCommandOutput> {
+): Promise<GetDomainSuggestionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1359,12 +1359,12 @@ async function deserializeAws_json1_1GetDomainSuggestionsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetOperationDetailCommand(
+export const deserializeAws_json1_1GetOperationDetailCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetOperationDetailCommandOutput> {
+): Promise<GetOperationDetailCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetOperationDetailCommandError(
       output,
@@ -1380,12 +1380,12 @@ export async function deserializeAws_json1_1GetOperationDetailCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetOperationDetailCommandError(
+const deserializeAws_json1_1GetOperationDetailCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetOperationDetailCommandOutput> {
+): Promise<GetOperationDetailCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1422,12 +1422,12 @@ async function deserializeAws_json1_1GetOperationDetailCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListDomainsCommand(
+export const deserializeAws_json1_1ListDomainsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListDomainsCommandOutput> {
+): Promise<ListDomainsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListDomainsCommandError(output, context);
   }
@@ -1440,12 +1440,12 @@ export async function deserializeAws_json1_1ListDomainsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListDomainsCommandError(
+const deserializeAws_json1_1ListDomainsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListDomainsCommandOutput> {
+): Promise<ListDomainsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1482,12 +1482,12 @@ async function deserializeAws_json1_1ListDomainsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListOperationsCommand(
+export const deserializeAws_json1_1ListOperationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListOperationsCommandOutput> {
+): Promise<ListOperationsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListOperationsCommandError(output, context);
   }
@@ -1500,12 +1500,12 @@ export async function deserializeAws_json1_1ListOperationsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListOperationsCommandError(
+const deserializeAws_json1_1ListOperationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListOperationsCommandOutput> {
+): Promise<ListOperationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1542,12 +1542,12 @@ async function deserializeAws_json1_1ListOperationsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListTagsForDomainCommand(
+export const deserializeAws_json1_1ListTagsForDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForDomainCommandOutput> {
+): Promise<ListTagsForDomainCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListTagsForDomainCommandError(output, context);
   }
@@ -1560,12 +1560,12 @@ export async function deserializeAws_json1_1ListTagsForDomainCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListTagsForDomainCommandError(
+const deserializeAws_json1_1ListTagsForDomainCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForDomainCommandOutput> {
+): Promise<ListTagsForDomainCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1624,12 +1624,12 @@ async function deserializeAws_json1_1ListTagsForDomainCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1RegisterDomainCommand(
+export const deserializeAws_json1_1RegisterDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RegisterDomainCommandOutput> {
+): Promise<RegisterDomainCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1RegisterDomainCommandError(output, context);
   }
@@ -1642,12 +1642,12 @@ export async function deserializeAws_json1_1RegisterDomainCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1RegisterDomainCommandError(
+const deserializeAws_json1_1RegisterDomainCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RegisterDomainCommandOutput> {
+): Promise<RegisterDomainCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1739,12 +1739,12 @@ async function deserializeAws_json1_1RegisterDomainCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1RenewDomainCommand(
+export const deserializeAws_json1_1RenewDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RenewDomainCommandOutput> {
+): Promise<RenewDomainCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1RenewDomainCommandError(output, context);
   }
@@ -1757,12 +1757,12 @@ export async function deserializeAws_json1_1RenewDomainCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1RenewDomainCommandError(
+const deserializeAws_json1_1RenewDomainCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RenewDomainCommandOutput> {
+): Promise<RenewDomainCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1843,12 +1843,12 @@ async function deserializeAws_json1_1RenewDomainCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ResendContactReachabilityEmailCommand(
+export const deserializeAws_json1_1ResendContactReachabilityEmailCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ResendContactReachabilityEmailCommandOutput> {
+): Promise<ResendContactReachabilityEmailCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ResendContactReachabilityEmailCommandError(
       output,
@@ -1867,12 +1867,12 @@ export async function deserializeAws_json1_1ResendContactReachabilityEmailComman
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ResendContactReachabilityEmailCommandError(
+const deserializeAws_json1_1ResendContactReachabilityEmailCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ResendContactReachabilityEmailCommandOutput> {
+): Promise<ResendContactReachabilityEmailCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1931,12 +1931,12 @@ async function deserializeAws_json1_1ResendContactReachabilityEmailCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1RetrieveDomainAuthCodeCommand(
+export const deserializeAws_json1_1RetrieveDomainAuthCodeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RetrieveDomainAuthCodeCommandOutput> {
+): Promise<RetrieveDomainAuthCodeCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1RetrieveDomainAuthCodeCommandError(
       output,
@@ -1955,12 +1955,12 @@ export async function deserializeAws_json1_1RetrieveDomainAuthCodeCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1RetrieveDomainAuthCodeCommandError(
+const deserializeAws_json1_1RetrieveDomainAuthCodeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RetrieveDomainAuthCodeCommandOutput> {
+): Promise<RetrieveDomainAuthCodeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2008,12 +2008,12 @@ async function deserializeAws_json1_1RetrieveDomainAuthCodeCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1TransferDomainCommand(
+export const deserializeAws_json1_1TransferDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TransferDomainCommandOutput> {
+): Promise<TransferDomainCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1TransferDomainCommandError(output, context);
   }
@@ -2026,12 +2026,12 @@ export async function deserializeAws_json1_1TransferDomainCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1TransferDomainCommandError(
+const deserializeAws_json1_1TransferDomainCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TransferDomainCommandOutput> {
+): Promise<TransferDomainCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2123,12 +2123,12 @@ async function deserializeAws_json1_1TransferDomainCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateDomainContactCommand(
+export const deserializeAws_json1_1UpdateDomainContactCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateDomainContactCommandOutput> {
+): Promise<UpdateDomainContactCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateDomainContactCommandError(
       output,
@@ -2144,12 +2144,12 @@ export async function deserializeAws_json1_1UpdateDomainContactCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateDomainContactCommandError(
+const deserializeAws_json1_1UpdateDomainContactCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateDomainContactCommandOutput> {
+): Promise<UpdateDomainContactCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2230,12 +2230,12 @@ async function deserializeAws_json1_1UpdateDomainContactCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateDomainContactPrivacyCommand(
+export const deserializeAws_json1_1UpdateDomainContactPrivacyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateDomainContactPrivacyCommandOutput> {
+): Promise<UpdateDomainContactPrivacyCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateDomainContactPrivacyCommandError(
       output,
@@ -2254,12 +2254,12 @@ export async function deserializeAws_json1_1UpdateDomainContactPrivacyCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateDomainContactPrivacyCommandError(
+const deserializeAws_json1_1UpdateDomainContactPrivacyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateDomainContactPrivacyCommandOutput> {
+): Promise<UpdateDomainContactPrivacyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2340,12 +2340,12 @@ async function deserializeAws_json1_1UpdateDomainContactPrivacyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateDomainNameserversCommand(
+export const deserializeAws_json1_1UpdateDomainNameserversCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateDomainNameserversCommandOutput> {
+): Promise<UpdateDomainNameserversCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateDomainNameserversCommandError(
       output,
@@ -2364,12 +2364,12 @@ export async function deserializeAws_json1_1UpdateDomainNameserversCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateDomainNameserversCommandError(
+const deserializeAws_json1_1UpdateDomainNameserversCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateDomainNameserversCommandOutput> {
+): Promise<UpdateDomainNameserversCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2450,12 +2450,12 @@ async function deserializeAws_json1_1UpdateDomainNameserversCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateTagsForDomainCommand(
+export const deserializeAws_json1_1UpdateTagsForDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateTagsForDomainCommandOutput> {
+): Promise<UpdateTagsForDomainCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateTagsForDomainCommandError(
       output,
@@ -2471,12 +2471,12 @@ export async function deserializeAws_json1_1UpdateTagsForDomainCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateTagsForDomainCommandError(
+const deserializeAws_json1_1UpdateTagsForDomainCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateTagsForDomainCommandOutput> {
+): Promise<UpdateTagsForDomainCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2535,12 +2535,12 @@ async function deserializeAws_json1_1UpdateTagsForDomainCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ViewBillingCommand(
+export const deserializeAws_json1_1ViewBillingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ViewBillingCommandOutput> {
+): Promise<ViewBillingCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ViewBillingCommandError(output, context);
   }
@@ -2553,12 +2553,12 @@ export async function deserializeAws_json1_1ViewBillingCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ViewBillingCommandError(
+const deserializeAws_json1_1ViewBillingCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ViewBillingCommandOutput> {
+): Promise<ViewBillingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2595,7 +2595,7 @@ async function deserializeAws_json1_1ViewBillingCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_1DomainLimitExceededResponse = async (
   parsedOutput: any,

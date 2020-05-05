@@ -115,10 +115,10 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_json1_1CreateBudgetCommand(
+export const serializeAws_json1_1CreateBudgetCommand = async (
   input: CreateBudgetCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSBudgetServiceGateway.CreateBudget";
@@ -127,12 +127,12 @@ export async function serializeAws_json1_1CreateBudgetCommand(
     serializeAws_json1_1CreateBudgetRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreateNotificationCommand(
+export const serializeAws_json1_1CreateNotificationCommand = async (
   input: CreateNotificationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSBudgetServiceGateway.CreateNotification";
@@ -141,12 +141,12 @@ export async function serializeAws_json1_1CreateNotificationCommand(
     serializeAws_json1_1CreateNotificationRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreateSubscriberCommand(
+export const serializeAws_json1_1CreateSubscriberCommand = async (
   input: CreateSubscriberCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSBudgetServiceGateway.CreateSubscriber";
@@ -155,12 +155,12 @@ export async function serializeAws_json1_1CreateSubscriberCommand(
     serializeAws_json1_1CreateSubscriberRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteBudgetCommand(
+export const serializeAws_json1_1DeleteBudgetCommand = async (
   input: DeleteBudgetCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSBudgetServiceGateway.DeleteBudget";
@@ -169,12 +169,12 @@ export async function serializeAws_json1_1DeleteBudgetCommand(
     serializeAws_json1_1DeleteBudgetRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteNotificationCommand(
+export const serializeAws_json1_1DeleteNotificationCommand = async (
   input: DeleteNotificationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSBudgetServiceGateway.DeleteNotification";
@@ -183,12 +183,12 @@ export async function serializeAws_json1_1DeleteNotificationCommand(
     serializeAws_json1_1DeleteNotificationRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteSubscriberCommand(
+export const serializeAws_json1_1DeleteSubscriberCommand = async (
   input: DeleteSubscriberCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSBudgetServiceGateway.DeleteSubscriber";
@@ -197,12 +197,12 @@ export async function serializeAws_json1_1DeleteSubscriberCommand(
     serializeAws_json1_1DeleteSubscriberRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeBudgetCommand(
+export const serializeAws_json1_1DescribeBudgetCommand = async (
   input: DescribeBudgetCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSBudgetServiceGateway.DescribeBudget";
@@ -211,12 +211,12 @@ export async function serializeAws_json1_1DescribeBudgetCommand(
     serializeAws_json1_1DescribeBudgetRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeBudgetPerformanceHistoryCommand(
+export const serializeAws_json1_1DescribeBudgetPerformanceHistoryCommand = async (
   input: DescribeBudgetPerformanceHistoryCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -226,12 +226,12 @@ export async function serializeAws_json1_1DescribeBudgetPerformanceHistoryComman
     serializeAws_json1_1DescribeBudgetPerformanceHistoryRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeBudgetsCommand(
+export const serializeAws_json1_1DescribeBudgetsCommand = async (
   input: DescribeBudgetsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSBudgetServiceGateway.DescribeBudgets";
@@ -240,12 +240,12 @@ export async function serializeAws_json1_1DescribeBudgetsCommand(
     serializeAws_json1_1DescribeBudgetsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeNotificationsForBudgetCommand(
+export const serializeAws_json1_1DescribeNotificationsForBudgetCommand = async (
   input: DescribeNotificationsForBudgetCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -255,12 +255,12 @@ export async function serializeAws_json1_1DescribeNotificationsForBudgetCommand(
     serializeAws_json1_1DescribeNotificationsForBudgetRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeSubscribersForNotificationCommand(
+export const serializeAws_json1_1DescribeSubscribersForNotificationCommand = async (
   input: DescribeSubscribersForNotificationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] =
@@ -273,12 +273,12 @@ export async function serializeAws_json1_1DescribeSubscribersForNotificationComm
     )
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateBudgetCommand(
+export const serializeAws_json1_1UpdateBudgetCommand = async (
   input: UpdateBudgetCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSBudgetServiceGateway.UpdateBudget";
@@ -287,12 +287,12 @@ export async function serializeAws_json1_1UpdateBudgetCommand(
     serializeAws_json1_1UpdateBudgetRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateNotificationCommand(
+export const serializeAws_json1_1UpdateNotificationCommand = async (
   input: UpdateNotificationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSBudgetServiceGateway.UpdateNotification";
@@ -301,12 +301,12 @@ export async function serializeAws_json1_1UpdateNotificationCommand(
     serializeAws_json1_1UpdateNotificationRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateSubscriberCommand(
+export const serializeAws_json1_1UpdateSubscriberCommand = async (
   input: UpdateSubscriberCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
+): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {};
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSBudgetServiceGateway.UpdateSubscriber";
@@ -315,12 +315,12 @@ export async function serializeAws_json1_1UpdateSubscriberCommand(
     serializeAws_json1_1UpdateSubscriberRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_1CreateBudgetCommand(
+export const deserializeAws_json1_1CreateBudgetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateBudgetCommandOutput> {
+): Promise<CreateBudgetCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateBudgetCommandError(output, context);
   }
@@ -333,12 +333,12 @@ export async function deserializeAws_json1_1CreateBudgetCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateBudgetCommandError(
+const deserializeAws_json1_1CreateBudgetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateBudgetCommandOutput> {
+): Promise<CreateBudgetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -419,12 +419,12 @@ async function deserializeAws_json1_1CreateBudgetCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreateNotificationCommand(
+export const deserializeAws_json1_1CreateNotificationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateNotificationCommandOutput> {
+): Promise<CreateNotificationCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateNotificationCommandError(
       output,
@@ -440,12 +440,12 @@ export async function deserializeAws_json1_1CreateNotificationCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateNotificationCommandError(
+const deserializeAws_json1_1CreateNotificationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateNotificationCommandOutput> {
+): Promise<CreateNotificationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -537,12 +537,12 @@ async function deserializeAws_json1_1CreateNotificationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreateSubscriberCommand(
+export const deserializeAws_json1_1CreateSubscriberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateSubscriberCommandOutput> {
+): Promise<CreateSubscriberCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateSubscriberCommandError(output, context);
   }
@@ -555,12 +555,12 @@ export async function deserializeAws_json1_1CreateSubscriberCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateSubscriberCommandError(
+const deserializeAws_json1_1CreateSubscriberCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateSubscriberCommandOutput> {
+): Promise<CreateSubscriberCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -652,12 +652,12 @@ async function deserializeAws_json1_1CreateSubscriberCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteBudgetCommand(
+export const deserializeAws_json1_1DeleteBudgetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteBudgetCommandOutput> {
+): Promise<DeleteBudgetCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteBudgetCommandError(output, context);
   }
@@ -670,12 +670,12 @@ export async function deserializeAws_json1_1DeleteBudgetCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteBudgetCommandError(
+const deserializeAws_json1_1DeleteBudgetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteBudgetCommandOutput> {
+): Promise<DeleteBudgetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -745,12 +745,12 @@ async function deserializeAws_json1_1DeleteBudgetCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteNotificationCommand(
+export const deserializeAws_json1_1DeleteNotificationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteNotificationCommandOutput> {
+): Promise<DeleteNotificationCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteNotificationCommandError(
       output,
@@ -766,12 +766,12 @@ export async function deserializeAws_json1_1DeleteNotificationCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteNotificationCommandError(
+const deserializeAws_json1_1DeleteNotificationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteNotificationCommandOutput> {
+): Promise<DeleteNotificationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -841,12 +841,12 @@ async function deserializeAws_json1_1DeleteNotificationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteSubscriberCommand(
+export const deserializeAws_json1_1DeleteSubscriberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteSubscriberCommandOutput> {
+): Promise<DeleteSubscriberCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteSubscriberCommandError(output, context);
   }
@@ -859,12 +859,12 @@ export async function deserializeAws_json1_1DeleteSubscriberCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteSubscriberCommandError(
+const deserializeAws_json1_1DeleteSubscriberCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteSubscriberCommandOutput> {
+): Promise<DeleteSubscriberCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -934,12 +934,12 @@ async function deserializeAws_json1_1DeleteSubscriberCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeBudgetCommand(
+export const deserializeAws_json1_1DescribeBudgetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeBudgetCommandOutput> {
+): Promise<DescribeBudgetCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeBudgetCommandError(output, context);
   }
@@ -952,12 +952,12 @@ export async function deserializeAws_json1_1DescribeBudgetCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeBudgetCommandError(
+const deserializeAws_json1_1DescribeBudgetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeBudgetCommandOutput> {
+): Promise<DescribeBudgetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1027,12 +1027,12 @@ async function deserializeAws_json1_1DescribeBudgetCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeBudgetPerformanceHistoryCommand(
+export const deserializeAws_json1_1DescribeBudgetPerformanceHistoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeBudgetPerformanceHistoryCommandOutput> {
+): Promise<DescribeBudgetPerformanceHistoryCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeBudgetPerformanceHistoryCommandError(
       output,
@@ -1051,12 +1051,12 @@ export async function deserializeAws_json1_1DescribeBudgetPerformanceHistoryComm
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeBudgetPerformanceHistoryCommandError(
+const deserializeAws_json1_1DescribeBudgetPerformanceHistoryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeBudgetPerformanceHistoryCommandOutput> {
+): Promise<DescribeBudgetPerformanceHistoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1148,12 +1148,12 @@ async function deserializeAws_json1_1DescribeBudgetPerformanceHistoryCommandErro
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeBudgetsCommand(
+export const deserializeAws_json1_1DescribeBudgetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeBudgetsCommandOutput> {
+): Promise<DescribeBudgetsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeBudgetsCommandError(output, context);
   }
@@ -1166,12 +1166,12 @@ export async function deserializeAws_json1_1DescribeBudgetsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeBudgetsCommandError(
+const deserializeAws_json1_1DescribeBudgetsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeBudgetsCommandOutput> {
+): Promise<DescribeBudgetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1263,12 +1263,12 @@ async function deserializeAws_json1_1DescribeBudgetsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeNotificationsForBudgetCommand(
+export const deserializeAws_json1_1DescribeNotificationsForBudgetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeNotificationsForBudgetCommandOutput> {
+): Promise<DescribeNotificationsForBudgetCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeNotificationsForBudgetCommandError(
       output,
@@ -1287,12 +1287,12 @@ export async function deserializeAws_json1_1DescribeNotificationsForBudgetComman
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeNotificationsForBudgetCommandError(
+const deserializeAws_json1_1DescribeNotificationsForBudgetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeNotificationsForBudgetCommandOutput> {
+): Promise<DescribeNotificationsForBudgetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1384,12 +1384,12 @@ async function deserializeAws_json1_1DescribeNotificationsForBudgetCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeSubscribersForNotificationCommand(
+export const deserializeAws_json1_1DescribeSubscribersForNotificationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeSubscribersForNotificationCommandOutput> {
+): Promise<DescribeSubscribersForNotificationCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeSubscribersForNotificationCommandError(
       output,
@@ -1408,12 +1408,12 @@ export async function deserializeAws_json1_1DescribeSubscribersForNotificationCo
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeSubscribersForNotificationCommandError(
+const deserializeAws_json1_1DescribeSubscribersForNotificationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeSubscribersForNotificationCommandOutput> {
+): Promise<DescribeSubscribersForNotificationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1505,12 +1505,12 @@ async function deserializeAws_json1_1DescribeSubscribersForNotificationCommandEr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateBudgetCommand(
+export const deserializeAws_json1_1UpdateBudgetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateBudgetCommandOutput> {
+): Promise<UpdateBudgetCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateBudgetCommandError(output, context);
   }
@@ -1523,12 +1523,12 @@ export async function deserializeAws_json1_1UpdateBudgetCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateBudgetCommandError(
+const deserializeAws_json1_1UpdateBudgetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateBudgetCommandOutput> {
+): Promise<UpdateBudgetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1598,12 +1598,12 @@ async function deserializeAws_json1_1UpdateBudgetCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateNotificationCommand(
+export const deserializeAws_json1_1UpdateNotificationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateNotificationCommandOutput> {
+): Promise<UpdateNotificationCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateNotificationCommandError(
       output,
@@ -1619,12 +1619,12 @@ export async function deserializeAws_json1_1UpdateNotificationCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateNotificationCommandError(
+const deserializeAws_json1_1UpdateNotificationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateNotificationCommandOutput> {
+): Promise<UpdateNotificationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1705,12 +1705,12 @@ async function deserializeAws_json1_1UpdateNotificationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateSubscriberCommand(
+export const deserializeAws_json1_1UpdateSubscriberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateSubscriberCommandOutput> {
+): Promise<UpdateSubscriberCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateSubscriberCommandError(output, context);
   }
@@ -1723,12 +1723,12 @@ export async function deserializeAws_json1_1UpdateSubscriberCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateSubscriberCommandError(
+const deserializeAws_json1_1UpdateSubscriberCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateSubscriberCommandOutput> {
+): Promise<UpdateSubscriberCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1809,7 +1809,7 @@ async function deserializeAws_json1_1UpdateSubscriberCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
   parsedOutput: any,
