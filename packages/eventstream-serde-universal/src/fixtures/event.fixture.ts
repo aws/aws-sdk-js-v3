@@ -12,3 +12,8 @@ export const endEventMessage = Buffer.from(
   "AAAAOAAAACjBxoTUDTptZXNzYWdlLXR5cGUHAAVldmVudAs6ZXZlbnQtdHlwZQcAA0VuZM+X05I=",
   "base64"
 );
+
+export const exception = Buffer.from(
+  "AAAAtgAAAF8BcW64DTpjb250ZW50LXR5cGUHABhhcHBsaWNhdGlvbi9vY3RldC1zdHJlYW0NOm1lc3NhZ2UtdHlwZQcACWV4Y2VwdGlvbg86ZXhjZXB0aW9uLXR5cGUHAAlFeGNlcHRpb25UaGlzIGlzIGEgbW9kZWxlZCBleGNlcHRpb24gZXZlbnQgdGhhdCB3b3VsZCBiZSB0aHJvd24gaW4gZGVzZXJpYWxpemVyLj6Gc60=",
+  "base64"
+);

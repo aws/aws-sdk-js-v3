@@ -4,7 +4,8 @@ import { getUnmarshalledStream } from "./getUnmarshalledStream";
 import {
   recordEventMessage,
   statsEventMessage,
-  endEventMessage
+  endEventMessage,
+  exception
 } from "./fixtures/event.fixture";
 import { Message } from "@aws-sdk/types";
 
@@ -56,7 +57,9 @@ describe("getUnmarshalledStream", () => {
       yield endEventMessage;
     };
     const unmarshallerStream = getUnmarshalledStream(source(), {
-      eventMarshaller: new EventStreamMarshaller(toUtf8, fromUtf8)
+      eventMarshaller: new EventStreamMarshaller(toUtf8, fromUtf8),
+      deserializer: message => Promise.resolve(message),
+      toUtf8
     });
     const messages: Array<Message> = [];
     for await (const message of unmarshallerStream) {
@@ -65,5 +68,60 @@ describe("getUnmarshalledStream", () => {
     for (let i = 1; i < messages.length; i++) {
       expect(messages[i]).toEqual(expectedMessages[i]);
     }
+  });
+
+  it("throws when deserializer throws an error", async () => {
+    const source = {
+      [Symbol.asyncIterator]: async function* () {
+        yield exception;
+      }
+    };
+    const deserStream = getUnmarshalledStream(source, {
+      eventMarshaller: new EventStreamMarshaller(toUtf8, fromUtf8),
+      deserializer: message => {
+        throw new Error("error event");
+      },
+      toUtf8
+    });
+    let error: Error | undefined = undefined;
+    try {
+      for await (const event of deserStream) {
+        //pass.
+      }
+    } catch (e) {
+      error = e;
+    }
+    expect(error).toBeDefined();
+    expect(error!.message).toEqual("error event");
+  });
+
+  it("throws on exception event if deserializer doesn't throw", async () => {
+    //This could happened if client-side SDK is not up-to-date
+    const source = {
+      [Symbol.asyncIterator]: async function* () {
+        yield exception;
+      }
+    };
+    const deserStream = getUnmarshalledStream(source, {
+      eventMarshaller: new EventStreamMarshaller(toUtf8, fromUtf8),
+      deserializer: message =>
+        Promise.resolve({
+          $unknown: message
+        }),
+      toUtf8
+    });
+    let error: Error | undefined = undefined;
+    try {
+      for await (const event of deserStream) {
+        //pass.
+      }
+    } catch (e) {
+      error = e;
+    }
+    expect(error).toBeDefined();
+    expect(error?.name).toEqual("Exception");
+    expect(error?.message).toEqual(
+      "This is a modeled exception event that would be thrown in deserializer."
+    );
   });
 });

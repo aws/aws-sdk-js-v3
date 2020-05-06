@@ -1,14 +1,16 @@
 import { EventStreamMarshaller as EventMarshaller } from "@aws-sdk/eventstream-marshaller";
-import { Message } from "@aws-sdk/types";
+import { Message, Encoder } from "@aws-sdk/types";
 
-export type UnmarshalledStreamOptions = {
+export type UnmarshalledStreamOptions<T> = {
   eventMarshaller: EventMarshaller;
+  deserializer: (input: { [name: string]: Message }) => Promise<T>;
+  toUtf8: Encoder;
 };
 
-export function getUnmarshalledStream(
+export function getUnmarshalledStream<T extends { [key: string]: any }>(
   source: AsyncIterable<Uint8Array>,
-  options: UnmarshalledStreamOptions
-): AsyncIterable<{ [name: string]: Message }> {
+  options: UnmarshalledStreamOptions<T>
+): AsyncIterable<T> {
   return {
     [Symbol.asyncIterator]: async function* () {
       for await (const chunk of source) {
@@ -24,13 +26,22 @@ export function getUnmarshalledStream(
           throw unmodeledError;
         } else if (messageType === "exception") {
           // For modeled exception, push it to deserializer and throw after deserializing
-          yield {
-            [message.headers[":exception-type"].value as string]: message
-          };
+          const code = message.headers[":exception-type"].value as string;
+          const exception = { [code]: message };
+          // Get parsed exception event in key(error code) value(structured error) pair.
+          const deserializedException = await options.deserializer(exception);
+          if (deserializedException.$unknown) {
+            //this is an unmodeled exception then try parsing it with best effort
+            const error = new Error(options.toUtf8(message.body));
+            error.name = code;
+            throw error;
+          }
+          throw deserializedException[code];
         } else if (messageType === "event") {
-          yield {
+          const event = {
             [message.headers[":event-type"].value as string]: message
           };
+          yield await options.deserializer(event);
         } else {
           throw Error(
             `Unrecognizable event type: ${message.headers[":event-type"].value}`

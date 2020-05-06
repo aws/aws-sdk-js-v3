@@ -7,7 +7,6 @@ import {
 } from "@aws-sdk/types";
 import { getChunkedStream } from "./getChunkedStream";
 import { getUnmarshalledStream } from "./getUnmarshalledStream";
-import { getDeserializedStream } from "./getDeserializedStream";
 
 export interface EventStreamMarshaller extends IEventStreamMarshaller {}
 
@@ -18,22 +17,23 @@ export interface EventStreamMarshallerOptions {
 
 export class EventStreamMarshaller {
   private readonly eventMarshaller: EventMarshaller;
+  private readonly utfEncoder: Encoder;
   constructor({ utf8Encoder, utf8Decoder }: EventStreamMarshallerOptions) {
     this.eventMarshaller = new EventMarshaller(utf8Encoder, utf8Decoder);
+    this.utfEncoder = utf8Encoder;
   }
 
   deserialize<T>(
     body: AsyncIterable<Uint8Array>,
-    deserializer: (input: { [event: string]: Message }) => T
+    deserializer: (input: { [event: string]: Message }) => Promise<T>
   ): AsyncIterable<T> {
     const chunkedStream = getChunkedStream(body);
     const unmarshalledStream = getUnmarshalledStream(chunkedStream, {
-      eventMarshaller: this.eventMarshaller
+      eventMarshaller: this.eventMarshaller,
+      deserializer,
+      toUtf8: this.utfEncoder
     });
-    const deserializedStream = getDeserializedStream(unmarshalledStream, {
-      deserializer
-    });
-    return deserializedStream;
+    return unmarshalledStream;
   }
 
   serialize<T>(

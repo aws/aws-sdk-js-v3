@@ -29,7 +29,7 @@ export class EventStreamMarshaller {
 
   deserialize<T>(
     body: Readable,
-    deserializer: (input: { [event: string]: Message }) => T
+    deserializer: (input: { [event: string]: Message }) => Promise<T>
   ): AsyncIterable<T> {
     //should use stream[Symbol.asyncIterable] when the api is stable
     //reference: https://nodejs.org/docs/latest-v11.x/api/stream.html#stream_readable_symbol_asynciterator

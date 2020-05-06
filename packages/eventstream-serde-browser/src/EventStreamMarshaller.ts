@@ -24,8 +24,8 @@ export class EventStreamMarshaller {
   }
 
   deserialize<T>(
-    body: ReadableStream,
-    deserializer: (input: { [event: string]: Message }) => T
+    body: ReadableStream<Uint8Array>,
+    deserializer: (input: { [event: string]: Message }) => Promise<T>
   ): AsyncIterable<T> {
     const chunkedStream = getChunkedStream(body);
     const messageStream = getEventMessageStream(
