@@ -125,6 +125,7 @@ final class AwsProtocolUtils {
 
         // Include an XML body parser used to deserialize documents from HTTP responses.
         writer.addImport("SerdeContext", "__SerdeContext", "@aws-sdk/types");
+        writer.addImport("getValueFromTextNode", "__getValueFromTextNode", "@aws-sdk/smithy-client");
         writer.addDependency(AwsDependency.XML_PARSER);
         writer.addImport("parse", "xmlParse", "fast-xml-parser");
         writer.openBlock("const parseBody = (streamBody: any, context: __SerdeContext): any => collectBodyString(streamBody, context).then(encoded => {",
@@ -141,7 +142,7 @@ final class AwsProtocolUtils {
                         writer.write("parsedObjToReturn[key] = parsedObjToReturn[textNodeName];");
                         writer.write("delete parsedObjToReturn[textNodeName];");
                     });
-                    writer.write("return parsedObjToReturn;");
+                    writer.write("return __getValueFromTextNode(parsedObjToReturn);");
                 });
                 writer.write("return {};");
             }
