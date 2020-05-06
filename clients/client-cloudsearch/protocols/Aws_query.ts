@@ -200,7 +200,8 @@ import {
 import {
   SmithyException as __SmithyException,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  getArrayIfSingleItem as __getArrayIfSingleItem
+  getArrayIfSingleItem as __getArrayIfSingleItem,
+  getValueFromTextNode as __getValueFromTextNode
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -4262,10 +4263,7 @@ const deserializeAws_queryAccessPoliciesStatus = (
     Status: undefined
   };
   if (output["Options"] !== undefined) {
-    contents.Options =
-      output["Options"]["#text"] !== undefined
-        ? output["Options"]["#text"]
-        : output["Options"];
+    contents.Options = output["Options"];
   }
   if (output["Status"] !== undefined) {
     contents.Status = deserializeAws_queryOptionStatus(
@@ -4289,34 +4287,20 @@ const deserializeAws_queryAnalysisOptions = (
     Synonyms: undefined
   };
   if (output["AlgorithmicStemming"] !== undefined) {
-    contents.AlgorithmicStemming =
-      output["AlgorithmicStemming"]["#text"] !== undefined
-        ? output["AlgorithmicStemming"]["#text"]
-        : output["AlgorithmicStemming"];
+    contents.AlgorithmicStemming = output["AlgorithmicStemming"];
   }
   if (output["JapaneseTokenizationDictionary"] !== undefined) {
     contents.JapaneseTokenizationDictionary =
-      output["JapaneseTokenizationDictionary"]["#text"] !== undefined
-        ? output["JapaneseTokenizationDictionary"]["#text"]
-        : output["JapaneseTokenizationDictionary"];
+      output["JapaneseTokenizationDictionary"];
   }
   if (output["StemmingDictionary"] !== undefined) {
-    contents.StemmingDictionary =
-      output["StemmingDictionary"]["#text"] !== undefined
-        ? output["StemmingDictionary"]["#text"]
-        : output["StemmingDictionary"];
+    contents.StemmingDictionary = output["StemmingDictionary"];
   }
   if (output["Stopwords"] !== undefined) {
-    contents.Stopwords =
-      output["Stopwords"]["#text"] !== undefined
-        ? output["Stopwords"]["#text"]
-        : output["Stopwords"];
+    contents.Stopwords = output["Stopwords"];
   }
   if (output["Synonyms"] !== undefined) {
-    contents.Synonyms =
-      output["Synonyms"]["#text"] !== undefined
-        ? output["Synonyms"]["#text"]
-        : output["Synonyms"];
+    contents.Synonyms = output["Synonyms"];
   }
   return contents;
 };
@@ -4338,16 +4322,10 @@ const deserializeAws_queryAnalysisScheme = (
     );
   }
   if (output["AnalysisSchemeLanguage"] !== undefined) {
-    contents.AnalysisSchemeLanguage =
-      output["AnalysisSchemeLanguage"]["#text"] !== undefined
-        ? output["AnalysisSchemeLanguage"]["#text"]
-        : output["AnalysisSchemeLanguage"];
+    contents.AnalysisSchemeLanguage = output["AnalysisSchemeLanguage"];
   }
   if (output["AnalysisSchemeName"] !== undefined) {
-    contents.AnalysisSchemeName =
-      output["AnalysisSchemeName"]["#text"] !== undefined
-        ? output["AnalysisSchemeName"]["#text"]
-        : output["AnalysisSchemeName"];
+    contents.AnalysisSchemeName = output["AnalysisSchemeName"];
   }
   return contents;
 };
@@ -4395,10 +4373,7 @@ const deserializeAws_queryAvailabilityOptionsStatus = (
     Status: undefined
   };
   if (output["Options"] !== undefined) {
-    contents.Options =
-      (output["Options"]["#text"] !== undefined
-        ? output["Options"]["#text"]
-        : output["Options"]) == "true";
+    contents.Options = output["Options"] == "true";
   }
   if (output["Status"] !== undefined) {
     contents.Status = deserializeAws_queryOptionStatus(
@@ -4419,16 +4394,10 @@ const deserializeAws_queryBaseException = (
     Message: undefined
   };
   if (output["Code"] !== undefined) {
-    contents.Code =
-      output["Code"]["#text"] !== undefined
-        ? output["Code"]["#text"]
-        : output["Code"];
+    contents.Code = output["Code"];
   }
   if (output["Message"] !== undefined) {
-    contents.Message =
-      output["Message"]["#text"] !== undefined
-        ? output["Message"]["#text"]
-        : output["Message"];
+    contents.Message = output["Message"];
   }
   return contents;
 };
@@ -4486,34 +4455,19 @@ const deserializeAws_queryDateArrayOptions = (
     SourceFields: undefined
   };
   if (output["DefaultValue"] !== undefined) {
-    contents.DefaultValue =
-      output["DefaultValue"]["#text"] !== undefined
-        ? output["DefaultValue"]["#text"]
-        : output["DefaultValue"];
+    contents.DefaultValue = output["DefaultValue"];
   }
   if (output["FacetEnabled"] !== undefined) {
-    contents.FacetEnabled =
-      (output["FacetEnabled"]["#text"] !== undefined
-        ? output["FacetEnabled"]["#text"]
-        : output["FacetEnabled"]) == "true";
+    contents.FacetEnabled = output["FacetEnabled"] == "true";
   }
   if (output["ReturnEnabled"] !== undefined) {
-    contents.ReturnEnabled =
-      (output["ReturnEnabled"]["#text"] !== undefined
-        ? output["ReturnEnabled"]["#text"]
-        : output["ReturnEnabled"]) == "true";
+    contents.ReturnEnabled = output["ReturnEnabled"] == "true";
   }
   if (output["SearchEnabled"] !== undefined) {
-    contents.SearchEnabled =
-      (output["SearchEnabled"]["#text"] !== undefined
-        ? output["SearchEnabled"]["#text"]
-        : output["SearchEnabled"]) == "true";
+    contents.SearchEnabled = output["SearchEnabled"] == "true";
   }
   if (output["SourceFields"] !== undefined) {
-    contents.SourceFields =
-      output["SourceFields"]["#text"] !== undefined
-        ? output["SourceFields"]["#text"]
-        : output["SourceFields"];
+    contents.SourceFields = output["SourceFields"];
   }
   return contents;
 };
@@ -4532,40 +4486,22 @@ const deserializeAws_queryDateOptions = (
     SourceField: undefined
   };
   if (output["DefaultValue"] !== undefined) {
-    contents.DefaultValue =
-      output["DefaultValue"]["#text"] !== undefined
-        ? output["DefaultValue"]["#text"]
-        : output["DefaultValue"];
+    contents.DefaultValue = output["DefaultValue"];
   }
   if (output["FacetEnabled"] !== undefined) {
-    contents.FacetEnabled =
-      (output["FacetEnabled"]["#text"] !== undefined
-        ? output["FacetEnabled"]["#text"]
-        : output["FacetEnabled"]) == "true";
+    contents.FacetEnabled = output["FacetEnabled"] == "true";
   }
   if (output["ReturnEnabled"] !== undefined) {
-    contents.ReturnEnabled =
-      (output["ReturnEnabled"]["#text"] !== undefined
-        ? output["ReturnEnabled"]["#text"]
-        : output["ReturnEnabled"]) == "true";
+    contents.ReturnEnabled = output["ReturnEnabled"] == "true";
   }
   if (output["SearchEnabled"] !== undefined) {
-    contents.SearchEnabled =
-      (output["SearchEnabled"]["#text"] !== undefined
-        ? output["SearchEnabled"]["#text"]
-        : output["SearchEnabled"]) == "true";
+    contents.SearchEnabled = output["SearchEnabled"] == "true";
   }
   if (output["SortEnabled"] !== undefined) {
-    contents.SortEnabled =
-      (output["SortEnabled"]["#text"] !== undefined
-        ? output["SortEnabled"]["#text"]
-        : output["SortEnabled"]) == "true";
+    contents.SortEnabled = output["SortEnabled"] == "true";
   }
   if (output["SourceField"] !== undefined) {
-    contents.SourceField =
-      output["SourceField"]["#text"] !== undefined
-        ? output["SourceField"]["#text"]
-        : output["SourceField"];
+    contents.SourceField = output["SourceField"];
   }
   return contents;
 };
@@ -4916,16 +4852,10 @@ const deserializeAws_queryDisabledOperationException = (
     Message: undefined
   };
   if (output["Code"] !== undefined) {
-    contents.Code =
-      output["Code"]["#text"] !== undefined
-        ? output["Code"]["#text"]
-        : output["Code"];
+    contents.Code = output["Code"];
   }
   if (output["Message"] !== undefined) {
-    contents.Message =
-      output["Message"]["#text"] !== undefined
-        ? output["Message"]["#text"]
-        : output["Message"];
+    contents.Message = output["Message"];
   }
   return contents;
 };
@@ -4941,22 +4871,13 @@ const deserializeAws_queryDocumentSuggesterOptions = (
     SourceField: undefined
   };
   if (output["FuzzyMatching"] !== undefined) {
-    contents.FuzzyMatching =
-      output["FuzzyMatching"]["#text"] !== undefined
-        ? output["FuzzyMatching"]["#text"]
-        : output["FuzzyMatching"];
+    contents.FuzzyMatching = output["FuzzyMatching"];
   }
   if (output["SortExpression"] !== undefined) {
-    contents.SortExpression =
-      output["SortExpression"]["#text"] !== undefined
-        ? output["SortExpression"]["#text"]
-        : output["SortExpression"];
+    contents.SortExpression = output["SortExpression"];
   }
   if (output["SourceField"] !== undefined) {
-    contents.SourceField =
-      output["SourceField"]["#text"] !== undefined
-        ? output["SourceField"]["#text"]
-        : output["SourceField"];
+    contents.SourceField = output["SourceField"];
   }
   return contents;
 };
@@ -4971,16 +4892,10 @@ const deserializeAws_queryDomainEndpointOptions = (
     TLSSecurityPolicy: undefined
   };
   if (output["EnforceHTTPS"] !== undefined) {
-    contents.EnforceHTTPS =
-      (output["EnforceHTTPS"]["#text"] !== undefined
-        ? output["EnforceHTTPS"]["#text"]
-        : output["EnforceHTTPS"]) == "true";
+    contents.EnforceHTTPS = output["EnforceHTTPS"] == "true";
   }
   if (output["TLSSecurityPolicy"] !== undefined) {
-    contents.TLSSecurityPolicy =
-      output["TLSSecurityPolicy"]["#text"] !== undefined
-        ? output["TLSSecurityPolicy"]["#text"]
-        : output["TLSSecurityPolicy"];
+    contents.TLSSecurityPolicy = output["TLSSecurityPolicy"];
   }
   return contents;
 };
@@ -5014,10 +4929,7 @@ const deserializeAws_queryDomainNameMap = (
   context: __SerdeContext
 ): { [key: string]: string } => {
   return output.reduce((acc: any, pair: any) => {
-    acc[pair["key"]] =
-      pair["value"]["#text"] !== undefined
-        ? pair["value"]["#text"]
-        : pair["value"];
+    acc[pair["key"]] = pair["value"];
     return acc;
   }, {});
 };
@@ -5043,22 +4955,13 @@ const deserializeAws_queryDomainStatus = (
     SearchService: undefined
   };
   if (output["ARN"] !== undefined) {
-    contents.ARN =
-      output["ARN"]["#text"] !== undefined
-        ? output["ARN"]["#text"]
-        : output["ARN"];
+    contents.ARN = output["ARN"];
   }
   if (output["Created"] !== undefined) {
-    contents.Created =
-      (output["Created"]["#text"] !== undefined
-        ? output["Created"]["#text"]
-        : output["Created"]) == "true";
+    contents.Created = output["Created"] == "true";
   }
   if (output["Deleted"] !== undefined) {
-    contents.Deleted =
-      (output["Deleted"]["#text"] !== undefined
-        ? output["Deleted"]["#text"]
-        : output["Deleted"]) == "true";
+    contents.Deleted = output["Deleted"] == "true";
   }
   if (output["DocService"] !== undefined) {
     contents.DocService = deserializeAws_queryServiceEndpoint(
@@ -5067,51 +4970,29 @@ const deserializeAws_queryDomainStatus = (
     );
   }
   if (output["DomainId"] !== undefined) {
-    contents.DomainId =
-      output["DomainId"]["#text"] !== undefined
-        ? output["DomainId"]["#text"]
-        : output["DomainId"];
+    contents.DomainId = output["DomainId"];
   }
   if (output["DomainName"] !== undefined) {
-    contents.DomainName =
-      output["DomainName"]["#text"] !== undefined
-        ? output["DomainName"]["#text"]
-        : output["DomainName"];
+    contents.DomainName = output["DomainName"];
   }
   if (output["Limits"] !== undefined) {
     contents.Limits = deserializeAws_queryLimits(output["Limits"], context);
   }
   if (output["Processing"] !== undefined) {
-    contents.Processing =
-      (output["Processing"]["#text"] !== undefined
-        ? output["Processing"]["#text"]
-        : output["Processing"]) == "true";
+    contents.Processing = output["Processing"] == "true";
   }
   if (output["RequiresIndexDocuments"] !== undefined) {
     contents.RequiresIndexDocuments =
-      (output["RequiresIndexDocuments"]["#text"] !== undefined
-        ? output["RequiresIndexDocuments"]["#text"]
-        : output["RequiresIndexDocuments"]) == "true";
+      output["RequiresIndexDocuments"] == "true";
   }
   if (output["SearchInstanceCount"] !== undefined) {
-    contents.SearchInstanceCount = parseInt(
-      output["SearchInstanceCount"]["#text"] !== undefined
-        ? output["SearchInstanceCount"]["#text"]
-        : output["SearchInstanceCount"]
-    );
+    contents.SearchInstanceCount = parseInt(output["SearchInstanceCount"]);
   }
   if (output["SearchInstanceType"] !== undefined) {
-    contents.SearchInstanceType =
-      output["SearchInstanceType"]["#text"] !== undefined
-        ? output["SearchInstanceType"]["#text"]
-        : output["SearchInstanceType"];
+    contents.SearchInstanceType = output["SearchInstanceType"];
   }
   if (output["SearchPartitionCount"] !== undefined) {
-    contents.SearchPartitionCount = parseInt(
-      output["SearchPartitionCount"]["#text"] !== undefined
-        ? output["SearchPartitionCount"]["#text"]
-        : output["SearchPartitionCount"]
-    );
+    contents.SearchPartitionCount = parseInt(output["SearchPartitionCount"]);
   }
   if (output["SearchService"] !== undefined) {
     contents.SearchService = deserializeAws_queryServiceEndpoint(
@@ -5144,35 +5025,19 @@ const deserializeAws_queryDoubleArrayOptions = (
     SourceFields: undefined
   };
   if (output["DefaultValue"] !== undefined) {
-    contents.DefaultValue = parseFloat(
-      output["DefaultValue"]["#text"] !== undefined
-        ? output["DefaultValue"]["#text"]
-        : output["DefaultValue"]
-    );
+    contents.DefaultValue = parseFloat(output["DefaultValue"]);
   }
   if (output["FacetEnabled"] !== undefined) {
-    contents.FacetEnabled =
-      (output["FacetEnabled"]["#text"] !== undefined
-        ? output["FacetEnabled"]["#text"]
-        : output["FacetEnabled"]) == "true";
+    contents.FacetEnabled = output["FacetEnabled"] == "true";
   }
   if (output["ReturnEnabled"] !== undefined) {
-    contents.ReturnEnabled =
-      (output["ReturnEnabled"]["#text"] !== undefined
-        ? output["ReturnEnabled"]["#text"]
-        : output["ReturnEnabled"]) == "true";
+    contents.ReturnEnabled = output["ReturnEnabled"] == "true";
   }
   if (output["SearchEnabled"] !== undefined) {
-    contents.SearchEnabled =
-      (output["SearchEnabled"]["#text"] !== undefined
-        ? output["SearchEnabled"]["#text"]
-        : output["SearchEnabled"]) == "true";
+    contents.SearchEnabled = output["SearchEnabled"] == "true";
   }
   if (output["SourceFields"] !== undefined) {
-    contents.SourceFields =
-      output["SourceFields"]["#text"] !== undefined
-        ? output["SourceFields"]["#text"]
-        : output["SourceFields"];
+    contents.SourceFields = output["SourceFields"];
   }
   return contents;
 };
@@ -5191,41 +5056,22 @@ const deserializeAws_queryDoubleOptions = (
     SourceField: undefined
   };
   if (output["DefaultValue"] !== undefined) {
-    contents.DefaultValue = parseFloat(
-      output["DefaultValue"]["#text"] !== undefined
-        ? output["DefaultValue"]["#text"]
-        : output["DefaultValue"]
-    );
+    contents.DefaultValue = parseFloat(output["DefaultValue"]);
   }
   if (output["FacetEnabled"] !== undefined) {
-    contents.FacetEnabled =
-      (output["FacetEnabled"]["#text"] !== undefined
-        ? output["FacetEnabled"]["#text"]
-        : output["FacetEnabled"]) == "true";
+    contents.FacetEnabled = output["FacetEnabled"] == "true";
   }
   if (output["ReturnEnabled"] !== undefined) {
-    contents.ReturnEnabled =
-      (output["ReturnEnabled"]["#text"] !== undefined
-        ? output["ReturnEnabled"]["#text"]
-        : output["ReturnEnabled"]) == "true";
+    contents.ReturnEnabled = output["ReturnEnabled"] == "true";
   }
   if (output["SearchEnabled"] !== undefined) {
-    contents.SearchEnabled =
-      (output["SearchEnabled"]["#text"] !== undefined
-        ? output["SearchEnabled"]["#text"]
-        : output["SearchEnabled"]) == "true";
+    contents.SearchEnabled = output["SearchEnabled"] == "true";
   }
   if (output["SortEnabled"] !== undefined) {
-    contents.SortEnabled =
-      (output["SortEnabled"]["#text"] !== undefined
-        ? output["SortEnabled"]["#text"]
-        : output["SortEnabled"]) == "true";
+    contents.SortEnabled = output["SortEnabled"] == "true";
   }
   if (output["SourceField"] !== undefined) {
-    contents.SourceField =
-      output["SourceField"]["#text"] !== undefined
-        ? output["SourceField"]["#text"]
-        : output["SourceField"];
+    contents.SourceField = output["SourceField"];
   }
   return contents;
 };
@@ -5240,16 +5086,10 @@ const deserializeAws_queryExpression = (
     ExpressionValue: undefined
   };
   if (output["ExpressionName"] !== undefined) {
-    contents.ExpressionName =
-      output["ExpressionName"]["#text"] !== undefined
-        ? output["ExpressionName"]["#text"]
-        : output["ExpressionName"];
+    contents.ExpressionName = output["ExpressionName"];
   }
   if (output["ExpressionValue"] !== undefined) {
-    contents.ExpressionValue =
-      output["ExpressionValue"]["#text"] !== undefined
-        ? output["ExpressionValue"]["#text"]
-        : output["ExpressionValue"];
+    contents.ExpressionValue = output["ExpressionValue"];
   }
   return contents;
 };
@@ -5291,9 +5131,7 @@ const deserializeAws_queryFieldNameList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  return (output || []).map((entry: any) =>
-    entry["#text"] !== undefined ? entry["#text"] : entry
-  );
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_queryIndexDocumentsResponse = (
@@ -5364,16 +5202,10 @@ const deserializeAws_queryIndexField = (
     );
   }
   if (output["IndexFieldName"] !== undefined) {
-    contents.IndexFieldName =
-      output["IndexFieldName"]["#text"] !== undefined
-        ? output["IndexFieldName"]["#text"]
-        : output["IndexFieldName"];
+    contents.IndexFieldName = output["IndexFieldName"];
   }
   if (output["IndexFieldType"] !== undefined) {
-    contents.IndexFieldType =
-      output["IndexFieldType"]["#text"] !== undefined
-        ? output["IndexFieldType"]["#text"]
-        : output["IndexFieldType"];
+    contents.IndexFieldType = output["IndexFieldType"];
   }
   if (output["IntArrayOptions"] !== undefined) {
     contents.IntArrayOptions = deserializeAws_queryIntArrayOptions(
@@ -5466,35 +5298,19 @@ const deserializeAws_queryIntArrayOptions = (
     SourceFields: undefined
   };
   if (output["DefaultValue"] !== undefined) {
-    contents.DefaultValue = parseInt(
-      output["DefaultValue"]["#text"] !== undefined
-        ? output["DefaultValue"]["#text"]
-        : output["DefaultValue"]
-    );
+    contents.DefaultValue = parseInt(output["DefaultValue"]);
   }
   if (output["FacetEnabled"] !== undefined) {
-    contents.FacetEnabled =
-      (output["FacetEnabled"]["#text"] !== undefined
-        ? output["FacetEnabled"]["#text"]
-        : output["FacetEnabled"]) == "true";
+    contents.FacetEnabled = output["FacetEnabled"] == "true";
   }
   if (output["ReturnEnabled"] !== undefined) {
-    contents.ReturnEnabled =
-      (output["ReturnEnabled"]["#text"] !== undefined
-        ? output["ReturnEnabled"]["#text"]
-        : output["ReturnEnabled"]) == "true";
+    contents.ReturnEnabled = output["ReturnEnabled"] == "true";
   }
   if (output["SearchEnabled"] !== undefined) {
-    contents.SearchEnabled =
-      (output["SearchEnabled"]["#text"] !== undefined
-        ? output["SearchEnabled"]["#text"]
-        : output["SearchEnabled"]) == "true";
+    contents.SearchEnabled = output["SearchEnabled"] == "true";
   }
   if (output["SourceFields"] !== undefined) {
-    contents.SourceFields =
-      output["SourceFields"]["#text"] !== undefined
-        ? output["SourceFields"]["#text"]
-        : output["SourceFields"];
+    contents.SourceFields = output["SourceFields"];
   }
   return contents;
 };
@@ -5513,41 +5329,22 @@ const deserializeAws_queryIntOptions = (
     SourceField: undefined
   };
   if (output["DefaultValue"] !== undefined) {
-    contents.DefaultValue = parseInt(
-      output["DefaultValue"]["#text"] !== undefined
-        ? output["DefaultValue"]["#text"]
-        : output["DefaultValue"]
-    );
+    contents.DefaultValue = parseInt(output["DefaultValue"]);
   }
   if (output["FacetEnabled"] !== undefined) {
-    contents.FacetEnabled =
-      (output["FacetEnabled"]["#text"] !== undefined
-        ? output["FacetEnabled"]["#text"]
-        : output["FacetEnabled"]) == "true";
+    contents.FacetEnabled = output["FacetEnabled"] == "true";
   }
   if (output["ReturnEnabled"] !== undefined) {
-    contents.ReturnEnabled =
-      (output["ReturnEnabled"]["#text"] !== undefined
-        ? output["ReturnEnabled"]["#text"]
-        : output["ReturnEnabled"]) == "true";
+    contents.ReturnEnabled = output["ReturnEnabled"] == "true";
   }
   if (output["SearchEnabled"] !== undefined) {
-    contents.SearchEnabled =
-      (output["SearchEnabled"]["#text"] !== undefined
-        ? output["SearchEnabled"]["#text"]
-        : output["SearchEnabled"]) == "true";
+    contents.SearchEnabled = output["SearchEnabled"] == "true";
   }
   if (output["SortEnabled"] !== undefined) {
-    contents.SortEnabled =
-      (output["SortEnabled"]["#text"] !== undefined
-        ? output["SortEnabled"]["#text"]
-        : output["SortEnabled"]) == "true";
+    contents.SortEnabled = output["SortEnabled"] == "true";
   }
   if (output["SourceField"] !== undefined) {
-    contents.SourceField =
-      output["SourceField"]["#text"] !== undefined
-        ? output["SourceField"]["#text"]
-        : output["SourceField"];
+    contents.SourceField = output["SourceField"];
   }
   return contents;
 };
@@ -5562,16 +5359,10 @@ const deserializeAws_queryInternalException = (
     Message: undefined
   };
   if (output["Code"] !== undefined) {
-    contents.Code =
-      output["Code"]["#text"] !== undefined
-        ? output["Code"]["#text"]
-        : output["Code"];
+    contents.Code = output["Code"];
   }
   if (output["Message"] !== undefined) {
-    contents.Message =
-      output["Message"]["#text"] !== undefined
-        ? output["Message"]["#text"]
-        : output["Message"];
+    contents.Message = output["Message"];
   }
   return contents;
 };
@@ -5586,16 +5377,10 @@ const deserializeAws_queryInvalidTypeException = (
     Message: undefined
   };
   if (output["Code"] !== undefined) {
-    contents.Code =
-      output["Code"]["#text"] !== undefined
-        ? output["Code"]["#text"]
-        : output["Code"];
+    contents.Code = output["Code"];
   }
   if (output["Message"] !== undefined) {
-    contents.Message =
-      output["Message"]["#text"] !== undefined
-        ? output["Message"]["#text"]
-        : output["Message"];
+    contents.Message = output["Message"];
   }
   return contents;
 };
@@ -5614,40 +5399,22 @@ const deserializeAws_queryLatLonOptions = (
     SourceField: undefined
   };
   if (output["DefaultValue"] !== undefined) {
-    contents.DefaultValue =
-      output["DefaultValue"]["#text"] !== undefined
-        ? output["DefaultValue"]["#text"]
-        : output["DefaultValue"];
+    contents.DefaultValue = output["DefaultValue"];
   }
   if (output["FacetEnabled"] !== undefined) {
-    contents.FacetEnabled =
-      (output["FacetEnabled"]["#text"] !== undefined
-        ? output["FacetEnabled"]["#text"]
-        : output["FacetEnabled"]) == "true";
+    contents.FacetEnabled = output["FacetEnabled"] == "true";
   }
   if (output["ReturnEnabled"] !== undefined) {
-    contents.ReturnEnabled =
-      (output["ReturnEnabled"]["#text"] !== undefined
-        ? output["ReturnEnabled"]["#text"]
-        : output["ReturnEnabled"]) == "true";
+    contents.ReturnEnabled = output["ReturnEnabled"] == "true";
   }
   if (output["SearchEnabled"] !== undefined) {
-    contents.SearchEnabled =
-      (output["SearchEnabled"]["#text"] !== undefined
-        ? output["SearchEnabled"]["#text"]
-        : output["SearchEnabled"]) == "true";
+    contents.SearchEnabled = output["SearchEnabled"] == "true";
   }
   if (output["SortEnabled"] !== undefined) {
-    contents.SortEnabled =
-      (output["SortEnabled"]["#text"] !== undefined
-        ? output["SortEnabled"]["#text"]
-        : output["SortEnabled"]) == "true";
+    contents.SortEnabled = output["SortEnabled"] == "true";
   }
   if (output["SourceField"] !== undefined) {
-    contents.SourceField =
-      output["SourceField"]["#text"] !== undefined
-        ? output["SourceField"]["#text"]
-        : output["SourceField"];
+    contents.SourceField = output["SourceField"];
   }
   return contents;
 };
@@ -5662,16 +5429,10 @@ const deserializeAws_queryLimitExceededException = (
     Message: undefined
   };
   if (output["Code"] !== undefined) {
-    contents.Code =
-      output["Code"]["#text"] !== undefined
-        ? output["Code"]["#text"]
-        : output["Code"];
+    contents.Code = output["Code"];
   }
   if (output["Message"] !== undefined) {
-    contents.Message =
-      output["Message"]["#text"] !== undefined
-        ? output["Message"]["#text"]
-        : output["Message"];
+    contents.Message = output["Message"];
   }
   return contents;
 };
@@ -5686,17 +5447,11 @@ const deserializeAws_queryLimits = (
     MaximumReplicationCount: undefined
   };
   if (output["MaximumPartitionCount"] !== undefined) {
-    contents.MaximumPartitionCount = parseInt(
-      output["MaximumPartitionCount"]["#text"] !== undefined
-        ? output["MaximumPartitionCount"]["#text"]
-        : output["MaximumPartitionCount"]
-    );
+    contents.MaximumPartitionCount = parseInt(output["MaximumPartitionCount"]);
   }
   if (output["MaximumReplicationCount"] !== undefined) {
     contents.MaximumReplicationCount = parseInt(
-      output["MaximumReplicationCount"]["#text"] !== undefined
-        ? output["MaximumReplicationCount"]["#text"]
-        : output["MaximumReplicationCount"]
+      output["MaximumReplicationCount"]
     );
   }
   return contents;
@@ -5738,34 +5493,19 @@ const deserializeAws_queryLiteralArrayOptions = (
     SourceFields: undefined
   };
   if (output["DefaultValue"] !== undefined) {
-    contents.DefaultValue =
-      output["DefaultValue"]["#text"] !== undefined
-        ? output["DefaultValue"]["#text"]
-        : output["DefaultValue"];
+    contents.DefaultValue = output["DefaultValue"];
   }
   if (output["FacetEnabled"] !== undefined) {
-    contents.FacetEnabled =
-      (output["FacetEnabled"]["#text"] !== undefined
-        ? output["FacetEnabled"]["#text"]
-        : output["FacetEnabled"]) == "true";
+    contents.FacetEnabled = output["FacetEnabled"] == "true";
   }
   if (output["ReturnEnabled"] !== undefined) {
-    contents.ReturnEnabled =
-      (output["ReturnEnabled"]["#text"] !== undefined
-        ? output["ReturnEnabled"]["#text"]
-        : output["ReturnEnabled"]) == "true";
+    contents.ReturnEnabled = output["ReturnEnabled"] == "true";
   }
   if (output["SearchEnabled"] !== undefined) {
-    contents.SearchEnabled =
-      (output["SearchEnabled"]["#text"] !== undefined
-        ? output["SearchEnabled"]["#text"]
-        : output["SearchEnabled"]) == "true";
+    contents.SearchEnabled = output["SearchEnabled"] == "true";
   }
   if (output["SourceFields"] !== undefined) {
-    contents.SourceFields =
-      output["SourceFields"]["#text"] !== undefined
-        ? output["SourceFields"]["#text"]
-        : output["SourceFields"];
+    contents.SourceFields = output["SourceFields"];
   }
   return contents;
 };
@@ -5784,40 +5524,22 @@ const deserializeAws_queryLiteralOptions = (
     SourceField: undefined
   };
   if (output["DefaultValue"] !== undefined) {
-    contents.DefaultValue =
-      output["DefaultValue"]["#text"] !== undefined
-        ? output["DefaultValue"]["#text"]
-        : output["DefaultValue"];
+    contents.DefaultValue = output["DefaultValue"];
   }
   if (output["FacetEnabled"] !== undefined) {
-    contents.FacetEnabled =
-      (output["FacetEnabled"]["#text"] !== undefined
-        ? output["FacetEnabled"]["#text"]
-        : output["FacetEnabled"]) == "true";
+    contents.FacetEnabled = output["FacetEnabled"] == "true";
   }
   if (output["ReturnEnabled"] !== undefined) {
-    contents.ReturnEnabled =
-      (output["ReturnEnabled"]["#text"] !== undefined
-        ? output["ReturnEnabled"]["#text"]
-        : output["ReturnEnabled"]) == "true";
+    contents.ReturnEnabled = output["ReturnEnabled"] == "true";
   }
   if (output["SearchEnabled"] !== undefined) {
-    contents.SearchEnabled =
-      (output["SearchEnabled"]["#text"] !== undefined
-        ? output["SearchEnabled"]["#text"]
-        : output["SearchEnabled"]) == "true";
+    contents.SearchEnabled = output["SearchEnabled"] == "true";
   }
   if (output["SortEnabled"] !== undefined) {
-    contents.SortEnabled =
-      (output["SortEnabled"]["#text"] !== undefined
-        ? output["SortEnabled"]["#text"]
-        : output["SortEnabled"]) == "true";
+    contents.SortEnabled = output["SortEnabled"] == "true";
   }
   if (output["SourceField"] !== undefined) {
-    contents.SourceField =
-      output["SourceField"]["#text"] !== undefined
-        ? output["SourceField"]["#text"]
-        : output["SourceField"];
+    contents.SourceField = output["SourceField"];
   }
   return contents;
 };
@@ -5838,26 +5560,16 @@ const deserializeAws_queryOptionStatus = (
     contents.CreationDate = new Date(output["CreationDate"]);
   }
   if (output["PendingDeletion"] !== undefined) {
-    contents.PendingDeletion =
-      (output["PendingDeletion"]["#text"] !== undefined
-        ? output["PendingDeletion"]["#text"]
-        : output["PendingDeletion"]) == "true";
+    contents.PendingDeletion = output["PendingDeletion"] == "true";
   }
   if (output["State"] !== undefined) {
-    contents.State =
-      output["State"]["#text"] !== undefined
-        ? output["State"]["#text"]
-        : output["State"];
+    contents.State = output["State"];
   }
   if (output["UpdateDate"] !== undefined) {
     contents.UpdateDate = new Date(output["UpdateDate"]);
   }
   if (output["UpdateVersion"] !== undefined) {
-    contents.UpdateVersion = parseInt(
-      output["UpdateVersion"]["#text"] !== undefined
-        ? output["UpdateVersion"]["#text"]
-        : output["UpdateVersion"]
-    );
+    contents.UpdateVersion = parseInt(output["UpdateVersion"]);
   }
   return contents;
 };
@@ -5872,16 +5584,10 @@ const deserializeAws_queryResourceNotFoundException = (
     Message: undefined
   };
   if (output["Code"] !== undefined) {
-    contents.Code =
-      output["Code"]["#text"] !== undefined
-        ? output["Code"]["#text"]
-        : output["Code"];
+    contents.Code = output["Code"];
   }
   if (output["Message"] !== undefined) {
-    contents.Message =
-      output["Message"]["#text"] !== undefined
-        ? output["Message"]["#text"]
-        : output["Message"];
+    contents.Message = output["Message"];
   }
   return contents;
 };
@@ -5897,23 +5603,14 @@ const deserializeAws_queryScalingParameters = (
     DesiredReplicationCount: undefined
   };
   if (output["DesiredInstanceType"] !== undefined) {
-    contents.DesiredInstanceType =
-      output["DesiredInstanceType"]["#text"] !== undefined
-        ? output["DesiredInstanceType"]["#text"]
-        : output["DesiredInstanceType"];
+    contents.DesiredInstanceType = output["DesiredInstanceType"];
   }
   if (output["DesiredPartitionCount"] !== undefined) {
-    contents.DesiredPartitionCount = parseInt(
-      output["DesiredPartitionCount"]["#text"] !== undefined
-        ? output["DesiredPartitionCount"]["#text"]
-        : output["DesiredPartitionCount"]
-    );
+    contents.DesiredPartitionCount = parseInt(output["DesiredPartitionCount"]);
   }
   if (output["DesiredReplicationCount"] !== undefined) {
     contents.DesiredReplicationCount = parseInt(
-      output["DesiredReplicationCount"]["#text"] !== undefined
-        ? output["DesiredReplicationCount"]["#text"]
-        : output["DesiredReplicationCount"]
+      output["DesiredReplicationCount"]
     );
   }
   return contents;
@@ -5952,10 +5649,7 @@ const deserializeAws_queryServiceEndpoint = (
     Endpoint: undefined
   };
   if (output["Endpoint"] !== undefined) {
-    contents.Endpoint =
-      output["Endpoint"]["#text"] !== undefined
-        ? output["Endpoint"]["#text"]
-        : output["Endpoint"];
+    contents.Endpoint = output["Endpoint"];
   }
   return contents;
 };
@@ -5976,10 +5670,7 @@ const deserializeAws_querySuggester = (
     );
   }
   if (output["SuggesterName"] !== undefined) {
-    contents.SuggesterName =
-      output["SuggesterName"]["#text"] !== undefined
-        ? output["SuggesterName"]["#text"]
-        : output["SuggesterName"];
+    contents.SuggesterName = output["SuggesterName"];
   }
   return contents;
 };
@@ -6030,34 +5721,19 @@ const deserializeAws_queryTextArrayOptions = (
     SourceFields: undefined
   };
   if (output["AnalysisScheme"] !== undefined) {
-    contents.AnalysisScheme =
-      output["AnalysisScheme"]["#text"] !== undefined
-        ? output["AnalysisScheme"]["#text"]
-        : output["AnalysisScheme"];
+    contents.AnalysisScheme = output["AnalysisScheme"];
   }
   if (output["DefaultValue"] !== undefined) {
-    contents.DefaultValue =
-      output["DefaultValue"]["#text"] !== undefined
-        ? output["DefaultValue"]["#text"]
-        : output["DefaultValue"];
+    contents.DefaultValue = output["DefaultValue"];
   }
   if (output["HighlightEnabled"] !== undefined) {
-    contents.HighlightEnabled =
-      (output["HighlightEnabled"]["#text"] !== undefined
-        ? output["HighlightEnabled"]["#text"]
-        : output["HighlightEnabled"]) == "true";
+    contents.HighlightEnabled = output["HighlightEnabled"] == "true";
   }
   if (output["ReturnEnabled"] !== undefined) {
-    contents.ReturnEnabled =
-      (output["ReturnEnabled"]["#text"] !== undefined
-        ? output["ReturnEnabled"]["#text"]
-        : output["ReturnEnabled"]) == "true";
+    contents.ReturnEnabled = output["ReturnEnabled"] == "true";
   }
   if (output["SourceFields"] !== undefined) {
-    contents.SourceFields =
-      output["SourceFields"]["#text"] !== undefined
-        ? output["SourceFields"]["#text"]
-        : output["SourceFields"];
+    contents.SourceFields = output["SourceFields"];
   }
   return contents;
 };
@@ -6076,40 +5752,22 @@ const deserializeAws_queryTextOptions = (
     SourceField: undefined
   };
   if (output["AnalysisScheme"] !== undefined) {
-    contents.AnalysisScheme =
-      output["AnalysisScheme"]["#text"] !== undefined
-        ? output["AnalysisScheme"]["#text"]
-        : output["AnalysisScheme"];
+    contents.AnalysisScheme = output["AnalysisScheme"];
   }
   if (output["DefaultValue"] !== undefined) {
-    contents.DefaultValue =
-      output["DefaultValue"]["#text"] !== undefined
-        ? output["DefaultValue"]["#text"]
-        : output["DefaultValue"];
+    contents.DefaultValue = output["DefaultValue"];
   }
   if (output["HighlightEnabled"] !== undefined) {
-    contents.HighlightEnabled =
-      (output["HighlightEnabled"]["#text"] !== undefined
-        ? output["HighlightEnabled"]["#text"]
-        : output["HighlightEnabled"]) == "true";
+    contents.HighlightEnabled = output["HighlightEnabled"] == "true";
   }
   if (output["ReturnEnabled"] !== undefined) {
-    contents.ReturnEnabled =
-      (output["ReturnEnabled"]["#text"] !== undefined
-        ? output["ReturnEnabled"]["#text"]
-        : output["ReturnEnabled"]) == "true";
+    contents.ReturnEnabled = output["ReturnEnabled"] == "true";
   }
   if (output["SortEnabled"] !== undefined) {
-    contents.SortEnabled =
-      (output["SortEnabled"]["#text"] !== undefined
-        ? output["SortEnabled"]["#text"]
-        : output["SortEnabled"]) == "true";
+    contents.SortEnabled = output["SortEnabled"] == "true";
   }
   if (output["SourceField"] !== undefined) {
-    contents.SourceField =
-      output["SourceField"]["#text"] !== undefined
-        ? output["SourceField"]["#text"]
-        : output["SourceField"];
+    contents.SourceField = output["SourceField"];
   }
   return contents;
 };
@@ -6192,16 +5850,10 @@ const deserializeAws_queryValidationException = (
     Message: undefined
   };
   if (output["Code"] !== undefined) {
-    contents.Code =
-      output["Code"]["#text"] !== undefined
-        ? output["Code"]["#text"]
-        : output["Code"];
+    contents.Code = output["Code"];
   }
   if (output["Message"] !== undefined) {
-    contents.Message =
-      output["Message"]["#text"] !== undefined
-        ? output["Message"]["#text"]
-        : output["Message"];
+    contents.Message = output["Message"];
   }
   return contents;
 };
@@ -6281,7 +5933,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
         parsedObjToReturn[key] = parsedObjToReturn[textNodeName];
         delete parsedObjToReturn[textNodeName];
       }
-      return parsedObjToReturn;
+      return __getValueFromTextNode(parsedObjToReturn);
     }
     return {};
   });

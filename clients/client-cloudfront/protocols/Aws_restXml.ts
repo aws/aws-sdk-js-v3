@@ -352,7 +352,8 @@ import {
 import {
   SmithyException as __SmithyException,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  getArrayIfSingleItem as __getArrayIfSingleItem
+  getArrayIfSingleItem as __getArrayIfSingleItem,
+  getValueFromTextNode as __getValueFromTextNode
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -7908,10 +7909,7 @@ const deserializeAws_restXmlAccessDeniedResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -7928,10 +7926,7 @@ const deserializeAws_restXmlBatchTooLargeResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -7948,10 +7943,7 @@ const deserializeAws_restXmlCNAMEAlreadyExistsResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -7968,10 +7960,7 @@ const deserializeAws_restXmlCannotChangeImmutablePublicKeyFieldsResponse = async
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -7988,10 +7977,7 @@ const deserializeAws_restXmlCloudFrontOriginAccessIdentityAlreadyExistsResponse 
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8008,10 +7994,7 @@ const deserializeAws_restXmlCloudFrontOriginAccessIdentityInUseResponse = async 
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8028,10 +8011,7 @@ const deserializeAws_restXmlDistributionAlreadyExistsResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8048,10 +8028,7 @@ const deserializeAws_restXmlDistributionNotDisabledResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8068,10 +8045,7 @@ const deserializeAws_restXmlFieldLevelEncryptionConfigAlreadyExistsResponse = as
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8088,10 +8062,7 @@ const deserializeAws_restXmlFieldLevelEncryptionConfigInUseResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8108,10 +8079,7 @@ const deserializeAws_restXmlFieldLevelEncryptionProfileAlreadyExistsResponse = a
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8128,10 +8096,7 @@ const deserializeAws_restXmlFieldLevelEncryptionProfileInUseResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8148,10 +8113,7 @@ const deserializeAws_restXmlFieldLevelEncryptionProfileSizeExceededResponse = as
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8168,10 +8130,7 @@ const deserializeAws_restXmlIllegalFieldLevelEncryptionConfigAssociationWithCach
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8188,10 +8147,7 @@ const deserializeAws_restXmlIllegalUpdateResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8208,10 +8164,7 @@ const deserializeAws_restXmlInconsistentQuantitiesResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8228,10 +8181,7 @@ const deserializeAws_restXmlInvalidArgumentResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8248,10 +8198,7 @@ const deserializeAws_restXmlInvalidDefaultRootObjectResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8268,10 +8215,7 @@ const deserializeAws_restXmlInvalidErrorCodeResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8288,10 +8232,7 @@ const deserializeAws_restXmlInvalidForwardCookiesResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8308,10 +8249,7 @@ const deserializeAws_restXmlInvalidGeoRestrictionParameterResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8328,10 +8266,7 @@ const deserializeAws_restXmlInvalidHeadersForS3OriginResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8348,10 +8283,7 @@ const deserializeAws_restXmlInvalidIfMatchVersionResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8368,10 +8300,7 @@ const deserializeAws_restXmlInvalidLambdaFunctionAssociationResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8388,10 +8317,7 @@ const deserializeAws_restXmlInvalidLocationCodeResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8408,10 +8334,7 @@ const deserializeAws_restXmlInvalidMinimumProtocolVersionResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8428,10 +8351,7 @@ const deserializeAws_restXmlInvalidOriginResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8448,10 +8368,7 @@ const deserializeAws_restXmlInvalidOriginAccessIdentityResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8468,10 +8385,7 @@ const deserializeAws_restXmlInvalidOriginKeepaliveTimeoutResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8488,10 +8402,7 @@ const deserializeAws_restXmlInvalidOriginReadTimeoutResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8508,10 +8419,7 @@ const deserializeAws_restXmlInvalidProtocolSettingsResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8528,10 +8436,7 @@ const deserializeAws_restXmlInvalidQueryStringParametersResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8548,10 +8453,7 @@ const deserializeAws_restXmlInvalidRelativePathResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8568,10 +8470,7 @@ const deserializeAws_restXmlInvalidRequiredProtocolResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8588,10 +8487,7 @@ const deserializeAws_restXmlInvalidResponseCodeResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8608,10 +8504,7 @@ const deserializeAws_restXmlInvalidTTLOrderResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8628,10 +8521,7 @@ const deserializeAws_restXmlInvalidTaggingResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8648,10 +8538,7 @@ const deserializeAws_restXmlInvalidViewerCertificateResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8668,10 +8555,7 @@ const deserializeAws_restXmlInvalidWebACLIdResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8688,10 +8572,7 @@ const deserializeAws_restXmlMissingBodyResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8708,10 +8589,7 @@ const deserializeAws_restXmlNoSuchCloudFrontOriginAccessIdentityResponse = async
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8728,10 +8606,7 @@ const deserializeAws_restXmlNoSuchDistributionResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8748,10 +8623,7 @@ const deserializeAws_restXmlNoSuchFieldLevelEncryptionConfigResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8768,10 +8640,7 @@ const deserializeAws_restXmlNoSuchFieldLevelEncryptionProfileResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8788,10 +8657,7 @@ const deserializeAws_restXmlNoSuchInvalidationResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8808,10 +8674,7 @@ const deserializeAws_restXmlNoSuchOriginResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8828,10 +8691,7 @@ const deserializeAws_restXmlNoSuchPublicKeyResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8848,10 +8708,7 @@ const deserializeAws_restXmlNoSuchResourceResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8868,10 +8725,7 @@ const deserializeAws_restXmlNoSuchStreamingDistributionResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8888,10 +8742,7 @@ const deserializeAws_restXmlPreconditionFailedResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8908,10 +8759,7 @@ const deserializeAws_restXmlPublicKeyAlreadyExistsResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8928,10 +8776,7 @@ const deserializeAws_restXmlPublicKeyInUseResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8948,10 +8793,7 @@ const deserializeAws_restXmlQueryArgProfileEmptyResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8968,10 +8810,7 @@ const deserializeAws_restXmlStreamingDistributionAlreadyExistsResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8988,10 +8827,7 @@ const deserializeAws_restXmlStreamingDistributionNotDisabledResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -9008,10 +8844,7 @@ const deserializeAws_restXmlTooManyCacheBehaviorsResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -9028,10 +8861,7 @@ const deserializeAws_restXmlTooManyCertificatesResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -9048,10 +8878,7 @@ const deserializeAws_restXmlTooManyCloudFrontOriginAccessIdentitiesResponse = as
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -9068,10 +8895,7 @@ const deserializeAws_restXmlTooManyCookieNamesInWhiteListResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -9088,10 +8912,7 @@ const deserializeAws_restXmlTooManyDistributionCNAMEsResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -9108,10 +8929,7 @@ const deserializeAws_restXmlTooManyDistributionsResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -9128,10 +8946,7 @@ const deserializeAws_restXmlTooManyDistributionsAssociatedToFieldLevelEncryption
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -9148,10 +8963,7 @@ const deserializeAws_restXmlTooManyDistributionsWithLambdaAssociationsResponse =
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -9168,10 +8980,7 @@ const deserializeAws_restXmlTooManyFieldLevelEncryptionConfigsResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -9188,10 +8997,7 @@ const deserializeAws_restXmlTooManyFieldLevelEncryptionContentTypeProfilesRespon
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -9208,10 +9014,7 @@ const deserializeAws_restXmlTooManyFieldLevelEncryptionEncryptionEntitiesRespons
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -9228,10 +9031,7 @@ const deserializeAws_restXmlTooManyFieldLevelEncryptionFieldPatternsResponse = a
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -9248,10 +9048,7 @@ const deserializeAws_restXmlTooManyFieldLevelEncryptionProfilesResponse = async 
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -9268,10 +9065,7 @@ const deserializeAws_restXmlTooManyFieldLevelEncryptionQueryArgProfilesResponse 
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -9288,10 +9082,7 @@ const deserializeAws_restXmlTooManyHeadersInForwardedValuesResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -9308,10 +9099,7 @@ const deserializeAws_restXmlTooManyInvalidationsInProgressResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -9328,10 +9116,7 @@ const deserializeAws_restXmlTooManyLambdaFunctionAssociationsResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -9348,10 +9133,7 @@ const deserializeAws_restXmlTooManyOriginCustomHeadersResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -9368,10 +9150,7 @@ const deserializeAws_restXmlTooManyOriginGroupsPerDistributionResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -9388,10 +9167,7 @@ const deserializeAws_restXmlTooManyOriginsResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -9408,10 +9184,7 @@ const deserializeAws_restXmlTooManyPublicKeysResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -9428,10 +9201,7 @@ const deserializeAws_restXmlTooManyQueryStringParametersResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -9448,10 +9218,7 @@ const deserializeAws_restXmlTooManyStreamingDistributionCNAMEsResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -9468,10 +9235,7 @@ const deserializeAws_restXmlTooManyStreamingDistributionsResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -9488,10 +9252,7 @@ const deserializeAws_restXmlTooManyTrustedSignersResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -9508,10 +9269,7 @@ const deserializeAws_restXmlTrustedSignerDoesNotExistResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -11467,10 +11225,7 @@ const deserializeAws_restXmlActiveTrustedSigners = (
     Quantity: undefined
   };
   if (output["Enabled"] !== undefined) {
-    contents.Enabled =
-      (output["Enabled"]["#text"] !== undefined
-        ? output["Enabled"]["#text"]
-        : output["Enabled"]) == "true";
+    contents.Enabled = output["Enabled"] == "true";
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -11485,11 +11240,7 @@ const deserializeAws_restXmlActiveTrustedSigners = (
     );
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -11504,16 +11255,10 @@ const deserializeAws_restXmlAliasICPRecordal = (
     ICPRecordalStatus: undefined
   };
   if (output["CNAME"] !== undefined) {
-    contents.CNAME =
-      output["CNAME"]["#text"] !== undefined
-        ? output["CNAME"]["#text"]
-        : output["CNAME"];
+    contents.CNAME = output["CNAME"];
   }
   if (output["ICPRecordalStatus"] !== undefined) {
-    contents.ICPRecordalStatus =
-      output["ICPRecordalStatus"]["#text"] !== undefined
-        ? output["ICPRecordalStatus"]["#text"]
-        : output["ICPRecordalStatus"];
+    contents.ICPRecordalStatus = output["ICPRecordalStatus"];
   }
   return contents;
 };
@@ -11531,9 +11276,7 @@ const deserializeAws_restXmlAliasList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  return (output || []).map((entry: any) =>
-    entry["#text"] !== undefined ? entry["#text"] : entry
-  );
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restXmlAliases = (
@@ -11555,11 +11298,7 @@ const deserializeAws_restXmlAliases = (
     );
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -11593,11 +11332,7 @@ const deserializeAws_restXmlAllowedMethods = (
     );
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -11606,9 +11341,7 @@ const deserializeAws_restXmlAwsAccountNumberList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  return (output || []).map((entry: any) =>
-    entry["#text"] !== undefined ? entry["#text"] : entry
-  );
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restXmlCacheBehavior = (
@@ -11638,23 +11371,13 @@ const deserializeAws_restXmlCacheBehavior = (
     );
   }
   if (output["Compress"] !== undefined) {
-    contents.Compress =
-      (output["Compress"]["#text"] !== undefined
-        ? output["Compress"]["#text"]
-        : output["Compress"]) == "true";
+    contents.Compress = output["Compress"] == "true";
   }
   if (output["DefaultTTL"] !== undefined) {
-    contents.DefaultTTL = parseInt(
-      output["DefaultTTL"]["#text"] !== undefined
-        ? output["DefaultTTL"]["#text"]
-        : output["DefaultTTL"]
-    );
+    contents.DefaultTTL = parseInt(output["DefaultTTL"]);
   }
   if (output["FieldLevelEncryptionId"] !== undefined) {
-    contents.FieldLevelEncryptionId =
-      output["FieldLevelEncryptionId"]["#text"] !== undefined
-        ? output["FieldLevelEncryptionId"]["#text"]
-        : output["FieldLevelEncryptionId"];
+    contents.FieldLevelEncryptionId = output["FieldLevelEncryptionId"];
   }
   if (output["ForwardedValues"] !== undefined) {
     contents.ForwardedValues = deserializeAws_restXmlForwardedValues(
@@ -11669,36 +11392,19 @@ const deserializeAws_restXmlCacheBehavior = (
     );
   }
   if (output["MaxTTL"] !== undefined) {
-    contents.MaxTTL = parseInt(
-      output["MaxTTL"]["#text"] !== undefined
-        ? output["MaxTTL"]["#text"]
-        : output["MaxTTL"]
-    );
+    contents.MaxTTL = parseInt(output["MaxTTL"]);
   }
   if (output["MinTTL"] !== undefined) {
-    contents.MinTTL = parseInt(
-      output["MinTTL"]["#text"] !== undefined
-        ? output["MinTTL"]["#text"]
-        : output["MinTTL"]
-    );
+    contents.MinTTL = parseInt(output["MinTTL"]);
   }
   if (output["PathPattern"] !== undefined) {
-    contents.PathPattern =
-      output["PathPattern"]["#text"] !== undefined
-        ? output["PathPattern"]["#text"]
-        : output["PathPattern"];
+    contents.PathPattern = output["PathPattern"];
   }
   if (output["SmoothStreaming"] !== undefined) {
-    contents.SmoothStreaming =
-      (output["SmoothStreaming"]["#text"] !== undefined
-        ? output["SmoothStreaming"]["#text"]
-        : output["SmoothStreaming"]) == "true";
+    contents.SmoothStreaming = output["SmoothStreaming"] == "true";
   }
   if (output["TargetOriginId"] !== undefined) {
-    contents.TargetOriginId =
-      output["TargetOriginId"]["#text"] !== undefined
-        ? output["TargetOriginId"]["#text"]
-        : output["TargetOriginId"];
+    contents.TargetOriginId = output["TargetOriginId"];
   }
   if (output["TrustedSigners"] !== undefined) {
     contents.TrustedSigners = deserializeAws_restXmlTrustedSigners(
@@ -11707,10 +11413,7 @@ const deserializeAws_restXmlCacheBehavior = (
     );
   }
   if (output["ViewerProtocolPolicy"] !== undefined) {
-    contents.ViewerProtocolPolicy =
-      output["ViewerProtocolPolicy"]["#text"] !== undefined
-        ? output["ViewerProtocolPolicy"]["#text"]
-        : output["ViewerProtocolPolicy"];
+    contents.ViewerProtocolPolicy = output["ViewerProtocolPolicy"];
   }
   return contents;
 };
@@ -11746,11 +11449,7 @@ const deserializeAws_restXmlCacheBehaviors = (
     );
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -11777,11 +11476,7 @@ const deserializeAws_restXmlCachedMethods = (
     );
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -11803,16 +11498,10 @@ const deserializeAws_restXmlCloudFrontOriginAccessIdentity = (
     );
   }
   if (output["Id"] !== undefined) {
-    contents.Id =
-      output["Id"]["#text"] !== undefined
-        ? output["Id"]["#text"]
-        : output["Id"];
+    contents.Id = output["Id"];
   }
   if (output["S3CanonicalUserId"] !== undefined) {
-    contents.S3CanonicalUserId =
-      output["S3CanonicalUserId"]["#text"] !== undefined
-        ? output["S3CanonicalUserId"]["#text"]
-        : output["S3CanonicalUserId"];
+    contents.S3CanonicalUserId = output["S3CanonicalUserId"];
   }
   return contents;
 };
@@ -11827,16 +11516,10 @@ const deserializeAws_restXmlCloudFrontOriginAccessIdentityConfig = (
     Comment: undefined
   };
   if (output["CallerReference"] !== undefined) {
-    contents.CallerReference =
-      output["CallerReference"]["#text"] !== undefined
-        ? output["CallerReference"]["#text"]
-        : output["CallerReference"];
+    contents.CallerReference = output["CallerReference"];
   }
   if (output["Comment"] !== undefined) {
-    contents.Comment =
-      output["Comment"]["#text"] !== undefined
-        ? output["Comment"]["#text"]
-        : output["Comment"];
+    contents.Comment = output["Comment"];
   }
   return contents;
 };
@@ -11855,10 +11538,7 @@ const deserializeAws_restXmlCloudFrontOriginAccessIdentityList = (
     Quantity: undefined
   };
   if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated =
-      (output["IsTruncated"]["#text"] !== undefined
-        ? output["IsTruncated"]["#text"]
-        : output["IsTruncated"]) == "true";
+    contents.IsTruncated = output["IsTruncated"] == "true";
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -11875,30 +11555,16 @@ const deserializeAws_restXmlCloudFrontOriginAccessIdentityList = (
     );
   }
   if (output["Marker"] !== undefined) {
-    contents.Marker =
-      output["Marker"]["#text"] !== undefined
-        ? output["Marker"]["#text"]
-        : output["Marker"];
+    contents.Marker = output["Marker"];
   }
   if (output["MaxItems"] !== undefined) {
-    contents.MaxItems = parseInt(
-      output["MaxItems"]["#text"] !== undefined
-        ? output["MaxItems"]["#text"]
-        : output["MaxItems"]
-    );
+    contents.MaxItems = parseInt(output["MaxItems"]);
   }
   if (output["NextMarker"] !== undefined) {
-    contents.NextMarker =
-      output["NextMarker"]["#text"] !== undefined
-        ? output["NextMarker"]["#text"]
-        : output["NextMarker"];
+    contents.NextMarker = output["NextMarker"];
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -11914,22 +11580,13 @@ const deserializeAws_restXmlCloudFrontOriginAccessIdentitySummary = (
     S3CanonicalUserId: undefined
   };
   if (output["Comment"] !== undefined) {
-    contents.Comment =
-      output["Comment"]["#text"] !== undefined
-        ? output["Comment"]["#text"]
-        : output["Comment"];
+    contents.Comment = output["Comment"];
   }
   if (output["Id"] !== undefined) {
-    contents.Id =
-      output["Id"]["#text"] !== undefined
-        ? output["Id"]["#text"]
-        : output["Id"];
+    contents.Id = output["Id"];
   }
   if (output["S3CanonicalUserId"] !== undefined) {
-    contents.S3CanonicalUserId =
-      output["S3CanonicalUserId"]["#text"] !== undefined
-        ? output["S3CanonicalUserId"]["#text"]
-        : output["S3CanonicalUserId"];
+    contents.S3CanonicalUserId = output["S3CanonicalUserId"];
   }
   return contents;
 };
@@ -11954,22 +11611,13 @@ const deserializeAws_restXmlContentTypeProfile = (
     ProfileId: undefined
   };
   if (output["ContentType"] !== undefined) {
-    contents.ContentType =
-      output["ContentType"]["#text"] !== undefined
-        ? output["ContentType"]["#text"]
-        : output["ContentType"];
+    contents.ContentType = output["ContentType"];
   }
   if (output["Format"] !== undefined) {
-    contents.Format =
-      output["Format"]["#text"] !== undefined
-        ? output["Format"]["#text"]
-        : output["Format"];
+    contents.Format = output["Format"];
   }
   if (output["ProfileId"] !== undefined) {
-    contents.ProfileId =
-      output["ProfileId"]["#text"] !== undefined
-        ? output["ProfileId"]["#text"]
-        : output["ProfileId"];
+    contents.ProfileId = output["ProfileId"];
   }
   return contents;
 };
@@ -11991,9 +11639,7 @@ const deserializeAws_restXmlContentTypeProfileConfig = (
   }
   if (output["ForwardWhenContentTypeIsUnknown"] !== undefined) {
     contents.ForwardWhenContentTypeIsUnknown =
-      (output["ForwardWhenContentTypeIsUnknown"]["#text"] !== undefined
-        ? output["ForwardWhenContentTypeIsUnknown"]["#text"]
-        : output["ForwardWhenContentTypeIsUnknown"]) == "true";
+      output["ForwardWhenContentTypeIsUnknown"] == "true";
   }
   return contents;
 };
@@ -12029,11 +11675,7 @@ const deserializeAws_restXmlContentTypeProfiles = (
     );
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -12042,9 +11684,7 @@ const deserializeAws_restXmlCookieNameList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  return (output || []).map((entry: any) =>
-    entry["#text"] !== undefined ? entry["#text"] : entry
-  );
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restXmlCookieNames = (
@@ -12066,11 +11706,7 @@ const deserializeAws_restXmlCookieNames = (
     );
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -12085,10 +11721,7 @@ const deserializeAws_restXmlCookiePreference = (
     WhitelistedNames: undefined
   };
   if (output["Forward"] !== undefined) {
-    contents.Forward =
-      output["Forward"]["#text"] !== undefined
-        ? output["Forward"]["#text"]
-        : output["Forward"];
+    contents.Forward = output["Forward"];
   }
   if (output["WhitelistedNames"] !== undefined) {
     contents.WhitelistedNames = deserializeAws_restXmlCookieNames(
@@ -12111,30 +11744,16 @@ const deserializeAws_restXmlCustomErrorResponse = (
     ResponsePagePath: undefined
   };
   if (output["ErrorCachingMinTTL"] !== undefined) {
-    contents.ErrorCachingMinTTL = parseInt(
-      output["ErrorCachingMinTTL"]["#text"] !== undefined
-        ? output["ErrorCachingMinTTL"]["#text"]
-        : output["ErrorCachingMinTTL"]
-    );
+    contents.ErrorCachingMinTTL = parseInt(output["ErrorCachingMinTTL"]);
   }
   if (output["ErrorCode"] !== undefined) {
-    contents.ErrorCode = parseInt(
-      output["ErrorCode"]["#text"] !== undefined
-        ? output["ErrorCode"]["#text"]
-        : output["ErrorCode"]
-    );
+    contents.ErrorCode = parseInt(output["ErrorCode"]);
   }
   if (output["ResponseCode"] !== undefined) {
-    contents.ResponseCode =
-      output["ResponseCode"]["#text"] !== undefined
-        ? output["ResponseCode"]["#text"]
-        : output["ResponseCode"];
+    contents.ResponseCode = output["ResponseCode"];
   }
   if (output["ResponsePagePath"] !== undefined) {
-    contents.ResponsePagePath =
-      output["ResponsePagePath"]["#text"] !== undefined
-        ? output["ResponsePagePath"]["#text"]
-        : output["ResponsePagePath"];
+    contents.ResponsePagePath = output["ResponsePagePath"];
   }
   return contents;
 };
@@ -12170,11 +11789,7 @@ const deserializeAws_restXmlCustomErrorResponses = (
     );
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -12201,11 +11816,7 @@ const deserializeAws_restXmlCustomHeaders = (
     );
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -12224,38 +11835,21 @@ const deserializeAws_restXmlCustomOriginConfig = (
     OriginSslProtocols: undefined
   };
   if (output["HTTPPort"] !== undefined) {
-    contents.HTTPPort = parseInt(
-      output["HTTPPort"]["#text"] !== undefined
-        ? output["HTTPPort"]["#text"]
-        : output["HTTPPort"]
-    );
+    contents.HTTPPort = parseInt(output["HTTPPort"]);
   }
   if (output["HTTPSPort"] !== undefined) {
-    contents.HTTPSPort = parseInt(
-      output["HTTPSPort"]["#text"] !== undefined
-        ? output["HTTPSPort"]["#text"]
-        : output["HTTPSPort"]
-    );
+    contents.HTTPSPort = parseInt(output["HTTPSPort"]);
   }
   if (output["OriginKeepaliveTimeout"] !== undefined) {
     contents.OriginKeepaliveTimeout = parseInt(
-      output["OriginKeepaliveTimeout"]["#text"] !== undefined
-        ? output["OriginKeepaliveTimeout"]["#text"]
-        : output["OriginKeepaliveTimeout"]
+      output["OriginKeepaliveTimeout"]
     );
   }
   if (output["OriginProtocolPolicy"] !== undefined) {
-    contents.OriginProtocolPolicy =
-      output["OriginProtocolPolicy"]["#text"] !== undefined
-        ? output["OriginProtocolPolicy"]["#text"]
-        : output["OriginProtocolPolicy"];
+    contents.OriginProtocolPolicy = output["OriginProtocolPolicy"];
   }
   if (output["OriginReadTimeout"] !== undefined) {
-    contents.OriginReadTimeout = parseInt(
-      output["OriginReadTimeout"]["#text"] !== undefined
-        ? output["OriginReadTimeout"]["#text"]
-        : output["OriginReadTimeout"]
-    );
+    contents.OriginReadTimeout = parseInt(output["OriginReadTimeout"]);
   }
   if (output["OriginSslProtocols"] !== undefined) {
     contents.OriginSslProtocols = deserializeAws_restXmlOriginSslProtocols(
@@ -12292,23 +11886,13 @@ const deserializeAws_restXmlDefaultCacheBehavior = (
     );
   }
   if (output["Compress"] !== undefined) {
-    contents.Compress =
-      (output["Compress"]["#text"] !== undefined
-        ? output["Compress"]["#text"]
-        : output["Compress"]) == "true";
+    contents.Compress = output["Compress"] == "true";
   }
   if (output["DefaultTTL"] !== undefined) {
-    contents.DefaultTTL = parseInt(
-      output["DefaultTTL"]["#text"] !== undefined
-        ? output["DefaultTTL"]["#text"]
-        : output["DefaultTTL"]
-    );
+    contents.DefaultTTL = parseInt(output["DefaultTTL"]);
   }
   if (output["FieldLevelEncryptionId"] !== undefined) {
-    contents.FieldLevelEncryptionId =
-      output["FieldLevelEncryptionId"]["#text"] !== undefined
-        ? output["FieldLevelEncryptionId"]["#text"]
-        : output["FieldLevelEncryptionId"];
+    contents.FieldLevelEncryptionId = output["FieldLevelEncryptionId"];
   }
   if (output["ForwardedValues"] !== undefined) {
     contents.ForwardedValues = deserializeAws_restXmlForwardedValues(
@@ -12323,30 +11907,16 @@ const deserializeAws_restXmlDefaultCacheBehavior = (
     );
   }
   if (output["MaxTTL"] !== undefined) {
-    contents.MaxTTL = parseInt(
-      output["MaxTTL"]["#text"] !== undefined
-        ? output["MaxTTL"]["#text"]
-        : output["MaxTTL"]
-    );
+    contents.MaxTTL = parseInt(output["MaxTTL"]);
   }
   if (output["MinTTL"] !== undefined) {
-    contents.MinTTL = parseInt(
-      output["MinTTL"]["#text"] !== undefined
-        ? output["MinTTL"]["#text"]
-        : output["MinTTL"]
-    );
+    contents.MinTTL = parseInt(output["MinTTL"]);
   }
   if (output["SmoothStreaming"] !== undefined) {
-    contents.SmoothStreaming =
-      (output["SmoothStreaming"]["#text"] !== undefined
-        ? output["SmoothStreaming"]["#text"]
-        : output["SmoothStreaming"]) == "true";
+    contents.SmoothStreaming = output["SmoothStreaming"] == "true";
   }
   if (output["TargetOriginId"] !== undefined) {
-    contents.TargetOriginId =
-      output["TargetOriginId"]["#text"] !== undefined
-        ? output["TargetOriginId"]["#text"]
-        : output["TargetOriginId"];
+    contents.TargetOriginId = output["TargetOriginId"];
   }
   if (output["TrustedSigners"] !== undefined) {
     contents.TrustedSigners = deserializeAws_restXmlTrustedSigners(
@@ -12355,10 +11925,7 @@ const deserializeAws_restXmlDefaultCacheBehavior = (
     );
   }
   if (output["ViewerProtocolPolicy"] !== undefined) {
-    contents.ViewerProtocolPolicy =
-      output["ViewerProtocolPolicy"]["#text"] !== undefined
-        ? output["ViewerProtocolPolicy"]["#text"]
-        : output["ViewerProtocolPolicy"];
+    contents.ViewerProtocolPolicy = output["ViewerProtocolPolicy"];
   }
   return contents;
 };
@@ -12380,10 +11947,7 @@ const deserializeAws_restXmlDistribution = (
     Status: undefined
   };
   if (output["ARN"] !== undefined) {
-    contents.ARN =
-      output["ARN"]["#text"] !== undefined
-        ? output["ARN"]["#text"]
-        : output["ARN"];
+    contents.ARN = output["ARN"];
   }
   if (output["ActiveTrustedSigners"] !== undefined) {
     contents.ActiveTrustedSigners = deserializeAws_restXmlActiveTrustedSigners(
@@ -12410,32 +11974,21 @@ const deserializeAws_restXmlDistribution = (
     );
   }
   if (output["DomainName"] !== undefined) {
-    contents.DomainName =
-      output["DomainName"]["#text"] !== undefined
-        ? output["DomainName"]["#text"]
-        : output["DomainName"];
+    contents.DomainName = output["DomainName"];
   }
   if (output["Id"] !== undefined) {
-    contents.Id =
-      output["Id"]["#text"] !== undefined
-        ? output["Id"]["#text"]
-        : output["Id"];
+    contents.Id = output["Id"];
   }
   if (output["InProgressInvalidationBatches"] !== undefined) {
     contents.InProgressInvalidationBatches = parseInt(
-      output["InProgressInvalidationBatches"]["#text"] !== undefined
-        ? output["InProgressInvalidationBatches"]["#text"]
-        : output["InProgressInvalidationBatches"]
+      output["InProgressInvalidationBatches"]
     );
   }
   if (output["LastModifiedTime"] !== undefined) {
     contents.LastModifiedTime = new Date(output["LastModifiedTime"]);
   }
   if (output["Status"] !== undefined) {
-    contents.Status =
-      output["Status"]["#text"] !== undefined
-        ? output["Status"]["#text"]
-        : output["Status"];
+    contents.Status = output["Status"];
   }
   return contents;
 };
@@ -12477,16 +12030,10 @@ const deserializeAws_restXmlDistributionConfig = (
     );
   }
   if (output["CallerReference"] !== undefined) {
-    contents.CallerReference =
-      output["CallerReference"]["#text"] !== undefined
-        ? output["CallerReference"]["#text"]
-        : output["CallerReference"];
+    contents.CallerReference = output["CallerReference"];
   }
   if (output["Comment"] !== undefined) {
-    contents.Comment =
-      output["Comment"]["#text"] !== undefined
-        ? output["Comment"]["#text"]
-        : output["Comment"];
+    contents.Comment = output["Comment"];
   }
   if (output["CustomErrorResponses"] !== undefined) {
     contents.CustomErrorResponses = deserializeAws_restXmlCustomErrorResponses(
@@ -12501,28 +12048,16 @@ const deserializeAws_restXmlDistributionConfig = (
     );
   }
   if (output["DefaultRootObject"] !== undefined) {
-    contents.DefaultRootObject =
-      output["DefaultRootObject"]["#text"] !== undefined
-        ? output["DefaultRootObject"]["#text"]
-        : output["DefaultRootObject"];
+    contents.DefaultRootObject = output["DefaultRootObject"];
   }
   if (output["Enabled"] !== undefined) {
-    contents.Enabled =
-      (output["Enabled"]["#text"] !== undefined
-        ? output["Enabled"]["#text"]
-        : output["Enabled"]) == "true";
+    contents.Enabled = output["Enabled"] == "true";
   }
   if (output["HttpVersion"] !== undefined) {
-    contents.HttpVersion =
-      output["HttpVersion"]["#text"] !== undefined
-        ? output["HttpVersion"]["#text"]
-        : output["HttpVersion"];
+    contents.HttpVersion = output["HttpVersion"];
   }
   if (output["IsIPV6Enabled"] !== undefined) {
-    contents.IsIPV6Enabled =
-      (output["IsIPV6Enabled"]["#text"] !== undefined
-        ? output["IsIPV6Enabled"]["#text"]
-        : output["IsIPV6Enabled"]) == "true";
+    contents.IsIPV6Enabled = output["IsIPV6Enabled"] == "true";
   }
   if (output["Logging"] !== undefined) {
     contents.Logging = deserializeAws_restXmlLoggingConfig(
@@ -12543,10 +12078,7 @@ const deserializeAws_restXmlDistributionConfig = (
     );
   }
   if (output["PriceClass"] !== undefined) {
-    contents.PriceClass =
-      output["PriceClass"]["#text"] !== undefined
-        ? output["PriceClass"]["#text"]
-        : output["PriceClass"];
+    contents.PriceClass = output["PriceClass"];
   }
   if (output["Restrictions"] !== undefined) {
     contents.Restrictions = deserializeAws_restXmlRestrictions(
@@ -12561,10 +12093,7 @@ const deserializeAws_restXmlDistributionConfig = (
     );
   }
   if (output["WebACLId"] !== undefined) {
-    contents.WebACLId =
-      output["WebACLId"]["#text"] !== undefined
-        ? output["WebACLId"]["#text"]
-        : output["WebACLId"];
+    contents.WebACLId = output["WebACLId"];
   }
   return contents;
 };
@@ -12583,10 +12112,7 @@ const deserializeAws_restXmlDistributionList = (
     Quantity: undefined
   };
   if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated =
-      (output["IsTruncated"]["#text"] !== undefined
-        ? output["IsTruncated"]["#text"]
-        : output["IsTruncated"]) == "true";
+    contents.IsTruncated = output["IsTruncated"] == "true";
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -12601,30 +12127,16 @@ const deserializeAws_restXmlDistributionList = (
     );
   }
   if (output["Marker"] !== undefined) {
-    contents.Marker =
-      output["Marker"]["#text"] !== undefined
-        ? output["Marker"]["#text"]
-        : output["Marker"];
+    contents.Marker = output["Marker"];
   }
   if (output["MaxItems"] !== undefined) {
-    contents.MaxItems = parseInt(
-      output["MaxItems"]["#text"] !== undefined
-        ? output["MaxItems"]["#text"]
-        : output["MaxItems"]
-    );
+    contents.MaxItems = parseInt(output["MaxItems"]);
   }
   if (output["NextMarker"] !== undefined) {
-    contents.NextMarker =
-      output["NextMarker"]["#text"] !== undefined
-        ? output["NextMarker"]["#text"]
-        : output["NextMarker"];
+    contents.NextMarker = output["NextMarker"];
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -12657,10 +12169,7 @@ const deserializeAws_restXmlDistributionSummary = (
     WebACLId: undefined
   };
   if (output["ARN"] !== undefined) {
-    contents.ARN =
-      output["ARN"]["#text"] !== undefined
-        ? output["ARN"]["#text"]
-        : output["ARN"];
+    contents.ARN = output["ARN"];
   }
   if (output.AliasICPRecordals === "") {
     contents.AliasICPRecordals = [];
@@ -12687,10 +12196,7 @@ const deserializeAws_restXmlDistributionSummary = (
     );
   }
   if (output["Comment"] !== undefined) {
-    contents.Comment =
-      output["Comment"]["#text"] !== undefined
-        ? output["Comment"]["#text"]
-        : output["Comment"];
+    contents.Comment = output["Comment"];
   }
   if (output["CustomErrorResponses"] !== undefined) {
     contents.CustomErrorResponses = deserializeAws_restXmlCustomErrorResponses(
@@ -12705,34 +12211,19 @@ const deserializeAws_restXmlDistributionSummary = (
     );
   }
   if (output["DomainName"] !== undefined) {
-    contents.DomainName =
-      output["DomainName"]["#text"] !== undefined
-        ? output["DomainName"]["#text"]
-        : output["DomainName"];
+    contents.DomainName = output["DomainName"];
   }
   if (output["Enabled"] !== undefined) {
-    contents.Enabled =
-      (output["Enabled"]["#text"] !== undefined
-        ? output["Enabled"]["#text"]
-        : output["Enabled"]) == "true";
+    contents.Enabled = output["Enabled"] == "true";
   }
   if (output["HttpVersion"] !== undefined) {
-    contents.HttpVersion =
-      output["HttpVersion"]["#text"] !== undefined
-        ? output["HttpVersion"]["#text"]
-        : output["HttpVersion"];
+    contents.HttpVersion = output["HttpVersion"];
   }
   if (output["Id"] !== undefined) {
-    contents.Id =
-      output["Id"]["#text"] !== undefined
-        ? output["Id"]["#text"]
-        : output["Id"];
+    contents.Id = output["Id"];
   }
   if (output["IsIPV6Enabled"] !== undefined) {
-    contents.IsIPV6Enabled =
-      (output["IsIPV6Enabled"]["#text"] !== undefined
-        ? output["IsIPV6Enabled"]["#text"]
-        : output["IsIPV6Enabled"]) == "true";
+    contents.IsIPV6Enabled = output["IsIPV6Enabled"] == "true";
   }
   if (output["LastModifiedTime"] !== undefined) {
     contents.LastModifiedTime = new Date(output["LastModifiedTime"]);
@@ -12750,10 +12241,7 @@ const deserializeAws_restXmlDistributionSummary = (
     );
   }
   if (output["PriceClass"] !== undefined) {
-    contents.PriceClass =
-      output["PriceClass"]["#text"] !== undefined
-        ? output["PriceClass"]["#text"]
-        : output["PriceClass"];
+    contents.PriceClass = output["PriceClass"];
   }
   if (output["Restrictions"] !== undefined) {
     contents.Restrictions = deserializeAws_restXmlRestrictions(
@@ -12762,10 +12250,7 @@ const deserializeAws_restXmlDistributionSummary = (
     );
   }
   if (output["Status"] !== undefined) {
-    contents.Status =
-      output["Status"]["#text"] !== undefined
-        ? output["Status"]["#text"]
-        : output["Status"];
+    contents.Status = output["Status"];
   }
   if (output["ViewerCertificate"] !== undefined) {
     contents.ViewerCertificate = deserializeAws_restXmlViewerCertificate(
@@ -12774,10 +12259,7 @@ const deserializeAws_restXmlDistributionSummary = (
     );
   }
   if (output["WebACLId"] !== undefined) {
-    contents.WebACLId =
-      output["WebACLId"]["#text"] !== undefined
-        ? output["WebACLId"]["#text"]
-        : output["WebACLId"];
+    contents.WebACLId = output["WebACLId"];
   }
   return contents;
 };
@@ -12813,11 +12295,7 @@ const deserializeAws_restXmlEncryptionEntities = (
     );
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -12839,16 +12317,10 @@ const deserializeAws_restXmlEncryptionEntity = (
     );
   }
   if (output["ProviderId"] !== undefined) {
-    contents.ProviderId =
-      output["ProviderId"]["#text"] !== undefined
-        ? output["ProviderId"]["#text"]
-        : output["ProviderId"];
+    contents.ProviderId = output["ProviderId"];
   }
   if (output["PublicKeyId"] !== undefined) {
-    contents.PublicKeyId =
-      output["PublicKeyId"]["#text"] !== undefined
-        ? output["PublicKeyId"]["#text"]
-        : output["PublicKeyId"];
+    contents.PublicKeyId = output["PublicKeyId"];
   }
   return contents;
 };
@@ -12879,10 +12351,7 @@ const deserializeAws_restXmlFieldLevelEncryption = (
     );
   }
   if (output["Id"] !== undefined) {
-    contents.Id =
-      output["Id"]["#text"] !== undefined
-        ? output["Id"]["#text"]
-        : output["Id"];
+    contents.Id = output["Id"];
   }
   if (output["LastModifiedTime"] !== undefined) {
     contents.LastModifiedTime = new Date(output["LastModifiedTime"]);
@@ -12902,16 +12371,10 @@ const deserializeAws_restXmlFieldLevelEncryptionConfig = (
     QueryArgProfileConfig: undefined
   };
   if (output["CallerReference"] !== undefined) {
-    contents.CallerReference =
-      output["CallerReference"]["#text"] !== undefined
-        ? output["CallerReference"]["#text"]
-        : output["CallerReference"];
+    contents.CallerReference = output["CallerReference"];
   }
   if (output["Comment"] !== undefined) {
-    contents.Comment =
-      output["Comment"]["#text"] !== undefined
-        ? output["Comment"]["#text"]
-        : output["Comment"];
+    contents.Comment = output["Comment"];
   }
   if (output["ContentTypeProfileConfig"] !== undefined) {
     contents.ContentTypeProfileConfig = deserializeAws_restXmlContentTypeProfileConfig(
@@ -12952,24 +12415,13 @@ const deserializeAws_restXmlFieldLevelEncryptionList = (
     );
   }
   if (output["MaxItems"] !== undefined) {
-    contents.MaxItems = parseInt(
-      output["MaxItems"]["#text"] !== undefined
-        ? output["MaxItems"]["#text"]
-        : output["MaxItems"]
-    );
+    contents.MaxItems = parseInt(output["MaxItems"]);
   }
   if (output["NextMarker"] !== undefined) {
-    contents.NextMarker =
-      output["NextMarker"]["#text"] !== undefined
-        ? output["NextMarker"]["#text"]
-        : output["NextMarker"];
+    contents.NextMarker = output["NextMarker"];
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -12991,10 +12443,7 @@ const deserializeAws_restXmlFieldLevelEncryptionProfile = (
     );
   }
   if (output["Id"] !== undefined) {
-    contents.Id =
-      output["Id"]["#text"] !== undefined
-        ? output["Id"]["#text"]
-        : output["Id"];
+    contents.Id = output["Id"];
   }
   if (output["LastModifiedTime"] !== undefined) {
     contents.LastModifiedTime = new Date(output["LastModifiedTime"]);
@@ -13014,16 +12463,10 @@ const deserializeAws_restXmlFieldLevelEncryptionProfileConfig = (
     Name: undefined
   };
   if (output["CallerReference"] !== undefined) {
-    contents.CallerReference =
-      output["CallerReference"]["#text"] !== undefined
-        ? output["CallerReference"]["#text"]
-        : output["CallerReference"];
+    contents.CallerReference = output["CallerReference"];
   }
   if (output["Comment"] !== undefined) {
-    contents.Comment =
-      output["Comment"]["#text"] !== undefined
-        ? output["Comment"]["#text"]
-        : output["Comment"];
+    contents.Comment = output["Comment"];
   }
   if (output["EncryptionEntities"] !== undefined) {
     contents.EncryptionEntities = deserializeAws_restXmlEncryptionEntities(
@@ -13032,10 +12475,7 @@ const deserializeAws_restXmlFieldLevelEncryptionProfileConfig = (
     );
   }
   if (output["Name"] !== undefined) {
-    contents.Name =
-      output["Name"]["#text"] !== undefined
-        ? output["Name"]["#text"]
-        : output["Name"];
+    contents.Name = output["Name"];
   }
   return contents;
 };
@@ -13066,24 +12506,13 @@ const deserializeAws_restXmlFieldLevelEncryptionProfileList = (
     );
   }
   if (output["MaxItems"] !== undefined) {
-    contents.MaxItems = parseInt(
-      output["MaxItems"]["#text"] !== undefined
-        ? output["MaxItems"]["#text"]
-        : output["MaxItems"]
-    );
+    contents.MaxItems = parseInt(output["MaxItems"]);
   }
   if (output["NextMarker"] !== undefined) {
-    contents.NextMarker =
-      output["NextMarker"]["#text"] !== undefined
-        ? output["NextMarker"]["#text"]
-        : output["NextMarker"];
+    contents.NextMarker = output["NextMarker"];
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -13101,10 +12530,7 @@ const deserializeAws_restXmlFieldLevelEncryptionProfileSummary = (
     Name: undefined
   };
   if (output["Comment"] !== undefined) {
-    contents.Comment =
-      output["Comment"]["#text"] !== undefined
-        ? output["Comment"]["#text"]
-        : output["Comment"];
+    contents.Comment = output["Comment"];
   }
   if (output["EncryptionEntities"] !== undefined) {
     contents.EncryptionEntities = deserializeAws_restXmlEncryptionEntities(
@@ -13113,19 +12539,13 @@ const deserializeAws_restXmlFieldLevelEncryptionProfileSummary = (
     );
   }
   if (output["Id"] !== undefined) {
-    contents.Id =
-      output["Id"]["#text"] !== undefined
-        ? output["Id"]["#text"]
-        : output["Id"];
+    contents.Id = output["Id"];
   }
   if (output["LastModifiedTime"] !== undefined) {
     contents.LastModifiedTime = new Date(output["LastModifiedTime"]);
   }
   if (output["Name"] !== undefined) {
-    contents.Name =
-      output["Name"]["#text"] !== undefined
-        ? output["Name"]["#text"]
-        : output["Name"];
+    contents.Name = output["Name"];
   }
   return contents;
 };
@@ -13152,10 +12572,7 @@ const deserializeAws_restXmlFieldLevelEncryptionSummary = (
     QueryArgProfileConfig: undefined
   };
   if (output["Comment"] !== undefined) {
-    contents.Comment =
-      output["Comment"]["#text"] !== undefined
-        ? output["Comment"]["#text"]
-        : output["Comment"];
+    contents.Comment = output["Comment"];
   }
   if (output["ContentTypeProfileConfig"] !== undefined) {
     contents.ContentTypeProfileConfig = deserializeAws_restXmlContentTypeProfileConfig(
@@ -13164,10 +12581,7 @@ const deserializeAws_restXmlFieldLevelEncryptionSummary = (
     );
   }
   if (output["Id"] !== undefined) {
-    contents.Id =
-      output["Id"]["#text"] !== undefined
-        ? output["Id"]["#text"]
-        : output["Id"];
+    contents.Id = output["Id"];
   }
   if (output["LastModifiedTime"] !== undefined) {
     contents.LastModifiedTime = new Date(output["LastModifiedTime"]);
@@ -13194,9 +12608,7 @@ const deserializeAws_restXmlFieldPatternList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  return (output || []).map((entry: any) =>
-    entry["#text"] !== undefined ? entry["#text"] : entry
-  );
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restXmlFieldPatterns = (
@@ -13221,11 +12633,7 @@ const deserializeAws_restXmlFieldPatterns = (
     );
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -13254,10 +12662,7 @@ const deserializeAws_restXmlForwardedValues = (
     );
   }
   if (output["QueryString"] !== undefined) {
-    contents.QueryString =
-      (output["QueryString"]["#text"] !== undefined
-        ? output["QueryString"]["#text"]
-        : output["QueryString"]) == "true";
+    contents.QueryString = output["QueryString"] == "true";
   }
   if (output["QueryStringCacheKeys"] !== undefined) {
     contents.QueryStringCacheKeys = deserializeAws_restXmlQueryStringCacheKeys(
@@ -13291,17 +12696,10 @@ const deserializeAws_restXmlGeoRestriction = (
     );
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   if (output["RestrictionType"] !== undefined) {
-    contents.RestrictionType =
-      output["RestrictionType"]["#text"] !== undefined
-        ? output["RestrictionType"]["#text"]
-        : output["RestrictionType"];
+    contents.RestrictionType = output["RestrictionType"];
   }
   return contents;
 };
@@ -13310,9 +12708,7 @@ const deserializeAws_restXmlHeaderList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  return (output || []).map((entry: any) =>
-    entry["#text"] !== undefined ? entry["#text"] : entry
-  );
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restXmlHeaders = (
@@ -13334,11 +12730,7 @@ const deserializeAws_restXmlHeaders = (
     );
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -13358,10 +12750,7 @@ const deserializeAws_restXmlInvalidation = (
     contents.CreateTime = new Date(output["CreateTime"]);
   }
   if (output["Id"] !== undefined) {
-    contents.Id =
-      output["Id"]["#text"] !== undefined
-        ? output["Id"]["#text"]
-        : output["Id"];
+    contents.Id = output["Id"];
   }
   if (output["InvalidationBatch"] !== undefined) {
     contents.InvalidationBatch = deserializeAws_restXmlInvalidationBatch(
@@ -13370,10 +12759,7 @@ const deserializeAws_restXmlInvalidation = (
     );
   }
   if (output["Status"] !== undefined) {
-    contents.Status =
-      output["Status"]["#text"] !== undefined
-        ? output["Status"]["#text"]
-        : output["Status"];
+    contents.Status = output["Status"];
   }
   return contents;
 };
@@ -13388,10 +12774,7 @@ const deserializeAws_restXmlInvalidationBatch = (
     Paths: undefined
   };
   if (output["CallerReference"] !== undefined) {
-    contents.CallerReference =
-      output["CallerReference"]["#text"] !== undefined
-        ? output["CallerReference"]["#text"]
-        : output["CallerReference"];
+    contents.CallerReference = output["CallerReference"];
   }
   if (output["Paths"] !== undefined) {
     contents.Paths = deserializeAws_restXmlPaths(output["Paths"], context);
@@ -13413,10 +12796,7 @@ const deserializeAws_restXmlInvalidationList = (
     Quantity: undefined
   };
   if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated =
-      (output["IsTruncated"]["#text"] !== undefined
-        ? output["IsTruncated"]["#text"]
-        : output["IsTruncated"]) == "true";
+    contents.IsTruncated = output["IsTruncated"] == "true";
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -13431,30 +12811,16 @@ const deserializeAws_restXmlInvalidationList = (
     );
   }
   if (output["Marker"] !== undefined) {
-    contents.Marker =
-      output["Marker"]["#text"] !== undefined
-        ? output["Marker"]["#text"]
-        : output["Marker"];
+    contents.Marker = output["Marker"];
   }
   if (output["MaxItems"] !== undefined) {
-    contents.MaxItems = parseInt(
-      output["MaxItems"]["#text"] !== undefined
-        ? output["MaxItems"]["#text"]
-        : output["MaxItems"]
-    );
+    contents.MaxItems = parseInt(output["MaxItems"]);
   }
   if (output["NextMarker"] !== undefined) {
-    contents.NextMarker =
-      output["NextMarker"]["#text"] !== undefined
-        ? output["NextMarker"]["#text"]
-        : output["NextMarker"];
+    contents.NextMarker = output["NextMarker"];
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -13473,16 +12839,10 @@ const deserializeAws_restXmlInvalidationSummary = (
     contents.CreateTime = new Date(output["CreateTime"]);
   }
   if (output["Id"] !== undefined) {
-    contents.Id =
-      output["Id"]["#text"] !== undefined
-        ? output["Id"]["#text"]
-        : output["Id"];
+    contents.Id = output["Id"];
   }
   if (output["Status"] !== undefined) {
-    contents.Status =
-      output["Status"]["#text"] !== undefined
-        ? output["Status"]["#text"]
-        : output["Status"];
+    contents.Status = output["Status"];
   }
   return contents;
 };
@@ -13500,9 +12860,7 @@ const deserializeAws_restXmlKeyPairIdList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  return (output || []).map((entry: any) =>
-    entry["#text"] !== undefined ? entry["#text"] : entry
-  );
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restXmlKeyPairIds = (
@@ -13527,11 +12885,7 @@ const deserializeAws_restXmlKeyPairIds = (
     );
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -13547,22 +12901,13 @@ const deserializeAws_restXmlLambdaFunctionAssociation = (
     LambdaFunctionARN: undefined
   };
   if (output["EventType"] !== undefined) {
-    contents.EventType =
-      output["EventType"]["#text"] !== undefined
-        ? output["EventType"]["#text"]
-        : output["EventType"];
+    contents.EventType = output["EventType"];
   }
   if (output["IncludeBody"] !== undefined) {
-    contents.IncludeBody =
-      (output["IncludeBody"]["#text"] !== undefined
-        ? output["IncludeBody"]["#text"]
-        : output["IncludeBody"]) == "true";
+    contents.IncludeBody = output["IncludeBody"] == "true";
   }
   if (output["LambdaFunctionARN"] !== undefined) {
-    contents.LambdaFunctionARN =
-      output["LambdaFunctionARN"]["#text"] !== undefined
-        ? output["LambdaFunctionARN"]["#text"]
-        : output["LambdaFunctionARN"];
+    contents.LambdaFunctionARN = output["LambdaFunctionARN"];
   }
   return contents;
 };
@@ -13598,11 +12943,7 @@ const deserializeAws_restXmlLambdaFunctionAssociations = (
     );
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -13611,9 +12952,7 @@ const deserializeAws_restXmlLocationList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  return (output || []).map((entry: any) =>
-    entry["#text"] !== undefined ? entry["#text"] : entry
-  );
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restXmlLoggingConfig = (
@@ -13628,28 +12967,16 @@ const deserializeAws_restXmlLoggingConfig = (
     Prefix: undefined
   };
   if (output["Bucket"] !== undefined) {
-    contents.Bucket =
-      output["Bucket"]["#text"] !== undefined
-        ? output["Bucket"]["#text"]
-        : output["Bucket"];
+    contents.Bucket = output["Bucket"];
   }
   if (output["Enabled"] !== undefined) {
-    contents.Enabled =
-      (output["Enabled"]["#text"] !== undefined
-        ? output["Enabled"]["#text"]
-        : output["Enabled"]) == "true";
+    contents.Enabled = output["Enabled"] == "true";
   }
   if (output["IncludeCookies"] !== undefined) {
-    contents.IncludeCookies =
-      (output["IncludeCookies"]["#text"] !== undefined
-        ? output["IncludeCookies"]["#text"]
-        : output["IncludeCookies"]) == "true";
+    contents.IncludeCookies = output["IncludeCookies"] == "true";
   }
   if (output["Prefix"] !== undefined) {
-    contents.Prefix =
-      output["Prefix"]["#text"] !== undefined
-        ? output["Prefix"]["#text"]
-        : output["Prefix"];
+    contents.Prefix = output["Prefix"];
   }
   return contents;
 };
@@ -13658,9 +12985,7 @@ const deserializeAws_restXmlMethodsList = (
   output: any,
   context: __SerdeContext
 ): (Method | string)[] => {
-  return (output || []).map((entry: any) =>
-    entry["#text"] !== undefined ? entry["#text"] : entry
-  );
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restXmlOrigin = (
@@ -13689,22 +13014,13 @@ const deserializeAws_restXmlOrigin = (
     );
   }
   if (output["DomainName"] !== undefined) {
-    contents.DomainName =
-      output["DomainName"]["#text"] !== undefined
-        ? output["DomainName"]["#text"]
-        : output["DomainName"];
+    contents.DomainName = output["DomainName"];
   }
   if (output["Id"] !== undefined) {
-    contents.Id =
-      output["Id"]["#text"] !== undefined
-        ? output["Id"]["#text"]
-        : output["Id"];
+    contents.Id = output["Id"];
   }
   if (output["OriginPath"] !== undefined) {
-    contents.OriginPath =
-      output["OriginPath"]["#text"] !== undefined
-        ? output["OriginPath"]["#text"]
-        : output["OriginPath"];
+    contents.OriginPath = output["OriginPath"];
   }
   if (output["S3OriginConfig"] !== undefined) {
     contents.S3OriginConfig = deserializeAws_restXmlS3OriginConfig(
@@ -13725,16 +13041,10 @@ const deserializeAws_restXmlOriginCustomHeader = (
     HeaderValue: undefined
   };
   if (output["HeaderName"] !== undefined) {
-    contents.HeaderName =
-      output["HeaderName"]["#text"] !== undefined
-        ? output["HeaderName"]["#text"]
-        : output["HeaderName"];
+    contents.HeaderName = output["HeaderName"];
   }
   if (output["HeaderValue"] !== undefined) {
-    contents.HeaderValue =
-      output["HeaderValue"]["#text"] !== undefined
-        ? output["HeaderValue"]["#text"]
-        : output["HeaderValue"];
+    contents.HeaderValue = output["HeaderValue"];
   }
   return contents;
 };
@@ -13765,10 +13075,7 @@ const deserializeAws_restXmlOriginGroup = (
     );
   }
   if (output["Id"] !== undefined) {
-    contents.Id =
-      output["Id"]["#text"] !== undefined
-        ? output["Id"]["#text"]
-        : output["Id"];
+    contents.Id = output["Id"];
   }
   if (output["Members"] !== undefined) {
     contents.Members = deserializeAws_restXmlOriginGroupMembers(
@@ -13814,10 +13121,7 @@ const deserializeAws_restXmlOriginGroupMember = (
     OriginId: undefined
   };
   if (output["OriginId"] !== undefined) {
-    contents.OriginId =
-      output["OriginId"]["#text"] !== undefined
-        ? output["OriginId"]["#text"]
-        : output["OriginId"];
+    contents.OriginId = output["OriginId"];
   }
   return contents;
 };
@@ -13853,11 +13157,7 @@ const deserializeAws_restXmlOriginGroupMembers = (
     );
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -13884,11 +13184,7 @@ const deserializeAws_restXmlOriginGroups = (
     );
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -13924,11 +13220,7 @@ const deserializeAws_restXmlOriginSslProtocols = (
     );
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -13955,11 +13247,7 @@ const deserializeAws_restXmlOrigins = (
     );
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -13968,9 +13256,7 @@ const deserializeAws_restXmlPathList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  return (output || []).map((entry: any) =>
-    entry["#text"] !== undefined ? entry["#text"] : entry
-  );
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restXmlPaths = (
@@ -13992,11 +13278,7 @@ const deserializeAws_restXmlPaths = (
     );
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -14015,10 +13297,7 @@ const deserializeAws_restXmlPublicKey = (
     contents.CreatedTime = new Date(output["CreatedTime"]);
   }
   if (output["Id"] !== undefined) {
-    contents.Id =
-      output["Id"]["#text"] !== undefined
-        ? output["Id"]["#text"]
-        : output["Id"];
+    contents.Id = output["Id"];
   }
   if (output["PublicKeyConfig"] !== undefined) {
     contents.PublicKeyConfig = deserializeAws_restXmlPublicKeyConfig(
@@ -14041,28 +13320,16 @@ const deserializeAws_restXmlPublicKeyConfig = (
     Name: undefined
   };
   if (output["CallerReference"] !== undefined) {
-    contents.CallerReference =
-      output["CallerReference"]["#text"] !== undefined
-        ? output["CallerReference"]["#text"]
-        : output["CallerReference"];
+    contents.CallerReference = output["CallerReference"];
   }
   if (output["Comment"] !== undefined) {
-    contents.Comment =
-      output["Comment"]["#text"] !== undefined
-        ? output["Comment"]["#text"]
-        : output["Comment"];
+    contents.Comment = output["Comment"];
   }
   if (output["EncodedKey"] !== undefined) {
-    contents.EncodedKey =
-      output["EncodedKey"]["#text"] !== undefined
-        ? output["EncodedKey"]["#text"]
-        : output["EncodedKey"];
+    contents.EncodedKey = output["EncodedKey"];
   }
   if (output["Name"] !== undefined) {
-    contents.Name =
-      output["Name"]["#text"] !== undefined
-        ? output["Name"]["#text"]
-        : output["Name"];
+    contents.Name = output["Name"];
   }
   return contents;
 };
@@ -14091,24 +13358,13 @@ const deserializeAws_restXmlPublicKeyList = (
     );
   }
   if (output["MaxItems"] !== undefined) {
-    contents.MaxItems = parseInt(
-      output["MaxItems"]["#text"] !== undefined
-        ? output["MaxItems"]["#text"]
-        : output["MaxItems"]
-    );
+    contents.MaxItems = parseInt(output["MaxItems"]);
   }
   if (output["NextMarker"] !== undefined) {
-    contents.NextMarker =
-      output["NextMarker"]["#text"] !== undefined
-        ? output["NextMarker"]["#text"]
-        : output["NextMarker"];
+    contents.NextMarker = output["NextMarker"];
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -14126,31 +13382,19 @@ const deserializeAws_restXmlPublicKeySummary = (
     Name: undefined
   };
   if (output["Comment"] !== undefined) {
-    contents.Comment =
-      output["Comment"]["#text"] !== undefined
-        ? output["Comment"]["#text"]
-        : output["Comment"];
+    contents.Comment = output["Comment"];
   }
   if (output["CreatedTime"] !== undefined) {
     contents.CreatedTime = new Date(output["CreatedTime"]);
   }
   if (output["EncodedKey"] !== undefined) {
-    contents.EncodedKey =
-      output["EncodedKey"]["#text"] !== undefined
-        ? output["EncodedKey"]["#text"]
-        : output["EncodedKey"];
+    contents.EncodedKey = output["EncodedKey"];
   }
   if (output["Id"] !== undefined) {
-    contents.Id =
-      output["Id"]["#text"] !== undefined
-        ? output["Id"]["#text"]
-        : output["Id"];
+    contents.Id = output["Id"];
   }
   if (output["Name"] !== undefined) {
-    contents.Name =
-      output["Name"]["#text"] !== undefined
-        ? output["Name"]["#text"]
-        : output["Name"];
+    contents.Name = output["Name"];
   }
   return contents;
 };
@@ -14174,16 +13418,10 @@ const deserializeAws_restXmlQueryArgProfile = (
     QueryArg: undefined
   };
   if (output["ProfileId"] !== undefined) {
-    contents.ProfileId =
-      output["ProfileId"]["#text"] !== undefined
-        ? output["ProfileId"]["#text"]
-        : output["ProfileId"];
+    contents.ProfileId = output["ProfileId"];
   }
   if (output["QueryArg"] !== undefined) {
-    contents.QueryArg =
-      output["QueryArg"]["#text"] !== undefined
-        ? output["QueryArg"]["#text"]
-        : output["QueryArg"];
+    contents.QueryArg = output["QueryArg"];
   }
   return contents;
 };
@@ -14199,9 +13437,7 @@ const deserializeAws_restXmlQueryArgProfileConfig = (
   };
   if (output["ForwardWhenQueryArgProfileIsUnknown"] !== undefined) {
     contents.ForwardWhenQueryArgProfileIsUnknown =
-      (output["ForwardWhenQueryArgProfileIsUnknown"]["#text"] !== undefined
-        ? output["ForwardWhenQueryArgProfileIsUnknown"]["#text"]
-        : output["ForwardWhenQueryArgProfileIsUnknown"]) == "true";
+      output["ForwardWhenQueryArgProfileIsUnknown"] == "true";
   }
   if (output["QueryArgProfiles"] !== undefined) {
     contents.QueryArgProfiles = deserializeAws_restXmlQueryArgProfiles(
@@ -14243,11 +13479,7 @@ const deserializeAws_restXmlQueryArgProfiles = (
     );
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -14271,11 +13503,7 @@ const deserializeAws_restXmlQueryStringCacheKeys = (
     );
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -14284,9 +13512,7 @@ const deserializeAws_restXmlQueryStringCacheKeysList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  return (output || []).map((entry: any) =>
-    entry["#text"] !== undefined ? entry["#text"] : entry
-  );
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restXmlRestrictions = (
@@ -14316,16 +13542,10 @@ const deserializeAws_restXmlS3Origin = (
     OriginAccessIdentity: undefined
   };
   if (output["DomainName"] !== undefined) {
-    contents.DomainName =
-      output["DomainName"]["#text"] !== undefined
-        ? output["DomainName"]["#text"]
-        : output["DomainName"];
+    contents.DomainName = output["DomainName"];
   }
   if (output["OriginAccessIdentity"] !== undefined) {
-    contents.OriginAccessIdentity =
-      output["OriginAccessIdentity"]["#text"] !== undefined
-        ? output["OriginAccessIdentity"]["#text"]
-        : output["OriginAccessIdentity"];
+    contents.OriginAccessIdentity = output["OriginAccessIdentity"];
   }
   return contents;
 };
@@ -14339,10 +13559,7 @@ const deserializeAws_restXmlS3OriginConfig = (
     OriginAccessIdentity: undefined
   };
   if (output["OriginAccessIdentity"] !== undefined) {
-    contents.OriginAccessIdentity =
-      output["OriginAccessIdentity"]["#text"] !== undefined
-        ? output["OriginAccessIdentity"]["#text"]
-        : output["OriginAccessIdentity"];
+    contents.OriginAccessIdentity = output["OriginAccessIdentity"];
   }
   return contents;
 };
@@ -14357,10 +13574,7 @@ const deserializeAws_restXmlSigner = (
     KeyPairIds: undefined
   };
   if (output["AwsAccountNumber"] !== undefined) {
-    contents.AwsAccountNumber =
-      output["AwsAccountNumber"]["#text"] !== undefined
-        ? output["AwsAccountNumber"]["#text"]
-        : output["AwsAccountNumber"];
+    contents.AwsAccountNumber = output["AwsAccountNumber"];
   }
   if (output["KeyPairIds"] !== undefined) {
     contents.KeyPairIds = deserializeAws_restXmlKeyPairIds(
@@ -14384,18 +13598,14 @@ const deserializeAws_restXmlSslProtocolsList = (
   output: any,
   context: __SerdeContext
 ): (SslProtocol | string)[] => {
-  return (output || []).map((entry: any) =>
-    entry["#text"] !== undefined ? entry["#text"] : entry
-  );
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restXmlStatusCodeList = (
   output: any,
   context: __SerdeContext
 ): number[] => {
-  return (output || []).map((entry: any) =>
-    parseInt(entry["#text"] !== undefined ? entry["#text"] : entry)
-  );
+  return (output || []).map((entry: any) => parseInt(entry));
 };
 
 const deserializeAws_restXmlStatusCodes = (
@@ -14420,11 +13630,7 @@ const deserializeAws_restXmlStatusCodes = (
     );
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -14444,10 +13650,7 @@ const deserializeAws_restXmlStreamingDistribution = (
     StreamingDistributionConfig: undefined
   };
   if (output["ARN"] !== undefined) {
-    contents.ARN =
-      output["ARN"]["#text"] !== undefined
-        ? output["ARN"]["#text"]
-        : output["ARN"];
+    contents.ARN = output["ARN"];
   }
   if (output["ActiveTrustedSigners"] !== undefined) {
     contents.ActiveTrustedSigners = deserializeAws_restXmlActiveTrustedSigners(
@@ -14456,25 +13659,16 @@ const deserializeAws_restXmlStreamingDistribution = (
     );
   }
   if (output["DomainName"] !== undefined) {
-    contents.DomainName =
-      output["DomainName"]["#text"] !== undefined
-        ? output["DomainName"]["#text"]
-        : output["DomainName"];
+    contents.DomainName = output["DomainName"];
   }
   if (output["Id"] !== undefined) {
-    contents.Id =
-      output["Id"]["#text"] !== undefined
-        ? output["Id"]["#text"]
-        : output["Id"];
+    contents.Id = output["Id"];
   }
   if (output["LastModifiedTime"] !== undefined) {
     contents.LastModifiedTime = new Date(output["LastModifiedTime"]);
   }
   if (output["Status"] !== undefined) {
-    contents.Status =
-      output["Status"]["#text"] !== undefined
-        ? output["Status"]["#text"]
-        : output["Status"];
+    contents.Status = output["Status"];
   }
   if (output["StreamingDistributionConfig"] !== undefined) {
     contents.StreamingDistributionConfig = deserializeAws_restXmlStreamingDistributionConfig(
@@ -14507,22 +13701,13 @@ const deserializeAws_restXmlStreamingDistributionConfig = (
     );
   }
   if (output["CallerReference"] !== undefined) {
-    contents.CallerReference =
-      output["CallerReference"]["#text"] !== undefined
-        ? output["CallerReference"]["#text"]
-        : output["CallerReference"];
+    contents.CallerReference = output["CallerReference"];
   }
   if (output["Comment"] !== undefined) {
-    contents.Comment =
-      output["Comment"]["#text"] !== undefined
-        ? output["Comment"]["#text"]
-        : output["Comment"];
+    contents.Comment = output["Comment"];
   }
   if (output["Enabled"] !== undefined) {
-    contents.Enabled =
-      (output["Enabled"]["#text"] !== undefined
-        ? output["Enabled"]["#text"]
-        : output["Enabled"]) == "true";
+    contents.Enabled = output["Enabled"] == "true";
   }
   if (output["Logging"] !== undefined) {
     contents.Logging = deserializeAws_restXmlStreamingLoggingConfig(
@@ -14531,10 +13716,7 @@ const deserializeAws_restXmlStreamingDistributionConfig = (
     );
   }
   if (output["PriceClass"] !== undefined) {
-    contents.PriceClass =
-      output["PriceClass"]["#text"] !== undefined
-        ? output["PriceClass"]["#text"]
-        : output["PriceClass"];
+    contents.PriceClass = output["PriceClass"];
   }
   if (output["S3Origin"] !== undefined) {
     contents.S3Origin = deserializeAws_restXmlS3Origin(
@@ -14565,10 +13747,7 @@ const deserializeAws_restXmlStreamingDistributionList = (
     Quantity: undefined
   };
   if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated =
-      (output["IsTruncated"]["#text"] !== undefined
-        ? output["IsTruncated"]["#text"]
-        : output["IsTruncated"]) == "true";
+    contents.IsTruncated = output["IsTruncated"] == "true";
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -14583,30 +13762,16 @@ const deserializeAws_restXmlStreamingDistributionList = (
     );
   }
   if (output["Marker"] !== undefined) {
-    contents.Marker =
-      output["Marker"]["#text"] !== undefined
-        ? output["Marker"]["#text"]
-        : output["Marker"];
+    contents.Marker = output["Marker"];
   }
   if (output["MaxItems"] !== undefined) {
-    contents.MaxItems = parseInt(
-      output["MaxItems"]["#text"] !== undefined
-        ? output["MaxItems"]["#text"]
-        : output["MaxItems"]
-    );
+    contents.MaxItems = parseInt(output["MaxItems"]);
   }
   if (output["NextMarker"] !== undefined) {
-    contents.NextMarker =
-      output["NextMarker"]["#text"] !== undefined
-        ? output["NextMarker"]["#text"]
-        : output["NextMarker"];
+    contents.NextMarker = output["NextMarker"];
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -14630,10 +13795,7 @@ const deserializeAws_restXmlStreamingDistributionSummary = (
     TrustedSigners: undefined
   };
   if (output["ARN"] !== undefined) {
-    contents.ARN =
-      output["ARN"]["#text"] !== undefined
-        ? output["ARN"]["#text"]
-        : output["ARN"];
+    contents.ARN = output["ARN"];
   }
   if (output["Aliases"] !== undefined) {
     contents.Aliases = deserializeAws_restXmlAliases(
@@ -14642,37 +13804,22 @@ const deserializeAws_restXmlStreamingDistributionSummary = (
     );
   }
   if (output["Comment"] !== undefined) {
-    contents.Comment =
-      output["Comment"]["#text"] !== undefined
-        ? output["Comment"]["#text"]
-        : output["Comment"];
+    contents.Comment = output["Comment"];
   }
   if (output["DomainName"] !== undefined) {
-    contents.DomainName =
-      output["DomainName"]["#text"] !== undefined
-        ? output["DomainName"]["#text"]
-        : output["DomainName"];
+    contents.DomainName = output["DomainName"];
   }
   if (output["Enabled"] !== undefined) {
-    contents.Enabled =
-      (output["Enabled"]["#text"] !== undefined
-        ? output["Enabled"]["#text"]
-        : output["Enabled"]) == "true";
+    contents.Enabled = output["Enabled"] == "true";
   }
   if (output["Id"] !== undefined) {
-    contents.Id =
-      output["Id"]["#text"] !== undefined
-        ? output["Id"]["#text"]
-        : output["Id"];
+    contents.Id = output["Id"];
   }
   if (output["LastModifiedTime"] !== undefined) {
     contents.LastModifiedTime = new Date(output["LastModifiedTime"]);
   }
   if (output["PriceClass"] !== undefined) {
-    contents.PriceClass =
-      output["PriceClass"]["#text"] !== undefined
-        ? output["PriceClass"]["#text"]
-        : output["PriceClass"];
+    contents.PriceClass = output["PriceClass"];
   }
   if (output["S3Origin"] !== undefined) {
     contents.S3Origin = deserializeAws_restXmlS3Origin(
@@ -14681,10 +13828,7 @@ const deserializeAws_restXmlStreamingDistributionSummary = (
     );
   }
   if (output["Status"] !== undefined) {
-    contents.Status =
-      output["Status"]["#text"] !== undefined
-        ? output["Status"]["#text"]
-        : output["Status"];
+    contents.Status = output["Status"];
   }
   if (output["TrustedSigners"] !== undefined) {
     contents.TrustedSigners = deserializeAws_restXmlTrustedSigners(
@@ -14715,22 +13859,13 @@ const deserializeAws_restXmlStreamingLoggingConfig = (
     Prefix: undefined
   };
   if (output["Bucket"] !== undefined) {
-    contents.Bucket =
-      output["Bucket"]["#text"] !== undefined
-        ? output["Bucket"]["#text"]
-        : output["Bucket"];
+    contents.Bucket = output["Bucket"];
   }
   if (output["Enabled"] !== undefined) {
-    contents.Enabled =
-      (output["Enabled"]["#text"] !== undefined
-        ? output["Enabled"]["#text"]
-        : output["Enabled"]) == "true";
+    contents.Enabled = output["Enabled"] == "true";
   }
   if (output["Prefix"] !== undefined) {
-    contents.Prefix =
-      output["Prefix"]["#text"] !== undefined
-        ? output["Prefix"]["#text"]
-        : output["Prefix"];
+    contents.Prefix = output["Prefix"];
   }
   return contents;
 };
@@ -14745,16 +13880,10 @@ const deserializeAws_restXmlTag = (
     Value: undefined
   };
   if (output["Key"] !== undefined) {
-    contents.Key =
-      output["Key"]["#text"] !== undefined
-        ? output["Key"]["#text"]
-        : output["Key"];
+    contents.Key = output["Key"];
   }
   if (output["Value"] !== undefined) {
-    contents.Value =
-      output["Value"]["#text"] !== undefined
-        ? output["Value"]["#text"]
-        : output["Value"];
+    contents.Value = output["Value"];
   }
   return contents;
 };
@@ -14799,10 +13928,7 @@ const deserializeAws_restXmlTrustedSigners = (
     Quantity: undefined
   };
   if (output["Enabled"] !== undefined) {
-    contents.Enabled =
-      (output["Enabled"]["#text"] !== undefined
-        ? output["Enabled"]["#text"]
-        : output["Enabled"]) == "true";
+    contents.Enabled = output["Enabled"] == "true";
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -14817,11 +13943,7 @@ const deserializeAws_restXmlTrustedSigners = (
     );
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -14841,46 +13963,26 @@ const deserializeAws_restXmlViewerCertificate = (
     SSLSupportMethod: undefined
   };
   if (output["ACMCertificateArn"] !== undefined) {
-    contents.ACMCertificateArn =
-      output["ACMCertificateArn"]["#text"] !== undefined
-        ? output["ACMCertificateArn"]["#text"]
-        : output["ACMCertificateArn"];
+    contents.ACMCertificateArn = output["ACMCertificateArn"];
   }
   if (output["Certificate"] !== undefined) {
-    contents.Certificate =
-      output["Certificate"]["#text"] !== undefined
-        ? output["Certificate"]["#text"]
-        : output["Certificate"];
+    contents.Certificate = output["Certificate"];
   }
   if (output["CertificateSource"] !== undefined) {
-    contents.CertificateSource =
-      output["CertificateSource"]["#text"] !== undefined
-        ? output["CertificateSource"]["#text"]
-        : output["CertificateSource"];
+    contents.CertificateSource = output["CertificateSource"];
   }
   if (output["CloudFrontDefaultCertificate"] !== undefined) {
     contents.CloudFrontDefaultCertificate =
-      (output["CloudFrontDefaultCertificate"]["#text"] !== undefined
-        ? output["CloudFrontDefaultCertificate"]["#text"]
-        : output["CloudFrontDefaultCertificate"]) == "true";
+      output["CloudFrontDefaultCertificate"] == "true";
   }
   if (output["IAMCertificateId"] !== undefined) {
-    contents.IAMCertificateId =
-      output["IAMCertificateId"]["#text"] !== undefined
-        ? output["IAMCertificateId"]["#text"]
-        : output["IAMCertificateId"];
+    contents.IAMCertificateId = output["IAMCertificateId"];
   }
   if (output["MinimumProtocolVersion"] !== undefined) {
-    contents.MinimumProtocolVersion =
-      output["MinimumProtocolVersion"]["#text"] !== undefined
-        ? output["MinimumProtocolVersion"]["#text"]
-        : output["MinimumProtocolVersion"];
+    contents.MinimumProtocolVersion = output["MinimumProtocolVersion"];
   }
   if (output["SSLSupportMethod"] !== undefined) {
-    contents.SSLSupportMethod =
-      output["SSLSupportMethod"]["#text"] !== undefined
-        ? output["SSLSupportMethod"]["#text"]
-        : output["SSLSupportMethod"];
+    contents.SSLSupportMethod = output["SSLSupportMethod"];
   }
   return contents;
 };
@@ -14942,7 +14044,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
         parsedObjToReturn[key] = parsedObjToReturn[textNodeName];
         delete parsedObjToReturn[textNodeName];
       }
-      return parsedObjToReturn;
+      return __getValueFromTextNode(parsedObjToReturn);
     }
     return {};
   });
