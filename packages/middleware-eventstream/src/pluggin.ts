@@ -8,26 +8,18 @@ import {
   eventStreamHeaderMiddleware,
   eventStreamHeaderMiddlewareOptions
 } from "./headers-middleware";
-import {
-  recordSignatureMiddleware,
-  recordSignatureMiddlewareOptions
-} from "./record-signature-middleware";
 
 export const getEventStreamPlugin = (
   options: EventStreamResolvedConfig
 ): Pluggable<any, any> => ({
   applyToStack: clientStack => {
-    clientStack.add(
+    clientStack.addRelativeTo(
       eventStreamHandlingMiddleware(options),
       eventStreamHandlingMiddlewareOptions
     );
     clientStack.add(
       eventStreamHeaderMiddleware,
       eventStreamHeaderMiddlewareOptions
-    );
-    clientStack.addRelativeTo(
-      recordSignatureMiddleware,
-      recordSignatureMiddlewareOptions
     );
   }
 });

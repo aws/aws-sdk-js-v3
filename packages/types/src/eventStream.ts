@@ -1,10 +1,10 @@
 import { HttpRequest } from "./http";
 import { MetadataBearer } from "./response";
 import {
-  BuildHandler,
-  BuildHandlerArguments,
-  BuildHandlerOutput,
-  HandlerExecutionContext
+  HandlerExecutionContext,
+  FinalizeHandler,
+  FinalizeHandlerArguments,
+  FinalizeHandlerOutput
 } from "./middleware";
 /**
  * An event stream message. The headers and body properties will always be
@@ -106,10 +106,10 @@ export interface EventStreamRequestSigner {
 
 export interface EventStreamPayloadHandler {
   handle: <Input extends object, Output extends MetadataBearer>(
-    next: BuildHandler<Input, Output>,
-    args: BuildHandlerArguments<Input>,
+    next: FinalizeHandler<Input, Output>,
+    args: FinalizeHandlerArguments<Input>,
     context?: HandlerExecutionContext
-  ) => Promise<BuildHandlerOutput<Output>>;
+  ) => Promise<FinalizeHandlerOutput<Output>>;
 }
 
 export interface EventStreamPayloadHandlerProvider {

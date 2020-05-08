@@ -9,7 +9,10 @@ import {
   Encoder,
   Decoder,
   HttpRequest,
-  HandlerExecutionContext
+  HandlerExecutionContext,
+  FinalizeHandlerArguments,
+  FinalizeHandler,
+  FinalizeHandlerOutput
 } from "@aws-sdk/types";
 import { EventStreamMarshaller as EventMarshaller } from "@aws-sdk/eventstream-marshaller";
 import { Readable, PassThrough, pipeline } from "stream";
@@ -33,10 +36,10 @@ export class EventStreamPayloadHandler implements IEventStreamPayloadHandler {
   }
 
   async handle<T extends MetadataBearer>(
-    next: BuildHandler<any, T>,
-    args: BuildHandlerArguments<any>,
+    next: FinalizeHandler<any, T>,
+    args: FinalizeHandlerArguments<any>,
     context: HandlerExecutionContext = {} as any
-  ): Promise<BuildHandlerOutput<T>> {
+  ): Promise<FinalizeHandlerOutput<T>> {
     const request = args.request as HttpRequest;
     const { body: payload } = request;
     if (!(payload instanceof Readable)) {
@@ -46,14 +49,19 @@ export class EventStreamPayloadHandler implements IEventStreamPayloadHandler {
     request.body = new PassThrough({
       objectMode: true
     });
-    const result = await next(args);
-    if (!context.signature) {
-      throw new Error(
-        "Initial request signature is not available in eventstream handler."
-      );
+    let result: FinalizeHandlerOutput<any>;
+    try {
+      result = await next(args);
+    } catch (e) {
+      request.body.end();
+      throw e;
     }
+    const match = (request.headers["authorization"] || "").match(
+      /Signature=([\w]+)$/
+    );
+    const priorSignature = (match || [])[1];
     const signingStream = new EventSigningStream({
-      priorSignature: context.signature,
+      priorSignature,
       eventMarshaller: this.eventMarshaller,
       eventSigner: await this.eventSigner()
     });
