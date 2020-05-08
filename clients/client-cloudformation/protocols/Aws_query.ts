@@ -401,7 +401,8 @@ import {
 import {
   SmithyException as __SmithyException,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  getArrayIfSingleItem as __getArrayIfSingleItem
+  getArrayIfSingleItem as __getArrayIfSingleItem,
+  getValueFromTextNode as __getValueFromTextNode
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -7143,17 +7144,10 @@ const deserializeAws_queryAccountLimit = (
     Value: undefined
   };
   if (output["Name"] !== undefined) {
-    contents.Name =
-      output["Name"]["#text"] !== undefined
-        ? output["Name"]["#text"]
-        : output["Name"];
+    contents.Name = output["Name"];
   }
   if (output["Value"] !== undefined) {
-    contents.Value = parseInt(
-      output["Value"]["#text"] !== undefined
-        ? output["Value"]["#text"]
-        : output["Value"]
-    );
+    contents.Value = parseInt(output["Value"]);
   }
   return contents;
 };
@@ -7171,9 +7165,7 @@ const deserializeAws_queryAllowedValues = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  return (output || []).map((entry: any) =>
-    entry["#text"] !== undefined ? entry["#text"] : entry
-  );
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_queryAlreadyExistsException = (
@@ -7185,10 +7177,7 @@ const deserializeAws_queryAlreadyExistsException = (
     Message: undefined
   };
   if (output["Message"] !== undefined) {
-    contents.Message =
-      output["Message"]["#text"] !== undefined
-        ? output["Message"]["#text"]
-        : output["Message"];
+    contents.Message = output["Message"];
   }
   return contents;
 };
@@ -7202,10 +7191,7 @@ const deserializeAws_queryCFNRegistryException = (
     Message: undefined
   };
   if (output["Message"] !== undefined) {
-    contents.Message =
-      output["Message"]["#text"] !== undefined
-        ? output["Message"]["#text"]
-        : output["Message"];
+    contents.Message = output["Message"];
   }
   return contents;
 };
@@ -7214,9 +7200,7 @@ const deserializeAws_queryCapabilities = (
   output: any,
   context: __SerdeContext
 ): (Capability | string)[] => {
-  return (output || []).map((entry: any) =>
-    entry["#text"] !== undefined ? entry["#text"] : entry
-  );
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_queryChange = (
@@ -7235,10 +7219,7 @@ const deserializeAws_queryChange = (
     );
   }
   if (output["Type"] !== undefined) {
-    contents.Type =
-      output["Type"]["#text"] !== undefined
-        ? output["Type"]["#text"]
-        : output["Type"];
+    contents.Type = output["Type"];
   }
   return contents;
 };
@@ -7252,10 +7233,7 @@ const deserializeAws_queryChangeSetNotFoundException = (
     Message: undefined
   };
   if (output["Message"] !== undefined) {
-    contents.Message =
-      output["Message"]["#text"] !== undefined
-        ? output["Message"]["#text"]
-        : output["Message"];
+    contents.Message = output["Message"];
   }
   return contents;
 };
@@ -7286,55 +7264,31 @@ const deserializeAws_queryChangeSetSummary = (
     StatusReason: undefined
   };
   if (output["ChangeSetId"] !== undefined) {
-    contents.ChangeSetId =
-      output["ChangeSetId"]["#text"] !== undefined
-        ? output["ChangeSetId"]["#text"]
-        : output["ChangeSetId"];
+    contents.ChangeSetId = output["ChangeSetId"];
   }
   if (output["ChangeSetName"] !== undefined) {
-    contents.ChangeSetName =
-      output["ChangeSetName"]["#text"] !== undefined
-        ? output["ChangeSetName"]["#text"]
-        : output["ChangeSetName"];
+    contents.ChangeSetName = output["ChangeSetName"];
   }
   if (output["CreationTime"] !== undefined) {
     contents.CreationTime = new Date(output["CreationTime"]);
   }
   if (output["Description"] !== undefined) {
-    contents.Description =
-      output["Description"]["#text"] !== undefined
-        ? output["Description"]["#text"]
-        : output["Description"];
+    contents.Description = output["Description"];
   }
   if (output["ExecutionStatus"] !== undefined) {
-    contents.ExecutionStatus =
-      output["ExecutionStatus"]["#text"] !== undefined
-        ? output["ExecutionStatus"]["#text"]
-        : output["ExecutionStatus"];
+    contents.ExecutionStatus = output["ExecutionStatus"];
   }
   if (output["StackId"] !== undefined) {
-    contents.StackId =
-      output["StackId"]["#text"] !== undefined
-        ? output["StackId"]["#text"]
-        : output["StackId"];
+    contents.StackId = output["StackId"];
   }
   if (output["StackName"] !== undefined) {
-    contents.StackName =
-      output["StackName"]["#text"] !== undefined
-        ? output["StackName"]["#text"]
-        : output["StackName"];
+    contents.StackName = output["StackName"];
   }
   if (output["Status"] !== undefined) {
-    contents.Status =
-      output["Status"]["#text"] !== undefined
-        ? output["Status"]["#text"]
-        : output["Status"];
+    contents.Status = output["Status"];
   }
   if (output["StatusReason"] !== undefined) {
-    contents.StatusReason =
-      output["StatusReason"]["#text"] !== undefined
-        ? output["StatusReason"]["#text"]
-        : output["StatusReason"];
+    contents.StatusReason = output["StatusReason"];
   }
   return contents;
 };
@@ -7368,16 +7322,10 @@ const deserializeAws_queryCreateChangeSetOutput = (
     StackId: undefined
   };
   if (output["Id"] !== undefined) {
-    contents.Id =
-      output["Id"]["#text"] !== undefined
-        ? output["Id"]["#text"]
-        : output["Id"];
+    contents.Id = output["Id"];
   }
   if (output["StackId"] !== undefined) {
-    contents.StackId =
-      output["StackId"]["#text"] !== undefined
-        ? output["StackId"]["#text"]
-        : output["StackId"];
+    contents.StackId = output["StackId"];
   }
   return contents;
 };
@@ -7391,10 +7339,7 @@ const deserializeAws_queryCreateStackOutput = (
     StackId: undefined
   };
   if (output["StackId"] !== undefined) {
-    contents.StackId =
-      output["StackId"]["#text"] !== undefined
-        ? output["StackId"]["#text"]
-        : output["StackId"];
+    contents.StackId = output["StackId"];
   }
   return contents;
 };
@@ -7441,10 +7386,7 @@ const deserializeAws_queryDescribeAccountLimitsOutput = (
     );
   }
   if (output["NextToken"] !== undefined) {
-    contents.NextToken =
-      output["NextToken"]["#text"] !== undefined
-        ? output["NextToken"]["#text"]
-        : output["NextToken"];
+    contents.NextToken = output["NextToken"];
   }
   return contents;
 };
@@ -7485,16 +7427,10 @@ const deserializeAws_queryDescribeChangeSetOutput = (
     );
   }
   if (output["ChangeSetId"] !== undefined) {
-    contents.ChangeSetId =
-      output["ChangeSetId"]["#text"] !== undefined
-        ? output["ChangeSetId"]["#text"]
-        : output["ChangeSetId"];
+    contents.ChangeSetId = output["ChangeSetId"];
   }
   if (output["ChangeSetName"] !== undefined) {
-    contents.ChangeSetName =
-      output["ChangeSetName"]["#text"] !== undefined
-        ? output["ChangeSetName"]["#text"]
-        : output["ChangeSetName"];
+    contents.ChangeSetName = output["ChangeSetName"];
   }
   if (output.Changes === "") {
     contents.Changes = [];
@@ -7512,22 +7448,13 @@ const deserializeAws_queryDescribeChangeSetOutput = (
     contents.CreationTime = new Date(output["CreationTime"]);
   }
   if (output["Description"] !== undefined) {
-    contents.Description =
-      output["Description"]["#text"] !== undefined
-        ? output["Description"]["#text"]
-        : output["Description"];
+    contents.Description = output["Description"];
   }
   if (output["ExecutionStatus"] !== undefined) {
-    contents.ExecutionStatus =
-      output["ExecutionStatus"]["#text"] !== undefined
-        ? output["ExecutionStatus"]["#text"]
-        : output["ExecutionStatus"];
+    contents.ExecutionStatus = output["ExecutionStatus"];
   }
   if (output["NextToken"] !== undefined) {
-    contents.NextToken =
-      output["NextToken"]["#text"] !== undefined
-        ? output["NextToken"]["#text"]
-        : output["NextToken"];
+    contents.NextToken = output["NextToken"];
   }
   if (output.NotificationARNs === "") {
     contents.NotificationARNs = [];
@@ -7560,28 +7487,16 @@ const deserializeAws_queryDescribeChangeSetOutput = (
     );
   }
   if (output["StackId"] !== undefined) {
-    contents.StackId =
-      output["StackId"]["#text"] !== undefined
-        ? output["StackId"]["#text"]
-        : output["StackId"];
+    contents.StackId = output["StackId"];
   }
   if (output["StackName"] !== undefined) {
-    contents.StackName =
-      output["StackName"]["#text"] !== undefined
-        ? output["StackName"]["#text"]
-        : output["StackName"];
+    contents.StackName = output["StackName"];
   }
   if (output["Status"] !== undefined) {
-    contents.Status =
-      output["Status"]["#text"] !== undefined
-        ? output["Status"]["#text"]
-        : output["Status"];
+    contents.Status = output["Status"];
   }
   if (output["StatusReason"] !== undefined) {
-    contents.StatusReason =
-      output["StatusReason"]["#text"] !== undefined
-        ? output["StatusReason"]["#text"]
-        : output["StatusReason"];
+    contents.StatusReason = output["StatusReason"];
   }
   if (output.Tags === "") {
     contents.Tags = [];
@@ -7610,41 +7525,24 @@ const deserializeAws_queryDescribeStackDriftDetectionStatusOutput = (
     Timestamp: undefined
   };
   if (output["DetectionStatus"] !== undefined) {
-    contents.DetectionStatus =
-      output["DetectionStatus"]["#text"] !== undefined
-        ? output["DetectionStatus"]["#text"]
-        : output["DetectionStatus"];
+    contents.DetectionStatus = output["DetectionStatus"];
   }
   if (output["DetectionStatusReason"] !== undefined) {
-    contents.DetectionStatusReason =
-      output["DetectionStatusReason"]["#text"] !== undefined
-        ? output["DetectionStatusReason"]["#text"]
-        : output["DetectionStatusReason"];
+    contents.DetectionStatusReason = output["DetectionStatusReason"];
   }
   if (output["DriftedStackResourceCount"] !== undefined) {
     contents.DriftedStackResourceCount = parseInt(
-      output["DriftedStackResourceCount"]["#text"] !== undefined
-        ? output["DriftedStackResourceCount"]["#text"]
-        : output["DriftedStackResourceCount"]
+      output["DriftedStackResourceCount"]
     );
   }
   if (output["StackDriftDetectionId"] !== undefined) {
-    contents.StackDriftDetectionId =
-      output["StackDriftDetectionId"]["#text"] !== undefined
-        ? output["StackDriftDetectionId"]["#text"]
-        : output["StackDriftDetectionId"];
+    contents.StackDriftDetectionId = output["StackDriftDetectionId"];
   }
   if (output["StackDriftStatus"] !== undefined) {
-    contents.StackDriftStatus =
-      output["StackDriftStatus"]["#text"] !== undefined
-        ? output["StackDriftStatus"]["#text"]
-        : output["StackDriftStatus"];
+    contents.StackDriftStatus = output["StackDriftStatus"];
   }
   if (output["StackId"] !== undefined) {
-    contents.StackId =
-      output["StackId"]["#text"] !== undefined
-        ? output["StackId"]["#text"]
-        : output["StackId"];
+    contents.StackId = output["StackId"];
   }
   if (output["Timestamp"] !== undefined) {
     contents.Timestamp = new Date(output["Timestamp"]);
@@ -7662,10 +7560,7 @@ const deserializeAws_queryDescribeStackEventsOutput = (
     StackEvents: undefined
   };
   if (output["NextToken"] !== undefined) {
-    contents.NextToken =
-      output["NextToken"]["#text"] !== undefined
-        ? output["NextToken"]["#text"]
-        : output["NextToken"];
+    contents.NextToken = output["NextToken"];
   }
   if (output.StackEvents === "") {
     contents.StackEvents = [];
@@ -7692,10 +7587,7 @@ const deserializeAws_queryDescribeStackResourceDriftsOutput = (
     StackResourceDrifts: undefined
   };
   if (output["NextToken"] !== undefined) {
-    contents.NextToken =
-      output["NextToken"]["#text"] !== undefined
-        ? output["NextToken"]["#text"]
-        : output["NextToken"];
+    contents.NextToken = output["NextToken"];
   }
   if (output.StackResourceDrifts === "") {
     contents.StackResourceDrifts = [];
@@ -7762,10 +7654,7 @@ const deserializeAws_queryDescribeStacksOutput = (
     Stacks: undefined
   };
   if (output["NextToken"] !== undefined) {
-    contents.NextToken =
-      output["NextToken"]["#text"] !== undefined
-        ? output["NextToken"]["#text"]
-        : output["NextToken"];
+    contents.NextToken = output["NextToken"];
   }
   if (output.Stacks === "") {
     contents.Stacks = [];
@@ -7805,40 +7694,22 @@ const deserializeAws_queryDescribeTypeOutput = (
     Visibility: undefined
   };
   if (output["Arn"] !== undefined) {
-    contents.Arn =
-      output["Arn"]["#text"] !== undefined
-        ? output["Arn"]["#text"]
-        : output["Arn"];
+    contents.Arn = output["Arn"];
   }
   if (output["DefaultVersionId"] !== undefined) {
-    contents.DefaultVersionId =
-      output["DefaultVersionId"]["#text"] !== undefined
-        ? output["DefaultVersionId"]["#text"]
-        : output["DefaultVersionId"];
+    contents.DefaultVersionId = output["DefaultVersionId"];
   }
   if (output["DeprecatedStatus"] !== undefined) {
-    contents.DeprecatedStatus =
-      output["DeprecatedStatus"]["#text"] !== undefined
-        ? output["DeprecatedStatus"]["#text"]
-        : output["DeprecatedStatus"];
+    contents.DeprecatedStatus = output["DeprecatedStatus"];
   }
   if (output["Description"] !== undefined) {
-    contents.Description =
-      output["Description"]["#text"] !== undefined
-        ? output["Description"]["#text"]
-        : output["Description"];
+    contents.Description = output["Description"];
   }
   if (output["DocumentationUrl"] !== undefined) {
-    contents.DocumentationUrl =
-      output["DocumentationUrl"]["#text"] !== undefined
-        ? output["DocumentationUrl"]["#text"]
-        : output["DocumentationUrl"];
+    contents.DocumentationUrl = output["DocumentationUrl"];
   }
   if (output["ExecutionRoleArn"] !== undefined) {
-    contents.ExecutionRoleArn =
-      output["ExecutionRoleArn"]["#text"] !== undefined
-        ? output["ExecutionRoleArn"]["#text"]
-        : output["ExecutionRoleArn"];
+    contents.ExecutionRoleArn = output["ExecutionRoleArn"];
   }
   if (output["LastUpdated"] !== undefined) {
     contents.LastUpdated = new Date(output["LastUpdated"]);
@@ -7850,43 +7721,25 @@ const deserializeAws_queryDescribeTypeOutput = (
     );
   }
   if (output["ProvisioningType"] !== undefined) {
-    contents.ProvisioningType =
-      output["ProvisioningType"]["#text"] !== undefined
-        ? output["ProvisioningType"]["#text"]
-        : output["ProvisioningType"];
+    contents.ProvisioningType = output["ProvisioningType"];
   }
   if (output["Schema"] !== undefined) {
-    contents.Schema =
-      output["Schema"]["#text"] !== undefined
-        ? output["Schema"]["#text"]
-        : output["Schema"];
+    contents.Schema = output["Schema"];
   }
   if (output["SourceUrl"] !== undefined) {
-    contents.SourceUrl =
-      output["SourceUrl"]["#text"] !== undefined
-        ? output["SourceUrl"]["#text"]
-        : output["SourceUrl"];
+    contents.SourceUrl = output["SourceUrl"];
   }
   if (output["TimeCreated"] !== undefined) {
     contents.TimeCreated = new Date(output["TimeCreated"]);
   }
   if (output["Type"] !== undefined) {
-    contents.Type =
-      output["Type"]["#text"] !== undefined
-        ? output["Type"]["#text"]
-        : output["Type"];
+    contents.Type = output["Type"];
   }
   if (output["TypeName"] !== undefined) {
-    contents.TypeName =
-      output["TypeName"]["#text"] !== undefined
-        ? output["TypeName"]["#text"]
-        : output["TypeName"];
+    contents.TypeName = output["TypeName"];
   }
   if (output["Visibility"] !== undefined) {
-    contents.Visibility =
-      output["Visibility"]["#text"] !== undefined
-        ? output["Visibility"]["#text"]
-        : output["Visibility"];
+    contents.Visibility = output["Visibility"];
   }
   return contents;
 };
@@ -7903,28 +7756,16 @@ const deserializeAws_queryDescribeTypeRegistrationOutput = (
     TypeVersionArn: undefined
   };
   if (output["Description"] !== undefined) {
-    contents.Description =
-      output["Description"]["#text"] !== undefined
-        ? output["Description"]["#text"]
-        : output["Description"];
+    contents.Description = output["Description"];
   }
   if (output["ProgressStatus"] !== undefined) {
-    contents.ProgressStatus =
-      output["ProgressStatus"]["#text"] !== undefined
-        ? output["ProgressStatus"]["#text"]
-        : output["ProgressStatus"];
+    contents.ProgressStatus = output["ProgressStatus"];
   }
   if (output["TypeArn"] !== undefined) {
-    contents.TypeArn =
-      output["TypeArn"]["#text"] !== undefined
-        ? output["TypeArn"]["#text"]
-        : output["TypeArn"];
+    contents.TypeArn = output["TypeArn"];
   }
   if (output["TypeVersionArn"] !== undefined) {
-    contents.TypeVersionArn =
-      output["TypeVersionArn"]["#text"] !== undefined
-        ? output["TypeVersionArn"]["#text"]
-        : output["TypeVersionArn"];
+    contents.TypeVersionArn = output["TypeVersionArn"];
   }
   return contents;
 };
@@ -7938,10 +7779,7 @@ const deserializeAws_queryDetectStackDriftOutput = (
     StackDriftDetectionId: undefined
   };
   if (output["StackDriftDetectionId"] !== undefined) {
-    contents.StackDriftDetectionId =
-      output["StackDriftDetectionId"]["#text"] !== undefined
-        ? output["StackDriftDetectionId"]["#text"]
-        : output["StackDriftDetectionId"];
+    contents.StackDriftDetectionId = output["StackDriftDetectionId"];
   }
   return contents;
 };
@@ -7972,10 +7810,7 @@ const deserializeAws_queryEstimateTemplateCostOutput = (
     Url: undefined
   };
   if (output["Url"] !== undefined) {
-    contents.Url =
-      output["Url"]["#text"] !== undefined
-        ? output["Url"]["#text"]
-        : output["Url"];
+    contents.Url = output["Url"];
   }
   return contents;
 };
@@ -8001,22 +7836,13 @@ const deserializeAws_queryExport = (
     Value: undefined
   };
   if (output["ExportingStackId"] !== undefined) {
-    contents.ExportingStackId =
-      output["ExportingStackId"]["#text"] !== undefined
-        ? output["ExportingStackId"]["#text"]
-        : output["ExportingStackId"];
+    contents.ExportingStackId = output["ExportingStackId"];
   }
   if (output["Name"] !== undefined) {
-    contents.Name =
-      output["Name"]["#text"] !== undefined
-        ? output["Name"]["#text"]
-        : output["Name"];
+    contents.Name = output["Name"];
   }
   if (output["Value"] !== undefined) {
-    contents.Value =
-      output["Value"]["#text"] !== undefined
-        ? output["Value"]["#text"]
-        : output["Value"];
+    contents.Value = output["Value"];
   }
   return contents;
 };
@@ -8039,10 +7865,7 @@ const deserializeAws_queryGetStackPolicyOutput = (
     StackPolicyBody: undefined
   };
   if (output["StackPolicyBody"] !== undefined) {
-    contents.StackPolicyBody =
-      output["StackPolicyBody"]["#text"] !== undefined
-        ? output["StackPolicyBody"]["#text"]
-        : output["StackPolicyBody"];
+    contents.StackPolicyBody = output["StackPolicyBody"];
   }
   return contents;
 };
@@ -8069,10 +7892,7 @@ const deserializeAws_queryGetTemplateOutput = (
     );
   }
   if (output["TemplateBody"] !== undefined) {
-    contents.TemplateBody =
-      output["TemplateBody"]["#text"] !== undefined
-        ? output["TemplateBody"]["#text"]
-        : output["TemplateBody"];
+    contents.TemplateBody = output["TemplateBody"];
   }
   return contents;
 };
@@ -8106,10 +7926,7 @@ const deserializeAws_queryGetTemplateSummaryOutput = (
     );
   }
   if (output["CapabilitiesReason"] !== undefined) {
-    contents.CapabilitiesReason =
-      output["CapabilitiesReason"]["#text"] !== undefined
-        ? output["CapabilitiesReason"]["#text"]
-        : output["CapabilitiesReason"];
+    contents.CapabilitiesReason = output["CapabilitiesReason"];
   }
   if (output.DeclaredTransforms === "") {
     contents.DeclaredTransforms = [];
@@ -8124,16 +7941,10 @@ const deserializeAws_queryGetTemplateSummaryOutput = (
     );
   }
   if (output["Description"] !== undefined) {
-    contents.Description =
-      output["Description"]["#text"] !== undefined
-        ? output["Description"]["#text"]
-        : output["Description"];
+    contents.Description = output["Description"];
   }
   if (output["Metadata"] !== undefined) {
-    contents.Metadata =
-      output["Metadata"]["#text"] !== undefined
-        ? output["Metadata"]["#text"]
-        : output["Metadata"];
+    contents.Metadata = output["Metadata"];
   }
   if (output.Parameters === "") {
     contents.Parameters = [];
@@ -8172,10 +7983,7 @@ const deserializeAws_queryGetTemplateSummaryOutput = (
     );
   }
   if (output["Version"] !== undefined) {
-    contents.Version =
-      output["Version"]["#text"] !== undefined
-        ? output["Version"]["#text"]
-        : output["Version"];
+    contents.Version = output["Version"];
   }
   return contents;
 };
@@ -8184,9 +7992,7 @@ const deserializeAws_queryImports = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  return (output || []).map((entry: any) =>
-    entry["#text"] !== undefined ? entry["#text"] : entry
-  );
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_queryInsufficientCapabilitiesException = (
@@ -8198,10 +8004,7 @@ const deserializeAws_queryInsufficientCapabilitiesException = (
     Message: undefined
   };
   if (output["Message"] !== undefined) {
-    contents.Message =
-      output["Message"]["#text"] !== undefined
-        ? output["Message"]["#text"]
-        : output["Message"];
+    contents.Message = output["Message"];
   }
   return contents;
 };
@@ -8215,10 +8018,7 @@ const deserializeAws_queryInvalidChangeSetStatusException = (
     Message: undefined
   };
   if (output["Message"] !== undefined) {
-    contents.Message =
-      output["Message"]["#text"] !== undefined
-        ? output["Message"]["#text"]
-        : output["Message"];
+    contents.Message = output["Message"];
   }
   return contents;
 };
@@ -8232,10 +8032,7 @@ const deserializeAws_queryInvalidStateTransitionException = (
     Message: undefined
   };
   if (output["Message"] !== undefined) {
-    contents.Message =
-      output["Message"]["#text"] !== undefined
-        ? output["Message"]["#text"]
-        : output["Message"];
+    contents.Message = output["Message"];
   }
   return contents;
 };
@@ -8249,10 +8046,7 @@ const deserializeAws_queryLimitExceededException = (
     Message: undefined
   };
   if (output["Message"] !== undefined) {
-    contents.Message =
-      output["Message"]["#text"] !== undefined
-        ? output["Message"]["#text"]
-        : output["Message"];
+    contents.Message = output["Message"];
   }
   return contents;
 };
@@ -8267,10 +8061,7 @@ const deserializeAws_queryListChangeSetsOutput = (
     Summaries: undefined
   };
   if (output["NextToken"] !== undefined) {
-    contents.NextToken =
-      output["NextToken"]["#text"] !== undefined
-        ? output["NextToken"]["#text"]
-        : output["NextToken"];
+    contents.NextToken = output["NextToken"];
   }
   if (output.Summaries === "") {
     contents.Summaries = [];
@@ -8309,10 +8100,7 @@ const deserializeAws_queryListExportsOutput = (
     );
   }
   if (output["NextToken"] !== undefined) {
-    contents.NextToken =
-      output["NextToken"]["#text"] !== undefined
-        ? output["NextToken"]["#text"]
-        : output["NextToken"];
+    contents.NextToken = output["NextToken"];
   }
   return contents;
 };
@@ -8339,10 +8127,7 @@ const deserializeAws_queryListImportsOutput = (
     );
   }
   if (output["NextToken"] !== undefined) {
-    contents.NextToken =
-      output["NextToken"]["#text"] !== undefined
-        ? output["NextToken"]["#text"]
-        : output["NextToken"];
+    contents.NextToken = output["NextToken"];
   }
   return contents;
 };
@@ -8357,10 +8142,7 @@ const deserializeAws_queryListStackResourcesOutput = (
     StackResourceSummaries: undefined
   };
   if (output["NextToken"] !== undefined) {
-    contents.NextToken =
-      output["NextToken"]["#text"] !== undefined
-        ? output["NextToken"]["#text"]
-        : output["NextToken"];
+    contents.NextToken = output["NextToken"];
   }
   if (output.StackResourceSummaries === "") {
     contents.StackResourceSummaries = [];
@@ -8387,10 +8169,7 @@ const deserializeAws_queryListStacksOutput = (
     StackSummaries: undefined
   };
   if (output["NextToken"] !== undefined) {
-    contents.NextToken =
-      output["NextToken"]["#text"] !== undefined
-        ? output["NextToken"]["#text"]
-        : output["NextToken"];
+    contents.NextToken = output["NextToken"];
   }
   if (output.StackSummaries === "") {
     contents.StackSummaries = [];
@@ -8417,10 +8196,7 @@ const deserializeAws_queryListTypeRegistrationsOutput = (
     RegistrationTokenList: undefined
   };
   if (output["NextToken"] !== undefined) {
-    contents.NextToken =
-      output["NextToken"]["#text"] !== undefined
-        ? output["NextToken"]["#text"]
-        : output["NextToken"];
+    contents.NextToken = output["NextToken"];
   }
   if (output.RegistrationTokenList === "") {
     contents.RegistrationTokenList = [];
@@ -8447,10 +8223,7 @@ const deserializeAws_queryListTypeVersionsOutput = (
     TypeVersionSummaries: undefined
   };
   if (output["NextToken"] !== undefined) {
-    contents.NextToken =
-      output["NextToken"]["#text"] !== undefined
-        ? output["NextToken"]["#text"]
-        : output["NextToken"];
+    contents.NextToken = output["NextToken"];
   }
   if (output.TypeVersionSummaries === "") {
     contents.TypeVersionSummaries = [];
@@ -8477,10 +8250,7 @@ const deserializeAws_queryListTypesOutput = (
     TypeSummaries: undefined
   };
   if (output["NextToken"] !== undefined) {
-    contents.NextToken =
-      output["NextToken"]["#text"] !== undefined
-        ? output["NextToken"]["#text"]
-        : output["NextToken"];
+    contents.NextToken = output["NextToken"];
   }
   if (output.TypeSummaries === "") {
     contents.TypeSummaries = [];
@@ -8507,16 +8277,10 @@ const deserializeAws_queryLoggingConfig = (
     LogRoleArn: undefined
   };
   if (output["LogGroupName"] !== undefined) {
-    contents.LogGroupName =
-      output["LogGroupName"]["#text"] !== undefined
-        ? output["LogGroupName"]["#text"]
-        : output["LogGroupName"];
+    contents.LogGroupName = output["LogGroupName"];
   }
   if (output["LogRoleArn"] !== undefined) {
-    contents.LogRoleArn =
-      output["LogRoleArn"]["#text"] !== undefined
-        ? output["LogRoleArn"]["#text"]
-        : output["LogRoleArn"];
+    contents.LogRoleArn = output["LogRoleArn"];
   }
   return contents;
 };
@@ -8525,18 +8289,14 @@ const deserializeAws_queryLogicalResourceIds = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  return (output || []).map((entry: any) =>
-    entry["#text"] !== undefined ? entry["#text"] : entry
-  );
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_queryNotificationARNs = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  return (output || []).map((entry: any) =>
-    entry["#text"] !== undefined ? entry["#text"] : entry
-  );
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_queryOperationStatusCheckFailedException = (
@@ -8548,10 +8308,7 @@ const deserializeAws_queryOperationStatusCheckFailedException = (
     Message: undefined
   };
   if (output["Message"] !== undefined) {
-    contents.Message =
-      output["Message"]["#text"] !== undefined
-        ? output["Message"]["#text"]
-        : output["Message"];
+    contents.Message = output["Message"];
   }
   return contents;
 };
@@ -8568,28 +8325,16 @@ const deserializeAws_queryOutput = (
     OutputValue: undefined
   };
   if (output["Description"] !== undefined) {
-    contents.Description =
-      output["Description"]["#text"] !== undefined
-        ? output["Description"]["#text"]
-        : output["Description"];
+    contents.Description = output["Description"];
   }
   if (output["ExportName"] !== undefined) {
-    contents.ExportName =
-      output["ExportName"]["#text"] !== undefined
-        ? output["ExportName"]["#text"]
-        : output["ExportName"];
+    contents.ExportName = output["ExportName"];
   }
   if (output["OutputKey"] !== undefined) {
-    contents.OutputKey =
-      output["OutputKey"]["#text"] !== undefined
-        ? output["OutputKey"]["#text"]
-        : output["OutputKey"];
+    contents.OutputKey = output["OutputKey"];
   }
   if (output["OutputValue"] !== undefined) {
-    contents.OutputValue =
-      output["OutputValue"]["#text"] !== undefined
-        ? output["OutputValue"]["#text"]
-        : output["OutputValue"];
+    contents.OutputValue = output["OutputValue"];
   }
   return contents;
 };
@@ -8615,28 +8360,16 @@ const deserializeAws_queryParameter = (
     UsePreviousValue: undefined
   };
   if (output["ParameterKey"] !== undefined) {
-    contents.ParameterKey =
-      output["ParameterKey"]["#text"] !== undefined
-        ? output["ParameterKey"]["#text"]
-        : output["ParameterKey"];
+    contents.ParameterKey = output["ParameterKey"];
   }
   if (output["ParameterValue"] !== undefined) {
-    contents.ParameterValue =
-      output["ParameterValue"]["#text"] !== undefined
-        ? output["ParameterValue"]["#text"]
-        : output["ParameterValue"];
+    contents.ParameterValue = output["ParameterValue"];
   }
   if (output["ResolvedValue"] !== undefined) {
-    contents.ResolvedValue =
-      output["ResolvedValue"]["#text"] !== undefined
-        ? output["ResolvedValue"]["#text"]
-        : output["ResolvedValue"];
+    contents.ResolvedValue = output["ResolvedValue"];
   }
   if (output["UsePreviousValue"] !== undefined) {
-    contents.UsePreviousValue =
-      (output["UsePreviousValue"]["#text"] !== undefined
-        ? output["UsePreviousValue"]["#text"]
-        : output["UsePreviousValue"]) == "true";
+    contents.UsePreviousValue = output["UsePreviousValue"] == "true";
   }
   return contents;
 };
@@ -8678,22 +8411,13 @@ const deserializeAws_queryParameterDeclaration = (
     ParameterType: undefined
   };
   if (output["DefaultValue"] !== undefined) {
-    contents.DefaultValue =
-      output["DefaultValue"]["#text"] !== undefined
-        ? output["DefaultValue"]["#text"]
-        : output["DefaultValue"];
+    contents.DefaultValue = output["DefaultValue"];
   }
   if (output["Description"] !== undefined) {
-    contents.Description =
-      output["Description"]["#text"] !== undefined
-        ? output["Description"]["#text"]
-        : output["Description"];
+    contents.Description = output["Description"];
   }
   if (output["NoEcho"] !== undefined) {
-    contents.NoEcho =
-      (output["NoEcho"]["#text"] !== undefined
-        ? output["NoEcho"]["#text"]
-        : output["NoEcho"]) == "true";
+    contents.NoEcho = output["NoEcho"] == "true";
   }
   if (output["ParameterConstraints"] !== undefined) {
     contents.ParameterConstraints = deserializeAws_queryParameterConstraints(
@@ -8702,16 +8426,10 @@ const deserializeAws_queryParameterDeclaration = (
     );
   }
   if (output["ParameterKey"] !== undefined) {
-    contents.ParameterKey =
-      output["ParameterKey"]["#text"] !== undefined
-        ? output["ParameterKey"]["#text"]
-        : output["ParameterKey"];
+    contents.ParameterKey = output["ParameterKey"];
   }
   if (output["ParameterType"] !== undefined) {
-    contents.ParameterType =
-      output["ParameterType"]["#text"] !== undefined
-        ? output["ParameterType"]["#text"]
-        : output["ParameterType"];
+    contents.ParameterType = output["ParameterType"];
   }
   return contents;
 };
@@ -8753,16 +8471,10 @@ const deserializeAws_queryPhysicalResourceIdContextKeyValuePair = (
     Value: undefined
   };
   if (output["Key"] !== undefined) {
-    contents.Key =
-      output["Key"]["#text"] !== undefined
-        ? output["Key"]["#text"]
-        : output["Key"];
+    contents.Key = output["Key"];
   }
   if (output["Value"] !== undefined) {
-    contents.Value =
-      output["Value"]["#text"] !== undefined
-        ? output["Value"]["#text"]
-        : output["Value"];
+    contents.Value = output["Value"];
   }
   return contents;
 };
@@ -8779,28 +8491,16 @@ const deserializeAws_queryPropertyDifference = (
     PropertyPath: undefined
   };
   if (output["ActualValue"] !== undefined) {
-    contents.ActualValue =
-      output["ActualValue"]["#text"] !== undefined
-        ? output["ActualValue"]["#text"]
-        : output["ActualValue"];
+    contents.ActualValue = output["ActualValue"];
   }
   if (output["DifferenceType"] !== undefined) {
-    contents.DifferenceType =
-      output["DifferenceType"]["#text"] !== undefined
-        ? output["DifferenceType"]["#text"]
-        : output["DifferenceType"];
+    contents.DifferenceType = output["DifferenceType"];
   }
   if (output["ExpectedValue"] !== undefined) {
-    contents.ExpectedValue =
-      output["ExpectedValue"]["#text"] !== undefined
-        ? output["ExpectedValue"]["#text"]
-        : output["ExpectedValue"];
+    contents.ExpectedValue = output["ExpectedValue"];
   }
   if (output["PropertyPath"] !== undefined) {
-    contents.PropertyPath =
-      output["PropertyPath"]["#text"] !== undefined
-        ? output["PropertyPath"]["#text"]
-        : output["PropertyPath"];
+    contents.PropertyPath = output["PropertyPath"];
   }
   return contents;
 };
@@ -8833,10 +8533,7 @@ const deserializeAws_queryRegisterTypeOutput = (
     RegistrationToken: undefined
   };
   if (output["RegistrationToken"] !== undefined) {
-    contents.RegistrationToken =
-      output["RegistrationToken"]["#text"] !== undefined
-        ? output["RegistrationToken"]["#text"]
-        : output["RegistrationToken"];
+    contents.RegistrationToken = output["RegistrationToken"];
   }
   return contents;
 };
@@ -8845,9 +8542,7 @@ const deserializeAws_queryRegistrationTokenList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  return (output || []).map((entry: any) =>
-    entry["#text"] !== undefined ? entry["#text"] : entry
-  );
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_queryResourceChange = (
@@ -8865,10 +8560,7 @@ const deserializeAws_queryResourceChange = (
     Scope: undefined
   };
   if (output["Action"] !== undefined) {
-    contents.Action =
-      output["Action"]["#text"] !== undefined
-        ? output["Action"]["#text"]
-        : output["Action"];
+    contents.Action = output["Action"];
   }
   if (output.Details === "") {
     contents.Details = [];
@@ -8883,28 +8575,16 @@ const deserializeAws_queryResourceChange = (
     );
   }
   if (output["LogicalResourceId"] !== undefined) {
-    contents.LogicalResourceId =
-      output["LogicalResourceId"]["#text"] !== undefined
-        ? output["LogicalResourceId"]["#text"]
-        : output["LogicalResourceId"];
+    contents.LogicalResourceId = output["LogicalResourceId"];
   }
   if (output["PhysicalResourceId"] !== undefined) {
-    contents.PhysicalResourceId =
-      output["PhysicalResourceId"]["#text"] !== undefined
-        ? output["PhysicalResourceId"]["#text"]
-        : output["PhysicalResourceId"];
+    contents.PhysicalResourceId = output["PhysicalResourceId"];
   }
   if (output["Replacement"] !== undefined) {
-    contents.Replacement =
-      output["Replacement"]["#text"] !== undefined
-        ? output["Replacement"]["#text"]
-        : output["Replacement"];
+    contents.Replacement = output["Replacement"];
   }
   if (output["ResourceType"] !== undefined) {
-    contents.ResourceType =
-      output["ResourceType"]["#text"] !== undefined
-        ? output["ResourceType"]["#text"]
-        : output["ResourceType"];
+    contents.ResourceType = output["ResourceType"];
   }
   if (output.Scope === "") {
     contents.Scope = [];
@@ -8933,22 +8613,13 @@ const deserializeAws_queryResourceChangeDetail = (
     Target: undefined
   };
   if (output["CausingEntity"] !== undefined) {
-    contents.CausingEntity =
-      output["CausingEntity"]["#text"] !== undefined
-        ? output["CausingEntity"]["#text"]
-        : output["CausingEntity"];
+    contents.CausingEntity = output["CausingEntity"];
   }
   if (output["ChangeSource"] !== undefined) {
-    contents.ChangeSource =
-      output["ChangeSource"]["#text"] !== undefined
-        ? output["ChangeSource"]["#text"]
-        : output["ChangeSource"];
+    contents.ChangeSource = output["ChangeSource"];
   }
   if (output["Evaluation"] !== undefined) {
-    contents.Evaluation =
-      output["Evaluation"]["#text"] !== undefined
-        ? output["Evaluation"]["#text"]
-        : output["Evaluation"];
+    contents.Evaluation = output["Evaluation"];
   }
   if (output["Target"] !== undefined) {
     contents.Target = deserializeAws_queryResourceTargetDefinition(
@@ -9012,10 +8683,7 @@ const deserializeAws_queryResourceIdentifierSummary = (
     );
   }
   if (output["ResourceType"] !== undefined) {
-    contents.ResourceType =
-      output["ResourceType"]["#text"] !== undefined
-        ? output["ResourceType"]["#text"]
-        : output["ResourceType"];
+    contents.ResourceType = output["ResourceType"];
   }
   return contents;
 };
@@ -9024,9 +8692,7 @@ const deserializeAws_queryResourceIdentifiers = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  return (output || []).map((entry: any) =>
-    entry["#text"] !== undefined ? entry["#text"] : entry
-  );
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_queryResourceTargetDefinition = (
@@ -9040,22 +8706,13 @@ const deserializeAws_queryResourceTargetDefinition = (
     RequiresRecreation: undefined
   };
   if (output["Attribute"] !== undefined) {
-    contents.Attribute =
-      output["Attribute"]["#text"] !== undefined
-        ? output["Attribute"]["#text"]
-        : output["Attribute"];
+    contents.Attribute = output["Attribute"];
   }
   if (output["Name"] !== undefined) {
-    contents.Name =
-      output["Name"]["#text"] !== undefined
-        ? output["Name"]["#text"]
-        : output["Name"];
+    contents.Name = output["Name"];
   }
   if (output["RequiresRecreation"] !== undefined) {
-    contents.RequiresRecreation =
-      output["RequiresRecreation"]["#text"] !== undefined
-        ? output["RequiresRecreation"]["#text"]
-        : output["RequiresRecreation"];
+    contents.RequiresRecreation = output["RequiresRecreation"];
   }
   return contents;
 };
@@ -9064,9 +8721,7 @@ const deserializeAws_queryResourceTypes = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  return (output || []).map((entry: any) =>
-    entry["#text"] !== undefined ? entry["#text"] : entry
-  );
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_queryRollbackConfiguration = (
@@ -9080,9 +8735,7 @@ const deserializeAws_queryRollbackConfiguration = (
   };
   if (output["MonitoringTimeInMinutes"] !== undefined) {
     contents.MonitoringTimeInMinutes = parseInt(
-      output["MonitoringTimeInMinutes"]["#text"] !== undefined
-        ? output["MonitoringTimeInMinutes"]["#text"]
-        : output["MonitoringTimeInMinutes"]
+      output["MonitoringTimeInMinutes"]
     );
   }
   if (output.RollbackTriggers === "") {
@@ -9110,16 +8763,10 @@ const deserializeAws_queryRollbackTrigger = (
     Type: undefined
   };
   if (output["Arn"] !== undefined) {
-    contents.Arn =
-      output["Arn"]["#text"] !== undefined
-        ? output["Arn"]["#text"]
-        : output["Arn"];
+    contents.Arn = output["Arn"];
   }
   if (output["Type"] !== undefined) {
-    contents.Type =
-      output["Type"]["#text"] !== undefined
-        ? output["Type"]["#text"]
-        : output["Type"];
+    contents.Type = output["Type"];
   }
   return contents;
 };
@@ -9137,9 +8784,7 @@ const deserializeAws_queryScope = (
   output: any,
   context: __SerdeContext
 ): (ResourceAttribute | string)[] => {
-  return (output || []).map((entry: any) =>
-    entry["#text"] !== undefined ? entry["#text"] : entry
-  );
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_querySetTypeDefaultVersionOutput = (
@@ -9194,10 +8839,7 @@ const deserializeAws_queryStack = (
     );
   }
   if (output["ChangeSetId"] !== undefined) {
-    contents.ChangeSetId =
-      output["ChangeSetId"]["#text"] !== undefined
-        ? output["ChangeSetId"]["#text"]
-        : output["ChangeSetId"];
+    contents.ChangeSetId = output["ChangeSetId"];
   }
   if (output["CreationTime"] !== undefined) {
     contents.CreationTime = new Date(output["CreationTime"]);
@@ -9206,16 +8848,10 @@ const deserializeAws_queryStack = (
     contents.DeletionTime = new Date(output["DeletionTime"]);
   }
   if (output["Description"] !== undefined) {
-    contents.Description =
-      output["Description"]["#text"] !== undefined
-        ? output["Description"]["#text"]
-        : output["Description"];
+    contents.Description = output["Description"];
   }
   if (output["DisableRollback"] !== undefined) {
-    contents.DisableRollback =
-      (output["DisableRollback"]["#text"] !== undefined
-        ? output["DisableRollback"]["#text"]
-        : output["DisableRollback"]) == "true";
+    contents.DisableRollback = output["DisableRollback"] == "true";
   }
   if (output["DriftInformation"] !== undefined) {
     contents.DriftInformation = deserializeAws_queryStackDriftInformation(
@@ -9225,9 +8861,7 @@ const deserializeAws_queryStack = (
   }
   if (output["EnableTerminationProtection"] !== undefined) {
     contents.EnableTerminationProtection =
-      (output["EnableTerminationProtection"]["#text"] !== undefined
-        ? output["EnableTerminationProtection"]["#text"]
-        : output["EnableTerminationProtection"]) == "true";
+      output["EnableTerminationProtection"] == "true";
   }
   if (output["LastUpdatedTime"] !== undefined) {
     contents.LastUpdatedTime = new Date(output["LastUpdatedTime"]);
@@ -9269,16 +8903,10 @@ const deserializeAws_queryStack = (
     );
   }
   if (output["ParentId"] !== undefined) {
-    contents.ParentId =
-      output["ParentId"]["#text"] !== undefined
-        ? output["ParentId"]["#text"]
-        : output["ParentId"];
+    contents.ParentId = output["ParentId"];
   }
   if (output["RoleARN"] !== undefined) {
-    contents.RoleARN =
-      output["RoleARN"]["#text"] !== undefined
-        ? output["RoleARN"]["#text"]
-        : output["RoleARN"];
+    contents.RoleARN = output["RoleARN"];
   }
   if (output["RollbackConfiguration"] !== undefined) {
     contents.RollbackConfiguration = deserializeAws_queryRollbackConfiguration(
@@ -9287,34 +8915,19 @@ const deserializeAws_queryStack = (
     );
   }
   if (output["RootId"] !== undefined) {
-    contents.RootId =
-      output["RootId"]["#text"] !== undefined
-        ? output["RootId"]["#text"]
-        : output["RootId"];
+    contents.RootId = output["RootId"];
   }
   if (output["StackId"] !== undefined) {
-    contents.StackId =
-      output["StackId"]["#text"] !== undefined
-        ? output["StackId"]["#text"]
-        : output["StackId"];
+    contents.StackId = output["StackId"];
   }
   if (output["StackName"] !== undefined) {
-    contents.StackName =
-      output["StackName"]["#text"] !== undefined
-        ? output["StackName"]["#text"]
-        : output["StackName"];
+    contents.StackName = output["StackName"];
   }
   if (output["StackStatus"] !== undefined) {
-    contents.StackStatus =
-      output["StackStatus"]["#text"] !== undefined
-        ? output["StackStatus"]["#text"]
-        : output["StackStatus"];
+    contents.StackStatus = output["StackStatus"];
   }
   if (output["StackStatusReason"] !== undefined) {
-    contents.StackStatusReason =
-      output["StackStatusReason"]["#text"] !== undefined
-        ? output["StackStatusReason"]["#text"]
-        : output["StackStatusReason"];
+    contents.StackStatusReason = output["StackStatusReason"];
   }
   if (output.Tags === "") {
     contents.Tags = [];
@@ -9326,11 +8939,7 @@ const deserializeAws_queryStack = (
     );
   }
   if (output["TimeoutInMinutes"] !== undefined) {
-    contents.TimeoutInMinutes = parseInt(
-      output["TimeoutInMinutes"]["#text"] !== undefined
-        ? output["TimeoutInMinutes"]["#text"]
-        : output["TimeoutInMinutes"]
-    );
+    contents.TimeoutInMinutes = parseInt(output["TimeoutInMinutes"]);
   }
   return contents;
 };
@@ -9348,10 +8957,7 @@ const deserializeAws_queryStackDriftInformation = (
     contents.LastCheckTimestamp = new Date(output["LastCheckTimestamp"]);
   }
   if (output["StackDriftStatus"] !== undefined) {
-    contents.StackDriftStatus =
-      output["StackDriftStatus"]["#text"] !== undefined
-        ? output["StackDriftStatus"]["#text"]
-        : output["StackDriftStatus"];
+    contents.StackDriftStatus = output["StackDriftStatus"];
   }
   return contents;
 };
@@ -9369,10 +8975,7 @@ const deserializeAws_queryStackDriftInformationSummary = (
     contents.LastCheckTimestamp = new Date(output["LastCheckTimestamp"]);
   }
   if (output["StackDriftStatus"] !== undefined) {
-    contents.StackDriftStatus =
-      output["StackDriftStatus"]["#text"] !== undefined
-        ? output["StackDriftStatus"]["#text"]
-        : output["StackDriftStatus"];
+    contents.StackDriftStatus = output["StackDriftStatus"];
   }
   return contents;
 };
@@ -9396,64 +8999,34 @@ const deserializeAws_queryStackEvent = (
     Timestamp: undefined
   };
   if (output["ClientRequestToken"] !== undefined) {
-    contents.ClientRequestToken =
-      output["ClientRequestToken"]["#text"] !== undefined
-        ? output["ClientRequestToken"]["#text"]
-        : output["ClientRequestToken"];
+    contents.ClientRequestToken = output["ClientRequestToken"];
   }
   if (output["EventId"] !== undefined) {
-    contents.EventId =
-      output["EventId"]["#text"] !== undefined
-        ? output["EventId"]["#text"]
-        : output["EventId"];
+    contents.EventId = output["EventId"];
   }
   if (output["LogicalResourceId"] !== undefined) {
-    contents.LogicalResourceId =
-      output["LogicalResourceId"]["#text"] !== undefined
-        ? output["LogicalResourceId"]["#text"]
-        : output["LogicalResourceId"];
+    contents.LogicalResourceId = output["LogicalResourceId"];
   }
   if (output["PhysicalResourceId"] !== undefined) {
-    contents.PhysicalResourceId =
-      output["PhysicalResourceId"]["#text"] !== undefined
-        ? output["PhysicalResourceId"]["#text"]
-        : output["PhysicalResourceId"];
+    contents.PhysicalResourceId = output["PhysicalResourceId"];
   }
   if (output["ResourceProperties"] !== undefined) {
-    contents.ResourceProperties =
-      output["ResourceProperties"]["#text"] !== undefined
-        ? output["ResourceProperties"]["#text"]
-        : output["ResourceProperties"];
+    contents.ResourceProperties = output["ResourceProperties"];
   }
   if (output["ResourceStatus"] !== undefined) {
-    contents.ResourceStatus =
-      output["ResourceStatus"]["#text"] !== undefined
-        ? output["ResourceStatus"]["#text"]
-        : output["ResourceStatus"];
+    contents.ResourceStatus = output["ResourceStatus"];
   }
   if (output["ResourceStatusReason"] !== undefined) {
-    contents.ResourceStatusReason =
-      output["ResourceStatusReason"]["#text"] !== undefined
-        ? output["ResourceStatusReason"]["#text"]
-        : output["ResourceStatusReason"];
+    contents.ResourceStatusReason = output["ResourceStatusReason"];
   }
   if (output["ResourceType"] !== undefined) {
-    contents.ResourceType =
-      output["ResourceType"]["#text"] !== undefined
-        ? output["ResourceType"]["#text"]
-        : output["ResourceType"];
+    contents.ResourceType = output["ResourceType"];
   }
   if (output["StackId"] !== undefined) {
-    contents.StackId =
-      output["StackId"]["#text"] !== undefined
-        ? output["StackId"]["#text"]
-        : output["StackId"];
+    contents.StackId = output["StackId"];
   }
   if (output["StackName"] !== undefined) {
-    contents.StackName =
-      output["StackName"]["#text"] !== undefined
-        ? output["StackName"]["#text"]
-        : output["StackName"];
+    contents.StackName = output["StackName"];
   }
   if (output["Timestamp"] !== undefined) {
     contents.Timestamp = new Date(output["Timestamp"]);
@@ -9488,10 +9061,7 @@ const deserializeAws_queryStackResource = (
     Timestamp: undefined
   };
   if (output["Description"] !== undefined) {
-    contents.Description =
-      output["Description"]["#text"] !== undefined
-        ? output["Description"]["#text"]
-        : output["Description"];
+    contents.Description = output["Description"];
   }
   if (output["DriftInformation"] !== undefined) {
     contents.DriftInformation = deserializeAws_queryStackResourceDriftInformation(
@@ -9500,46 +9070,25 @@ const deserializeAws_queryStackResource = (
     );
   }
   if (output["LogicalResourceId"] !== undefined) {
-    contents.LogicalResourceId =
-      output["LogicalResourceId"]["#text"] !== undefined
-        ? output["LogicalResourceId"]["#text"]
-        : output["LogicalResourceId"];
+    contents.LogicalResourceId = output["LogicalResourceId"];
   }
   if (output["PhysicalResourceId"] !== undefined) {
-    contents.PhysicalResourceId =
-      output["PhysicalResourceId"]["#text"] !== undefined
-        ? output["PhysicalResourceId"]["#text"]
-        : output["PhysicalResourceId"];
+    contents.PhysicalResourceId = output["PhysicalResourceId"];
   }
   if (output["ResourceStatus"] !== undefined) {
-    contents.ResourceStatus =
-      output["ResourceStatus"]["#text"] !== undefined
-        ? output["ResourceStatus"]["#text"]
-        : output["ResourceStatus"];
+    contents.ResourceStatus = output["ResourceStatus"];
   }
   if (output["ResourceStatusReason"] !== undefined) {
-    contents.ResourceStatusReason =
-      output["ResourceStatusReason"]["#text"] !== undefined
-        ? output["ResourceStatusReason"]["#text"]
-        : output["ResourceStatusReason"];
+    contents.ResourceStatusReason = output["ResourceStatusReason"];
   }
   if (output["ResourceType"] !== undefined) {
-    contents.ResourceType =
-      output["ResourceType"]["#text"] !== undefined
-        ? output["ResourceType"]["#text"]
-        : output["ResourceType"];
+    contents.ResourceType = output["ResourceType"];
   }
   if (output["StackId"] !== undefined) {
-    contents.StackId =
-      output["StackId"]["#text"] !== undefined
-        ? output["StackId"]["#text"]
-        : output["StackId"];
+    contents.StackId = output["StackId"];
   }
   if (output["StackName"] !== undefined) {
-    contents.StackName =
-      output["StackName"]["#text"] !== undefined
-        ? output["StackName"]["#text"]
-        : output["StackName"];
+    contents.StackName = output["StackName"];
   }
   if (output["Timestamp"] !== undefined) {
     contents.Timestamp = new Date(output["Timestamp"]);
@@ -9566,10 +9115,7 @@ const deserializeAws_queryStackResourceDetail = (
     StackName: undefined
   };
   if (output["Description"] !== undefined) {
-    contents.Description =
-      output["Description"]["#text"] !== undefined
-        ? output["Description"]["#text"]
-        : output["Description"];
+    contents.Description = output["Description"];
   }
   if (output["DriftInformation"] !== undefined) {
     contents.DriftInformation = deserializeAws_queryStackResourceDriftInformation(
@@ -9581,52 +9127,28 @@ const deserializeAws_queryStackResourceDetail = (
     contents.LastUpdatedTimestamp = new Date(output["LastUpdatedTimestamp"]);
   }
   if (output["LogicalResourceId"] !== undefined) {
-    contents.LogicalResourceId =
-      output["LogicalResourceId"]["#text"] !== undefined
-        ? output["LogicalResourceId"]["#text"]
-        : output["LogicalResourceId"];
+    contents.LogicalResourceId = output["LogicalResourceId"];
   }
   if (output["Metadata"] !== undefined) {
-    contents.Metadata =
-      output["Metadata"]["#text"] !== undefined
-        ? output["Metadata"]["#text"]
-        : output["Metadata"];
+    contents.Metadata = output["Metadata"];
   }
   if (output["PhysicalResourceId"] !== undefined) {
-    contents.PhysicalResourceId =
-      output["PhysicalResourceId"]["#text"] !== undefined
-        ? output["PhysicalResourceId"]["#text"]
-        : output["PhysicalResourceId"];
+    contents.PhysicalResourceId = output["PhysicalResourceId"];
   }
   if (output["ResourceStatus"] !== undefined) {
-    contents.ResourceStatus =
-      output["ResourceStatus"]["#text"] !== undefined
-        ? output["ResourceStatus"]["#text"]
-        : output["ResourceStatus"];
+    contents.ResourceStatus = output["ResourceStatus"];
   }
   if (output["ResourceStatusReason"] !== undefined) {
-    contents.ResourceStatusReason =
-      output["ResourceStatusReason"]["#text"] !== undefined
-        ? output["ResourceStatusReason"]["#text"]
-        : output["ResourceStatusReason"];
+    contents.ResourceStatusReason = output["ResourceStatusReason"];
   }
   if (output["ResourceType"] !== undefined) {
-    contents.ResourceType =
-      output["ResourceType"]["#text"] !== undefined
-        ? output["ResourceType"]["#text"]
-        : output["ResourceType"];
+    contents.ResourceType = output["ResourceType"];
   }
   if (output["StackId"] !== undefined) {
-    contents.StackId =
-      output["StackId"]["#text"] !== undefined
-        ? output["StackId"]["#text"]
-        : output["StackId"];
+    contents.StackId = output["StackId"];
   }
   if (output["StackName"] !== undefined) {
-    contents.StackName =
-      output["StackName"]["#text"] !== undefined
-        ? output["StackName"]["#text"]
-        : output["StackName"];
+    contents.StackName = output["StackName"];
   }
   return contents;
 };
@@ -9649,28 +9171,16 @@ const deserializeAws_queryStackResourceDrift = (
     Timestamp: undefined
   };
   if (output["ActualProperties"] !== undefined) {
-    contents.ActualProperties =
-      output["ActualProperties"]["#text"] !== undefined
-        ? output["ActualProperties"]["#text"]
-        : output["ActualProperties"];
+    contents.ActualProperties = output["ActualProperties"];
   }
   if (output["ExpectedProperties"] !== undefined) {
-    contents.ExpectedProperties =
-      output["ExpectedProperties"]["#text"] !== undefined
-        ? output["ExpectedProperties"]["#text"]
-        : output["ExpectedProperties"];
+    contents.ExpectedProperties = output["ExpectedProperties"];
   }
   if (output["LogicalResourceId"] !== undefined) {
-    contents.LogicalResourceId =
-      output["LogicalResourceId"]["#text"] !== undefined
-        ? output["LogicalResourceId"]["#text"]
-        : output["LogicalResourceId"];
+    contents.LogicalResourceId = output["LogicalResourceId"];
   }
   if (output["PhysicalResourceId"] !== undefined) {
-    contents.PhysicalResourceId =
-      output["PhysicalResourceId"]["#text"] !== undefined
-        ? output["PhysicalResourceId"]["#text"]
-        : output["PhysicalResourceId"];
+    contents.PhysicalResourceId = output["PhysicalResourceId"];
   }
   if (output.PhysicalResourceIdContext === "") {
     contents.PhysicalResourceIdContext = [];
@@ -9697,22 +9207,13 @@ const deserializeAws_queryStackResourceDrift = (
     );
   }
   if (output["ResourceType"] !== undefined) {
-    contents.ResourceType =
-      output["ResourceType"]["#text"] !== undefined
-        ? output["ResourceType"]["#text"]
-        : output["ResourceType"];
+    contents.ResourceType = output["ResourceType"];
   }
   if (output["StackId"] !== undefined) {
-    contents.StackId =
-      output["StackId"]["#text"] !== undefined
-        ? output["StackId"]["#text"]
-        : output["StackId"];
+    contents.StackId = output["StackId"];
   }
   if (output["StackResourceDriftStatus"] !== undefined) {
-    contents.StackResourceDriftStatus =
-      output["StackResourceDriftStatus"]["#text"] !== undefined
-        ? output["StackResourceDriftStatus"]["#text"]
-        : output["StackResourceDriftStatus"];
+    contents.StackResourceDriftStatus = output["StackResourceDriftStatus"];
   }
   if (output["Timestamp"] !== undefined) {
     contents.Timestamp = new Date(output["Timestamp"]);
@@ -9733,10 +9234,7 @@ const deserializeAws_queryStackResourceDriftInformation = (
     contents.LastCheckTimestamp = new Date(output["LastCheckTimestamp"]);
   }
   if (output["StackResourceDriftStatus"] !== undefined) {
-    contents.StackResourceDriftStatus =
-      output["StackResourceDriftStatus"]["#text"] !== undefined
-        ? output["StackResourceDriftStatus"]["#text"]
-        : output["StackResourceDriftStatus"];
+    contents.StackResourceDriftStatus = output["StackResourceDriftStatus"];
   }
   return contents;
 };
@@ -9754,10 +9252,7 @@ const deserializeAws_queryStackResourceDriftInformationSummary = (
     contents.LastCheckTimestamp = new Date(output["LastCheckTimestamp"]);
   }
   if (output["StackResourceDriftStatus"] !== undefined) {
-    contents.StackResourceDriftStatus =
-      output["StackResourceDriftStatus"]["#text"] !== undefined
-        ? output["StackResourceDriftStatus"]["#text"]
-        : output["StackResourceDriftStatus"];
+    contents.StackResourceDriftStatus = output["StackResourceDriftStatus"];
   }
   return contents;
 };
@@ -9804,34 +9299,19 @@ const deserializeAws_queryStackResourceSummary = (
     contents.LastUpdatedTimestamp = new Date(output["LastUpdatedTimestamp"]);
   }
   if (output["LogicalResourceId"] !== undefined) {
-    contents.LogicalResourceId =
-      output["LogicalResourceId"]["#text"] !== undefined
-        ? output["LogicalResourceId"]["#text"]
-        : output["LogicalResourceId"];
+    contents.LogicalResourceId = output["LogicalResourceId"];
   }
   if (output["PhysicalResourceId"] !== undefined) {
-    contents.PhysicalResourceId =
-      output["PhysicalResourceId"]["#text"] !== undefined
-        ? output["PhysicalResourceId"]["#text"]
-        : output["PhysicalResourceId"];
+    contents.PhysicalResourceId = output["PhysicalResourceId"];
   }
   if (output["ResourceStatus"] !== undefined) {
-    contents.ResourceStatus =
-      output["ResourceStatus"]["#text"] !== undefined
-        ? output["ResourceStatus"]["#text"]
-        : output["ResourceStatus"];
+    contents.ResourceStatus = output["ResourceStatus"];
   }
   if (output["ResourceStatusReason"] !== undefined) {
-    contents.ResourceStatusReason =
-      output["ResourceStatusReason"]["#text"] !== undefined
-        ? output["ResourceStatusReason"]["#text"]
-        : output["ResourceStatusReason"];
+    contents.ResourceStatusReason = output["ResourceStatusReason"];
   }
   if (output["ResourceType"] !== undefined) {
-    contents.ResourceType =
-      output["ResourceType"]["#text"] !== undefined
-        ? output["ResourceType"]["#text"]
-        : output["ResourceType"];
+    contents.ResourceType = output["ResourceType"];
   }
   return contents;
 };
@@ -9854,10 +9334,7 @@ const deserializeAws_queryStackSetNotFoundException = (
     Message: undefined
   };
   if (output["Message"] !== undefined) {
-    contents.Message =
-      output["Message"]["#text"] !== undefined
-        ? output["Message"]["#text"]
-        : output["Message"];
+    contents.Message = output["Message"];
   }
   return contents;
 };
@@ -9905,46 +9382,25 @@ const deserializeAws_queryStackSummary = (
     contents.LastUpdatedTime = new Date(output["LastUpdatedTime"]);
   }
   if (output["ParentId"] !== undefined) {
-    contents.ParentId =
-      output["ParentId"]["#text"] !== undefined
-        ? output["ParentId"]["#text"]
-        : output["ParentId"];
+    contents.ParentId = output["ParentId"];
   }
   if (output["RootId"] !== undefined) {
-    contents.RootId =
-      output["RootId"]["#text"] !== undefined
-        ? output["RootId"]["#text"]
-        : output["RootId"];
+    contents.RootId = output["RootId"];
   }
   if (output["StackId"] !== undefined) {
-    contents.StackId =
-      output["StackId"]["#text"] !== undefined
-        ? output["StackId"]["#text"]
-        : output["StackId"];
+    contents.StackId = output["StackId"];
   }
   if (output["StackName"] !== undefined) {
-    contents.StackName =
-      output["StackName"]["#text"] !== undefined
-        ? output["StackName"]["#text"]
-        : output["StackName"];
+    contents.StackName = output["StackName"];
   }
   if (output["StackStatus"] !== undefined) {
-    contents.StackStatus =
-      output["StackStatus"]["#text"] !== undefined
-        ? output["StackStatus"]["#text"]
-        : output["StackStatus"];
+    contents.StackStatus = output["StackStatus"];
   }
   if (output["StackStatusReason"] !== undefined) {
-    contents.StackStatusReason =
-      output["StackStatusReason"]["#text"] !== undefined
-        ? output["StackStatusReason"]["#text"]
-        : output["StackStatusReason"];
+    contents.StackStatusReason = output["StackStatusReason"];
   }
   if (output["TemplateDescription"] !== undefined) {
-    contents.TemplateDescription =
-      output["TemplateDescription"]["#text"] !== undefined
-        ? output["TemplateDescription"]["#text"]
-        : output["TemplateDescription"];
+    contents.TemplateDescription = output["TemplateDescription"];
   }
   return contents;
 };
@@ -9962,9 +9418,7 @@ const deserializeAws_queryStageList = (
   output: any,
   context: __SerdeContext
 ): (TemplateStage | string)[] => {
-  return (output || []).map((entry: any) =>
-    entry["#text"] !== undefined ? entry["#text"] : entry
-  );
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
@@ -9974,16 +9428,10 @@ const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
     Value: undefined
   };
   if (output["Key"] !== undefined) {
-    contents.Key =
-      output["Key"]["#text"] !== undefined
-        ? output["Key"]["#text"]
-        : output["Key"];
+    contents.Key = output["Key"];
   }
   if (output["Value"] !== undefined) {
-    contents.Value =
-      output["Value"]["#text"] !== undefined
-        ? output["Value"]["#text"]
-        : output["Value"];
+    contents.Value = output["Value"];
   }
   return contents;
 };
@@ -10009,28 +9457,16 @@ const deserializeAws_queryTemplateParameter = (
     ParameterKey: undefined
   };
   if (output["DefaultValue"] !== undefined) {
-    contents.DefaultValue =
-      output["DefaultValue"]["#text"] !== undefined
-        ? output["DefaultValue"]["#text"]
-        : output["DefaultValue"];
+    contents.DefaultValue = output["DefaultValue"];
   }
   if (output["Description"] !== undefined) {
-    contents.Description =
-      output["Description"]["#text"] !== undefined
-        ? output["Description"]["#text"]
-        : output["Description"];
+    contents.Description = output["Description"];
   }
   if (output["NoEcho"] !== undefined) {
-    contents.NoEcho =
-      (output["NoEcho"]["#text"] !== undefined
-        ? output["NoEcho"]["#text"]
-        : output["NoEcho"]) == "true";
+    contents.NoEcho = output["NoEcho"] == "true";
   }
   if (output["ParameterKey"] !== undefined) {
-    contents.ParameterKey =
-      output["ParameterKey"]["#text"] !== undefined
-        ? output["ParameterKey"]["#text"]
-        : output["ParameterKey"];
+    contents.ParameterKey = output["ParameterKey"];
   }
   return contents;
 };
@@ -10053,10 +9489,7 @@ const deserializeAws_queryTokenAlreadyExistsException = (
     Message: undefined
   };
   if (output["Message"] !== undefined) {
-    contents.Message =
-      output["Message"]["#text"] !== undefined
-        ? output["Message"]["#text"]
-        : output["Message"];
+    contents.Message = output["Message"];
   }
   return contents;
 };
@@ -10065,9 +9498,7 @@ const deserializeAws_queryTransformsList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  return (output || []).map((entry: any) =>
-    entry["#text"] !== undefined ? entry["#text"] : entry
-  );
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_queryTypeNotFoundException = (
@@ -10079,10 +9510,7 @@ const deserializeAws_queryTypeNotFoundException = (
     Message: undefined
   };
   if (output["Message"] !== undefined) {
-    contents.Message =
-      output["Message"]["#text"] !== undefined
-        ? output["Message"]["#text"]
-        : output["Message"];
+    contents.Message = output["Message"];
   }
   return contents;
 };
@@ -10110,37 +9538,22 @@ const deserializeAws_queryTypeSummary = (
     TypeName: undefined
   };
   if (output["DefaultVersionId"] !== undefined) {
-    contents.DefaultVersionId =
-      output["DefaultVersionId"]["#text"] !== undefined
-        ? output["DefaultVersionId"]["#text"]
-        : output["DefaultVersionId"];
+    contents.DefaultVersionId = output["DefaultVersionId"];
   }
   if (output["Description"] !== undefined) {
-    contents.Description =
-      output["Description"]["#text"] !== undefined
-        ? output["Description"]["#text"]
-        : output["Description"];
+    contents.Description = output["Description"];
   }
   if (output["LastUpdated"] !== undefined) {
     contents.LastUpdated = new Date(output["LastUpdated"]);
   }
   if (output["Type"] !== undefined) {
-    contents.Type =
-      output["Type"]["#text"] !== undefined
-        ? output["Type"]["#text"]
-        : output["Type"];
+    contents.Type = output["Type"];
   }
   if (output["TypeArn"] !== undefined) {
-    contents.TypeArn =
-      output["TypeArn"]["#text"] !== undefined
-        ? output["TypeArn"]["#text"]
-        : output["TypeArn"];
+    contents.TypeArn = output["TypeArn"];
   }
   if (output["TypeName"] !== undefined) {
-    contents.TypeName =
-      output["TypeName"]["#text"] !== undefined
-        ? output["TypeName"]["#text"]
-        : output["TypeName"];
+    contents.TypeName = output["TypeName"];
   }
   return contents;
 };
@@ -10168,37 +9581,22 @@ const deserializeAws_queryTypeVersionSummary = (
     VersionId: undefined
   };
   if (output["Arn"] !== undefined) {
-    contents.Arn =
-      output["Arn"]["#text"] !== undefined
-        ? output["Arn"]["#text"]
-        : output["Arn"];
+    contents.Arn = output["Arn"];
   }
   if (output["Description"] !== undefined) {
-    contents.Description =
-      output["Description"]["#text"] !== undefined
-        ? output["Description"]["#text"]
-        : output["Description"];
+    contents.Description = output["Description"];
   }
   if (output["TimeCreated"] !== undefined) {
     contents.TimeCreated = new Date(output["TimeCreated"]);
   }
   if (output["Type"] !== undefined) {
-    contents.Type =
-      output["Type"]["#text"] !== undefined
-        ? output["Type"]["#text"]
-        : output["Type"];
+    contents.Type = output["Type"];
   }
   if (output["TypeName"] !== undefined) {
-    contents.TypeName =
-      output["TypeName"]["#text"] !== undefined
-        ? output["TypeName"]["#text"]
-        : output["TypeName"];
+    contents.TypeName = output["TypeName"];
   }
   if (output["VersionId"] !== undefined) {
-    contents.VersionId =
-      output["VersionId"]["#text"] !== undefined
-        ? output["VersionId"]["#text"]
-        : output["VersionId"];
+    contents.VersionId = output["VersionId"];
   }
   return contents;
 };
@@ -10212,10 +9610,7 @@ const deserializeAws_queryUpdateStackOutput = (
     StackId: undefined
   };
   if (output["StackId"] !== undefined) {
-    contents.StackId =
-      output["StackId"]["#text"] !== undefined
-        ? output["StackId"]["#text"]
-        : output["StackId"];
+    contents.StackId = output["StackId"];
   }
   return contents;
 };
@@ -10229,10 +9624,7 @@ const deserializeAws_queryUpdateTerminationProtectionOutput = (
     StackId: undefined
   };
   if (output["StackId"] !== undefined) {
-    contents.StackId =
-      output["StackId"]["#text"] !== undefined
-        ? output["StackId"]["#text"]
-        : output["StackId"];
+    contents.StackId = output["StackId"];
   }
   return contents;
 };
@@ -10262,10 +9654,7 @@ const deserializeAws_queryValidateTemplateOutput = (
     );
   }
   if (output["CapabilitiesReason"] !== undefined) {
-    contents.CapabilitiesReason =
-      output["CapabilitiesReason"]["#text"] !== undefined
-        ? output["CapabilitiesReason"]["#text"]
-        : output["CapabilitiesReason"];
+    contents.CapabilitiesReason = output["CapabilitiesReason"];
   }
   if (output.DeclaredTransforms === "") {
     contents.DeclaredTransforms = [];
@@ -10280,10 +9669,7 @@ const deserializeAws_queryValidateTemplateOutput = (
     );
   }
   if (output["Description"] !== undefined) {
-    contents.Description =
-      output["Description"]["#text"] !== undefined
-        ? output["Description"]["#text"]
-        : output["Description"];
+    contents.Description = output["Description"];
   }
   if (output.Parameters === "") {
     contents.Parameters = [];
@@ -10310,16 +9696,10 @@ const deserializeAws_queryAccountGateResult = (
     StatusReason: undefined
   };
   if (output["Status"] !== undefined) {
-    contents.Status =
-      output["Status"]["#text"] !== undefined
-        ? output["Status"]["#text"]
-        : output["Status"];
+    contents.Status = output["Status"];
   }
   if (output["StatusReason"] !== undefined) {
-    contents.StatusReason =
-      output["StatusReason"]["#text"] !== undefined
-        ? output["StatusReason"]["#text"]
-        : output["StatusReason"];
+    contents.StatusReason = output["StatusReason"];
   }
   return contents;
 };
@@ -10333,10 +9713,7 @@ const deserializeAws_queryCreateStackInstancesOutput = (
     OperationId: undefined
   };
   if (output["OperationId"] !== undefined) {
-    contents.OperationId =
-      output["OperationId"]["#text"] !== undefined
-        ? output["OperationId"]["#text"]
-        : output["OperationId"];
+    contents.OperationId = output["OperationId"];
   }
   return contents;
 };
@@ -10350,10 +9727,7 @@ const deserializeAws_queryCreateStackSetOutput = (
     StackSetId: undefined
   };
   if (output["StackSetId"] !== undefined) {
-    contents.StackSetId =
-      output["StackSetId"]["#text"] !== undefined
-        ? output["StackSetId"]["#text"]
-        : output["StackSetId"];
+    contents.StackSetId = output["StackSetId"];
   }
   return contents;
 };
@@ -10367,10 +9741,7 @@ const deserializeAws_queryCreatedButModifiedException = (
     Message: undefined
   };
   if (output["Message"] !== undefined) {
-    contents.Message =
-      output["Message"]["#text"] !== undefined
-        ? output["Message"]["#text"]
-        : output["Message"];
+    contents.Message = output["Message"];
   }
   return contents;
 };
@@ -10384,10 +9755,7 @@ const deserializeAws_queryDeleteStackInstancesOutput = (
     OperationId: undefined
   };
   if (output["OperationId"] !== undefined) {
-    contents.OperationId =
-      output["OperationId"]["#text"] !== undefined
-        ? output["OperationId"]["#text"]
-        : output["OperationId"];
+    contents.OperationId = output["OperationId"];
   }
   return contents;
 };
@@ -10462,10 +9830,7 @@ const deserializeAws_queryDetectStackSetDriftOutput = (
     OperationId: undefined
   };
   if (output["OperationId"] !== undefined) {
-    contents.OperationId =
-      output["OperationId"]["#text"] !== undefined
-        ? output["OperationId"]["#text"]
-        : output["OperationId"];
+    contents.OperationId = output["OperationId"];
   }
   return contents;
 };
@@ -10479,10 +9844,7 @@ const deserializeAws_queryInvalidOperationException = (
     Message: undefined
   };
   if (output["Message"] !== undefined) {
-    contents.Message =
-      output["Message"]["#text"] !== undefined
-        ? output["Message"]["#text"]
-        : output["Message"];
+    contents.Message = output["Message"];
   }
   return contents;
 };
@@ -10497,10 +9859,7 @@ const deserializeAws_queryListStackInstancesOutput = (
     Summaries: undefined
   };
   if (output["NextToken"] !== undefined) {
-    contents.NextToken =
-      output["NextToken"]["#text"] !== undefined
-        ? output["NextToken"]["#text"]
-        : output["NextToken"];
+    contents.NextToken = output["NextToken"];
   }
   if (output.Summaries === "") {
     contents.Summaries = [];
@@ -10527,10 +9886,7 @@ const deserializeAws_queryListStackSetOperationResultsOutput = (
     Summaries: undefined
   };
   if (output["NextToken"] !== undefined) {
-    contents.NextToken =
-      output["NextToken"]["#text"] !== undefined
-        ? output["NextToken"]["#text"]
-        : output["NextToken"];
+    contents.NextToken = output["NextToken"];
   }
   if (output.Summaries === "") {
     contents.Summaries = [];
@@ -10557,10 +9913,7 @@ const deserializeAws_queryListStackSetOperationsOutput = (
     Summaries: undefined
   };
   if (output["NextToken"] !== undefined) {
-    contents.NextToken =
-      output["NextToken"]["#text"] !== undefined
-        ? output["NextToken"]["#text"]
-        : output["NextToken"];
+    contents.NextToken = output["NextToken"];
   }
   if (output.Summaries === "") {
     contents.Summaries = [];
@@ -10587,10 +9940,7 @@ const deserializeAws_queryListStackSetsOutput = (
     Summaries: undefined
   };
   if (output["NextToken"] !== undefined) {
-    contents.NextToken =
-      output["NextToken"]["#text"] !== undefined
-        ? output["NextToken"]["#text"]
-        : output["NextToken"];
+    contents.NextToken = output["NextToken"];
   }
   if (output.Summaries === "") {
     contents.Summaries = [];
@@ -10616,10 +9966,7 @@ const deserializeAws_queryNameAlreadyExistsException = (
     Message: undefined
   };
   if (output["Message"] !== undefined) {
-    contents.Message =
-      output["Message"]["#text"] !== undefined
-        ? output["Message"]["#text"]
-        : output["Message"];
+    contents.Message = output["Message"];
   }
   return contents;
 };
@@ -10633,10 +9980,7 @@ const deserializeAws_queryOperationIdAlreadyExistsException = (
     Message: undefined
   };
   if (output["Message"] !== undefined) {
-    contents.Message =
-      output["Message"]["#text"] !== undefined
-        ? output["Message"]["#text"]
-        : output["Message"];
+    contents.Message = output["Message"];
   }
   return contents;
 };
@@ -10650,10 +9994,7 @@ const deserializeAws_queryOperationInProgressException = (
     Message: undefined
   };
   if (output["Message"] !== undefined) {
-    contents.Message =
-      output["Message"]["#text"] !== undefined
-        ? output["Message"]["#text"]
-        : output["Message"];
+    contents.Message = output["Message"];
   }
   return contents;
 };
@@ -10667,10 +10008,7 @@ const deserializeAws_queryOperationNotFoundException = (
     Message: undefined
   };
   if (output["Message"] !== undefined) {
-    contents.Message =
-      output["Message"]["#text"] !== undefined
-        ? output["Message"]["#text"]
-        : output["Message"];
+    contents.Message = output["Message"];
   }
   return contents;
 };
@@ -10679,9 +10017,7 @@ const deserializeAws_queryRegionList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  return (output || []).map((entry: any) =>
-    entry["#text"] !== undefined ? entry["#text"] : entry
-  );
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_queryStackInstance = (
@@ -10701,16 +10037,10 @@ const deserializeAws_queryStackInstance = (
     StatusReason: undefined
   };
   if (output["Account"] !== undefined) {
-    contents.Account =
-      output["Account"]["#text"] !== undefined
-        ? output["Account"]["#text"]
-        : output["Account"];
+    contents.Account = output["Account"];
   }
   if (output["DriftStatus"] !== undefined) {
-    contents.DriftStatus =
-      output["DriftStatus"]["#text"] !== undefined
-        ? output["DriftStatus"]["#text"]
-        : output["DriftStatus"];
+    contents.DriftStatus = output["DriftStatus"];
   }
   if (output["LastDriftCheckTimestamp"] !== undefined) {
     contents.LastDriftCheckTimestamp = new Date(
@@ -10730,34 +10060,19 @@ const deserializeAws_queryStackInstance = (
     );
   }
   if (output["Region"] !== undefined) {
-    contents.Region =
-      output["Region"]["#text"] !== undefined
-        ? output["Region"]["#text"]
-        : output["Region"];
+    contents.Region = output["Region"];
   }
   if (output["StackId"] !== undefined) {
-    contents.StackId =
-      output["StackId"]["#text"] !== undefined
-        ? output["StackId"]["#text"]
-        : output["StackId"];
+    contents.StackId = output["StackId"];
   }
   if (output["StackSetId"] !== undefined) {
-    contents.StackSetId =
-      output["StackSetId"]["#text"] !== undefined
-        ? output["StackSetId"]["#text"]
-        : output["StackSetId"];
+    contents.StackSetId = output["StackSetId"];
   }
   if (output["Status"] !== undefined) {
-    contents.Status =
-      output["Status"]["#text"] !== undefined
-        ? output["Status"]["#text"]
-        : output["Status"];
+    contents.Status = output["Status"];
   }
   if (output["StatusReason"] !== undefined) {
-    contents.StatusReason =
-      output["StatusReason"]["#text"] !== undefined
-        ? output["StatusReason"]["#text"]
-        : output["StatusReason"];
+    contents.StatusReason = output["StatusReason"];
   }
   return contents;
 };
@@ -10771,10 +10086,7 @@ const deserializeAws_queryStackInstanceNotFoundException = (
     Message: undefined
   };
   if (output["Message"] !== undefined) {
-    contents.Message =
-      output["Message"]["#text"] !== undefined
-        ? output["Message"]["#text"]
-        : output["Message"];
+    contents.Message = output["Message"];
   }
   return contents;
 };
@@ -10804,16 +10116,10 @@ const deserializeAws_queryStackInstanceSummary = (
     StatusReason: undefined
   };
   if (output["Account"] !== undefined) {
-    contents.Account =
-      output["Account"]["#text"] !== undefined
-        ? output["Account"]["#text"]
-        : output["Account"];
+    contents.Account = output["Account"];
   }
   if (output["DriftStatus"] !== undefined) {
-    contents.DriftStatus =
-      output["DriftStatus"]["#text"] !== undefined
-        ? output["DriftStatus"]["#text"]
-        : output["DriftStatus"];
+    contents.DriftStatus = output["DriftStatus"];
   }
   if (output["LastDriftCheckTimestamp"] !== undefined) {
     contents.LastDriftCheckTimestamp = new Date(
@@ -10821,34 +10127,19 @@ const deserializeAws_queryStackInstanceSummary = (
     );
   }
   if (output["Region"] !== undefined) {
-    contents.Region =
-      output["Region"]["#text"] !== undefined
-        ? output["Region"]["#text"]
-        : output["Region"];
+    contents.Region = output["Region"];
   }
   if (output["StackId"] !== undefined) {
-    contents.StackId =
-      output["StackId"]["#text"] !== undefined
-        ? output["StackId"]["#text"]
-        : output["StackId"];
+    contents.StackId = output["StackId"];
   }
   if (output["StackSetId"] !== undefined) {
-    contents.StackSetId =
-      output["StackSetId"]["#text"] !== undefined
-        ? output["StackSetId"]["#text"]
-        : output["StackSetId"];
+    contents.StackSetId = output["StackSetId"];
   }
   if (output["Status"] !== undefined) {
-    contents.Status =
-      output["Status"]["#text"] !== undefined
-        ? output["Status"]["#text"]
-        : output["Status"];
+    contents.Status = output["Status"];
   }
   if (output["StatusReason"] !== undefined) {
-    contents.StatusReason =
-      output["StatusReason"]["#text"] !== undefined
-        ? output["StatusReason"]["#text"]
-        : output["StatusReason"];
+    contents.StatusReason = output["StatusReason"];
   }
   return contents;
 };
@@ -10873,10 +10164,7 @@ const deserializeAws_queryStackSet = (
     TemplateBody: undefined
   };
   if (output["AdministrationRoleARN"] !== undefined) {
-    contents.AdministrationRoleARN =
-      output["AdministrationRoleARN"]["#text"] !== undefined
-        ? output["AdministrationRoleARN"]["#text"]
-        : output["AdministrationRoleARN"];
+    contents.AdministrationRoleARN = output["AdministrationRoleARN"];
   }
   if (output.Capabilities === "") {
     contents.Capabilities = [];
@@ -10891,16 +10179,10 @@ const deserializeAws_queryStackSet = (
     );
   }
   if (output["Description"] !== undefined) {
-    contents.Description =
-      output["Description"]["#text"] !== undefined
-        ? output["Description"]["#text"]
-        : output["Description"];
+    contents.Description = output["Description"];
   }
   if (output["ExecutionRoleName"] !== undefined) {
-    contents.ExecutionRoleName =
-      output["ExecutionRoleName"]["#text"] !== undefined
-        ? output["ExecutionRoleName"]["#text"]
-        : output["ExecutionRoleName"];
+    contents.ExecutionRoleName = output["ExecutionRoleName"];
   }
   if (output.Parameters === "") {
     contents.Parameters = [];
@@ -10915,10 +10197,7 @@ const deserializeAws_queryStackSet = (
     );
   }
   if (output["StackSetARN"] !== undefined) {
-    contents.StackSetARN =
-      output["StackSetARN"]["#text"] !== undefined
-        ? output["StackSetARN"]["#text"]
-        : output["StackSetARN"];
+    contents.StackSetARN = output["StackSetARN"];
   }
   if (output["StackSetDriftDetectionDetails"] !== undefined) {
     contents.StackSetDriftDetectionDetails = deserializeAws_queryStackSetDriftDetectionDetails(
@@ -10927,22 +10206,13 @@ const deserializeAws_queryStackSet = (
     );
   }
   if (output["StackSetId"] !== undefined) {
-    contents.StackSetId =
-      output["StackSetId"]["#text"] !== undefined
-        ? output["StackSetId"]["#text"]
-        : output["StackSetId"];
+    contents.StackSetId = output["StackSetId"];
   }
   if (output["StackSetName"] !== undefined) {
-    contents.StackSetName =
-      output["StackSetName"]["#text"] !== undefined
-        ? output["StackSetName"]["#text"]
-        : output["StackSetName"];
+    contents.StackSetName = output["StackSetName"];
   }
   if (output["Status"] !== undefined) {
-    contents.Status =
-      output["Status"]["#text"] !== undefined
-        ? output["Status"]["#text"]
-        : output["Status"];
+    contents.Status = output["Status"];
   }
   if (output.Tags === "") {
     contents.Tags = [];
@@ -10954,10 +10224,7 @@ const deserializeAws_queryStackSet = (
     );
   }
   if (output["TemplateBody"] !== undefined) {
-    contents.TemplateBody =
-      output["TemplateBody"]["#text"] !== undefined
-        ? output["TemplateBody"]["#text"]
-        : output["TemplateBody"];
+    contents.TemplateBody = output["TemplateBody"];
   }
   return contents;
 };
@@ -10978,43 +10245,29 @@ const deserializeAws_queryStackSetDriftDetectionDetails = (
     TotalStackInstancesCount: undefined
   };
   if (output["DriftDetectionStatus"] !== undefined) {
-    contents.DriftDetectionStatus =
-      output["DriftDetectionStatus"]["#text"] !== undefined
-        ? output["DriftDetectionStatus"]["#text"]
-        : output["DriftDetectionStatus"];
+    contents.DriftDetectionStatus = output["DriftDetectionStatus"];
   }
   if (output["DriftStatus"] !== undefined) {
-    contents.DriftStatus =
-      output["DriftStatus"]["#text"] !== undefined
-        ? output["DriftStatus"]["#text"]
-        : output["DriftStatus"];
+    contents.DriftStatus = output["DriftStatus"];
   }
   if (output["DriftedStackInstancesCount"] !== undefined) {
     contents.DriftedStackInstancesCount = parseInt(
-      output["DriftedStackInstancesCount"]["#text"] !== undefined
-        ? output["DriftedStackInstancesCount"]["#text"]
-        : output["DriftedStackInstancesCount"]
+      output["DriftedStackInstancesCount"]
     );
   }
   if (output["FailedStackInstancesCount"] !== undefined) {
     contents.FailedStackInstancesCount = parseInt(
-      output["FailedStackInstancesCount"]["#text"] !== undefined
-        ? output["FailedStackInstancesCount"]["#text"]
-        : output["FailedStackInstancesCount"]
+      output["FailedStackInstancesCount"]
     );
   }
   if (output["InProgressStackInstancesCount"] !== undefined) {
     contents.InProgressStackInstancesCount = parseInt(
-      output["InProgressStackInstancesCount"]["#text"] !== undefined
-        ? output["InProgressStackInstancesCount"]["#text"]
-        : output["InProgressStackInstancesCount"]
+      output["InProgressStackInstancesCount"]
     );
   }
   if (output["InSyncStackInstancesCount"] !== undefined) {
     contents.InSyncStackInstancesCount = parseInt(
-      output["InSyncStackInstancesCount"]["#text"] !== undefined
-        ? output["InSyncStackInstancesCount"]["#text"]
-        : output["InSyncStackInstancesCount"]
+      output["InSyncStackInstancesCount"]
     );
   }
   if (output["LastDriftCheckTimestamp"] !== undefined) {
@@ -11024,9 +10277,7 @@ const deserializeAws_queryStackSetDriftDetectionDetails = (
   }
   if (output["TotalStackInstancesCount"] !== undefined) {
     contents.TotalStackInstancesCount = parseInt(
-      output["TotalStackInstancesCount"]["#text"] !== undefined
-        ? output["TotalStackInstancesCount"]["#text"]
-        : output["TotalStackInstancesCount"]
+      output["TotalStackInstancesCount"]
     );
   }
   return contents;
@@ -11041,10 +10292,7 @@ const deserializeAws_queryStackSetNotEmptyException = (
     Message: undefined
   };
   if (output["Message"] !== undefined) {
-    contents.Message =
-      output["Message"]["#text"] !== undefined
-        ? output["Message"]["#text"]
-        : output["Message"];
+    contents.Message = output["Message"];
   }
   return contents;
 };
@@ -11068,16 +10316,10 @@ const deserializeAws_queryStackSetOperation = (
     Status: undefined
   };
   if (output["Action"] !== undefined) {
-    contents.Action =
-      output["Action"]["#text"] !== undefined
-        ? output["Action"]["#text"]
-        : output["Action"];
+    contents.Action = output["Action"];
   }
   if (output["AdministrationRoleARN"] !== undefined) {
-    contents.AdministrationRoleARN =
-      output["AdministrationRoleARN"]["#text"] !== undefined
-        ? output["AdministrationRoleARN"]["#text"]
-        : output["AdministrationRoleARN"];
+    contents.AdministrationRoleARN = output["AdministrationRoleARN"];
   }
   if (output["CreationTimestamp"] !== undefined) {
     contents.CreationTimestamp = new Date(output["CreationTimestamp"]);
@@ -11086,16 +10328,10 @@ const deserializeAws_queryStackSetOperation = (
     contents.EndTimestamp = new Date(output["EndTimestamp"]);
   }
   if (output["ExecutionRoleName"] !== undefined) {
-    contents.ExecutionRoleName =
-      output["ExecutionRoleName"]["#text"] !== undefined
-        ? output["ExecutionRoleName"]["#text"]
-        : output["ExecutionRoleName"];
+    contents.ExecutionRoleName = output["ExecutionRoleName"];
   }
   if (output["OperationId"] !== undefined) {
-    contents.OperationId =
-      output["OperationId"]["#text"] !== undefined
-        ? output["OperationId"]["#text"]
-        : output["OperationId"];
+    contents.OperationId = output["OperationId"];
   }
   if (output["OperationPreferences"] !== undefined) {
     contents.OperationPreferences = deserializeAws_queryStackSetOperationPreferences(
@@ -11104,10 +10340,7 @@ const deserializeAws_queryStackSetOperation = (
     );
   }
   if (output["RetainStacks"] !== undefined) {
-    contents.RetainStacks =
-      (output["RetainStacks"]["#text"] !== undefined
-        ? output["RetainStacks"]["#text"]
-        : output["RetainStacks"]) == "true";
+    contents.RetainStacks = output["RetainStacks"] == "true";
   }
   if (output["StackSetDriftDetectionDetails"] !== undefined) {
     contents.StackSetDriftDetectionDetails = deserializeAws_queryStackSetDriftDetectionDetails(
@@ -11116,16 +10349,10 @@ const deserializeAws_queryStackSetOperation = (
     );
   }
   if (output["StackSetId"] !== undefined) {
-    contents.StackSetId =
-      output["StackSetId"]["#text"] !== undefined
-        ? output["StackSetId"]["#text"]
-        : output["StackSetId"];
+    contents.StackSetId = output["StackSetId"];
   }
   if (output["Status"] !== undefined) {
-    contents.Status =
-      output["Status"]["#text"] !== undefined
-        ? output["Status"]["#text"]
-        : output["Status"];
+    contents.Status = output["Status"];
   }
   return contents;
 };
@@ -11143,31 +10370,19 @@ const deserializeAws_queryStackSetOperationPreferences = (
     RegionOrder: undefined
   };
   if (output["FailureToleranceCount"] !== undefined) {
-    contents.FailureToleranceCount = parseInt(
-      output["FailureToleranceCount"]["#text"] !== undefined
-        ? output["FailureToleranceCount"]["#text"]
-        : output["FailureToleranceCount"]
-    );
+    contents.FailureToleranceCount = parseInt(output["FailureToleranceCount"]);
   }
   if (output["FailureTolerancePercentage"] !== undefined) {
     contents.FailureTolerancePercentage = parseInt(
-      output["FailureTolerancePercentage"]["#text"] !== undefined
-        ? output["FailureTolerancePercentage"]["#text"]
-        : output["FailureTolerancePercentage"]
+      output["FailureTolerancePercentage"]
     );
   }
   if (output["MaxConcurrentCount"] !== undefined) {
-    contents.MaxConcurrentCount = parseInt(
-      output["MaxConcurrentCount"]["#text"] !== undefined
-        ? output["MaxConcurrentCount"]["#text"]
-        : output["MaxConcurrentCount"]
-    );
+    contents.MaxConcurrentCount = parseInt(output["MaxConcurrentCount"]);
   }
   if (output["MaxConcurrentPercentage"] !== undefined) {
     contents.MaxConcurrentPercentage = parseInt(
-      output["MaxConcurrentPercentage"]["#text"] !== undefined
-        ? output["MaxConcurrentPercentage"]["#text"]
-        : output["MaxConcurrentPercentage"]
+      output["MaxConcurrentPercentage"]
     );
   }
   if (output.RegionOrder === "") {
@@ -11207,10 +10422,7 @@ const deserializeAws_queryStackSetOperationResultSummary = (
     StatusReason: undefined
   };
   if (output["Account"] !== undefined) {
-    contents.Account =
-      output["Account"]["#text"] !== undefined
-        ? output["Account"]["#text"]
-        : output["Account"];
+    contents.Account = output["Account"];
   }
   if (output["AccountGateResult"] !== undefined) {
     contents.AccountGateResult = deserializeAws_queryAccountGateResult(
@@ -11219,22 +10431,13 @@ const deserializeAws_queryStackSetOperationResultSummary = (
     );
   }
   if (output["Region"] !== undefined) {
-    contents.Region =
-      output["Region"]["#text"] !== undefined
-        ? output["Region"]["#text"]
-        : output["Region"];
+    contents.Region = output["Region"];
   }
   if (output["Status"] !== undefined) {
-    contents.Status =
-      output["Status"]["#text"] !== undefined
-        ? output["Status"]["#text"]
-        : output["Status"];
+    contents.Status = output["Status"];
   }
   if (output["StatusReason"] !== undefined) {
-    contents.StatusReason =
-      output["StatusReason"]["#text"] !== undefined
-        ? output["StatusReason"]["#text"]
-        : output["StatusReason"];
+    contents.StatusReason = output["StatusReason"];
   }
   return contents;
 };
@@ -11261,10 +10464,7 @@ const deserializeAws_queryStackSetOperationSummary = (
     Status: undefined
   };
   if (output["Action"] !== undefined) {
-    contents.Action =
-      output["Action"]["#text"] !== undefined
-        ? output["Action"]["#text"]
-        : output["Action"];
+    contents.Action = output["Action"];
   }
   if (output["CreationTimestamp"] !== undefined) {
     contents.CreationTimestamp = new Date(output["CreationTimestamp"]);
@@ -11273,16 +10473,10 @@ const deserializeAws_queryStackSetOperationSummary = (
     contents.EndTimestamp = new Date(output["EndTimestamp"]);
   }
   if (output["OperationId"] !== undefined) {
-    contents.OperationId =
-      output["OperationId"]["#text"] !== undefined
-        ? output["OperationId"]["#text"]
-        : output["OperationId"];
+    contents.OperationId = output["OperationId"];
   }
   if (output["Status"] !== undefined) {
-    contents.Status =
-      output["Status"]["#text"] !== undefined
-        ? output["Status"]["#text"]
-        : output["Status"];
+    contents.Status = output["Status"];
   }
   return contents;
 };
@@ -11310,16 +10504,10 @@ const deserializeAws_queryStackSetSummary = (
     Status: undefined
   };
   if (output["Description"] !== undefined) {
-    contents.Description =
-      output["Description"]["#text"] !== undefined
-        ? output["Description"]["#text"]
-        : output["Description"];
+    contents.Description = output["Description"];
   }
   if (output["DriftStatus"] !== undefined) {
-    contents.DriftStatus =
-      output["DriftStatus"]["#text"] !== undefined
-        ? output["DriftStatus"]["#text"]
-        : output["DriftStatus"];
+    contents.DriftStatus = output["DriftStatus"];
   }
   if (output["LastDriftCheckTimestamp"] !== undefined) {
     contents.LastDriftCheckTimestamp = new Date(
@@ -11327,22 +10515,13 @@ const deserializeAws_queryStackSetSummary = (
     );
   }
   if (output["StackSetId"] !== undefined) {
-    contents.StackSetId =
-      output["StackSetId"]["#text"] !== undefined
-        ? output["StackSetId"]["#text"]
-        : output["StackSetId"];
+    contents.StackSetId = output["StackSetId"];
   }
   if (output["StackSetName"] !== undefined) {
-    contents.StackSetName =
-      output["StackSetName"]["#text"] !== undefined
-        ? output["StackSetName"]["#text"]
-        : output["StackSetName"];
+    contents.StackSetName = output["StackSetName"];
   }
   if (output["Status"] !== undefined) {
-    contents.Status =
-      output["Status"]["#text"] !== undefined
-        ? output["Status"]["#text"]
-        : output["Status"];
+    contents.Status = output["Status"];
   }
   return contents;
 };
@@ -11356,10 +10535,7 @@ const deserializeAws_queryStaleRequestException = (
     Message: undefined
   };
   if (output["Message"] !== undefined) {
-    contents.Message =
-      output["Message"]["#text"] !== undefined
-        ? output["Message"]["#text"]
-        : output["Message"];
+    contents.Message = output["Message"];
   }
   return contents;
 };
@@ -11383,10 +10559,7 @@ const deserializeAws_queryUpdateStackInstancesOutput = (
     OperationId: undefined
   };
   if (output["OperationId"] !== undefined) {
-    contents.OperationId =
-      output["OperationId"]["#text"] !== undefined
-        ? output["OperationId"]["#text"]
-        : output["OperationId"];
+    contents.OperationId = output["OperationId"];
   }
   return contents;
 };
@@ -11400,10 +10573,7 @@ const deserializeAws_queryUpdateStackSetOutput = (
     OperationId: undefined
   };
   if (output["OperationId"] !== undefined) {
-    contents.OperationId =
-      output["OperationId"]["#text"] !== undefined
-        ? output["OperationId"]["#text"]
-        : output["OperationId"];
+    contents.OperationId = output["OperationId"];
   }
   return contents;
 };
@@ -11483,7 +10653,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
         parsedObjToReturn[key] = parsedObjToReturn[textNodeName];
         delete parsedObjToReturn[textNodeName];
       }
-      return parsedObjToReturn;
+      return __getValueFromTextNode(parsedObjToReturn);
     }
     return {};
   });

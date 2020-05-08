@@ -98,7 +98,8 @@ import {
 import {
   SmithyException as __SmithyException,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  getArrayIfSingleItem as __getArrayIfSingleItem
+  getArrayIfSingleItem as __getArrayIfSingleItem,
+  getValueFromTextNode as __getValueFromTextNode
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1470,10 +1471,7 @@ const deserializeAws_ec2ComplexError = (
     );
   }
   if (output["TopLevel"] !== undefined) {
-    contents.TopLevel =
-      output["TopLevel"]["#text"] !== undefined
-        ? output["TopLevel"]["#text"]
-        : output["TopLevel"];
+    contents.TopLevel = output["TopLevel"];
   }
   return contents;
 };
@@ -1487,10 +1485,7 @@ const deserializeAws_ec2ComplexNestedErrorData = (
     Foo: undefined
   };
   if (output["Foo"] !== undefined) {
-    contents.Foo =
-      output["Foo"]["#text"] !== undefined
-        ? output["Foo"]["#text"]
-        : output["Foo"];
+    contents.Foo = output["Foo"];
   }
   return contents;
 };
@@ -1514,10 +1509,7 @@ const deserializeAws_ec2GreetingWithErrorsOutput = (
     greeting: undefined
   };
   if (output["greeting"] !== undefined) {
-    contents.greeting =
-      output["greeting"]["#text"] !== undefined
-        ? output["greeting"]["#text"]
-        : output["greeting"];
+    contents.greeting = output["greeting"];
   }
   return contents;
 };
@@ -1531,10 +1523,7 @@ const deserializeAws_ec2IgnoresWrappingXmlNameOutput = (
     foo: undefined
   };
   if (output["foo"] !== undefined) {
-    contents.foo =
-      output["foo"]["#text"] !== undefined
-        ? output["foo"]["#text"]
-        : output["foo"];
+    contents.foo = output["foo"];
   }
   return contents;
 };
@@ -1548,10 +1537,7 @@ const deserializeAws_ec2InvalidGreeting = (
     Message: undefined
   };
   if (output["Message"] !== undefined) {
-    contents.Message =
-      output["Message"]["#text"] !== undefined
-        ? output["Message"]["#text"]
-        : output["Message"];
+    contents.Message = output["Message"];
   }
   return contents;
 };
@@ -1593,10 +1579,7 @@ const deserializeAws_ec2RecursiveXmlShapesOutputNested1 = (
     nested: undefined
   };
   if (output["foo"] !== undefined) {
-    contents.foo =
-      output["foo"]["#text"] !== undefined
-        ? output["foo"]["#text"]
-        : output["foo"];
+    contents.foo = output["foo"];
   }
   if (output["nested"] !== undefined) {
     contents.nested = deserializeAws_ec2RecursiveXmlShapesOutputNested2(
@@ -1617,10 +1600,7 @@ const deserializeAws_ec2RecursiveXmlShapesOutputNested2 = (
     recursiveMember: undefined
   };
   if (output["bar"] !== undefined) {
-    contents.bar =
-      output["bar"]["#text"] !== undefined
-        ? output["bar"]["#text"]
-        : output["bar"];
+    contents.bar = output["bar"];
   }
   if (output["recursiveMember"] !== undefined) {
     contents.recursiveMember = deserializeAws_ec2RecursiveXmlShapesOutputNested1(
@@ -1635,9 +1615,7 @@ const deserializeAws_ec2RenamedListMembers = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  return (output || []).map((entry: any) =>
-    entry["#text"] !== undefined ? entry["#text"] : entry
-  );
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_ec2SimpleScalarXmlPropertiesOutput = (
@@ -1658,70 +1636,34 @@ const deserializeAws_ec2SimpleScalarXmlPropertiesOutput = (
     trueBooleanValue: undefined
   };
   if (output["byteValue"] !== undefined) {
-    contents.byteValue = parseInt(
-      output["byteValue"]["#text"] !== undefined
-        ? output["byteValue"]["#text"]
-        : output["byteValue"]
-    );
+    contents.byteValue = parseInt(output["byteValue"]);
   }
   if (output["DoubleDribble"] !== undefined) {
-    contents.doubleValue = parseFloat(
-      output["DoubleDribble"]["#text"] !== undefined
-        ? output["DoubleDribble"]["#text"]
-        : output["DoubleDribble"]
-    );
+    contents.doubleValue = parseFloat(output["DoubleDribble"]);
   }
   if (output["emptyStringValue"] !== undefined) {
-    contents.emptyStringValue =
-      output["emptyStringValue"]["#text"] !== undefined
-        ? output["emptyStringValue"]["#text"]
-        : output["emptyStringValue"];
+    contents.emptyStringValue = output["emptyStringValue"];
   }
   if (output["falseBooleanValue"] !== undefined) {
-    contents.falseBooleanValue =
-      (output["falseBooleanValue"]["#text"] !== undefined
-        ? output["falseBooleanValue"]["#text"]
-        : output["falseBooleanValue"]) == "true";
+    contents.falseBooleanValue = output["falseBooleanValue"] == "true";
   }
   if (output["floatValue"] !== undefined) {
-    contents.floatValue = parseFloat(
-      output["floatValue"]["#text"] !== undefined
-        ? output["floatValue"]["#text"]
-        : output["floatValue"]
-    );
+    contents.floatValue = parseFloat(output["floatValue"]);
   }
   if (output["integerValue"] !== undefined) {
-    contents.integerValue = parseInt(
-      output["integerValue"]["#text"] !== undefined
-        ? output["integerValue"]["#text"]
-        : output["integerValue"]
-    );
+    contents.integerValue = parseInt(output["integerValue"]);
   }
   if (output["longValue"] !== undefined) {
-    contents.longValue = parseInt(
-      output["longValue"]["#text"] !== undefined
-        ? output["longValue"]["#text"]
-        : output["longValue"]
-    );
+    contents.longValue = parseInt(output["longValue"]);
   }
   if (output["shortValue"] !== undefined) {
-    contents.shortValue = parseInt(
-      output["shortValue"]["#text"] !== undefined
-        ? output["shortValue"]["#text"]
-        : output["shortValue"]
-    );
+    contents.shortValue = parseInt(output["shortValue"]);
   }
   if (output["stringValue"] !== undefined) {
-    contents.stringValue =
-      output["stringValue"]["#text"] !== undefined
-        ? output["stringValue"]["#text"]
-        : output["stringValue"];
+    contents.stringValue = output["stringValue"];
   }
   if (output["trueBooleanValue"] !== undefined) {
-    contents.trueBooleanValue =
-      (output["trueBooleanValue"]["#text"] !== undefined
-        ? output["trueBooleanValue"]["#text"]
-        : output["trueBooleanValue"]) == "true";
+    contents.trueBooleanValue = output["trueBooleanValue"] == "true";
   }
   return contents;
 };
@@ -1745,16 +1687,10 @@ const deserializeAws_ec2StructureListMember = (
     b: undefined
   };
   if (output["value"] !== undefined) {
-    contents.a =
-      output["value"]["#text"] !== undefined
-        ? output["value"]["#text"]
-        : output["value"];
+    contents.a = output["value"];
   }
   if (output["other"] !== undefined) {
-    contents.b =
-      output["other"]["#text"] !== undefined
-        ? output["other"]["#text"]
-        : output["other"];
+    contents.b = output["other"];
   }
   return contents;
 };
@@ -1768,11 +1704,7 @@ const deserializeAws_ec2XmlBlobsOutput = (
     data: undefined
   };
   if (output["data"] !== undefined) {
-    contents.data = context.base64Decoder(
-      output["data"]["#text"] !== undefined
-        ? output["data"]["#text"]
-        : output["data"]
-    );
+    contents.data = context.base64Decoder(output["data"]);
   }
   return contents;
 };
@@ -1791,22 +1723,13 @@ const deserializeAws_ec2XmlEnumsOutput = (
     fooEnumSet: undefined
   };
   if (output["fooEnum1"] !== undefined) {
-    contents.fooEnum1 =
-      output["fooEnum1"]["#text"] !== undefined
-        ? output["fooEnum1"]["#text"]
-        : output["fooEnum1"];
+    contents.fooEnum1 = output["fooEnum1"];
   }
   if (output["fooEnum2"] !== undefined) {
-    contents.fooEnum2 =
-      output["fooEnum2"]["#text"] !== undefined
-        ? output["fooEnum2"]["#text"]
-        : output["fooEnum2"];
+    contents.fooEnum2 = output["fooEnum2"];
   }
   if (output["fooEnum3"] !== undefined) {
-    contents.fooEnum3 =
-      output["fooEnum3"]["#text"] !== undefined
-        ? output["fooEnum3"]["#text"]
-        : output["fooEnum3"];
+    contents.fooEnum3 = output["fooEnum3"];
   }
   if (output.fooEnumList === "") {
     contents.fooEnumList = [];
@@ -2004,10 +1927,7 @@ const deserializeAws_ec2XmlNamespaceNested = (
     values: undefined
   };
   if (output["foo"] !== undefined) {
-    contents.foo =
-      output["foo"]["#text"] !== undefined
-        ? output["foo"]["#text"]
-        : output["foo"];
+    contents.foo = output["foo"];
   }
   if (output.values === "") {
     contents.values = [];
@@ -2028,9 +1948,7 @@ const deserializeAws_ec2XmlNamespacedList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  return (output || []).map((entry: any) =>
-    entry["#text"] !== undefined ? entry["#text"] : entry
-  );
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_ec2XmlNamespacesOutput = (
@@ -2080,19 +1998,14 @@ const deserializeAws_ec2BooleanList = (
   output: any,
   context: __SerdeContext
 ): boolean[] => {
-  return (output || []).map(
-    (entry: any) =>
-      (entry["#text"] !== undefined ? entry["#text"] : entry) == "true"
-  );
+  return (output || []).map((entry: any) => entry == "true");
 };
 
 const deserializeAws_ec2FooEnumList = (
   output: any,
   context: __SerdeContext
 ): (FooEnum | string)[] => {
-  return (output || []).map((entry: any) =>
-    entry["#text"] !== undefined ? entry["#text"] : entry
-  );
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_ec2FooEnumMap = (
@@ -2100,10 +2013,7 @@ const deserializeAws_ec2FooEnumMap = (
   context: __SerdeContext
 ): { [key: string]: FooEnum | string } => {
   return output.reduce((acc: any, pair: any) => {
-    acc[pair["key"]] =
-      pair["value"]["#text"] !== undefined
-        ? pair["value"]["#text"]
-        : pair["value"];
+    acc[pair["key"]] = pair["value"];
     return acc;
   }, {});
 };
@@ -2112,18 +2022,14 @@ const deserializeAws_ec2FooEnumSet = (
   output: any,
   context: __SerdeContext
 ): Set<FooEnum | string> => {
-  return (output || []).map((entry: any) =>
-    entry["#text"] !== undefined ? entry["#text"] : entry
-  );
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_ec2IntegerList = (
   output: any,
   context: __SerdeContext
 ): number[] => {
-  return (output || []).map((entry: any) =>
-    parseInt(entry["#text"] !== undefined ? entry["#text"] : entry)
-  );
+  return (output || []).map((entry: any) => parseInt(entry));
 };
 
 const deserializeAws_ec2NestedStringList = (
@@ -2142,18 +2048,14 @@ const deserializeAws_ec2StringList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  return (output || []).map((entry: any) =>
-    entry["#text"] !== undefined ? entry["#text"] : entry
-  );
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_ec2StringSet = (
   output: any,
   context: __SerdeContext
 ): Set<string> => {
-  return (output || []).map((entry: any) =>
-    entry["#text"] !== undefined ? entry["#text"] : entry
-  );
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_ec2TimestampList = (
@@ -2238,7 +2140,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
         parsedObjToReturn[key] = parsedObjToReturn[textNodeName];
         delete parsedObjToReturn[textNodeName];
       }
-      return parsedObjToReturn;
+      return __getValueFromTextNode(parsedObjToReturn);
     }
     return {};
   });

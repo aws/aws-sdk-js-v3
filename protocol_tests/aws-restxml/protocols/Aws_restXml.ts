@@ -171,6 +171,7 @@ import {
   dateToUtcString as __dateToUtcString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
+  getValueFromTextNode as __getValueFromTextNode,
   splitEvery as __splitEvery
 } from "@aws-sdk/smithy-client";
 import {
@@ -2721,8 +2722,7 @@ export const deserializeAws_restXmlIgnoreQueryParamsInResponseCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data["baz"] !== undefined) {
-    contents.baz =
-      data["baz"]["#text"] !== undefined ? data["baz"]["#text"] : data["baz"];
+    contents.baz = data["baz"];
   }
   return Promise.resolve(contents);
 };
@@ -3276,64 +3276,31 @@ export const deserializeAws_restXmlSimpleScalarPropertiesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   if (data["byteValue"] !== undefined) {
-    contents.byteValue = parseInt(
-      data["byteValue"]["#text"] !== undefined
-        ? data["byteValue"]["#text"]
-        : data["byteValue"]
-    );
+    contents.byteValue = parseInt(data["byteValue"]);
   }
   if (data["DoubleDribble"] !== undefined) {
-    contents.doubleValue = parseFloat(
-      data["DoubleDribble"]["#text"] !== undefined
-        ? data["DoubleDribble"]["#text"]
-        : data["DoubleDribble"]
-    );
+    contents.doubleValue = parseFloat(data["DoubleDribble"]);
   }
   if (data["falseBooleanValue"] !== undefined) {
-    contents.falseBooleanValue =
-      (data["falseBooleanValue"]["#text"] !== undefined
-        ? data["falseBooleanValue"]["#text"]
-        : data["falseBooleanValue"]) == "true";
+    contents.falseBooleanValue = data["falseBooleanValue"] == "true";
   }
   if (data["floatValue"] !== undefined) {
-    contents.floatValue = parseFloat(
-      data["floatValue"]["#text"] !== undefined
-        ? data["floatValue"]["#text"]
-        : data["floatValue"]
-    );
+    contents.floatValue = parseFloat(data["floatValue"]);
   }
   if (data["integerValue"] !== undefined) {
-    contents.integerValue = parseInt(
-      data["integerValue"]["#text"] !== undefined
-        ? data["integerValue"]["#text"]
-        : data["integerValue"]
-    );
+    contents.integerValue = parseInt(data["integerValue"]);
   }
   if (data["longValue"] !== undefined) {
-    contents.longValue = parseInt(
-      data["longValue"]["#text"] !== undefined
-        ? data["longValue"]["#text"]
-        : data["longValue"]
-    );
+    contents.longValue = parseInt(data["longValue"]);
   }
   if (data["shortValue"] !== undefined) {
-    contents.shortValue = parseInt(
-      data["shortValue"]["#text"] !== undefined
-        ? data["shortValue"]["#text"]
-        : data["shortValue"]
-    );
+    contents.shortValue = parseInt(data["shortValue"]);
   }
   if (data["stringValue"] !== undefined) {
-    contents.stringValue =
-      data["stringValue"]["#text"] !== undefined
-        ? data["stringValue"]["#text"]
-        : data["stringValue"];
+    contents.stringValue = data["stringValue"];
   }
   if (data["trueBooleanValue"] !== undefined) {
-    contents.trueBooleanValue =
-      (data["trueBooleanValue"]["#text"] !== undefined
-        ? data["trueBooleanValue"]["#text"]
-        : data["trueBooleanValue"]) == "true";
+    contents.trueBooleanValue = data["trueBooleanValue"] == "true";
   }
   return Promise.resolve(contents);
 };
@@ -3463,14 +3430,10 @@ export const deserializeAws_restXmlXmlAttributesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data["test"] !== undefined) {
-    contents.attr =
-      data["test"]["#text"] !== undefined
-        ? data["test"]["#text"]
-        : data["test"];
+    contents.attr = data["test"];
   }
   if (data["foo"] !== undefined) {
-    contents.foo =
-      data["foo"]["#text"] !== undefined ? data["foo"]["#text"] : data["foo"];
+    contents.foo = data["foo"];
   }
   return Promise.resolve(contents);
 };
@@ -3572,9 +3535,7 @@ export const deserializeAws_restXmlXmlBlobsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data["data"] !== undefined) {
-    contents.data = context.base64Decoder(
-      data["data"]["#text"] !== undefined ? data["data"]["#text"] : data["data"]
-    );
+    contents.data = context.base64Decoder(data["data"]);
   }
   return Promise.resolve(contents);
 };
@@ -3628,22 +3589,13 @@ export const deserializeAws_restXmlXmlEnumsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data["fooEnum1"] !== undefined) {
-    contents.fooEnum1 =
-      data["fooEnum1"]["#text"] !== undefined
-        ? data["fooEnum1"]["#text"]
-        : data["fooEnum1"];
+    contents.fooEnum1 = data["fooEnum1"];
   }
   if (data["fooEnum2"] !== undefined) {
-    contents.fooEnum2 =
-      data["fooEnum2"]["#text"] !== undefined
-        ? data["fooEnum2"]["#text"]
-        : data["fooEnum2"];
+    contents.fooEnum2 = data["fooEnum2"];
   }
   if (data["fooEnum3"] !== undefined) {
-    contents.fooEnum3 =
-      data["fooEnum3"]["#text"] !== undefined
-        ? data["fooEnum3"]["#text"]
-        : data["fooEnum3"];
+    contents.fooEnum3 = data["fooEnum3"];
   }
   if (data.fooEnumList === "") {
     contents.fooEnumList = [];
@@ -4139,10 +4091,7 @@ const deserializeAws_restXmlComplexErrorResponse = async (
     );
   }
   if (data["TopLevel"] !== undefined) {
-    contents.TopLevel =
-      data["TopLevel"]["#text"] !== undefined
-        ? data["TopLevel"]["#text"]
-        : data["TopLevel"];
+    contents.TopLevel = data["TopLevel"];
   }
   return contents;
 };
@@ -4159,10 +4108,7 @@ const deserializeAws_restXmlInvalidGreetingResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -4575,10 +4521,7 @@ const deserializeAws_restXmlComplexNestedErrorData = (
     Foo: undefined
   };
   if (output["Foo"] !== undefined) {
-    contents.Foo =
-      output["Foo"]["#text"] !== undefined
-        ? output["Foo"]["#text"]
-        : output["Foo"];
+    contents.Foo = output["Foo"];
   }
   return contents;
 };
@@ -4588,8 +4531,7 @@ const deserializeAws_restXmlFlattenedXmlMapWithXmlNameInputOutputMap = (
   context: __SerdeContext
 ): { [key: string]: string } => {
   return output.reduce((acc: any, pair: any) => {
-    acc[pair["K"]] =
-      pair["V"]["#text"] !== undefined ? pair["V"]["#text"] : pair["V"];
+    acc[pair["K"]] = pair["V"];
     return acc;
   }, {});
 };
@@ -4604,16 +4546,10 @@ const deserializeAws_restXmlNestedPayload = (
     name: undefined
   };
   if (output["greeting"] !== undefined) {
-    contents.greeting =
-      output["greeting"]["#text"] !== undefined
-        ? output["greeting"]["#text"]
-        : output["greeting"];
+    contents.greeting = output["greeting"];
   }
   if (output["name"] !== undefined) {
-    contents.name =
-      output["name"]["#text"] !== undefined
-        ? output["name"]["#text"]
-        : output["name"];
+    contents.name = output["name"];
   }
   return contents;
 };
@@ -4627,10 +4563,7 @@ const deserializeAws_restXmlPayloadWithXmlName = (
     name: undefined
   };
   if (output["name"] !== undefined) {
-    contents.name =
-      output["name"]["#text"] !== undefined
-        ? output["name"]["#text"]
-        : output["name"];
+    contents.name = output["name"];
   }
   return contents;
 };
@@ -4644,10 +4577,7 @@ const deserializeAws_restXmlPayloadWithXmlNamespace = (
     name: undefined
   };
   if (output["name"] !== undefined) {
-    contents.name =
-      output["name"]["#text"] !== undefined
-        ? output["name"]["#text"]
-        : output["name"];
+    contents.name = output["name"];
   }
   return contents;
 };
@@ -4661,10 +4591,7 @@ const deserializeAws_restXmlPayloadWithXmlNamespaceAndPrefix = (
     name: undefined
   };
   if (output["name"] !== undefined) {
-    contents.name =
-      output["name"]["#text"] !== undefined
-        ? output["name"]["#text"]
-        : output["name"];
+    contents.name = output["name"];
   }
   return contents;
 };
@@ -4679,10 +4606,7 @@ const deserializeAws_restXmlRecursiveShapesInputOutputNested1 = (
     nested: undefined
   };
   if (output["foo"] !== undefined) {
-    contents.foo =
-      output["foo"]["#text"] !== undefined
-        ? output["foo"]["#text"]
-        : output["foo"];
+    contents.foo = output["foo"];
   }
   if (output["nested"] !== undefined) {
     contents.nested = deserializeAws_restXmlRecursiveShapesInputOutputNested2(
@@ -4703,10 +4627,7 @@ const deserializeAws_restXmlRecursiveShapesInputOutputNested2 = (
     recursiveMember: undefined
   };
   if (output["bar"] !== undefined) {
-    contents.bar =
-      output["bar"]["#text"] !== undefined
-        ? output["bar"]["#text"]
-        : output["bar"];
+    contents.bar = output["bar"];
   }
   if (output["recursiveMember"] !== undefined) {
     contents.recursiveMember = deserializeAws_restXmlRecursiveShapesInputOutputNested1(
@@ -4721,9 +4642,7 @@ const deserializeAws_restXmlRenamedListMembers = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  return (output || []).map((entry: any) =>
-    entry["#text"] !== undefined ? entry["#text"] : entry
-  );
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restXmlStructureList = (
@@ -4745,16 +4664,10 @@ const deserializeAws_restXmlStructureListMember = (
     b: undefined
   };
   if (output["value"] !== undefined) {
-    contents.a =
-      output["value"]["#text"] !== undefined
-        ? output["value"]["#text"]
-        : output["value"];
+    contents.a = output["value"];
   }
   if (output["other"] !== undefined) {
-    contents.b =
-      output["other"]["#text"] !== undefined
-        ? output["other"]["#text"]
-        : output["other"];
+    contents.b = output["other"];
   }
   return contents;
 };
@@ -4769,16 +4682,10 @@ const deserializeAws_restXmlXmlAttributesInputOutput = (
     foo: undefined
   };
   if (output["test"] !== undefined) {
-    contents.attr =
-      output["test"]["#text"] !== undefined
-        ? output["test"]["#text"]
-        : output["test"];
+    contents.attr = output["test"];
   }
   if (output["foo"] !== undefined) {
-    contents.foo =
-      output["foo"]["#text"] !== undefined
-        ? output["foo"]["#text"]
-        : output["foo"];
+    contents.foo = output["foo"];
   }
   return contents;
 };
@@ -4819,10 +4726,7 @@ const deserializeAws_restXmlXmlNamespaceNested = (
     values: undefined
   };
   if (output["foo"] !== undefined) {
-    contents.foo =
-      output["foo"]["#text"] !== undefined
-        ? output["foo"]["#text"]
-        : output["foo"];
+    contents.foo = output["foo"];
   }
   if (output.values === "") {
     contents.values = [];
@@ -4843,28 +4747,21 @@ const deserializeAws_restXmlXmlNamespacedList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  return (output || []).map((entry: any) =>
-    entry["#text"] !== undefined ? entry["#text"] : entry
-  );
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restXmlBooleanList = (
   output: any,
   context: __SerdeContext
 ): boolean[] => {
-  return (output || []).map(
-    (entry: any) =>
-      (entry["#text"] !== undefined ? entry["#text"] : entry) == "true"
-  );
+  return (output || []).map((entry: any) => entry == "true");
 };
 
 const deserializeAws_restXmlFooEnumList = (
   output: any,
   context: __SerdeContext
 ): (FooEnum | string)[] => {
-  return (output || []).map((entry: any) =>
-    entry["#text"] !== undefined ? entry["#text"] : entry
-  );
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restXmlFooEnumMap = (
@@ -4872,10 +4769,7 @@ const deserializeAws_restXmlFooEnumMap = (
   context: __SerdeContext
 ): { [key: string]: FooEnum | string } => {
   return output.reduce((acc: any, pair: any) => {
-    acc[pair["key"]] =
-      pair["value"]["#text"] !== undefined
-        ? pair["value"]["#text"]
-        : pair["value"];
+    acc[pair["key"]] = pair["value"];
     return acc;
   }, {});
 };
@@ -4884,9 +4778,7 @@ const deserializeAws_restXmlFooEnumSet = (
   output: any,
   context: __SerdeContext
 ): Set<FooEnum | string> => {
-  return (output || []).map((entry: any) =>
-    entry["#text"] !== undefined ? entry["#text"] : entry
-  );
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restXmlGreetingStruct = (
@@ -4898,10 +4790,7 @@ const deserializeAws_restXmlGreetingStruct = (
     hi: undefined
   };
   if (output["hi"] !== undefined) {
-    contents.hi =
-      output["hi"]["#text"] !== undefined
-        ? output["hi"]["#text"]
-        : output["hi"];
+    contents.hi = output["hi"];
   }
   return contents;
 };
@@ -4910,9 +4799,7 @@ const deserializeAws_restXmlIntegerList = (
   output: any,
   context: __SerdeContext
 ): number[] => {
-  return (output || []).map((entry: any) =>
-    parseInt(entry["#text"] !== undefined ? entry["#text"] : entry)
-  );
+  return (output || []).map((entry: any) => parseInt(entry));
 };
 
 const deserializeAws_restXmlNestedStringList = (
@@ -4931,18 +4818,14 @@ const deserializeAws_restXmlStringList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  return (output || []).map((entry: any) =>
-    entry["#text"] !== undefined ? entry["#text"] : entry
-  );
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restXmlStringSet = (
   output: any,
   context: __SerdeContext
 ): Set<string> => {
-  return (output || []).map((entry: any) =>
-    entry["#text"] !== undefined ? entry["#text"] : entry
-  );
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restXmlTimestampList = (
@@ -5009,7 +4892,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
         parsedObjToReturn[key] = parsedObjToReturn[textNodeName];
         delete parsedObjToReturn[textNodeName];
       }
-      return parsedObjToReturn;
+      return __getValueFromTextNode(parsedObjToReturn);
     }
     return {};
   });

@@ -4,6 +4,7 @@ export * from "./document-type";
 export * from "./exception";
 export * from "./extended-encode-uri-component";
 export * from "./get-array-if-single-item";
+export * from "./get-value-from-text-node";
 export * from "./isa";
 export * from "./lazy-json";
 export * from "./date-utils";

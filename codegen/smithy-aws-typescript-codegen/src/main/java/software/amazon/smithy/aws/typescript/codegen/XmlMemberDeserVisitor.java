@@ -52,30 +52,8 @@ final class XmlMemberDeserVisitor extends DocumentMemberDeserVisitor {
     }
 
     @Override
-    public String stringShape(StringShape shape) {
-        return getSafeDataSource();
-    }
-
-    /**
-     * Provides a data source safety mechanism to handle nodes that are
-     * expected to have only a value but were loaded from a node with
-     * a namespace.
-     *
-     * @return The node's value having handled a potential namespace.
-     */
-    private String getSafeDataSource() {
-        String dataSource = getDataSource();
-        return "((" + dataSource + "['#text'] !== undefined) ? " + dataSource + "['#text'] : " + dataSource + ")";
-    }
-
-    @Override
-    public String blobShape(BlobShape shape) {
-        return "context.base64Decoder(" + getSafeDataSource() + ")";
-    }
-
-    @Override
     public String booleanShape(BooleanShape shape) {
-        return getSafeDataSource() + " == 'true'";
+        return getDataSource() + " == 'true'";
     }
 
     @Override
@@ -99,7 +77,7 @@ final class XmlMemberDeserVisitor extends DocumentMemberDeserVisitor {
     }
 
     private String deserializeInt() {
-        return "parseInt(" + getSafeDataSource() + ")";
+        return "parseInt(" + getDataSource() + ")";
     }
 
     @Override
@@ -113,7 +91,7 @@ final class XmlMemberDeserVisitor extends DocumentMemberDeserVisitor {
     }
 
     private String deserializeFloat() {
-        return "parseFloat(" + getSafeDataSource() + ")";
+        return "parseFloat(" + getDataSource() + ")";
     }
 
     @Override

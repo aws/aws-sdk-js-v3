@@ -145,7 +145,8 @@ import {
 import {
   SmithyException as __SmithyException,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  getArrayIfSingleItem as __getArrayIfSingleItem
+  getArrayIfSingleItem as __getArrayIfSingleItem,
+  getValueFromTextNode as __getValueFromTextNode
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -2869,28 +2870,16 @@ const deserializeAws_queryBatchResultErrorEntry = (
     SenderFault: undefined
   };
   if (output["Code"] !== undefined) {
-    contents.Code =
-      output["Code"]["#text"] !== undefined
-        ? output["Code"]["#text"]
-        : output["Code"];
+    contents.Code = output["Code"];
   }
   if (output["Id"] !== undefined) {
-    contents.Id =
-      output["Id"]["#text"] !== undefined
-        ? output["Id"]["#text"]
-        : output["Id"];
+    contents.Id = output["Id"];
   }
   if (output["Message"] !== undefined) {
-    contents.Message =
-      output["Message"]["#text"] !== undefined
-        ? output["Message"]["#text"]
-        : output["Message"];
+    contents.Message = output["Message"];
   }
   if (output["SenderFault"] !== undefined) {
-    contents.SenderFault =
-      (output["SenderFault"]["#text"] !== undefined
-        ? output["SenderFault"]["#text"]
-        : output["SenderFault"]) == "true";
+    contents.SenderFault = output["SenderFault"] == "true";
   }
   return contents;
 };
@@ -2908,9 +2897,7 @@ const deserializeAws_queryBinaryList = (
   output: any,
   context: __SerdeContext
 ): Uint8Array[] => {
-  return (output || []).map((entry: any) =>
-    context.base64Decoder(entry["#text"] !== undefined ? entry["#text"] : entry)
-  );
+  return (output || []).map((entry: any) => context.base64Decoder(entry));
 };
 
 const deserializeAws_queryChangeMessageVisibilityBatchResult = (
@@ -2952,10 +2939,7 @@ const deserializeAws_queryChangeMessageVisibilityBatchResultEntry = (
     Id: undefined
   };
   if (output["Id"] !== undefined) {
-    contents.Id =
-      output["Id"]["#text"] !== undefined
-        ? output["Id"]["#text"]
-        : output["Id"];
+    contents.Id = output["Id"];
   }
   return contents;
 };
@@ -2978,10 +2962,7 @@ const deserializeAws_queryCreateQueueResult = (
     QueueUrl: undefined
   };
   if (output["QueueUrl"] !== undefined) {
-    contents.QueueUrl =
-      output["QueueUrl"]["#text"] !== undefined
-        ? output["QueueUrl"]["#text"]
-        : output["QueueUrl"];
+    contents.QueueUrl = output["QueueUrl"];
   }
   return contents;
 };
@@ -3025,10 +3006,7 @@ const deserializeAws_queryDeleteMessageBatchResultEntry = (
     Id: undefined
   };
   if (output["Id"] !== undefined) {
-    contents.Id =
-      output["Id"]["#text"] !== undefined
-        ? output["Id"]["#text"]
-        : output["Id"];
+    contents.Id = output["Id"];
   }
   return contents;
 };
@@ -3081,10 +3059,7 @@ const deserializeAws_queryGetQueueUrlResult = (
     QueueUrl: undefined
   };
   if (output["QueueUrl"] !== undefined) {
-    contents.QueueUrl =
-      output["QueueUrl"]["#text"] !== undefined
-        ? output["QueueUrl"]["#text"]
-        : output["QueueUrl"];
+    contents.QueueUrl = output["QueueUrl"];
   }
   return contents;
 };
@@ -3213,22 +3188,13 @@ const deserializeAws_queryMessage = (
     );
   }
   if (output["Body"] !== undefined) {
-    contents.Body =
-      output["Body"]["#text"] !== undefined
-        ? output["Body"]["#text"]
-        : output["Body"];
+    contents.Body = output["Body"];
   }
   if (output["MD5OfBody"] !== undefined) {
-    contents.MD5OfBody =
-      output["MD5OfBody"]["#text"] !== undefined
-        ? output["MD5OfBody"]["#text"]
-        : output["MD5OfBody"];
+    contents.MD5OfBody = output["MD5OfBody"];
   }
   if (output["MD5OfMessageAttributes"] !== undefined) {
-    contents.MD5OfMessageAttributes =
-      output["MD5OfMessageAttributes"]["#text"] !== undefined
-        ? output["MD5OfMessageAttributes"]["#text"]
-        : output["MD5OfMessageAttributes"];
+    contents.MD5OfMessageAttributes = output["MD5OfMessageAttributes"];
   }
   if (output.MessageAttribute === "") {
     contents.MessageAttributes = {};
@@ -3240,16 +3206,10 @@ const deserializeAws_queryMessage = (
     );
   }
   if (output["MessageId"] !== undefined) {
-    contents.MessageId =
-      output["MessageId"]["#text"] !== undefined
-        ? output["MessageId"]["#text"]
-        : output["MessageId"];
+    contents.MessageId = output["MessageId"];
   }
   if (output["ReceiptHandle"] !== undefined) {
-    contents.ReceiptHandle =
-      output["ReceiptHandle"]["#text"] !== undefined
-        ? output["ReceiptHandle"]["#text"]
-        : output["ReceiptHandle"];
+    contents.ReceiptHandle = output["ReceiptHandle"];
   }
   return contents;
 };
@@ -3276,17 +3236,10 @@ const deserializeAws_queryMessageAttributeValue = (
     );
   }
   if (output["BinaryValue"] !== undefined) {
-    contents.BinaryValue = context.base64Decoder(
-      output["BinaryValue"]["#text"] !== undefined
-        ? output["BinaryValue"]["#text"]
-        : output["BinaryValue"]
-    );
+    contents.BinaryValue = context.base64Decoder(output["BinaryValue"]);
   }
   if (output["DataType"] !== undefined) {
-    contents.DataType =
-      output["DataType"]["#text"] !== undefined
-        ? output["DataType"]["#text"]
-        : output["DataType"];
+    contents.DataType = output["DataType"];
   }
   if (output.StringListValue === "") {
     contents.StringListValues = [];
@@ -3298,10 +3251,7 @@ const deserializeAws_queryMessageAttributeValue = (
     );
   }
   if (output["StringValue"] !== undefined) {
-    contents.StringValue =
-      output["StringValue"]["#text"] !== undefined
-        ? output["StringValue"]["#text"]
-        : output["StringValue"];
+    contents.StringValue = output["StringValue"];
   }
   return contents;
 };
@@ -3343,10 +3293,7 @@ const deserializeAws_queryMessageSystemAttributeMap = (
   context: __SerdeContext
 ): { [key: string]: string } => {
   return output.reduce((acc: any, pair: any) => {
-    acc[pair["Name"]] =
-      pair["Value"]["#text"] !== undefined
-        ? pair["Value"]["#text"]
-        : pair["Value"];
+    acc[pair["Name"]] = pair["Value"];
     return acc;
   }, {});
 };
@@ -3376,10 +3323,7 @@ const deserializeAws_queryQueueAttributeMap = (
   context: __SerdeContext
 ): { [key: string]: string } => {
   return output.reduce((acc: any, pair: any) => {
-    acc[pair["Name"]] =
-      pair["Value"]["#text"] !== undefined
-        ? pair["Value"]["#text"]
-        : pair["Value"];
+    acc[pair["Name"]] = pair["Value"];
     return acc;
   }, {});
 };
@@ -3418,9 +3362,7 @@ const deserializeAws_queryQueueUrlList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  return (output || []).map((entry: any) =>
-    entry["#text"] !== undefined ? entry["#text"] : entry
-  );
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_queryReceiptHandleIsInvalid = (
@@ -3497,40 +3439,23 @@ const deserializeAws_querySendMessageBatchResultEntry = (
     SequenceNumber: undefined
   };
   if (output["Id"] !== undefined) {
-    contents.Id =
-      output["Id"]["#text"] !== undefined
-        ? output["Id"]["#text"]
-        : output["Id"];
+    contents.Id = output["Id"];
   }
   if (output["MD5OfMessageAttributes"] !== undefined) {
-    contents.MD5OfMessageAttributes =
-      output["MD5OfMessageAttributes"]["#text"] !== undefined
-        ? output["MD5OfMessageAttributes"]["#text"]
-        : output["MD5OfMessageAttributes"];
+    contents.MD5OfMessageAttributes = output["MD5OfMessageAttributes"];
   }
   if (output["MD5OfMessageBody"] !== undefined) {
-    contents.MD5OfMessageBody =
-      output["MD5OfMessageBody"]["#text"] !== undefined
-        ? output["MD5OfMessageBody"]["#text"]
-        : output["MD5OfMessageBody"];
+    contents.MD5OfMessageBody = output["MD5OfMessageBody"];
   }
   if (output["MD5OfMessageSystemAttributes"] !== undefined) {
     contents.MD5OfMessageSystemAttributes =
-      output["MD5OfMessageSystemAttributes"]["#text"] !== undefined
-        ? output["MD5OfMessageSystemAttributes"]["#text"]
-        : output["MD5OfMessageSystemAttributes"];
+      output["MD5OfMessageSystemAttributes"];
   }
   if (output["MessageId"] !== undefined) {
-    contents.MessageId =
-      output["MessageId"]["#text"] !== undefined
-        ? output["MessageId"]["#text"]
-        : output["MessageId"];
+    contents.MessageId = output["MessageId"];
   }
   if (output["SequenceNumber"] !== undefined) {
-    contents.SequenceNumber =
-      output["SequenceNumber"]["#text"] !== undefined
-        ? output["SequenceNumber"]["#text"]
-        : output["SequenceNumber"];
+    contents.SequenceNumber = output["SequenceNumber"];
   }
   return contents;
 };
@@ -3557,34 +3482,20 @@ const deserializeAws_querySendMessageResult = (
     SequenceNumber: undefined
   };
   if (output["MD5OfMessageAttributes"] !== undefined) {
-    contents.MD5OfMessageAttributes =
-      output["MD5OfMessageAttributes"]["#text"] !== undefined
-        ? output["MD5OfMessageAttributes"]["#text"]
-        : output["MD5OfMessageAttributes"];
+    contents.MD5OfMessageAttributes = output["MD5OfMessageAttributes"];
   }
   if (output["MD5OfMessageBody"] !== undefined) {
-    contents.MD5OfMessageBody =
-      output["MD5OfMessageBody"]["#text"] !== undefined
-        ? output["MD5OfMessageBody"]["#text"]
-        : output["MD5OfMessageBody"];
+    contents.MD5OfMessageBody = output["MD5OfMessageBody"];
   }
   if (output["MD5OfMessageSystemAttributes"] !== undefined) {
     contents.MD5OfMessageSystemAttributes =
-      output["MD5OfMessageSystemAttributes"]["#text"] !== undefined
-        ? output["MD5OfMessageSystemAttributes"]["#text"]
-        : output["MD5OfMessageSystemAttributes"];
+      output["MD5OfMessageSystemAttributes"];
   }
   if (output["MessageId"] !== undefined) {
-    contents.MessageId =
-      output["MessageId"]["#text"] !== undefined
-        ? output["MessageId"]["#text"]
-        : output["MessageId"];
+    contents.MessageId = output["MessageId"];
   }
   if (output["SequenceNumber"] !== undefined) {
-    contents.SequenceNumber =
-      output["SequenceNumber"]["#text"] !== undefined
-        ? output["SequenceNumber"]["#text"]
-        : output["SequenceNumber"];
+    contents.SequenceNumber = output["SequenceNumber"];
   }
   return contents;
 };
@@ -3593,9 +3504,7 @@ const deserializeAws_queryStringList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  return (output || []).map((entry: any) =>
-    entry["#text"] !== undefined ? entry["#text"] : entry
-  );
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_queryTagMap = (
@@ -3603,10 +3512,7 @@ const deserializeAws_queryTagMap = (
   context: __SerdeContext
 ): { [key: string]: string } => {
   return output.reduce((acc: any, pair: any) => {
-    acc[pair["Key"]] =
-      pair["Value"]["#text"] !== undefined
-        ? pair["Value"]["#text"]
-        : pair["Value"];
+    acc[pair["Key"]] = pair["Value"];
     return acc;
   }, {});
 };
@@ -3706,7 +3612,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
         parsedObjToReturn[key] = parsedObjToReturn[textNodeName];
         delete parsedObjToReturn[textNodeName];
       }
-      return parsedObjToReturn;
+      return __getValueFromTextNode(parsedObjToReturn);
     }
     return {};
   });
