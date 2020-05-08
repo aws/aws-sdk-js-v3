@@ -3912,11 +3912,10 @@ const deserializeAws_json1_1Feedback = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: FeedbackValue | string } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = output[key];
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_1InternalServerException = (

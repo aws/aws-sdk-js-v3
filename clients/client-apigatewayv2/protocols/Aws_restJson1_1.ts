@@ -10628,11 +10628,10 @@ const serializeAws_restJson1_1IntegrationParameters = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = input[key];
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = input[key];
+    return acc;
+  }, {});
 };
 
 const serializeAws_restJson1_1JWTConfiguration = (
@@ -10667,25 +10666,23 @@ const serializeAws_restJson1_1RouteModels = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = input[key];
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = input[key];
+    return acc;
+  }, {});
 };
 
 const serializeAws_restJson1_1RouteParameters = (
   input: { [key: string]: ParameterConstraints },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = serializeAws_restJson1_1ParameterConstraints(
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = serializeAws_restJson1_1ParameterConstraints(
       input[key],
       context
     );
-  });
-  return mapParams;
+    return acc;
+  }, {});
 };
 
 const serializeAws_restJson1_1RouteSettings = (
@@ -10715,44 +10712,40 @@ const serializeAws_restJson1_1RouteSettingsMap = (
   input: { [key: string]: RouteSettings },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = serializeAws_restJson1_1RouteSettings(input[key], context);
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = serializeAws_restJson1_1RouteSettings(input[key], context);
+    return acc;
+  }, {});
 };
 
 const serializeAws_restJson1_1StageVariablesMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = input[key];
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = input[key];
+    return acc;
+  }, {});
 };
 
 const serializeAws_restJson1_1Tags = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = input[key];
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = input[key];
+    return acc;
+  }, {});
 };
 
 const serializeAws_restJson1_1TemplateMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = input[key];
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = input[key];
+    return acc;
+  }, {});
 };
 
 const serializeAws_restJson1_1__listOf__string = (
@@ -11304,11 +11297,10 @@ const deserializeAws_restJson1_1IntegrationParameters = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = output[key];
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1_1IntegrationResponse = (
@@ -11528,25 +11520,23 @@ const deserializeAws_restJson1_1RouteModels = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = output[key];
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1_1RouteParameters = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: ParameterConstraints } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_restJson1_1ParameterConstraints(
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = deserializeAws_restJson1_1ParameterConstraints(
       output[key],
       context
     );
-  });
-  return mapParams;
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1_1RouteResponse = (
@@ -11640,14 +11630,10 @@ const deserializeAws_restJson1_1RouteSettingsMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: RouteSettings } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_restJson1_1RouteSettings(
-      output[key],
-      context
-    );
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = deserializeAws_restJson1_1RouteSettings(output[key], context);
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1_1Stage = (
@@ -11747,33 +11733,30 @@ const deserializeAws_restJson1_1StageVariablesMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = output[key];
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1_1Tags = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = output[key];
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1_1TemplateMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = output[key];
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1_1__listOfApi = (

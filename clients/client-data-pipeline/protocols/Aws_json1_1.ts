@@ -3240,11 +3240,10 @@ const deserializeAws_json1_1PipelineObjectMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: PipelineObject } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_json1_1PipelineObject(output[key], context);
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = deserializeAws_json1_1PipelineObject(output[key], context);
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_1PollForTaskOutput = (

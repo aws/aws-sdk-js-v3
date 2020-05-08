@@ -14951,11 +14951,10 @@ const serializeAws_json1_1TagsMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = input[key];
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = input[key];
+    return acc;
+  }, {});
 };
 
 const serializeAws_json1_1BatchCreatePartitionRequest = (
@@ -15251,11 +15250,10 @@ const serializeAws_json1_1ConnectionProperties = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = input[key];
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = input[key];
+    return acc;
+  }, {});
 };
 
 const serializeAws_json1_1CreateConnectionRequest = (
@@ -15872,11 +15870,10 @@ const serializeAws_json1_1LocationMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = input[key];
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = input[key];
+    return acc;
+  }, {});
 };
 
 const serializeAws_json1_1MatchCriteria = (
@@ -15919,11 +15916,10 @@ const serializeAws_json1_1ParametersMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = input[key];
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = input[key];
+    return acc;
+  }, {});
 };
 
 const serializeAws_json1_1PartitionInput = (
@@ -16828,11 +16824,10 @@ const serializeAws_json1_1MapValue = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = input[key];
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = input[key];
+    return acc;
+  }, {});
 };
 
 const serializeAws_json1_1PublicKeysList = (
@@ -17749,11 +17744,10 @@ const serializeAws_json1_1GenericMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = input[key];
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = input[key];
+    return acc;
+  }, {});
 };
 
 const serializeAws_json1_1GetJobRequest = (
@@ -18309,11 +18303,10 @@ const serializeAws_json1_1WorkflowRunProperties = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = input[key];
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = input[key];
+    return acc;
+  }, {});
 };
 
 const serializeAws_json1_1BatchGetCrawlersRequest = (
@@ -19367,11 +19360,10 @@ const deserializeAws_json1_1TagsMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = output[key];
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_1AccessDeniedException = (
@@ -19872,11 +19864,10 @@ const deserializeAws_json1_1ConnectionProperties = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = output[key];
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_1CreateConnectionResponse = (
@@ -20123,11 +20114,10 @@ const deserializeAws_json1_1ErrorByName = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: ErrorDetail } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_json1_1ErrorDetail(output[key], context);
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = deserializeAws_json1_1ErrorDetail(output[key], context);
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_1GetCatalogImportStatusResponse = (
@@ -20447,11 +20437,10 @@ const deserializeAws_json1_1LocationMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = output[key];
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_1MatchCriteria = (
@@ -20492,11 +20481,10 @@ const deserializeAws_json1_1ParametersMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = output[key];
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_1Partition = (
@@ -21824,11 +21812,10 @@ const deserializeAws_json1_1MapValue = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = output[key];
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_1PublicKeysList = (
@@ -23262,11 +23249,10 @@ const deserializeAws_json1_1GenericMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = output[key];
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_1GetJobResponse = (
@@ -24243,11 +24229,10 @@ const deserializeAws_json1_1WorkflowRunProperties = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = output[key];
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_1WorkflowRunStatistics = (

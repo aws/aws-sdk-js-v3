@@ -2922,11 +2922,10 @@ const serializeAws_restJson1_1FilterCriteriaMap = (
   input: { [key: string]: Criterion },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = serializeAws_restJson1_1Criterion(input[key], context);
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = serializeAws_restJson1_1Criterion(input[key], context);
+    return acc;
+  }, {});
 };
 
 const serializeAws_restJson1_1FindingIdList = (
@@ -2986,11 +2985,10 @@ const serializeAws_restJson1_1TagsMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = input[key];
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = input[key];
+    return acc;
+  }, {});
 };
 
 const serializeAws_restJson1_1ValueList = (
@@ -3189,11 +3187,10 @@ const deserializeAws_restJson1_1ConditionKeyMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = output[key];
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1_1Criterion = (
@@ -3229,11 +3226,10 @@ const deserializeAws_restJson1_1FilterCriteriaMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: Criterion } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_restJson1_1Criterion(output[key], context);
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = deserializeAws_restJson1_1Criterion(output[key], context);
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1_1Finding = (
@@ -3383,11 +3379,10 @@ const deserializeAws_restJson1_1PrincipalMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = output[key];
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1_1SharedViaList = (
@@ -3401,11 +3396,10 @@ const deserializeAws_restJson1_1TagsMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = output[key];
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1_1ValidationExceptionField = (

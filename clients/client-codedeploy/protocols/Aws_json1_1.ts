@@ -10359,11 +10359,10 @@ const serializeAws_json1_1TargetFilters = (
   input: { [key: string]: string[] },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = serializeAws_json1_1FilterValueList(input[key], context);
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = serializeAws_json1_1FilterValueList(input[key], context);
+    return acc;
+  }, {});
 };
 
 const serializeAws_json1_1TargetGroupInfo = (

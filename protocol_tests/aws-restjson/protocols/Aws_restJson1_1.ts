@@ -3090,14 +3090,10 @@ const serializeAws_restJson1_1JsonMapsInputOutputMap = (
   input: { [key: string]: GreetingStruct },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = serializeAws_restJson1_1GreetingStruct(
-      input[key],
-      context
-    );
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = serializeAws_restJson1_1GreetingStruct(input[key], context);
+    return acc;
+  }, {});
 };
 
 const serializeAws_restJson1_1NestedPayload = (
@@ -3203,11 +3199,10 @@ const serializeAws_restJson1_1FooEnumMap = (
   input: { [key: string]: FooEnum | string },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = input[key];
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = input[key];
+    return acc;
+  }, {});
 };
 
 const serializeAws_restJson1_1FooEnumSet = (
@@ -3305,14 +3300,10 @@ const deserializeAws_restJson1_1JsonMapsInputOutputMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: GreetingStruct } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_restJson1_1GreetingStruct(
-      output[key],
-      context
-    );
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = deserializeAws_restJson1_1GreetingStruct(output[key], context);
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1_1NestedPayload = (
@@ -3420,11 +3411,10 @@ const deserializeAws_restJson1_1FooEnumMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: FooEnum | string } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = output[key];
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1_1FooEnumSet = (

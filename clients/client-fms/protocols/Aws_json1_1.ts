@@ -1975,14 +1975,13 @@ const serializeAws_json1_1CustomerPolicyScopeMap = (
   input: { [key: string]: string[] },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = serializeAws_json1_1CustomerPolicyScopeIdList(
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = serializeAws_json1_1CustomerPolicyScopeIdList(
       input[key],
       context
     );
-  });
-  return mapParams;
+    return acc;
+  }, {});
 };
 
 const serializeAws_json1_1DeleteNotificationChannelRequest = (
@@ -2380,14 +2379,13 @@ const deserializeAws_json1_1CustomerPolicyScopeMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string[] } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_json1_1CustomerPolicyScopeIdList(
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = deserializeAws_json1_1CustomerPolicyScopeIdList(
       output[key],
       context
     );
-  });
-  return mapParams;
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_1EvaluationResult = (
@@ -2587,11 +2585,10 @@ const deserializeAws_json1_1IssueInfoMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = output[key];
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_1LimitExceededException = (

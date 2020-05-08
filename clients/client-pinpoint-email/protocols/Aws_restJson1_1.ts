@@ -6312,14 +6312,10 @@ const deserializeAws_restJson1_1BlacklistReport = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: BlacklistEntry[] } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_restJson1_1BlacklistEntries(
-      output[key],
-      context
-    );
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = deserializeAws_restJson1_1BlacklistEntries(output[key], context);
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1_1CloudWatchDestination = (

@@ -499,22 +499,20 @@ const deserializeAws_restJson1_1Exprs = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = output[key];
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1_1Facets = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: BucketInfo } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_restJson1_1BucketInfo(output[key], context);
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = deserializeAws_restJson1_1BucketInfo(output[key], context);
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1_1FieldStats = (
@@ -570,22 +568,20 @@ const deserializeAws_restJson1_1Fields = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string[] } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_restJson1_1FieldValue(output[key], context);
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = deserializeAws_restJson1_1FieldValue(output[key], context);
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1_1Highlights = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = output[key];
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1_1Hit = (
@@ -674,11 +670,10 @@ const deserializeAws_restJson1_1Stats = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: FieldStats } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_restJson1_1FieldStats(output[key], context);
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = deserializeAws_restJson1_1FieldStats(output[key], context);
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1_1SuggestModel = (

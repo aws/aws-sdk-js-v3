@@ -8276,50 +8276,40 @@ const serializeAws_restJson1_1__mapOfAudioSelector = (
   input: { [key: string]: AudioSelector },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = serializeAws_restJson1_1AudioSelector(input[key], context);
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = serializeAws_restJson1_1AudioSelector(input[key], context);
+    return acc;
+  }, {});
 };
 
 const serializeAws_restJson1_1__mapOfAudioSelectorGroup = (
   input: { [key: string]: AudioSelectorGroup },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = serializeAws_restJson1_1AudioSelectorGroup(
-      input[key],
-      context
-    );
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = serializeAws_restJson1_1AudioSelectorGroup(input[key], context);
+    return acc;
+  }, {});
 };
 
 const serializeAws_restJson1_1__mapOfCaptionSelector = (
   input: { [key: string]: CaptionSelector },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = serializeAws_restJson1_1CaptionSelector(
-      input[key],
-      context
-    );
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = serializeAws_restJson1_1CaptionSelector(input[key], context);
+    return acc;
+  }, {});
 };
 
 const serializeAws_restJson1_1__mapOf__string = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = input[key];
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = input[key];
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1_1AacSettings = (
@@ -14327,53 +14317,43 @@ const deserializeAws_restJson1_1__mapOfAudioSelector = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: AudioSelector } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_restJson1_1AudioSelector(
-      output[key],
-      context
-    );
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = deserializeAws_restJson1_1AudioSelector(output[key], context);
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1_1__mapOfAudioSelectorGroup = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: AudioSelectorGroup } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_restJson1_1AudioSelectorGroup(
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = deserializeAws_restJson1_1AudioSelectorGroup(
       output[key],
       context
     );
-  });
-  return mapParams;
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1_1__mapOfCaptionSelector = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: CaptionSelector } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_restJson1_1CaptionSelector(
-      output[key],
-      context
-    );
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = deserializeAws_restJson1_1CaptionSelector(output[key], context);
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1_1__mapOf__string = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = output[key];
+    return acc;
+  }, {});
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
