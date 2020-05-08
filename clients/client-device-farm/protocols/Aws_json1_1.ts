@@ -10419,11 +10419,10 @@ const serializeAws_json1_1TestParameters = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = input[key];
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = input[key];
+    return acc;
+  }, {});
 };
 
 const serializeAws_json1_1UntagResourceRequest = (
@@ -12544,11 +12543,10 @@ const deserializeAws_json1_1MaxSlotMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: number } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = output[key];
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_1MonetaryAmount = (
@@ -12775,11 +12773,10 @@ const deserializeAws_json1_1OfferingStatusMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: OfferingStatus } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_json1_1OfferingStatus(output[key], context);
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = deserializeAws_json1_1OfferingStatus(output[key], context);
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_1OfferingTransaction = (
@@ -12970,11 +12967,10 @@ const deserializeAws_json1_1PurchasedDevicesMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: number } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = output[key];
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_1Radios = (
@@ -13926,11 +13922,10 @@ const deserializeAws_json1_1UniqueProblemsByExecutionResultMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: UniqueProblem[] } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_json1_1UniqueProblems(output[key], context);
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = deserializeAws_json1_1UniqueProblems(output[key], context);
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_1UntagResourceResponse = (

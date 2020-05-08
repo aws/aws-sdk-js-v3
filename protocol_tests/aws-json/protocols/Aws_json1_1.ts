@@ -479,55 +479,50 @@ const serializeAws_json1_1MapOfKitchenSinks = (
   input: { [key: string]: KitchenSink },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = serializeAws_json1_1KitchenSink(input[key], context);
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = serializeAws_json1_1KitchenSink(input[key], context);
+    return acc;
+  }, {});
 };
 
 const serializeAws_json1_1MapOfListsOfStrings = (
   input: { [key: string]: string[] },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = serializeAws_json1_1ListOfStrings(input[key], context);
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = serializeAws_json1_1ListOfStrings(input[key], context);
+    return acc;
+  }, {});
 };
 
 const serializeAws_json1_1MapOfMapOfStrings = (
   input: { [key: string]: { [key: string]: string } },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = serializeAws_json1_1MapOfStrings(input[key], context);
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = serializeAws_json1_1MapOfStrings(input[key], context);
+    return acc;
+  }, {});
 };
 
 const serializeAws_json1_1MapOfStrings = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = input[key];
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = input[key];
+    return acc;
+  }, {});
 };
 
 const serializeAws_json1_1MapOfStructs = (
   input: { [key: string]: SimpleStruct },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = serializeAws_json1_1SimpleStruct(input[key], context);
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = serializeAws_json1_1SimpleStruct(input[key], context);
+    return acc;
+  }, {});
 };
 
 const serializeAws_json1_1SimpleStruct = (
@@ -841,55 +836,50 @@ const deserializeAws_json1_1MapOfKitchenSinks = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: KitchenSink } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_json1_1KitchenSink(output[key], context);
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = deserializeAws_json1_1KitchenSink(output[key], context);
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_1MapOfListsOfStrings = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string[] } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_json1_1ListOfStrings(output[key], context);
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = deserializeAws_json1_1ListOfStrings(output[key], context);
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_1MapOfMapOfStrings = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: { [key: string]: string } } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_json1_1MapOfStrings(output[key], context);
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = deserializeAws_json1_1MapOfStrings(output[key], context);
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_1MapOfStrings = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = output[key];
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_1MapOfStructs = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: SimpleStruct } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_json1_1SimpleStruct(output[key], context);
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = deserializeAws_json1_1SimpleStruct(output[key], context);
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_1SimpleStruct = (
