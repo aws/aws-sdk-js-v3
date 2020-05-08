@@ -177,8 +177,9 @@ export const serializeAws_restJson1_1CreateUserCommand = async (
   input: CreateUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/users/{InstanceId}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
@@ -249,8 +250,9 @@ export const serializeAws_restJson1_1DeleteUserCommand = async (
   input: DeleteUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/users/{InstanceId}/{UserId}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
@@ -293,8 +295,9 @@ export const serializeAws_restJson1_1DescribeUserCommand = async (
   input: DescribeUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/users/{InstanceId}/{UserId}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
@@ -337,8 +340,9 @@ export const serializeAws_restJson1_1DescribeUserHierarchyGroupCommand = async (
   input: DescribeUserHierarchyGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/user-hierarchy-groups/{InstanceId}/{HierarchyGroupId}";
   if (input.HierarchyGroupId !== undefined) {
     const labelValue: string = input.HierarchyGroupId;
@@ -385,8 +389,9 @@ export const serializeAws_restJson1_1DescribeUserHierarchyStructureCommand = asy
   input: DescribeUserHierarchyStructureCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/user-hierarchy-structure/{InstanceId}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
@@ -417,8 +422,9 @@ export const serializeAws_restJson1_1GetContactAttributesCommand = async (
   input: GetContactAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/contact/attributes/{InstanceId}/{InitialContactId}";
   if (input.InitialContactId !== undefined) {
     const labelValue: string = input.InitialContactId;
@@ -465,8 +471,9 @@ export const serializeAws_restJson1_1GetCurrentMetricDataCommand = async (
   input: GetCurrentMetricDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/metrics/current/{InstanceId}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
@@ -523,8 +530,9 @@ export const serializeAws_restJson1_1GetFederationTokenCommand = async (
   input: GetFederationTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/user/federate/{InstanceId}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
@@ -555,8 +563,9 @@ export const serializeAws_restJson1_1GetMetricDataCommand = async (
   input: GetMetricDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/metrics/historical/{InstanceId}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
@@ -619,8 +628,9 @@ export const serializeAws_restJson1_1ListContactFlowsCommand = async (
   input: ListContactFlowsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/contact-flows-summary/{InstanceId}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
@@ -664,8 +674,9 @@ export const serializeAws_restJson1_1ListHoursOfOperationsCommand = async (
   input: ListHoursOfOperationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/hours-of-operations-summary/{InstanceId}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
@@ -704,8 +715,9 @@ export const serializeAws_restJson1_1ListPhoneNumbersCommand = async (
   input: ListPhoneNumbersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/phone-numbers-summary/{InstanceId}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
@@ -754,8 +766,9 @@ export const serializeAws_restJson1_1ListQueuesCommand = async (
   input: ListQueuesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/queues-summary/{InstanceId}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
@@ -797,8 +810,9 @@ export const serializeAws_restJson1_1ListRoutingProfilesCommand = async (
   input: ListRoutingProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/routing-profiles-summary/{InstanceId}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
@@ -837,8 +851,9 @@ export const serializeAws_restJson1_1ListSecurityProfilesCommand = async (
   input: ListSecurityProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/security-profiles-summary/{InstanceId}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
@@ -877,8 +892,9 @@ export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
@@ -911,8 +927,9 @@ export const serializeAws_restJson1_1ListUserHierarchyGroupsCommand = async (
   input: ListUserHierarchyGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/user-hierarchy-groups-summary/{InstanceId}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
@@ -951,8 +968,9 @@ export const serializeAws_restJson1_1ListUsersCommand = async (
   input: ListUsersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/users-summary/{InstanceId}";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
@@ -991,8 +1009,9 @@ export const serializeAws_restJson1_1StartChatContactCommand = async (
   input: StartChatContactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/contact/chat";
   let body: any;
   const bodyParams: any = {};
@@ -1045,8 +1064,9 @@ export const serializeAws_restJson1_1StartOutboundVoiceContactCommand = async (
   input: StartOutboundVoiceContactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/contact/outbound-voice";
   let body: any;
   const bodyParams: any = {};
@@ -1094,8 +1114,9 @@ export const serializeAws_restJson1_1StopContactCommand = async (
   input: StopContactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/contact/stop";
   let body: any;
   const bodyParams: any = {};
@@ -1122,8 +1143,9 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
@@ -1161,8 +1183,9 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
@@ -1200,8 +1223,9 @@ export const serializeAws_restJson1_1UpdateContactAttributesCommand = async (
   input: UpdateContactAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/contact/attributes";
   let body: any;
   const bodyParams: any = {};
@@ -1234,8 +1258,9 @@ export const serializeAws_restJson1_1UpdateUserHierarchyCommand = async (
   input: UpdateUserHierarchyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/users/{InstanceId}/{UserId}/hierarchy";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
@@ -1283,8 +1308,9 @@ export const serializeAws_restJson1_1UpdateUserIdentityInfoCommand = async (
   input: UpdateUserIdentityInfoCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/users/{InstanceId}/{UserId}/identity-info";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
@@ -1335,8 +1361,9 @@ export const serializeAws_restJson1_1UpdateUserPhoneConfigCommand = async (
   input: UpdateUserPhoneConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/users/{InstanceId}/{UserId}/phone-config";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
@@ -1387,8 +1414,9 @@ export const serializeAws_restJson1_1UpdateUserRoutingProfileCommand = async (
   input: UpdateUserRoutingProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/users/{InstanceId}/{UserId}/routing-profile";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
@@ -1436,8 +1464,9 @@ export const serializeAws_restJson1_1UpdateUserSecurityProfilesCommand = async (
   input: UpdateUserSecurityProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/users/{InstanceId}/{UserId}/security-profiles";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;

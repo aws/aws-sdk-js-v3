@@ -53,8 +53,9 @@ export const serializeAws_restJson1_1BatchPutMessageCommand = async (
   input: BatchPutMessageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/inputs/messages";
   let body: any;
   const bodyParams: any = {};
@@ -81,8 +82,9 @@ export const serializeAws_restJson1_1BatchUpdateDetectorCommand = async (
   input: BatchUpdateDetectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/detectors";
   let body: any;
   const bodyParams: any = {};
@@ -109,8 +111,9 @@ export const serializeAws_restJson1_1DescribeDetectorCommand = async (
   input: DescribeDetectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/detectors/{detectorModelName}/keyValues";
   if (input.detectorModelName !== undefined) {
     const labelValue: string = input.detectorModelName;
@@ -150,8 +153,9 @@ export const serializeAws_restJson1_1ListDetectorsCommand = async (
   input: ListDetectorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/detectors/{detectorModelName}";
   if (input.detectorModelName !== undefined) {
     const labelValue: string = input.detectorModelName;

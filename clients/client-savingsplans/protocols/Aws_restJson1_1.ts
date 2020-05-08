@@ -71,8 +71,9 @@ export const serializeAws_restJson1_1DescribeSavingsPlansOfferingRatesCommand = 
   input: DescribeSavingsPlansOfferingRatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/DescribeSavingsPlansOfferingRates";
   let body: any;
   const bodyParams: any = {};
@@ -159,8 +160,9 @@ export const serializeAws_restJson1_1DescribeSavingsPlansOfferingsCommand = asyn
   input: DescribeSavingsPlansOfferingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/DescribeSavingsPlansOfferings";
   let body: any;
   const bodyParams: any = {};
@@ -258,8 +260,9 @@ export const serializeAws_restJson1_1CreateSavingsPlanCommand = async (
   input: CreateSavingsPlanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/CreateSavingsPlan";
   let body: any;
   const bodyParams: any = {};
@@ -298,8 +301,9 @@ export const serializeAws_restJson1_1DescribeSavingsPlanRatesCommand = async (
   input: DescribeSavingsPlanRatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/DescribeSavingsPlanRates";
   let body: any;
   const bodyParams: any = {};
@@ -335,8 +339,9 @@ export const serializeAws_restJson1_1DescribeSavingsPlansCommand = async (
   input: DescribeSavingsPlansCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/DescribeSavingsPlans";
   let body: any;
   const bodyParams: any = {};
@@ -387,8 +392,9 @@ export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/ListTagsForResource";
   let body: any;
   const bodyParams: any = {};
@@ -412,8 +418,9 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/TagResource";
   let body: any;
   const bodyParams: any = {};
@@ -440,8 +447,9 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/UntagResource";
   let body: any;
   const bodyParams: any = {};

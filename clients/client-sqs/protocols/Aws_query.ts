@@ -160,8 +160,9 @@ export const serializeAws_queryAddPermissionCommand = async (
   input: AddPermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryAddPermissionRequest(input, context);
   body = buildFormUrlencodedString({
@@ -176,8 +177,9 @@ export const serializeAws_queryChangeMessageVisibilityCommand = async (
   input: ChangeMessageVisibilityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryChangeMessageVisibilityRequest(
     input,
@@ -195,8 +197,9 @@ export const serializeAws_queryChangeMessageVisibilityBatchCommand = async (
   input: ChangeMessageVisibilityBatchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryChangeMessageVisibilityBatchRequest(
     input,
@@ -214,8 +217,9 @@ export const serializeAws_queryCreateQueueCommand = async (
   input: CreateQueueCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCreateQueueRequest(input, context);
   body = buildFormUrlencodedString({
@@ -230,8 +234,9 @@ export const serializeAws_queryDeleteMessageCommand = async (
   input: DeleteMessageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteMessageRequest(input, context);
   body = buildFormUrlencodedString({
@@ -246,8 +251,9 @@ export const serializeAws_queryDeleteMessageBatchCommand = async (
   input: DeleteMessageBatchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteMessageBatchRequest(input, context);
   body = buildFormUrlencodedString({
@@ -262,8 +268,9 @@ export const serializeAws_queryDeleteQueueCommand = async (
   input: DeleteQueueCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteQueueRequest(input, context);
   body = buildFormUrlencodedString({
@@ -278,8 +285,9 @@ export const serializeAws_queryGetQueueAttributesCommand = async (
   input: GetQueueAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryGetQueueAttributesRequest(input, context);
   body = buildFormUrlencodedString({
@@ -294,8 +302,9 @@ export const serializeAws_queryGetQueueUrlCommand = async (
   input: GetQueueUrlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryGetQueueUrlRequest(input, context);
   body = buildFormUrlencodedString({
@@ -310,8 +319,9 @@ export const serializeAws_queryListDeadLetterSourceQueuesCommand = async (
   input: ListDeadLetterSourceQueuesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryListDeadLetterSourceQueuesRequest(
     input,
@@ -329,8 +339,9 @@ export const serializeAws_queryListQueueTagsCommand = async (
   input: ListQueueTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryListQueueTagsRequest(input, context);
   body = buildFormUrlencodedString({
@@ -345,8 +356,9 @@ export const serializeAws_queryListQueuesCommand = async (
   input: ListQueuesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryListQueuesRequest(input, context);
   body = buildFormUrlencodedString({
@@ -361,8 +373,9 @@ export const serializeAws_queryPurgeQueueCommand = async (
   input: PurgeQueueCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryPurgeQueueRequest(input, context);
   body = buildFormUrlencodedString({
@@ -377,8 +390,9 @@ export const serializeAws_queryReceiveMessageCommand = async (
   input: ReceiveMessageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryReceiveMessageRequest(input, context);
   body = buildFormUrlencodedString({
@@ -393,8 +407,9 @@ export const serializeAws_queryRemovePermissionCommand = async (
   input: RemovePermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryRemovePermissionRequest(input, context);
   body = buildFormUrlencodedString({
@@ -409,8 +424,9 @@ export const serializeAws_querySendMessageCommand = async (
   input: SendMessageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_querySendMessageRequest(input, context);
   body = buildFormUrlencodedString({
@@ -425,8 +441,9 @@ export const serializeAws_querySendMessageBatchCommand = async (
   input: SendMessageBatchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_querySendMessageBatchRequest(input, context);
   body = buildFormUrlencodedString({
@@ -441,8 +458,9 @@ export const serializeAws_querySetQueueAttributesCommand = async (
   input: SetQueueAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_querySetQueueAttributesRequest(input, context);
   body = buildFormUrlencodedString({
@@ -457,8 +475,9 @@ export const serializeAws_queryTagQueueCommand = async (
   input: TagQueueCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryTagQueueRequest(input, context);
   body = buildFormUrlencodedString({
@@ -473,8 +492,9 @@ export const serializeAws_queryUntagQueueCommand = async (
   input: UntagQueueCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryUntagQueueRequest(input, context);
   body = buildFormUrlencodedString({

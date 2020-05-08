@@ -176,9 +176,10 @@ export const serializeAws_json1_1CheckDomainAvailabilityCommand = async (
   input: CheckDomainAvailabilityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53Domains_v20140515.CheckDomainAvailability";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53Domains_v20140515.CheckDomainAvailability"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CheckDomainAvailabilityRequest(input, context)
@@ -190,10 +191,10 @@ export const serializeAws_json1_1CheckDomainTransferabilityCommand = async (
   input: CheckDomainTransferabilityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "Route53Domains_v20140515.CheckDomainTransferability";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53Domains_v20140515.CheckDomainTransferability"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CheckDomainTransferabilityRequest(input, context)
@@ -205,9 +206,10 @@ export const serializeAws_json1_1DeleteTagsForDomainCommand = async (
   input: DeleteTagsForDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53Domains_v20140515.DeleteTagsForDomain";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53Domains_v20140515.DeleteTagsForDomain"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteTagsForDomainRequest(input, context)
@@ -219,9 +221,10 @@ export const serializeAws_json1_1DisableDomainAutoRenewCommand = async (
   input: DisableDomainAutoRenewCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53Domains_v20140515.DisableDomainAutoRenew";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53Domains_v20140515.DisableDomainAutoRenew"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DisableDomainAutoRenewRequest(input, context)
@@ -233,10 +236,10 @@ export const serializeAws_json1_1DisableDomainTransferLockCommand = async (
   input: DisableDomainTransferLockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "Route53Domains_v20140515.DisableDomainTransferLock";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53Domains_v20140515.DisableDomainTransferLock"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DisableDomainTransferLockRequest(input, context)
@@ -248,9 +251,10 @@ export const serializeAws_json1_1EnableDomainAutoRenewCommand = async (
   input: EnableDomainAutoRenewCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53Domains_v20140515.EnableDomainAutoRenew";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53Domains_v20140515.EnableDomainAutoRenew"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1EnableDomainAutoRenewRequest(input, context)
@@ -262,9 +266,10 @@ export const serializeAws_json1_1EnableDomainTransferLockCommand = async (
   input: EnableDomainTransferLockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53Domains_v20140515.EnableDomainTransferLock";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53Domains_v20140515.EnableDomainTransferLock"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1EnableDomainTransferLockRequest(input, context)
@@ -276,10 +281,10 @@ export const serializeAws_json1_1GetContactReachabilityStatusCommand = async (
   input: GetContactReachabilityStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "Route53Domains_v20140515.GetContactReachabilityStatus";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53Domains_v20140515.GetContactReachabilityStatus"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetContactReachabilityStatusRequest(input, context)
@@ -291,9 +296,10 @@ export const serializeAws_json1_1GetDomainDetailCommand = async (
   input: GetDomainDetailCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53Domains_v20140515.GetDomainDetail";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53Domains_v20140515.GetDomainDetail"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetDomainDetailRequest(input, context)
@@ -305,9 +311,10 @@ export const serializeAws_json1_1GetDomainSuggestionsCommand = async (
   input: GetDomainSuggestionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53Domains_v20140515.GetDomainSuggestions";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53Domains_v20140515.GetDomainSuggestions"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetDomainSuggestionsRequest(input, context)
@@ -319,9 +326,10 @@ export const serializeAws_json1_1GetOperationDetailCommand = async (
   input: GetOperationDetailCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53Domains_v20140515.GetOperationDetail";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53Domains_v20140515.GetOperationDetail"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetOperationDetailRequest(input, context)
@@ -333,9 +341,10 @@ export const serializeAws_json1_1ListDomainsCommand = async (
   input: ListDomainsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53Domains_v20140515.ListDomains";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53Domains_v20140515.ListDomains"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListDomainsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -345,9 +354,10 @@ export const serializeAws_json1_1ListOperationsCommand = async (
   input: ListOperationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53Domains_v20140515.ListOperations";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53Domains_v20140515.ListOperations"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListOperationsRequest(input, context)
@@ -359,9 +369,10 @@ export const serializeAws_json1_1ListTagsForDomainCommand = async (
   input: ListTagsForDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53Domains_v20140515.ListTagsForDomain";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53Domains_v20140515.ListTagsForDomain"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTagsForDomainRequest(input, context)
@@ -373,9 +384,10 @@ export const serializeAws_json1_1RegisterDomainCommand = async (
   input: RegisterDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53Domains_v20140515.RegisterDomain";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53Domains_v20140515.RegisterDomain"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RegisterDomainRequest(input, context)
@@ -387,9 +399,10 @@ export const serializeAws_json1_1RenewDomainCommand = async (
   input: RenewDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53Domains_v20140515.RenewDomain";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53Domains_v20140515.RenewDomain"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1RenewDomainRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -399,10 +412,10 @@ export const serializeAws_json1_1ResendContactReachabilityEmailCommand = async (
   input: ResendContactReachabilityEmailCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "Route53Domains_v20140515.ResendContactReachabilityEmail";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53Domains_v20140515.ResendContactReachabilityEmail"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ResendContactReachabilityEmailRequest(input, context)
@@ -414,9 +427,10 @@ export const serializeAws_json1_1RetrieveDomainAuthCodeCommand = async (
   input: RetrieveDomainAuthCodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53Domains_v20140515.RetrieveDomainAuthCode";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53Domains_v20140515.RetrieveDomainAuthCode"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RetrieveDomainAuthCodeRequest(input, context)
@@ -428,9 +442,10 @@ export const serializeAws_json1_1TransferDomainCommand = async (
   input: TransferDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53Domains_v20140515.TransferDomain";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53Domains_v20140515.TransferDomain"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1TransferDomainRequest(input, context)
@@ -442,9 +457,10 @@ export const serializeAws_json1_1UpdateDomainContactCommand = async (
   input: UpdateDomainContactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53Domains_v20140515.UpdateDomainContact";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53Domains_v20140515.UpdateDomainContact"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateDomainContactRequest(input, context)
@@ -456,10 +472,10 @@ export const serializeAws_json1_1UpdateDomainContactPrivacyCommand = async (
   input: UpdateDomainContactPrivacyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "Route53Domains_v20140515.UpdateDomainContactPrivacy";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53Domains_v20140515.UpdateDomainContactPrivacy"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateDomainContactPrivacyRequest(input, context)
@@ -471,9 +487,10 @@ export const serializeAws_json1_1UpdateDomainNameserversCommand = async (
   input: UpdateDomainNameserversCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53Domains_v20140515.UpdateDomainNameservers";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53Domains_v20140515.UpdateDomainNameservers"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateDomainNameserversRequest(input, context)
@@ -485,9 +502,10 @@ export const serializeAws_json1_1UpdateTagsForDomainCommand = async (
   input: UpdateTagsForDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53Domains_v20140515.UpdateTagsForDomain";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53Domains_v20140515.UpdateTagsForDomain"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateTagsForDomainRequest(input, context)
@@ -499,9 +517,10 @@ export const serializeAws_json1_1ViewBillingCommand = async (
   input: ViewBillingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53Domains_v20140515.ViewBilling";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53Domains_v20140515.ViewBilling"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ViewBillingRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);

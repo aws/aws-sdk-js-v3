@@ -185,9 +185,10 @@ export const serializeAws_json1_1CreateClusterCommand = async (
   input: CreateClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonDAXV3.CreateCluster";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonDAXV3.CreateCluster"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateClusterRequest(input, context)
@@ -199,9 +200,10 @@ export const serializeAws_json1_1CreateParameterGroupCommand = async (
   input: CreateParameterGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonDAXV3.CreateParameterGroup";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonDAXV3.CreateParameterGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateParameterGroupRequest(input, context)
@@ -213,9 +215,10 @@ export const serializeAws_json1_1CreateSubnetGroupCommand = async (
   input: CreateSubnetGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonDAXV3.CreateSubnetGroup";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonDAXV3.CreateSubnetGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateSubnetGroupRequest(input, context)
@@ -227,9 +230,10 @@ export const serializeAws_json1_1DecreaseReplicationFactorCommand = async (
   input: DecreaseReplicationFactorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonDAXV3.DecreaseReplicationFactor";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonDAXV3.DecreaseReplicationFactor"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DecreaseReplicationFactorRequest(input, context)
@@ -241,9 +245,10 @@ export const serializeAws_json1_1DeleteClusterCommand = async (
   input: DeleteClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonDAXV3.DeleteCluster";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonDAXV3.DeleteCluster"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteClusterRequest(input, context)
@@ -255,9 +260,10 @@ export const serializeAws_json1_1DeleteParameterGroupCommand = async (
   input: DeleteParameterGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonDAXV3.DeleteParameterGroup";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonDAXV3.DeleteParameterGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteParameterGroupRequest(input, context)
@@ -269,9 +275,10 @@ export const serializeAws_json1_1DeleteSubnetGroupCommand = async (
   input: DeleteSubnetGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonDAXV3.DeleteSubnetGroup";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonDAXV3.DeleteSubnetGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteSubnetGroupRequest(input, context)
@@ -283,9 +290,10 @@ export const serializeAws_json1_1DescribeClustersCommand = async (
   input: DescribeClustersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonDAXV3.DescribeClusters";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonDAXV3.DescribeClusters"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeClustersRequest(input, context)
@@ -297,9 +305,10 @@ export const serializeAws_json1_1DescribeDefaultParametersCommand = async (
   input: DescribeDefaultParametersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonDAXV3.DescribeDefaultParameters";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonDAXV3.DescribeDefaultParameters"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeDefaultParametersRequest(input, context)
@@ -311,9 +320,10 @@ export const serializeAws_json1_1DescribeEventsCommand = async (
   input: DescribeEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonDAXV3.DescribeEvents";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonDAXV3.DescribeEvents"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEventsRequest(input, context)
@@ -325,9 +335,10 @@ export const serializeAws_json1_1DescribeParameterGroupsCommand = async (
   input: DescribeParameterGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonDAXV3.DescribeParameterGroups";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonDAXV3.DescribeParameterGroups"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeParameterGroupsRequest(input, context)
@@ -339,9 +350,10 @@ export const serializeAws_json1_1DescribeParametersCommand = async (
   input: DescribeParametersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonDAXV3.DescribeParameters";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonDAXV3.DescribeParameters"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeParametersRequest(input, context)
@@ -353,9 +365,10 @@ export const serializeAws_json1_1DescribeSubnetGroupsCommand = async (
   input: DescribeSubnetGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonDAXV3.DescribeSubnetGroups";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonDAXV3.DescribeSubnetGroups"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeSubnetGroupsRequest(input, context)
@@ -367,9 +380,10 @@ export const serializeAws_json1_1IncreaseReplicationFactorCommand = async (
   input: IncreaseReplicationFactorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonDAXV3.IncreaseReplicationFactor";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonDAXV3.IncreaseReplicationFactor"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1IncreaseReplicationFactorRequest(input, context)
@@ -381,9 +395,10 @@ export const serializeAws_json1_1ListTagsCommand = async (
   input: ListTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonDAXV3.ListTags";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonDAXV3.ListTags"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTagsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -393,9 +408,10 @@ export const serializeAws_json1_1RebootNodeCommand = async (
   input: RebootNodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonDAXV3.RebootNode";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonDAXV3.RebootNode"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1RebootNodeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -405,9 +421,10 @@ export const serializeAws_json1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonDAXV3.TagResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonDAXV3.TagResource"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -417,9 +434,10 @@ export const serializeAws_json1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonDAXV3.UntagResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonDAXV3.UntagResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UntagResourceRequest(input, context)
@@ -431,9 +449,10 @@ export const serializeAws_json1_1UpdateClusterCommand = async (
   input: UpdateClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonDAXV3.UpdateCluster";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonDAXV3.UpdateCluster"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateClusterRequest(input, context)
@@ -445,9 +464,10 @@ export const serializeAws_json1_1UpdateParameterGroupCommand = async (
   input: UpdateParameterGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonDAXV3.UpdateParameterGroup";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonDAXV3.UpdateParameterGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateParameterGroupRequest(input, context)
@@ -459,9 +479,10 @@ export const serializeAws_json1_1UpdateSubnetGroupCommand = async (
   input: UpdateSubnetGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonDAXV3.UpdateSubnetGroup";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonDAXV3.UpdateSubnetGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateSubnetGroupRequest(input, context)

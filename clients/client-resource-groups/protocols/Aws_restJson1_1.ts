@@ -79,8 +79,9 @@ export const serializeAws_restJson1_1CreateGroupCommand = async (
   input: CreateGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/groups";
   let body: any;
   const bodyParams: any = {};
@@ -116,8 +117,9 @@ export const serializeAws_restJson1_1DeleteGroupCommand = async (
   input: DeleteGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/groups/{GroupName}";
   if (input.GroupName !== undefined) {
     const labelValue: string = input.GroupName;
@@ -148,8 +150,9 @@ export const serializeAws_restJson1_1GetGroupCommand = async (
   input: GetGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/groups/{GroupName}";
   if (input.GroupName !== undefined) {
     const labelValue: string = input.GroupName;
@@ -180,8 +183,9 @@ export const serializeAws_restJson1_1GetGroupQueryCommand = async (
   input: GetGroupQueryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/groups/{GroupName}/query";
   if (input.GroupName !== undefined) {
     const labelValue: string = input.GroupName;
@@ -212,8 +216,9 @@ export const serializeAws_restJson1_1GetTagsCommand = async (
   input: GetTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/resources/{Arn}/tags";
   if (input.Arn !== undefined) {
     const labelValue: string = input.Arn;
@@ -244,8 +249,9 @@ export const serializeAws_restJson1_1ListGroupResourcesCommand = async (
   input: ListGroupResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/groups/{GroupName}/resource-identifiers-list";
   if (input.GroupName !== undefined) {
     const labelValue: string = input.GroupName;
@@ -292,8 +298,9 @@ export const serializeAws_restJson1_1ListGroupsCommand = async (
   input: ListGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/groups-list";
   const query: any = {};
   if (input.MaxResults !== undefined) {
@@ -328,8 +335,9 @@ export const serializeAws_restJson1_1SearchResourcesCommand = async (
   input: SearchResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/resources/search";
   let body: any;
   const bodyParams: any = {};
@@ -362,8 +370,9 @@ export const serializeAws_restJson1_1TagCommand = async (
   input: TagCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/resources/{Arn}/tags";
   if (input.Arn !== undefined) {
     const labelValue: string = input.Arn;
@@ -399,8 +408,9 @@ export const serializeAws_restJson1_1UntagCommand = async (
   input: UntagCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/resources/{Arn}/tags";
   if (input.Arn !== undefined) {
     const labelValue: string = input.Arn;
@@ -439,8 +449,9 @@ export const serializeAws_restJson1_1UpdateGroupCommand = async (
   input: UpdateGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/groups/{GroupName}";
   if (input.GroupName !== undefined) {
     const labelValue: string = input.GroupName;
@@ -476,8 +487,9 @@ export const serializeAws_restJson1_1UpdateGroupQueryCommand = async (
   input: UpdateGroupQueryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/groups/{GroupName}/query";
   if (input.GroupName !== undefined) {
     const labelValue: string = input.GroupName;

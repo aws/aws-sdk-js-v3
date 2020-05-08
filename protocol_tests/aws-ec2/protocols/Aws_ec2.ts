@@ -114,8 +114,9 @@ export const serializeAws_ec2EmptyInputAndEmptyOutputCommand = async (
   input: EmptyInputAndEmptyOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2EmptyInputAndEmptyOutputInput(input, context);
   body = buildFormUrlencodedString({
@@ -130,8 +131,9 @@ export const serializeAws_ec2GreetingWithErrorsCommand = async (
   input: GreetingWithErrorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   const body = buildFormUrlencodedString({
     Action: "GreetingWithErrors",
     Version: "2020-01-08"
@@ -143,8 +145,9 @@ export const serializeAws_ec2IgnoresWrappingXmlNameCommand = async (
   input: IgnoresWrappingXmlNameCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   const body = buildFormUrlencodedString({
     Action: "IgnoresWrappingXmlName",
     Version: "2020-01-08"
@@ -156,8 +159,9 @@ export const serializeAws_ec2NestedStructuresCommand = async (
   input: NestedStructuresCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2NestedStructuresInput(input, context);
   body = buildFormUrlencodedString({
@@ -172,8 +176,9 @@ export const serializeAws_ec2NoInputAndOutputCommand = async (
   input: NoInputAndOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   const body = buildFormUrlencodedString({
     Action: "NoInputAndOutput",
     Version: "2020-01-08"
@@ -185,8 +190,9 @@ export const serializeAws_ec2QueryIdempotencyTokenAutoFillCommand = async (
   input: QueryIdempotencyTokenAutoFillCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2QueryIdempotencyTokenAutoFillInput(
     input,
@@ -204,8 +210,9 @@ export const serializeAws_ec2QueryListsCommand = async (
   input: QueryListsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2QueryListsInput(input, context);
   body = buildFormUrlencodedString({
@@ -220,8 +227,9 @@ export const serializeAws_ec2QueryTimestampsCommand = async (
   input: QueryTimestampsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2QueryTimestampsInput(input, context);
   body = buildFormUrlencodedString({
@@ -236,8 +244,9 @@ export const serializeAws_ec2RecursiveXmlShapesCommand = async (
   input: RecursiveXmlShapesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   const body = buildFormUrlencodedString({
     Action: "RecursiveXmlShapes",
     Version: "2020-01-08"
@@ -249,8 +258,9 @@ export const serializeAws_ec2SimpleInputParamsCommand = async (
   input: SimpleInputParamsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2SimpleInputParamsInput(input, context);
   body = buildFormUrlencodedString({
@@ -265,8 +275,9 @@ export const serializeAws_ec2SimpleScalarXmlPropertiesCommand = async (
   input: SimpleScalarXmlPropertiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   const body = buildFormUrlencodedString({
     Action: "SimpleScalarXmlProperties",
     Version: "2020-01-08"
@@ -278,8 +289,9 @@ export const serializeAws_ec2XmlBlobsCommand = async (
   input: XmlBlobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   const body = buildFormUrlencodedString({
     Action: "XmlBlobs",
     Version: "2020-01-08"
@@ -291,8 +303,9 @@ export const serializeAws_ec2XmlEnumsCommand = async (
   input: XmlEnumsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   const body = buildFormUrlencodedString({
     Action: "XmlEnums",
     Version: "2020-01-08"
@@ -304,8 +317,9 @@ export const serializeAws_ec2XmlListsCommand = async (
   input: XmlListsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   const body = buildFormUrlencodedString({
     Action: "XmlLists",
     Version: "2020-01-08"
@@ -317,8 +331,9 @@ export const serializeAws_ec2XmlNamespacesCommand = async (
   input: XmlNamespacesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   const body = buildFormUrlencodedString({
     Action: "XmlNamespaces",
     Version: "2020-01-08"
@@ -330,8 +345,9 @@ export const serializeAws_ec2XmlTimestampsCommand = async (
   input: XmlTimestampsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   const body = buildFormUrlencodedString({
     Action: "XmlTimestamps",
     Version: "2020-01-08"

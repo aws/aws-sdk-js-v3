@@ -307,9 +307,10 @@ export const serializeAws_json1_1AssociateIpGroupsCommand = async (
   input: AssociateIpGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.AssociateIpGroups";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.AssociateIpGroups"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AssociateIpGroupsRequest(input, context)
@@ -321,9 +322,10 @@ export const serializeAws_json1_1AuthorizeIpRulesCommand = async (
   input: AuthorizeIpRulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.AuthorizeIpRules";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.AuthorizeIpRules"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AuthorizeIpRulesRequest(input, context)
@@ -335,9 +337,10 @@ export const serializeAws_json1_1CopyWorkspaceImageCommand = async (
   input: CopyWorkspaceImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.CopyWorkspaceImage";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.CopyWorkspaceImage"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CopyWorkspaceImageRequest(input, context)
@@ -349,9 +352,10 @@ export const serializeAws_json1_1CreateIpGroupCommand = async (
   input: CreateIpGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.CreateIpGroup";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.CreateIpGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateIpGroupRequest(input, context)
@@ -363,9 +367,10 @@ export const serializeAws_json1_1CreateTagsCommand = async (
   input: CreateTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.CreateTags";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.CreateTags"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateTagsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -375,9 +380,10 @@ export const serializeAws_json1_1CreateWorkspacesCommand = async (
   input: CreateWorkspacesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.CreateWorkspaces";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.CreateWorkspaces"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateWorkspacesRequest(input, context)
@@ -389,9 +395,10 @@ export const serializeAws_json1_1DeleteIpGroupCommand = async (
   input: DeleteIpGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.DeleteIpGroup";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.DeleteIpGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteIpGroupRequest(input, context)
@@ -403,9 +410,10 @@ export const serializeAws_json1_1DeleteTagsCommand = async (
   input: DeleteTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.DeleteTags";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.DeleteTags"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteTagsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -415,9 +423,10 @@ export const serializeAws_json1_1DeleteWorkspaceImageCommand = async (
   input: DeleteWorkspaceImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.DeleteWorkspaceImage";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.DeleteWorkspaceImage"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteWorkspaceImageRequest(input, context)
@@ -429,9 +438,10 @@ export const serializeAws_json1_1DeregisterWorkspaceDirectoryCommand = async (
   input: DeregisterWorkspaceDirectoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.DeregisterWorkspaceDirectory";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.DeregisterWorkspaceDirectory"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeregisterWorkspaceDirectoryRequest(input, context)
@@ -443,9 +453,10 @@ export const serializeAws_json1_1DescribeAccountCommand = async (
   input: DescribeAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.DescribeAccount";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.DescribeAccount"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeAccountRequest(input, context)
@@ -457,9 +468,10 @@ export const serializeAws_json1_1DescribeAccountModificationsCommand = async (
   input: DescribeAccountModificationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.DescribeAccountModifications";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.DescribeAccountModifications"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeAccountModificationsRequest(input, context)
@@ -471,9 +483,10 @@ export const serializeAws_json1_1DescribeClientPropertiesCommand = async (
   input: DescribeClientPropertiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.DescribeClientProperties";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.DescribeClientProperties"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeClientPropertiesRequest(input, context)
@@ -485,9 +498,10 @@ export const serializeAws_json1_1DescribeIpGroupsCommand = async (
   input: DescribeIpGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.DescribeIpGroups";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.DescribeIpGroups"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeIpGroupsRequest(input, context)
@@ -499,9 +513,10 @@ export const serializeAws_json1_1DescribeTagsCommand = async (
   input: DescribeTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.DescribeTags";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.DescribeTags"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeTagsRequest(input, context)
@@ -513,9 +528,10 @@ export const serializeAws_json1_1DescribeWorkspaceBundlesCommand = async (
   input: DescribeWorkspaceBundlesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.DescribeWorkspaceBundles";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.DescribeWorkspaceBundles"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeWorkspaceBundlesRequest(input, context)
@@ -527,9 +543,10 @@ export const serializeAws_json1_1DescribeWorkspaceDirectoriesCommand = async (
   input: DescribeWorkspaceDirectoriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.DescribeWorkspaceDirectories";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.DescribeWorkspaceDirectories"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeWorkspaceDirectoriesRequest(input, context)
@@ -541,9 +558,10 @@ export const serializeAws_json1_1DescribeWorkspaceImagesCommand = async (
   input: DescribeWorkspaceImagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.DescribeWorkspaceImages";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.DescribeWorkspaceImages"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeWorkspaceImagesRequest(input, context)
@@ -555,9 +573,10 @@ export const serializeAws_json1_1DescribeWorkspaceSnapshotsCommand = async (
   input: DescribeWorkspaceSnapshotsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.DescribeWorkspaceSnapshots";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.DescribeWorkspaceSnapshots"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeWorkspaceSnapshotsRequest(input, context)
@@ -569,9 +588,10 @@ export const serializeAws_json1_1DescribeWorkspacesCommand = async (
   input: DescribeWorkspacesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.DescribeWorkspaces";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.DescribeWorkspaces"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeWorkspacesRequest(input, context)
@@ -583,10 +603,10 @@ export const serializeAws_json1_1DescribeWorkspacesConnectionStatusCommand = asy
   input: DescribeWorkspacesConnectionStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "WorkspacesService.DescribeWorkspacesConnectionStatus";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.DescribeWorkspacesConnectionStatus"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeWorkspacesConnectionStatusRequest(
@@ -601,9 +621,10 @@ export const serializeAws_json1_1DisassociateIpGroupsCommand = async (
   input: DisassociateIpGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.DisassociateIpGroups";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.DisassociateIpGroups"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DisassociateIpGroupsRequest(input, context)
@@ -615,9 +636,10 @@ export const serializeAws_json1_1ImportWorkspaceImageCommand = async (
   input: ImportWorkspaceImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.ImportWorkspaceImage";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.ImportWorkspaceImage"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ImportWorkspaceImageRequest(input, context)
@@ -629,10 +651,10 @@ export const serializeAws_json1_1ListAvailableManagementCidrRangesCommand = asyn
   input: ListAvailableManagementCidrRangesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "WorkspacesService.ListAvailableManagementCidrRanges";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.ListAvailableManagementCidrRanges"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListAvailableManagementCidrRangesRequest(input, context)
@@ -644,9 +666,10 @@ export const serializeAws_json1_1MigrateWorkspaceCommand = async (
   input: MigrateWorkspaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.MigrateWorkspace";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.MigrateWorkspace"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1MigrateWorkspaceRequest(input, context)
@@ -658,9 +681,10 @@ export const serializeAws_json1_1ModifyAccountCommand = async (
   input: ModifyAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.ModifyAccount";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.ModifyAccount"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ModifyAccountRequest(input, context)
@@ -672,9 +696,10 @@ export const serializeAws_json1_1ModifyClientPropertiesCommand = async (
   input: ModifyClientPropertiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.ModifyClientProperties";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.ModifyClientProperties"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ModifyClientPropertiesRequest(input, context)
@@ -686,9 +711,10 @@ export const serializeAws_json1_1ModifySelfservicePermissionsCommand = async (
   input: ModifySelfservicePermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.ModifySelfservicePermissions";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.ModifySelfservicePermissions"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ModifySelfservicePermissionsRequest(input, context)
@@ -700,9 +726,10 @@ export const serializeAws_json1_1ModifyWorkspaceAccessPropertiesCommand = async 
   input: ModifyWorkspaceAccessPropertiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.ModifyWorkspaceAccessProperties";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.ModifyWorkspaceAccessProperties"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ModifyWorkspaceAccessPropertiesRequest(input, context)
@@ -714,10 +741,10 @@ export const serializeAws_json1_1ModifyWorkspaceCreationPropertiesCommand = asyn
   input: ModifyWorkspaceCreationPropertiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "WorkspacesService.ModifyWorkspaceCreationProperties";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.ModifyWorkspaceCreationProperties"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ModifyWorkspaceCreationPropertiesRequest(input, context)
@@ -729,9 +756,10 @@ export const serializeAws_json1_1ModifyWorkspacePropertiesCommand = async (
   input: ModifyWorkspacePropertiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.ModifyWorkspaceProperties";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.ModifyWorkspaceProperties"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ModifyWorkspacePropertiesRequest(input, context)
@@ -743,9 +771,10 @@ export const serializeAws_json1_1ModifyWorkspaceStateCommand = async (
   input: ModifyWorkspaceStateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.ModifyWorkspaceState";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.ModifyWorkspaceState"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ModifyWorkspaceStateRequest(input, context)
@@ -757,9 +786,10 @@ export const serializeAws_json1_1RebootWorkspacesCommand = async (
   input: RebootWorkspacesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.RebootWorkspaces";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.RebootWorkspaces"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RebootWorkspacesRequest(input, context)
@@ -771,9 +801,10 @@ export const serializeAws_json1_1RebuildWorkspacesCommand = async (
   input: RebuildWorkspacesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.RebuildWorkspaces";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.RebuildWorkspaces"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RebuildWorkspacesRequest(input, context)
@@ -785,9 +816,10 @@ export const serializeAws_json1_1RegisterWorkspaceDirectoryCommand = async (
   input: RegisterWorkspaceDirectoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.RegisterWorkspaceDirectory";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.RegisterWorkspaceDirectory"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RegisterWorkspaceDirectoryRequest(input, context)
@@ -799,9 +831,10 @@ export const serializeAws_json1_1RestoreWorkspaceCommand = async (
   input: RestoreWorkspaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.RestoreWorkspace";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.RestoreWorkspace"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RestoreWorkspaceRequest(input, context)
@@ -813,9 +846,10 @@ export const serializeAws_json1_1RevokeIpRulesCommand = async (
   input: RevokeIpRulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.RevokeIpRules";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.RevokeIpRules"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RevokeIpRulesRequest(input, context)
@@ -827,9 +861,10 @@ export const serializeAws_json1_1StartWorkspacesCommand = async (
   input: StartWorkspacesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.StartWorkspaces";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.StartWorkspaces"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartWorkspacesRequest(input, context)
@@ -841,9 +876,10 @@ export const serializeAws_json1_1StopWorkspacesCommand = async (
   input: StopWorkspacesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.StopWorkspaces";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.StopWorkspaces"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StopWorkspacesRequest(input, context)
@@ -855,9 +891,10 @@ export const serializeAws_json1_1TerminateWorkspacesCommand = async (
   input: TerminateWorkspacesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.TerminateWorkspaces";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.TerminateWorkspaces"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1TerminateWorkspacesRequest(input, context)
@@ -869,9 +906,10 @@ export const serializeAws_json1_1UpdateRulesOfIpGroupCommand = async (
   input: UpdateRulesOfIpGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.UpdateRulesOfIpGroup";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.UpdateRulesOfIpGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateRulesOfIpGroupRequest(input, context)

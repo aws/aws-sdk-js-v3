@@ -239,8 +239,9 @@ export const serializeAws_queryAddPermissionCommand = async (
   input: AddPermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryAddPermissionInput(input, context);
   body = buildFormUrlencodedString({
@@ -255,8 +256,9 @@ export const serializeAws_queryCheckIfPhoneNumberIsOptedOutCommand = async (
   input: CheckIfPhoneNumberIsOptedOutCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCheckIfPhoneNumberIsOptedOutInput(
     input,
@@ -274,8 +276,9 @@ export const serializeAws_queryConfirmSubscriptionCommand = async (
   input: ConfirmSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryConfirmSubscriptionInput(input, context);
   body = buildFormUrlencodedString({
@@ -290,8 +293,9 @@ export const serializeAws_queryCreatePlatformApplicationCommand = async (
   input: CreatePlatformApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCreatePlatformApplicationInput(
     input,
@@ -309,8 +313,9 @@ export const serializeAws_queryCreatePlatformEndpointCommand = async (
   input: CreatePlatformEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCreatePlatformEndpointInput(input, context);
   body = buildFormUrlencodedString({
@@ -325,8 +330,9 @@ export const serializeAws_queryCreateTopicCommand = async (
   input: CreateTopicCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCreateTopicInput(input, context);
   body = buildFormUrlencodedString({
@@ -341,8 +347,9 @@ export const serializeAws_queryDeleteEndpointCommand = async (
   input: DeleteEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteEndpointInput(input, context);
   body = buildFormUrlencodedString({
@@ -357,8 +364,9 @@ export const serializeAws_queryDeletePlatformApplicationCommand = async (
   input: DeletePlatformApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeletePlatformApplicationInput(
     input,
@@ -376,8 +384,9 @@ export const serializeAws_queryDeleteTopicCommand = async (
   input: DeleteTopicCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteTopicInput(input, context);
   body = buildFormUrlencodedString({
@@ -392,8 +401,9 @@ export const serializeAws_queryGetEndpointAttributesCommand = async (
   input: GetEndpointAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryGetEndpointAttributesInput(input, context);
   body = buildFormUrlencodedString({
@@ -408,8 +418,9 @@ export const serializeAws_queryGetPlatformApplicationAttributesCommand = async (
   input: GetPlatformApplicationAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryGetPlatformApplicationAttributesInput(
     input,
@@ -427,8 +438,9 @@ export const serializeAws_queryGetSMSAttributesCommand = async (
   input: GetSMSAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryGetSMSAttributesInput(input, context);
   body = buildFormUrlencodedString({
@@ -443,8 +455,9 @@ export const serializeAws_queryGetSubscriptionAttributesCommand = async (
   input: GetSubscriptionAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryGetSubscriptionAttributesInput(
     input,
@@ -462,8 +475,9 @@ export const serializeAws_queryGetTopicAttributesCommand = async (
   input: GetTopicAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryGetTopicAttributesInput(input, context);
   body = buildFormUrlencodedString({
@@ -478,8 +492,9 @@ export const serializeAws_queryListEndpointsByPlatformApplicationCommand = async
   input: ListEndpointsByPlatformApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryListEndpointsByPlatformApplicationInput(
     input,
@@ -497,8 +512,9 @@ export const serializeAws_queryListPhoneNumbersOptedOutCommand = async (
   input: ListPhoneNumbersOptedOutCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryListPhoneNumbersOptedOutInput(
     input,
@@ -516,8 +532,9 @@ export const serializeAws_queryListPlatformApplicationsCommand = async (
   input: ListPlatformApplicationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryListPlatformApplicationsInput(
     input,
@@ -535,8 +552,9 @@ export const serializeAws_queryListSubscriptionsCommand = async (
   input: ListSubscriptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryListSubscriptionsInput(input, context);
   body = buildFormUrlencodedString({
@@ -551,8 +569,9 @@ export const serializeAws_queryListSubscriptionsByTopicCommand = async (
   input: ListSubscriptionsByTopicCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryListSubscriptionsByTopicInput(
     input,
@@ -570,8 +589,9 @@ export const serializeAws_queryListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryListTagsForResourceRequest(input, context);
   body = buildFormUrlencodedString({
@@ -586,8 +606,9 @@ export const serializeAws_queryListTopicsCommand = async (
   input: ListTopicsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryListTopicsInput(input, context);
   body = buildFormUrlencodedString({
@@ -602,8 +623,9 @@ export const serializeAws_queryOptInPhoneNumberCommand = async (
   input: OptInPhoneNumberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryOptInPhoneNumberInput(input, context);
   body = buildFormUrlencodedString({
@@ -618,8 +640,9 @@ export const serializeAws_queryPublishCommand = async (
   input: PublishCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryPublishInput(input, context);
   body = buildFormUrlencodedString({
@@ -634,8 +657,9 @@ export const serializeAws_queryRemovePermissionCommand = async (
   input: RemovePermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryRemovePermissionInput(input, context);
   body = buildFormUrlencodedString({
@@ -650,8 +674,9 @@ export const serializeAws_querySetEndpointAttributesCommand = async (
   input: SetEndpointAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_querySetEndpointAttributesInput(input, context);
   body = buildFormUrlencodedString({
@@ -666,8 +691,9 @@ export const serializeAws_querySetPlatformApplicationAttributesCommand = async (
   input: SetPlatformApplicationAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_querySetPlatformApplicationAttributesInput(
     input,
@@ -685,8 +711,9 @@ export const serializeAws_querySetSMSAttributesCommand = async (
   input: SetSMSAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_querySetSMSAttributesInput(input, context);
   body = buildFormUrlencodedString({
@@ -701,8 +728,9 @@ export const serializeAws_querySetSubscriptionAttributesCommand = async (
   input: SetSubscriptionAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_querySetSubscriptionAttributesInput(
     input,
@@ -720,8 +748,9 @@ export const serializeAws_querySetTopicAttributesCommand = async (
   input: SetTopicAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_querySetTopicAttributesInput(input, context);
   body = buildFormUrlencodedString({
@@ -736,8 +765,9 @@ export const serializeAws_querySubscribeCommand = async (
   input: SubscribeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_querySubscribeInput(input, context);
   body = buildFormUrlencodedString({
@@ -752,8 +782,9 @@ export const serializeAws_queryTagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryTagResourceRequest(input, context);
   body = buildFormUrlencodedString({
@@ -768,8 +799,9 @@ export const serializeAws_queryUnsubscribeCommand = async (
   input: UnsubscribeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryUnsubscribeInput(input, context);
   body = buildFormUrlencodedString({
@@ -784,8 +816,9 @@ export const serializeAws_queryUntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryUntagResourceRequest(input, context);
   body = buildFormUrlencodedString({

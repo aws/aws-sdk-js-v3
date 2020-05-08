@@ -417,9 +417,10 @@ export const serializeAws_json1_1AcceptSharedDirectoryCommand = async (
   input: AcceptSharedDirectoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DirectoryService_20150416.AcceptSharedDirectory";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.AcceptSharedDirectory"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AcceptSharedDirectoryRequest(input, context)
@@ -431,9 +432,10 @@ export const serializeAws_json1_1AddIpRoutesCommand = async (
   input: AddIpRoutesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DirectoryService_20150416.AddIpRoutes";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.AddIpRoutes"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AddIpRoutesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -443,9 +445,10 @@ export const serializeAws_json1_1AddTagsToResourceCommand = async (
   input: AddTagsToResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DirectoryService_20150416.AddTagsToResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.AddTagsToResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AddTagsToResourceRequest(input, context)
@@ -457,9 +460,10 @@ export const serializeAws_json1_1CancelSchemaExtensionCommand = async (
   input: CancelSchemaExtensionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DirectoryService_20150416.CancelSchemaExtension";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.CancelSchemaExtension"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CancelSchemaExtensionRequest(input, context)
@@ -471,9 +475,10 @@ export const serializeAws_json1_1ConnectDirectoryCommand = async (
   input: ConnectDirectoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DirectoryService_20150416.ConnectDirectory";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.ConnectDirectory"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ConnectDirectoryRequest(input, context)
@@ -485,9 +490,10 @@ export const serializeAws_json1_1CreateAliasCommand = async (
   input: CreateAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DirectoryService_20150416.CreateAlias";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.CreateAlias"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateAliasRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -497,9 +503,10 @@ export const serializeAws_json1_1CreateComputerCommand = async (
   input: CreateComputerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DirectoryService_20150416.CreateComputer";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.CreateComputer"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateComputerRequest(input, context)
@@ -511,10 +518,10 @@ export const serializeAws_json1_1CreateConditionalForwarderCommand = async (
   input: CreateConditionalForwarderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "DirectoryService_20150416.CreateConditionalForwarder";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.CreateConditionalForwarder"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateConditionalForwarderRequest(input, context)
@@ -526,9 +533,10 @@ export const serializeAws_json1_1CreateDirectoryCommand = async (
   input: CreateDirectoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DirectoryService_20150416.CreateDirectory";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.CreateDirectory"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateDirectoryRequest(input, context)
@@ -540,9 +548,10 @@ export const serializeAws_json1_1CreateLogSubscriptionCommand = async (
   input: CreateLogSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DirectoryService_20150416.CreateLogSubscription";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.CreateLogSubscription"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateLogSubscriptionRequest(input, context)
@@ -554,9 +563,10 @@ export const serializeAws_json1_1CreateMicrosoftADCommand = async (
   input: CreateMicrosoftADCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DirectoryService_20150416.CreateMicrosoftAD";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.CreateMicrosoftAD"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateMicrosoftADRequest(input, context)
@@ -568,9 +578,10 @@ export const serializeAws_json1_1CreateSnapshotCommand = async (
   input: CreateSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DirectoryService_20150416.CreateSnapshot";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.CreateSnapshot"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateSnapshotRequest(input, context)
@@ -582,9 +593,10 @@ export const serializeAws_json1_1CreateTrustCommand = async (
   input: CreateTrustCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DirectoryService_20150416.CreateTrust";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.CreateTrust"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateTrustRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -594,10 +606,10 @@ export const serializeAws_json1_1DeleteConditionalForwarderCommand = async (
   input: DeleteConditionalForwarderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "DirectoryService_20150416.DeleteConditionalForwarder";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.DeleteConditionalForwarder"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteConditionalForwarderRequest(input, context)
@@ -609,9 +621,10 @@ export const serializeAws_json1_1DeleteDirectoryCommand = async (
   input: DeleteDirectoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DirectoryService_20150416.DeleteDirectory";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.DeleteDirectory"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteDirectoryRequest(input, context)
@@ -623,9 +636,10 @@ export const serializeAws_json1_1DeleteLogSubscriptionCommand = async (
   input: DeleteLogSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DirectoryService_20150416.DeleteLogSubscription";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.DeleteLogSubscription"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteLogSubscriptionRequest(input, context)
@@ -637,9 +651,10 @@ export const serializeAws_json1_1DeleteSnapshotCommand = async (
   input: DeleteSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DirectoryService_20150416.DeleteSnapshot";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.DeleteSnapshot"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteSnapshotRequest(input, context)
@@ -651,9 +666,10 @@ export const serializeAws_json1_1DeleteTrustCommand = async (
   input: DeleteTrustCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DirectoryService_20150416.DeleteTrust";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.DeleteTrust"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteTrustRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -663,9 +679,10 @@ export const serializeAws_json1_1DeregisterCertificateCommand = async (
   input: DeregisterCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DirectoryService_20150416.DeregisterCertificate";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.DeregisterCertificate"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeregisterCertificateRequest(input, context)
@@ -677,9 +694,10 @@ export const serializeAws_json1_1DeregisterEventTopicCommand = async (
   input: DeregisterEventTopicCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DirectoryService_20150416.DeregisterEventTopic";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.DeregisterEventTopic"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeregisterEventTopicRequest(input, context)
@@ -691,9 +709,10 @@ export const serializeAws_json1_1DescribeCertificateCommand = async (
   input: DescribeCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DirectoryService_20150416.DescribeCertificate";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.DescribeCertificate"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeCertificateRequest(input, context)
@@ -705,10 +724,10 @@ export const serializeAws_json1_1DescribeConditionalForwardersCommand = async (
   input: DescribeConditionalForwardersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "DirectoryService_20150416.DescribeConditionalForwarders";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.DescribeConditionalForwarders"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeConditionalForwardersRequest(input, context)
@@ -720,9 +739,10 @@ export const serializeAws_json1_1DescribeDirectoriesCommand = async (
   input: DescribeDirectoriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DirectoryService_20150416.DescribeDirectories";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.DescribeDirectories"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeDirectoriesRequest(input, context)
@@ -734,10 +754,10 @@ export const serializeAws_json1_1DescribeDomainControllersCommand = async (
   input: DescribeDomainControllersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "DirectoryService_20150416.DescribeDomainControllers";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.DescribeDomainControllers"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeDomainControllersRequest(input, context)
@@ -749,9 +769,10 @@ export const serializeAws_json1_1DescribeEventTopicsCommand = async (
   input: DescribeEventTopicsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DirectoryService_20150416.DescribeEventTopics";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.DescribeEventTopics"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEventTopicsRequest(input, context)
@@ -763,9 +784,10 @@ export const serializeAws_json1_1DescribeLDAPSSettingsCommand = async (
   input: DescribeLDAPSSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DirectoryService_20150416.DescribeLDAPSSettings";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.DescribeLDAPSSettings"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeLDAPSSettingsRequest(input, context)
@@ -777,10 +799,10 @@ export const serializeAws_json1_1DescribeSharedDirectoriesCommand = async (
   input: DescribeSharedDirectoriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "DirectoryService_20150416.DescribeSharedDirectories";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.DescribeSharedDirectories"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeSharedDirectoriesRequest(input, context)
@@ -792,9 +814,10 @@ export const serializeAws_json1_1DescribeSnapshotsCommand = async (
   input: DescribeSnapshotsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DirectoryService_20150416.DescribeSnapshots";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.DescribeSnapshots"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeSnapshotsRequest(input, context)
@@ -806,9 +829,10 @@ export const serializeAws_json1_1DescribeTrustsCommand = async (
   input: DescribeTrustsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DirectoryService_20150416.DescribeTrusts";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.DescribeTrusts"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeTrustsRequest(input, context)
@@ -820,9 +844,10 @@ export const serializeAws_json1_1DisableLDAPSCommand = async (
   input: DisableLDAPSCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DirectoryService_20150416.DisableLDAPS";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.DisableLDAPS"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DisableLDAPSRequest(input, context)
@@ -834,9 +859,10 @@ export const serializeAws_json1_1DisableRadiusCommand = async (
   input: DisableRadiusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DirectoryService_20150416.DisableRadius";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.DisableRadius"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DisableRadiusRequest(input, context)
@@ -848,9 +874,10 @@ export const serializeAws_json1_1DisableSsoCommand = async (
   input: DisableSsoCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DirectoryService_20150416.DisableSso";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.DisableSso"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DisableSsoRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -860,9 +887,10 @@ export const serializeAws_json1_1EnableLDAPSCommand = async (
   input: EnableLDAPSCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DirectoryService_20150416.EnableLDAPS";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.EnableLDAPS"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1EnableLDAPSRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -872,9 +900,10 @@ export const serializeAws_json1_1EnableRadiusCommand = async (
   input: EnableRadiusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DirectoryService_20150416.EnableRadius";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.EnableRadius"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1EnableRadiusRequest(input, context)
@@ -886,9 +915,10 @@ export const serializeAws_json1_1EnableSsoCommand = async (
   input: EnableSsoCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DirectoryService_20150416.EnableSso";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.EnableSso"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1EnableSsoRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -898,9 +928,10 @@ export const serializeAws_json1_1GetDirectoryLimitsCommand = async (
   input: GetDirectoryLimitsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DirectoryService_20150416.GetDirectoryLimits";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.GetDirectoryLimits"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetDirectoryLimitsRequest(input, context)
@@ -912,9 +943,10 @@ export const serializeAws_json1_1GetSnapshotLimitsCommand = async (
   input: GetSnapshotLimitsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DirectoryService_20150416.GetSnapshotLimits";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.GetSnapshotLimits"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetSnapshotLimitsRequest(input, context)
@@ -926,9 +958,10 @@ export const serializeAws_json1_1ListCertificatesCommand = async (
   input: ListCertificatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DirectoryService_20150416.ListCertificates";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.ListCertificates"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListCertificatesRequest(input, context)
@@ -940,9 +973,10 @@ export const serializeAws_json1_1ListIpRoutesCommand = async (
   input: ListIpRoutesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DirectoryService_20150416.ListIpRoutes";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.ListIpRoutes"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListIpRoutesRequest(input, context)
@@ -954,9 +988,10 @@ export const serializeAws_json1_1ListLogSubscriptionsCommand = async (
   input: ListLogSubscriptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DirectoryService_20150416.ListLogSubscriptions";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.ListLogSubscriptions"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListLogSubscriptionsRequest(input, context)
@@ -968,9 +1003,10 @@ export const serializeAws_json1_1ListSchemaExtensionsCommand = async (
   input: ListSchemaExtensionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DirectoryService_20150416.ListSchemaExtensions";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.ListSchemaExtensions"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListSchemaExtensionsRequest(input, context)
@@ -982,9 +1018,10 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DirectoryService_20150416.ListTagsForResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.ListTagsForResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTagsForResourceRequest(input, context)
@@ -996,9 +1033,10 @@ export const serializeAws_json1_1RegisterCertificateCommand = async (
   input: RegisterCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DirectoryService_20150416.RegisterCertificate";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.RegisterCertificate"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RegisterCertificateRequest(input, context)
@@ -1010,9 +1048,10 @@ export const serializeAws_json1_1RegisterEventTopicCommand = async (
   input: RegisterEventTopicCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DirectoryService_20150416.RegisterEventTopic";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.RegisterEventTopic"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RegisterEventTopicRequest(input, context)
@@ -1024,9 +1063,10 @@ export const serializeAws_json1_1RejectSharedDirectoryCommand = async (
   input: RejectSharedDirectoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DirectoryService_20150416.RejectSharedDirectory";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.RejectSharedDirectory"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RejectSharedDirectoryRequest(input, context)
@@ -1038,9 +1078,10 @@ export const serializeAws_json1_1RemoveIpRoutesCommand = async (
   input: RemoveIpRoutesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DirectoryService_20150416.RemoveIpRoutes";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.RemoveIpRoutes"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RemoveIpRoutesRequest(input, context)
@@ -1052,9 +1093,10 @@ export const serializeAws_json1_1RemoveTagsFromResourceCommand = async (
   input: RemoveTagsFromResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DirectoryService_20150416.RemoveTagsFromResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.RemoveTagsFromResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RemoveTagsFromResourceRequest(input, context)
@@ -1066,9 +1108,10 @@ export const serializeAws_json1_1ResetUserPasswordCommand = async (
   input: ResetUserPasswordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DirectoryService_20150416.ResetUserPassword";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.ResetUserPassword"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ResetUserPasswordRequest(input, context)
@@ -1080,9 +1123,10 @@ export const serializeAws_json1_1RestoreFromSnapshotCommand = async (
   input: RestoreFromSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DirectoryService_20150416.RestoreFromSnapshot";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.RestoreFromSnapshot"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RestoreFromSnapshotRequest(input, context)
@@ -1094,9 +1138,10 @@ export const serializeAws_json1_1ShareDirectoryCommand = async (
   input: ShareDirectoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DirectoryService_20150416.ShareDirectory";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.ShareDirectory"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ShareDirectoryRequest(input, context)
@@ -1108,9 +1153,10 @@ export const serializeAws_json1_1StartSchemaExtensionCommand = async (
   input: StartSchemaExtensionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DirectoryService_20150416.StartSchemaExtension";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.StartSchemaExtension"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartSchemaExtensionRequest(input, context)
@@ -1122,9 +1168,10 @@ export const serializeAws_json1_1UnshareDirectoryCommand = async (
   input: UnshareDirectoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DirectoryService_20150416.UnshareDirectory";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.UnshareDirectory"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UnshareDirectoryRequest(input, context)
@@ -1136,10 +1183,10 @@ export const serializeAws_json1_1UpdateConditionalForwarderCommand = async (
   input: UpdateConditionalForwarderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "DirectoryService_20150416.UpdateConditionalForwarder";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.UpdateConditionalForwarder"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateConditionalForwarderRequest(input, context)
@@ -1151,10 +1198,10 @@ export const serializeAws_json1_1UpdateNumberOfDomainControllersCommand = async 
   input: UpdateNumberOfDomainControllersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "DirectoryService_20150416.UpdateNumberOfDomainControllers";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.UpdateNumberOfDomainControllers"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateNumberOfDomainControllersRequest(input, context)
@@ -1166,9 +1213,10 @@ export const serializeAws_json1_1UpdateRadiusCommand = async (
   input: UpdateRadiusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DirectoryService_20150416.UpdateRadius";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.UpdateRadius"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateRadiusRequest(input, context)
@@ -1180,9 +1228,10 @@ export const serializeAws_json1_1UpdateTrustCommand = async (
   input: UpdateTrustCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DirectoryService_20150416.UpdateTrust";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.UpdateTrust"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateTrustRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1192,9 +1241,10 @@ export const serializeAws_json1_1VerifyTrustCommand = async (
   input: VerifyTrustCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DirectoryService_20150416.VerifyTrust";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DirectoryService_20150416.VerifyTrust"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1VerifyTrustRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);

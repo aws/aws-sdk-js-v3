@@ -51,8 +51,9 @@ export const serializeAws_restJson1_1DeleteHumanLoopCommand = async (
   input: DeleteHumanLoopCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/human-loops/{HumanLoopName}";
   if (input.HumanLoopName !== undefined) {
     const labelValue: string = input.HumanLoopName;
@@ -85,8 +86,9 @@ export const serializeAws_restJson1_1DescribeHumanLoopCommand = async (
   input: DescribeHumanLoopCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/human-loops/{HumanLoopName}";
   if (input.HumanLoopName !== undefined) {
     const labelValue: string = input.HumanLoopName;
@@ -119,8 +121,9 @@ export const serializeAws_restJson1_1ListHumanLoopsCommand = async (
   input: ListHumanLoopsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/human-loops";
   const query: any = {};
   if (input.CreationTimeAfter !== undefined) {
@@ -160,8 +163,9 @@ export const serializeAws_restJson1_1StartHumanLoopCommand = async (
   input: StartHumanLoopCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/human-loops";
   let body: any;
   const bodyParams: any = {};
@@ -204,8 +208,9 @@ export const serializeAws_restJson1_1StopHumanLoopCommand = async (
   input: StopHumanLoopCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/human-loops/stop";
   let body: any;
   const bodyParams: any = {};

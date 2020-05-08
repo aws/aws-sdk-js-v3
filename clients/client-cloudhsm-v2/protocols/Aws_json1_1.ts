@@ -107,9 +107,10 @@ export const serializeAws_json1_1CopyBackupToRegionCommand = async (
   input: CopyBackupToRegionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "BaldrApiService.CopyBackupToRegion";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "BaldrApiService.CopyBackupToRegion"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CopyBackupToRegionRequest(input, context)
@@ -121,9 +122,10 @@ export const serializeAws_json1_1CreateClusterCommand = async (
   input: CreateClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "BaldrApiService.CreateCluster";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "BaldrApiService.CreateCluster"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateClusterRequest(input, context)
@@ -135,9 +137,10 @@ export const serializeAws_json1_1CreateHsmCommand = async (
   input: CreateHsmCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "BaldrApiService.CreateHsm";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "BaldrApiService.CreateHsm"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateHsmRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -147,9 +150,10 @@ export const serializeAws_json1_1DeleteBackupCommand = async (
   input: DeleteBackupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "BaldrApiService.DeleteBackup";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "BaldrApiService.DeleteBackup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteBackupRequest(input, context)
@@ -161,9 +165,10 @@ export const serializeAws_json1_1DeleteClusterCommand = async (
   input: DeleteClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "BaldrApiService.DeleteCluster";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "BaldrApiService.DeleteCluster"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteClusterRequest(input, context)
@@ -175,9 +180,10 @@ export const serializeAws_json1_1DeleteHsmCommand = async (
   input: DeleteHsmCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "BaldrApiService.DeleteHsm";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "BaldrApiService.DeleteHsm"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteHsmRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -187,9 +193,10 @@ export const serializeAws_json1_1DescribeBackupsCommand = async (
   input: DescribeBackupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "BaldrApiService.DescribeBackups";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "BaldrApiService.DescribeBackups"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeBackupsRequest(input, context)
@@ -201,9 +208,10 @@ export const serializeAws_json1_1DescribeClustersCommand = async (
   input: DescribeClustersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "BaldrApiService.DescribeClusters";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "BaldrApiService.DescribeClusters"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeClustersRequest(input, context)
@@ -215,9 +223,10 @@ export const serializeAws_json1_1InitializeClusterCommand = async (
   input: InitializeClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "BaldrApiService.InitializeCluster";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "BaldrApiService.InitializeCluster"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1InitializeClusterRequest(input, context)
@@ -229,9 +238,10 @@ export const serializeAws_json1_1ListTagsCommand = async (
   input: ListTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "BaldrApiService.ListTags";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "BaldrApiService.ListTags"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTagsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -241,9 +251,10 @@ export const serializeAws_json1_1RestoreBackupCommand = async (
   input: RestoreBackupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "BaldrApiService.RestoreBackup";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "BaldrApiService.RestoreBackup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RestoreBackupRequest(input, context)
@@ -255,9 +266,10 @@ export const serializeAws_json1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "BaldrApiService.TagResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "BaldrApiService.TagResource"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -267,9 +279,10 @@ export const serializeAws_json1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "BaldrApiService.UntagResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "BaldrApiService.UntagResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UntagResourceRequest(input, context)

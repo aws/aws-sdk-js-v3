@@ -370,8 +370,9 @@ export const serializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommand = a
   input: CreateCloudFrontOriginAccessIdentityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/2019-03-26/origin-access-identity/cloudfront";
   let body: any;
   let contents: any;
@@ -403,8 +404,9 @@ export const serializeAws_restXmlCreateDistributionCommand = async (
   input: CreateDistributionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/2019-03-26/distribution";
   let body: any;
   let contents: any;
@@ -436,8 +438,9 @@ export const serializeAws_restXmlCreateDistributionWithTagsCommand = async (
   input: CreateDistributionWithTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/2019-03-26/distribution";
   const query: any = {
     WithTags: ""
@@ -473,8 +476,9 @@ export const serializeAws_restXmlCreateFieldLevelEncryptionConfigCommand = async
   input: CreateFieldLevelEncryptionConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/2019-03-26/field-level-encryption";
   let body: any;
   let contents: any;
@@ -506,8 +510,9 @@ export const serializeAws_restXmlCreateFieldLevelEncryptionProfileCommand = asyn
   input: CreateFieldLevelEncryptionProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/2019-03-26/field-level-encryption-profile";
   let body: any;
   let contents: any;
@@ -539,8 +544,9 @@ export const serializeAws_restXmlCreateInvalidationCommand = async (
   input: CreateInvalidationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/2019-03-26/distribution/{DistributionId}/invalidation";
   if (input.DistributionId !== undefined) {
     const labelValue: string = input.DistributionId;
@@ -586,8 +592,9 @@ export const serializeAws_restXmlCreatePublicKeyCommand = async (
   input: CreatePublicKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/2019-03-26/public-key";
   let body: any;
   let contents: any;
@@ -619,8 +626,9 @@ export const serializeAws_restXmlCreateStreamingDistributionCommand = async (
   input: CreateStreamingDistributionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/2019-03-26/streaming-distribution";
   let body: any;
   let contents: any;
@@ -652,8 +660,9 @@ export const serializeAws_restXmlCreateStreamingDistributionWithTagsCommand = as
   input: CreateStreamingDistributionWithTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/2019-03-26/streaming-distribution";
   const query: any = {
     WithTags: ""
@@ -689,11 +698,12 @@ export const serializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommand = a
   input: DeleteCloudFrontOriginAccessIdentityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.IfMatch)) {
-    headers["If-Match"] = input.IfMatch!;
-  }
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.IfMatch) && {
+      "If-Match": input.IfMatch!
+    })
+  };
   let resolvedPath = "/2019-03-26/origin-access-identity/cloudfront/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -724,11 +734,12 @@ export const serializeAws_restXmlDeleteDistributionCommand = async (
   input: DeleteDistributionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.IfMatch)) {
-    headers["If-Match"] = input.IfMatch!;
-  }
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.IfMatch) && {
+      "If-Match": input.IfMatch!
+    })
+  };
   let resolvedPath = "/2019-03-26/distribution/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -759,11 +770,12 @@ export const serializeAws_restXmlDeleteFieldLevelEncryptionConfigCommand = async
   input: DeleteFieldLevelEncryptionConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.IfMatch)) {
-    headers["If-Match"] = input.IfMatch!;
-  }
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.IfMatch) && {
+      "If-Match": input.IfMatch!
+    })
+  };
   let resolvedPath = "/2019-03-26/field-level-encryption/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -794,11 +806,12 @@ export const serializeAws_restXmlDeleteFieldLevelEncryptionProfileCommand = asyn
   input: DeleteFieldLevelEncryptionProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.IfMatch)) {
-    headers["If-Match"] = input.IfMatch!;
-  }
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.IfMatch) && {
+      "If-Match": input.IfMatch!
+    })
+  };
   let resolvedPath = "/2019-03-26/field-level-encryption-profile/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -829,11 +842,12 @@ export const serializeAws_restXmlDeletePublicKeyCommand = async (
   input: DeletePublicKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.IfMatch)) {
-    headers["If-Match"] = input.IfMatch!;
-  }
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.IfMatch) && {
+      "If-Match": input.IfMatch!
+    })
+  };
   let resolvedPath = "/2019-03-26/public-key/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -864,11 +878,12 @@ export const serializeAws_restXmlDeleteStreamingDistributionCommand = async (
   input: DeleteStreamingDistributionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.IfMatch)) {
-    headers["If-Match"] = input.IfMatch!;
-  }
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.IfMatch) && {
+      "If-Match": input.IfMatch!
+    })
+  };
   let resolvedPath = "/2019-03-26/streaming-distribution/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -899,8 +914,9 @@ export const serializeAws_restXmlGetCloudFrontOriginAccessIdentityCommand = asyn
   input: GetCloudFrontOriginAccessIdentityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2019-03-26/origin-access-identity/cloudfront/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -931,8 +947,9 @@ export const serializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigCommand 
   input: GetCloudFrontOriginAccessIdentityConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/2019-03-26/origin-access-identity/cloudfront/{Id}/config";
   if (input.Id !== undefined) {
@@ -964,8 +981,9 @@ export const serializeAws_restXmlGetDistributionCommand = async (
   input: GetDistributionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2019-03-26/distribution/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -996,8 +1014,9 @@ export const serializeAws_restXmlGetDistributionConfigCommand = async (
   input: GetDistributionConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2019-03-26/distribution/{Id}/config";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1028,8 +1047,9 @@ export const serializeAws_restXmlGetFieldLevelEncryptionCommand = async (
   input: GetFieldLevelEncryptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2019-03-26/field-level-encryption/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1060,8 +1080,9 @@ export const serializeAws_restXmlGetFieldLevelEncryptionConfigCommand = async (
   input: GetFieldLevelEncryptionConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2019-03-26/field-level-encryption/{Id}/config";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1092,8 +1113,9 @@ export const serializeAws_restXmlGetFieldLevelEncryptionProfileCommand = async (
   input: GetFieldLevelEncryptionProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2019-03-26/field-level-encryption-profile/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1124,8 +1146,9 @@ export const serializeAws_restXmlGetFieldLevelEncryptionProfileConfigCommand = a
   input: GetFieldLevelEncryptionProfileConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2019-03-26/field-level-encryption-profile/{Id}/config";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1156,8 +1179,9 @@ export const serializeAws_restXmlGetInvalidationCommand = async (
   input: GetInvalidationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/2019-03-26/distribution/{DistributionId}/invalidation/{Id}";
   if (input.DistributionId !== undefined) {
@@ -1203,8 +1227,9 @@ export const serializeAws_restXmlGetPublicKeyCommand = async (
   input: GetPublicKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2019-03-26/public-key/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1235,8 +1260,9 @@ export const serializeAws_restXmlGetPublicKeyConfigCommand = async (
   input: GetPublicKeyConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2019-03-26/public-key/{Id}/config";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1267,8 +1293,9 @@ export const serializeAws_restXmlGetStreamingDistributionCommand = async (
   input: GetStreamingDistributionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2019-03-26/streaming-distribution/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1299,8 +1326,9 @@ export const serializeAws_restXmlGetStreamingDistributionConfigCommand = async (
   input: GetStreamingDistributionConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2019-03-26/streaming-distribution/{Id}/config";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1331,8 +1359,9 @@ export const serializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommand = a
   input: ListCloudFrontOriginAccessIdentitiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2019-03-26/origin-access-identity/cloudfront";
   const query: any = {};
   if (input.Marker !== undefined) {
@@ -1359,8 +1388,9 @@ export const serializeAws_restXmlListDistributionsCommand = async (
   input: ListDistributionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2019-03-26/distribution";
   const query: any = {};
   if (input.Marker !== undefined) {
@@ -1387,8 +1417,9 @@ export const serializeAws_restXmlListDistributionsByWebACLIdCommand = async (
   input: ListDistributionsByWebACLIdCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2019-03-26/distributionsByWebACLId/{WebACLId}";
   if (input.WebACLId !== undefined) {
     const labelValue: string = input.WebACLId;
@@ -1427,8 +1458,9 @@ export const serializeAws_restXmlListFieldLevelEncryptionConfigsCommand = async 
   input: ListFieldLevelEncryptionConfigsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2019-03-26/field-level-encryption";
   const query: any = {};
   if (input.Marker !== undefined) {
@@ -1455,8 +1487,9 @@ export const serializeAws_restXmlListFieldLevelEncryptionProfilesCommand = async
   input: ListFieldLevelEncryptionProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2019-03-26/field-level-encryption-profile";
   const query: any = {};
   if (input.Marker !== undefined) {
@@ -1483,8 +1516,9 @@ export const serializeAws_restXmlListInvalidationsCommand = async (
   input: ListInvalidationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2019-03-26/distribution/{DistributionId}/invalidation";
   if (input.DistributionId !== undefined) {
     const labelValue: string = input.DistributionId;
@@ -1525,8 +1559,9 @@ export const serializeAws_restXmlListPublicKeysCommand = async (
   input: ListPublicKeysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2019-03-26/public-key";
   const query: any = {};
   if (input.Marker !== undefined) {
@@ -1553,8 +1588,9 @@ export const serializeAws_restXmlListStreamingDistributionsCommand = async (
   input: ListStreamingDistributionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2019-03-26/streaming-distribution";
   const query: any = {};
   if (input.Marker !== undefined) {
@@ -1581,8 +1617,9 @@ export const serializeAws_restXmlListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2019-03-26/tagging";
   const query: any = {};
   if (input.Resource !== undefined) {
@@ -1606,8 +1643,9 @@ export const serializeAws_restXmlTagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/2019-03-26/tagging";
   const query: any = {
     Operation: "Tag"
@@ -1643,8 +1681,9 @@ export const serializeAws_restXmlUntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/2019-03-26/tagging";
   const query: any = {
     Operation: "Untag"
@@ -1680,11 +1719,12 @@ export const serializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommand = a
   input: UpdateCloudFrontOriginAccessIdentityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
-  if (isSerializableHeaderValue(input.IfMatch)) {
-    headers["If-Match"] = input.IfMatch!;
-  }
+  const headers: any = {
+    "Content-Type": "application/xml",
+    ...(isSerializableHeaderValue(input.IfMatch) && {
+      "If-Match": input.IfMatch!
+    })
+  };
   let resolvedPath =
     "/2019-03-26/origin-access-identity/cloudfront/{Id}/config";
   if (input.Id !== undefined) {
@@ -1729,11 +1769,12 @@ export const serializeAws_restXmlUpdateDistributionCommand = async (
   input: UpdateDistributionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
-  if (isSerializableHeaderValue(input.IfMatch)) {
-    headers["If-Match"] = input.IfMatch!;
-  }
+  const headers: any = {
+    "Content-Type": "application/xml",
+    ...(isSerializableHeaderValue(input.IfMatch) && {
+      "If-Match": input.IfMatch!
+    })
+  };
   let resolvedPath = "/2019-03-26/distribution/{Id}/config";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1777,11 +1818,12 @@ export const serializeAws_restXmlUpdateFieldLevelEncryptionConfigCommand = async
   input: UpdateFieldLevelEncryptionConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
-  if (isSerializableHeaderValue(input.IfMatch)) {
-    headers["If-Match"] = input.IfMatch!;
-  }
+  const headers: any = {
+    "Content-Type": "application/xml",
+    ...(isSerializableHeaderValue(input.IfMatch) && {
+      "If-Match": input.IfMatch!
+    })
+  };
   let resolvedPath = "/2019-03-26/field-level-encryption/{Id}/config";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1825,11 +1867,12 @@ export const serializeAws_restXmlUpdateFieldLevelEncryptionProfileCommand = asyn
   input: UpdateFieldLevelEncryptionProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
-  if (isSerializableHeaderValue(input.IfMatch)) {
-    headers["If-Match"] = input.IfMatch!;
-  }
+  const headers: any = {
+    "Content-Type": "application/xml",
+    ...(isSerializableHeaderValue(input.IfMatch) && {
+      "If-Match": input.IfMatch!
+    })
+  };
   let resolvedPath = "/2019-03-26/field-level-encryption-profile/{Id}/config";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1873,11 +1916,12 @@ export const serializeAws_restXmlUpdatePublicKeyCommand = async (
   input: UpdatePublicKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
-  if (isSerializableHeaderValue(input.IfMatch)) {
-    headers["If-Match"] = input.IfMatch!;
-  }
+  const headers: any = {
+    "Content-Type": "application/xml",
+    ...(isSerializableHeaderValue(input.IfMatch) && {
+      "If-Match": input.IfMatch!
+    })
+  };
   let resolvedPath = "/2019-03-26/public-key/{Id}/config";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1921,11 +1965,12 @@ export const serializeAws_restXmlUpdateStreamingDistributionCommand = async (
   input: UpdateStreamingDistributionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
-  if (isSerializableHeaderValue(input.IfMatch)) {
-    headers["If-Match"] = input.IfMatch!;
-  }
+  const headers: any = {
+    "Content-Type": "application/xml",
+    ...(isSerializableHeaderValue(input.IfMatch) && {
+      "If-Match": input.IfMatch!
+    })
+  };
   let resolvedPath = "/2019-03-26/streaming-distribution/{Id}/config";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;

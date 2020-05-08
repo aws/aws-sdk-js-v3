@@ -46,9 +46,10 @@ export const serializeAws_json1_1DescribeServicesCommand = async (
   input: DescribeServicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSPriceListService.DescribeServices";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSPriceListService.DescribeServices"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeServicesRequest(input, context)
@@ -60,9 +61,10 @@ export const serializeAws_json1_1GetAttributeValuesCommand = async (
   input: GetAttributeValuesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSPriceListService.GetAttributeValues";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSPriceListService.GetAttributeValues"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetAttributeValuesRequest(input, context)
@@ -74,9 +76,10 @@ export const serializeAws_json1_1GetProductsCommand = async (
   input: GetProductsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSPriceListService.GetProducts";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSPriceListService.GetProducts"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetProductsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);

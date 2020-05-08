@@ -205,9 +205,10 @@ export const serializeAws_json1_1CreateDatasetCommand = async (
   input: CreateDatasetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecast.CreateDataset";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.CreateDataset"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateDatasetRequest(input, context)
@@ -219,9 +220,10 @@ export const serializeAws_json1_1CreateDatasetGroupCommand = async (
   input: CreateDatasetGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecast.CreateDatasetGroup";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.CreateDatasetGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateDatasetGroupRequest(input, context)
@@ -233,9 +235,10 @@ export const serializeAws_json1_1CreateDatasetImportJobCommand = async (
   input: CreateDatasetImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecast.CreateDatasetImportJob";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.CreateDatasetImportJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateDatasetImportJobRequest(input, context)
@@ -247,9 +250,10 @@ export const serializeAws_json1_1CreateForecastCommand = async (
   input: CreateForecastCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecast.CreateForecast";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.CreateForecast"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateForecastRequest(input, context)
@@ -261,9 +265,10 @@ export const serializeAws_json1_1CreateForecastExportJobCommand = async (
   input: CreateForecastExportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecast.CreateForecastExportJob";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.CreateForecastExportJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateForecastExportJobRequest(input, context)
@@ -275,9 +280,10 @@ export const serializeAws_json1_1CreatePredictorCommand = async (
   input: CreatePredictorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecast.CreatePredictor";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.CreatePredictor"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreatePredictorRequest(input, context)
@@ -289,9 +295,10 @@ export const serializeAws_json1_1DeleteDatasetCommand = async (
   input: DeleteDatasetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecast.DeleteDataset";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.DeleteDataset"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteDatasetRequest(input, context)
@@ -303,9 +310,10 @@ export const serializeAws_json1_1DeleteDatasetGroupCommand = async (
   input: DeleteDatasetGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecast.DeleteDatasetGroup";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.DeleteDatasetGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteDatasetGroupRequest(input, context)
@@ -317,9 +325,10 @@ export const serializeAws_json1_1DeleteDatasetImportJobCommand = async (
   input: DeleteDatasetImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecast.DeleteDatasetImportJob";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.DeleteDatasetImportJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteDatasetImportJobRequest(input, context)
@@ -331,9 +340,10 @@ export const serializeAws_json1_1DeleteForecastCommand = async (
   input: DeleteForecastCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecast.DeleteForecast";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.DeleteForecast"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteForecastRequest(input, context)
@@ -345,9 +355,10 @@ export const serializeAws_json1_1DeleteForecastExportJobCommand = async (
   input: DeleteForecastExportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecast.DeleteForecastExportJob";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.DeleteForecastExportJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteForecastExportJobRequest(input, context)
@@ -359,9 +370,10 @@ export const serializeAws_json1_1DeletePredictorCommand = async (
   input: DeletePredictorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecast.DeletePredictor";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.DeletePredictor"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeletePredictorRequest(input, context)
@@ -373,9 +385,10 @@ export const serializeAws_json1_1DescribeDatasetCommand = async (
   input: DescribeDatasetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecast.DescribeDataset";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.DescribeDataset"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeDatasetRequest(input, context)
@@ -387,9 +400,10 @@ export const serializeAws_json1_1DescribeDatasetGroupCommand = async (
   input: DescribeDatasetGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecast.DescribeDatasetGroup";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.DescribeDatasetGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeDatasetGroupRequest(input, context)
@@ -401,9 +415,10 @@ export const serializeAws_json1_1DescribeDatasetImportJobCommand = async (
   input: DescribeDatasetImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecast.DescribeDatasetImportJob";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.DescribeDatasetImportJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeDatasetImportJobRequest(input, context)
@@ -415,9 +430,10 @@ export const serializeAws_json1_1DescribeForecastCommand = async (
   input: DescribeForecastCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecast.DescribeForecast";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.DescribeForecast"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeForecastRequest(input, context)
@@ -429,9 +445,10 @@ export const serializeAws_json1_1DescribeForecastExportJobCommand = async (
   input: DescribeForecastExportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecast.DescribeForecastExportJob";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.DescribeForecastExportJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeForecastExportJobRequest(input, context)
@@ -443,9 +460,10 @@ export const serializeAws_json1_1DescribePredictorCommand = async (
   input: DescribePredictorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecast.DescribePredictor";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.DescribePredictor"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribePredictorRequest(input, context)
@@ -457,9 +475,10 @@ export const serializeAws_json1_1GetAccuracyMetricsCommand = async (
   input: GetAccuracyMetricsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecast.GetAccuracyMetrics";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.GetAccuracyMetrics"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetAccuracyMetricsRequest(input, context)
@@ -471,9 +490,10 @@ export const serializeAws_json1_1ListDatasetGroupsCommand = async (
   input: ListDatasetGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecast.ListDatasetGroups";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.ListDatasetGroups"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListDatasetGroupsRequest(input, context)
@@ -485,9 +505,10 @@ export const serializeAws_json1_1ListDatasetImportJobsCommand = async (
   input: ListDatasetImportJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecast.ListDatasetImportJobs";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.ListDatasetImportJobs"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListDatasetImportJobsRequest(input, context)
@@ -499,9 +520,10 @@ export const serializeAws_json1_1ListDatasetsCommand = async (
   input: ListDatasetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecast.ListDatasets";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.ListDatasets"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListDatasetsRequest(input, context)
@@ -513,9 +535,10 @@ export const serializeAws_json1_1ListForecastExportJobsCommand = async (
   input: ListForecastExportJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecast.ListForecastExportJobs";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.ListForecastExportJobs"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListForecastExportJobsRequest(input, context)
@@ -527,9 +550,10 @@ export const serializeAws_json1_1ListForecastsCommand = async (
   input: ListForecastsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecast.ListForecasts";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.ListForecasts"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListForecastsRequest(input, context)
@@ -541,9 +565,10 @@ export const serializeAws_json1_1ListPredictorsCommand = async (
   input: ListPredictorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecast.ListPredictors";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.ListPredictors"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListPredictorsRequest(input, context)
@@ -555,9 +580,10 @@ export const serializeAws_json1_1UpdateDatasetGroupCommand = async (
   input: UpdateDatasetGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecast.UpdateDatasetGroup";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.UpdateDatasetGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateDatasetGroupRequest(input, context)

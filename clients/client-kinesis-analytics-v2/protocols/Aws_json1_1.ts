@@ -281,10 +281,11 @@ export const serializeAws_json1_1AddApplicationCloudWatchLoggingOptionCommand = 
   input: AddApplicationCloudWatchLoggingOptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "KinesisAnalytics_20180523.AddApplicationCloudWatchLoggingOption";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "KinesisAnalytics_20180523.AddApplicationCloudWatchLoggingOption"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AddApplicationCloudWatchLoggingOptionRequest(
@@ -299,9 +300,10 @@ export const serializeAws_json1_1AddApplicationInputCommand = async (
   input: AddApplicationInputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "KinesisAnalytics_20180523.AddApplicationInput";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "KinesisAnalytics_20180523.AddApplicationInput"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AddApplicationInputRequest(input, context)
@@ -313,10 +315,11 @@ export const serializeAws_json1_1AddApplicationInputProcessingConfigurationComma
   input: AddApplicationInputProcessingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "KinesisAnalytics_20180523.AddApplicationInputProcessingConfiguration";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "KinesisAnalytics_20180523.AddApplicationInputProcessingConfiguration"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AddApplicationInputProcessingConfigurationRequest(
@@ -331,9 +334,10 @@ export const serializeAws_json1_1AddApplicationOutputCommand = async (
   input: AddApplicationOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "KinesisAnalytics_20180523.AddApplicationOutput";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "KinesisAnalytics_20180523.AddApplicationOutput"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AddApplicationOutputRequest(input, context)
@@ -345,10 +349,11 @@ export const serializeAws_json1_1AddApplicationReferenceDataSourceCommand = asyn
   input: AddApplicationReferenceDataSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "KinesisAnalytics_20180523.AddApplicationReferenceDataSource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "KinesisAnalytics_20180523.AddApplicationReferenceDataSource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AddApplicationReferenceDataSourceRequest(input, context)
@@ -360,10 +365,10 @@ export const serializeAws_json1_1AddApplicationVpcConfigurationCommand = async (
   input: AddApplicationVpcConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "KinesisAnalytics_20180523.AddApplicationVpcConfiguration";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "KinesisAnalytics_20180523.AddApplicationVpcConfiguration"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AddApplicationVpcConfigurationRequest(input, context)
@@ -375,9 +380,10 @@ export const serializeAws_json1_1CreateApplicationCommand = async (
   input: CreateApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "KinesisAnalytics_20180523.CreateApplication";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "KinesisAnalytics_20180523.CreateApplication"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateApplicationRequest(input, context)
@@ -389,10 +395,10 @@ export const serializeAws_json1_1CreateApplicationSnapshotCommand = async (
   input: CreateApplicationSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "KinesisAnalytics_20180523.CreateApplicationSnapshot";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "KinesisAnalytics_20180523.CreateApplicationSnapshot"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateApplicationSnapshotRequest(input, context)
@@ -404,9 +410,10 @@ export const serializeAws_json1_1DeleteApplicationCommand = async (
   input: DeleteApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "KinesisAnalytics_20180523.DeleteApplication";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "KinesisAnalytics_20180523.DeleteApplication"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteApplicationRequest(input, context)
@@ -418,10 +425,11 @@ export const serializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionCommand
   input: DeleteApplicationCloudWatchLoggingOptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "KinesisAnalytics_20180523.DeleteApplicationCloudWatchLoggingOption";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "KinesisAnalytics_20180523.DeleteApplicationCloudWatchLoggingOption"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionRequest(
@@ -436,10 +444,11 @@ export const serializeAws_json1_1DeleteApplicationInputProcessingConfigurationCo
   input: DeleteApplicationInputProcessingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "KinesisAnalytics_20180523.DeleteApplicationInputProcessingConfiguration";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "KinesisAnalytics_20180523.DeleteApplicationInputProcessingConfiguration"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteApplicationInputProcessingConfigurationRequest(
@@ -454,9 +463,10 @@ export const serializeAws_json1_1DeleteApplicationOutputCommand = async (
   input: DeleteApplicationOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "KinesisAnalytics_20180523.DeleteApplicationOutput";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "KinesisAnalytics_20180523.DeleteApplicationOutput"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteApplicationOutputRequest(input, context)
@@ -468,10 +478,11 @@ export const serializeAws_json1_1DeleteApplicationReferenceDataSourceCommand = a
   input: DeleteApplicationReferenceDataSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "KinesisAnalytics_20180523.DeleteApplicationReferenceDataSource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "KinesisAnalytics_20180523.DeleteApplicationReferenceDataSource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteApplicationReferenceDataSourceRequest(
@@ -486,10 +497,10 @@ export const serializeAws_json1_1DeleteApplicationSnapshotCommand = async (
   input: DeleteApplicationSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "KinesisAnalytics_20180523.DeleteApplicationSnapshot";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "KinesisAnalytics_20180523.DeleteApplicationSnapshot"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteApplicationSnapshotRequest(input, context)
@@ -501,10 +512,11 @@ export const serializeAws_json1_1DeleteApplicationVpcConfigurationCommand = asyn
   input: DeleteApplicationVpcConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "KinesisAnalytics_20180523.DeleteApplicationVpcConfiguration";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "KinesisAnalytics_20180523.DeleteApplicationVpcConfiguration"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteApplicationVpcConfigurationRequest(input, context)
@@ -516,9 +528,10 @@ export const serializeAws_json1_1DescribeApplicationCommand = async (
   input: DescribeApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "KinesisAnalytics_20180523.DescribeApplication";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "KinesisAnalytics_20180523.DescribeApplication"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeApplicationRequest(input, context)
@@ -530,10 +543,10 @@ export const serializeAws_json1_1DescribeApplicationSnapshotCommand = async (
   input: DescribeApplicationSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "KinesisAnalytics_20180523.DescribeApplicationSnapshot";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "KinesisAnalytics_20180523.DescribeApplicationSnapshot"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeApplicationSnapshotRequest(input, context)
@@ -545,9 +558,10 @@ export const serializeAws_json1_1DiscoverInputSchemaCommand = async (
   input: DiscoverInputSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "KinesisAnalytics_20180523.DiscoverInputSchema";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "KinesisAnalytics_20180523.DiscoverInputSchema"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DiscoverInputSchemaRequest(input, context)
@@ -559,10 +573,10 @@ export const serializeAws_json1_1ListApplicationSnapshotsCommand = async (
   input: ListApplicationSnapshotsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "KinesisAnalytics_20180523.ListApplicationSnapshots";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "KinesisAnalytics_20180523.ListApplicationSnapshots"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListApplicationSnapshotsRequest(input, context)
@@ -574,9 +588,10 @@ export const serializeAws_json1_1ListApplicationsCommand = async (
   input: ListApplicationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "KinesisAnalytics_20180523.ListApplications";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "KinesisAnalytics_20180523.ListApplications"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListApplicationsRequest(input, context)
@@ -588,9 +603,10 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "KinesisAnalytics_20180523.ListTagsForResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "KinesisAnalytics_20180523.ListTagsForResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTagsForResourceRequest(input, context)
@@ -602,9 +618,10 @@ export const serializeAws_json1_1StartApplicationCommand = async (
   input: StartApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "KinesisAnalytics_20180523.StartApplication";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "KinesisAnalytics_20180523.StartApplication"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartApplicationRequest(input, context)
@@ -616,9 +633,10 @@ export const serializeAws_json1_1StopApplicationCommand = async (
   input: StopApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "KinesisAnalytics_20180523.StopApplication";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "KinesisAnalytics_20180523.StopApplication"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StopApplicationRequest(input, context)
@@ -630,9 +648,10 @@ export const serializeAws_json1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "KinesisAnalytics_20180523.TagResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "KinesisAnalytics_20180523.TagResource"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -642,9 +661,10 @@ export const serializeAws_json1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "KinesisAnalytics_20180523.UntagResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "KinesisAnalytics_20180523.UntagResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UntagResourceRequest(input, context)
@@ -656,9 +676,10 @@ export const serializeAws_json1_1UpdateApplicationCommand = async (
   input: UpdateApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "KinesisAnalytics_20180523.UpdateApplication";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "KinesisAnalytics_20180523.UpdateApplication"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateApplicationRequest(input, context)

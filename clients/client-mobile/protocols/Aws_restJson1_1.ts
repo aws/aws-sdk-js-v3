@@ -68,8 +68,9 @@ export const serializeAws_restJson1_1CreateProjectCommand = async (
   input: CreateProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/octet-stream";
+  const headers: any = {
+    "Content-Type": "application/octet-stream"
+  };
   let resolvedPath = "/projects";
   const query: any = {};
   if (input.name !== undefined) {
@@ -102,8 +103,9 @@ export const serializeAws_restJson1_1DeleteProjectCommand = async (
   input: DeleteProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/projects/{projectId}";
   if (input.projectId !== undefined) {
     const labelValue: string = input.projectId;
@@ -134,8 +136,9 @@ export const serializeAws_restJson1_1DescribeBundleCommand = async (
   input: DescribeBundleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/bundles/{bundleId}";
   if (input.bundleId !== undefined) {
     const labelValue: string = input.bundleId;
@@ -166,8 +169,9 @@ export const serializeAws_restJson1_1DescribeProjectCommand = async (
   input: DescribeProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/project";
   const query: any = {};
   if (input.projectId !== undefined) {
@@ -194,8 +198,9 @@ export const serializeAws_restJson1_1ExportBundleCommand = async (
   input: ExportBundleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/bundles/{bundleId}";
   if (input.bundleId !== undefined) {
     const labelValue: string = input.bundleId;
@@ -234,8 +239,9 @@ export const serializeAws_restJson1_1ExportProjectCommand = async (
   input: ExportProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/exports/{projectId}";
   if (input.projectId !== undefined) {
     const labelValue: string = input.projectId;
@@ -266,8 +272,9 @@ export const serializeAws_restJson1_1ListBundlesCommand = async (
   input: ListBundlesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/bundles";
   const query: any = {};
   if (input.maxResults !== undefined) {
@@ -294,8 +301,9 @@ export const serializeAws_restJson1_1ListProjectsCommand = async (
   input: ListProjectsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/projects";
   const query: any = {};
   if (input.maxResults !== undefined) {
@@ -322,8 +330,9 @@ export const serializeAws_restJson1_1UpdateProjectCommand = async (
   input: UpdateProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/octet-stream";
+  const headers: any = {
+    "Content-Type": "application/octet-stream"
+  };
   let resolvedPath = "/update";
   const query: any = {};
   if (input.projectId !== undefined) {

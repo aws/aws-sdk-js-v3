@@ -372,9 +372,10 @@ export const serializeAws_json1_0DescribeEndpointsCommand = async (
   input: DescribeEndpointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.DescribeEndpoints";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.DescribeEndpoints"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0DescribeEndpointsRequest(input, context)
@@ -386,9 +387,10 @@ export const serializeAws_json1_0BatchGetItemCommand = async (
   input: BatchGetItemCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.BatchGetItem";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.BatchGetItem"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0BatchGetItemInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -398,9 +400,10 @@ export const serializeAws_json1_0BatchWriteItemCommand = async (
   input: BatchWriteItemCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.BatchWriteItem";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.BatchWriteItem"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0BatchWriteItemInput(input, context)
@@ -412,9 +415,10 @@ export const serializeAws_json1_0CreateBackupCommand = async (
   input: CreateBackupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.CreateBackup";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.CreateBackup"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0CreateBackupInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -424,9 +428,10 @@ export const serializeAws_json1_0CreateGlobalTableCommand = async (
   input: CreateGlobalTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.CreateGlobalTable";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.CreateGlobalTable"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0CreateGlobalTableInput(input, context)
@@ -438,9 +443,10 @@ export const serializeAws_json1_0CreateTableCommand = async (
   input: CreateTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.CreateTable";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.CreateTable"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0CreateTableInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -450,9 +456,10 @@ export const serializeAws_json1_0DeleteBackupCommand = async (
   input: DeleteBackupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.DeleteBackup";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.DeleteBackup"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DeleteBackupInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -462,9 +469,10 @@ export const serializeAws_json1_0DeleteItemCommand = async (
   input: DeleteItemCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.DeleteItem";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.DeleteItem"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DeleteItemInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -474,9 +482,10 @@ export const serializeAws_json1_0DeleteTableCommand = async (
   input: DeleteTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.DeleteTable";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.DeleteTable"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DeleteTableInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -486,9 +495,10 @@ export const serializeAws_json1_0DescribeBackupCommand = async (
   input: DescribeBackupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.DescribeBackup";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.DescribeBackup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0DescribeBackupInput(input, context)
@@ -500,9 +510,10 @@ export const serializeAws_json1_0DescribeContinuousBackupsCommand = async (
   input: DescribeContinuousBackupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.DescribeContinuousBackups";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.DescribeContinuousBackups"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0DescribeContinuousBackupsInput(input, context)
@@ -514,9 +525,10 @@ export const serializeAws_json1_0DescribeContributorInsightsCommand = async (
   input: DescribeContributorInsightsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.DescribeContributorInsights";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.DescribeContributorInsights"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0DescribeContributorInsightsInput(input, context)
@@ -528,9 +540,10 @@ export const serializeAws_json1_0DescribeGlobalTableCommand = async (
   input: DescribeGlobalTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.DescribeGlobalTable";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.DescribeGlobalTable"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0DescribeGlobalTableInput(input, context)
@@ -542,9 +555,10 @@ export const serializeAws_json1_0DescribeGlobalTableSettingsCommand = async (
   input: DescribeGlobalTableSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.DescribeGlobalTableSettings";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.DescribeGlobalTableSettings"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0DescribeGlobalTableSettingsInput(input, context)
@@ -556,9 +570,10 @@ export const serializeAws_json1_0DescribeLimitsCommand = async (
   input: DescribeLimitsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.DescribeLimits";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.DescribeLimits"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0DescribeLimitsInput(input, context)
@@ -570,9 +585,10 @@ export const serializeAws_json1_0DescribeTableCommand = async (
   input: DescribeTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.DescribeTable";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.DescribeTable"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DescribeTableInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -582,9 +598,10 @@ export const serializeAws_json1_0DescribeTableReplicaAutoScalingCommand = async 
   input: DescribeTableReplicaAutoScalingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.DescribeTableReplicaAutoScaling";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.DescribeTableReplicaAutoScaling"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0DescribeTableReplicaAutoScalingInput(input, context)
@@ -596,9 +613,10 @@ export const serializeAws_json1_0DescribeTimeToLiveCommand = async (
   input: DescribeTimeToLiveCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.DescribeTimeToLive";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.DescribeTimeToLive"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0DescribeTimeToLiveInput(input, context)
@@ -610,9 +628,10 @@ export const serializeAws_json1_0GetItemCommand = async (
   input: GetItemCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.GetItem";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.GetItem"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0GetItemInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -622,9 +641,10 @@ export const serializeAws_json1_0ListBackupsCommand = async (
   input: ListBackupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.ListBackups";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.ListBackups"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ListBackupsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -634,9 +654,10 @@ export const serializeAws_json1_0ListContributorInsightsCommand = async (
   input: ListContributorInsightsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.ListContributorInsights";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.ListContributorInsights"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0ListContributorInsightsInput(input, context)
@@ -648,9 +669,10 @@ export const serializeAws_json1_0ListGlobalTablesCommand = async (
   input: ListGlobalTablesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.ListGlobalTables";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.ListGlobalTables"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0ListGlobalTablesInput(input, context)
@@ -662,9 +684,10 @@ export const serializeAws_json1_0ListTablesCommand = async (
   input: ListTablesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.ListTables";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.ListTables"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ListTablesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -674,9 +697,10 @@ export const serializeAws_json1_0ListTagsOfResourceCommand = async (
   input: ListTagsOfResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.ListTagsOfResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.ListTagsOfResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0ListTagsOfResourceInput(input, context)
@@ -688,9 +712,10 @@ export const serializeAws_json1_0PutItemCommand = async (
   input: PutItemCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.PutItem";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.PutItem"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0PutItemInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -700,9 +725,10 @@ export const serializeAws_json1_0QueryCommand = async (
   input: QueryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.Query";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.Query"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0QueryInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -712,9 +738,10 @@ export const serializeAws_json1_0RestoreTableFromBackupCommand = async (
   input: RestoreTableFromBackupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.RestoreTableFromBackup";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.RestoreTableFromBackup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0RestoreTableFromBackupInput(input, context)
@@ -726,9 +753,10 @@ export const serializeAws_json1_0RestoreTableToPointInTimeCommand = async (
   input: RestoreTableToPointInTimeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.RestoreTableToPointInTime";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.RestoreTableToPointInTime"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0RestoreTableToPointInTimeInput(input, context)
@@ -740,9 +768,10 @@ export const serializeAws_json1_0ScanCommand = async (
   input: ScanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.Scan";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.Scan"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ScanInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -752,9 +781,10 @@ export const serializeAws_json1_0TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.TagResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.TagResource"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0TagResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -764,9 +794,10 @@ export const serializeAws_json1_0TransactGetItemsCommand = async (
   input: TransactGetItemsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.TransactGetItems";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.TransactGetItems"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0TransactGetItemsInput(input, context)
@@ -778,9 +809,10 @@ export const serializeAws_json1_0TransactWriteItemsCommand = async (
   input: TransactWriteItemsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.TransactWriteItems";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.TransactWriteItems"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0TransactWriteItemsInput(input, context)
@@ -792,9 +824,10 @@ export const serializeAws_json1_0UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.UntagResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.UntagResource"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0UntagResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -804,9 +837,10 @@ export const serializeAws_json1_0UpdateContinuousBackupsCommand = async (
   input: UpdateContinuousBackupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.UpdateContinuousBackups";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.UpdateContinuousBackups"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0UpdateContinuousBackupsInput(input, context)
@@ -818,9 +852,10 @@ export const serializeAws_json1_0UpdateContributorInsightsCommand = async (
   input: UpdateContributorInsightsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.UpdateContributorInsights";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.UpdateContributorInsights"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0UpdateContributorInsightsInput(input, context)
@@ -832,9 +867,10 @@ export const serializeAws_json1_0UpdateGlobalTableCommand = async (
   input: UpdateGlobalTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.UpdateGlobalTable";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.UpdateGlobalTable"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0UpdateGlobalTableInput(input, context)
@@ -846,9 +882,10 @@ export const serializeAws_json1_0UpdateGlobalTableSettingsCommand = async (
   input: UpdateGlobalTableSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.UpdateGlobalTableSettings";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.UpdateGlobalTableSettings"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0UpdateGlobalTableSettingsInput(input, context)
@@ -860,9 +897,10 @@ export const serializeAws_json1_0UpdateItemCommand = async (
   input: UpdateItemCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.UpdateItem";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.UpdateItem"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0UpdateItemInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -872,9 +910,10 @@ export const serializeAws_json1_0UpdateTableCommand = async (
   input: UpdateTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.UpdateTable";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.UpdateTable"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0UpdateTableInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -884,9 +923,10 @@ export const serializeAws_json1_0UpdateTableReplicaAutoScalingCommand = async (
   input: UpdateTableReplicaAutoScalingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.UpdateTableReplicaAutoScaling";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.UpdateTableReplicaAutoScaling"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0UpdateTableReplicaAutoScalingInput(input, context)
@@ -898,9 +938,10 @@ export const serializeAws_json1_0UpdateTimeToLiveCommand = async (
   input: UpdateTimeToLiveCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.UpdateTimeToLive";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.UpdateTimeToLive"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0UpdateTimeToLiveInput(input, context)

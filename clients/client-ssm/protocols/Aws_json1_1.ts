@@ -997,9 +997,10 @@ export const serializeAws_json1_1AddTagsToResourceCommand = async (
   input: AddTagsToResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.AddTagsToResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.AddTagsToResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AddTagsToResourceRequest(input, context)
@@ -1011,9 +1012,10 @@ export const serializeAws_json1_1CancelCommandCommand = async (
   input: CancelCommandCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.CancelCommand";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.CancelCommand"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CancelCommandRequest(input, context)
@@ -1025,9 +1027,10 @@ export const serializeAws_json1_1CancelMaintenanceWindowExecutionCommand = async
   input: CancelMaintenanceWindowExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.CancelMaintenanceWindowExecution";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.CancelMaintenanceWindowExecution"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CancelMaintenanceWindowExecutionRequest(input, context)
@@ -1039,9 +1042,10 @@ export const serializeAws_json1_1CreateActivationCommand = async (
   input: CreateActivationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.CreateActivation";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.CreateActivation"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateActivationRequest(input, context)
@@ -1053,9 +1057,10 @@ export const serializeAws_json1_1CreateAssociationCommand = async (
   input: CreateAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.CreateAssociation";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.CreateAssociation"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateAssociationRequest(input, context)
@@ -1067,9 +1072,10 @@ export const serializeAws_json1_1CreateAssociationBatchCommand = async (
   input: CreateAssociationBatchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.CreateAssociationBatch";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.CreateAssociationBatch"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateAssociationBatchRequest(input, context)
@@ -1081,9 +1087,10 @@ export const serializeAws_json1_1CreateDocumentCommand = async (
   input: CreateDocumentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.CreateDocument";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.CreateDocument"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateDocumentRequest(input, context)
@@ -1095,9 +1102,10 @@ export const serializeAws_json1_1CreateMaintenanceWindowCommand = async (
   input: CreateMaintenanceWindowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.CreateMaintenanceWindow";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.CreateMaintenanceWindow"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateMaintenanceWindowRequest(input, context)
@@ -1109,9 +1117,10 @@ export const serializeAws_json1_1CreateOpsItemCommand = async (
   input: CreateOpsItemCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.CreateOpsItem";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.CreateOpsItem"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateOpsItemRequest(input, context)
@@ -1123,9 +1132,10 @@ export const serializeAws_json1_1CreatePatchBaselineCommand = async (
   input: CreatePatchBaselineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.CreatePatchBaseline";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.CreatePatchBaseline"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreatePatchBaselineRequest(input, context)
@@ -1137,9 +1147,10 @@ export const serializeAws_json1_1CreateResourceDataSyncCommand = async (
   input: CreateResourceDataSyncCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.CreateResourceDataSync";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.CreateResourceDataSync"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateResourceDataSyncRequest(input, context)
@@ -1151,9 +1162,10 @@ export const serializeAws_json1_1DeleteActivationCommand = async (
   input: DeleteActivationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.DeleteActivation";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.DeleteActivation"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteActivationRequest(input, context)
@@ -1165,9 +1177,10 @@ export const serializeAws_json1_1DeleteAssociationCommand = async (
   input: DeleteAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.DeleteAssociation";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.DeleteAssociation"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteAssociationRequest(input, context)
@@ -1179,9 +1192,10 @@ export const serializeAws_json1_1DeleteDocumentCommand = async (
   input: DeleteDocumentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.DeleteDocument";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.DeleteDocument"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteDocumentRequest(input, context)
@@ -1193,9 +1207,10 @@ export const serializeAws_json1_1DeleteInventoryCommand = async (
   input: DeleteInventoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.DeleteInventory";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.DeleteInventory"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteInventoryRequest(input, context)
@@ -1207,9 +1222,10 @@ export const serializeAws_json1_1DeleteMaintenanceWindowCommand = async (
   input: DeleteMaintenanceWindowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.DeleteMaintenanceWindow";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.DeleteMaintenanceWindow"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteMaintenanceWindowRequest(input, context)
@@ -1221,9 +1237,10 @@ export const serializeAws_json1_1DeleteParameterCommand = async (
   input: DeleteParameterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.DeleteParameter";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.DeleteParameter"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteParameterRequest(input, context)
@@ -1235,9 +1252,10 @@ export const serializeAws_json1_1DeleteParametersCommand = async (
   input: DeleteParametersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.DeleteParameters";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.DeleteParameters"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteParametersRequest(input, context)
@@ -1249,9 +1267,10 @@ export const serializeAws_json1_1DeletePatchBaselineCommand = async (
   input: DeletePatchBaselineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.DeletePatchBaseline";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.DeletePatchBaseline"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeletePatchBaselineRequest(input, context)
@@ -1263,9 +1282,10 @@ export const serializeAws_json1_1DeleteResourceDataSyncCommand = async (
   input: DeleteResourceDataSyncCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.DeleteResourceDataSync";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.DeleteResourceDataSync"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteResourceDataSyncRequest(input, context)
@@ -1277,9 +1297,10 @@ export const serializeAws_json1_1DeregisterManagedInstanceCommand = async (
   input: DeregisterManagedInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.DeregisterManagedInstance";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.DeregisterManagedInstance"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeregisterManagedInstanceRequest(input, context)
@@ -1291,9 +1312,10 @@ export const serializeAws_json1_1DeregisterPatchBaselineForPatchGroupCommand = a
   input: DeregisterPatchBaselineForPatchGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.DeregisterPatchBaselineForPatchGroup";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.DeregisterPatchBaselineForPatchGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeregisterPatchBaselineForPatchGroupRequest(
@@ -1308,9 +1330,10 @@ export const serializeAws_json1_1DeregisterTargetFromMaintenanceWindowCommand = 
   input: DeregisterTargetFromMaintenanceWindowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.DeregisterTargetFromMaintenanceWindow";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.DeregisterTargetFromMaintenanceWindow"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeregisterTargetFromMaintenanceWindowRequest(
@@ -1325,9 +1348,10 @@ export const serializeAws_json1_1DeregisterTaskFromMaintenanceWindowCommand = as
   input: DeregisterTaskFromMaintenanceWindowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.DeregisterTaskFromMaintenanceWindow";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.DeregisterTaskFromMaintenanceWindow"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeregisterTaskFromMaintenanceWindowRequest(
@@ -1342,9 +1366,10 @@ export const serializeAws_json1_1DescribeActivationsCommand = async (
   input: DescribeActivationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.DescribeActivations";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.DescribeActivations"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeActivationsRequest(input, context)
@@ -1356,9 +1381,10 @@ export const serializeAws_json1_1DescribeAssociationCommand = async (
   input: DescribeAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.DescribeAssociation";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.DescribeAssociation"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeAssociationRequest(input, context)
@@ -1370,9 +1396,10 @@ export const serializeAws_json1_1DescribeAssociationExecutionTargetsCommand = as
   input: DescribeAssociationExecutionTargetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.DescribeAssociationExecutionTargets";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.DescribeAssociationExecutionTargets"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeAssociationExecutionTargetsRequest(
@@ -1387,9 +1414,10 @@ export const serializeAws_json1_1DescribeAssociationExecutionsCommand = async (
   input: DescribeAssociationExecutionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.DescribeAssociationExecutions";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.DescribeAssociationExecutions"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeAssociationExecutionsRequest(input, context)
@@ -1401,9 +1429,10 @@ export const serializeAws_json1_1DescribeAutomationExecutionsCommand = async (
   input: DescribeAutomationExecutionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.DescribeAutomationExecutions";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.DescribeAutomationExecutions"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeAutomationExecutionsRequest(input, context)
@@ -1415,9 +1444,10 @@ export const serializeAws_json1_1DescribeAutomationStepExecutionsCommand = async
   input: DescribeAutomationStepExecutionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.DescribeAutomationStepExecutions";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.DescribeAutomationStepExecutions"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeAutomationStepExecutionsRequest(input, context)
@@ -1429,9 +1459,10 @@ export const serializeAws_json1_1DescribeAvailablePatchesCommand = async (
   input: DescribeAvailablePatchesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.DescribeAvailablePatches";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.DescribeAvailablePatches"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeAvailablePatchesRequest(input, context)
@@ -1443,9 +1474,10 @@ export const serializeAws_json1_1DescribeDocumentCommand = async (
   input: DescribeDocumentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.DescribeDocument";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.DescribeDocument"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeDocumentRequest(input, context)
@@ -1457,9 +1489,10 @@ export const serializeAws_json1_1DescribeDocumentPermissionCommand = async (
   input: DescribeDocumentPermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.DescribeDocumentPermission";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.DescribeDocumentPermission"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeDocumentPermissionRequest(input, context)
@@ -1471,9 +1504,10 @@ export const serializeAws_json1_1DescribeEffectiveInstanceAssociationsCommand = 
   input: DescribeEffectiveInstanceAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.DescribeEffectiveInstanceAssociations";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.DescribeEffectiveInstanceAssociations"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEffectiveInstanceAssociationsRequest(
@@ -1488,10 +1522,10 @@ export const serializeAws_json1_1DescribeEffectivePatchesForPatchBaselineCommand
   input: DescribeEffectivePatchesForPatchBaselineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonSSM.DescribeEffectivePatchesForPatchBaseline";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.DescribeEffectivePatchesForPatchBaseline"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEffectivePatchesForPatchBaselineRequest(
@@ -1506,9 +1540,10 @@ export const serializeAws_json1_1DescribeInstanceAssociationsStatusCommand = asy
   input: DescribeInstanceAssociationsStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.DescribeInstanceAssociationsStatus";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.DescribeInstanceAssociationsStatus"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeInstanceAssociationsStatusRequest(
@@ -1523,9 +1558,10 @@ export const serializeAws_json1_1DescribeInstanceInformationCommand = async (
   input: DescribeInstanceInformationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.DescribeInstanceInformation";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.DescribeInstanceInformation"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeInstanceInformationRequest(input, context)
@@ -1537,9 +1573,10 @@ export const serializeAws_json1_1DescribeInstancePatchStatesCommand = async (
   input: DescribeInstancePatchStatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.DescribeInstancePatchStates";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.DescribeInstancePatchStates"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeInstancePatchStatesRequest(input, context)
@@ -1551,10 +1588,10 @@ export const serializeAws_json1_1DescribeInstancePatchStatesForPatchGroupCommand
   input: DescribeInstancePatchStatesForPatchGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonSSM.DescribeInstancePatchStatesForPatchGroup";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.DescribeInstancePatchStatesForPatchGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeInstancePatchStatesForPatchGroupRequest(
@@ -1569,9 +1606,10 @@ export const serializeAws_json1_1DescribeInstancePatchesCommand = async (
   input: DescribeInstancePatchesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.DescribeInstancePatches";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.DescribeInstancePatches"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeInstancePatchesRequest(input, context)
@@ -1583,9 +1621,10 @@ export const serializeAws_json1_1DescribeInventoryDeletionsCommand = async (
   input: DescribeInventoryDeletionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.DescribeInventoryDeletions";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.DescribeInventoryDeletions"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeInventoryDeletionsRequest(input, context)
@@ -1597,10 +1636,11 @@ export const serializeAws_json1_1DescribeMaintenanceWindowExecutionTaskInvocatio
   input: DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonSSM.DescribeMaintenanceWindowExecutionTaskInvocations";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "AmazonSSM.DescribeMaintenanceWindowExecutionTaskInvocations"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeMaintenanceWindowExecutionTaskInvocationsRequest(
@@ -1615,9 +1655,10 @@ export const serializeAws_json1_1DescribeMaintenanceWindowExecutionTasksCommand 
   input: DescribeMaintenanceWindowExecutionTasksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.DescribeMaintenanceWindowExecutionTasks";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.DescribeMaintenanceWindowExecutionTasks"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeMaintenanceWindowExecutionTasksRequest(
@@ -1632,9 +1673,10 @@ export const serializeAws_json1_1DescribeMaintenanceWindowExecutionsCommand = as
   input: DescribeMaintenanceWindowExecutionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.DescribeMaintenanceWindowExecutions";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.DescribeMaintenanceWindowExecutions"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeMaintenanceWindowExecutionsRequest(
@@ -1649,9 +1691,10 @@ export const serializeAws_json1_1DescribeMaintenanceWindowScheduleCommand = asyn
   input: DescribeMaintenanceWindowScheduleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.DescribeMaintenanceWindowSchedule";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.DescribeMaintenanceWindowSchedule"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeMaintenanceWindowScheduleRequest(input, context)
@@ -1663,9 +1706,10 @@ export const serializeAws_json1_1DescribeMaintenanceWindowTargetsCommand = async
   input: DescribeMaintenanceWindowTargetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.DescribeMaintenanceWindowTargets";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.DescribeMaintenanceWindowTargets"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeMaintenanceWindowTargetsRequest(input, context)
@@ -1677,9 +1721,10 @@ export const serializeAws_json1_1DescribeMaintenanceWindowTasksCommand = async (
   input: DescribeMaintenanceWindowTasksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.DescribeMaintenanceWindowTasks";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.DescribeMaintenanceWindowTasks"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeMaintenanceWindowTasksRequest(input, context)
@@ -1691,9 +1736,10 @@ export const serializeAws_json1_1DescribeMaintenanceWindowsCommand = async (
   input: DescribeMaintenanceWindowsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.DescribeMaintenanceWindows";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.DescribeMaintenanceWindows"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeMaintenanceWindowsRequest(input, context)
@@ -1705,9 +1751,10 @@ export const serializeAws_json1_1DescribeMaintenanceWindowsForTargetCommand = as
   input: DescribeMaintenanceWindowsForTargetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.DescribeMaintenanceWindowsForTarget";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.DescribeMaintenanceWindowsForTarget"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeMaintenanceWindowsForTargetRequest(
@@ -1722,9 +1769,10 @@ export const serializeAws_json1_1DescribeOpsItemsCommand = async (
   input: DescribeOpsItemsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.DescribeOpsItems";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.DescribeOpsItems"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeOpsItemsRequest(input, context)
@@ -1736,9 +1784,10 @@ export const serializeAws_json1_1DescribeParametersCommand = async (
   input: DescribeParametersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.DescribeParameters";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.DescribeParameters"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeParametersRequest(input, context)
@@ -1750,9 +1799,10 @@ export const serializeAws_json1_1DescribePatchBaselinesCommand = async (
   input: DescribePatchBaselinesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.DescribePatchBaselines";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.DescribePatchBaselines"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribePatchBaselinesRequest(input, context)
@@ -1764,9 +1814,10 @@ export const serializeAws_json1_1DescribePatchGroupStateCommand = async (
   input: DescribePatchGroupStateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.DescribePatchGroupState";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.DescribePatchGroupState"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribePatchGroupStateRequest(input, context)
@@ -1778,9 +1829,10 @@ export const serializeAws_json1_1DescribePatchGroupsCommand = async (
   input: DescribePatchGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.DescribePatchGroups";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.DescribePatchGroups"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribePatchGroupsRequest(input, context)
@@ -1792,9 +1844,10 @@ export const serializeAws_json1_1DescribePatchPropertiesCommand = async (
   input: DescribePatchPropertiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.DescribePatchProperties";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.DescribePatchProperties"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribePatchPropertiesRequest(input, context)
@@ -1806,9 +1859,10 @@ export const serializeAws_json1_1DescribeSessionsCommand = async (
   input: DescribeSessionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.DescribeSessions";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.DescribeSessions"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeSessionsRequest(input, context)
@@ -1820,9 +1874,10 @@ export const serializeAws_json1_1GetAutomationExecutionCommand = async (
   input: GetAutomationExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.GetAutomationExecution";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.GetAutomationExecution"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetAutomationExecutionRequest(input, context)
@@ -1834,9 +1889,10 @@ export const serializeAws_json1_1GetCalendarStateCommand = async (
   input: GetCalendarStateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.GetCalendarState";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.GetCalendarState"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetCalendarStateRequest(input, context)
@@ -1848,9 +1904,10 @@ export const serializeAws_json1_1GetCommandInvocationCommand = async (
   input: GetCommandInvocationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.GetCommandInvocation";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.GetCommandInvocation"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetCommandInvocationRequest(input, context)
@@ -1862,9 +1919,10 @@ export const serializeAws_json1_1GetConnectionStatusCommand = async (
   input: GetConnectionStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.GetConnectionStatus";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.GetConnectionStatus"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetConnectionStatusRequest(input, context)
@@ -1876,9 +1934,10 @@ export const serializeAws_json1_1GetDefaultPatchBaselineCommand = async (
   input: GetDefaultPatchBaselineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.GetDefaultPatchBaseline";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.GetDefaultPatchBaseline"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetDefaultPatchBaselineRequest(input, context)
@@ -1890,9 +1949,10 @@ export const serializeAws_json1_1GetDeployablePatchSnapshotForInstanceCommand = 
   input: GetDeployablePatchSnapshotForInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.GetDeployablePatchSnapshotForInstance";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.GetDeployablePatchSnapshotForInstance"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetDeployablePatchSnapshotForInstanceRequest(
@@ -1907,9 +1967,10 @@ export const serializeAws_json1_1GetDocumentCommand = async (
   input: GetDocumentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.GetDocument";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.GetDocument"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetDocumentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1919,9 +1980,10 @@ export const serializeAws_json1_1GetInventoryCommand = async (
   input: GetInventoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.GetInventory";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.GetInventory"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetInventoryRequest(input, context)
@@ -1933,9 +1995,10 @@ export const serializeAws_json1_1GetInventorySchemaCommand = async (
   input: GetInventorySchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.GetInventorySchema";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.GetInventorySchema"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetInventorySchemaRequest(input, context)
@@ -1947,9 +2010,10 @@ export const serializeAws_json1_1GetMaintenanceWindowCommand = async (
   input: GetMaintenanceWindowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.GetMaintenanceWindow";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.GetMaintenanceWindow"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetMaintenanceWindowRequest(input, context)
@@ -1961,9 +2025,10 @@ export const serializeAws_json1_1GetMaintenanceWindowExecutionCommand = async (
   input: GetMaintenanceWindowExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.GetMaintenanceWindowExecution";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.GetMaintenanceWindowExecution"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetMaintenanceWindowExecutionRequest(input, context)
@@ -1975,9 +2040,10 @@ export const serializeAws_json1_1GetMaintenanceWindowExecutionTaskCommand = asyn
   input: GetMaintenanceWindowExecutionTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.GetMaintenanceWindowExecutionTask";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.GetMaintenanceWindowExecutionTask"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetMaintenanceWindowExecutionTaskRequest(input, context)
@@ -1989,10 +2055,10 @@ export const serializeAws_json1_1GetMaintenanceWindowExecutionTaskInvocationComm
   input: GetMaintenanceWindowExecutionTaskInvocationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonSSM.GetMaintenanceWindowExecutionTaskInvocation";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.GetMaintenanceWindowExecutionTaskInvocation"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetMaintenanceWindowExecutionTaskInvocationRequest(
@@ -2007,9 +2073,10 @@ export const serializeAws_json1_1GetMaintenanceWindowTaskCommand = async (
   input: GetMaintenanceWindowTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.GetMaintenanceWindowTask";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.GetMaintenanceWindowTask"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetMaintenanceWindowTaskRequest(input, context)
@@ -2021,9 +2088,10 @@ export const serializeAws_json1_1GetOpsItemCommand = async (
   input: GetOpsItemCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.GetOpsItem";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.GetOpsItem"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetOpsItemRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2033,9 +2101,10 @@ export const serializeAws_json1_1GetOpsSummaryCommand = async (
   input: GetOpsSummaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.GetOpsSummary";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.GetOpsSummary"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetOpsSummaryRequest(input, context)
@@ -2047,9 +2116,10 @@ export const serializeAws_json1_1GetParameterCommand = async (
   input: GetParameterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.GetParameter";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.GetParameter"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetParameterRequest(input, context)
@@ -2061,9 +2131,10 @@ export const serializeAws_json1_1GetParameterHistoryCommand = async (
   input: GetParameterHistoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.GetParameterHistory";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.GetParameterHistory"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetParameterHistoryRequest(input, context)
@@ -2075,9 +2146,10 @@ export const serializeAws_json1_1GetParametersCommand = async (
   input: GetParametersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.GetParameters";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.GetParameters"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetParametersRequest(input, context)
@@ -2089,9 +2161,10 @@ export const serializeAws_json1_1GetParametersByPathCommand = async (
   input: GetParametersByPathCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.GetParametersByPath";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.GetParametersByPath"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetParametersByPathRequest(input, context)
@@ -2103,9 +2176,10 @@ export const serializeAws_json1_1GetPatchBaselineCommand = async (
   input: GetPatchBaselineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.GetPatchBaseline";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.GetPatchBaseline"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetPatchBaselineRequest(input, context)
@@ -2117,9 +2191,10 @@ export const serializeAws_json1_1GetPatchBaselineForPatchGroupCommand = async (
   input: GetPatchBaselineForPatchGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.GetPatchBaselineForPatchGroup";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.GetPatchBaselineForPatchGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetPatchBaselineForPatchGroupRequest(input, context)
@@ -2131,9 +2206,10 @@ export const serializeAws_json1_1GetServiceSettingCommand = async (
   input: GetServiceSettingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.GetServiceSetting";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.GetServiceSetting"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetServiceSettingRequest(input, context)
@@ -2145,9 +2221,10 @@ export const serializeAws_json1_1LabelParameterVersionCommand = async (
   input: LabelParameterVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.LabelParameterVersion";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.LabelParameterVersion"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1LabelParameterVersionRequest(input, context)
@@ -2159,9 +2236,10 @@ export const serializeAws_json1_1ListAssociationVersionsCommand = async (
   input: ListAssociationVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.ListAssociationVersions";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.ListAssociationVersions"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListAssociationVersionsRequest(input, context)
@@ -2173,9 +2251,10 @@ export const serializeAws_json1_1ListAssociationsCommand = async (
   input: ListAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.ListAssociations";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.ListAssociations"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListAssociationsRequest(input, context)
@@ -2187,9 +2266,10 @@ export const serializeAws_json1_1ListCommandInvocationsCommand = async (
   input: ListCommandInvocationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.ListCommandInvocations";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.ListCommandInvocations"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListCommandInvocationsRequest(input, context)
@@ -2201,9 +2281,10 @@ export const serializeAws_json1_1ListCommandsCommand = async (
   input: ListCommandsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.ListCommands";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.ListCommands"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListCommandsRequest(input, context)
@@ -2215,9 +2296,10 @@ export const serializeAws_json1_1ListComplianceItemsCommand = async (
   input: ListComplianceItemsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.ListComplianceItems";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.ListComplianceItems"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListComplianceItemsRequest(input, context)
@@ -2229,9 +2311,10 @@ export const serializeAws_json1_1ListComplianceSummariesCommand = async (
   input: ListComplianceSummariesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.ListComplianceSummaries";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.ListComplianceSummaries"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListComplianceSummariesRequest(input, context)
@@ -2243,9 +2326,10 @@ export const serializeAws_json1_1ListDocumentVersionsCommand = async (
   input: ListDocumentVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.ListDocumentVersions";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.ListDocumentVersions"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListDocumentVersionsRequest(input, context)
@@ -2257,9 +2341,10 @@ export const serializeAws_json1_1ListDocumentsCommand = async (
   input: ListDocumentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.ListDocuments";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.ListDocuments"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListDocumentsRequest(input, context)
@@ -2271,9 +2356,10 @@ export const serializeAws_json1_1ListInventoryEntriesCommand = async (
   input: ListInventoryEntriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.ListInventoryEntries";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.ListInventoryEntries"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListInventoryEntriesRequest(input, context)
@@ -2285,9 +2371,10 @@ export const serializeAws_json1_1ListResourceComplianceSummariesCommand = async 
   input: ListResourceComplianceSummariesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.ListResourceComplianceSummaries";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.ListResourceComplianceSummaries"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListResourceComplianceSummariesRequest(input, context)
@@ -2299,9 +2386,10 @@ export const serializeAws_json1_1ListResourceDataSyncCommand = async (
   input: ListResourceDataSyncCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.ListResourceDataSync";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.ListResourceDataSync"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListResourceDataSyncRequest(input, context)
@@ -2313,9 +2401,10 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.ListTagsForResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.ListTagsForResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTagsForResourceRequest(input, context)
@@ -2327,9 +2416,10 @@ export const serializeAws_json1_1ModifyDocumentPermissionCommand = async (
   input: ModifyDocumentPermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.ModifyDocumentPermission";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.ModifyDocumentPermission"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ModifyDocumentPermissionRequest(input, context)
@@ -2341,9 +2431,10 @@ export const serializeAws_json1_1PutComplianceItemsCommand = async (
   input: PutComplianceItemsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.PutComplianceItems";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.PutComplianceItems"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutComplianceItemsRequest(input, context)
@@ -2355,9 +2446,10 @@ export const serializeAws_json1_1PutInventoryCommand = async (
   input: PutInventoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.PutInventory";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.PutInventory"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutInventoryRequest(input, context)
@@ -2369,9 +2461,10 @@ export const serializeAws_json1_1PutParameterCommand = async (
   input: PutParameterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.PutParameter";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.PutParameter"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutParameterRequest(input, context)
@@ -2383,9 +2476,10 @@ export const serializeAws_json1_1RegisterDefaultPatchBaselineCommand = async (
   input: RegisterDefaultPatchBaselineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.RegisterDefaultPatchBaseline";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.RegisterDefaultPatchBaseline"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RegisterDefaultPatchBaselineRequest(input, context)
@@ -2397,9 +2491,10 @@ export const serializeAws_json1_1RegisterPatchBaselineForPatchGroupCommand = asy
   input: RegisterPatchBaselineForPatchGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.RegisterPatchBaselineForPatchGroup";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.RegisterPatchBaselineForPatchGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RegisterPatchBaselineForPatchGroupRequest(
@@ -2414,9 +2509,10 @@ export const serializeAws_json1_1RegisterTargetWithMaintenanceWindowCommand = as
   input: RegisterTargetWithMaintenanceWindowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.RegisterTargetWithMaintenanceWindow";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.RegisterTargetWithMaintenanceWindow"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RegisterTargetWithMaintenanceWindowRequest(
@@ -2431,9 +2527,10 @@ export const serializeAws_json1_1RegisterTaskWithMaintenanceWindowCommand = asyn
   input: RegisterTaskWithMaintenanceWindowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.RegisterTaskWithMaintenanceWindow";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.RegisterTaskWithMaintenanceWindow"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RegisterTaskWithMaintenanceWindowRequest(input, context)
@@ -2445,9 +2542,10 @@ export const serializeAws_json1_1RemoveTagsFromResourceCommand = async (
   input: RemoveTagsFromResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.RemoveTagsFromResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.RemoveTagsFromResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RemoveTagsFromResourceRequest(input, context)
@@ -2459,9 +2557,10 @@ export const serializeAws_json1_1ResetServiceSettingCommand = async (
   input: ResetServiceSettingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.ResetServiceSetting";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.ResetServiceSetting"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ResetServiceSettingRequest(input, context)
@@ -2473,9 +2572,10 @@ export const serializeAws_json1_1ResumeSessionCommand = async (
   input: ResumeSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.ResumeSession";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.ResumeSession"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ResumeSessionRequest(input, context)
@@ -2487,9 +2587,10 @@ export const serializeAws_json1_1SendAutomationSignalCommand = async (
   input: SendAutomationSignalCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.SendAutomationSignal";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.SendAutomationSignal"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1SendAutomationSignalRequest(input, context)
@@ -2501,9 +2602,10 @@ export const serializeAws_json1_1SendCommandCommand = async (
   input: SendCommandCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.SendCommand";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.SendCommand"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1SendCommandRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2513,9 +2615,10 @@ export const serializeAws_json1_1StartAssociationsOnceCommand = async (
   input: StartAssociationsOnceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.StartAssociationsOnce";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.StartAssociationsOnce"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartAssociationsOnceRequest(input, context)
@@ -2527,9 +2630,10 @@ export const serializeAws_json1_1StartAutomationExecutionCommand = async (
   input: StartAutomationExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.StartAutomationExecution";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.StartAutomationExecution"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartAutomationExecutionRequest(input, context)
@@ -2541,9 +2645,10 @@ export const serializeAws_json1_1StartSessionCommand = async (
   input: StartSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.StartSession";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.StartSession"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartSessionRequest(input, context)
@@ -2555,9 +2660,10 @@ export const serializeAws_json1_1StopAutomationExecutionCommand = async (
   input: StopAutomationExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.StopAutomationExecution";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.StopAutomationExecution"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StopAutomationExecutionRequest(input, context)
@@ -2569,9 +2675,10 @@ export const serializeAws_json1_1TerminateSessionCommand = async (
   input: TerminateSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.TerminateSession";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.TerminateSession"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1TerminateSessionRequest(input, context)
@@ -2583,9 +2690,10 @@ export const serializeAws_json1_1UpdateAssociationCommand = async (
   input: UpdateAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.UpdateAssociation";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.UpdateAssociation"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateAssociationRequest(input, context)
@@ -2597,9 +2705,10 @@ export const serializeAws_json1_1UpdateAssociationStatusCommand = async (
   input: UpdateAssociationStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.UpdateAssociationStatus";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.UpdateAssociationStatus"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateAssociationStatusRequest(input, context)
@@ -2611,9 +2720,10 @@ export const serializeAws_json1_1UpdateDocumentCommand = async (
   input: UpdateDocumentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.UpdateDocument";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.UpdateDocument"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateDocumentRequest(input, context)
@@ -2625,9 +2735,10 @@ export const serializeAws_json1_1UpdateDocumentDefaultVersionCommand = async (
   input: UpdateDocumentDefaultVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.UpdateDocumentDefaultVersion";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.UpdateDocumentDefaultVersion"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateDocumentDefaultVersionRequest(input, context)
@@ -2639,9 +2750,10 @@ export const serializeAws_json1_1UpdateMaintenanceWindowCommand = async (
   input: UpdateMaintenanceWindowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.UpdateMaintenanceWindow";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.UpdateMaintenanceWindow"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateMaintenanceWindowRequest(input, context)
@@ -2653,9 +2765,10 @@ export const serializeAws_json1_1UpdateMaintenanceWindowTargetCommand = async (
   input: UpdateMaintenanceWindowTargetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.UpdateMaintenanceWindowTarget";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.UpdateMaintenanceWindowTarget"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateMaintenanceWindowTargetRequest(input, context)
@@ -2667,9 +2780,10 @@ export const serializeAws_json1_1UpdateMaintenanceWindowTaskCommand = async (
   input: UpdateMaintenanceWindowTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.UpdateMaintenanceWindowTask";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.UpdateMaintenanceWindowTask"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateMaintenanceWindowTaskRequest(input, context)
@@ -2681,9 +2795,10 @@ export const serializeAws_json1_1UpdateManagedInstanceRoleCommand = async (
   input: UpdateManagedInstanceRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.UpdateManagedInstanceRole";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.UpdateManagedInstanceRole"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateManagedInstanceRoleRequest(input, context)
@@ -2695,9 +2810,10 @@ export const serializeAws_json1_1UpdateOpsItemCommand = async (
   input: UpdateOpsItemCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.UpdateOpsItem";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.UpdateOpsItem"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateOpsItemRequest(input, context)
@@ -2709,9 +2825,10 @@ export const serializeAws_json1_1UpdatePatchBaselineCommand = async (
   input: UpdatePatchBaselineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.UpdatePatchBaseline";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.UpdatePatchBaseline"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdatePatchBaselineRequest(input, context)
@@ -2723,9 +2840,10 @@ export const serializeAws_json1_1UpdateResourceDataSyncCommand = async (
   input: UpdateResourceDataSyncCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.UpdateResourceDataSync";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.UpdateResourceDataSync"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateResourceDataSyncRequest(input, context)
@@ -2737,9 +2855,10 @@ export const serializeAws_json1_1UpdateServiceSettingCommand = async (
   input: UpdateServiceSettingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonSSM.UpdateServiceSetting";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonSSM.UpdateServiceSetting"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateServiceSettingRequest(input, context)

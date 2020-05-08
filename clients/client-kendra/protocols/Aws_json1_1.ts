@@ -182,9 +182,10 @@ export const serializeAws_json1_1BatchDeleteDocumentCommand = async (
   input: BatchDeleteDocumentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSKendraFrontendService.BatchDeleteDocument";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSKendraFrontendService.BatchDeleteDocument"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchDeleteDocumentRequest(input, context)
@@ -196,9 +197,10 @@ export const serializeAws_json1_1BatchPutDocumentCommand = async (
   input: BatchPutDocumentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSKendraFrontendService.BatchPutDocument";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSKendraFrontendService.BatchPutDocument"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchPutDocumentRequest(input, context)
@@ -210,9 +212,10 @@ export const serializeAws_json1_1CreateDataSourceCommand = async (
   input: CreateDataSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSKendraFrontendService.CreateDataSource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSKendraFrontendService.CreateDataSource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateDataSourceRequest(input, context)
@@ -224,9 +227,10 @@ export const serializeAws_json1_1CreateFaqCommand = async (
   input: CreateFaqCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSKendraFrontendService.CreateFaq";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSKendraFrontendService.CreateFaq"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateFaqRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -236,9 +240,10 @@ export const serializeAws_json1_1CreateIndexCommand = async (
   input: CreateIndexCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSKendraFrontendService.CreateIndex";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSKendraFrontendService.CreateIndex"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateIndexRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -248,9 +253,10 @@ export const serializeAws_json1_1DeleteFaqCommand = async (
   input: DeleteFaqCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSKendraFrontendService.DeleteFaq";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSKendraFrontendService.DeleteFaq"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteFaqRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -260,9 +266,10 @@ export const serializeAws_json1_1DeleteIndexCommand = async (
   input: DeleteIndexCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSKendraFrontendService.DeleteIndex";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSKendraFrontendService.DeleteIndex"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteIndexRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -272,9 +279,10 @@ export const serializeAws_json1_1DescribeDataSourceCommand = async (
   input: DescribeDataSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSKendraFrontendService.DescribeDataSource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSKendraFrontendService.DescribeDataSource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeDataSourceRequest(input, context)
@@ -286,9 +294,10 @@ export const serializeAws_json1_1DescribeFaqCommand = async (
   input: DescribeFaqCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSKendraFrontendService.DescribeFaq";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSKendraFrontendService.DescribeFaq"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeFaqRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -298,9 +307,10 @@ export const serializeAws_json1_1DescribeIndexCommand = async (
   input: DescribeIndexCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSKendraFrontendService.DescribeIndex";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSKendraFrontendService.DescribeIndex"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeIndexRequest(input, context)
@@ -312,9 +322,10 @@ export const serializeAws_json1_1ListDataSourceSyncJobsCommand = async (
   input: ListDataSourceSyncJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSKendraFrontendService.ListDataSourceSyncJobs";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSKendraFrontendService.ListDataSourceSyncJobs"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListDataSourceSyncJobsRequest(input, context)
@@ -326,9 +337,10 @@ export const serializeAws_json1_1ListDataSourcesCommand = async (
   input: ListDataSourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSKendraFrontendService.ListDataSources";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSKendraFrontendService.ListDataSources"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListDataSourcesRequest(input, context)
@@ -340,9 +352,10 @@ export const serializeAws_json1_1ListFaqsCommand = async (
   input: ListFaqsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSKendraFrontendService.ListFaqs";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSKendraFrontendService.ListFaqs"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListFaqsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -352,9 +365,10 @@ export const serializeAws_json1_1ListIndicesCommand = async (
   input: ListIndicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSKendraFrontendService.ListIndices";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSKendraFrontendService.ListIndices"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListIndicesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -364,9 +378,10 @@ export const serializeAws_json1_1QueryCommand = async (
   input: QueryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSKendraFrontendService.Query";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSKendraFrontendService.Query"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1QueryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -376,9 +391,10 @@ export const serializeAws_json1_1StartDataSourceSyncJobCommand = async (
   input: StartDataSourceSyncJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSKendraFrontendService.StartDataSourceSyncJob";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSKendraFrontendService.StartDataSourceSyncJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartDataSourceSyncJobRequest(input, context)
@@ -390,9 +406,10 @@ export const serializeAws_json1_1StopDataSourceSyncJobCommand = async (
   input: StopDataSourceSyncJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSKendraFrontendService.StopDataSourceSyncJob";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSKendraFrontendService.StopDataSourceSyncJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StopDataSourceSyncJobRequest(input, context)
@@ -404,9 +421,10 @@ export const serializeAws_json1_1SubmitFeedbackCommand = async (
   input: SubmitFeedbackCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSKendraFrontendService.SubmitFeedback";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSKendraFrontendService.SubmitFeedback"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1SubmitFeedbackRequest(input, context)
@@ -418,9 +436,10 @@ export const serializeAws_json1_1UpdateDataSourceCommand = async (
   input: UpdateDataSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSKendraFrontendService.UpdateDataSource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSKendraFrontendService.UpdateDataSource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateDataSourceRequest(input, context)
@@ -432,9 +451,10 @@ export const serializeAws_json1_1UpdateIndexCommand = async (
   input: UpdateIndexCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSKendraFrontendService.UpdateIndex";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSKendraFrontendService.UpdateIndex"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateIndexRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);

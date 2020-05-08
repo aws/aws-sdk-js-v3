@@ -513,8 +513,9 @@ export const serializeAws_queryCloneReceiptRuleSetCommand = async (
   input: CloneReceiptRuleSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCloneReceiptRuleSetRequest(input, context);
   body = buildFormUrlencodedString({
@@ -529,8 +530,9 @@ export const serializeAws_queryCreateConfigurationSetCommand = async (
   input: CreateConfigurationSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCreateConfigurationSetRequest(
     input,
@@ -548,8 +550,9 @@ export const serializeAws_queryCreateConfigurationSetEventDestinationCommand = a
   input: CreateConfigurationSetEventDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCreateConfigurationSetEventDestinationRequest(
     input,
@@ -567,8 +570,9 @@ export const serializeAws_queryCreateConfigurationSetTrackingOptionsCommand = as
   input: CreateConfigurationSetTrackingOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCreateConfigurationSetTrackingOptionsRequest(
     input,
@@ -586,8 +590,9 @@ export const serializeAws_queryCreateCustomVerificationEmailTemplateCommand = as
   input: CreateCustomVerificationEmailTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCreateCustomVerificationEmailTemplateRequest(
     input,
@@ -605,8 +610,9 @@ export const serializeAws_queryCreateReceiptFilterCommand = async (
   input: CreateReceiptFilterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCreateReceiptFilterRequest(input, context);
   body = buildFormUrlencodedString({
@@ -621,8 +627,9 @@ export const serializeAws_queryCreateReceiptRuleCommand = async (
   input: CreateReceiptRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCreateReceiptRuleRequest(input, context);
   body = buildFormUrlencodedString({
@@ -637,8 +644,9 @@ export const serializeAws_queryCreateReceiptRuleSetCommand = async (
   input: CreateReceiptRuleSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCreateReceiptRuleSetRequest(input, context);
   body = buildFormUrlencodedString({
@@ -653,8 +661,9 @@ export const serializeAws_queryCreateTemplateCommand = async (
   input: CreateTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCreateTemplateRequest(input, context);
   body = buildFormUrlencodedString({
@@ -669,8 +678,9 @@ export const serializeAws_queryDeleteConfigurationSetCommand = async (
   input: DeleteConfigurationSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteConfigurationSetRequest(
     input,
@@ -688,8 +698,9 @@ export const serializeAws_queryDeleteConfigurationSetEventDestinationCommand = a
   input: DeleteConfigurationSetEventDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteConfigurationSetEventDestinationRequest(
     input,
@@ -707,8 +718,9 @@ export const serializeAws_queryDeleteConfigurationSetTrackingOptionsCommand = as
   input: DeleteConfigurationSetTrackingOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteConfigurationSetTrackingOptionsRequest(
     input,
@@ -726,8 +738,9 @@ export const serializeAws_queryDeleteCustomVerificationEmailTemplateCommand = as
   input: DeleteCustomVerificationEmailTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteCustomVerificationEmailTemplateRequest(
     input,
@@ -745,8 +758,9 @@ export const serializeAws_queryDeleteIdentityCommand = async (
   input: DeleteIdentityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteIdentityRequest(input, context);
   body = buildFormUrlencodedString({
@@ -761,8 +775,9 @@ export const serializeAws_queryDeleteIdentityPolicyCommand = async (
   input: DeleteIdentityPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteIdentityPolicyRequest(input, context);
   body = buildFormUrlencodedString({
@@ -777,8 +792,9 @@ export const serializeAws_queryDeleteReceiptFilterCommand = async (
   input: DeleteReceiptFilterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteReceiptFilterRequest(input, context);
   body = buildFormUrlencodedString({
@@ -793,8 +809,9 @@ export const serializeAws_queryDeleteReceiptRuleCommand = async (
   input: DeleteReceiptRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteReceiptRuleRequest(input, context);
   body = buildFormUrlencodedString({
@@ -809,8 +826,9 @@ export const serializeAws_queryDeleteReceiptRuleSetCommand = async (
   input: DeleteReceiptRuleSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteReceiptRuleSetRequest(input, context);
   body = buildFormUrlencodedString({
@@ -825,8 +843,9 @@ export const serializeAws_queryDeleteTemplateCommand = async (
   input: DeleteTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteTemplateRequest(input, context);
   body = buildFormUrlencodedString({
@@ -841,8 +860,9 @@ export const serializeAws_queryDeleteVerifiedEmailAddressCommand = async (
   input: DeleteVerifiedEmailAddressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteVerifiedEmailAddressRequest(
     input,
@@ -860,8 +880,9 @@ export const serializeAws_queryDescribeActiveReceiptRuleSetCommand = async (
   input: DescribeActiveReceiptRuleSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeActiveReceiptRuleSetRequest(
     input,
@@ -879,8 +900,9 @@ export const serializeAws_queryDescribeConfigurationSetCommand = async (
   input: DescribeConfigurationSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeConfigurationSetRequest(
     input,
@@ -898,8 +920,9 @@ export const serializeAws_queryDescribeReceiptRuleCommand = async (
   input: DescribeReceiptRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeReceiptRuleRequest(input, context);
   body = buildFormUrlencodedString({
@@ -914,8 +937,9 @@ export const serializeAws_queryDescribeReceiptRuleSetCommand = async (
   input: DescribeReceiptRuleSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeReceiptRuleSetRequest(
     input,
@@ -933,8 +957,9 @@ export const serializeAws_queryGetAccountSendingEnabledCommand = async (
   input: GetAccountSendingEnabledCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   const body = buildFormUrlencodedString({
     Action: "GetAccountSendingEnabled",
     Version: "2010-12-01"
@@ -946,8 +971,9 @@ export const serializeAws_queryGetCustomVerificationEmailTemplateCommand = async
   input: GetCustomVerificationEmailTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryGetCustomVerificationEmailTemplateRequest(
     input,
@@ -965,8 +991,9 @@ export const serializeAws_queryGetIdentityDkimAttributesCommand = async (
   input: GetIdentityDkimAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryGetIdentityDkimAttributesRequest(
     input,
@@ -984,8 +1011,9 @@ export const serializeAws_queryGetIdentityMailFromDomainAttributesCommand = asyn
   input: GetIdentityMailFromDomainAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryGetIdentityMailFromDomainAttributesRequest(
     input,
@@ -1003,8 +1031,9 @@ export const serializeAws_queryGetIdentityNotificationAttributesCommand = async 
   input: GetIdentityNotificationAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryGetIdentityNotificationAttributesRequest(
     input,
@@ -1022,8 +1051,9 @@ export const serializeAws_queryGetIdentityPoliciesCommand = async (
   input: GetIdentityPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryGetIdentityPoliciesRequest(input, context);
   body = buildFormUrlencodedString({
@@ -1038,8 +1068,9 @@ export const serializeAws_queryGetIdentityVerificationAttributesCommand = async 
   input: GetIdentityVerificationAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryGetIdentityVerificationAttributesRequest(
     input,
@@ -1057,8 +1088,9 @@ export const serializeAws_queryGetSendQuotaCommand = async (
   input: GetSendQuotaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   const body = buildFormUrlencodedString({
     Action: "GetSendQuota",
     Version: "2010-12-01"
@@ -1070,8 +1102,9 @@ export const serializeAws_queryGetSendStatisticsCommand = async (
   input: GetSendStatisticsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   const body = buildFormUrlencodedString({
     Action: "GetSendStatistics",
     Version: "2010-12-01"
@@ -1083,8 +1116,9 @@ export const serializeAws_queryGetTemplateCommand = async (
   input: GetTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryGetTemplateRequest(input, context);
   body = buildFormUrlencodedString({
@@ -1099,8 +1133,9 @@ export const serializeAws_queryListConfigurationSetsCommand = async (
   input: ListConfigurationSetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryListConfigurationSetsRequest(
     input,
@@ -1118,8 +1153,9 @@ export const serializeAws_queryListCustomVerificationEmailTemplatesCommand = asy
   input: ListCustomVerificationEmailTemplatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryListCustomVerificationEmailTemplatesRequest(
     input,
@@ -1137,8 +1173,9 @@ export const serializeAws_queryListIdentitiesCommand = async (
   input: ListIdentitiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryListIdentitiesRequest(input, context);
   body = buildFormUrlencodedString({
@@ -1153,8 +1190,9 @@ export const serializeAws_queryListIdentityPoliciesCommand = async (
   input: ListIdentityPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryListIdentityPoliciesRequest(input, context);
   body = buildFormUrlencodedString({
@@ -1169,8 +1207,9 @@ export const serializeAws_queryListReceiptFiltersCommand = async (
   input: ListReceiptFiltersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryListReceiptFiltersRequest(input, context);
   body = buildFormUrlencodedString({
@@ -1185,8 +1224,9 @@ export const serializeAws_queryListReceiptRuleSetsCommand = async (
   input: ListReceiptRuleSetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryListReceiptRuleSetsRequest(input, context);
   body = buildFormUrlencodedString({
@@ -1201,8 +1241,9 @@ export const serializeAws_queryListTemplatesCommand = async (
   input: ListTemplatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryListTemplatesRequest(input, context);
   body = buildFormUrlencodedString({
@@ -1217,8 +1258,9 @@ export const serializeAws_queryListVerifiedEmailAddressesCommand = async (
   input: ListVerifiedEmailAddressesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   const body = buildFormUrlencodedString({
     Action: "ListVerifiedEmailAddresses",
     Version: "2010-12-01"
@@ -1230,8 +1272,9 @@ export const serializeAws_queryPutConfigurationSetDeliveryOptionsCommand = async
   input: PutConfigurationSetDeliveryOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryPutConfigurationSetDeliveryOptionsRequest(
     input,
@@ -1249,8 +1292,9 @@ export const serializeAws_queryPutIdentityPolicyCommand = async (
   input: PutIdentityPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryPutIdentityPolicyRequest(input, context);
   body = buildFormUrlencodedString({
@@ -1265,8 +1309,9 @@ export const serializeAws_queryReorderReceiptRuleSetCommand = async (
   input: ReorderReceiptRuleSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryReorderReceiptRuleSetRequest(
     input,
@@ -1284,8 +1329,9 @@ export const serializeAws_querySendBounceCommand = async (
   input: SendBounceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_querySendBounceRequest(input, context);
   body = buildFormUrlencodedString({
@@ -1300,8 +1346,9 @@ export const serializeAws_querySendBulkTemplatedEmailCommand = async (
   input: SendBulkTemplatedEmailCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_querySendBulkTemplatedEmailRequest(
     input,
@@ -1319,8 +1366,9 @@ export const serializeAws_querySendCustomVerificationEmailCommand = async (
   input: SendCustomVerificationEmailCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_querySendCustomVerificationEmailRequest(
     input,
@@ -1338,8 +1386,9 @@ export const serializeAws_querySendEmailCommand = async (
   input: SendEmailCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_querySendEmailRequest(input, context);
   body = buildFormUrlencodedString({
@@ -1354,8 +1403,9 @@ export const serializeAws_querySendRawEmailCommand = async (
   input: SendRawEmailCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_querySendRawEmailRequest(input, context);
   body = buildFormUrlencodedString({
@@ -1370,8 +1420,9 @@ export const serializeAws_querySendTemplatedEmailCommand = async (
   input: SendTemplatedEmailCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_querySendTemplatedEmailRequest(input, context);
   body = buildFormUrlencodedString({
@@ -1386,8 +1437,9 @@ export const serializeAws_querySetActiveReceiptRuleSetCommand = async (
   input: SetActiveReceiptRuleSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_querySetActiveReceiptRuleSetRequest(
     input,
@@ -1405,8 +1457,9 @@ export const serializeAws_querySetIdentityDkimEnabledCommand = async (
   input: SetIdentityDkimEnabledCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_querySetIdentityDkimEnabledRequest(
     input,
@@ -1424,8 +1477,9 @@ export const serializeAws_querySetIdentityFeedbackForwardingEnabledCommand = asy
   input: SetIdentityFeedbackForwardingEnabledCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_querySetIdentityFeedbackForwardingEnabledRequest(
     input,
@@ -1443,8 +1497,9 @@ export const serializeAws_querySetIdentityHeadersInNotificationsEnabledCommand =
   input: SetIdentityHeadersInNotificationsEnabledCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_querySetIdentityHeadersInNotificationsEnabledRequest(
     input,
@@ -1462,8 +1517,9 @@ export const serializeAws_querySetIdentityMailFromDomainCommand = async (
   input: SetIdentityMailFromDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_querySetIdentityMailFromDomainRequest(
     input,
@@ -1481,8 +1537,9 @@ export const serializeAws_querySetIdentityNotificationTopicCommand = async (
   input: SetIdentityNotificationTopicCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_querySetIdentityNotificationTopicRequest(
     input,
@@ -1500,8 +1557,9 @@ export const serializeAws_querySetReceiptRulePositionCommand = async (
   input: SetReceiptRulePositionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_querySetReceiptRulePositionRequest(
     input,
@@ -1519,8 +1577,9 @@ export const serializeAws_queryTestRenderTemplateCommand = async (
   input: TestRenderTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryTestRenderTemplateRequest(input, context);
   body = buildFormUrlencodedString({
@@ -1535,8 +1594,9 @@ export const serializeAws_queryUpdateAccountSendingEnabledCommand = async (
   input: UpdateAccountSendingEnabledCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryUpdateAccountSendingEnabledRequest(
     input,
@@ -1554,8 +1614,9 @@ export const serializeAws_queryUpdateConfigurationSetEventDestinationCommand = a
   input: UpdateConfigurationSetEventDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryUpdateConfigurationSetEventDestinationRequest(
     input,
@@ -1573,8 +1634,9 @@ export const serializeAws_queryUpdateConfigurationSetReputationMetricsEnabledCom
   input: UpdateConfigurationSetReputationMetricsEnabledCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryUpdateConfigurationSetReputationMetricsEnabledRequest(
     input,
@@ -1592,8 +1654,9 @@ export const serializeAws_queryUpdateConfigurationSetSendingEnabledCommand = asy
   input: UpdateConfigurationSetSendingEnabledCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryUpdateConfigurationSetSendingEnabledRequest(
     input,
@@ -1611,8 +1674,9 @@ export const serializeAws_queryUpdateConfigurationSetTrackingOptionsCommand = as
   input: UpdateConfigurationSetTrackingOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryUpdateConfigurationSetTrackingOptionsRequest(
     input,
@@ -1630,8 +1694,9 @@ export const serializeAws_queryUpdateCustomVerificationEmailTemplateCommand = as
   input: UpdateCustomVerificationEmailTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryUpdateCustomVerificationEmailTemplateRequest(
     input,
@@ -1649,8 +1714,9 @@ export const serializeAws_queryUpdateReceiptRuleCommand = async (
   input: UpdateReceiptRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryUpdateReceiptRuleRequest(input, context);
   body = buildFormUrlencodedString({
@@ -1665,8 +1731,9 @@ export const serializeAws_queryUpdateTemplateCommand = async (
   input: UpdateTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryUpdateTemplateRequest(input, context);
   body = buildFormUrlencodedString({
@@ -1681,8 +1748,9 @@ export const serializeAws_queryVerifyDomainDkimCommand = async (
   input: VerifyDomainDkimCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryVerifyDomainDkimRequest(input, context);
   body = buildFormUrlencodedString({
@@ -1697,8 +1765,9 @@ export const serializeAws_queryVerifyDomainIdentityCommand = async (
   input: VerifyDomainIdentityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryVerifyDomainIdentityRequest(input, context);
   body = buildFormUrlencodedString({
@@ -1713,8 +1782,9 @@ export const serializeAws_queryVerifyEmailAddressCommand = async (
   input: VerifyEmailAddressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryVerifyEmailAddressRequest(input, context);
   body = buildFormUrlencodedString({
@@ -1729,8 +1799,9 @@ export const serializeAws_queryVerifyEmailIdentityCommand = async (
   input: VerifyEmailIdentityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryVerifyEmailIdentityRequest(input, context);
   body = buildFormUrlencodedString({

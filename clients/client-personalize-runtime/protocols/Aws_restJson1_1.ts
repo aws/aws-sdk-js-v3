@@ -27,8 +27,9 @@ export const serializeAws_restJson1_1GetPersonalizedRankingCommand = async (
   input: GetPersonalizedRankingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/personalize-ranking";
   let body: any;
   const bodyParams: any = {};
@@ -67,8 +68,9 @@ export const serializeAws_restJson1_1GetRecommendationsCommand = async (
   input: GetRecommendationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/recommendations";
   let body: any;
   const bodyParams: any = {};

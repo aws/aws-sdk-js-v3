@@ -42,10 +42,10 @@ export const serializeAws_json1_1CreateHomeRegionControlCommand = async (
   input: CreateHomeRegionControlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSMigrationHubMultiAccountService.CreateHomeRegionControl";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSMigrationHubMultiAccountService.CreateHomeRegionControl"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateHomeRegionControlRequest(input, context)
@@ -57,10 +57,11 @@ export const serializeAws_json1_1DescribeHomeRegionControlsCommand = async (
   input: DescribeHomeRegionControlsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSMigrationHubMultiAccountService.DescribeHomeRegionControls";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "AWSMigrationHubMultiAccountService.DescribeHomeRegionControls"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeHomeRegionControlsRequest(input, context)
@@ -72,9 +73,10 @@ export const serializeAws_json1_1GetHomeRegionCommand = async (
   input: GetHomeRegionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSMigrationHubMultiAccountService.GetHomeRegion";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSMigrationHubMultiAccountService.GetHomeRegion"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetHomeRegionRequest(input, context)

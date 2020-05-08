@@ -205,8 +205,9 @@ export const serializeAws_restJson1_1BatchDescribeSimulationJobCommand = async (
   input: BatchDescribeSimulationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/batchDescribeSimulationJob";
   let body: any;
   const bodyParams: any = {};
@@ -230,8 +231,9 @@ export const serializeAws_restJson1_1CancelDeploymentJobCommand = async (
   input: CancelDeploymentJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/cancelDeploymentJob";
   let body: any;
   const bodyParams: any = {};
@@ -255,8 +257,9 @@ export const serializeAws_restJson1_1CancelSimulationJobCommand = async (
   input: CancelSimulationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/cancelSimulationJob";
   let body: any;
   const bodyParams: any = {};
@@ -280,8 +283,9 @@ export const serializeAws_restJson1_1CreateDeploymentJobCommand = async (
   input: CreateDeploymentJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/createDeploymentJob";
   let body: any;
   const bodyParams: any = {};
@@ -328,8 +332,9 @@ export const serializeAws_restJson1_1CreateFleetCommand = async (
   input: CreateFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/createFleet";
   let body: any;
   const bodyParams: any = {};
@@ -356,8 +361,9 @@ export const serializeAws_restJson1_1CreateRobotCommand = async (
   input: CreateRobotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/createRobot";
   let body: any;
   const bodyParams: any = {};
@@ -390,8 +396,9 @@ export const serializeAws_restJson1_1CreateRobotApplicationCommand = async (
   input: CreateRobotApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/createRobotApplication";
   let body: any;
   const bodyParams: any = {};
@@ -432,8 +439,9 @@ export const serializeAws_restJson1_1CreateRobotApplicationVersionCommand = asyn
   input: CreateRobotApplicationVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/createRobotApplicationVersion";
   let body: any;
   const bodyParams: any = {};
@@ -460,8 +468,9 @@ export const serializeAws_restJson1_1CreateSimulationApplicationCommand = async 
   input: CreateSimulationApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/createSimulationApplication";
   let body: any;
   const bodyParams: any = {};
@@ -516,8 +525,9 @@ export const serializeAws_restJson1_1CreateSimulationApplicationVersionCommand =
   input: CreateSimulationApplicationVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/createSimulationApplicationVersion";
   let body: any;
   const bodyParams: any = {};
@@ -544,8 +554,9 @@ export const serializeAws_restJson1_1CreateSimulationJobCommand = async (
   input: CreateSimulationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/createSimulationJob";
   let body: any;
   const bodyParams: any = {};
@@ -624,8 +635,9 @@ export const serializeAws_restJson1_1DeleteFleetCommand = async (
   input: DeleteFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/deleteFleet";
   let body: any;
   const bodyParams: any = {};
@@ -649,8 +661,9 @@ export const serializeAws_restJson1_1DeleteRobotCommand = async (
   input: DeleteRobotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/deleteRobot";
   let body: any;
   const bodyParams: any = {};
@@ -674,8 +687,9 @@ export const serializeAws_restJson1_1DeleteRobotApplicationCommand = async (
   input: DeleteRobotApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/deleteRobotApplication";
   let body: any;
   const bodyParams: any = {};
@@ -702,8 +716,9 @@ export const serializeAws_restJson1_1DeleteSimulationApplicationCommand = async 
   input: DeleteSimulationApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/deleteSimulationApplication";
   let body: any;
   const bodyParams: any = {};
@@ -730,8 +745,9 @@ export const serializeAws_restJson1_1DeregisterRobotCommand = async (
   input: DeregisterRobotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/deregisterRobot";
   let body: any;
   const bodyParams: any = {};
@@ -758,8 +774,9 @@ export const serializeAws_restJson1_1DescribeDeploymentJobCommand = async (
   input: DescribeDeploymentJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/describeDeploymentJob";
   let body: any;
   const bodyParams: any = {};
@@ -783,8 +800,9 @@ export const serializeAws_restJson1_1DescribeFleetCommand = async (
   input: DescribeFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/describeFleet";
   let body: any;
   const bodyParams: any = {};
@@ -808,8 +826,9 @@ export const serializeAws_restJson1_1DescribeRobotCommand = async (
   input: DescribeRobotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/describeRobot";
   let body: any;
   const bodyParams: any = {};
@@ -833,8 +852,9 @@ export const serializeAws_restJson1_1DescribeRobotApplicationCommand = async (
   input: DescribeRobotApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/describeRobotApplication";
   let body: any;
   const bodyParams: any = {};
@@ -861,8 +881,9 @@ export const serializeAws_restJson1_1DescribeSimulationApplicationCommand = asyn
   input: DescribeSimulationApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/describeSimulationApplication";
   let body: any;
   const bodyParams: any = {};
@@ -889,8 +910,9 @@ export const serializeAws_restJson1_1DescribeSimulationJobCommand = async (
   input: DescribeSimulationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/describeSimulationJob";
   let body: any;
   const bodyParams: any = {};
@@ -914,8 +936,9 @@ export const serializeAws_restJson1_1ListDeploymentJobsCommand = async (
   input: ListDeploymentJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/listDeploymentJobs";
   let body: any;
   const bodyParams: any = {};
@@ -948,8 +971,9 @@ export const serializeAws_restJson1_1ListFleetsCommand = async (
   input: ListFleetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/listFleets";
   let body: any;
   const bodyParams: any = {};
@@ -982,8 +1006,9 @@ export const serializeAws_restJson1_1ListRobotApplicationsCommand = async (
   input: ListRobotApplicationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/listRobotApplications";
   let body: any;
   const bodyParams: any = {};
@@ -1019,8 +1044,9 @@ export const serializeAws_restJson1_1ListRobotsCommand = async (
   input: ListRobotsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/listRobots";
   let body: any;
   const bodyParams: any = {};
@@ -1053,8 +1079,9 @@ export const serializeAws_restJson1_1ListSimulationApplicationsCommand = async (
   input: ListSimulationApplicationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/listSimulationApplications";
   let body: any;
   const bodyParams: any = {};
@@ -1090,8 +1117,9 @@ export const serializeAws_restJson1_1ListSimulationJobsCommand = async (
   input: ListSimulationJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/listSimulationJobs";
   let body: any;
   const bodyParams: any = {};
@@ -1124,8 +1152,9 @@ export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
@@ -1158,8 +1187,9 @@ export const serializeAws_restJson1_1RegisterRobotCommand = async (
   input: RegisterRobotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/registerRobot";
   let body: any;
   const bodyParams: any = {};
@@ -1186,8 +1216,9 @@ export const serializeAws_restJson1_1RestartSimulationJobCommand = async (
   input: RestartSimulationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/restartSimulationJob";
   let body: any;
   const bodyParams: any = {};
@@ -1211,8 +1242,9 @@ export const serializeAws_restJson1_1SyncDeploymentJobCommand = async (
   input: SyncDeploymentJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/syncDeploymentJob";
   let body: any;
   const bodyParams: any = {};
@@ -1242,8 +1274,9 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
@@ -1281,8 +1314,9 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
@@ -1320,8 +1354,9 @@ export const serializeAws_restJson1_1UpdateRobotApplicationCommand = async (
   input: UpdateRobotApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/updateRobotApplication";
   let body: any;
   const bodyParams: any = {};
@@ -1362,8 +1397,9 @@ export const serializeAws_restJson1_1UpdateSimulationApplicationCommand = async 
   input: UpdateSimulationApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/updateSimulationApplication";
   let body: any;
   const bodyParams: any = {};

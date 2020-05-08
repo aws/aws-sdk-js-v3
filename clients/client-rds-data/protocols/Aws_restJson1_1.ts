@@ -57,8 +57,9 @@ export const serializeAws_restJson1_1BatchExecuteStatementCommand = async (
   input: BatchExecuteStatementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/BatchExecute";
   let body: any;
   const bodyParams: any = {};
@@ -103,8 +104,9 @@ export const serializeAws_restJson1_1BeginTransactionCommand = async (
   input: BeginTransactionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/BeginTransaction";
   let body: any;
   const bodyParams: any = {};
@@ -137,8 +139,9 @@ export const serializeAws_restJson1_1CommitTransactionCommand = async (
   input: CommitTransactionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/CommitTransaction";
   let body: any;
   const bodyParams: any = {};
@@ -168,8 +171,9 @@ export const serializeAws_restJson1_1ExecuteSqlCommand = async (
   input: ExecuteSqlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/ExecuteSql";
   let body: any;
   const bodyParams: any = {};
@@ -205,8 +209,9 @@ export const serializeAws_restJson1_1ExecuteStatementCommand = async (
   input: ExecuteStatementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/Execute";
   let body: any;
   const bodyParams: any = {};
@@ -257,8 +262,9 @@ export const serializeAws_restJson1_1RollbackTransactionCommand = async (
   input: RollbackTransactionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/RollbackTransaction";
   let body: any;
   const bodyParams: any = {};

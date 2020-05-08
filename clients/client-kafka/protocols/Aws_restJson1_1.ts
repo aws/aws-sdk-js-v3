@@ -135,8 +135,9 @@ export const serializeAws_restJson1_1CreateClusterCommand = async (
   input: CreateClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/clusters";
   let body: any;
   const bodyParams: any = {};
@@ -209,8 +210,9 @@ export const serializeAws_restJson1_1CreateConfigurationCommand = async (
   input: CreateConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/configurations";
   let body: any;
   const bodyParams: any = {};
@@ -248,8 +250,9 @@ export const serializeAws_restJson1_1DeleteClusterCommand = async (
   input: DeleteClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/clusters/{ClusterArn}";
   if (input.ClusterArn !== undefined) {
     const labelValue: string = input.ClusterArn;
@@ -285,8 +288,9 @@ export const serializeAws_restJson1_1DescribeClusterCommand = async (
   input: DescribeClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/clusters/{ClusterArn}";
   if (input.ClusterArn !== undefined) {
     const labelValue: string = input.ClusterArn;
@@ -317,8 +321,9 @@ export const serializeAws_restJson1_1DescribeClusterOperationCommand = async (
   input: DescribeClusterOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/operations/{ClusterOperationArn}";
   if (input.ClusterOperationArn !== undefined) {
     const labelValue: string = input.ClusterOperationArn;
@@ -353,8 +358,9 @@ export const serializeAws_restJson1_1DescribeConfigurationCommand = async (
   input: DescribeConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/configurations/{Arn}";
   if (input.Arn !== undefined) {
     const labelValue: string = input.Arn;
@@ -385,8 +391,9 @@ export const serializeAws_restJson1_1DescribeConfigurationRevisionCommand = asyn
   input: DescribeConfigurationRevisionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/configurations/{Arn}/revisions/{Revision}";
   if (input.Arn !== undefined) {
     const labelValue: string = input.Arn;
@@ -429,8 +436,9 @@ export const serializeAws_restJson1_1GetBootstrapBrokersCommand = async (
   input: GetBootstrapBrokersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/clusters/{ClusterArn}/bootstrap-brokers";
   if (input.ClusterArn !== undefined) {
     const labelValue: string = input.ClusterArn;
@@ -461,8 +469,9 @@ export const serializeAws_restJson1_1ListClusterOperationsCommand = async (
   input: ListClusterOperationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/clusters/{ClusterArn}/operations";
   if (input.ClusterArn !== undefined) {
     const labelValue: string = input.ClusterArn;
@@ -501,8 +510,9 @@ export const serializeAws_restJson1_1ListClustersCommand = async (
   input: ListClustersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/clusters";
   const query: any = {};
   if (input.ClusterNameFilter !== undefined) {
@@ -532,8 +542,9 @@ export const serializeAws_restJson1_1ListConfigurationRevisionsCommand = async (
   input: ListConfigurationRevisionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/configurations/{Arn}/revisions";
   if (input.Arn !== undefined) {
     const labelValue: string = input.Arn;
@@ -572,8 +583,9 @@ export const serializeAws_restJson1_1ListConfigurationsCommand = async (
   input: ListConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/configurations";
   const query: any = {};
   if (input.MaxResults !== undefined) {
@@ -600,8 +612,9 @@ export const serializeAws_restJson1_1ListNodesCommand = async (
   input: ListNodesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/clusters/{ClusterArn}/nodes";
   if (input.ClusterArn !== undefined) {
     const labelValue: string = input.ClusterArn;
@@ -640,8 +653,9 @@ export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -674,8 +688,9 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -716,8 +731,9 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -755,8 +771,9 @@ export const serializeAws_restJson1_1UpdateBrokerCountCommand = async (
   input: UpdateBrokerCountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/clusters/{ClusterArn}/nodes/count";
   if (input.ClusterArn !== undefined) {
     const labelValue: string = input.ClusterArn;
@@ -795,8 +812,9 @@ export const serializeAws_restJson1_1UpdateBrokerStorageCommand = async (
   input: UpdateBrokerStorageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/clusters/{ClusterArn}/nodes/storage";
   if (input.ClusterArn !== undefined) {
     const labelValue: string = input.ClusterArn;
@@ -840,8 +858,9 @@ export const serializeAws_restJson1_1UpdateClusterConfigurationCommand = async (
   input: UpdateClusterConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/clusters/{ClusterArn}/configuration";
   if (input.ClusterArn !== undefined) {
     const labelValue: string = input.ClusterArn;
@@ -883,8 +902,9 @@ export const serializeAws_restJson1_1UpdateMonitoringCommand = async (
   input: UpdateMonitoringCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/clusters/{ClusterArn}/monitoring";
   if (input.ClusterArn !== undefined) {
     const labelValue: string = input.ClusterArn;

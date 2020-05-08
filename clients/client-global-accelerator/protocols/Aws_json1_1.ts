@@ -137,9 +137,10 @@ export const serializeAws_json1_1CreateAcceleratorCommand = async (
   input: CreateAcceleratorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.CreateAccelerator";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GlobalAccelerator_V20180706.CreateAccelerator"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateAcceleratorRequest(input, context)
@@ -151,9 +152,10 @@ export const serializeAws_json1_1CreateEndpointGroupCommand = async (
   input: CreateEndpointGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.CreateEndpointGroup";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GlobalAccelerator_V20180706.CreateEndpointGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateEndpointGroupRequest(input, context)
@@ -165,9 +167,10 @@ export const serializeAws_json1_1CreateListenerCommand = async (
   input: CreateListenerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.CreateListener";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GlobalAccelerator_V20180706.CreateListener"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateListenerRequest(input, context)
@@ -179,9 +182,10 @@ export const serializeAws_json1_1DeleteAcceleratorCommand = async (
   input: DeleteAcceleratorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.DeleteAccelerator";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GlobalAccelerator_V20180706.DeleteAccelerator"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteAcceleratorRequest(input, context)
@@ -193,9 +197,10 @@ export const serializeAws_json1_1DeleteEndpointGroupCommand = async (
   input: DeleteEndpointGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.DeleteEndpointGroup";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GlobalAccelerator_V20180706.DeleteEndpointGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteEndpointGroupRequest(input, context)
@@ -207,9 +212,10 @@ export const serializeAws_json1_1DeleteListenerCommand = async (
   input: DeleteListenerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.DeleteListener";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GlobalAccelerator_V20180706.DeleteListener"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteListenerRequest(input, context)
@@ -221,9 +227,10 @@ export const serializeAws_json1_1DescribeAcceleratorCommand = async (
   input: DescribeAcceleratorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.DescribeAccelerator";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GlobalAccelerator_V20180706.DescribeAccelerator"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeAcceleratorRequest(input, context)
@@ -235,10 +242,10 @@ export const serializeAws_json1_1DescribeAcceleratorAttributesCommand = async (
   input: DescribeAcceleratorAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "GlobalAccelerator_V20180706.DescribeAcceleratorAttributes";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GlobalAccelerator_V20180706.DescribeAcceleratorAttributes"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeAcceleratorAttributesRequest(input, context)
@@ -250,9 +257,10 @@ export const serializeAws_json1_1DescribeEndpointGroupCommand = async (
   input: DescribeEndpointGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.DescribeEndpointGroup";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GlobalAccelerator_V20180706.DescribeEndpointGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEndpointGroupRequest(input, context)
@@ -264,9 +272,10 @@ export const serializeAws_json1_1DescribeListenerCommand = async (
   input: DescribeListenerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.DescribeListener";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GlobalAccelerator_V20180706.DescribeListener"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeListenerRequest(input, context)
@@ -278,9 +287,10 @@ export const serializeAws_json1_1ListAcceleratorsCommand = async (
   input: ListAcceleratorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.ListAccelerators";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GlobalAccelerator_V20180706.ListAccelerators"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListAcceleratorsRequest(input, context)
@@ -292,9 +302,10 @@ export const serializeAws_json1_1ListEndpointGroupsCommand = async (
   input: ListEndpointGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.ListEndpointGroups";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GlobalAccelerator_V20180706.ListEndpointGroups"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListEndpointGroupsRequest(input, context)
@@ -306,9 +317,10 @@ export const serializeAws_json1_1ListListenersCommand = async (
   input: ListListenersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.ListListeners";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GlobalAccelerator_V20180706.ListListeners"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListListenersRequest(input, context)
@@ -320,9 +332,10 @@ export const serializeAws_json1_1UpdateAcceleratorCommand = async (
   input: UpdateAcceleratorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.UpdateAccelerator";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GlobalAccelerator_V20180706.UpdateAccelerator"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateAcceleratorRequest(input, context)
@@ -334,10 +347,10 @@ export const serializeAws_json1_1UpdateAcceleratorAttributesCommand = async (
   input: UpdateAcceleratorAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "GlobalAccelerator_V20180706.UpdateAcceleratorAttributes";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GlobalAccelerator_V20180706.UpdateAcceleratorAttributes"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateAcceleratorAttributesRequest(input, context)
@@ -349,9 +362,10 @@ export const serializeAws_json1_1UpdateEndpointGroupCommand = async (
   input: UpdateEndpointGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.UpdateEndpointGroup";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GlobalAccelerator_V20180706.UpdateEndpointGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateEndpointGroupRequest(input, context)
@@ -363,9 +377,10 @@ export const serializeAws_json1_1UpdateListenerCommand = async (
   input: UpdateListenerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.UpdateListener";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GlobalAccelerator_V20180706.UpdateListener"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateListenerRequest(input, context)

@@ -148,8 +148,9 @@ export const serializeAws_restJson1_1CancelContactCommand = async (
   input: CancelContactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/contact/{contactId}";
   if (input.contactId !== undefined) {
     const labelValue: string = input.contactId;
@@ -180,8 +181,9 @@ export const serializeAws_restJson1_1CreateConfigCommand = async (
   input: CreateConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/config";
   let body: any;
   const bodyParams: any = {};
@@ -214,8 +216,9 @@ export const serializeAws_restJson1_1CreateDataflowEndpointGroupCommand = async 
   input: CreateDataflowEndpointGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/dataflowEndpointGroup";
   let body: any;
   const bodyParams: any = {};
@@ -245,8 +248,9 @@ export const serializeAws_restJson1_1CreateMissionProfileCommand = async (
   input: CreateMissionProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/missionprofile";
   let body: any;
   const bodyParams: any = {};
@@ -294,8 +298,9 @@ export const serializeAws_restJson1_1DeleteConfigCommand = async (
   input: DeleteConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/config/{configType}/{configId}";
   if (input.configId !== undefined) {
     const labelValue: string = input.configId;
@@ -338,8 +343,9 @@ export const serializeAws_restJson1_1DeleteDataflowEndpointGroupCommand = async 
   input: DeleteDataflowEndpointGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/dataflowEndpointGroup/{dataflowEndpointGroupId}";
   if (input.dataflowEndpointGroupId !== undefined) {
     const labelValue: string = input.dataflowEndpointGroupId;
@@ -374,8 +380,9 @@ export const serializeAws_restJson1_1DeleteMissionProfileCommand = async (
   input: DeleteMissionProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/missionprofile/{missionProfileId}";
   if (input.missionProfileId !== undefined) {
     const labelValue: string = input.missionProfileId;
@@ -410,8 +417,9 @@ export const serializeAws_restJson1_1DescribeContactCommand = async (
   input: DescribeContactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/contact/{contactId}";
   if (input.contactId !== undefined) {
     const labelValue: string = input.contactId;
@@ -442,8 +450,9 @@ export const serializeAws_restJson1_1GetConfigCommand = async (
   input: GetConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/config/{configType}/{configId}";
   if (input.configId !== undefined) {
     const labelValue: string = input.configId;
@@ -486,8 +495,9 @@ export const serializeAws_restJson1_1GetDataflowEndpointGroupCommand = async (
   input: GetDataflowEndpointGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/dataflowEndpointGroup/{dataflowEndpointGroupId}";
   if (input.dataflowEndpointGroupId !== undefined) {
     const labelValue: string = input.dataflowEndpointGroupId;
@@ -522,8 +532,9 @@ export const serializeAws_restJson1_1GetMissionProfileCommand = async (
   input: GetMissionProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/missionprofile/{missionProfileId}";
   if (input.missionProfileId !== undefined) {
     const labelValue: string = input.missionProfileId;
@@ -558,8 +569,9 @@ export const serializeAws_restJson1_1ListConfigsCommand = async (
   input: ListConfigsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/config";
   const query: any = {};
   if (input.maxResults !== undefined) {
@@ -586,8 +598,9 @@ export const serializeAws_restJson1_1ListContactsCommand = async (
   input: ListContactsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/contacts";
   let body: any;
   const bodyParams: any = {};
@@ -635,8 +648,9 @@ export const serializeAws_restJson1_1ListDataflowEndpointGroupsCommand = async (
   input: ListDataflowEndpointGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/dataflowEndpointGroup";
   const query: any = {};
   if (input.maxResults !== undefined) {
@@ -663,8 +677,9 @@ export const serializeAws_restJson1_1ListMissionProfilesCommand = async (
   input: ListMissionProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/missionprofile";
   const query: any = {};
   if (input.maxResults !== undefined) {
@@ -691,8 +706,9 @@ export const serializeAws_restJson1_1ReserveContactCommand = async (
   input: ReserveContactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/contact";
   let body: any;
   const bodyParams: any = {};
@@ -731,8 +747,9 @@ export const serializeAws_restJson1_1UpdateConfigCommand = async (
   input: UpdateConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/config/{configType}/{configId}";
   if (input.configId !== undefined) {
     const labelValue: string = input.configId;
@@ -786,8 +803,9 @@ export const serializeAws_restJson1_1UpdateMissionProfileCommand = async (
   input: UpdateMissionProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/missionprofile/{missionProfileId}";
   if (input.missionProfileId !== undefined) {
     const labelValue: string = input.missionProfileId;
@@ -848,8 +866,9 @@ export const serializeAws_restJson1_1GetMinuteUsageCommand = async (
   input: GetMinuteUsageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/minute-usage";
   let body: any;
   const bodyParams: any = {};
@@ -876,8 +895,9 @@ export const serializeAws_restJson1_1GetSatelliteCommand = async (
   input: GetSatelliteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/satellite/{satelliteId}";
   if (input.satelliteId !== undefined) {
     const labelValue: string = input.satelliteId;
@@ -910,8 +930,9 @@ export const serializeAws_restJson1_1ListGroundStationsCommand = async (
   input: ListGroundStationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/groundstation";
   const query: any = {};
   if (input.maxResults !== undefined) {
@@ -938,8 +959,9 @@ export const serializeAws_restJson1_1ListSatellitesCommand = async (
   input: ListSatellitesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/satellite";
   const query: any = {};
   if (input.maxResults !== undefined) {
@@ -966,8 +988,9 @@ export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
@@ -1000,8 +1023,9 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
@@ -1039,8 +1063,9 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;

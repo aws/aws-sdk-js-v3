@@ -93,10 +93,10 @@ export const serializeAws_json1_1DeleteTerminologyCommand = async (
   input: DeleteTerminologyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSShineFrontendService_20170701.DeleteTerminology";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSShineFrontendService_20170701.DeleteTerminology"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteTerminologyRequest(input, context)
@@ -108,10 +108,11 @@ export const serializeAws_json1_1DescribeTextTranslationJobCommand = async (
   input: DescribeTextTranslationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSShineFrontendService_20170701.DescribeTextTranslationJob";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "AWSShineFrontendService_20170701.DescribeTextTranslationJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeTextTranslationJobRequest(input, context)
@@ -123,9 +124,10 @@ export const serializeAws_json1_1GetTerminologyCommand = async (
   input: GetTerminologyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSShineFrontendService_20170701.GetTerminology";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSShineFrontendService_20170701.GetTerminology"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetTerminologyRequest(input, context)
@@ -137,10 +139,10 @@ export const serializeAws_json1_1ImportTerminologyCommand = async (
   input: ImportTerminologyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSShineFrontendService_20170701.ImportTerminology";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSShineFrontendService_20170701.ImportTerminology"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ImportTerminologyRequest(input, context)
@@ -152,10 +154,10 @@ export const serializeAws_json1_1ListTerminologiesCommand = async (
   input: ListTerminologiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSShineFrontendService_20170701.ListTerminologies";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSShineFrontendService_20170701.ListTerminologies"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTerminologiesRequest(input, context)
@@ -167,10 +169,10 @@ export const serializeAws_json1_1ListTextTranslationJobsCommand = async (
   input: ListTextTranslationJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSShineFrontendService_20170701.ListTextTranslationJobs";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSShineFrontendService_20170701.ListTextTranslationJobs"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTextTranslationJobsRequest(input, context)
@@ -182,10 +184,10 @@ export const serializeAws_json1_1StartTextTranslationJobCommand = async (
   input: StartTextTranslationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSShineFrontendService_20170701.StartTextTranslationJob";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSShineFrontendService_20170701.StartTextTranslationJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartTextTranslationJobRequest(input, context)
@@ -197,10 +199,10 @@ export const serializeAws_json1_1StopTextTranslationJobCommand = async (
   input: StopTextTranslationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSShineFrontendService_20170701.StopTextTranslationJob";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSShineFrontendService_20170701.StopTextTranslationJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StopTextTranslationJobRequest(input, context)
@@ -212,9 +214,10 @@ export const serializeAws_json1_1TranslateTextCommand = async (
   input: TranslateTextCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSShineFrontendService_20170701.TranslateText";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSShineFrontendService_20170701.TranslateText"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1TranslateTextRequest(input, context)

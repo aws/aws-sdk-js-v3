@@ -236,10 +236,11 @@ export const serializeAws_json1_1BatchCheckLayerAvailabilityCommand = async (
   input: BatchCheckLayerAvailabilityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerRegistry_V20150921.BatchCheckLayerAvailability";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "AmazonEC2ContainerRegistry_V20150921.BatchCheckLayerAvailability"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchCheckLayerAvailabilityRequest(input, context)
@@ -251,10 +252,10 @@ export const serializeAws_json1_1BatchDeleteImageCommand = async (
   input: BatchDeleteImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerRegistry_V20150921.BatchDeleteImage";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.BatchDeleteImage"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchDeleteImageRequest(input, context)
@@ -266,10 +267,10 @@ export const serializeAws_json1_1BatchGetImageCommand = async (
   input: BatchGetImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerRegistry_V20150921.BatchGetImage";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.BatchGetImage"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchGetImageRequest(input, context)
@@ -281,10 +282,10 @@ export const serializeAws_json1_1CompleteLayerUploadCommand = async (
   input: CompleteLayerUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerRegistry_V20150921.CompleteLayerUpload";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.CompleteLayerUpload"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CompleteLayerUploadRequest(input, context)
@@ -296,10 +297,10 @@ export const serializeAws_json1_1CreateRepositoryCommand = async (
   input: CreateRepositoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerRegistry_V20150921.CreateRepository";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.CreateRepository"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateRepositoryRequest(input, context)
@@ -311,10 +312,10 @@ export const serializeAws_json1_1DeleteLifecyclePolicyCommand = async (
   input: DeleteLifecyclePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerRegistry_V20150921.DeleteLifecyclePolicy";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.DeleteLifecyclePolicy"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteLifecyclePolicyRequest(input, context)
@@ -326,10 +327,10 @@ export const serializeAws_json1_1DeleteRepositoryCommand = async (
   input: DeleteRepositoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerRegistry_V20150921.DeleteRepository";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.DeleteRepository"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteRepositoryRequest(input, context)
@@ -341,10 +342,11 @@ export const serializeAws_json1_1DeleteRepositoryPolicyCommand = async (
   input: DeleteRepositoryPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerRegistry_V20150921.DeleteRepositoryPolicy";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "AmazonEC2ContainerRegistry_V20150921.DeleteRepositoryPolicy"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteRepositoryPolicyRequest(input, context)
@@ -356,10 +358,11 @@ export const serializeAws_json1_1DescribeImageScanFindingsCommand = async (
   input: DescribeImageScanFindingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerRegistry_V20150921.DescribeImageScanFindings";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "AmazonEC2ContainerRegistry_V20150921.DescribeImageScanFindings"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeImageScanFindingsRequest(input, context)
@@ -371,10 +374,10 @@ export const serializeAws_json1_1DescribeImagesCommand = async (
   input: DescribeImagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerRegistry_V20150921.DescribeImages";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.DescribeImages"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeImagesRequest(input, context)
@@ -386,10 +389,10 @@ export const serializeAws_json1_1DescribeRepositoriesCommand = async (
   input: DescribeRepositoriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerRegistry_V20150921.DescribeRepositories";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.DescribeRepositories"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeRepositoriesRequest(input, context)
@@ -401,10 +404,10 @@ export const serializeAws_json1_1GetAuthorizationTokenCommand = async (
   input: GetAuthorizationTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerRegistry_V20150921.GetAuthorizationToken";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.GetAuthorizationToken"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetAuthorizationTokenRequest(input, context)
@@ -416,10 +419,11 @@ export const serializeAws_json1_1GetDownloadUrlForLayerCommand = async (
   input: GetDownloadUrlForLayerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerRegistry_V20150921.GetDownloadUrlForLayer";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "AmazonEC2ContainerRegistry_V20150921.GetDownloadUrlForLayer"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetDownloadUrlForLayerRequest(input, context)
@@ -431,10 +435,10 @@ export const serializeAws_json1_1GetLifecyclePolicyCommand = async (
   input: GetLifecyclePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerRegistry_V20150921.GetLifecyclePolicy";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.GetLifecyclePolicy"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetLifecyclePolicyRequest(input, context)
@@ -446,10 +450,11 @@ export const serializeAws_json1_1GetLifecyclePolicyPreviewCommand = async (
   input: GetLifecyclePolicyPreviewCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerRegistry_V20150921.GetLifecyclePolicyPreview";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "AmazonEC2ContainerRegistry_V20150921.GetLifecyclePolicyPreview"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetLifecyclePolicyPreviewRequest(input, context)
@@ -461,10 +466,10 @@ export const serializeAws_json1_1GetRepositoryPolicyCommand = async (
   input: GetRepositoryPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerRegistry_V20150921.GetRepositoryPolicy";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.GetRepositoryPolicy"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetRepositoryPolicyRequest(input, context)
@@ -476,10 +481,10 @@ export const serializeAws_json1_1InitiateLayerUploadCommand = async (
   input: InitiateLayerUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerRegistry_V20150921.InitiateLayerUpload";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.InitiateLayerUpload"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1InitiateLayerUploadRequest(input, context)
@@ -491,9 +496,10 @@ export const serializeAws_json1_1ListImagesCommand = async (
   input: ListImagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonEC2ContainerRegistry_V20150921.ListImages";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.ListImages"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListImagesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -503,10 +509,10 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerRegistry_V20150921.ListTagsForResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.ListTagsForResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTagsForResourceRequest(input, context)
@@ -518,9 +524,10 @@ export const serializeAws_json1_1PutImageCommand = async (
   input: PutImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonEC2ContainerRegistry_V20150921.PutImage";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.PutImage"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutImageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -530,10 +537,11 @@ export const serializeAws_json1_1PutImageScanningConfigurationCommand = async (
   input: PutImageScanningConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerRegistry_V20150921.PutImageScanningConfiguration";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "AmazonEC2ContainerRegistry_V20150921.PutImageScanningConfiguration"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutImageScanningConfigurationRequest(input, context)
@@ -545,10 +553,10 @@ export const serializeAws_json1_1PutImageTagMutabilityCommand = async (
   input: PutImageTagMutabilityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerRegistry_V20150921.PutImageTagMutability";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.PutImageTagMutability"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutImageTagMutabilityRequest(input, context)
@@ -560,10 +568,10 @@ export const serializeAws_json1_1PutLifecyclePolicyCommand = async (
   input: PutLifecyclePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerRegistry_V20150921.PutLifecyclePolicy";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.PutLifecyclePolicy"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutLifecyclePolicyRequest(input, context)
@@ -575,10 +583,10 @@ export const serializeAws_json1_1SetRepositoryPolicyCommand = async (
   input: SetRepositoryPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerRegistry_V20150921.SetRepositoryPolicy";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.SetRepositoryPolicy"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1SetRepositoryPolicyRequest(input, context)
@@ -590,10 +598,10 @@ export const serializeAws_json1_1StartImageScanCommand = async (
   input: StartImageScanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerRegistry_V20150921.StartImageScan";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.StartImageScan"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartImageScanRequest(input, context)
@@ -605,10 +613,11 @@ export const serializeAws_json1_1StartLifecyclePolicyPreviewCommand = async (
   input: StartLifecyclePolicyPreviewCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerRegistry_V20150921.StartLifecyclePolicyPreview";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "AmazonEC2ContainerRegistry_V20150921.StartLifecyclePolicyPreview"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartLifecyclePolicyPreviewRequest(input, context)
@@ -620,9 +629,10 @@ export const serializeAws_json1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonEC2ContainerRegistry_V20150921.TagResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.TagResource"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -632,10 +642,10 @@ export const serializeAws_json1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerRegistry_V20150921.UntagResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.UntagResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UntagResourceRequest(input, context)
@@ -647,10 +657,10 @@ export const serializeAws_json1_1UploadLayerPartCommand = async (
   input: UploadLayerPartCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerRegistry_V20150921.UploadLayerPart";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.UploadLayerPart"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UploadLayerPartRequest(input, context)

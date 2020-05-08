@@ -231,8 +231,9 @@ export const serializeAws_restJson1_1CancelImageCreationCommand = async (
   input: CancelImageCreationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/CancelImageCreation";
   let body: any;
   const bodyParams: any = {};
@@ -259,8 +260,9 @@ export const serializeAws_restJson1_1CreateComponentCommand = async (
   input: CreateComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/CreateComponent";
   let body: any;
   const bodyParams: any = {};
@@ -314,8 +316,9 @@ export const serializeAws_restJson1_1CreateDistributionConfigurationCommand = as
   input: CreateDistributionConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/CreateDistributionConfiguration";
   let body: any;
   const bodyParams: any = {};
@@ -357,8 +360,9 @@ export const serializeAws_restJson1_1CreateImageCommand = async (
   input: CreateImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/CreateImage";
   let body: any;
   const bodyParams: any = {};
@@ -407,8 +411,9 @@ export const serializeAws_restJson1_1CreateImagePipelineCommand = async (
   input: CreateImagePipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/CreateImagePipeline";
   let body: any;
   const bodyParams: any = {};
@@ -472,8 +477,9 @@ export const serializeAws_restJson1_1CreateImageRecipeCommand = async (
   input: CreateImageRecipeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/CreateImageRecipe";
   let body: any;
   const bodyParams: any = {};
@@ -531,8 +537,9 @@ export const serializeAws_restJson1_1CreateInfrastructureConfigurationCommand = 
   input: CreateInfrastructureConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/CreateInfrastructureConfiguration";
   let body: any;
   const bodyParams: any = {};
@@ -601,8 +608,9 @@ export const serializeAws_restJson1_1DeleteComponentCommand = async (
   input: DeleteComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/DeleteComponent";
   const query: any = {};
   if (input.componentBuildVersionArn !== undefined) {
@@ -626,8 +634,9 @@ export const serializeAws_restJson1_1DeleteDistributionConfigurationCommand = as
   input: DeleteDistributionConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/DeleteDistributionConfiguration";
   const query: any = {};
   if (input.distributionConfigurationArn !== undefined) {
@@ -651,8 +660,9 @@ export const serializeAws_restJson1_1DeleteImageCommand = async (
   input: DeleteImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/DeleteImage";
   const query: any = {};
   if (input.imageBuildVersionArn !== undefined) {
@@ -676,8 +686,9 @@ export const serializeAws_restJson1_1DeleteImagePipelineCommand = async (
   input: DeleteImagePipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/DeleteImagePipeline";
   const query: any = {};
   if (input.imagePipelineArn !== undefined) {
@@ -701,8 +712,9 @@ export const serializeAws_restJson1_1DeleteImageRecipeCommand = async (
   input: DeleteImageRecipeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/DeleteImageRecipe";
   const query: any = {};
   if (input.imageRecipeArn !== undefined) {
@@ -726,8 +738,9 @@ export const serializeAws_restJson1_1DeleteInfrastructureConfigurationCommand = 
   input: DeleteInfrastructureConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/DeleteInfrastructureConfiguration";
   const query: any = {};
   if (input.infrastructureConfigurationArn !== undefined) {
@@ -752,8 +765,9 @@ export const serializeAws_restJson1_1GetComponentCommand = async (
   input: GetComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/GetComponent";
   const query: any = {};
   if (input.componentBuildVersionArn !== undefined) {
@@ -777,8 +791,9 @@ export const serializeAws_restJson1_1GetComponentPolicyCommand = async (
   input: GetComponentPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/GetComponentPolicy";
   const query: any = {};
   if (input.componentArn !== undefined) {
@@ -802,8 +817,9 @@ export const serializeAws_restJson1_1GetDistributionConfigurationCommand = async
   input: GetDistributionConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/GetDistributionConfiguration";
   const query: any = {};
   if (input.distributionConfigurationArn !== undefined) {
@@ -827,8 +843,9 @@ export const serializeAws_restJson1_1GetImageCommand = async (
   input: GetImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/GetImage";
   const query: any = {};
   if (input.imageBuildVersionArn !== undefined) {
@@ -852,8 +869,9 @@ export const serializeAws_restJson1_1GetImagePipelineCommand = async (
   input: GetImagePipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/GetImagePipeline";
   const query: any = {};
   if (input.imagePipelineArn !== undefined) {
@@ -877,8 +895,9 @@ export const serializeAws_restJson1_1GetImagePolicyCommand = async (
   input: GetImagePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/GetImagePolicy";
   const query: any = {};
   if (input.imageArn !== undefined) {
@@ -902,8 +921,9 @@ export const serializeAws_restJson1_1GetImageRecipeCommand = async (
   input: GetImageRecipeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/GetImageRecipe";
   const query: any = {};
   if (input.imageRecipeArn !== undefined) {
@@ -927,8 +947,9 @@ export const serializeAws_restJson1_1GetImageRecipePolicyCommand = async (
   input: GetImageRecipePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/GetImageRecipePolicy";
   const query: any = {};
   if (input.imageRecipeArn !== undefined) {
@@ -952,8 +973,9 @@ export const serializeAws_restJson1_1GetInfrastructureConfigurationCommand = asy
   input: GetInfrastructureConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/GetInfrastructureConfiguration";
   const query: any = {};
   if (input.infrastructureConfigurationArn !== undefined) {
@@ -978,8 +1000,9 @@ export const serializeAws_restJson1_1ImportComponentCommand = async (
   input: ImportComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/ImportComponent";
   let body: any;
   const bodyParams: any = {};
@@ -1039,8 +1062,9 @@ export const serializeAws_restJson1_1ListComponentBuildVersionsCommand = async (
   input: ListComponentBuildVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/ListComponentBuildVersions";
   let body: any;
   const bodyParams: any = {};
@@ -1070,8 +1094,9 @@ export const serializeAws_restJson1_1ListComponentsCommand = async (
   input: ListComponentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/ListComponents";
   let body: any;
   const bodyParams: any = {};
@@ -1107,8 +1132,9 @@ export const serializeAws_restJson1_1ListDistributionConfigurationsCommand = asy
   input: ListDistributionConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/ListDistributionConfigurations";
   let body: any;
   const bodyParams: any = {};
@@ -1141,8 +1167,9 @@ export const serializeAws_restJson1_1ListImageBuildVersionsCommand = async (
   input: ListImageBuildVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/ListImageBuildVersions";
   let body: any;
   const bodyParams: any = {};
@@ -1178,8 +1205,9 @@ export const serializeAws_restJson1_1ListImagePipelineImagesCommand = async (
   input: ListImagePipelineImagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/ListImagePipelineImages";
   let body: any;
   const bodyParams: any = {};
@@ -1215,8 +1243,9 @@ export const serializeAws_restJson1_1ListImagePipelinesCommand = async (
   input: ListImagePipelinesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/ListImagePipelines";
   let body: any;
   const bodyParams: any = {};
@@ -1249,8 +1278,9 @@ export const serializeAws_restJson1_1ListImageRecipesCommand = async (
   input: ListImageRecipesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/ListImageRecipes";
   let body: any;
   const bodyParams: any = {};
@@ -1286,8 +1316,9 @@ export const serializeAws_restJson1_1ListImagesCommand = async (
   input: ListImagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/ListImages";
   let body: any;
   const bodyParams: any = {};
@@ -1323,8 +1354,9 @@ export const serializeAws_restJson1_1ListInfrastructureConfigurationsCommand = a
   input: ListInfrastructureConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/ListInfrastructureConfigurations";
   let body: any;
   const bodyParams: any = {};
@@ -1357,8 +1389,9 @@ export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
@@ -1391,8 +1424,9 @@ export const serializeAws_restJson1_1PutComponentPolicyCommand = async (
   input: PutComponentPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/PutComponentPolicy";
   let body: any;
   const bodyParams: any = {};
@@ -1419,8 +1453,9 @@ export const serializeAws_restJson1_1PutImagePolicyCommand = async (
   input: PutImagePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/PutImagePolicy";
   let body: any;
   const bodyParams: any = {};
@@ -1447,8 +1482,9 @@ export const serializeAws_restJson1_1PutImageRecipePolicyCommand = async (
   input: PutImageRecipePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/PutImageRecipePolicy";
   let body: any;
   const bodyParams: any = {};
@@ -1475,8 +1511,9 @@ export const serializeAws_restJson1_1StartImagePipelineExecutionCommand = async 
   input: StartImagePipelineExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/StartImagePipelineExecution";
   let body: any;
   const bodyParams: any = {};
@@ -1506,8 +1543,9 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
@@ -1545,8 +1583,9 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
@@ -1584,8 +1623,9 @@ export const serializeAws_restJson1_1UpdateDistributionConfigurationCommand = as
   input: UpdateDistributionConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/UpdateDistributionConfiguration";
   let body: any;
   const bodyParams: any = {};
@@ -1625,8 +1665,9 @@ export const serializeAws_restJson1_1UpdateImagePipelineCommand = async (
   input: UpdateImagePipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/UpdateImagePipeline";
   let body: any;
   const bodyParams: any = {};
@@ -1687,8 +1728,9 @@ export const serializeAws_restJson1_1UpdateInfrastructureConfigurationCommand = 
   input: UpdateInfrastructureConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/UpdateInfrastructureConfiguration";
   let body: any;
   const bodyParams: any = {};

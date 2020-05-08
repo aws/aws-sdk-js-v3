@@ -74,10 +74,10 @@ export const serializeAws_json1_0GetAutoScalingGroupRecommendationsCommand = asy
   input: GetAutoScalingGroupRecommendationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] =
-    "ComputeOptimizerService.GetAutoScalingGroupRecommendations";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "ComputeOptimizerService.GetAutoScalingGroupRecommendations"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0GetAutoScalingGroupRecommendationsRequest(
@@ -92,10 +92,10 @@ export const serializeAws_json1_0GetEC2InstanceRecommendationsCommand = async (
   input: GetEC2InstanceRecommendationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] =
-    "ComputeOptimizerService.GetEC2InstanceRecommendations";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "ComputeOptimizerService.GetEC2InstanceRecommendations"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0GetEC2InstanceRecommendationsRequest(input, context)
@@ -107,10 +107,11 @@ export const serializeAws_json1_0GetEC2RecommendationProjectedMetricsCommand = a
   input: GetEC2RecommendationProjectedMetricsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] =
-    "ComputeOptimizerService.GetEC2RecommendationProjectedMetrics";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target":
+      "ComputeOptimizerService.GetEC2RecommendationProjectedMetrics"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0GetEC2RecommendationProjectedMetricsRequest(
@@ -125,9 +126,10 @@ export const serializeAws_json1_0GetEnrollmentStatusCommand = async (
   input: GetEnrollmentStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "ComputeOptimizerService.GetEnrollmentStatus";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "ComputeOptimizerService.GetEnrollmentStatus"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0GetEnrollmentStatusRequest(input, context)
@@ -139,10 +141,10 @@ export const serializeAws_json1_0GetRecommendationSummariesCommand = async (
   input: GetRecommendationSummariesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] =
-    "ComputeOptimizerService.GetRecommendationSummaries";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "ComputeOptimizerService.GetRecommendationSummaries"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0GetRecommendationSummariesRequest(input, context)
@@ -154,9 +156,10 @@ export const serializeAws_json1_0UpdateEnrollmentStatusCommand = async (
   input: UpdateEnrollmentStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "ComputeOptimizerService.UpdateEnrollmentStatus";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "ComputeOptimizerService.UpdateEnrollmentStatus"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0UpdateEnrollmentStatusRequest(input, context)

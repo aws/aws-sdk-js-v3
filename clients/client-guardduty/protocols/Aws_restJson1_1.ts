@@ -261,8 +261,9 @@ export const serializeAws_restJson1_1AcceptInvitationCommand = async (
   input: AcceptInvitationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/detector/{DetectorId}/master";
   if (input.DetectorId !== undefined) {
     const labelValue: string = input.DetectorId;
@@ -301,8 +302,9 @@ export const serializeAws_restJson1_1ArchiveFindingsCommand = async (
   input: ArchiveFindingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/detector/{DetectorId}/findings/archive";
   if (input.DetectorId !== undefined) {
     const labelValue: string = input.DetectorId;
@@ -341,8 +343,9 @@ export const serializeAws_restJson1_1CreateDetectorCommand = async (
   input: CreateDetectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/detector";
   let body: any;
   const bodyParams: any = {};
@@ -378,8 +381,9 @@ export const serializeAws_restJson1_1CreateFilterCommand = async (
   input: CreateFilterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/detector/{DetectorId}/filter";
   if (input.DetectorId !== undefined) {
     const labelValue: string = input.DetectorId;
@@ -439,8 +443,9 @@ export const serializeAws_restJson1_1CreateIPSetCommand = async (
   input: CreateIPSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/detector/{DetectorId}/ipset";
   if (input.DetectorId !== undefined) {
     const labelValue: string = input.DetectorId;
@@ -494,8 +499,9 @@ export const serializeAws_restJson1_1CreateMembersCommand = async (
   input: CreateMembersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/detector/{DetectorId}/member";
   if (input.DetectorId !== undefined) {
     const labelValue: string = input.DetectorId;
@@ -534,8 +540,9 @@ export const serializeAws_restJson1_1CreatePublishingDestinationCommand = async 
   input: CreatePublishingDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/detector/{DetectorId}/publishingDestination";
   if (input.DetectorId !== undefined) {
     const labelValue: string = input.DetectorId;
@@ -585,8 +592,9 @@ export const serializeAws_restJson1_1CreateSampleFindingsCommand = async (
   input: CreateSampleFindingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/detector/{DetectorId}/findings/create";
   if (input.DetectorId !== undefined) {
     const labelValue: string = input.DetectorId;
@@ -625,8 +633,9 @@ export const serializeAws_restJson1_1CreateThreatIntelSetCommand = async (
   input: CreateThreatIntelSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/detector/{DetectorId}/threatintelset";
   if (input.DetectorId !== undefined) {
     const labelValue: string = input.DetectorId;
@@ -680,8 +689,9 @@ export const serializeAws_restJson1_1DeclineInvitationsCommand = async (
   input: DeclineInvitationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/invitation/decline";
   let body: any;
   const bodyParams: any = {};
@@ -708,8 +718,9 @@ export const serializeAws_restJson1_1DeleteDetectorCommand = async (
   input: DeleteDetectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/detector/{DetectorId}";
   if (input.DetectorId !== undefined) {
     const labelValue: string = input.DetectorId;
@@ -740,8 +751,9 @@ export const serializeAws_restJson1_1DeleteFilterCommand = async (
   input: DeleteFilterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/detector/{DetectorId}/filter/{FilterName}";
   if (input.DetectorId !== undefined) {
     const labelValue: string = input.DetectorId;
@@ -784,8 +796,9 @@ export const serializeAws_restJson1_1DeleteIPSetCommand = async (
   input: DeleteIPSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/detector/{DetectorId}/ipset/{IpSetId}";
   if (input.DetectorId !== undefined) {
     const labelValue: string = input.DetectorId;
@@ -828,8 +841,9 @@ export const serializeAws_restJson1_1DeleteInvitationsCommand = async (
   input: DeleteInvitationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/invitation/delete";
   let body: any;
   const bodyParams: any = {};
@@ -856,8 +870,9 @@ export const serializeAws_restJson1_1DeleteMembersCommand = async (
   input: DeleteMembersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/detector/{DetectorId}/member/delete";
   if (input.DetectorId !== undefined) {
     const labelValue: string = input.DetectorId;
@@ -896,8 +911,9 @@ export const serializeAws_restJson1_1DeletePublishingDestinationCommand = async 
   input: DeletePublishingDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/detector/{DetectorId}/publishingDestination/{DestinationId}";
   if (input.DestinationId !== undefined) {
@@ -943,8 +959,9 @@ export const serializeAws_restJson1_1DeleteThreatIntelSetCommand = async (
   input: DeleteThreatIntelSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/detector/{DetectorId}/threatintelset/{ThreatIntelSetId}";
   if (input.DetectorId !== undefined) {
     const labelValue: string = input.DetectorId;
@@ -991,8 +1008,9 @@ export const serializeAws_restJson1_1DescribePublishingDestinationCommand = asyn
   input: DescribePublishingDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/detector/{DetectorId}/publishingDestination/{DestinationId}";
   if (input.DestinationId !== undefined) {
@@ -1038,8 +1056,9 @@ export const serializeAws_restJson1_1DisassociateFromMasterAccountCommand = asyn
   input: DisassociateFromMasterAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/detector/{DetectorId}/master/disassociate";
   if (input.DetectorId !== undefined) {
     const labelValue: string = input.DetectorId;
@@ -1070,8 +1089,9 @@ export const serializeAws_restJson1_1DisassociateMembersCommand = async (
   input: DisassociateMembersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/detector/{DetectorId}/member/disassociate";
   if (input.DetectorId !== undefined) {
     const labelValue: string = input.DetectorId;
@@ -1110,8 +1130,9 @@ export const serializeAws_restJson1_1GetDetectorCommand = async (
   input: GetDetectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/detector/{DetectorId}";
   if (input.DetectorId !== undefined) {
     const labelValue: string = input.DetectorId;
@@ -1142,8 +1163,9 @@ export const serializeAws_restJson1_1GetFilterCommand = async (
   input: GetFilterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/detector/{DetectorId}/filter/{FilterName}";
   if (input.DetectorId !== undefined) {
     const labelValue: string = input.DetectorId;
@@ -1186,8 +1208,9 @@ export const serializeAws_restJson1_1GetFindingsCommand = async (
   input: GetFindingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/detector/{DetectorId}/findings/get";
   if (input.DetectorId !== undefined) {
     const labelValue: string = input.DetectorId;
@@ -1232,8 +1255,9 @@ export const serializeAws_restJson1_1GetFindingsStatisticsCommand = async (
   input: GetFindingsStatisticsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/detector/{DetectorId}/findings/statistics";
   if (input.DetectorId !== undefined) {
     const labelValue: string = input.DetectorId;
@@ -1280,8 +1304,9 @@ export const serializeAws_restJson1_1GetIPSetCommand = async (
   input: GetIPSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/detector/{DetectorId}/ipset/{IpSetId}";
   if (input.DetectorId !== undefined) {
     const labelValue: string = input.DetectorId;
@@ -1324,8 +1349,9 @@ export const serializeAws_restJson1_1GetInvitationsCountCommand = async (
   input: GetInvitationsCountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/invitation/count";
   let body: any;
   body = "{}";
@@ -1345,8 +1371,9 @@ export const serializeAws_restJson1_1GetMasterAccountCommand = async (
   input: GetMasterAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/detector/{DetectorId}/master";
   if (input.DetectorId !== undefined) {
     const labelValue: string = input.DetectorId;
@@ -1377,8 +1404,9 @@ export const serializeAws_restJson1_1GetMembersCommand = async (
   input: GetMembersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/detector/{DetectorId}/member/get";
   if (input.DetectorId !== undefined) {
     const labelValue: string = input.DetectorId;
@@ -1417,8 +1445,9 @@ export const serializeAws_restJson1_1GetThreatIntelSetCommand = async (
   input: GetThreatIntelSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/detector/{DetectorId}/threatintelset/{ThreatIntelSetId}";
   if (input.DetectorId !== undefined) {
     const labelValue: string = input.DetectorId;
@@ -1465,8 +1494,9 @@ export const serializeAws_restJson1_1InviteMembersCommand = async (
   input: InviteMembersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/detector/{DetectorId}/member/invite";
   if (input.DetectorId !== undefined) {
     const labelValue: string = input.DetectorId;
@@ -1511,8 +1541,9 @@ export const serializeAws_restJson1_1ListDetectorsCommand = async (
   input: ListDetectorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/detector";
   const query: any = {};
   if (input.MaxResults !== undefined) {
@@ -1539,8 +1570,9 @@ export const serializeAws_restJson1_1ListFiltersCommand = async (
   input: ListFiltersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/detector/{DetectorId}/filter";
   if (input.DetectorId !== undefined) {
     const labelValue: string = input.DetectorId;
@@ -1579,8 +1611,9 @@ export const serializeAws_restJson1_1ListFindingsCommand = async (
   input: ListFindingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/detector/{DetectorId}/findings";
   if (input.DetectorId !== undefined) {
     const labelValue: string = input.DetectorId;
@@ -1631,8 +1664,9 @@ export const serializeAws_restJson1_1ListIPSetsCommand = async (
   input: ListIPSetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/detector/{DetectorId}/ipset";
   if (input.DetectorId !== undefined) {
     const labelValue: string = input.DetectorId;
@@ -1671,8 +1705,9 @@ export const serializeAws_restJson1_1ListInvitationsCommand = async (
   input: ListInvitationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/invitation";
   const query: any = {};
   if (input.MaxResults !== undefined) {
@@ -1699,8 +1734,9 @@ export const serializeAws_restJson1_1ListMembersCommand = async (
   input: ListMembersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/detector/{DetectorId}/member";
   if (input.DetectorId !== undefined) {
     const labelValue: string = input.DetectorId;
@@ -1742,8 +1778,9 @@ export const serializeAws_restJson1_1ListPublishingDestinationsCommand = async (
   input: ListPublishingDestinationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/detector/{DetectorId}/publishingDestination";
   if (input.DetectorId !== undefined) {
     const labelValue: string = input.DetectorId;
@@ -1782,8 +1819,9 @@ export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -1816,8 +1854,9 @@ export const serializeAws_restJson1_1ListThreatIntelSetsCommand = async (
   input: ListThreatIntelSetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/detector/{DetectorId}/threatintelset";
   if (input.DetectorId !== undefined) {
     const labelValue: string = input.DetectorId;
@@ -1856,8 +1895,9 @@ export const serializeAws_restJson1_1StartMonitoringMembersCommand = async (
   input: StartMonitoringMembersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/detector/{DetectorId}/member/start";
   if (input.DetectorId !== undefined) {
     const labelValue: string = input.DetectorId;
@@ -1896,8 +1936,9 @@ export const serializeAws_restJson1_1StopMonitoringMembersCommand = async (
   input: StopMonitoringMembersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/detector/{DetectorId}/member/stop";
   if (input.DetectorId !== undefined) {
     const labelValue: string = input.DetectorId;
@@ -1936,8 +1977,9 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -1975,8 +2017,9 @@ export const serializeAws_restJson1_1UnarchiveFindingsCommand = async (
   input: UnarchiveFindingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/detector/{DetectorId}/findings/unarchive";
   if (input.DetectorId !== undefined) {
     const labelValue: string = input.DetectorId;
@@ -2015,8 +2058,9 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -2054,8 +2098,9 @@ export const serializeAws_restJson1_1UpdateDetectorCommand = async (
   input: UpdateDetectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/detector/{DetectorId}";
   if (input.DetectorId !== undefined) {
     const labelValue: string = input.DetectorId;
@@ -2094,8 +2139,9 @@ export const serializeAws_restJson1_1UpdateFilterCommand = async (
   input: UpdateFilterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/detector/{DetectorId}/filter/{FilterName}";
   if (input.DetectorId !== undefined) {
     const labelValue: string = input.DetectorId;
@@ -2155,8 +2201,9 @@ export const serializeAws_restJson1_1UpdateFindingsFeedbackCommand = async (
   input: UpdateFindingsFeedbackCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/detector/{DetectorId}/findings/feedback";
   if (input.DetectorId !== undefined) {
     const labelValue: string = input.DetectorId;
@@ -2201,8 +2248,9 @@ export const serializeAws_restJson1_1UpdateIPSetCommand = async (
   input: UpdateIPSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/detector/{DetectorId}/ipset/{IpSetId}";
   if (input.DetectorId !== undefined) {
     const labelValue: string = input.DetectorId;
@@ -2256,8 +2304,9 @@ export const serializeAws_restJson1_1UpdatePublishingDestinationCommand = async 
   input: UpdatePublishingDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath =
     "/detector/{DetectorId}/publishingDestination/{DestinationId}";
   if (input.DestinationId !== undefined) {
@@ -2313,8 +2362,9 @@ export const serializeAws_restJson1_1UpdateThreatIntelSetCommand = async (
   input: UpdateThreatIntelSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/detector/{DetectorId}/threatintelset/{ThreatIntelSetId}";
   if (input.DetectorId !== undefined) {
     const labelValue: string = input.DetectorId;

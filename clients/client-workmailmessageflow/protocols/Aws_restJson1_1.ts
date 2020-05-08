@@ -22,8 +22,9 @@ export const serializeAws_restJson1_1GetRawMessageContentCommand = async (
   input: GetRawMessageContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/messages/{messageId}";
   if (input.messageId !== undefined) {
     const labelValue: string = input.messageId;

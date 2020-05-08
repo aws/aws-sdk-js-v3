@@ -178,9 +178,10 @@ export const serializeAws_json1_1AddTagsCommand = async (
   input: AddTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudTrail_20131101.AddTags";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudTrail_20131101.AddTags"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AddTagsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -190,9 +191,10 @@ export const serializeAws_json1_1CreateTrailCommand = async (
   input: CreateTrailCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudTrail_20131101.CreateTrail";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudTrail_20131101.CreateTrail"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateTrailRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -202,9 +204,10 @@ export const serializeAws_json1_1DeleteTrailCommand = async (
   input: DeleteTrailCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudTrail_20131101.DeleteTrail";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudTrail_20131101.DeleteTrail"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteTrailRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -214,9 +217,10 @@ export const serializeAws_json1_1DescribeTrailsCommand = async (
   input: DescribeTrailsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudTrail_20131101.DescribeTrails";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudTrail_20131101.DescribeTrails"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeTrailsRequest(input, context)
@@ -228,9 +232,10 @@ export const serializeAws_json1_1GetEventSelectorsCommand = async (
   input: GetEventSelectorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudTrail_20131101.GetEventSelectors";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudTrail_20131101.GetEventSelectors"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetEventSelectorsRequest(input, context)
@@ -242,9 +247,10 @@ export const serializeAws_json1_1GetInsightSelectorsCommand = async (
   input: GetInsightSelectorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudTrail_20131101.GetInsightSelectors";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudTrail_20131101.GetInsightSelectors"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetInsightSelectorsRequest(input, context)
@@ -256,9 +262,10 @@ export const serializeAws_json1_1GetTrailCommand = async (
   input: GetTrailCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudTrail_20131101.GetTrail";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudTrail_20131101.GetTrail"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetTrailRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -268,9 +275,10 @@ export const serializeAws_json1_1GetTrailStatusCommand = async (
   input: GetTrailStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudTrail_20131101.GetTrailStatus";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudTrail_20131101.GetTrailStatus"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetTrailStatusRequest(input, context)
@@ -282,9 +290,10 @@ export const serializeAws_json1_1ListPublicKeysCommand = async (
   input: ListPublicKeysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudTrail_20131101.ListPublicKeys";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudTrail_20131101.ListPublicKeys"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListPublicKeysRequest(input, context)
@@ -296,9 +305,10 @@ export const serializeAws_json1_1ListTagsCommand = async (
   input: ListTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudTrail_20131101.ListTags";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudTrail_20131101.ListTags"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTagsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -308,9 +318,10 @@ export const serializeAws_json1_1ListTrailsCommand = async (
   input: ListTrailsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudTrail_20131101.ListTrails";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudTrail_20131101.ListTrails"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTrailsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -320,9 +331,10 @@ export const serializeAws_json1_1LookupEventsCommand = async (
   input: LookupEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudTrail_20131101.LookupEvents";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudTrail_20131101.LookupEvents"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1LookupEventsRequest(input, context)
@@ -334,9 +346,10 @@ export const serializeAws_json1_1PutEventSelectorsCommand = async (
   input: PutEventSelectorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudTrail_20131101.PutEventSelectors";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudTrail_20131101.PutEventSelectors"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutEventSelectorsRequest(input, context)
@@ -348,9 +361,10 @@ export const serializeAws_json1_1PutInsightSelectorsCommand = async (
   input: PutInsightSelectorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudTrail_20131101.PutInsightSelectors";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudTrail_20131101.PutInsightSelectors"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutInsightSelectorsRequest(input, context)
@@ -362,9 +376,10 @@ export const serializeAws_json1_1RemoveTagsCommand = async (
   input: RemoveTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudTrail_20131101.RemoveTags";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudTrail_20131101.RemoveTags"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1RemoveTagsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -374,9 +389,10 @@ export const serializeAws_json1_1StartLoggingCommand = async (
   input: StartLoggingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudTrail_20131101.StartLogging";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudTrail_20131101.StartLogging"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartLoggingRequest(input, context)
@@ -388,9 +404,10 @@ export const serializeAws_json1_1StopLoggingCommand = async (
   input: StopLoggingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudTrail_20131101.StopLogging";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudTrail_20131101.StopLogging"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StopLoggingRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -400,9 +417,10 @@ export const serializeAws_json1_1UpdateTrailCommand = async (
   input: UpdateTrailCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudTrail_20131101.UpdateTrail";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudTrail_20131101.UpdateTrail"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateTrailRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);

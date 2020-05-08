@@ -143,8 +143,9 @@ export const serializeAws_restJson1_1BatchGetTracesCommand = async (
   input: BatchGetTracesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/Traces";
   let body: any;
   const bodyParams: any = {};
@@ -174,8 +175,9 @@ export const serializeAws_restJson1_1CreateGroupCommand = async (
   input: CreateGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/CreateGroup";
   let body: any;
   const bodyParams: any = {};
@@ -202,8 +204,9 @@ export const serializeAws_restJson1_1CreateSamplingRuleCommand = async (
   input: CreateSamplingRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/CreateSamplingRule";
   let body: any;
   const bodyParams: any = {};
@@ -230,8 +233,9 @@ export const serializeAws_restJson1_1DeleteGroupCommand = async (
   input: DeleteGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/DeleteGroup";
   let body: any;
   const bodyParams: any = {};
@@ -258,8 +262,9 @@ export const serializeAws_restJson1_1DeleteSamplingRuleCommand = async (
   input: DeleteSamplingRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/DeleteSamplingRule";
   let body: any;
   const bodyParams: any = {};
@@ -286,8 +291,9 @@ export const serializeAws_restJson1_1GetEncryptionConfigCommand = async (
   input: GetEncryptionConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/EncryptionConfig";
   let body: any;
   body = "{}";
@@ -307,8 +313,9 @@ export const serializeAws_restJson1_1GetGroupCommand = async (
   input: GetGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/GetGroup";
   let body: any;
   const bodyParams: any = {};
@@ -335,8 +342,9 @@ export const serializeAws_restJson1_1GetGroupsCommand = async (
   input: GetGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/Groups";
   let body: any;
   const bodyParams: any = {};
@@ -360,8 +368,9 @@ export const serializeAws_restJson1_1GetSamplingRulesCommand = async (
   input: GetSamplingRulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/GetSamplingRules";
   let body: any;
   const bodyParams: any = {};
@@ -385,8 +394,9 @@ export const serializeAws_restJson1_1GetSamplingStatisticSummariesCommand = asyn
   input: GetSamplingStatisticSummariesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/SamplingStatisticSummaries";
   let body: any;
   const bodyParams: any = {};
@@ -410,8 +420,9 @@ export const serializeAws_restJson1_1GetSamplingTargetsCommand = async (
   input: GetSamplingTargetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/SamplingTargets";
   let body: any;
   const bodyParams: any = {};
@@ -440,8 +451,9 @@ export const serializeAws_restJson1_1GetServiceGraphCommand = async (
   input: GetServiceGraphCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/ServiceGraph";
   let body: any;
   const bodyParams: any = {};
@@ -477,8 +489,9 @@ export const serializeAws_restJson1_1GetTimeSeriesServiceStatisticsCommand = asy
   input: GetTimeSeriesServiceStatisticsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/TimeSeriesServiceStatistics";
   let body: any;
   const bodyParams: any = {};
@@ -520,8 +533,9 @@ export const serializeAws_restJson1_1GetTraceGraphCommand = async (
   input: GetTraceGraphCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/TraceGraph";
   let body: any;
   const bodyParams: any = {};
@@ -551,8 +565,9 @@ export const serializeAws_restJson1_1GetTraceSummariesCommand = async (
   input: GetTraceSummariesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/TraceSummaries";
   let body: any;
   const bodyParams: any = {};
@@ -597,8 +612,9 @@ export const serializeAws_restJson1_1PutEncryptionConfigCommand = async (
   input: PutEncryptionConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/PutEncryptionConfig";
   let body: any;
   const bodyParams: any = {};
@@ -625,8 +641,9 @@ export const serializeAws_restJson1_1PutTelemetryRecordsCommand = async (
   input: PutTelemetryRecordsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/TelemetryRecords";
   let body: any;
   const bodyParams: any = {};
@@ -664,8 +681,9 @@ export const serializeAws_restJson1_1PutTraceSegmentsCommand = async (
   input: PutTraceSegmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/TraceSegments";
   let body: any;
   const bodyParams: any = {};
@@ -694,8 +712,9 @@ export const serializeAws_restJson1_1UpdateGroupCommand = async (
   input: UpdateGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/UpdateGroup";
   let body: any;
   const bodyParams: any = {};
@@ -725,8 +744,9 @@ export const serializeAws_restJson1_1UpdateSamplingRuleCommand = async (
   input: UpdateSamplingRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/UpdateSamplingRule";
   let body: any;
   const bodyParams: any = {};

@@ -390,8 +390,9 @@ export const serializeAws_restJson1_1CancelIngestionCommand = async (
   input: CancelIngestionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions/{IngestionId}";
   if (input.AwsAccountId !== undefined) {
@@ -451,8 +452,9 @@ export const serializeAws_restJson1_1CreateDashboardCommand = async (
   input: CreateDashboardCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/accounts/{AwsAccountId}/dashboards/{DashboardId}";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
@@ -536,8 +538,9 @@ export const serializeAws_restJson1_1CreateDataSetCommand = async (
   input: CreateDataSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/accounts/{AwsAccountId}/data-sets";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
@@ -616,8 +619,9 @@ export const serializeAws_restJson1_1CreateDataSourceCommand = async (
   input: CreateDataSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/accounts/{AwsAccountId}/data-sources";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
@@ -698,8 +702,9 @@ export const serializeAws_restJson1_1CreateGroupCommand = async (
   input: CreateGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
@@ -752,8 +757,9 @@ export const serializeAws_restJson1_1CreateGroupMembershipCommand = async (
   input: CreateGroupMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}/members/{MemberName}";
   if (input.AwsAccountId !== undefined) {
@@ -823,8 +829,9 @@ export const serializeAws_restJson1_1CreateIAMPolicyAssignmentCommand = async (
   input: CreateIAMPolicyAssignmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath =
     "/accounts/{AwsAccountId}/namespaces/{Namespace}/iam-policy-assignments";
   if (input.AwsAccountId !== undefined) {
@@ -887,8 +894,9 @@ export const serializeAws_restJson1_1CreateIngestionCommand = async (
   input: CreateIngestionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions/{IngestionId}";
   if (input.AwsAccountId !== undefined) {
@@ -948,8 +956,9 @@ export const serializeAws_restJson1_1CreateTemplateCommand = async (
   input: CreateTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/accounts/{AwsAccountId}/templates/{TemplateId}";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
@@ -1017,8 +1026,9 @@ export const serializeAws_restJson1_1CreateTemplateAliasCommand = async (
   input: CreateTemplateAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath =
     "/accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}";
   if (input.AliasName !== undefined) {
@@ -1081,8 +1091,9 @@ export const serializeAws_restJson1_1DeleteDashboardCommand = async (
   input: DeleteDashboardCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/accounts/{AwsAccountId}/dashboards/{DashboardId}";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
@@ -1134,8 +1145,9 @@ export const serializeAws_restJson1_1DeleteDataSetCommand = async (
   input: DeleteDataSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/accounts/{AwsAccountId}/data-sets/{DataSetId}";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
@@ -1180,8 +1192,9 @@ export const serializeAws_restJson1_1DeleteDataSourceCommand = async (
   input: DeleteDataSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/accounts/{AwsAccountId}/data-sources/{DataSourceId}";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
@@ -1228,8 +1241,9 @@ export const serializeAws_restJson1_1DeleteGroupCommand = async (
   input: DeleteGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}";
   if (input.AwsAccountId !== undefined) {
@@ -1287,8 +1301,9 @@ export const serializeAws_restJson1_1DeleteGroupMembershipCommand = async (
   input: DeleteGroupMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}/members/{MemberName}";
   if (input.AwsAccountId !== undefined) {
@@ -1358,8 +1373,9 @@ export const serializeAws_restJson1_1DeleteIAMPolicyAssignmentCommand = async (
   input: DeleteIAMPolicyAssignmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/accounts/{AwsAccountId}/namespace/{Namespace}/iam-policy-assignments/{AssignmentName}";
   if (input.AssignmentName !== undefined) {
@@ -1419,8 +1435,9 @@ export const serializeAws_restJson1_1DeleteTemplateCommand = async (
   input: DeleteTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/accounts/{AwsAccountId}/templates/{TemplateId}";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
@@ -1470,8 +1487,9 @@ export const serializeAws_restJson1_1DeleteTemplateAliasCommand = async (
   input: DeleteTemplateAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}";
   if (input.AliasName !== undefined) {
@@ -1529,8 +1547,9 @@ export const serializeAws_restJson1_1DeleteUserCommand = async (
   input: DeleteUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}";
   if (input.AwsAccountId !== undefined) {
@@ -1588,8 +1607,9 @@ export const serializeAws_restJson1_1DeleteUserByPrincipalIdCommand = async (
   input: DeleteUserByPrincipalIdCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/accounts/{AwsAccountId}/namespaces/{Namespace}/user-principals/{PrincipalId}";
   if (input.AwsAccountId !== undefined) {
@@ -1649,8 +1669,9 @@ export const serializeAws_restJson1_1DescribeDashboardCommand = async (
   input: DescribeDashboardCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/accounts/{AwsAccountId}/dashboards/{DashboardId}";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
@@ -1705,8 +1726,9 @@ export const serializeAws_restJson1_1DescribeDashboardPermissionsCommand = async
   input: DescribeDashboardPermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/accounts/{AwsAccountId}/dashboards/{DashboardId}/permissions";
   if (input.AwsAccountId !== undefined) {
@@ -1754,8 +1776,9 @@ export const serializeAws_restJson1_1DescribeDataSetCommand = async (
   input: DescribeDataSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/accounts/{AwsAccountId}/data-sets/{DataSetId}";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
@@ -1800,8 +1823,9 @@ export const serializeAws_restJson1_1DescribeDataSetPermissionsCommand = async (
   input: DescribeDataSetPermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/accounts/{AwsAccountId}/data-sets/{DataSetId}/permissions";
   if (input.AwsAccountId !== undefined) {
@@ -1847,8 +1871,9 @@ export const serializeAws_restJson1_1DescribeDataSourceCommand = async (
   input: DescribeDataSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/accounts/{AwsAccountId}/data-sources/{DataSourceId}";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
@@ -1895,8 +1920,9 @@ export const serializeAws_restJson1_1DescribeDataSourcePermissionsCommand = asyn
   input: DescribeDataSourcePermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/accounts/{AwsAccountId}/data-sources/{DataSourceId}/permissions";
   if (input.AwsAccountId !== undefined) {
@@ -1944,8 +1970,9 @@ export const serializeAws_restJson1_1DescribeGroupCommand = async (
   input: DescribeGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}";
   if (input.AwsAccountId !== undefined) {
@@ -2003,8 +2030,9 @@ export const serializeAws_restJson1_1DescribeIAMPolicyAssignmentCommand = async 
   input: DescribeIAMPolicyAssignmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/accounts/{AwsAccountId}/namespaces/{Namespace}/iam-policy-assignments/{AssignmentName}";
   if (input.AssignmentName !== undefined) {
@@ -2064,8 +2092,9 @@ export const serializeAws_restJson1_1DescribeIngestionCommand = async (
   input: DescribeIngestionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions/{IngestionId}";
   if (input.AwsAccountId !== undefined) {
@@ -2125,8 +2154,9 @@ export const serializeAws_restJson1_1DescribeTemplateCommand = async (
   input: DescribeTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/accounts/{AwsAccountId}/templates/{TemplateId}";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
@@ -2179,8 +2209,9 @@ export const serializeAws_restJson1_1DescribeTemplateAliasCommand = async (
   input: DescribeTemplateAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}";
   if (input.AliasName !== undefined) {
@@ -2238,8 +2269,9 @@ export const serializeAws_restJson1_1DescribeTemplatePermissionsCommand = async 
   input: DescribeTemplatePermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/accounts/{AwsAccountId}/templates/{TemplateId}/permissions";
   if (input.AwsAccountId !== undefined) {
@@ -2285,8 +2317,9 @@ export const serializeAws_restJson1_1DescribeUserCommand = async (
   input: DescribeUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}";
   if (input.AwsAccountId !== undefined) {
@@ -2344,8 +2377,9 @@ export const serializeAws_restJson1_1GetDashboardEmbedUrlCommand = async (
   input: GetDashboardEmbedUrlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/accounts/{AwsAccountId}/dashboards/{DashboardId}/embed-url";
   if (input.AwsAccountId !== undefined) {
@@ -2410,8 +2444,9 @@ export const serializeAws_restJson1_1ListDashboardVersionsCommand = async (
   input: ListDashboardVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/accounts/{AwsAccountId}/dashboards/{DashboardId}/versions";
   if (input.AwsAccountId !== undefined) {
@@ -2467,8 +2502,9 @@ export const serializeAws_restJson1_1ListDashboardsCommand = async (
   input: ListDashboardsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/accounts/{AwsAccountId}/dashboards";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
@@ -2509,8 +2545,9 @@ export const serializeAws_restJson1_1ListDataSetsCommand = async (
   input: ListDataSetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/accounts/{AwsAccountId}/data-sets";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
@@ -2551,8 +2588,9 @@ export const serializeAws_restJson1_1ListDataSourcesCommand = async (
   input: ListDataSourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/accounts/{AwsAccountId}/data-sources";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
@@ -2593,8 +2631,9 @@ export const serializeAws_restJson1_1ListGroupMembershipsCommand = async (
   input: ListGroupMembershipsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}/members";
   if (input.AwsAccountId !== undefined) {
@@ -2660,8 +2699,9 @@ export const serializeAws_restJson1_1ListGroupsCommand = async (
   input: ListGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
@@ -2714,8 +2754,9 @@ export const serializeAws_restJson1_1ListIAMPolicyAssignmentsCommand = async (
   input: ListIAMPolicyAssignmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath =
     "/accounts/{AwsAccountId}/namespaces/{Namespace}/iam-policy-assignments";
   if (input.AwsAccountId !== undefined) {
@@ -2774,8 +2815,9 @@ export const serializeAws_restJson1_1ListIAMPolicyAssignmentsForUserCommand = as
   input: ListIAMPolicyAssignmentsForUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}/iam-policy-assignments";
   if (input.AwsAccountId !== undefined) {
@@ -2841,8 +2883,9 @@ export const serializeAws_restJson1_1ListIngestionsCommand = async (
   input: ListIngestionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions";
   if (input.AwsAccountId !== undefined) {
@@ -2896,8 +2939,9 @@ export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/resources/{ResourceArn}/tags";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -2930,8 +2974,9 @@ export const serializeAws_restJson1_1ListTemplateAliasesCommand = async (
   input: ListTemplateAliasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/accounts/{AwsAccountId}/templates/{TemplateId}/aliases";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
@@ -2984,8 +3029,9 @@ export const serializeAws_restJson1_1ListTemplateVersionsCommand = async (
   input: ListTemplateVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/accounts/{AwsAccountId}/templates/{TemplateId}/versions";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
@@ -3038,8 +3084,9 @@ export const serializeAws_restJson1_1ListTemplatesCommand = async (
   input: ListTemplatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/accounts/{AwsAccountId}/templates";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
@@ -3080,8 +3127,9 @@ export const serializeAws_restJson1_1ListUserGroupsCommand = async (
   input: ListUserGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}/groups";
   if (input.AwsAccountId !== undefined) {
@@ -3147,8 +3195,9 @@ export const serializeAws_restJson1_1ListUsersCommand = async (
   input: ListUsersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/accounts/{AwsAccountId}/namespaces/{Namespace}/users";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
@@ -3201,8 +3250,9 @@ export const serializeAws_restJson1_1RegisterUserCommand = async (
   input: RegisterUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/accounts/{AwsAccountId}/namespaces/{Namespace}/users";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
@@ -3267,8 +3317,9 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/resources/{ResourceArn}/tags";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -3306,8 +3357,9 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/resources/{ResourceArn}/tags";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -3345,8 +3397,9 @@ export const serializeAws_restJson1_1UpdateDashboardCommand = async (
   input: UpdateDashboardCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/accounts/{AwsAccountId}/dashboards/{DashboardId}";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
@@ -3421,8 +3474,9 @@ export const serializeAws_restJson1_1UpdateDashboardPermissionsCommand = async (
   input: UpdateDashboardPermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath =
     "/accounts/{AwsAccountId}/dashboards/{DashboardId}/permissions";
   if (input.AwsAccountId !== undefined) {
@@ -3488,8 +3542,9 @@ export const serializeAws_restJson1_1UpdateDashboardPublishedVersionCommand = as
   input: UpdateDashboardPublishedVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/accounts/{AwsAccountId}/dashboards/{DashboardId}/versions/{VersionNumber}";
   if (input.AwsAccountId !== undefined) {
@@ -3551,8 +3606,9 @@ export const serializeAws_restJson1_1UpdateDataSetCommand = async (
   input: UpdateDataSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/accounts/{AwsAccountId}/data-sets/{DataSetId}";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
@@ -3631,8 +3687,9 @@ export const serializeAws_restJson1_1UpdateDataSetPermissionsCommand = async (
   input: UpdateDataSetPermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath =
     "/accounts/{AwsAccountId}/data-sets/{DataSetId}/permissions";
   if (input.AwsAccountId !== undefined) {
@@ -3696,8 +3753,9 @@ export const serializeAws_restJson1_1UpdateDataSourceCommand = async (
   input: UpdateDataSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/accounts/{AwsAccountId}/data-sources/{DataSourceId}";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
@@ -3777,8 +3835,9 @@ export const serializeAws_restJson1_1UpdateDataSourcePermissionsCommand = async 
   input: UpdateDataSourcePermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath =
     "/accounts/{AwsAccountId}/data-sources/{DataSourceId}/permissions";
   if (input.AwsAccountId !== undefined) {
@@ -3844,8 +3903,9 @@ export const serializeAws_restJson1_1UpdateGroupCommand = async (
   input: UpdateGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath =
     "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}";
   if (input.AwsAccountId !== undefined) {
@@ -3908,8 +3968,9 @@ export const serializeAws_restJson1_1UpdateIAMPolicyAssignmentCommand = async (
   input: UpdateIAMPolicyAssignmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath =
     "/accounts/{AwsAccountId}/namespaces/{Namespace}/iam-policy-assignments/{AssignmentName}";
   if (input.AssignmentName !== undefined) {
@@ -3983,8 +4044,9 @@ export const serializeAws_restJson1_1UpdateTemplateCommand = async (
   input: UpdateTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/accounts/{AwsAccountId}/templates/{TemplateId}";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
@@ -4043,8 +4105,9 @@ export const serializeAws_restJson1_1UpdateTemplateAliasCommand = async (
   input: UpdateTemplateAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath =
     "/accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}";
   if (input.AliasName !== undefined) {
@@ -4107,8 +4170,9 @@ export const serializeAws_restJson1_1UpdateTemplatePermissionsCommand = async (
   input: UpdateTemplatePermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath =
     "/accounts/{AwsAccountId}/templates/{TemplateId}/permissions";
   if (input.AwsAccountId !== undefined) {
@@ -4172,8 +4236,9 @@ export const serializeAws_restJson1_1UpdateUserCommand = async (
   input: UpdateUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath =
     "/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}";
   if (input.AwsAccountId !== undefined) {

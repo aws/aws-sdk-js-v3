@@ -135,9 +135,10 @@ export const serializeAws_json1_1CreateServerCommand = async (
   input: CreateServerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TransferService.CreateServer";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TransferService.CreateServer"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateServerRequest(input, context)
@@ -149,9 +150,10 @@ export const serializeAws_json1_1CreateUserCommand = async (
   input: CreateUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TransferService.CreateUser";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TransferService.CreateUser"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -161,9 +163,10 @@ export const serializeAws_json1_1DeleteServerCommand = async (
   input: DeleteServerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TransferService.DeleteServer";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TransferService.DeleteServer"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteServerRequest(input, context)
@@ -175,9 +178,10 @@ export const serializeAws_json1_1DeleteSshPublicKeyCommand = async (
   input: DeleteSshPublicKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TransferService.DeleteSshPublicKey";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TransferService.DeleteSshPublicKey"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteSshPublicKeyRequest(input, context)
@@ -189,9 +193,10 @@ export const serializeAws_json1_1DeleteUserCommand = async (
   input: DeleteUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TransferService.DeleteUser";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TransferService.DeleteUser"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -201,9 +206,10 @@ export const serializeAws_json1_1DescribeServerCommand = async (
   input: DescribeServerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TransferService.DescribeServer";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TransferService.DescribeServer"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeServerRequest(input, context)
@@ -215,9 +221,10 @@ export const serializeAws_json1_1DescribeUserCommand = async (
   input: DescribeUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TransferService.DescribeUser";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TransferService.DescribeUser"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeUserRequest(input, context)
@@ -229,9 +236,10 @@ export const serializeAws_json1_1ImportSshPublicKeyCommand = async (
   input: ImportSshPublicKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TransferService.ImportSshPublicKey";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TransferService.ImportSshPublicKey"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ImportSshPublicKeyRequest(input, context)
@@ -243,9 +251,10 @@ export const serializeAws_json1_1ListServersCommand = async (
   input: ListServersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TransferService.ListServers";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TransferService.ListServers"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListServersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -255,9 +264,10 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TransferService.ListTagsForResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TransferService.ListTagsForResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTagsForResourceRequest(input, context)
@@ -269,9 +279,10 @@ export const serializeAws_json1_1ListUsersCommand = async (
   input: ListUsersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TransferService.ListUsers";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TransferService.ListUsers"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListUsersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -281,9 +292,10 @@ export const serializeAws_json1_1StartServerCommand = async (
   input: StartServerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TransferService.StartServer";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TransferService.StartServer"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartServerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -293,9 +305,10 @@ export const serializeAws_json1_1StopServerCommand = async (
   input: StopServerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TransferService.StopServer";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TransferService.StopServer"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StopServerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -305,9 +318,10 @@ export const serializeAws_json1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TransferService.TagResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TransferService.TagResource"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -317,9 +331,10 @@ export const serializeAws_json1_1TestIdentityProviderCommand = async (
   input: TestIdentityProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TransferService.TestIdentityProvider";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TransferService.TestIdentityProvider"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1TestIdentityProviderRequest(input, context)
@@ -331,9 +346,10 @@ export const serializeAws_json1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TransferService.UntagResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TransferService.UntagResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UntagResourceRequest(input, context)
@@ -345,9 +361,10 @@ export const serializeAws_json1_1UpdateServerCommand = async (
   input: UpdateServerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TransferService.UpdateServer";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TransferService.UpdateServer"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateServerRequest(input, context)
@@ -359,9 +376,10 @@ export const serializeAws_json1_1UpdateUserCommand = async (
   input: UpdateUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TransferService.UpdateUser";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TransferService.UpdateUser"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);

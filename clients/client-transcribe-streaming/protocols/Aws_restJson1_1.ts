@@ -34,25 +34,24 @@ export const serializeAws_restJson1_1StartStreamTranscriptionCommand = async (
   input: StartStreamTranscriptionCommandInput,
   context: __SerdeContext & __EventStreamSerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.LanguageCode)) {
-    headers["x-amzn-transcribe-language-code"] = input.LanguageCode!;
-  }
-  if (isSerializableHeaderValue(input.MediaEncoding)) {
-    headers["x-amzn-transcribe-media-encoding"] = input.MediaEncoding!;
-  }
-  if (isSerializableHeaderValue(input.MediaSampleRateHertz)) {
-    headers[
-      "x-amzn-transcribe-sample-rate"
-    ] = input.MediaSampleRateHertz!.toString();
-  }
-  if (isSerializableHeaderValue(input.SessionId)) {
-    headers["x-amzn-transcribe-session-id"] = input.SessionId!;
-  }
-  if (isSerializableHeaderValue(input.VocabularyName)) {
-    headers["x-amzn-transcribe-vocabulary-name"] = input.VocabularyName!;
-  }
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.LanguageCode) && {
+      "x-amzn-transcribe-language-code": input.LanguageCode!
+    }),
+    ...(isSerializableHeaderValue(input.MediaEncoding) && {
+      "x-amzn-transcribe-media-encoding": input.MediaEncoding!
+    }),
+    ...(isSerializableHeaderValue(input.MediaSampleRateHertz) && {
+      "x-amzn-transcribe-sample-rate": input.MediaSampleRateHertz!.toString()
+    }),
+    ...(isSerializableHeaderValue(input.SessionId) && {
+      "x-amzn-transcribe-session-id": input.SessionId!
+    }),
+    ...(isSerializableHeaderValue(input.VocabularyName) && {
+      "x-amzn-transcribe-vocabulary-name": input.VocabularyName!
+    })
+  };
   let resolvedPath = "/stream-transcription";
   let body: any;
   if (input.AudioStream !== undefined) {

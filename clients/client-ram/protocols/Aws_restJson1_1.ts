@@ -141,8 +141,9 @@ export const serializeAws_restJson1_1AcceptResourceShareInvitationCommand = asyn
   input: AcceptResourceShareInvitationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/acceptresourceshareinvitation";
   let body: any;
   const bodyParams: any = {};
@@ -169,8 +170,9 @@ export const serializeAws_restJson1_1AssociateResourceShareCommand = async (
   input: AssociateResourceShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/associateresourceshare";
   let body: any;
   const bodyParams: any = {};
@@ -209,8 +211,9 @@ export const serializeAws_restJson1_1AssociateResourceSharePermissionCommand = a
   input: AssociateResourceSharePermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/associateresourcesharepermission";
   let body: any;
   const bodyParams: any = {};
@@ -243,8 +246,9 @@ export const serializeAws_restJson1_1CreateResourceShareCommand = async (
   input: CreateResourceShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/createresourceshare";
   let body: any;
   const bodyParams: any = {};
@@ -295,8 +299,9 @@ export const serializeAws_restJson1_1DeleteResourceShareCommand = async (
   input: DeleteResourceShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/deleteresourceshare";
   const query: any = {};
   if (input.clientToken !== undefined) {
@@ -323,8 +328,9 @@ export const serializeAws_restJson1_1DisassociateResourceShareCommand = async (
   input: DisassociateResourceShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/disassociateresourceshare";
   let body: any;
   const bodyParams: any = {};
@@ -363,8 +369,9 @@ export const serializeAws_restJson1_1DisassociateResourceSharePermissionCommand 
   input: DisassociateResourceSharePermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/disassociateresourcesharepermission";
   let body: any;
   const bodyParams: any = {};
@@ -394,8 +401,9 @@ export const serializeAws_restJson1_1EnableSharingWithAwsOrganizationCommand = a
   input: EnableSharingWithAwsOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/enablesharingwithawsorganization";
   let body: any;
   body = "{}";
@@ -415,8 +423,9 @@ export const serializeAws_restJson1_1GetPermissionCommand = async (
   input: GetPermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/getpermission";
   let body: any;
   const bodyParams: any = {};
@@ -443,8 +452,9 @@ export const serializeAws_restJson1_1GetResourcePoliciesCommand = async (
   input: GetResourcePoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/getresourcepolicies";
   let body: any;
   const bodyParams: any = {};
@@ -480,8 +490,9 @@ export const serializeAws_restJson1_1GetResourceShareAssociationsCommand = async
   input: GetResourceShareAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/getresourceshareassociations";
   let body: any;
   const bodyParams: any = {};
@@ -528,8 +539,9 @@ export const serializeAws_restJson1_1GetResourceShareInvitationsCommand = async 
   input: GetResourceShareInvitationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/getresourceshareinvitations";
   let body: any;
   const bodyParams: any = {};
@@ -572,8 +584,9 @@ export const serializeAws_restJson1_1GetResourceSharesCommand = async (
   input: GetResourceSharesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/getresourceshares";
   let body: any;
   const bodyParams: any = {};
@@ -623,8 +636,9 @@ export const serializeAws_restJson1_1ListPendingInvitationResourcesCommand = asy
   input: ListPendingInvitationResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/listpendinginvitationresources";
   let body: any;
   const bodyParams: any = {};
@@ -654,8 +668,9 @@ export const serializeAws_restJson1_1ListPermissionsCommand = async (
   input: ListPermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/listpermissions";
   let body: any;
   const bodyParams: any = {};
@@ -685,8 +700,9 @@ export const serializeAws_restJson1_1ListPrincipalsCommand = async (
   input: ListPrincipalsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/listprincipals";
   let body: any;
   const bodyParams: any = {};
@@ -736,8 +752,9 @@ export const serializeAws_restJson1_1ListResourceSharePermissionsCommand = async
   input: ListResourceSharePermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/listresourcesharepermissions";
   let body: any;
   const bodyParams: any = {};
@@ -767,8 +784,9 @@ export const serializeAws_restJson1_1ListResourcesCommand = async (
   input: ListResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/listresources";
   let body: any;
   const bodyParams: any = {};
@@ -818,8 +836,9 @@ export const serializeAws_restJson1_1PromoteResourceShareCreatedFromPolicyComman
   input: PromoteResourceShareCreatedFromPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/promoteresourcesharecreatedfrompolicy";
   const query: any = {};
   if (input.resourceShareArn !== undefined) {
@@ -843,8 +862,9 @@ export const serializeAws_restJson1_1RejectResourceShareInvitationCommand = asyn
   input: RejectResourceShareInvitationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/rejectresourceshareinvitation";
   let body: any;
   const bodyParams: any = {};
@@ -871,8 +891,9 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/tagresource";
   let body: any;
   const bodyParams: any = {};
@@ -899,8 +920,9 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/untagresource";
   let body: any;
   const bodyParams: any = {};
@@ -930,8 +952,9 @@ export const serializeAws_restJson1_1UpdateResourceShareCommand = async (
   input: UpdateResourceShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/updateresourceshare";
   let body: any;
   const bodyParams: any = {};

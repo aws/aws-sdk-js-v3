@@ -155,9 +155,10 @@ export const serializeAws_json1_1CreateCertificateAuthorityCommand = async (
   input: CreateCertificateAuthorityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "ACMPrivateCA.CreateCertificateAuthority";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ACMPrivateCA.CreateCertificateAuthority"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateCertificateAuthorityRequest(input, context)
@@ -169,10 +170,10 @@ export const serializeAws_json1_1CreateCertificateAuthorityAuditReportCommand = 
   input: CreateCertificateAuthorityAuditReportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "ACMPrivateCA.CreateCertificateAuthorityAuditReport";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ACMPrivateCA.CreateCertificateAuthorityAuditReport"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateCertificateAuthorityAuditReportRequest(
@@ -187,9 +188,10 @@ export const serializeAws_json1_1CreatePermissionCommand = async (
   input: CreatePermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "ACMPrivateCA.CreatePermission";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ACMPrivateCA.CreatePermission"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreatePermissionRequest(input, context)
@@ -201,9 +203,10 @@ export const serializeAws_json1_1DeleteCertificateAuthorityCommand = async (
   input: DeleteCertificateAuthorityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "ACMPrivateCA.DeleteCertificateAuthority";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ACMPrivateCA.DeleteCertificateAuthority"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteCertificateAuthorityRequest(input, context)
@@ -215,9 +218,10 @@ export const serializeAws_json1_1DeletePermissionCommand = async (
   input: DeletePermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "ACMPrivateCA.DeletePermission";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ACMPrivateCA.DeletePermission"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeletePermissionRequest(input, context)
@@ -229,9 +233,10 @@ export const serializeAws_json1_1DescribeCertificateAuthorityCommand = async (
   input: DescribeCertificateAuthorityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "ACMPrivateCA.DescribeCertificateAuthority";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ACMPrivateCA.DescribeCertificateAuthority"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeCertificateAuthorityRequest(input, context)
@@ -243,10 +248,10 @@ export const serializeAws_json1_1DescribeCertificateAuthorityAuditReportCommand 
   input: DescribeCertificateAuthorityAuditReportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "ACMPrivateCA.DescribeCertificateAuthorityAuditReport";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ACMPrivateCA.DescribeCertificateAuthorityAuditReport"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeCertificateAuthorityAuditReportRequest(
@@ -261,9 +266,10 @@ export const serializeAws_json1_1GetCertificateCommand = async (
   input: GetCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "ACMPrivateCA.GetCertificate";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ACMPrivateCA.GetCertificate"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetCertificateRequest(input, context)
@@ -275,9 +281,10 @@ export const serializeAws_json1_1GetCertificateAuthorityCertificateCommand = asy
   input: GetCertificateAuthorityCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "ACMPrivateCA.GetCertificateAuthorityCertificate";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ACMPrivateCA.GetCertificateAuthorityCertificate"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetCertificateAuthorityCertificateRequest(
@@ -292,9 +299,10 @@ export const serializeAws_json1_1GetCertificateAuthorityCsrCommand = async (
   input: GetCertificateAuthorityCsrCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "ACMPrivateCA.GetCertificateAuthorityCsr";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ACMPrivateCA.GetCertificateAuthorityCsr"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetCertificateAuthorityCsrRequest(input, context)
@@ -306,10 +314,10 @@ export const serializeAws_json1_1ImportCertificateAuthorityCertificateCommand = 
   input: ImportCertificateAuthorityCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "ACMPrivateCA.ImportCertificateAuthorityCertificate";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ACMPrivateCA.ImportCertificateAuthorityCertificate"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ImportCertificateAuthorityCertificateRequest(
@@ -324,9 +332,10 @@ export const serializeAws_json1_1IssueCertificateCommand = async (
   input: IssueCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "ACMPrivateCA.IssueCertificate";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ACMPrivateCA.IssueCertificate"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1IssueCertificateRequest(input, context)
@@ -338,9 +347,10 @@ export const serializeAws_json1_1ListCertificateAuthoritiesCommand = async (
   input: ListCertificateAuthoritiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "ACMPrivateCA.ListCertificateAuthorities";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ACMPrivateCA.ListCertificateAuthorities"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListCertificateAuthoritiesRequest(input, context)
@@ -352,9 +362,10 @@ export const serializeAws_json1_1ListPermissionsCommand = async (
   input: ListPermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "ACMPrivateCA.ListPermissions";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ACMPrivateCA.ListPermissions"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListPermissionsRequest(input, context)
@@ -366,9 +377,10 @@ export const serializeAws_json1_1ListTagsCommand = async (
   input: ListTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "ACMPrivateCA.ListTags";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ACMPrivateCA.ListTags"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTagsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -378,9 +390,10 @@ export const serializeAws_json1_1RestoreCertificateAuthorityCommand = async (
   input: RestoreCertificateAuthorityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "ACMPrivateCA.RestoreCertificateAuthority";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ACMPrivateCA.RestoreCertificateAuthority"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RestoreCertificateAuthorityRequest(input, context)
@@ -392,9 +405,10 @@ export const serializeAws_json1_1RevokeCertificateCommand = async (
   input: RevokeCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "ACMPrivateCA.RevokeCertificate";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ACMPrivateCA.RevokeCertificate"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RevokeCertificateRequest(input, context)
@@ -406,9 +420,10 @@ export const serializeAws_json1_1TagCertificateAuthorityCommand = async (
   input: TagCertificateAuthorityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "ACMPrivateCA.TagCertificateAuthority";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ACMPrivateCA.TagCertificateAuthority"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1TagCertificateAuthorityRequest(input, context)
@@ -420,9 +435,10 @@ export const serializeAws_json1_1UntagCertificateAuthorityCommand = async (
   input: UntagCertificateAuthorityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "ACMPrivateCA.UntagCertificateAuthority";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ACMPrivateCA.UntagCertificateAuthority"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UntagCertificateAuthorityRequest(input, context)
@@ -434,9 +450,10 @@ export const serializeAws_json1_1UpdateCertificateAuthorityCommand = async (
   input: UpdateCertificateAuthorityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "ACMPrivateCA.UpdateCertificateAuthority";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ACMPrivateCA.UpdateCertificateAuthority"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateCertificateAuthorityRequest(input, context)

@@ -27,8 +27,9 @@ export const serializeAws_restJson1_1GetMediaCommand = async (
   input: GetMediaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/getMedia";
   let body: any;
   const bodyParams: any = {};

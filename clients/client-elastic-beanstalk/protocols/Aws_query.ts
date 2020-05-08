@@ -339,8 +339,9 @@ export const serializeAws_queryAbortEnvironmentUpdateCommand = async (
   input: AbortEnvironmentUpdateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryAbortEnvironmentUpdateMessage(
     input,
@@ -358,8 +359,9 @@ export const serializeAws_queryApplyEnvironmentManagedActionCommand = async (
   input: ApplyEnvironmentManagedActionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryApplyEnvironmentManagedActionRequest(
     input,
@@ -377,8 +379,9 @@ export const serializeAws_queryCheckDNSAvailabilityCommand = async (
   input: CheckDNSAvailabilityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCheckDNSAvailabilityMessage(input, context);
   body = buildFormUrlencodedString({
@@ -393,8 +396,9 @@ export const serializeAws_queryComposeEnvironmentsCommand = async (
   input: ComposeEnvironmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryComposeEnvironmentsMessage(input, context);
   body = buildFormUrlencodedString({
@@ -409,8 +413,9 @@ export const serializeAws_queryCreateApplicationCommand = async (
   input: CreateApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCreateApplicationMessage(input, context);
   body = buildFormUrlencodedString({
@@ -425,8 +430,9 @@ export const serializeAws_queryCreateApplicationVersionCommand = async (
   input: CreateApplicationVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCreateApplicationVersionMessage(
     input,
@@ -444,8 +450,9 @@ export const serializeAws_queryCreateConfigurationTemplateCommand = async (
   input: CreateConfigurationTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCreateConfigurationTemplateMessage(
     input,
@@ -463,8 +470,9 @@ export const serializeAws_queryCreateEnvironmentCommand = async (
   input: CreateEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCreateEnvironmentMessage(input, context);
   body = buildFormUrlencodedString({
@@ -479,8 +487,9 @@ export const serializeAws_queryCreatePlatformVersionCommand = async (
   input: CreatePlatformVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCreatePlatformVersionRequest(
     input,
@@ -498,8 +507,9 @@ export const serializeAws_queryCreateStorageLocationCommand = async (
   input: CreateStorageLocationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   const body = buildFormUrlencodedString({
     Action: "CreateStorageLocation",
     Version: "2010-12-01"
@@ -511,8 +521,9 @@ export const serializeAws_queryDeleteApplicationCommand = async (
   input: DeleteApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteApplicationMessage(input, context);
   body = buildFormUrlencodedString({
@@ -527,8 +538,9 @@ export const serializeAws_queryDeleteApplicationVersionCommand = async (
   input: DeleteApplicationVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteApplicationVersionMessage(
     input,
@@ -546,8 +558,9 @@ export const serializeAws_queryDeleteConfigurationTemplateCommand = async (
   input: DeleteConfigurationTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteConfigurationTemplateMessage(
     input,
@@ -565,8 +578,9 @@ export const serializeAws_queryDeleteEnvironmentConfigurationCommand = async (
   input: DeleteEnvironmentConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteEnvironmentConfigurationMessage(
     input,
@@ -584,8 +598,9 @@ export const serializeAws_queryDeletePlatformVersionCommand = async (
   input: DeletePlatformVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeletePlatformVersionRequest(
     input,
@@ -603,8 +618,9 @@ export const serializeAws_queryDescribeAccountAttributesCommand = async (
   input: DescribeAccountAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   const body = buildFormUrlencodedString({
     Action: "DescribeAccountAttributes",
     Version: "2010-12-01"
@@ -616,8 +632,9 @@ export const serializeAws_queryDescribeApplicationVersionsCommand = async (
   input: DescribeApplicationVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeApplicationVersionsMessage(
     input,
@@ -635,8 +652,9 @@ export const serializeAws_queryDescribeApplicationsCommand = async (
   input: DescribeApplicationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeApplicationsMessage(input, context);
   body = buildFormUrlencodedString({
@@ -651,8 +669,9 @@ export const serializeAws_queryDescribeConfigurationOptionsCommand = async (
   input: DescribeConfigurationOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeConfigurationOptionsMessage(
     input,
@@ -670,8 +689,9 @@ export const serializeAws_queryDescribeConfigurationSettingsCommand = async (
   input: DescribeConfigurationSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeConfigurationSettingsMessage(
     input,
@@ -689,8 +709,9 @@ export const serializeAws_queryDescribeEnvironmentHealthCommand = async (
   input: DescribeEnvironmentHealthCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeEnvironmentHealthRequest(
     input,
@@ -708,8 +729,9 @@ export const serializeAws_queryDescribeEnvironmentManagedActionHistoryCommand = 
   input: DescribeEnvironmentManagedActionHistoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeEnvironmentManagedActionHistoryRequest(
     input,
@@ -727,8 +749,9 @@ export const serializeAws_queryDescribeEnvironmentManagedActionsCommand = async 
   input: DescribeEnvironmentManagedActionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeEnvironmentManagedActionsRequest(
     input,
@@ -746,8 +769,9 @@ export const serializeAws_queryDescribeEnvironmentResourcesCommand = async (
   input: DescribeEnvironmentResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeEnvironmentResourcesMessage(
     input,
@@ -765,8 +789,9 @@ export const serializeAws_queryDescribeEnvironmentsCommand = async (
   input: DescribeEnvironmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeEnvironmentsMessage(input, context);
   body = buildFormUrlencodedString({
@@ -781,8 +806,9 @@ export const serializeAws_queryDescribeEventsCommand = async (
   input: DescribeEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeEventsMessage(input, context);
   body = buildFormUrlencodedString({
@@ -797,8 +823,9 @@ export const serializeAws_queryDescribeInstancesHealthCommand = async (
   input: DescribeInstancesHealthCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeInstancesHealthRequest(
     input,
@@ -816,8 +843,9 @@ export const serializeAws_queryDescribePlatformVersionCommand = async (
   input: DescribePlatformVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribePlatformVersionRequest(
     input,
@@ -835,8 +863,9 @@ export const serializeAws_queryListAvailableSolutionStacksCommand = async (
   input: ListAvailableSolutionStacksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   const body = buildFormUrlencodedString({
     Action: "ListAvailableSolutionStacks",
     Version: "2010-12-01"
@@ -848,8 +877,9 @@ export const serializeAws_queryListPlatformVersionsCommand = async (
   input: ListPlatformVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryListPlatformVersionsRequest(input, context);
   body = buildFormUrlencodedString({
@@ -864,8 +894,9 @@ export const serializeAws_queryListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryListTagsForResourceMessage(input, context);
   body = buildFormUrlencodedString({
@@ -880,8 +911,9 @@ export const serializeAws_queryRebuildEnvironmentCommand = async (
   input: RebuildEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryRebuildEnvironmentMessage(input, context);
   body = buildFormUrlencodedString({
@@ -896,8 +928,9 @@ export const serializeAws_queryRequestEnvironmentInfoCommand = async (
   input: RequestEnvironmentInfoCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryRequestEnvironmentInfoMessage(
     input,
@@ -915,8 +948,9 @@ export const serializeAws_queryRestartAppServerCommand = async (
   input: RestartAppServerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryRestartAppServerMessage(input, context);
   body = buildFormUrlencodedString({
@@ -931,8 +965,9 @@ export const serializeAws_queryRetrieveEnvironmentInfoCommand = async (
   input: RetrieveEnvironmentInfoCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryRetrieveEnvironmentInfoMessage(
     input,
@@ -950,8 +985,9 @@ export const serializeAws_querySwapEnvironmentCNAMEsCommand = async (
   input: SwapEnvironmentCNAMEsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_querySwapEnvironmentCNAMEsMessage(
     input,
@@ -969,8 +1005,9 @@ export const serializeAws_queryTerminateEnvironmentCommand = async (
   input: TerminateEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryTerminateEnvironmentMessage(input, context);
   body = buildFormUrlencodedString({
@@ -985,8 +1022,9 @@ export const serializeAws_queryUpdateApplicationCommand = async (
   input: UpdateApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryUpdateApplicationMessage(input, context);
   body = buildFormUrlencodedString({
@@ -1001,8 +1039,9 @@ export const serializeAws_queryUpdateApplicationResourceLifecycleCommand = async
   input: UpdateApplicationResourceLifecycleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryUpdateApplicationResourceLifecycleMessage(
     input,
@@ -1020,8 +1059,9 @@ export const serializeAws_queryUpdateApplicationVersionCommand = async (
   input: UpdateApplicationVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryUpdateApplicationVersionMessage(
     input,
@@ -1039,8 +1079,9 @@ export const serializeAws_queryUpdateConfigurationTemplateCommand = async (
   input: UpdateConfigurationTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryUpdateConfigurationTemplateMessage(
     input,
@@ -1058,8 +1099,9 @@ export const serializeAws_queryUpdateEnvironmentCommand = async (
   input: UpdateEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryUpdateEnvironmentMessage(input, context);
   body = buildFormUrlencodedString({
@@ -1074,8 +1116,9 @@ export const serializeAws_queryUpdateTagsForResourceCommand = async (
   input: UpdateTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryUpdateTagsForResourceMessage(
     input,
@@ -1093,8 +1136,9 @@ export const serializeAws_queryValidateConfigurationSettingsCommand = async (
   input: ValidateConfigurationSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryValidateConfigurationSettingsMessage(
     input,

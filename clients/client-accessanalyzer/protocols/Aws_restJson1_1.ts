@@ -109,8 +109,9 @@ export const serializeAws_restJson1_1CreateAnalyzerCommand = async (
   input: CreateAnalyzerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/analyzer";
   let body: any;
   const bodyParams: any = {};
@@ -152,8 +153,9 @@ export const serializeAws_restJson1_1CreateArchiveRuleCommand = async (
   input: CreateArchiveRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/analyzer/{analyzerName}/archive-rule";
   if (input.analyzerName !== undefined) {
     const labelValue: string = input.analyzerName;
@@ -203,8 +205,9 @@ export const serializeAws_restJson1_1DeleteAnalyzerCommand = async (
   input: DeleteAnalyzerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/analyzer/{analyzerName}";
   if (input.analyzerName !== undefined) {
     const labelValue: string = input.analyzerName;
@@ -242,8 +245,9 @@ export const serializeAws_restJson1_1DeleteArchiveRuleCommand = async (
   input: DeleteArchiveRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/analyzer/{analyzerName}/archive-rule/{ruleName}";
   if (input.analyzerName !== undefined) {
     const labelValue: string = input.analyzerName;
@@ -293,8 +297,9 @@ export const serializeAws_restJson1_1GetAnalyzedResourceCommand = async (
   input: GetAnalyzedResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/analyzed-resource";
   const query: any = {};
   if (input.analyzerArn !== undefined) {
@@ -321,8 +326,9 @@ export const serializeAws_restJson1_1GetAnalyzerCommand = async (
   input: GetAnalyzerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/analyzer/{analyzerName}";
   if (input.analyzerName !== undefined) {
     const labelValue: string = input.analyzerName;
@@ -355,8 +361,9 @@ export const serializeAws_restJson1_1GetArchiveRuleCommand = async (
   input: GetArchiveRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/analyzer/{analyzerName}/archive-rule/{ruleName}";
   if (input.analyzerName !== undefined) {
     const labelValue: string = input.analyzerName;
@@ -401,8 +408,9 @@ export const serializeAws_restJson1_1GetFindingCommand = async (
   input: GetFindingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/finding/{id}";
   if (input.id !== undefined) {
     const labelValue: string = input.id;
@@ -438,8 +446,9 @@ export const serializeAws_restJson1_1ListAnalyzedResourcesCommand = async (
   input: ListAnalyzedResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/analyzed-resource";
   let body: any;
   const bodyParams: any = {};
@@ -472,8 +481,9 @@ export const serializeAws_restJson1_1ListAnalyzersCommand = async (
   input: ListAnalyzersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/analyzer";
   const query: any = {};
   if (input.maxResults !== undefined) {
@@ -503,8 +513,9 @@ export const serializeAws_restJson1_1ListArchiveRulesCommand = async (
   input: ListArchiveRulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/analyzer/{analyzerName}/archive-rule";
   if (input.analyzerName !== undefined) {
     const labelValue: string = input.analyzerName;
@@ -545,8 +556,9 @@ export const serializeAws_restJson1_1ListFindingsCommand = async (
   input: ListFindingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/finding";
   let body: any;
   const bodyParams: any = {};
@@ -588,8 +600,9 @@ export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
@@ -622,8 +635,9 @@ export const serializeAws_restJson1_1StartResourceScanCommand = async (
   input: StartResourceScanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/resource/scan";
   let body: any;
   const bodyParams: any = {};
@@ -650,8 +664,9 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
@@ -689,8 +704,9 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
@@ -728,8 +744,9 @@ export const serializeAws_restJson1_1UpdateArchiveRuleCommand = async (
   input: UpdateArchiveRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/analyzer/{analyzerName}/archive-rule/{ruleName}";
   if (input.analyzerName !== undefined) {
     const labelValue: string = input.analyzerName;
@@ -788,8 +805,9 @@ export const serializeAws_restJson1_1UpdateFindingsCommand = async (
   input: UpdateFindingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/finding";
   let body: any;
   const bodyParams: any = {};

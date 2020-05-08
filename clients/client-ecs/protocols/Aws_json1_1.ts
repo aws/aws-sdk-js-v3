@@ -400,10 +400,10 @@ export const serializeAws_json1_1CreateCapacityProviderCommand = async (
   input: CreateCapacityProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerServiceV20141113.CreateCapacityProvider";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerServiceV20141113.CreateCapacityProvider"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateCapacityProviderRequest(input, context)
@@ -415,9 +415,10 @@ export const serializeAws_json1_1CreateClusterCommand = async (
   input: CreateClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.CreateCluster";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerServiceV20141113.CreateCluster"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateClusterRequest(input, context)
@@ -429,9 +430,10 @@ export const serializeAws_json1_1CreateServiceCommand = async (
   input: CreateServiceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.CreateService";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerServiceV20141113.CreateService"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateServiceRequest(input, context)
@@ -443,9 +445,10 @@ export const serializeAws_json1_1CreateTaskSetCommand = async (
   input: CreateTaskSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.CreateTaskSet";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerServiceV20141113.CreateTaskSet"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateTaskSetRequest(input, context)
@@ -457,10 +460,10 @@ export const serializeAws_json1_1DeleteAccountSettingCommand = async (
   input: DeleteAccountSettingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerServiceV20141113.DeleteAccountSetting";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerServiceV20141113.DeleteAccountSetting"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteAccountSettingRequest(input, context)
@@ -472,10 +475,10 @@ export const serializeAws_json1_1DeleteAttributesCommand = async (
   input: DeleteAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerServiceV20141113.DeleteAttributes";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerServiceV20141113.DeleteAttributes"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteAttributesRequest(input, context)
@@ -487,9 +490,10 @@ export const serializeAws_json1_1DeleteClusterCommand = async (
   input: DeleteClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.DeleteCluster";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerServiceV20141113.DeleteCluster"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteClusterRequest(input, context)
@@ -501,9 +505,10 @@ export const serializeAws_json1_1DeleteServiceCommand = async (
   input: DeleteServiceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.DeleteService";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerServiceV20141113.DeleteService"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteServiceRequest(input, context)
@@ -515,9 +520,10 @@ export const serializeAws_json1_1DeleteTaskSetCommand = async (
   input: DeleteTaskSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.DeleteTaskSet";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerServiceV20141113.DeleteTaskSet"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteTaskSetRequest(input, context)
@@ -529,10 +535,11 @@ export const serializeAws_json1_1DeregisterContainerInstanceCommand = async (
   input: DeregisterContainerInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerServiceV20141113.DeregisterContainerInstance";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "AmazonEC2ContainerServiceV20141113.DeregisterContainerInstance"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeregisterContainerInstanceRequest(input, context)
@@ -544,10 +551,11 @@ export const serializeAws_json1_1DeregisterTaskDefinitionCommand = async (
   input: DeregisterTaskDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerServiceV20141113.DeregisterTaskDefinition";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "AmazonEC2ContainerServiceV20141113.DeregisterTaskDefinition"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeregisterTaskDefinitionRequest(input, context)
@@ -559,10 +567,11 @@ export const serializeAws_json1_1DescribeCapacityProvidersCommand = async (
   input: DescribeCapacityProvidersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerServiceV20141113.DescribeCapacityProviders";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "AmazonEC2ContainerServiceV20141113.DescribeCapacityProviders"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeCapacityProvidersRequest(input, context)
@@ -574,10 +583,10 @@ export const serializeAws_json1_1DescribeClustersCommand = async (
   input: DescribeClustersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerServiceV20141113.DescribeClusters";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerServiceV20141113.DescribeClusters"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeClustersRequest(input, context)
@@ -589,10 +598,11 @@ export const serializeAws_json1_1DescribeContainerInstancesCommand = async (
   input: DescribeContainerInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerServiceV20141113.DescribeContainerInstances";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "AmazonEC2ContainerServiceV20141113.DescribeContainerInstances"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeContainerInstancesRequest(input, context)
@@ -604,10 +614,10 @@ export const serializeAws_json1_1DescribeServicesCommand = async (
   input: DescribeServicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerServiceV20141113.DescribeServices";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerServiceV20141113.DescribeServices"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeServicesRequest(input, context)
@@ -619,10 +629,10 @@ export const serializeAws_json1_1DescribeTaskDefinitionCommand = async (
   input: DescribeTaskDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerServiceV20141113.DescribeTaskDefinition";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerServiceV20141113.DescribeTaskDefinition"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeTaskDefinitionRequest(input, context)
@@ -634,10 +644,10 @@ export const serializeAws_json1_1DescribeTaskSetsCommand = async (
   input: DescribeTaskSetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerServiceV20141113.DescribeTaskSets";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerServiceV20141113.DescribeTaskSets"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeTaskSetsRequest(input, context)
@@ -649,9 +659,10 @@ export const serializeAws_json1_1DescribeTasksCommand = async (
   input: DescribeTasksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.DescribeTasks";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerServiceV20141113.DescribeTasks"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeTasksRequest(input, context)
@@ -663,10 +674,10 @@ export const serializeAws_json1_1DiscoverPollEndpointCommand = async (
   input: DiscoverPollEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerServiceV20141113.DiscoverPollEndpoint";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerServiceV20141113.DiscoverPollEndpoint"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DiscoverPollEndpointRequest(input, context)
@@ -678,10 +689,10 @@ export const serializeAws_json1_1ListAccountSettingsCommand = async (
   input: ListAccountSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerServiceV20141113.ListAccountSettings";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerServiceV20141113.ListAccountSettings"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListAccountSettingsRequest(input, context)
@@ -693,9 +704,10 @@ export const serializeAws_json1_1ListAttributesCommand = async (
   input: ListAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.ListAttributes";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerServiceV20141113.ListAttributes"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListAttributesRequest(input, context)
@@ -707,9 +719,10 @@ export const serializeAws_json1_1ListClustersCommand = async (
   input: ListClustersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.ListClusters";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerServiceV20141113.ListClusters"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListClustersRequest(input, context)
@@ -721,10 +734,10 @@ export const serializeAws_json1_1ListContainerInstancesCommand = async (
   input: ListContainerInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerServiceV20141113.ListContainerInstances";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerServiceV20141113.ListContainerInstances"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListContainerInstancesRequest(input, context)
@@ -736,9 +749,10 @@ export const serializeAws_json1_1ListServicesCommand = async (
   input: ListServicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.ListServices";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerServiceV20141113.ListServices"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListServicesRequest(input, context)
@@ -750,10 +764,10 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerServiceV20141113.ListTagsForResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerServiceV20141113.ListTagsForResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTagsForResourceRequest(input, context)
@@ -765,10 +779,11 @@ export const serializeAws_json1_1ListTaskDefinitionFamiliesCommand = async (
   input: ListTaskDefinitionFamiliesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerServiceV20141113.ListTaskDefinitionFamilies";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "AmazonEC2ContainerServiceV20141113.ListTaskDefinitionFamilies"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTaskDefinitionFamiliesRequest(input, context)
@@ -780,10 +795,10 @@ export const serializeAws_json1_1ListTaskDefinitionsCommand = async (
   input: ListTaskDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerServiceV20141113.ListTaskDefinitions";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerServiceV20141113.ListTaskDefinitions"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTaskDefinitionsRequest(input, context)
@@ -795,9 +810,10 @@ export const serializeAws_json1_1ListTasksCommand = async (
   input: ListTasksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.ListTasks";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerServiceV20141113.ListTasks"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTasksRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -807,10 +823,10 @@ export const serializeAws_json1_1PutAccountSettingCommand = async (
   input: PutAccountSettingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerServiceV20141113.PutAccountSetting";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerServiceV20141113.PutAccountSetting"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutAccountSettingRequest(input, context)
@@ -822,10 +838,11 @@ export const serializeAws_json1_1PutAccountSettingDefaultCommand = async (
   input: PutAccountSettingDefaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerServiceV20141113.PutAccountSettingDefault";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "AmazonEC2ContainerServiceV20141113.PutAccountSettingDefault"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutAccountSettingDefaultRequest(input, context)
@@ -837,9 +854,10 @@ export const serializeAws_json1_1PutAttributesCommand = async (
   input: PutAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.PutAttributes";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerServiceV20141113.PutAttributes"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutAttributesRequest(input, context)
@@ -851,10 +869,11 @@ export const serializeAws_json1_1PutClusterCapacityProvidersCommand = async (
   input: PutClusterCapacityProvidersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerServiceV20141113.PutClusterCapacityProviders";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "AmazonEC2ContainerServiceV20141113.PutClusterCapacityProviders"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutClusterCapacityProvidersRequest(input, context)
@@ -866,10 +885,11 @@ export const serializeAws_json1_1RegisterContainerInstanceCommand = async (
   input: RegisterContainerInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerServiceV20141113.RegisterContainerInstance";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "AmazonEC2ContainerServiceV20141113.RegisterContainerInstance"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RegisterContainerInstanceRequest(input, context)
@@ -881,10 +901,10 @@ export const serializeAws_json1_1RegisterTaskDefinitionCommand = async (
   input: RegisterTaskDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerServiceV20141113.RegisterTaskDefinition";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerServiceV20141113.RegisterTaskDefinition"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RegisterTaskDefinitionRequest(input, context)
@@ -896,9 +916,10 @@ export const serializeAws_json1_1RunTaskCommand = async (
   input: RunTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.RunTask";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerServiceV20141113.RunTask"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1RunTaskRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -908,9 +929,10 @@ export const serializeAws_json1_1StartTaskCommand = async (
   input: StartTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.StartTask";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerServiceV20141113.StartTask"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartTaskRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -920,9 +942,10 @@ export const serializeAws_json1_1StopTaskCommand = async (
   input: StopTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.StopTask";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerServiceV20141113.StopTask"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StopTaskRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -932,10 +955,11 @@ export const serializeAws_json1_1SubmitAttachmentStateChangesCommand = async (
   input: SubmitAttachmentStateChangesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerServiceV20141113.SubmitAttachmentStateChanges";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "AmazonEC2ContainerServiceV20141113.SubmitAttachmentStateChanges"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1SubmitAttachmentStateChangesRequest(input, context)
@@ -947,10 +971,11 @@ export const serializeAws_json1_1SubmitContainerStateChangeCommand = async (
   input: SubmitContainerStateChangeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerServiceV20141113.SubmitContainerStateChange";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "AmazonEC2ContainerServiceV20141113.SubmitContainerStateChange"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1SubmitContainerStateChangeRequest(input, context)
@@ -962,10 +987,10 @@ export const serializeAws_json1_1SubmitTaskStateChangeCommand = async (
   input: SubmitTaskStateChangeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerServiceV20141113.SubmitTaskStateChange";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerServiceV20141113.SubmitTaskStateChange"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1SubmitTaskStateChangeRequest(input, context)
@@ -977,9 +1002,10 @@ export const serializeAws_json1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.TagResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerServiceV20141113.TagResource"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -989,9 +1015,10 @@ export const serializeAws_json1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.UntagResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerServiceV20141113.UntagResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UntagResourceRequest(input, context)
@@ -1003,10 +1030,10 @@ export const serializeAws_json1_1UpdateClusterSettingsCommand = async (
   input: UpdateClusterSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerServiceV20141113.UpdateClusterSettings";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerServiceV20141113.UpdateClusterSettings"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateClusterSettingsRequest(input, context)
@@ -1018,10 +1045,10 @@ export const serializeAws_json1_1UpdateContainerAgentCommand = async (
   input: UpdateContainerAgentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerServiceV20141113.UpdateContainerAgent";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerServiceV20141113.UpdateContainerAgent"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateContainerAgentRequest(input, context)
@@ -1033,10 +1060,11 @@ export const serializeAws_json1_1UpdateContainerInstancesStateCommand = async (
   input: UpdateContainerInstancesStateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerServiceV20141113.UpdateContainerInstancesState";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "AmazonEC2ContainerServiceV20141113.UpdateContainerInstancesState"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateContainerInstancesStateRequest(input, context)
@@ -1048,9 +1076,10 @@ export const serializeAws_json1_1UpdateServiceCommand = async (
   input: UpdateServiceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.UpdateService";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerServiceV20141113.UpdateService"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateServiceRequest(input, context)
@@ -1062,10 +1091,11 @@ export const serializeAws_json1_1UpdateServicePrimaryTaskSetCommand = async (
   input: UpdateServicePrimaryTaskSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AmazonEC2ContainerServiceV20141113.UpdateServicePrimaryTaskSet";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "AmazonEC2ContainerServiceV20141113.UpdateServicePrimaryTaskSet"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateServicePrimaryTaskSetRequest(input, context)
@@ -1077,9 +1107,10 @@ export const serializeAws_json1_1UpdateTaskSetCommand = async (
   input: UpdateTaskSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.UpdateTaskSet";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonEC2ContainerServiceV20141113.UpdateTaskSet"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateTaskSetRequest(input, context)

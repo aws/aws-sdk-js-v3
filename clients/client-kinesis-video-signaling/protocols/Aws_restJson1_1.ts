@@ -31,8 +31,9 @@ export const serializeAws_restJson1_1GetIceServerConfigCommand = async (
   input: GetIceServerConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/get-ice-server-config";
   let body: any;
   const bodyParams: any = {};
@@ -65,8 +66,9 @@ export const serializeAws_restJson1_1SendAlexaOfferToMasterCommand = async (
   input: SendAlexaOfferToMasterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/send-alexa-offer-to-master";
   let body: any;
   const bodyParams: any = {};

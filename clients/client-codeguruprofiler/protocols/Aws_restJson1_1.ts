@@ -68,8 +68,9 @@ export const serializeAws_restJson1_1ConfigureAgentCommand = async (
   input: ConfigureAgentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/profilingGroups/{profilingGroupName}/configureAgent";
   if (input.profilingGroupName !== undefined) {
     const labelValue: string = input.profilingGroupName;
@@ -109,8 +110,9 @@ export const serializeAws_restJson1_1CreateProfilingGroupCommand = async (
   input: CreateProfilingGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/profilingGroups";
   const query: any = {};
   if (input.clientToken !== undefined) {
@@ -147,8 +149,9 @@ export const serializeAws_restJson1_1DeleteProfilingGroupCommand = async (
   input: DeleteProfilingGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/profilingGroups/{profilingGroupName}";
   if (input.profilingGroupName !== undefined) {
     const labelValue: string = input.profilingGroupName;
@@ -183,8 +186,9 @@ export const serializeAws_restJson1_1DescribeProfilingGroupCommand = async (
   input: DescribeProfilingGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/profilingGroups/{profilingGroupName}";
   if (input.profilingGroupName !== undefined) {
     const labelValue: string = input.profilingGroupName;
@@ -219,8 +223,9 @@ export const serializeAws_restJson1_1ListProfilingGroupsCommand = async (
   input: ListProfilingGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/profilingGroups";
   const query: any = {};
   if (input.includeDescription !== undefined) {
@@ -250,8 +255,9 @@ export const serializeAws_restJson1_1UpdateProfilingGroupCommand = async (
   input: UpdateProfilingGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/profilingGroups/{profilingGroupName}";
   if (input.profilingGroupName !== undefined) {
     const labelValue: string = input.profilingGroupName;
@@ -296,11 +302,10 @@ export const serializeAws_restJson1_1GetProfileCommand = async (
   input: GetProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.accept)) {
-    headers["Accept"] = input.accept!;
-  }
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.accept) && { Accept: input.accept! })
+  };
   let resolvedPath = "/profilingGroups/{profilingGroupName}/profile";
   if (input.profilingGroupName !== undefined) {
     const labelValue: string = input.profilingGroupName;
@@ -353,8 +358,9 @@ export const serializeAws_restJson1_1ListProfileTimesCommand = async (
   input: ListProfileTimesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/profilingGroups/{profilingGroupName}/profileTimes";
   if (input.profilingGroupName !== undefined) {
     const labelValue: string = input.profilingGroupName;
@@ -413,11 +419,12 @@ export const serializeAws_restJson1_1PostAgentProfileCommand = async (
   input: PostAgentProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/octet-stream";
-  if (isSerializableHeaderValue(input.contentType)) {
-    headers["Content-Type"] = input.contentType!;
-  }
+  const headers: any = {
+    "Content-Type": "application/octet-stream",
+    ...(isSerializableHeaderValue(input.contentType) && {
+      "Content-Type": input.contentType!
+    })
+  };
   let resolvedPath = "/profilingGroups/{profilingGroupName}/agentProfile";
   if (input.profilingGroupName !== undefined) {
     const labelValue: string = input.profilingGroupName;

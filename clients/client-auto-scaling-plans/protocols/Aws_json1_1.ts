@@ -72,10 +72,10 @@ export const serializeAws_json1_1CreateScalingPlanCommand = async (
   input: CreateScalingPlanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AnyScaleScalingPlannerFrontendService.CreateScalingPlan";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AnyScaleScalingPlannerFrontendService.CreateScalingPlan"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateScalingPlanRequest(input, context)
@@ -87,10 +87,10 @@ export const serializeAws_json1_1DeleteScalingPlanCommand = async (
   input: DeleteScalingPlanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AnyScaleScalingPlannerFrontendService.DeleteScalingPlan";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AnyScaleScalingPlannerFrontendService.DeleteScalingPlan"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteScalingPlanRequest(input, context)
@@ -102,10 +102,11 @@ export const serializeAws_json1_1DescribeScalingPlanResourcesCommand = async (
   input: DescribeScalingPlanResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AnyScaleScalingPlannerFrontendService.DescribeScalingPlanResources";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "AnyScaleScalingPlannerFrontendService.DescribeScalingPlanResources"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeScalingPlanResourcesRequest(input, context)
@@ -117,10 +118,10 @@ export const serializeAws_json1_1DescribeScalingPlansCommand = async (
   input: DescribeScalingPlansCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AnyScaleScalingPlannerFrontendService.DescribeScalingPlans";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AnyScaleScalingPlannerFrontendService.DescribeScalingPlans"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeScalingPlansRequest(input, context)
@@ -132,10 +133,11 @@ export const serializeAws_json1_1GetScalingPlanResourceForecastDataCommand = asy
   input: GetScalingPlanResourceForecastDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AnyScaleScalingPlannerFrontendService.GetScalingPlanResourceForecastData";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "AnyScaleScalingPlannerFrontendService.GetScalingPlanResourceForecastData"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetScalingPlanResourceForecastDataRequest(
@@ -150,10 +152,10 @@ export const serializeAws_json1_1UpdateScalingPlanCommand = async (
   input: UpdateScalingPlanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AnyScaleScalingPlannerFrontendService.UpdateScalingPlan";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AnyScaleScalingPlannerFrontendService.UpdateScalingPlan"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateScalingPlanRequest(input, context)

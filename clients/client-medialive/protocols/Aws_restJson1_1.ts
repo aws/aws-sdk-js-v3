@@ -376,8 +376,9 @@ export const serializeAws_restJson1_1BatchUpdateScheduleCommand = async (
   input: BatchUpdateScheduleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/prod/channels/{ChannelId}/schedule";
   if (input.ChannelId !== undefined) {
     const labelValue: string = input.ChannelId;
@@ -426,8 +427,9 @@ export const serializeAws_restJson1_1CreateChannelCommand = async (
   input: CreateChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/prod/channels";
   let body: any;
   const bodyParams: any = {};
@@ -502,8 +504,9 @@ export const serializeAws_restJson1_1CreateInputCommand = async (
   input: CreateInputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/prod/inputs";
   let body: any;
   const bodyParams: any = {};
@@ -578,8 +581,9 @@ export const serializeAws_restJson1_1CreateInputSecurityGroupCommand = async (
   input: CreateInputSecurityGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/prod/inputSecurityGroups";
   let body: any;
   const bodyParams: any = {};
@@ -611,8 +615,9 @@ export const serializeAws_restJson1_1CreateMultiplexCommand = async (
   input: CreateMultiplexCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/prod/multiplexes";
   let body: any;
   const bodyParams: any = {};
@@ -657,8 +662,9 @@ export const serializeAws_restJson1_1CreateMultiplexProgramCommand = async (
   input: CreateMultiplexProgramCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/prod/multiplexes/{MultiplexId}/programs";
   if (input.MultiplexId !== undefined) {
     const labelValue: string = input.MultiplexId;
@@ -710,8 +716,9 @@ export const serializeAws_restJson1_1CreateTagsCommand = async (
   input: CreateTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/prod/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -749,8 +756,9 @@ export const serializeAws_restJson1_1DeleteChannelCommand = async (
   input: DeleteChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/prod/channels/{ChannelId}";
   if (input.ChannelId !== undefined) {
     const labelValue: string = input.ChannelId;
@@ -781,8 +789,9 @@ export const serializeAws_restJson1_1DeleteInputCommand = async (
   input: DeleteInputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/prod/inputs/{InputId}";
   if (input.InputId !== undefined) {
     const labelValue: string = input.InputId;
@@ -813,8 +822,9 @@ export const serializeAws_restJson1_1DeleteInputSecurityGroupCommand = async (
   input: DeleteInputSecurityGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/prod/inputSecurityGroups/{InputSecurityGroupId}";
   if (input.InputSecurityGroupId !== undefined) {
     const labelValue: string = input.InputSecurityGroupId;
@@ -849,8 +859,9 @@ export const serializeAws_restJson1_1DeleteMultiplexCommand = async (
   input: DeleteMultiplexCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/prod/multiplexes/{MultiplexId}";
   if (input.MultiplexId !== undefined) {
     const labelValue: string = input.MultiplexId;
@@ -883,8 +894,9 @@ export const serializeAws_restJson1_1DeleteMultiplexProgramCommand = async (
   input: DeleteMultiplexProgramCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/prod/multiplexes/{MultiplexId}/programs/{ProgramName}";
   if (input.MultiplexId !== undefined) {
     const labelValue: string = input.MultiplexId;
@@ -931,8 +943,9 @@ export const serializeAws_restJson1_1DeleteReservationCommand = async (
   input: DeleteReservationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/prod/reservations/{ReservationId}";
   if (input.ReservationId !== undefined) {
     const labelValue: string = input.ReservationId;
@@ -965,8 +978,9 @@ export const serializeAws_restJson1_1DeleteScheduleCommand = async (
   input: DeleteScheduleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/prod/channels/{ChannelId}/schedule";
   if (input.ChannelId !== undefined) {
     const labelValue: string = input.ChannelId;
@@ -997,8 +1011,9 @@ export const serializeAws_restJson1_1DeleteTagsCommand = async (
   input: DeleteTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/prod/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -1036,8 +1051,9 @@ export const serializeAws_restJson1_1DescribeChannelCommand = async (
   input: DescribeChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/prod/channels/{ChannelId}";
   if (input.ChannelId !== undefined) {
     const labelValue: string = input.ChannelId;
@@ -1068,8 +1084,9 @@ export const serializeAws_restJson1_1DescribeInputCommand = async (
   input: DescribeInputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/prod/inputs/{InputId}";
   if (input.InputId !== undefined) {
     const labelValue: string = input.InputId;
@@ -1100,8 +1117,9 @@ export const serializeAws_restJson1_1DescribeInputSecurityGroupCommand = async (
   input: DescribeInputSecurityGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/prod/inputSecurityGroups/{InputSecurityGroupId}";
   if (input.InputSecurityGroupId !== undefined) {
     const labelValue: string = input.InputSecurityGroupId;
@@ -1136,8 +1154,9 @@ export const serializeAws_restJson1_1DescribeMultiplexCommand = async (
   input: DescribeMultiplexCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/prod/multiplexes/{MultiplexId}";
   if (input.MultiplexId !== undefined) {
     const labelValue: string = input.MultiplexId;
@@ -1170,8 +1189,9 @@ export const serializeAws_restJson1_1DescribeMultiplexProgramCommand = async (
   input: DescribeMultiplexProgramCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/prod/multiplexes/{MultiplexId}/programs/{ProgramName}";
   if (input.MultiplexId !== undefined) {
     const labelValue: string = input.MultiplexId;
@@ -1218,8 +1238,9 @@ export const serializeAws_restJson1_1DescribeOfferingCommand = async (
   input: DescribeOfferingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/prod/offerings/{OfferingId}";
   if (input.OfferingId !== undefined) {
     const labelValue: string = input.OfferingId;
@@ -1250,8 +1271,9 @@ export const serializeAws_restJson1_1DescribeReservationCommand = async (
   input: DescribeReservationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/prod/reservations/{ReservationId}";
   if (input.ReservationId !== undefined) {
     const labelValue: string = input.ReservationId;
@@ -1284,8 +1306,9 @@ export const serializeAws_restJson1_1DescribeScheduleCommand = async (
   input: DescribeScheduleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/prod/channels/{ChannelId}/schedule";
   if (input.ChannelId !== undefined) {
     const labelValue: string = input.ChannelId;
@@ -1324,8 +1347,9 @@ export const serializeAws_restJson1_1ListChannelsCommand = async (
   input: ListChannelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/prod/channels";
   const query: any = {};
   if (input.MaxResults !== undefined) {
@@ -1352,8 +1376,9 @@ export const serializeAws_restJson1_1ListInputSecurityGroupsCommand = async (
   input: ListInputSecurityGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/prod/inputSecurityGroups";
   const query: any = {};
   if (input.MaxResults !== undefined) {
@@ -1380,8 +1405,9 @@ export const serializeAws_restJson1_1ListInputsCommand = async (
   input: ListInputsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/prod/inputs";
   const query: any = {};
   if (input.MaxResults !== undefined) {
@@ -1408,8 +1434,9 @@ export const serializeAws_restJson1_1ListMultiplexProgramsCommand = async (
   input: ListMultiplexProgramsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/prod/multiplexes/{MultiplexId}/programs";
   if (input.MultiplexId !== undefined) {
     const labelValue: string = input.MultiplexId;
@@ -1450,8 +1477,9 @@ export const serializeAws_restJson1_1ListMultiplexesCommand = async (
   input: ListMultiplexesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/prod/multiplexes";
   const query: any = {};
   if (input.MaxResults !== undefined) {
@@ -1478,8 +1506,9 @@ export const serializeAws_restJson1_1ListOfferingsCommand = async (
   input: ListOfferingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/prod/offerings";
   const query: any = {};
   if (input.ChannelClass !== undefined) {
@@ -1536,8 +1565,9 @@ export const serializeAws_restJson1_1ListReservationsCommand = async (
   input: ListReservationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/prod/reservations";
   const query: any = {};
   if (input.ChannelClass !== undefined) {
@@ -1588,8 +1618,9 @@ export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/prod/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -1622,8 +1653,9 @@ export const serializeAws_restJson1_1PurchaseOfferingCommand = async (
   input: PurchaseOfferingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/prod/offerings/{OfferingId}/purchase";
   if (input.OfferingId !== undefined) {
     const labelValue: string = input.OfferingId;
@@ -1674,8 +1706,9 @@ export const serializeAws_restJson1_1StartChannelCommand = async (
   input: StartChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/prod/channels/{ChannelId}/start";
   if (input.ChannelId !== undefined) {
     const labelValue: string = input.ChannelId;
@@ -1706,8 +1739,9 @@ export const serializeAws_restJson1_1StartMultiplexCommand = async (
   input: StartMultiplexCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/prod/multiplexes/{MultiplexId}/start";
   if (input.MultiplexId !== undefined) {
     const labelValue: string = input.MultiplexId;
@@ -1740,8 +1774,9 @@ export const serializeAws_restJson1_1StopChannelCommand = async (
   input: StopChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/prod/channels/{ChannelId}/stop";
   if (input.ChannelId !== undefined) {
     const labelValue: string = input.ChannelId;
@@ -1772,8 +1807,9 @@ export const serializeAws_restJson1_1StopMultiplexCommand = async (
   input: StopMultiplexCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/prod/multiplexes/{MultiplexId}/stop";
   if (input.MultiplexId !== undefined) {
     const labelValue: string = input.MultiplexId;
@@ -1806,8 +1842,9 @@ export const serializeAws_restJson1_1UpdateChannelCommand = async (
   input: UpdateChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/prod/channels/{ChannelId}";
   if (input.ChannelId !== undefined) {
     const labelValue: string = input.ChannelId;
@@ -1879,8 +1916,9 @@ export const serializeAws_restJson1_1UpdateChannelClassCommand = async (
   input: UpdateChannelClassCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/prod/channels/{ChannelId}/channelClass";
   if (input.ChannelId !== undefined) {
     const labelValue: string = input.ChannelId;
@@ -1924,8 +1962,9 @@ export const serializeAws_restJson1_1UpdateInputCommand = async (
   input: UpdateInputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/prod/inputs/{InputId}";
   if (input.InputId !== undefined) {
     const labelValue: string = input.InputId;
@@ -1994,8 +2033,9 @@ export const serializeAws_restJson1_1UpdateInputSecurityGroupCommand = async (
   input: UpdateInputSecurityGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/prod/inputSecurityGroups/{InputSecurityGroupId}";
   if (input.InputSecurityGroupId !== undefined) {
     const labelValue: string = input.InputSecurityGroupId;
@@ -2043,8 +2083,9 @@ export const serializeAws_restJson1_1UpdateMultiplexCommand = async (
   input: UpdateMultiplexCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/prod/multiplexes/{MultiplexId}";
   if (input.MultiplexId !== undefined) {
     const labelValue: string = input.MultiplexId;
@@ -2088,8 +2129,9 @@ export const serializeAws_restJson1_1UpdateMultiplexProgramCommand = async (
   input: UpdateMultiplexProgramCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/prod/multiplexes/{MultiplexId}/programs/{ProgramName}";
   if (input.MultiplexId !== undefined) {
     const labelValue: string = input.MultiplexId;
@@ -2146,8 +2188,9 @@ export const serializeAws_restJson1_1UpdateReservationCommand = async (
   input: UpdateReservationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/prod/reservations/{ReservationId}";
   if (input.ReservationId !== undefined) {
     const labelValue: string = input.ReservationId;

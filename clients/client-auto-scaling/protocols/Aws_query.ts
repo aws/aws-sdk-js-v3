@@ -362,8 +362,9 @@ export const serializeAws_queryAttachInstancesCommand = async (
   input: AttachInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryAttachInstancesQuery(input, context);
   body = buildFormUrlencodedString({
@@ -378,8 +379,9 @@ export const serializeAws_queryAttachLoadBalancerTargetGroupsCommand = async (
   input: AttachLoadBalancerTargetGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryAttachLoadBalancerTargetGroupsType(
     input,
@@ -397,8 +399,9 @@ export const serializeAws_queryAttachLoadBalancersCommand = async (
   input: AttachLoadBalancersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryAttachLoadBalancersType(input, context);
   body = buildFormUrlencodedString({
@@ -413,8 +416,9 @@ export const serializeAws_queryBatchDeleteScheduledActionCommand = async (
   input: BatchDeleteScheduledActionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryBatchDeleteScheduledActionType(
     input,
@@ -432,8 +436,9 @@ export const serializeAws_queryBatchPutScheduledUpdateGroupActionCommand = async
   input: BatchPutScheduledUpdateGroupActionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryBatchPutScheduledUpdateGroupActionType(
     input,
@@ -451,8 +456,9 @@ export const serializeAws_queryCompleteLifecycleActionCommand = async (
   input: CompleteLifecycleActionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCompleteLifecycleActionType(input, context);
   body = buildFormUrlencodedString({
@@ -467,8 +473,9 @@ export const serializeAws_queryCreateAutoScalingGroupCommand = async (
   input: CreateAutoScalingGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCreateAutoScalingGroupType(input, context);
   body = buildFormUrlencodedString({
@@ -483,8 +490,9 @@ export const serializeAws_queryCreateLaunchConfigurationCommand = async (
   input: CreateLaunchConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCreateLaunchConfigurationType(
     input,
@@ -502,8 +510,9 @@ export const serializeAws_queryCreateOrUpdateTagsCommand = async (
   input: CreateOrUpdateTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCreateOrUpdateTagsType(input, context);
   body = buildFormUrlencodedString({
@@ -518,8 +527,9 @@ export const serializeAws_queryDeleteAutoScalingGroupCommand = async (
   input: DeleteAutoScalingGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteAutoScalingGroupType(input, context);
   body = buildFormUrlencodedString({
@@ -534,8 +544,9 @@ export const serializeAws_queryDeleteLaunchConfigurationCommand = async (
   input: DeleteLaunchConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryLaunchConfigurationNameType(input, context);
   body = buildFormUrlencodedString({
@@ -550,8 +561,9 @@ export const serializeAws_queryDeleteLifecycleHookCommand = async (
   input: DeleteLifecycleHookCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteLifecycleHookType(input, context);
   body = buildFormUrlencodedString({
@@ -566,8 +578,9 @@ export const serializeAws_queryDeleteNotificationConfigurationCommand = async (
   input: DeleteNotificationConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteNotificationConfigurationType(
     input,
@@ -585,8 +598,9 @@ export const serializeAws_queryDeletePolicyCommand = async (
   input: DeletePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeletePolicyType(input, context);
   body = buildFormUrlencodedString({
@@ -601,8 +615,9 @@ export const serializeAws_queryDeleteScheduledActionCommand = async (
   input: DeleteScheduledActionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteScheduledActionType(input, context);
   body = buildFormUrlencodedString({
@@ -617,8 +632,9 @@ export const serializeAws_queryDeleteTagsCommand = async (
   input: DeleteTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteTagsType(input, context);
   body = buildFormUrlencodedString({
@@ -633,8 +649,9 @@ export const serializeAws_queryDescribeAccountLimitsCommand = async (
   input: DescribeAccountLimitsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   const body = buildFormUrlencodedString({
     Action: "DescribeAccountLimits",
     Version: "2011-01-01"
@@ -646,8 +663,9 @@ export const serializeAws_queryDescribeAdjustmentTypesCommand = async (
   input: DescribeAdjustmentTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   const body = buildFormUrlencodedString({
     Action: "DescribeAdjustmentTypes",
     Version: "2011-01-01"
@@ -659,8 +677,9 @@ export const serializeAws_queryDescribeAutoScalingGroupsCommand = async (
   input: DescribeAutoScalingGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryAutoScalingGroupNamesType(input, context);
   body = buildFormUrlencodedString({
@@ -675,8 +694,9 @@ export const serializeAws_queryDescribeAutoScalingInstancesCommand = async (
   input: DescribeAutoScalingInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeAutoScalingInstancesType(
     input,
@@ -694,8 +714,9 @@ export const serializeAws_queryDescribeAutoScalingNotificationTypesCommand = asy
   input: DescribeAutoScalingNotificationTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   const body = buildFormUrlencodedString({
     Action: "DescribeAutoScalingNotificationTypes",
     Version: "2011-01-01"
@@ -707,8 +728,9 @@ export const serializeAws_queryDescribeLaunchConfigurationsCommand = async (
   input: DescribeLaunchConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryLaunchConfigurationNamesType(
     input,
@@ -726,8 +748,9 @@ export const serializeAws_queryDescribeLifecycleHookTypesCommand = async (
   input: DescribeLifecycleHookTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   const body = buildFormUrlencodedString({
     Action: "DescribeLifecycleHookTypes",
     Version: "2011-01-01"
@@ -739,8 +762,9 @@ export const serializeAws_queryDescribeLifecycleHooksCommand = async (
   input: DescribeLifecycleHooksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeLifecycleHooksType(input, context);
   body = buildFormUrlencodedString({
@@ -755,8 +779,9 @@ export const serializeAws_queryDescribeLoadBalancerTargetGroupsCommand = async (
   input: DescribeLoadBalancerTargetGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeLoadBalancerTargetGroupsRequest(
     input,
@@ -774,8 +799,9 @@ export const serializeAws_queryDescribeLoadBalancersCommand = async (
   input: DescribeLoadBalancersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeLoadBalancersRequest(
     input,
@@ -793,8 +819,9 @@ export const serializeAws_queryDescribeMetricCollectionTypesCommand = async (
   input: DescribeMetricCollectionTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   const body = buildFormUrlencodedString({
     Action: "DescribeMetricCollectionTypes",
     Version: "2011-01-01"
@@ -806,8 +833,9 @@ export const serializeAws_queryDescribeNotificationConfigurationsCommand = async
   input: DescribeNotificationConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeNotificationConfigurationsType(
     input,
@@ -825,8 +853,9 @@ export const serializeAws_queryDescribePoliciesCommand = async (
   input: DescribePoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribePoliciesType(input, context);
   body = buildFormUrlencodedString({
@@ -841,8 +870,9 @@ export const serializeAws_queryDescribeScalingActivitiesCommand = async (
   input: DescribeScalingActivitiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeScalingActivitiesType(
     input,
@@ -860,8 +890,9 @@ export const serializeAws_queryDescribeScalingProcessTypesCommand = async (
   input: DescribeScalingProcessTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   const body = buildFormUrlencodedString({
     Action: "DescribeScalingProcessTypes",
     Version: "2011-01-01"
@@ -873,8 +904,9 @@ export const serializeAws_queryDescribeScheduledActionsCommand = async (
   input: DescribeScheduledActionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeScheduledActionsType(
     input,
@@ -892,8 +924,9 @@ export const serializeAws_queryDescribeTagsCommand = async (
   input: DescribeTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeTagsType(input, context);
   body = buildFormUrlencodedString({
@@ -908,8 +941,9 @@ export const serializeAws_queryDescribeTerminationPolicyTypesCommand = async (
   input: DescribeTerminationPolicyTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   const body = buildFormUrlencodedString({
     Action: "DescribeTerminationPolicyTypes",
     Version: "2011-01-01"
@@ -921,8 +955,9 @@ export const serializeAws_queryDetachInstancesCommand = async (
   input: DetachInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDetachInstancesQuery(input, context);
   body = buildFormUrlencodedString({
@@ -937,8 +972,9 @@ export const serializeAws_queryDetachLoadBalancerTargetGroupsCommand = async (
   input: DetachLoadBalancerTargetGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDetachLoadBalancerTargetGroupsType(
     input,
@@ -956,8 +992,9 @@ export const serializeAws_queryDetachLoadBalancersCommand = async (
   input: DetachLoadBalancersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDetachLoadBalancersType(input, context);
   body = buildFormUrlencodedString({
@@ -972,8 +1009,9 @@ export const serializeAws_queryDisableMetricsCollectionCommand = async (
   input: DisableMetricsCollectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDisableMetricsCollectionQuery(
     input,
@@ -991,8 +1029,9 @@ export const serializeAws_queryEnableMetricsCollectionCommand = async (
   input: EnableMetricsCollectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryEnableMetricsCollectionQuery(
     input,
@@ -1010,8 +1049,9 @@ export const serializeAws_queryEnterStandbyCommand = async (
   input: EnterStandbyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryEnterStandbyQuery(input, context);
   body = buildFormUrlencodedString({
@@ -1026,8 +1066,9 @@ export const serializeAws_queryExecutePolicyCommand = async (
   input: ExecutePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryExecutePolicyType(input, context);
   body = buildFormUrlencodedString({
@@ -1042,8 +1083,9 @@ export const serializeAws_queryExitStandbyCommand = async (
   input: ExitStandbyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryExitStandbyQuery(input, context);
   body = buildFormUrlencodedString({
@@ -1058,8 +1100,9 @@ export const serializeAws_queryPutLifecycleHookCommand = async (
   input: PutLifecycleHookCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryPutLifecycleHookType(input, context);
   body = buildFormUrlencodedString({
@@ -1074,8 +1117,9 @@ export const serializeAws_queryPutNotificationConfigurationCommand = async (
   input: PutNotificationConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryPutNotificationConfigurationType(
     input,
@@ -1093,8 +1137,9 @@ export const serializeAws_queryPutScalingPolicyCommand = async (
   input: PutScalingPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryPutScalingPolicyType(input, context);
   body = buildFormUrlencodedString({
@@ -1109,8 +1154,9 @@ export const serializeAws_queryPutScheduledUpdateGroupActionCommand = async (
   input: PutScheduledUpdateGroupActionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryPutScheduledUpdateGroupActionType(
     input,
@@ -1128,8 +1174,9 @@ export const serializeAws_queryRecordLifecycleActionHeartbeatCommand = async (
   input: RecordLifecycleActionHeartbeatCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryRecordLifecycleActionHeartbeatType(
     input,
@@ -1147,8 +1194,9 @@ export const serializeAws_queryResumeProcessesCommand = async (
   input: ResumeProcessesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryScalingProcessQuery(input, context);
   body = buildFormUrlencodedString({
@@ -1163,8 +1211,9 @@ export const serializeAws_querySetDesiredCapacityCommand = async (
   input: SetDesiredCapacityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_querySetDesiredCapacityType(input, context);
   body = buildFormUrlencodedString({
@@ -1179,8 +1228,9 @@ export const serializeAws_querySetInstanceHealthCommand = async (
   input: SetInstanceHealthCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_querySetInstanceHealthQuery(input, context);
   body = buildFormUrlencodedString({
@@ -1195,8 +1245,9 @@ export const serializeAws_querySetInstanceProtectionCommand = async (
   input: SetInstanceProtectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_querySetInstanceProtectionQuery(input, context);
   body = buildFormUrlencodedString({
@@ -1211,8 +1262,9 @@ export const serializeAws_querySuspendProcessesCommand = async (
   input: SuspendProcessesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryScalingProcessQuery(input, context);
   body = buildFormUrlencodedString({
@@ -1227,8 +1279,9 @@ export const serializeAws_queryTerminateInstanceInAutoScalingGroupCommand = asyn
   input: TerminateInstanceInAutoScalingGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryTerminateInstanceInAutoScalingGroupType(
     input,
@@ -1246,8 +1299,9 @@ export const serializeAws_queryUpdateAutoScalingGroupCommand = async (
   input: UpdateAutoScalingGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryUpdateAutoScalingGroupType(input, context);
   body = buildFormUrlencodedString({

@@ -22,8 +22,9 @@ export const serializeAws_restJson1_1PutEventsCommand = async (
   input: PutEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/events";
   let body: any;
   const bodyParams: any = {};

@@ -200,8 +200,9 @@ export const serializeAws_restJson1_1CreateMeshCommand = async (
   input: CreateMeshCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v20190125/meshes";
   let body: any;
   const bodyParams: any = {};
@@ -237,8 +238,9 @@ export const serializeAws_restJson1_1CreateRouteCommand = async (
   input: CreateRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath =
     "/v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes";
   if (input.meshName !== undefined) {
@@ -303,8 +305,9 @@ export const serializeAws_restJson1_1CreateVirtualNodeCommand = async (
   input: CreateVirtualNodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v20190125/meshes/{meshName}/virtualNodes";
   if (input.meshName !== undefined) {
     const labelValue: string = input.meshName;
@@ -355,8 +358,9 @@ export const serializeAws_restJson1_1CreateVirtualRouterCommand = async (
   input: CreateVirtualRouterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v20190125/meshes/{meshName}/virtualRouters";
   if (input.meshName !== undefined) {
     const labelValue: string = input.meshName;
@@ -407,8 +411,9 @@ export const serializeAws_restJson1_1CreateVirtualServiceCommand = async (
   input: CreateVirtualServiceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v20190125/meshes/{meshName}/virtualServices";
   if (input.meshName !== undefined) {
     const labelValue: string = input.meshName;
@@ -459,8 +464,9 @@ export const serializeAws_restJson1_1DeleteMeshCommand = async (
   input: DeleteMeshCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v20190125/meshes/{meshName}";
   if (input.meshName !== undefined) {
     const labelValue: string = input.meshName;
@@ -491,8 +497,9 @@ export const serializeAws_restJson1_1DeleteRouteCommand = async (
   input: DeleteRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes/{routeName}";
   if (input.meshName !== undefined) {
@@ -552,8 +559,9 @@ export const serializeAws_restJson1_1DeleteVirtualNodeCommand = async (
   input: DeleteVirtualNodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/v20190125/meshes/{meshName}/virtualNodes/{virtualNodeName}";
   if (input.meshName !== undefined) {
@@ -599,8 +607,9 @@ export const serializeAws_restJson1_1DeleteVirtualRouterCommand = async (
   input: DeleteVirtualRouterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/v20190125/meshes/{meshName}/virtualRouters/{virtualRouterName}";
   if (input.meshName !== undefined) {
@@ -648,8 +657,9 @@ export const serializeAws_restJson1_1DeleteVirtualServiceCommand = async (
   input: DeleteVirtualServiceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/v20190125/meshes/{meshName}/virtualServices/{virtualServiceName}";
   if (input.meshName !== undefined) {
@@ -697,8 +707,9 @@ export const serializeAws_restJson1_1DescribeMeshCommand = async (
   input: DescribeMeshCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v20190125/meshes/{meshName}";
   if (input.meshName !== undefined) {
     const labelValue: string = input.meshName;
@@ -729,8 +740,9 @@ export const serializeAws_restJson1_1DescribeRouteCommand = async (
   input: DescribeRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes/{routeName}";
   if (input.meshName !== undefined) {
@@ -790,8 +802,9 @@ export const serializeAws_restJson1_1DescribeVirtualNodeCommand = async (
   input: DescribeVirtualNodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/v20190125/meshes/{meshName}/virtualNodes/{virtualNodeName}";
   if (input.meshName !== undefined) {
@@ -837,8 +850,9 @@ export const serializeAws_restJson1_1DescribeVirtualRouterCommand = async (
   input: DescribeVirtualRouterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/v20190125/meshes/{meshName}/virtualRouters/{virtualRouterName}";
   if (input.meshName !== undefined) {
@@ -886,8 +900,9 @@ export const serializeAws_restJson1_1DescribeVirtualServiceCommand = async (
   input: DescribeVirtualServiceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/v20190125/meshes/{meshName}/virtualServices/{virtualServiceName}";
   if (input.meshName !== undefined) {
@@ -935,8 +950,9 @@ export const serializeAws_restJson1_1ListMeshesCommand = async (
   input: ListMeshesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v20190125/meshes";
   const query: any = {};
   if (input.limit !== undefined) {
@@ -963,8 +979,9 @@ export const serializeAws_restJson1_1ListRoutesCommand = async (
   input: ListRoutesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes";
   if (input.meshName !== undefined) {
@@ -1020,8 +1037,9 @@ export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v20190125/tags";
   const query: any = {};
   if (input.limit !== undefined) {
@@ -1051,8 +1069,9 @@ export const serializeAws_restJson1_1ListVirtualNodesCommand = async (
   input: ListVirtualNodesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v20190125/meshes/{meshName}/virtualNodes";
   if (input.meshName !== undefined) {
     const labelValue: string = input.meshName;
@@ -1091,8 +1110,9 @@ export const serializeAws_restJson1_1ListVirtualRoutersCommand = async (
   input: ListVirtualRoutersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v20190125/meshes/{meshName}/virtualRouters";
   if (input.meshName !== undefined) {
     const labelValue: string = input.meshName;
@@ -1131,8 +1151,9 @@ export const serializeAws_restJson1_1ListVirtualServicesCommand = async (
   input: ListVirtualServicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v20190125/meshes/{meshName}/virtualServices";
   if (input.meshName !== undefined) {
     const labelValue: string = input.meshName;
@@ -1171,8 +1192,9 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v20190125/tag";
   const query: any = {};
   if (input.resourceArn !== undefined) {
@@ -1201,8 +1223,9 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v20190125/untag";
   const query: any = {};
   if (input.resourceArn !== undefined) {
@@ -1234,8 +1257,9 @@ export const serializeAws_restJson1_1UpdateMeshCommand = async (
   input: UpdateMeshCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v20190125/meshes/{meshName}";
   if (input.meshName !== undefined) {
     const labelValue: string = input.meshName;
@@ -1277,8 +1301,9 @@ export const serializeAws_restJson1_1UpdateRouteCommand = async (
   input: UpdateRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath =
     "/v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes/{routeName}";
   if (input.meshName !== undefined) {
@@ -1349,8 +1374,9 @@ export const serializeAws_restJson1_1UpdateVirtualNodeCommand = async (
   input: UpdateVirtualNodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath =
     "/v20190125/meshes/{meshName}/virtualNodes/{virtualNodeName}";
   if (input.meshName !== undefined) {
@@ -1410,8 +1436,9 @@ export const serializeAws_restJson1_1UpdateVirtualRouterCommand = async (
   input: UpdateVirtualRouterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath =
     "/v20190125/meshes/{meshName}/virtualRouters/{virtualRouterName}";
   if (input.meshName !== undefined) {
@@ -1473,8 +1500,9 @@ export const serializeAws_restJson1_1UpdateVirtualServiceCommand = async (
   input: UpdateVirtualServiceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath =
     "/v20190125/meshes/{meshName}/virtualServices/{virtualServiceName}";
   if (input.meshName !== undefined) {

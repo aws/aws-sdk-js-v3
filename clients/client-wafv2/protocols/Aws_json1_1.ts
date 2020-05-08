@@ -298,9 +298,10 @@ export const serializeAws_json1_1AssociateWebACLCommand = async (
   input: AssociateWebACLCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.AssociateWebACL";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.AssociateWebACL"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AssociateWebACLRequest(input, context)
@@ -312,9 +313,10 @@ export const serializeAws_json1_1CheckCapacityCommand = async (
   input: CheckCapacityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.CheckCapacity";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.CheckCapacity"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CheckCapacityRequest(input, context)
@@ -326,9 +328,10 @@ export const serializeAws_json1_1CreateIPSetCommand = async (
   input: CreateIPSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.CreateIPSet";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.CreateIPSet"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateIPSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -338,9 +341,10 @@ export const serializeAws_json1_1CreateRegexPatternSetCommand = async (
   input: CreateRegexPatternSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.CreateRegexPatternSet";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.CreateRegexPatternSet"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateRegexPatternSetRequest(input, context)
@@ -352,9 +356,10 @@ export const serializeAws_json1_1CreateRuleGroupCommand = async (
   input: CreateRuleGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.CreateRuleGroup";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.CreateRuleGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateRuleGroupRequest(input, context)
@@ -366,9 +371,10 @@ export const serializeAws_json1_1CreateWebACLCommand = async (
   input: CreateWebACLCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.CreateWebACL";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.CreateWebACL"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateWebACLRequest(input, context)
@@ -380,9 +386,10 @@ export const serializeAws_json1_1DeleteIPSetCommand = async (
   input: DeleteIPSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.DeleteIPSet";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.DeleteIPSet"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteIPSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -392,9 +399,10 @@ export const serializeAws_json1_1DeleteLoggingConfigurationCommand = async (
   input: DeleteLoggingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.DeleteLoggingConfiguration";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.DeleteLoggingConfiguration"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteLoggingConfigurationRequest(input, context)
@@ -406,9 +414,10 @@ export const serializeAws_json1_1DeleteRegexPatternSetCommand = async (
   input: DeleteRegexPatternSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.DeleteRegexPatternSet";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.DeleteRegexPatternSet"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteRegexPatternSetRequest(input, context)
@@ -420,9 +429,10 @@ export const serializeAws_json1_1DeleteRuleGroupCommand = async (
   input: DeleteRuleGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.DeleteRuleGroup";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.DeleteRuleGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteRuleGroupRequest(input, context)
@@ -434,9 +444,10 @@ export const serializeAws_json1_1DeleteWebACLCommand = async (
   input: DeleteWebACLCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.DeleteWebACL";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.DeleteWebACL"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteWebACLRequest(input, context)
@@ -448,9 +459,10 @@ export const serializeAws_json1_1DescribeManagedRuleGroupCommand = async (
   input: DescribeManagedRuleGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.DescribeManagedRuleGroup";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.DescribeManagedRuleGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeManagedRuleGroupRequest(input, context)
@@ -462,9 +474,10 @@ export const serializeAws_json1_1DisassociateWebACLCommand = async (
   input: DisassociateWebACLCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.DisassociateWebACL";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.DisassociateWebACL"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DisassociateWebACLRequest(input, context)
@@ -476,9 +489,10 @@ export const serializeAws_json1_1GetIPSetCommand = async (
   input: GetIPSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.GetIPSet";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.GetIPSet"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetIPSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -488,9 +502,10 @@ export const serializeAws_json1_1GetLoggingConfigurationCommand = async (
   input: GetLoggingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.GetLoggingConfiguration";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.GetLoggingConfiguration"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetLoggingConfigurationRequest(input, context)
@@ -502,9 +517,10 @@ export const serializeAws_json1_1GetRateBasedStatementManagedKeysCommand = async
   input: GetRateBasedStatementManagedKeysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.GetRateBasedStatementManagedKeys";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.GetRateBasedStatementManagedKeys"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetRateBasedStatementManagedKeysRequest(input, context)
@@ -516,9 +532,10 @@ export const serializeAws_json1_1GetRegexPatternSetCommand = async (
   input: GetRegexPatternSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.GetRegexPatternSet";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.GetRegexPatternSet"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetRegexPatternSetRequest(input, context)
@@ -530,9 +547,10 @@ export const serializeAws_json1_1GetRuleGroupCommand = async (
   input: GetRuleGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.GetRuleGroup";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.GetRuleGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetRuleGroupRequest(input, context)
@@ -544,9 +562,10 @@ export const serializeAws_json1_1GetSampledRequestsCommand = async (
   input: GetSampledRequestsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.GetSampledRequests";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.GetSampledRequests"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetSampledRequestsRequest(input, context)
@@ -558,9 +577,10 @@ export const serializeAws_json1_1GetWebACLCommand = async (
   input: GetWebACLCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.GetWebACL";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.GetWebACL"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetWebACLRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -570,9 +590,10 @@ export const serializeAws_json1_1GetWebACLForResourceCommand = async (
   input: GetWebACLForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.GetWebACLForResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.GetWebACLForResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetWebACLForResourceRequest(input, context)
@@ -584,9 +605,10 @@ export const serializeAws_json1_1ListAvailableManagedRuleGroupsCommand = async (
   input: ListAvailableManagedRuleGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.ListAvailableManagedRuleGroups";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.ListAvailableManagedRuleGroups"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListAvailableManagedRuleGroupsRequest(input, context)
@@ -598,9 +620,10 @@ export const serializeAws_json1_1ListIPSetsCommand = async (
   input: ListIPSetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.ListIPSets";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.ListIPSets"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListIPSetsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -610,9 +633,10 @@ export const serializeAws_json1_1ListLoggingConfigurationsCommand = async (
   input: ListLoggingConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.ListLoggingConfigurations";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.ListLoggingConfigurations"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListLoggingConfigurationsRequest(input, context)
@@ -624,9 +648,10 @@ export const serializeAws_json1_1ListRegexPatternSetsCommand = async (
   input: ListRegexPatternSetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.ListRegexPatternSets";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.ListRegexPatternSets"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListRegexPatternSetsRequest(input, context)
@@ -638,9 +663,10 @@ export const serializeAws_json1_1ListResourcesForWebACLCommand = async (
   input: ListResourcesForWebACLCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.ListResourcesForWebACL";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.ListResourcesForWebACL"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListResourcesForWebACLRequest(input, context)
@@ -652,9 +678,10 @@ export const serializeAws_json1_1ListRuleGroupsCommand = async (
   input: ListRuleGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.ListRuleGroups";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.ListRuleGroups"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListRuleGroupsRequest(input, context)
@@ -666,9 +693,10 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.ListTagsForResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.ListTagsForResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTagsForResourceRequest(input, context)
@@ -680,9 +708,10 @@ export const serializeAws_json1_1ListWebACLsCommand = async (
   input: ListWebACLsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.ListWebACLs";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.ListWebACLs"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListWebACLsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -692,9 +721,10 @@ export const serializeAws_json1_1PutLoggingConfigurationCommand = async (
   input: PutLoggingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.PutLoggingConfiguration";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.PutLoggingConfiguration"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutLoggingConfigurationRequest(input, context)
@@ -706,9 +736,10 @@ export const serializeAws_json1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.TagResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.TagResource"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -718,9 +749,10 @@ export const serializeAws_json1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.UntagResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.UntagResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UntagResourceRequest(input, context)
@@ -732,9 +764,10 @@ export const serializeAws_json1_1UpdateIPSetCommand = async (
   input: UpdateIPSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.UpdateIPSet";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.UpdateIPSet"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateIPSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -744,9 +777,10 @@ export const serializeAws_json1_1UpdateRegexPatternSetCommand = async (
   input: UpdateRegexPatternSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.UpdateRegexPatternSet";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.UpdateRegexPatternSet"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateRegexPatternSetRequest(input, context)
@@ -758,9 +792,10 @@ export const serializeAws_json1_1UpdateRuleGroupCommand = async (
   input: UpdateRuleGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.UpdateRuleGroup";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.UpdateRuleGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateRuleGroupRequest(input, context)
@@ -772,9 +807,10 @@ export const serializeAws_json1_1UpdateWebACLCommand = async (
   input: UpdateWebACLCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.UpdateWebACL";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.UpdateWebACL"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateWebACLRequest(input, context)

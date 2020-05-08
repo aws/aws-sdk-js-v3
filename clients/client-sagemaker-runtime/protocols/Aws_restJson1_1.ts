@@ -27,20 +27,19 @@ export const serializeAws_restJson1_1InvokeEndpointCommand = async (
   input: InvokeEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/octet-stream";
-  if (isSerializableHeaderValue(input.Accept)) {
-    headers["Accept"] = input.Accept!;
-  }
-  if (isSerializableHeaderValue(input.ContentType)) {
-    headers["Content-Type"] = input.ContentType!;
-  }
-  if (isSerializableHeaderValue(input.CustomAttributes)) {
-    headers["X-Amzn-SageMaker-Custom-Attributes"] = input.CustomAttributes!;
-  }
-  if (isSerializableHeaderValue(input.TargetModel)) {
-    headers["X-Amzn-SageMaker-Target-Model"] = input.TargetModel!;
-  }
+  const headers: any = {
+    "Content-Type": "application/octet-stream",
+    ...(isSerializableHeaderValue(input.Accept) && { Accept: input.Accept! }),
+    ...(isSerializableHeaderValue(input.ContentType) && {
+      "Content-Type": input.ContentType!
+    }),
+    ...(isSerializableHeaderValue(input.CustomAttributes) && {
+      "X-Amzn-SageMaker-Custom-Attributes": input.CustomAttributes!
+    }),
+    ...(isSerializableHeaderValue(input.TargetModel) && {
+      "X-Amzn-SageMaker-Target-Model": input.TargetModel!
+    })
+  };
   let resolvedPath = "/endpoints/{EndpointName}/invocations";
   if (input.EndpointName !== undefined) {
     const labelValue: string = input.EndpointName;

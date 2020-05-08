@@ -331,8 +331,9 @@ export const serializeAws_restXmlAssociateVPCWithHostedZoneCommand = async (
   input: AssociateVPCWithHostedZoneCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/2013-04-01/hostedzone/{HostedZoneId}/associatevpc";
   if (input.HostedZoneId !== undefined) {
     const labelValue: string = input.HostedZoneId;
@@ -382,8 +383,9 @@ export const serializeAws_restXmlChangeResourceRecordSetsCommand = async (
   input: ChangeResourceRecordSetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/2013-04-01/hostedzone/{HostedZoneId}/rrset";
   if (input.HostedZoneId !== undefined) {
     const labelValue: string = input.HostedZoneId;
@@ -430,8 +432,9 @@ export const serializeAws_restXmlChangeTagsForResourceCommand = async (
   input: ChangeTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/2013-04-01/tags/{ResourceType}/{ResourceId}";
   if (input.ResourceId !== undefined) {
     const labelValue: string = input.ResourceId;
@@ -499,8 +502,9 @@ export const serializeAws_restXmlCreateHealthCheckCommand = async (
   input: CreateHealthCheckCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/2013-04-01/healthcheck";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
@@ -539,8 +543,9 @@ export const serializeAws_restXmlCreateHostedZoneCommand = async (
   input: CreateHostedZoneCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/2013-04-01/hostedzone";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
@@ -595,8 +600,9 @@ export const serializeAws_restXmlCreateQueryLoggingConfigCommand = async (
   input: CreateQueryLoggingConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/2013-04-01/queryloggingconfig";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
@@ -634,8 +640,9 @@ export const serializeAws_restXmlCreateReusableDelegationSetCommand = async (
   input: CreateReusableDelegationSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/2013-04-01/delegationset";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
@@ -673,8 +680,9 @@ export const serializeAws_restXmlCreateTrafficPolicyCommand = async (
   input: CreateTrafficPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/2013-04-01/trafficpolicy";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
@@ -718,8 +726,9 @@ export const serializeAws_restXmlCreateTrafficPolicyInstanceCommand = async (
   input: CreateTrafficPolicyInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/2013-04-01/trafficpolicyinstance";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
@@ -775,8 +784,9 @@ export const serializeAws_restXmlCreateTrafficPolicyVersionCommand = async (
   input: CreateTrafficPolicyVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/2013-04-01/trafficpolicy/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -826,8 +836,9 @@ export const serializeAws_restXmlCreateVPCAssociationAuthorizationCommand = asyn
   input: CreateVPCAssociationAuthorizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath =
     "/2013-04-01/hostedzone/{HostedZoneId}/authorizevpcassociation";
   if (input.HostedZoneId !== undefined) {
@@ -872,8 +883,9 @@ export const serializeAws_restXmlDeleteHealthCheckCommand = async (
   input: DeleteHealthCheckCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2013-04-01/healthcheck/{HealthCheckId}";
   if (input.HealthCheckId !== undefined) {
     const labelValue: string = input.HealthCheckId;
@@ -906,8 +918,9 @@ export const serializeAws_restXmlDeleteHostedZoneCommand = async (
   input: DeleteHostedZoneCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2013-04-01/hostedzone/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -938,8 +951,9 @@ export const serializeAws_restXmlDeleteQueryLoggingConfigCommand = async (
   input: DeleteQueryLoggingConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2013-04-01/queryloggingconfig/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -970,8 +984,9 @@ export const serializeAws_restXmlDeleteReusableDelegationSetCommand = async (
   input: DeleteReusableDelegationSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2013-04-01/delegationset/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1002,8 +1017,9 @@ export const serializeAws_restXmlDeleteTrafficPolicyCommand = async (
   input: DeleteTrafficPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2013-04-01/trafficpolicy/{Id}/{Version}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1046,8 +1062,9 @@ export const serializeAws_restXmlDeleteTrafficPolicyInstanceCommand = async (
   input: DeleteTrafficPolicyInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2013-04-01/trafficpolicyinstance/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1078,8 +1095,9 @@ export const serializeAws_restXmlDeleteVPCAssociationAuthorizationCommand = asyn
   input: DeleteVPCAssociationAuthorizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath =
     "/2013-04-01/hostedzone/{HostedZoneId}/deauthorizevpcassociation";
   if (input.HostedZoneId !== undefined) {
@@ -1124,8 +1142,9 @@ export const serializeAws_restXmlDisassociateVPCFromHostedZoneCommand = async (
   input: DisassociateVPCFromHostedZoneCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/2013-04-01/hostedzone/{HostedZoneId}/disassociatevpc";
   if (input.HostedZoneId !== undefined) {
     const labelValue: string = input.HostedZoneId;
@@ -1175,8 +1194,9 @@ export const serializeAws_restXmlGetAccountLimitCommand = async (
   input: GetAccountLimitCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2013-04-01/accountlimit/{Type}";
   if (input.Type !== undefined) {
     const labelValue: string = input.Type;
@@ -1207,8 +1227,9 @@ export const serializeAws_restXmlGetChangeCommand = async (
   input: GetChangeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2013-04-01/change/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1239,8 +1260,9 @@ export const serializeAws_restXmlGetCheckerIpRangesCommand = async (
   input: GetCheckerIpRangesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2013-04-01/checkeripranges";
   let body: any;
   body = "";
@@ -1260,8 +1282,9 @@ export const serializeAws_restXmlGetGeoLocationCommand = async (
   input: GetGeoLocationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2013-04-01/geolocation";
   const query: any = {};
   if (input.ContinentCode !== undefined) {
@@ -1291,8 +1314,9 @@ export const serializeAws_restXmlGetHealthCheckCommand = async (
   input: GetHealthCheckCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2013-04-01/healthcheck/{HealthCheckId}";
   if (input.HealthCheckId !== undefined) {
     const labelValue: string = input.HealthCheckId;
@@ -1325,8 +1349,9 @@ export const serializeAws_restXmlGetHealthCheckCountCommand = async (
   input: GetHealthCheckCountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2013-04-01/healthcheckcount";
   let body: any;
   body = "";
@@ -1346,8 +1371,9 @@ export const serializeAws_restXmlGetHealthCheckLastFailureReasonCommand = async 
   input: GetHealthCheckLastFailureReasonCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/2013-04-01/healthcheck/{HealthCheckId}/lastfailurereason";
   if (input.HealthCheckId !== undefined) {
@@ -1381,8 +1407,9 @@ export const serializeAws_restXmlGetHealthCheckStatusCommand = async (
   input: GetHealthCheckStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2013-04-01/healthcheck/{HealthCheckId}/status";
   if (input.HealthCheckId !== undefined) {
     const labelValue: string = input.HealthCheckId;
@@ -1415,8 +1442,9 @@ export const serializeAws_restXmlGetHostedZoneCommand = async (
   input: GetHostedZoneCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2013-04-01/hostedzone/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1447,8 +1475,9 @@ export const serializeAws_restXmlGetHostedZoneCountCommand = async (
   input: GetHostedZoneCountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2013-04-01/hostedzonecount";
   let body: any;
   body = "";
@@ -1468,8 +1497,9 @@ export const serializeAws_restXmlGetHostedZoneLimitCommand = async (
   input: GetHostedZoneLimitCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2013-04-01/hostedzonelimit/{HostedZoneId}/{Type}";
   if (input.HostedZoneId !== undefined) {
     const labelValue: string = input.HostedZoneId;
@@ -1514,8 +1544,9 @@ export const serializeAws_restXmlGetQueryLoggingConfigCommand = async (
   input: GetQueryLoggingConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2013-04-01/queryloggingconfig/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1546,8 +1577,9 @@ export const serializeAws_restXmlGetReusableDelegationSetCommand = async (
   input: GetReusableDelegationSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2013-04-01/delegationset/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1578,8 +1610,9 @@ export const serializeAws_restXmlGetReusableDelegationSetLimitCommand = async (
   input: GetReusableDelegationSetLimitCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/2013-04-01/reusabledelegationsetlimit/{DelegationSetId}/{Type}";
   if (input.DelegationSetId !== undefined) {
@@ -1625,8 +1658,9 @@ export const serializeAws_restXmlGetTrafficPolicyCommand = async (
   input: GetTrafficPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2013-04-01/trafficpolicy/{Id}/{Version}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1669,8 +1703,9 @@ export const serializeAws_restXmlGetTrafficPolicyInstanceCommand = async (
   input: GetTrafficPolicyInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2013-04-01/trafficpolicyinstance/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1701,8 +1736,9 @@ export const serializeAws_restXmlGetTrafficPolicyInstanceCountCommand = async (
   input: GetTrafficPolicyInstanceCountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2013-04-01/trafficpolicyinstancecount";
   let body: any;
   body = "";
@@ -1722,8 +1758,9 @@ export const serializeAws_restXmlListGeoLocationsCommand = async (
   input: ListGeoLocationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2013-04-01/geolocations";
   const query: any = {};
   if (input.MaxItems !== undefined) {
@@ -1756,8 +1793,9 @@ export const serializeAws_restXmlListHealthChecksCommand = async (
   input: ListHealthChecksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2013-04-01/healthcheck";
   const query: any = {};
   if (input.Marker !== undefined) {
@@ -1784,8 +1822,9 @@ export const serializeAws_restXmlListHostedZonesCommand = async (
   input: ListHostedZonesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2013-04-01/hostedzone";
   const query: any = {};
   if (input.DelegationSetId !== undefined) {
@@ -1815,8 +1854,9 @@ export const serializeAws_restXmlListHostedZonesByNameCommand = async (
   input: ListHostedZonesByNameCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2013-04-01/hostedzonesbyname";
   const query: any = {};
   if (input.DNSName !== undefined) {
@@ -1846,8 +1886,9 @@ export const serializeAws_restXmlListQueryLoggingConfigsCommand = async (
   input: ListQueryLoggingConfigsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2013-04-01/queryloggingconfig";
   const query: any = {};
   if (input.HostedZoneId !== undefined) {
@@ -1877,8 +1918,9 @@ export const serializeAws_restXmlListResourceRecordSetsCommand = async (
   input: ListResourceRecordSetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2013-04-01/hostedzone/{HostedZoneId}/rrset";
   if (input.HostedZoneId !== undefined) {
     const labelValue: string = input.HostedZoneId;
@@ -1925,8 +1967,9 @@ export const serializeAws_restXmlListReusableDelegationSetsCommand = async (
   input: ListReusableDelegationSetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2013-04-01/delegationset";
   const query: any = {};
   if (input.Marker !== undefined) {
@@ -1953,8 +1996,9 @@ export const serializeAws_restXmlListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2013-04-01/tags/{ResourceType}/{ResourceId}";
   if (input.ResourceId !== undefined) {
     const labelValue: string = input.ResourceId;
@@ -1999,8 +2043,9 @@ export const serializeAws_restXmlListTagsForResourcesCommand = async (
   input: ListTagsForResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/2013-04-01/tags/{ResourceType}";
   if (input.ResourceType !== undefined) {
     const labelValue: string = input.ResourceType;
@@ -2051,8 +2096,9 @@ export const serializeAws_restXmlListTrafficPoliciesCommand = async (
   input: ListTrafficPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2013-04-01/trafficpolicies";
   const query: any = {};
   if (input.MaxItems !== undefined) {
@@ -2079,8 +2125,9 @@ export const serializeAws_restXmlListTrafficPolicyInstancesCommand = async (
   input: ListTrafficPolicyInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2013-04-01/trafficpolicyinstances";
   const query: any = {};
   if (input.HostedZoneIdMarker !== undefined) {
@@ -2113,8 +2160,9 @@ export const serializeAws_restXmlListTrafficPolicyInstancesByHostedZoneCommand =
   input: ListTrafficPolicyInstancesByHostedZoneCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2013-04-01/trafficpolicyinstances/hostedzone";
   const query: any = {};
   if (input.HostedZoneId !== undefined) {
@@ -2147,8 +2195,9 @@ export const serializeAws_restXmlListTrafficPolicyInstancesByPolicyCommand = asy
   input: ListTrafficPolicyInstancesByPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2013-04-01/trafficpolicyinstances/trafficpolicy";
   const query: any = {};
   if (input.HostedZoneIdMarker !== undefined) {
@@ -2187,8 +2236,9 @@ export const serializeAws_restXmlListTrafficPolicyVersionsCommand = async (
   input: ListTrafficPolicyVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2013-04-01/trafficpolicies/{Id}/versions";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -2227,8 +2277,9 @@ export const serializeAws_restXmlListVPCAssociationAuthorizationsCommand = async
   input: ListVPCAssociationAuthorizationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/2013-04-01/hostedzone/{HostedZoneId}/authorizevpcassociation";
   if (input.HostedZoneId !== undefined) {
@@ -2270,8 +2321,9 @@ export const serializeAws_restXmlTestDNSAnswerCommand = async (
   input: TestDNSAnswerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2013-04-01/testdnsanswer";
   const query: any = {};
   if (input.EDNS0ClientSubnetIP !== undefined) {
@@ -2310,8 +2362,9 @@ export const serializeAws_restXmlUpdateHealthCheckCommand = async (
   input: UpdateHealthCheckCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/2013-04-01/healthcheck/{HealthCheckId}";
   if (input.HealthCheckId !== undefined) {
     const labelValue: string = input.HealthCheckId;
@@ -2463,8 +2516,9 @@ export const serializeAws_restXmlUpdateHostedZoneCommentCommand = async (
   input: UpdateHostedZoneCommentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/2013-04-01/hostedzone/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -2508,8 +2562,9 @@ export const serializeAws_restXmlUpdateTrafficPolicyCommentCommand = async (
   input: UpdateTrafficPolicyCommentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/2013-04-01/trafficpolicy/{Id}/{Version}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -2565,8 +2620,9 @@ export const serializeAws_restXmlUpdateTrafficPolicyInstanceCommand = async (
   input: UpdateTrafficPolicyInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/2013-04-01/trafficpolicyinstance/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;

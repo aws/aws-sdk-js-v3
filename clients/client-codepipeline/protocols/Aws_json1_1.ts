@@ -324,9 +324,10 @@ export const serializeAws_json1_1AcknowledgeJobCommand = async (
   input: AcknowledgeJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodePipeline_20150709.AcknowledgeJob";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodePipeline_20150709.AcknowledgeJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AcknowledgeJobInput(input, context)
@@ -338,9 +339,10 @@ export const serializeAws_json1_1AcknowledgeThirdPartyJobCommand = async (
   input: AcknowledgeThirdPartyJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodePipeline_20150709.AcknowledgeThirdPartyJob";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodePipeline_20150709.AcknowledgeThirdPartyJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AcknowledgeThirdPartyJobInput(input, context)
@@ -352,9 +354,10 @@ export const serializeAws_json1_1CreateCustomActionTypeCommand = async (
   input: CreateCustomActionTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodePipeline_20150709.CreateCustomActionType";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodePipeline_20150709.CreateCustomActionType"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateCustomActionTypeInput(input, context)
@@ -366,9 +369,10 @@ export const serializeAws_json1_1CreatePipelineCommand = async (
   input: CreatePipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodePipeline_20150709.CreatePipeline";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodePipeline_20150709.CreatePipeline"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreatePipelineInput(input, context)
@@ -380,9 +384,10 @@ export const serializeAws_json1_1DeleteCustomActionTypeCommand = async (
   input: DeleteCustomActionTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodePipeline_20150709.DeleteCustomActionType";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodePipeline_20150709.DeleteCustomActionType"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteCustomActionTypeInput(input, context)
@@ -394,9 +399,10 @@ export const serializeAws_json1_1DeletePipelineCommand = async (
   input: DeletePipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodePipeline_20150709.DeletePipeline";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodePipeline_20150709.DeletePipeline"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeletePipelineInput(input, context)
@@ -408,9 +414,10 @@ export const serializeAws_json1_1DeleteWebhookCommand = async (
   input: DeleteWebhookCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodePipeline_20150709.DeleteWebhook";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodePipeline_20150709.DeleteWebhook"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteWebhookInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -420,10 +427,10 @@ export const serializeAws_json1_1DeregisterWebhookWithThirdPartyCommand = async 
   input: DeregisterWebhookWithThirdPartyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "CodePipeline_20150709.DeregisterWebhookWithThirdParty";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodePipeline_20150709.DeregisterWebhookWithThirdParty"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeregisterWebhookWithThirdPartyInput(input, context)
@@ -435,9 +442,10 @@ export const serializeAws_json1_1DisableStageTransitionCommand = async (
   input: DisableStageTransitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodePipeline_20150709.DisableStageTransition";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodePipeline_20150709.DisableStageTransition"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DisableStageTransitionInput(input, context)
@@ -449,9 +457,10 @@ export const serializeAws_json1_1EnableStageTransitionCommand = async (
   input: EnableStageTransitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodePipeline_20150709.EnableStageTransition";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodePipeline_20150709.EnableStageTransition"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1EnableStageTransitionInput(input, context)
@@ -463,9 +472,10 @@ export const serializeAws_json1_1GetJobDetailsCommand = async (
   input: GetJobDetailsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodePipeline_20150709.GetJobDetails";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodePipeline_20150709.GetJobDetails"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetJobDetailsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -475,9 +485,10 @@ export const serializeAws_json1_1GetPipelineCommand = async (
   input: GetPipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodePipeline_20150709.GetPipeline";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodePipeline_20150709.GetPipeline"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetPipelineInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -487,9 +498,10 @@ export const serializeAws_json1_1GetPipelineExecutionCommand = async (
   input: GetPipelineExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodePipeline_20150709.GetPipelineExecution";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodePipeline_20150709.GetPipelineExecution"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetPipelineExecutionInput(input, context)
@@ -501,9 +513,10 @@ export const serializeAws_json1_1GetPipelineStateCommand = async (
   input: GetPipelineStateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodePipeline_20150709.GetPipelineState";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodePipeline_20150709.GetPipelineState"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetPipelineStateInput(input, context)
@@ -515,9 +528,10 @@ export const serializeAws_json1_1GetThirdPartyJobDetailsCommand = async (
   input: GetThirdPartyJobDetailsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodePipeline_20150709.GetThirdPartyJobDetails";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodePipeline_20150709.GetThirdPartyJobDetails"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetThirdPartyJobDetailsInput(input, context)
@@ -529,9 +543,10 @@ export const serializeAws_json1_1ListActionExecutionsCommand = async (
   input: ListActionExecutionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodePipeline_20150709.ListActionExecutions";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodePipeline_20150709.ListActionExecutions"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListActionExecutionsInput(input, context)
@@ -543,9 +558,10 @@ export const serializeAws_json1_1ListActionTypesCommand = async (
   input: ListActionTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodePipeline_20150709.ListActionTypes";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodePipeline_20150709.ListActionTypes"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListActionTypesInput(input, context)
@@ -557,9 +573,10 @@ export const serializeAws_json1_1ListPipelineExecutionsCommand = async (
   input: ListPipelineExecutionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodePipeline_20150709.ListPipelineExecutions";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodePipeline_20150709.ListPipelineExecutions"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListPipelineExecutionsInput(input, context)
@@ -571,9 +588,10 @@ export const serializeAws_json1_1ListPipelinesCommand = async (
   input: ListPipelinesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodePipeline_20150709.ListPipelines";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodePipeline_20150709.ListPipelines"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListPipelinesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -583,9 +601,10 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodePipeline_20150709.ListTagsForResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodePipeline_20150709.ListTagsForResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTagsForResourceInput(input, context)
@@ -597,9 +616,10 @@ export const serializeAws_json1_1ListWebhooksCommand = async (
   input: ListWebhooksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodePipeline_20150709.ListWebhooks";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodePipeline_20150709.ListWebhooks"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListWebhooksInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -609,9 +629,10 @@ export const serializeAws_json1_1PollForJobsCommand = async (
   input: PollForJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodePipeline_20150709.PollForJobs";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodePipeline_20150709.PollForJobs"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PollForJobsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -621,9 +642,10 @@ export const serializeAws_json1_1PollForThirdPartyJobsCommand = async (
   input: PollForThirdPartyJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodePipeline_20150709.PollForThirdPartyJobs";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodePipeline_20150709.PollForThirdPartyJobs"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PollForThirdPartyJobsInput(input, context)
@@ -635,9 +657,10 @@ export const serializeAws_json1_1PutActionRevisionCommand = async (
   input: PutActionRevisionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodePipeline_20150709.PutActionRevision";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodePipeline_20150709.PutActionRevision"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutActionRevisionInput(input, context)
@@ -649,9 +672,10 @@ export const serializeAws_json1_1PutApprovalResultCommand = async (
   input: PutApprovalResultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodePipeline_20150709.PutApprovalResult";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodePipeline_20150709.PutApprovalResult"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutApprovalResultInput(input, context)
@@ -663,9 +687,10 @@ export const serializeAws_json1_1PutJobFailureResultCommand = async (
   input: PutJobFailureResultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodePipeline_20150709.PutJobFailureResult";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodePipeline_20150709.PutJobFailureResult"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutJobFailureResultInput(input, context)
@@ -677,9 +702,10 @@ export const serializeAws_json1_1PutJobSuccessResultCommand = async (
   input: PutJobSuccessResultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodePipeline_20150709.PutJobSuccessResult";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodePipeline_20150709.PutJobSuccessResult"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutJobSuccessResultInput(input, context)
@@ -691,10 +717,10 @@ export const serializeAws_json1_1PutThirdPartyJobFailureResultCommand = async (
   input: PutThirdPartyJobFailureResultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "CodePipeline_20150709.PutThirdPartyJobFailureResult";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodePipeline_20150709.PutThirdPartyJobFailureResult"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutThirdPartyJobFailureResultInput(input, context)
@@ -706,10 +732,10 @@ export const serializeAws_json1_1PutThirdPartyJobSuccessResultCommand = async (
   input: PutThirdPartyJobSuccessResultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "CodePipeline_20150709.PutThirdPartyJobSuccessResult";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodePipeline_20150709.PutThirdPartyJobSuccessResult"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutThirdPartyJobSuccessResultInput(input, context)
@@ -721,9 +747,10 @@ export const serializeAws_json1_1PutWebhookCommand = async (
   input: PutWebhookCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodePipeline_20150709.PutWebhook";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodePipeline_20150709.PutWebhook"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutWebhookInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -733,10 +760,10 @@ export const serializeAws_json1_1RegisterWebhookWithThirdPartyCommand = async (
   input: RegisterWebhookWithThirdPartyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "CodePipeline_20150709.RegisterWebhookWithThirdParty";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodePipeline_20150709.RegisterWebhookWithThirdParty"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RegisterWebhookWithThirdPartyInput(input, context)
@@ -748,9 +775,10 @@ export const serializeAws_json1_1RetryStageExecutionCommand = async (
   input: RetryStageExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodePipeline_20150709.RetryStageExecution";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodePipeline_20150709.RetryStageExecution"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RetryStageExecutionInput(input, context)
@@ -762,9 +790,10 @@ export const serializeAws_json1_1StartPipelineExecutionCommand = async (
   input: StartPipelineExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodePipeline_20150709.StartPipelineExecution";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodePipeline_20150709.StartPipelineExecution"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartPipelineExecutionInput(input, context)
@@ -776,9 +805,10 @@ export const serializeAws_json1_1StopPipelineExecutionCommand = async (
   input: StopPipelineExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodePipeline_20150709.StopPipelineExecution";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodePipeline_20150709.StopPipelineExecution"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StopPipelineExecutionInput(input, context)
@@ -790,9 +820,10 @@ export const serializeAws_json1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodePipeline_20150709.TagResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodePipeline_20150709.TagResource"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -802,9 +833,10 @@ export const serializeAws_json1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodePipeline_20150709.UntagResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodePipeline_20150709.UntagResource"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UntagResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -814,9 +846,10 @@ export const serializeAws_json1_1UpdatePipelineCommand = async (
   input: UpdatePipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodePipeline_20150709.UpdatePipeline";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodePipeline_20150709.UpdatePipeline"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdatePipelineInput(input, context)

@@ -43,8 +43,9 @@ export const serializeAws_restJson1_1SearchCommand = async (
   input: SearchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2013-01-01/search";
   const query: any = {
     format: "sdk",
@@ -110,8 +111,9 @@ export const serializeAws_restJson1_1SuggestCommand = async (
   input: SuggestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2013-01-01/suggest";
   const query: any = {
     format: "sdk",
@@ -144,11 +146,12 @@ export const serializeAws_restJson1_1UploadDocumentsCommand = async (
   input: UploadDocumentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/octet-stream";
-  if (isSerializableHeaderValue(input.contentType)) {
-    headers["Content-Type"] = input.contentType!;
-  }
+  const headers: any = {
+    "Content-Type": "application/octet-stream",
+    ...(isSerializableHeaderValue(input.contentType) && {
+      "Content-Type": input.contentType!
+    })
+  };
   let resolvedPath = "/2013-01-01/documents/batch";
   const query: any = {
     format: "sdk"

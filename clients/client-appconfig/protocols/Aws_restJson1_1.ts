@@ -147,8 +147,9 @@ export const serializeAws_restJson1_1CreateApplicationCommand = async (
   input: CreateApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/applications";
   let body: any;
   const bodyParams: any = {};
@@ -178,8 +179,9 @@ export const serializeAws_restJson1_1CreateConfigurationProfileCommand = async (
   input: CreateConfigurationProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/applications/{ApplicationId}/configurationprofiles";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -235,8 +237,9 @@ export const serializeAws_restJson1_1CreateDeploymentStrategyCommand = async (
   input: CreateDeploymentStrategyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/deploymentstrategies";
   let body: any;
   const bodyParams: any = {};
@@ -282,8 +285,9 @@ export const serializeAws_restJson1_1CreateEnvironmentCommand = async (
   input: CreateEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/applications/{ApplicationId}/environments";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -333,8 +337,9 @@ export const serializeAws_restJson1_1DeleteApplicationCommand = async (
   input: DeleteApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/applications/{ApplicationId}";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -367,8 +372,9 @@ export const serializeAws_restJson1_1DeleteConfigurationProfileCommand = async (
   input: DeleteConfigurationProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}";
   if (input.ApplicationId !== undefined) {
@@ -418,8 +424,9 @@ export const serializeAws_restJson1_1DeleteDeploymentStrategyCommand = async (
   input: DeleteDeploymentStrategyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/deployementstrategies/{DeploymentStrategyId}";
   if (input.DeploymentStrategyId !== undefined) {
     const labelValue: string = input.DeploymentStrategyId;
@@ -454,8 +461,9 @@ export const serializeAws_restJson1_1DeleteEnvironmentCommand = async (
   input: DeleteEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/applications/{ApplicationId}/environments/{EnvironmentId}";
   if (input.ApplicationId !== undefined) {
@@ -503,8 +511,9 @@ export const serializeAws_restJson1_1GetApplicationCommand = async (
   input: GetApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/applications/{ApplicationId}";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -537,8 +546,9 @@ export const serializeAws_restJson1_1GetConfigurationCommand = async (
   input: GetConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/applications/{Application}/environments/{Environment}/configurations/{Configuration}";
   if (input.Application !== undefined) {
@@ -608,8 +618,9 @@ export const serializeAws_restJson1_1GetConfigurationProfileCommand = async (
   input: GetConfigurationProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}";
   if (input.ApplicationId !== undefined) {
@@ -659,8 +670,9 @@ export const serializeAws_restJson1_1GetDeploymentCommand = async (
   input: GetDeploymentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/applications/{ApplicationId}/environments/{EnvironmentId}/deployments/{DeploymentNumber}";
   if (input.ApplicationId !== undefined) {
@@ -724,8 +736,9 @@ export const serializeAws_restJson1_1GetDeploymentStrategyCommand = async (
   input: GetDeploymentStrategyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/deploymentstrategies/{DeploymentStrategyId}";
   if (input.DeploymentStrategyId !== undefined) {
     const labelValue: string = input.DeploymentStrategyId;
@@ -760,8 +773,9 @@ export const serializeAws_restJson1_1GetEnvironmentCommand = async (
   input: GetEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/applications/{ApplicationId}/environments/{EnvironmentId}";
   if (input.ApplicationId !== undefined) {
@@ -809,8 +823,9 @@ export const serializeAws_restJson1_1ListApplicationsCommand = async (
   input: ListApplicationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/applications";
   const query: any = {};
   if (input.MaxResults !== undefined) {
@@ -837,8 +852,9 @@ export const serializeAws_restJson1_1ListConfigurationProfilesCommand = async (
   input: ListConfigurationProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/applications/{ApplicationId}/configurationprofiles";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -879,8 +895,9 @@ export const serializeAws_restJson1_1ListDeploymentStrategiesCommand = async (
   input: ListDeploymentStrategiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/deploymentstrategies";
   const query: any = {};
   if (input.MaxResults !== undefined) {
@@ -907,8 +924,9 @@ export const serializeAws_restJson1_1ListDeploymentsCommand = async (
   input: ListDeploymentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/applications/{ApplicationId}/environments/{EnvironmentId}/deployments";
   if (input.ApplicationId !== undefined) {
@@ -964,8 +982,9 @@ export const serializeAws_restJson1_1ListEnvironmentsCommand = async (
   input: ListEnvironmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/applications/{ApplicationId}/environments";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -1006,8 +1025,9 @@ export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -1040,8 +1060,9 @@ export const serializeAws_restJson1_1StartDeploymentCommand = async (
   input: StartDeploymentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath =
     "/applications/{ApplicationId}/environments/{EnvironmentId}/deployments";
   if (input.ApplicationId !== undefined) {
@@ -1106,8 +1127,9 @@ export const serializeAws_restJson1_1StopDeploymentCommand = async (
   input: StopDeploymentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/applications/{ApplicationId}/environments/{EnvironmentId}/deployments/{DeploymentNumber}";
   if (input.ApplicationId !== undefined) {
@@ -1171,8 +1193,9 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -1210,8 +1233,9 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -1249,8 +1273,9 @@ export const serializeAws_restJson1_1UpdateApplicationCommand = async (
   input: UpdateApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/applications/{ApplicationId}";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -1291,8 +1316,9 @@ export const serializeAws_restJson1_1UpdateConfigurationProfileCommand = async (
   input: UpdateConfigurationProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath =
     "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}";
   if (input.ApplicationId !== undefined) {
@@ -1359,8 +1385,9 @@ export const serializeAws_restJson1_1UpdateDeploymentStrategyCommand = async (
   input: UpdateDeploymentStrategyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/deploymentstrategies/{DeploymentStrategyId}";
   if (input.DeploymentStrategyId !== undefined) {
     const labelValue: string = input.DeploymentStrategyId;
@@ -1413,8 +1440,9 @@ export const serializeAws_restJson1_1UpdateEnvironmentCommand = async (
   input: UpdateEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath =
     "/applications/{ApplicationId}/environments/{EnvironmentId}";
   if (input.ApplicationId !== undefined) {
@@ -1476,8 +1504,9 @@ export const serializeAws_restJson1_1ValidateConfigurationCommand = async (
   input: ValidateConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/validators";
   if (input.ApplicationId !== undefined) {

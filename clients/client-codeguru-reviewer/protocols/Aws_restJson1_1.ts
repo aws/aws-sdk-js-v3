@@ -46,8 +46,9 @@ export const serializeAws_restJson1_1AssociateRepositoryCommand = async (
   input: AssociateRepositoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/associations";
   let body: any;
   const bodyParams: any = {};
@@ -80,8 +81,9 @@ export const serializeAws_restJson1_1DescribeRepositoryAssociationCommand = asyn
   input: DescribeRepositoryAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/associations/{AssociationArn}";
   if (input.AssociationArn !== undefined) {
     const labelValue: string = input.AssociationArn;
@@ -114,8 +116,9 @@ export const serializeAws_restJson1_1DisassociateRepositoryCommand = async (
   input: DisassociateRepositoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/associations/{AssociationArn}";
   if (input.AssociationArn !== undefined) {
     const labelValue: string = input.AssociationArn;
@@ -148,8 +151,9 @@ export const serializeAws_restJson1_1ListRepositoryAssociationsCommand = async (
   input: ListRepositoryAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/associations";
   const query: any = {};
   if (input.MaxResults !== undefined) {

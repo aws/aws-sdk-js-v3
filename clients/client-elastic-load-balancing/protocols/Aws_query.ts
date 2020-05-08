@@ -244,8 +244,9 @@ export const serializeAws_queryAddTagsCommand = async (
   input: AddTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryAddTagsInput(input, context);
   body = buildFormUrlencodedString({
@@ -260,8 +261,9 @@ export const serializeAws_queryApplySecurityGroupsToLoadBalancerCommand = async 
   input: ApplySecurityGroupsToLoadBalancerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryApplySecurityGroupsToLoadBalancerInput(
     input,
@@ -279,8 +281,9 @@ export const serializeAws_queryAttachLoadBalancerToSubnetsCommand = async (
   input: AttachLoadBalancerToSubnetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryAttachLoadBalancerToSubnetsInput(
     input,
@@ -298,8 +301,9 @@ export const serializeAws_queryConfigureHealthCheckCommand = async (
   input: ConfigureHealthCheckCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryConfigureHealthCheckInput(input, context);
   body = buildFormUrlencodedString({
@@ -314,8 +318,9 @@ export const serializeAws_queryCreateAppCookieStickinessPolicyCommand = async (
   input: CreateAppCookieStickinessPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCreateAppCookieStickinessPolicyInput(
     input,
@@ -333,8 +338,9 @@ export const serializeAws_queryCreateLBCookieStickinessPolicyCommand = async (
   input: CreateLBCookieStickinessPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCreateLBCookieStickinessPolicyInput(
     input,
@@ -352,8 +358,9 @@ export const serializeAws_queryCreateLoadBalancerCommand = async (
   input: CreateLoadBalancerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCreateAccessPointInput(input, context);
   body = buildFormUrlencodedString({
@@ -368,8 +375,9 @@ export const serializeAws_queryCreateLoadBalancerListenersCommand = async (
   input: CreateLoadBalancerListenersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCreateLoadBalancerListenerInput(
     input,
@@ -387,8 +395,9 @@ export const serializeAws_queryCreateLoadBalancerPolicyCommand = async (
   input: CreateLoadBalancerPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCreateLoadBalancerPolicyInput(
     input,
@@ -406,8 +415,9 @@ export const serializeAws_queryDeleteLoadBalancerCommand = async (
   input: DeleteLoadBalancerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteAccessPointInput(input, context);
   body = buildFormUrlencodedString({
@@ -422,8 +432,9 @@ export const serializeAws_queryDeleteLoadBalancerListenersCommand = async (
   input: DeleteLoadBalancerListenersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteLoadBalancerListenerInput(
     input,
@@ -441,8 +452,9 @@ export const serializeAws_queryDeleteLoadBalancerPolicyCommand = async (
   input: DeleteLoadBalancerPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteLoadBalancerPolicyInput(
     input,
@@ -460,8 +472,9 @@ export const serializeAws_queryDeregisterInstancesFromLoadBalancerCommand = asyn
   input: DeregisterInstancesFromLoadBalancerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeregisterEndPointsInput(input, context);
   body = buildFormUrlencodedString({
@@ -476,8 +489,9 @@ export const serializeAws_queryDescribeAccountLimitsCommand = async (
   input: DescribeAccountLimitsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeAccountLimitsInput(input, context);
   body = buildFormUrlencodedString({
@@ -492,8 +506,9 @@ export const serializeAws_queryDescribeInstanceHealthCommand = async (
   input: DescribeInstanceHealthCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeEndPointStateInput(input, context);
   body = buildFormUrlencodedString({
@@ -508,8 +523,9 @@ export const serializeAws_queryDescribeLoadBalancerAttributesCommand = async (
   input: DescribeLoadBalancerAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeLoadBalancerAttributesInput(
     input,
@@ -527,8 +543,9 @@ export const serializeAws_queryDescribeLoadBalancerPoliciesCommand = async (
   input: DescribeLoadBalancerPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeLoadBalancerPoliciesInput(
     input,
@@ -546,8 +563,9 @@ export const serializeAws_queryDescribeLoadBalancerPolicyTypesCommand = async (
   input: DescribeLoadBalancerPolicyTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeLoadBalancerPolicyTypesInput(
     input,
@@ -565,8 +583,9 @@ export const serializeAws_queryDescribeLoadBalancersCommand = async (
   input: DescribeLoadBalancersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeAccessPointsInput(input, context);
   body = buildFormUrlencodedString({
@@ -581,8 +600,9 @@ export const serializeAws_queryDescribeTagsCommand = async (
   input: DescribeTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeTagsInput(input, context);
   body = buildFormUrlencodedString({
@@ -597,8 +617,9 @@ export const serializeAws_queryDetachLoadBalancerFromSubnetsCommand = async (
   input: DetachLoadBalancerFromSubnetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDetachLoadBalancerFromSubnetsInput(
     input,
@@ -616,8 +637,9 @@ export const serializeAws_queryDisableAvailabilityZonesForLoadBalancerCommand = 
   input: DisableAvailabilityZonesForLoadBalancerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryRemoveAvailabilityZonesInput(
     input,
@@ -635,8 +657,9 @@ export const serializeAws_queryEnableAvailabilityZonesForLoadBalancerCommand = a
   input: EnableAvailabilityZonesForLoadBalancerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryAddAvailabilityZonesInput(input, context);
   body = buildFormUrlencodedString({
@@ -651,8 +674,9 @@ export const serializeAws_queryModifyLoadBalancerAttributesCommand = async (
   input: ModifyLoadBalancerAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryModifyLoadBalancerAttributesInput(
     input,
@@ -670,8 +694,9 @@ export const serializeAws_queryRegisterInstancesWithLoadBalancerCommand = async 
   input: RegisterInstancesWithLoadBalancerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryRegisterEndPointsInput(input, context);
   body = buildFormUrlencodedString({
@@ -686,8 +711,9 @@ export const serializeAws_queryRemoveTagsCommand = async (
   input: RemoveTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryRemoveTagsInput(input, context);
   body = buildFormUrlencodedString({
@@ -702,8 +728,9 @@ export const serializeAws_querySetLoadBalancerListenerSSLCertificateCommand = as
   input: SetLoadBalancerListenerSSLCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_querySetLoadBalancerListenerSSLCertificateInput(
     input,
@@ -721,8 +748,9 @@ export const serializeAws_querySetLoadBalancerPoliciesForBackendServerCommand = 
   input: SetLoadBalancerPoliciesForBackendServerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_querySetLoadBalancerPoliciesForBackendServerInput(
     input,
@@ -740,8 +768,9 @@ export const serializeAws_querySetLoadBalancerPoliciesOfListenerCommand = async 
   input: SetLoadBalancerPoliciesOfListenerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_querySetLoadBalancerPoliciesOfListenerInput(
     input,

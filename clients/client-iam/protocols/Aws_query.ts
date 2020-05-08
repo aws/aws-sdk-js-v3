@@ -872,8 +872,9 @@ export const serializeAws_queryAddClientIDToOpenIDConnectProviderCommand = async
   input: AddClientIDToOpenIDConnectProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryAddClientIDToOpenIDConnectProviderRequest(
     input,
@@ -891,8 +892,9 @@ export const serializeAws_queryAddRoleToInstanceProfileCommand = async (
   input: AddRoleToInstanceProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryAddRoleToInstanceProfileRequest(
     input,
@@ -910,8 +912,9 @@ export const serializeAws_queryAddUserToGroupCommand = async (
   input: AddUserToGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryAddUserToGroupRequest(input, context);
   body = buildFormUrlencodedString({
@@ -926,8 +929,9 @@ export const serializeAws_queryAttachGroupPolicyCommand = async (
   input: AttachGroupPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryAttachGroupPolicyRequest(input, context);
   body = buildFormUrlencodedString({
@@ -942,8 +946,9 @@ export const serializeAws_queryAttachRolePolicyCommand = async (
   input: AttachRolePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryAttachRolePolicyRequest(input, context);
   body = buildFormUrlencodedString({
@@ -958,8 +963,9 @@ export const serializeAws_queryAttachUserPolicyCommand = async (
   input: AttachUserPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryAttachUserPolicyRequest(input, context);
   body = buildFormUrlencodedString({
@@ -974,8 +980,9 @@ export const serializeAws_queryChangePasswordCommand = async (
   input: ChangePasswordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryChangePasswordRequest(input, context);
   body = buildFormUrlencodedString({
@@ -990,8 +997,9 @@ export const serializeAws_queryCreateAccessKeyCommand = async (
   input: CreateAccessKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCreateAccessKeyRequest(input, context);
   body = buildFormUrlencodedString({
@@ -1006,8 +1014,9 @@ export const serializeAws_queryCreateAccountAliasCommand = async (
   input: CreateAccountAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCreateAccountAliasRequest(input, context);
   body = buildFormUrlencodedString({
@@ -1022,8 +1031,9 @@ export const serializeAws_queryCreateGroupCommand = async (
   input: CreateGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCreateGroupRequest(input, context);
   body = buildFormUrlencodedString({
@@ -1038,8 +1048,9 @@ export const serializeAws_queryCreateInstanceProfileCommand = async (
   input: CreateInstanceProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCreateInstanceProfileRequest(
     input,
@@ -1057,8 +1068,9 @@ export const serializeAws_queryCreateLoginProfileCommand = async (
   input: CreateLoginProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCreateLoginProfileRequest(input, context);
   body = buildFormUrlencodedString({
@@ -1073,8 +1085,9 @@ export const serializeAws_queryCreateOpenIDConnectProviderCommand = async (
   input: CreateOpenIDConnectProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCreateOpenIDConnectProviderRequest(
     input,
@@ -1092,8 +1105,9 @@ export const serializeAws_queryCreatePolicyCommand = async (
   input: CreatePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCreatePolicyRequest(input, context);
   body = buildFormUrlencodedString({
@@ -1108,8 +1122,9 @@ export const serializeAws_queryCreatePolicyVersionCommand = async (
   input: CreatePolicyVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCreatePolicyVersionRequest(input, context);
   body = buildFormUrlencodedString({
@@ -1124,8 +1139,9 @@ export const serializeAws_queryCreateRoleCommand = async (
   input: CreateRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCreateRoleRequest(input, context);
   body = buildFormUrlencodedString({
@@ -1140,8 +1156,9 @@ export const serializeAws_queryCreateSAMLProviderCommand = async (
   input: CreateSAMLProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCreateSAMLProviderRequest(input, context);
   body = buildFormUrlencodedString({
@@ -1156,8 +1173,9 @@ export const serializeAws_queryCreateServiceLinkedRoleCommand = async (
   input: CreateServiceLinkedRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCreateServiceLinkedRoleRequest(
     input,
@@ -1175,8 +1193,9 @@ export const serializeAws_queryCreateServiceSpecificCredentialCommand = async (
   input: CreateServiceSpecificCredentialCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCreateServiceSpecificCredentialRequest(
     input,
@@ -1194,8 +1213,9 @@ export const serializeAws_queryCreateUserCommand = async (
   input: CreateUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCreateUserRequest(input, context);
   body = buildFormUrlencodedString({
@@ -1210,8 +1230,9 @@ export const serializeAws_queryCreateVirtualMFADeviceCommand = async (
   input: CreateVirtualMFADeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCreateVirtualMFADeviceRequest(
     input,
@@ -1229,8 +1250,9 @@ export const serializeAws_queryDeactivateMFADeviceCommand = async (
   input: DeactivateMFADeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeactivateMFADeviceRequest(input, context);
   body = buildFormUrlencodedString({
@@ -1245,8 +1267,9 @@ export const serializeAws_queryDeleteAccessKeyCommand = async (
   input: DeleteAccessKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteAccessKeyRequest(input, context);
   body = buildFormUrlencodedString({
@@ -1261,8 +1284,9 @@ export const serializeAws_queryDeleteAccountAliasCommand = async (
   input: DeleteAccountAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteAccountAliasRequest(input, context);
   body = buildFormUrlencodedString({
@@ -1277,8 +1301,9 @@ export const serializeAws_queryDeleteAccountPasswordPolicyCommand = async (
   input: DeleteAccountPasswordPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   const body = buildFormUrlencodedString({
     Action: "DeleteAccountPasswordPolicy",
     Version: "2010-05-08"
@@ -1290,8 +1315,9 @@ export const serializeAws_queryDeleteGroupCommand = async (
   input: DeleteGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteGroupRequest(input, context);
   body = buildFormUrlencodedString({
@@ -1306,8 +1332,9 @@ export const serializeAws_queryDeleteGroupPolicyCommand = async (
   input: DeleteGroupPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteGroupPolicyRequest(input, context);
   body = buildFormUrlencodedString({
@@ -1322,8 +1349,9 @@ export const serializeAws_queryDeleteInstanceProfileCommand = async (
   input: DeleteInstanceProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteInstanceProfileRequest(
     input,
@@ -1341,8 +1369,9 @@ export const serializeAws_queryDeleteLoginProfileCommand = async (
   input: DeleteLoginProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteLoginProfileRequest(input, context);
   body = buildFormUrlencodedString({
@@ -1357,8 +1386,9 @@ export const serializeAws_queryDeleteOpenIDConnectProviderCommand = async (
   input: DeleteOpenIDConnectProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteOpenIDConnectProviderRequest(
     input,
@@ -1376,8 +1406,9 @@ export const serializeAws_queryDeletePolicyCommand = async (
   input: DeletePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeletePolicyRequest(input, context);
   body = buildFormUrlencodedString({
@@ -1392,8 +1423,9 @@ export const serializeAws_queryDeletePolicyVersionCommand = async (
   input: DeletePolicyVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeletePolicyVersionRequest(input, context);
   body = buildFormUrlencodedString({
@@ -1408,8 +1440,9 @@ export const serializeAws_queryDeleteRoleCommand = async (
   input: DeleteRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteRoleRequest(input, context);
   body = buildFormUrlencodedString({
@@ -1424,8 +1457,9 @@ export const serializeAws_queryDeleteRolePermissionsBoundaryCommand = async (
   input: DeleteRolePermissionsBoundaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteRolePermissionsBoundaryRequest(
     input,
@@ -1443,8 +1477,9 @@ export const serializeAws_queryDeleteRolePolicyCommand = async (
   input: DeleteRolePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteRolePolicyRequest(input, context);
   body = buildFormUrlencodedString({
@@ -1459,8 +1494,9 @@ export const serializeAws_queryDeleteSAMLProviderCommand = async (
   input: DeleteSAMLProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteSAMLProviderRequest(input, context);
   body = buildFormUrlencodedString({
@@ -1475,8 +1511,9 @@ export const serializeAws_queryDeleteSSHPublicKeyCommand = async (
   input: DeleteSSHPublicKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteSSHPublicKeyRequest(input, context);
   body = buildFormUrlencodedString({
@@ -1491,8 +1528,9 @@ export const serializeAws_queryDeleteServerCertificateCommand = async (
   input: DeleteServerCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteServerCertificateRequest(
     input,
@@ -1510,8 +1548,9 @@ export const serializeAws_queryDeleteServiceLinkedRoleCommand = async (
   input: DeleteServiceLinkedRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteServiceLinkedRoleRequest(
     input,
@@ -1529,8 +1568,9 @@ export const serializeAws_queryDeleteServiceSpecificCredentialCommand = async (
   input: DeleteServiceSpecificCredentialCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteServiceSpecificCredentialRequest(
     input,
@@ -1548,8 +1588,9 @@ export const serializeAws_queryDeleteSigningCertificateCommand = async (
   input: DeleteSigningCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteSigningCertificateRequest(
     input,
@@ -1567,8 +1608,9 @@ export const serializeAws_queryDeleteUserCommand = async (
   input: DeleteUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteUserRequest(input, context);
   body = buildFormUrlencodedString({
@@ -1583,8 +1625,9 @@ export const serializeAws_queryDeleteUserPermissionsBoundaryCommand = async (
   input: DeleteUserPermissionsBoundaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteUserPermissionsBoundaryRequest(
     input,
@@ -1602,8 +1645,9 @@ export const serializeAws_queryDeleteUserPolicyCommand = async (
   input: DeleteUserPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteUserPolicyRequest(input, context);
   body = buildFormUrlencodedString({
@@ -1618,8 +1662,9 @@ export const serializeAws_queryDeleteVirtualMFADeviceCommand = async (
   input: DeleteVirtualMFADeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteVirtualMFADeviceRequest(
     input,
@@ -1637,8 +1682,9 @@ export const serializeAws_queryDetachGroupPolicyCommand = async (
   input: DetachGroupPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDetachGroupPolicyRequest(input, context);
   body = buildFormUrlencodedString({
@@ -1653,8 +1699,9 @@ export const serializeAws_queryDetachRolePolicyCommand = async (
   input: DetachRolePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDetachRolePolicyRequest(input, context);
   body = buildFormUrlencodedString({
@@ -1669,8 +1716,9 @@ export const serializeAws_queryDetachUserPolicyCommand = async (
   input: DetachUserPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDetachUserPolicyRequest(input, context);
   body = buildFormUrlencodedString({
@@ -1685,8 +1733,9 @@ export const serializeAws_queryEnableMFADeviceCommand = async (
   input: EnableMFADeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryEnableMFADeviceRequest(input, context);
   body = buildFormUrlencodedString({
@@ -1701,8 +1750,9 @@ export const serializeAws_queryGenerateCredentialReportCommand = async (
   input: GenerateCredentialReportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   const body = buildFormUrlencodedString({
     Action: "GenerateCredentialReport",
     Version: "2010-05-08"
@@ -1714,8 +1764,9 @@ export const serializeAws_queryGenerateOrganizationsAccessReportCommand = async 
   input: GenerateOrganizationsAccessReportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryGenerateOrganizationsAccessReportRequest(
     input,
@@ -1733,8 +1784,9 @@ export const serializeAws_queryGenerateServiceLastAccessedDetailsCommand = async
   input: GenerateServiceLastAccessedDetailsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryGenerateServiceLastAccessedDetailsRequest(
     input,
@@ -1752,8 +1804,9 @@ export const serializeAws_queryGetAccessKeyLastUsedCommand = async (
   input: GetAccessKeyLastUsedCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryGetAccessKeyLastUsedRequest(input, context);
   body = buildFormUrlencodedString({
@@ -1768,8 +1821,9 @@ export const serializeAws_queryGetAccountAuthorizationDetailsCommand = async (
   input: GetAccountAuthorizationDetailsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryGetAccountAuthorizationDetailsRequest(
     input,
@@ -1787,8 +1841,9 @@ export const serializeAws_queryGetAccountPasswordPolicyCommand = async (
   input: GetAccountPasswordPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   const body = buildFormUrlencodedString({
     Action: "GetAccountPasswordPolicy",
     Version: "2010-05-08"
@@ -1800,8 +1855,9 @@ export const serializeAws_queryGetAccountSummaryCommand = async (
   input: GetAccountSummaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   const body = buildFormUrlencodedString({
     Action: "GetAccountSummary",
     Version: "2010-05-08"
@@ -1813,8 +1869,9 @@ export const serializeAws_queryGetContextKeysForCustomPolicyCommand = async (
   input: GetContextKeysForCustomPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryGetContextKeysForCustomPolicyRequest(
     input,
@@ -1832,8 +1889,9 @@ export const serializeAws_queryGetContextKeysForPrincipalPolicyCommand = async (
   input: GetContextKeysForPrincipalPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryGetContextKeysForPrincipalPolicyRequest(
     input,
@@ -1851,8 +1909,9 @@ export const serializeAws_queryGetCredentialReportCommand = async (
   input: GetCredentialReportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   const body = buildFormUrlencodedString({
     Action: "GetCredentialReport",
     Version: "2010-05-08"
@@ -1864,8 +1923,9 @@ export const serializeAws_queryGetGroupCommand = async (
   input: GetGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryGetGroupRequest(input, context);
   body = buildFormUrlencodedString({
@@ -1880,8 +1940,9 @@ export const serializeAws_queryGetGroupPolicyCommand = async (
   input: GetGroupPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryGetGroupPolicyRequest(input, context);
   body = buildFormUrlencodedString({
@@ -1896,8 +1957,9 @@ export const serializeAws_queryGetInstanceProfileCommand = async (
   input: GetInstanceProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryGetInstanceProfileRequest(input, context);
   body = buildFormUrlencodedString({
@@ -1912,8 +1974,9 @@ export const serializeAws_queryGetLoginProfileCommand = async (
   input: GetLoginProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryGetLoginProfileRequest(input, context);
   body = buildFormUrlencodedString({
@@ -1928,8 +1991,9 @@ export const serializeAws_queryGetOpenIDConnectProviderCommand = async (
   input: GetOpenIDConnectProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryGetOpenIDConnectProviderRequest(
     input,
@@ -1947,8 +2011,9 @@ export const serializeAws_queryGetOrganizationsAccessReportCommand = async (
   input: GetOrganizationsAccessReportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryGetOrganizationsAccessReportRequest(
     input,
@@ -1966,8 +2031,9 @@ export const serializeAws_queryGetPolicyCommand = async (
   input: GetPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryGetPolicyRequest(input, context);
   body = buildFormUrlencodedString({
@@ -1982,8 +2048,9 @@ export const serializeAws_queryGetPolicyVersionCommand = async (
   input: GetPolicyVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryGetPolicyVersionRequest(input, context);
   body = buildFormUrlencodedString({
@@ -1998,8 +2065,9 @@ export const serializeAws_queryGetRoleCommand = async (
   input: GetRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryGetRoleRequest(input, context);
   body = buildFormUrlencodedString({
@@ -2014,8 +2082,9 @@ export const serializeAws_queryGetRolePolicyCommand = async (
   input: GetRolePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryGetRolePolicyRequest(input, context);
   body = buildFormUrlencodedString({
@@ -2030,8 +2099,9 @@ export const serializeAws_queryGetSAMLProviderCommand = async (
   input: GetSAMLProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryGetSAMLProviderRequest(input, context);
   body = buildFormUrlencodedString({
@@ -2046,8 +2116,9 @@ export const serializeAws_queryGetSSHPublicKeyCommand = async (
   input: GetSSHPublicKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryGetSSHPublicKeyRequest(input, context);
   body = buildFormUrlencodedString({
@@ -2062,8 +2133,9 @@ export const serializeAws_queryGetServerCertificateCommand = async (
   input: GetServerCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryGetServerCertificateRequest(input, context);
   body = buildFormUrlencodedString({
@@ -2078,8 +2150,9 @@ export const serializeAws_queryGetServiceLastAccessedDetailsCommand = async (
   input: GetServiceLastAccessedDetailsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryGetServiceLastAccessedDetailsRequest(
     input,
@@ -2097,8 +2170,9 @@ export const serializeAws_queryGetServiceLastAccessedDetailsWithEntitiesCommand 
   input: GetServiceLastAccessedDetailsWithEntitiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryGetServiceLastAccessedDetailsWithEntitiesRequest(
     input,
@@ -2116,8 +2190,9 @@ export const serializeAws_queryGetServiceLinkedRoleDeletionStatusCommand = async
   input: GetServiceLinkedRoleDeletionStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryGetServiceLinkedRoleDeletionStatusRequest(
     input,
@@ -2135,8 +2210,9 @@ export const serializeAws_queryGetUserCommand = async (
   input: GetUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryGetUserRequest(input, context);
   body = buildFormUrlencodedString({
@@ -2151,8 +2227,9 @@ export const serializeAws_queryGetUserPolicyCommand = async (
   input: GetUserPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryGetUserPolicyRequest(input, context);
   body = buildFormUrlencodedString({
@@ -2167,8 +2244,9 @@ export const serializeAws_queryListAccessKeysCommand = async (
   input: ListAccessKeysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryListAccessKeysRequest(input, context);
   body = buildFormUrlencodedString({
@@ -2183,8 +2261,9 @@ export const serializeAws_queryListAccountAliasesCommand = async (
   input: ListAccountAliasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryListAccountAliasesRequest(input, context);
   body = buildFormUrlencodedString({
@@ -2199,8 +2278,9 @@ export const serializeAws_queryListAttachedGroupPoliciesCommand = async (
   input: ListAttachedGroupPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryListAttachedGroupPoliciesRequest(
     input,
@@ -2218,8 +2298,9 @@ export const serializeAws_queryListAttachedRolePoliciesCommand = async (
   input: ListAttachedRolePoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryListAttachedRolePoliciesRequest(
     input,
@@ -2237,8 +2318,9 @@ export const serializeAws_queryListAttachedUserPoliciesCommand = async (
   input: ListAttachedUserPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryListAttachedUserPoliciesRequest(
     input,
@@ -2256,8 +2338,9 @@ export const serializeAws_queryListEntitiesForPolicyCommand = async (
   input: ListEntitiesForPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryListEntitiesForPolicyRequest(
     input,
@@ -2275,8 +2358,9 @@ export const serializeAws_queryListGroupPoliciesCommand = async (
   input: ListGroupPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryListGroupPoliciesRequest(input, context);
   body = buildFormUrlencodedString({
@@ -2291,8 +2375,9 @@ export const serializeAws_queryListGroupsCommand = async (
   input: ListGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryListGroupsRequest(input, context);
   body = buildFormUrlencodedString({
@@ -2307,8 +2392,9 @@ export const serializeAws_queryListGroupsForUserCommand = async (
   input: ListGroupsForUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryListGroupsForUserRequest(input, context);
   body = buildFormUrlencodedString({
@@ -2323,8 +2409,9 @@ export const serializeAws_queryListInstanceProfilesCommand = async (
   input: ListInstanceProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryListInstanceProfilesRequest(input, context);
   body = buildFormUrlencodedString({
@@ -2339,8 +2426,9 @@ export const serializeAws_queryListInstanceProfilesForRoleCommand = async (
   input: ListInstanceProfilesForRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryListInstanceProfilesForRoleRequest(
     input,
@@ -2358,8 +2446,9 @@ export const serializeAws_queryListMFADevicesCommand = async (
   input: ListMFADevicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryListMFADevicesRequest(input, context);
   body = buildFormUrlencodedString({
@@ -2374,8 +2463,9 @@ export const serializeAws_queryListOpenIDConnectProvidersCommand = async (
   input: ListOpenIDConnectProvidersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryListOpenIDConnectProvidersRequest(
     input,
@@ -2393,8 +2483,9 @@ export const serializeAws_queryListPoliciesCommand = async (
   input: ListPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryListPoliciesRequest(input, context);
   body = buildFormUrlencodedString({
@@ -2409,8 +2500,9 @@ export const serializeAws_queryListPoliciesGrantingServiceAccessCommand = async 
   input: ListPoliciesGrantingServiceAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryListPoliciesGrantingServiceAccessRequest(
     input,
@@ -2428,8 +2520,9 @@ export const serializeAws_queryListPolicyVersionsCommand = async (
   input: ListPolicyVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryListPolicyVersionsRequest(input, context);
   body = buildFormUrlencodedString({
@@ -2444,8 +2537,9 @@ export const serializeAws_queryListRolePoliciesCommand = async (
   input: ListRolePoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryListRolePoliciesRequest(input, context);
   body = buildFormUrlencodedString({
@@ -2460,8 +2554,9 @@ export const serializeAws_queryListRoleTagsCommand = async (
   input: ListRoleTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryListRoleTagsRequest(input, context);
   body = buildFormUrlencodedString({
@@ -2476,8 +2571,9 @@ export const serializeAws_queryListRolesCommand = async (
   input: ListRolesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryListRolesRequest(input, context);
   body = buildFormUrlencodedString({
@@ -2492,8 +2588,9 @@ export const serializeAws_queryListSAMLProvidersCommand = async (
   input: ListSAMLProvidersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryListSAMLProvidersRequest(input, context);
   body = buildFormUrlencodedString({
@@ -2508,8 +2605,9 @@ export const serializeAws_queryListSSHPublicKeysCommand = async (
   input: ListSSHPublicKeysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryListSSHPublicKeysRequest(input, context);
   body = buildFormUrlencodedString({
@@ -2524,8 +2622,9 @@ export const serializeAws_queryListServerCertificatesCommand = async (
   input: ListServerCertificatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryListServerCertificatesRequest(
     input,
@@ -2543,8 +2642,9 @@ export const serializeAws_queryListServiceSpecificCredentialsCommand = async (
   input: ListServiceSpecificCredentialsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryListServiceSpecificCredentialsRequest(
     input,
@@ -2562,8 +2662,9 @@ export const serializeAws_queryListSigningCertificatesCommand = async (
   input: ListSigningCertificatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryListSigningCertificatesRequest(
     input,
@@ -2581,8 +2682,9 @@ export const serializeAws_queryListUserPoliciesCommand = async (
   input: ListUserPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryListUserPoliciesRequest(input, context);
   body = buildFormUrlencodedString({
@@ -2597,8 +2699,9 @@ export const serializeAws_queryListUserTagsCommand = async (
   input: ListUserTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryListUserTagsRequest(input, context);
   body = buildFormUrlencodedString({
@@ -2613,8 +2716,9 @@ export const serializeAws_queryListUsersCommand = async (
   input: ListUsersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryListUsersRequest(input, context);
   body = buildFormUrlencodedString({
@@ -2629,8 +2733,9 @@ export const serializeAws_queryListVirtualMFADevicesCommand = async (
   input: ListVirtualMFADevicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryListVirtualMFADevicesRequest(
     input,
@@ -2648,8 +2753,9 @@ export const serializeAws_queryPutGroupPolicyCommand = async (
   input: PutGroupPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryPutGroupPolicyRequest(input, context);
   body = buildFormUrlencodedString({
@@ -2664,8 +2770,9 @@ export const serializeAws_queryPutRolePermissionsBoundaryCommand = async (
   input: PutRolePermissionsBoundaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryPutRolePermissionsBoundaryRequest(
     input,
@@ -2683,8 +2790,9 @@ export const serializeAws_queryPutRolePolicyCommand = async (
   input: PutRolePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryPutRolePolicyRequest(input, context);
   body = buildFormUrlencodedString({
@@ -2699,8 +2807,9 @@ export const serializeAws_queryPutUserPermissionsBoundaryCommand = async (
   input: PutUserPermissionsBoundaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryPutUserPermissionsBoundaryRequest(
     input,
@@ -2718,8 +2827,9 @@ export const serializeAws_queryPutUserPolicyCommand = async (
   input: PutUserPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryPutUserPolicyRequest(input, context);
   body = buildFormUrlencodedString({
@@ -2734,8 +2844,9 @@ export const serializeAws_queryRemoveClientIDFromOpenIDConnectProviderCommand = 
   input: RemoveClientIDFromOpenIDConnectProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryRemoveClientIDFromOpenIDConnectProviderRequest(
     input,
@@ -2753,8 +2864,9 @@ export const serializeAws_queryRemoveRoleFromInstanceProfileCommand = async (
   input: RemoveRoleFromInstanceProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryRemoveRoleFromInstanceProfileRequest(
     input,
@@ -2772,8 +2884,9 @@ export const serializeAws_queryRemoveUserFromGroupCommand = async (
   input: RemoveUserFromGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryRemoveUserFromGroupRequest(input, context);
   body = buildFormUrlencodedString({
@@ -2788,8 +2901,9 @@ export const serializeAws_queryResetServiceSpecificCredentialCommand = async (
   input: ResetServiceSpecificCredentialCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryResetServiceSpecificCredentialRequest(
     input,
@@ -2807,8 +2921,9 @@ export const serializeAws_queryResyncMFADeviceCommand = async (
   input: ResyncMFADeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryResyncMFADeviceRequest(input, context);
   body = buildFormUrlencodedString({
@@ -2823,8 +2938,9 @@ export const serializeAws_querySetDefaultPolicyVersionCommand = async (
   input: SetDefaultPolicyVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_querySetDefaultPolicyVersionRequest(
     input,
@@ -2842,8 +2958,9 @@ export const serializeAws_querySetSecurityTokenServicePreferencesCommand = async
   input: SetSecurityTokenServicePreferencesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_querySetSecurityTokenServicePreferencesRequest(
     input,
@@ -2861,8 +2978,9 @@ export const serializeAws_querySimulateCustomPolicyCommand = async (
   input: SimulateCustomPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_querySimulateCustomPolicyRequest(input, context);
   body = buildFormUrlencodedString({
@@ -2877,8 +2995,9 @@ export const serializeAws_querySimulatePrincipalPolicyCommand = async (
   input: SimulatePrincipalPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_querySimulatePrincipalPolicyRequest(
     input,
@@ -2896,8 +3015,9 @@ export const serializeAws_queryTagRoleCommand = async (
   input: TagRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryTagRoleRequest(input, context);
   body = buildFormUrlencodedString({
@@ -2912,8 +3032,9 @@ export const serializeAws_queryTagUserCommand = async (
   input: TagUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryTagUserRequest(input, context);
   body = buildFormUrlencodedString({
@@ -2928,8 +3049,9 @@ export const serializeAws_queryUntagRoleCommand = async (
   input: UntagRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryUntagRoleRequest(input, context);
   body = buildFormUrlencodedString({
@@ -2944,8 +3066,9 @@ export const serializeAws_queryUntagUserCommand = async (
   input: UntagUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryUntagUserRequest(input, context);
   body = buildFormUrlencodedString({
@@ -2960,8 +3083,9 @@ export const serializeAws_queryUpdateAccessKeyCommand = async (
   input: UpdateAccessKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryUpdateAccessKeyRequest(input, context);
   body = buildFormUrlencodedString({
@@ -2976,8 +3100,9 @@ export const serializeAws_queryUpdateAccountPasswordPolicyCommand = async (
   input: UpdateAccountPasswordPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryUpdateAccountPasswordPolicyRequest(
     input,
@@ -2995,8 +3120,9 @@ export const serializeAws_queryUpdateAssumeRolePolicyCommand = async (
   input: UpdateAssumeRolePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryUpdateAssumeRolePolicyRequest(
     input,
@@ -3014,8 +3140,9 @@ export const serializeAws_queryUpdateGroupCommand = async (
   input: UpdateGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryUpdateGroupRequest(input, context);
   body = buildFormUrlencodedString({
@@ -3030,8 +3157,9 @@ export const serializeAws_queryUpdateLoginProfileCommand = async (
   input: UpdateLoginProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryUpdateLoginProfileRequest(input, context);
   body = buildFormUrlencodedString({
@@ -3046,8 +3174,9 @@ export const serializeAws_queryUpdateOpenIDConnectProviderThumbprintCommand = as
   input: UpdateOpenIDConnectProviderThumbprintCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryUpdateOpenIDConnectProviderThumbprintRequest(
     input,
@@ -3065,8 +3194,9 @@ export const serializeAws_queryUpdateRoleCommand = async (
   input: UpdateRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryUpdateRoleRequest(input, context);
   body = buildFormUrlencodedString({
@@ -3081,8 +3211,9 @@ export const serializeAws_queryUpdateRoleDescriptionCommand = async (
   input: UpdateRoleDescriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryUpdateRoleDescriptionRequest(
     input,
@@ -3100,8 +3231,9 @@ export const serializeAws_queryUpdateSAMLProviderCommand = async (
   input: UpdateSAMLProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryUpdateSAMLProviderRequest(input, context);
   body = buildFormUrlencodedString({
@@ -3116,8 +3248,9 @@ export const serializeAws_queryUpdateSSHPublicKeyCommand = async (
   input: UpdateSSHPublicKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryUpdateSSHPublicKeyRequest(input, context);
   body = buildFormUrlencodedString({
@@ -3132,8 +3265,9 @@ export const serializeAws_queryUpdateServerCertificateCommand = async (
   input: UpdateServerCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryUpdateServerCertificateRequest(
     input,
@@ -3151,8 +3285,9 @@ export const serializeAws_queryUpdateServiceSpecificCredentialCommand = async (
   input: UpdateServiceSpecificCredentialCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryUpdateServiceSpecificCredentialRequest(
     input,
@@ -3170,8 +3305,9 @@ export const serializeAws_queryUpdateSigningCertificateCommand = async (
   input: UpdateSigningCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryUpdateSigningCertificateRequest(
     input,
@@ -3189,8 +3325,9 @@ export const serializeAws_queryUpdateUserCommand = async (
   input: UpdateUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryUpdateUserRequest(input, context);
   body = buildFormUrlencodedString({
@@ -3205,8 +3342,9 @@ export const serializeAws_queryUploadSSHPublicKeyCommand = async (
   input: UploadSSHPublicKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryUploadSSHPublicKeyRequest(input, context);
   body = buildFormUrlencodedString({
@@ -3221,8 +3359,9 @@ export const serializeAws_queryUploadServerCertificateCommand = async (
   input: UploadServerCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryUploadServerCertificateRequest(
     input,
@@ -3240,8 +3379,9 @@ export const serializeAws_queryUploadSigningCertificateCommand = async (
   input: UploadSigningCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryUploadSigningCertificateRequest(
     input,

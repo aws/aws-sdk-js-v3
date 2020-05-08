@@ -48,10 +48,10 @@ export const serializeAws_json1_1DeleteReportDefinitionCommand = async (
   input: DeleteReportDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSOrigamiServiceGatewayService.DeleteReportDefinition";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrigamiServiceGatewayService.DeleteReportDefinition"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteReportDefinitionRequest(input, context)
@@ -63,10 +63,10 @@ export const serializeAws_json1_1DescribeReportDefinitionsCommand = async (
   input: DescribeReportDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSOrigamiServiceGatewayService.DescribeReportDefinitions";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrigamiServiceGatewayService.DescribeReportDefinitions"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeReportDefinitionsRequest(input, context)
@@ -78,10 +78,10 @@ export const serializeAws_json1_1ModifyReportDefinitionCommand = async (
   input: ModifyReportDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSOrigamiServiceGatewayService.ModifyReportDefinition";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrigamiServiceGatewayService.ModifyReportDefinition"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ModifyReportDefinitionRequest(input, context)
@@ -93,10 +93,10 @@ export const serializeAws_json1_1PutReportDefinitionCommand = async (
   input: PutReportDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSOrigamiServiceGatewayService.PutReportDefinition";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrigamiServiceGatewayService.PutReportDefinition"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutReportDefinitionRequest(input, context)

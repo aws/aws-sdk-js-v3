@@ -448,9 +448,10 @@ export const serializeAws_json1_1AddTagsToOnPremisesInstancesCommand = async (
   input: AddTagsToOnPremisesInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeDeploy_20141006.AddTagsToOnPremisesInstances";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeDeploy_20141006.AddTagsToOnPremisesInstances"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AddTagsToOnPremisesInstancesInput(input, context)
@@ -462,9 +463,10 @@ export const serializeAws_json1_1BatchGetApplicationRevisionsCommand = async (
   input: BatchGetApplicationRevisionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeDeploy_20141006.BatchGetApplicationRevisions";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeDeploy_20141006.BatchGetApplicationRevisions"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchGetApplicationRevisionsInput(input, context)
@@ -476,9 +478,10 @@ export const serializeAws_json1_1BatchGetApplicationsCommand = async (
   input: BatchGetApplicationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeDeploy_20141006.BatchGetApplications";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeDeploy_20141006.BatchGetApplications"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchGetApplicationsInput(input, context)
@@ -490,9 +493,10 @@ export const serializeAws_json1_1BatchGetDeploymentGroupsCommand = async (
   input: BatchGetDeploymentGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeDeploy_20141006.BatchGetDeploymentGroups";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeDeploy_20141006.BatchGetDeploymentGroups"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchGetDeploymentGroupsInput(input, context)
@@ -504,9 +508,10 @@ export const serializeAws_json1_1BatchGetDeploymentInstancesCommand = async (
   input: BatchGetDeploymentInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeDeploy_20141006.BatchGetDeploymentInstances";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeDeploy_20141006.BatchGetDeploymentInstances"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchGetDeploymentInstancesInput(input, context)
@@ -518,9 +523,10 @@ export const serializeAws_json1_1BatchGetDeploymentTargetsCommand = async (
   input: BatchGetDeploymentTargetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeDeploy_20141006.BatchGetDeploymentTargets";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeDeploy_20141006.BatchGetDeploymentTargets"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchGetDeploymentTargetsInput(input, context)
@@ -532,9 +538,10 @@ export const serializeAws_json1_1BatchGetDeploymentsCommand = async (
   input: BatchGetDeploymentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeDeploy_20141006.BatchGetDeployments";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeDeploy_20141006.BatchGetDeployments"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchGetDeploymentsInput(input, context)
@@ -546,9 +553,10 @@ export const serializeAws_json1_1BatchGetOnPremisesInstancesCommand = async (
   input: BatchGetOnPremisesInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeDeploy_20141006.BatchGetOnPremisesInstances";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeDeploy_20141006.BatchGetOnPremisesInstances"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchGetOnPremisesInstancesInput(input, context)
@@ -560,9 +568,10 @@ export const serializeAws_json1_1ContinueDeploymentCommand = async (
   input: ContinueDeploymentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeDeploy_20141006.ContinueDeployment";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeDeploy_20141006.ContinueDeployment"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ContinueDeploymentInput(input, context)
@@ -574,9 +583,10 @@ export const serializeAws_json1_1CreateApplicationCommand = async (
   input: CreateApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeDeploy_20141006.CreateApplication";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeDeploy_20141006.CreateApplication"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateApplicationInput(input, context)
@@ -588,9 +598,10 @@ export const serializeAws_json1_1CreateDeploymentCommand = async (
   input: CreateDeploymentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeDeploy_20141006.CreateDeployment";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeDeploy_20141006.CreateDeployment"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateDeploymentInput(input, context)
@@ -602,9 +613,10 @@ export const serializeAws_json1_1CreateDeploymentConfigCommand = async (
   input: CreateDeploymentConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeDeploy_20141006.CreateDeploymentConfig";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeDeploy_20141006.CreateDeploymentConfig"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateDeploymentConfigInput(input, context)
@@ -616,9 +628,10 @@ export const serializeAws_json1_1CreateDeploymentGroupCommand = async (
   input: CreateDeploymentGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeDeploy_20141006.CreateDeploymentGroup";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeDeploy_20141006.CreateDeploymentGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateDeploymentGroupInput(input, context)
@@ -630,9 +643,10 @@ export const serializeAws_json1_1DeleteApplicationCommand = async (
   input: DeleteApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeDeploy_20141006.DeleteApplication";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeDeploy_20141006.DeleteApplication"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteApplicationInput(input, context)
@@ -644,9 +658,10 @@ export const serializeAws_json1_1DeleteDeploymentConfigCommand = async (
   input: DeleteDeploymentConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeDeploy_20141006.DeleteDeploymentConfig";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeDeploy_20141006.DeleteDeploymentConfig"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteDeploymentConfigInput(input, context)
@@ -658,9 +673,10 @@ export const serializeAws_json1_1DeleteDeploymentGroupCommand = async (
   input: DeleteDeploymentGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeDeploy_20141006.DeleteDeploymentGroup";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeDeploy_20141006.DeleteDeploymentGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteDeploymentGroupInput(input, context)
@@ -672,9 +688,10 @@ export const serializeAws_json1_1DeleteGitHubAccountTokenCommand = async (
   input: DeleteGitHubAccountTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeDeploy_20141006.DeleteGitHubAccountToken";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeDeploy_20141006.DeleteGitHubAccountToken"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteGitHubAccountTokenInput(input, context)
@@ -686,9 +703,10 @@ export const serializeAws_json1_1DeregisterOnPremisesInstanceCommand = async (
   input: DeregisterOnPremisesInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeDeploy_20141006.DeregisterOnPremisesInstance";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeDeploy_20141006.DeregisterOnPremisesInstance"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeregisterOnPremisesInstanceInput(input, context)
@@ -700,9 +718,10 @@ export const serializeAws_json1_1GetApplicationCommand = async (
   input: GetApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeDeploy_20141006.GetApplication";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeDeploy_20141006.GetApplication"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetApplicationInput(input, context)
@@ -714,9 +733,10 @@ export const serializeAws_json1_1GetApplicationRevisionCommand = async (
   input: GetApplicationRevisionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeDeploy_20141006.GetApplicationRevision";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeDeploy_20141006.GetApplicationRevision"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetApplicationRevisionInput(input, context)
@@ -728,9 +748,10 @@ export const serializeAws_json1_1GetDeploymentCommand = async (
   input: GetDeploymentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeDeploy_20141006.GetDeployment";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeDeploy_20141006.GetDeployment"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetDeploymentInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -740,9 +761,10 @@ export const serializeAws_json1_1GetDeploymentConfigCommand = async (
   input: GetDeploymentConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeDeploy_20141006.GetDeploymentConfig";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeDeploy_20141006.GetDeploymentConfig"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetDeploymentConfigInput(input, context)
@@ -754,9 +776,10 @@ export const serializeAws_json1_1GetDeploymentGroupCommand = async (
   input: GetDeploymentGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeDeploy_20141006.GetDeploymentGroup";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeDeploy_20141006.GetDeploymentGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetDeploymentGroupInput(input, context)
@@ -768,9 +791,10 @@ export const serializeAws_json1_1GetDeploymentInstanceCommand = async (
   input: GetDeploymentInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeDeploy_20141006.GetDeploymentInstance";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeDeploy_20141006.GetDeploymentInstance"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetDeploymentInstanceInput(input, context)
@@ -782,9 +806,10 @@ export const serializeAws_json1_1GetDeploymentTargetCommand = async (
   input: GetDeploymentTargetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeDeploy_20141006.GetDeploymentTarget";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeDeploy_20141006.GetDeploymentTarget"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetDeploymentTargetInput(input, context)
@@ -796,9 +821,10 @@ export const serializeAws_json1_1GetOnPremisesInstanceCommand = async (
   input: GetOnPremisesInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeDeploy_20141006.GetOnPremisesInstance";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeDeploy_20141006.GetOnPremisesInstance"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetOnPremisesInstanceInput(input, context)
@@ -810,9 +836,10 @@ export const serializeAws_json1_1ListApplicationRevisionsCommand = async (
   input: ListApplicationRevisionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeDeploy_20141006.ListApplicationRevisions";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeDeploy_20141006.ListApplicationRevisions"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListApplicationRevisionsInput(input, context)
@@ -824,9 +851,10 @@ export const serializeAws_json1_1ListApplicationsCommand = async (
   input: ListApplicationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeDeploy_20141006.ListApplications";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeDeploy_20141006.ListApplications"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListApplicationsInput(input, context)
@@ -838,9 +866,10 @@ export const serializeAws_json1_1ListDeploymentConfigsCommand = async (
   input: ListDeploymentConfigsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeDeploy_20141006.ListDeploymentConfigs";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeDeploy_20141006.ListDeploymentConfigs"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListDeploymentConfigsInput(input, context)
@@ -852,9 +881,10 @@ export const serializeAws_json1_1ListDeploymentGroupsCommand = async (
   input: ListDeploymentGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeDeploy_20141006.ListDeploymentGroups";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeDeploy_20141006.ListDeploymentGroups"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListDeploymentGroupsInput(input, context)
@@ -866,9 +896,10 @@ export const serializeAws_json1_1ListDeploymentInstancesCommand = async (
   input: ListDeploymentInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeDeploy_20141006.ListDeploymentInstances";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeDeploy_20141006.ListDeploymentInstances"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListDeploymentInstancesInput(input, context)
@@ -880,9 +911,10 @@ export const serializeAws_json1_1ListDeploymentTargetsCommand = async (
   input: ListDeploymentTargetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeDeploy_20141006.ListDeploymentTargets";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeDeploy_20141006.ListDeploymentTargets"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListDeploymentTargetsInput(input, context)
@@ -894,9 +926,10 @@ export const serializeAws_json1_1ListDeploymentsCommand = async (
   input: ListDeploymentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeDeploy_20141006.ListDeployments";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeDeploy_20141006.ListDeployments"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListDeploymentsInput(input, context)
@@ -908,9 +941,10 @@ export const serializeAws_json1_1ListGitHubAccountTokenNamesCommand = async (
   input: ListGitHubAccountTokenNamesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeDeploy_20141006.ListGitHubAccountTokenNames";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeDeploy_20141006.ListGitHubAccountTokenNames"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListGitHubAccountTokenNamesInput(input, context)
@@ -922,9 +956,10 @@ export const serializeAws_json1_1ListOnPremisesInstancesCommand = async (
   input: ListOnPremisesInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeDeploy_20141006.ListOnPremisesInstances";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeDeploy_20141006.ListOnPremisesInstances"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListOnPremisesInstancesInput(input, context)
@@ -936,9 +971,10 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeDeploy_20141006.ListTagsForResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeDeploy_20141006.ListTagsForResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTagsForResourceInput(input, context)
@@ -950,10 +986,10 @@ export const serializeAws_json1_1PutLifecycleEventHookExecutionStatusCommand = a
   input: PutLifecycleEventHookExecutionStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "CodeDeploy_20141006.PutLifecycleEventHookExecutionStatus";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeDeploy_20141006.PutLifecycleEventHookExecutionStatus"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutLifecycleEventHookExecutionStatusInput(
@@ -968,9 +1004,10 @@ export const serializeAws_json1_1RegisterApplicationRevisionCommand = async (
   input: RegisterApplicationRevisionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeDeploy_20141006.RegisterApplicationRevision";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeDeploy_20141006.RegisterApplicationRevision"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RegisterApplicationRevisionInput(input, context)
@@ -982,9 +1019,10 @@ export const serializeAws_json1_1RegisterOnPremisesInstanceCommand = async (
   input: RegisterOnPremisesInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeDeploy_20141006.RegisterOnPremisesInstance";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeDeploy_20141006.RegisterOnPremisesInstance"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RegisterOnPremisesInstanceInput(input, context)
@@ -996,10 +1034,10 @@ export const serializeAws_json1_1RemoveTagsFromOnPremisesInstancesCommand = asyn
   input: RemoveTagsFromOnPremisesInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "CodeDeploy_20141006.RemoveTagsFromOnPremisesInstances";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeDeploy_20141006.RemoveTagsFromOnPremisesInstances"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RemoveTagsFromOnPremisesInstancesInput(input, context)
@@ -1011,10 +1049,10 @@ export const serializeAws_json1_1SkipWaitTimeForInstanceTerminationCommand = asy
   input: SkipWaitTimeForInstanceTerminationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "CodeDeploy_20141006.SkipWaitTimeForInstanceTermination";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeDeploy_20141006.SkipWaitTimeForInstanceTermination"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1SkipWaitTimeForInstanceTerminationInput(input, context)
@@ -1026,9 +1064,10 @@ export const serializeAws_json1_1StopDeploymentCommand = async (
   input: StopDeploymentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeDeploy_20141006.StopDeployment";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeDeploy_20141006.StopDeployment"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StopDeploymentInput(input, context)
@@ -1040,9 +1079,10 @@ export const serializeAws_json1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeDeploy_20141006.TagResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeDeploy_20141006.TagResource"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1052,9 +1092,10 @@ export const serializeAws_json1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeDeploy_20141006.UntagResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeDeploy_20141006.UntagResource"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UntagResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1064,9 +1105,10 @@ export const serializeAws_json1_1UpdateApplicationCommand = async (
   input: UpdateApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeDeploy_20141006.UpdateApplication";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeDeploy_20141006.UpdateApplication"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateApplicationInput(input, context)
@@ -1078,9 +1120,10 @@ export const serializeAws_json1_1UpdateDeploymentGroupCommand = async (
   input: UpdateDeploymentGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeDeploy_20141006.UpdateDeploymentGroup";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeDeploy_20141006.UpdateDeploymentGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateDeploymentGroupInput(input, context)

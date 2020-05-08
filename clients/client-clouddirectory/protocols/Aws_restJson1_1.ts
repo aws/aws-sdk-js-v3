@@ -410,11 +410,12 @@ export const serializeAws_restJson1_1AddFacetToObjectCommand = async (
   input: AddFacetToObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/facets";
   let body: any;
   const bodyParams: any = {};
@@ -455,11 +456,12 @@ export const serializeAws_restJson1_1ApplySchemaCommand = async (
   input: ApplySchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/apply";
   let body: any;
   const bodyParams: any = {};
@@ -483,11 +485,12 @@ export const serializeAws_restJson1_1AttachObjectCommand = async (
   input: AttachObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/attach";
   let body: any;
   const bodyParams: any = {};
@@ -523,11 +526,12 @@ export const serializeAws_restJson1_1AttachPolicyCommand = async (
   input: AttachPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/policy/attach";
   let body: any;
   const bodyParams: any = {};
@@ -560,11 +564,12 @@ export const serializeAws_restJson1_1AttachToIndexCommand = async (
   input: AttachToIndexCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/index/attach";
   let body: any;
   const bodyParams: any = {};
@@ -597,11 +602,12 @@ export const serializeAws_restJson1_1AttachTypedLinkCommand = async (
   input: AttachTypedLinkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/attach";
   let body: any;
   const bodyParams: any = {};
@@ -654,14 +660,15 @@ export const serializeAws_restJson1_1BatchReadCommand = async (
   input: BatchReadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.ConsistencyLevel)) {
-    headers["x-amz-consistency-level"] = input.ConsistencyLevel!;
-  }
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.ConsistencyLevel) && {
+      "x-amz-consistency-level": input.ConsistencyLevel!
+    }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/batchread";
   let body: any;
   const bodyParams: any = {};
@@ -688,11 +695,12 @@ export const serializeAws_restJson1_1BatchWriteCommand = async (
   input: BatchWriteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/batchwrite";
   let body: any;
   const bodyParams: any = {};
@@ -719,11 +727,12 @@ export const serializeAws_restJson1_1CreateDirectoryCommand = async (
   input: CreateDirectoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.SchemaArn)) {
-    headers["x-amz-data-partition"] = input.SchemaArn!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.SchemaArn) && {
+      "x-amz-data-partition": input.SchemaArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/directory/create";
   let body: any;
   const bodyParams: any = {};
@@ -747,11 +756,12 @@ export const serializeAws_restJson1_1CreateFacetCommand = async (
   input: CreateFacetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.SchemaArn)) {
-    headers["x-amz-data-partition"] = input.SchemaArn!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.SchemaArn) && {
+      "x-amz-data-partition": input.SchemaArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/facet/create";
   let body: any;
   const bodyParams: any = {};
@@ -787,11 +797,12 @@ export const serializeAws_restJson1_1CreateIndexCommand = async (
   input: CreateIndexCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/index";
   let body: any;
   const bodyParams: any = {};
@@ -832,11 +843,12 @@ export const serializeAws_restJson1_1CreateObjectCommand = async (
   input: CreateObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object";
   let body: any;
   const bodyParams: any = {};
@@ -880,8 +892,9 @@ export const serializeAws_restJson1_1CreateSchemaCommand = async (
   input: CreateSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/create";
   let body: any;
   const bodyParams: any = {};
@@ -905,11 +918,12 @@ export const serializeAws_restJson1_1CreateTypedLinkFacetCommand = async (
   input: CreateTypedLinkFacetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.SchemaArn)) {
-    headers["x-amz-data-partition"] = input.SchemaArn!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.SchemaArn) && {
+      "x-amz-data-partition": input.SchemaArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/facet/create";
   let body: any;
   const bodyParams: any = {};
@@ -936,11 +950,12 @@ export const serializeAws_restJson1_1DeleteDirectoryCommand = async (
   input: DeleteDirectoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/directory";
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -959,11 +974,12 @@ export const serializeAws_restJson1_1DeleteFacetCommand = async (
   input: DeleteFacetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.SchemaArn)) {
-    headers["x-amz-data-partition"] = input.SchemaArn!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.SchemaArn) && {
+      "x-amz-data-partition": input.SchemaArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/facet/delete";
   let body: any;
   const bodyParams: any = {};
@@ -987,11 +1003,12 @@ export const serializeAws_restJson1_1DeleteObjectCommand = async (
   input: DeleteObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/delete";
   let body: any;
   const bodyParams: any = {};
@@ -1018,11 +1035,12 @@ export const serializeAws_restJson1_1DeleteSchemaCommand = async (
   input: DeleteSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.SchemaArn)) {
-    headers["x-amz-data-partition"] = input.SchemaArn!;
-  }
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.SchemaArn) && {
+      "x-amz-data-partition": input.SchemaArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema";
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1041,11 +1059,12 @@ export const serializeAws_restJson1_1DeleteTypedLinkFacetCommand = async (
   input: DeleteTypedLinkFacetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.SchemaArn)) {
-    headers["x-amz-data-partition"] = input.SchemaArn!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.SchemaArn) && {
+      "x-amz-data-partition": input.SchemaArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/facet/delete";
   let body: any;
   const bodyParams: any = {};
@@ -1069,11 +1088,12 @@ export const serializeAws_restJson1_1DetachFromIndexCommand = async (
   input: DetachFromIndexCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/index/detach";
   let body: any;
   const bodyParams: any = {};
@@ -1106,11 +1126,12 @@ export const serializeAws_restJson1_1DetachObjectCommand = async (
   input: DetachObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/detach";
   let body: any;
   const bodyParams: any = {};
@@ -1140,11 +1161,12 @@ export const serializeAws_restJson1_1DetachPolicyCommand = async (
   input: DetachPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/policy/detach";
   let body: any;
   const bodyParams: any = {};
@@ -1177,11 +1199,12 @@ export const serializeAws_restJson1_1DetachTypedLinkCommand = async (
   input: DetachTypedLinkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/detach";
   let body: any;
   const bodyParams: any = {};
@@ -1210,11 +1233,12 @@ export const serializeAws_restJson1_1DisableDirectoryCommand = async (
   input: DisableDirectoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/directory/disable";
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1233,11 +1257,12 @@ export const serializeAws_restJson1_1EnableDirectoryCommand = async (
   input: EnableDirectoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/directory/enable";
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1256,8 +1281,9 @@ export const serializeAws_restJson1_1GetAppliedSchemaVersionCommand = async (
   input: GetAppliedSchemaVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/getappliedschema";
   let body: any;
   const bodyParams: any = {};
@@ -1281,11 +1307,12 @@ export const serializeAws_restJson1_1GetDirectoryCommand = async (
   input: GetDirectoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/directory/get";
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1304,11 +1331,12 @@ export const serializeAws_restJson1_1GetFacetCommand = async (
   input: GetFacetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.SchemaArn)) {
-    headers["x-amz-data-partition"] = input.SchemaArn!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.SchemaArn) && {
+      "x-amz-data-partition": input.SchemaArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/facet";
   let body: any;
   const bodyParams: any = {};
@@ -1332,11 +1360,12 @@ export const serializeAws_restJson1_1GetLinkAttributesCommand = async (
   input: GetLinkAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath =
     "/amazonclouddirectory/2017-01-11/typedlink/attributes/get";
   let body: any;
@@ -1375,14 +1404,15 @@ export const serializeAws_restJson1_1GetObjectAttributesCommand = async (
   input: GetObjectAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.ConsistencyLevel)) {
-    headers["x-amz-consistency-level"] = input.ConsistencyLevel!;
-  }
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.ConsistencyLevel) && {
+      "x-amz-consistency-level": input.ConsistencyLevel!
+    }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/attributes/get";
   let body: any;
   const bodyParams: any = {};
@@ -1421,14 +1451,15 @@ export const serializeAws_restJson1_1GetObjectInformationCommand = async (
   input: GetObjectInformationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.ConsistencyLevel)) {
-    headers["x-amz-consistency-level"] = input.ConsistencyLevel!;
-  }
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.ConsistencyLevel) && {
+      "x-amz-consistency-level": input.ConsistencyLevel!
+    }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/information";
   let body: any;
   const bodyParams: any = {};
@@ -1455,11 +1486,12 @@ export const serializeAws_restJson1_1GetSchemaAsJsonCommand = async (
   input: GetSchemaAsJsonCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.SchemaArn)) {
-    headers["x-amz-data-partition"] = input.SchemaArn!;
-  }
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.SchemaArn) && {
+      "x-amz-data-partition": input.SchemaArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/json";
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1478,11 +1510,12 @@ export const serializeAws_restJson1_1GetTypedLinkFacetInformationCommand = async
   input: GetTypedLinkFacetInformationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.SchemaArn)) {
-    headers["x-amz-data-partition"] = input.SchemaArn!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.SchemaArn) && {
+      "x-amz-data-partition": input.SchemaArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/facet/get";
   let body: any;
   const bodyParams: any = {};
@@ -1506,8 +1539,9 @@ export const serializeAws_restJson1_1ListAppliedSchemaArnsCommand = async (
   input: ListAppliedSchemaArnsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/applied";
   let body: any;
   const bodyParams: any = {};
@@ -1540,14 +1574,15 @@ export const serializeAws_restJson1_1ListAttachedIndicesCommand = async (
   input: ListAttachedIndicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.ConsistencyLevel)) {
-    headers["x-amz-consistency-level"] = input.ConsistencyLevel!;
-  }
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.ConsistencyLevel) && {
+      "x-amz-consistency-level": input.ConsistencyLevel!
+    }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/indices";
   let body: any;
   const bodyParams: any = {};
@@ -1580,8 +1615,9 @@ export const serializeAws_restJson1_1ListDevelopmentSchemaArnsCommand = async (
   input: ListDevelopmentSchemaArnsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/development";
   let body: any;
   const bodyParams: any = {};
@@ -1608,8 +1644,9 @@ export const serializeAws_restJson1_1ListDirectoriesCommand = async (
   input: ListDirectoriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/directory/list";
   let body: any;
   const bodyParams: any = {};
@@ -1639,11 +1676,12 @@ export const serializeAws_restJson1_1ListFacetAttributesCommand = async (
   input: ListFacetAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.SchemaArn)) {
-    headers["x-amz-data-partition"] = input.SchemaArn!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.SchemaArn) && {
+      "x-amz-data-partition": input.SchemaArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/facet/attributes";
   let body: any;
   const bodyParams: any = {};
@@ -1673,11 +1711,12 @@ export const serializeAws_restJson1_1ListFacetNamesCommand = async (
   input: ListFacetNamesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.SchemaArn)) {
-    headers["x-amz-data-partition"] = input.SchemaArn!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.SchemaArn) && {
+      "x-amz-data-partition": input.SchemaArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/facet/list";
   let body: any;
   const bodyParams: any = {};
@@ -1704,11 +1743,12 @@ export const serializeAws_restJson1_1ListIncomingTypedLinksCommand = async (
   input: ListIncomingTypedLinksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/incoming";
   let body: any;
   const bodyParams: any = {};
@@ -1760,14 +1800,15 @@ export const serializeAws_restJson1_1ListIndexCommand = async (
   input: ListIndexCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.ConsistencyLevel)) {
-    headers["x-amz-consistency-level"] = input.ConsistencyLevel!;
-  }
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.ConsistencyLevel) && {
+      "x-amz-consistency-level": input.ConsistencyLevel!
+    }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/index/targets";
   let body: any;
   const bodyParams: any = {};
@@ -1808,8 +1849,9 @@ export const serializeAws_restJson1_1ListManagedSchemaArnsCommand = async (
   input: ListManagedSchemaArnsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/managed";
   let body: any;
   const bodyParams: any = {};
@@ -1839,14 +1881,15 @@ export const serializeAws_restJson1_1ListObjectAttributesCommand = async (
   input: ListObjectAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.ConsistencyLevel)) {
-    headers["x-amz-consistency-level"] = input.ConsistencyLevel!;
-  }
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.ConsistencyLevel) && {
+      "x-amz-consistency-level": input.ConsistencyLevel!
+    }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/attributes";
   let body: any;
   const bodyParams: any = {};
@@ -1885,14 +1928,15 @@ export const serializeAws_restJson1_1ListObjectChildrenCommand = async (
   input: ListObjectChildrenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.ConsistencyLevel)) {
-    headers["x-amz-consistency-level"] = input.ConsistencyLevel!;
-  }
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.ConsistencyLevel) && {
+      "x-amz-consistency-level": input.ConsistencyLevel!
+    }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/children";
   let body: any;
   const bodyParams: any = {};
@@ -1925,11 +1969,12 @@ export const serializeAws_restJson1_1ListObjectParentPathsCommand = async (
   input: ListObjectParentPathsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/parentpaths";
   let body: any;
   const bodyParams: any = {};
@@ -1962,14 +2007,15 @@ export const serializeAws_restJson1_1ListObjectParentsCommand = async (
   input: ListObjectParentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.ConsistencyLevel)) {
-    headers["x-amz-consistency-level"] = input.ConsistencyLevel!;
-  }
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.ConsistencyLevel) && {
+      "x-amz-consistency-level": input.ConsistencyLevel!
+    }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/parent";
   let body: any;
   const bodyParams: any = {};
@@ -2006,14 +2052,15 @@ export const serializeAws_restJson1_1ListObjectPoliciesCommand = async (
   input: ListObjectPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.ConsistencyLevel)) {
-    headers["x-amz-consistency-level"] = input.ConsistencyLevel!;
-  }
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.ConsistencyLevel) && {
+      "x-amz-consistency-level": input.ConsistencyLevel!
+    }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/policy";
   let body: any;
   const bodyParams: any = {};
@@ -2046,11 +2093,12 @@ export const serializeAws_restJson1_1ListOutgoingTypedLinksCommand = async (
   input: ListOutgoingTypedLinksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/outgoing";
   let body: any;
   const bodyParams: any = {};
@@ -2102,14 +2150,15 @@ export const serializeAws_restJson1_1ListPolicyAttachmentsCommand = async (
   input: ListPolicyAttachmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.ConsistencyLevel)) {
-    headers["x-amz-consistency-level"] = input.ConsistencyLevel!;
-  }
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.ConsistencyLevel) && {
+      "x-amz-consistency-level": input.ConsistencyLevel!
+    }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/policy/attachment";
   let body: any;
   const bodyParams: any = {};
@@ -2142,8 +2191,9 @@ export const serializeAws_restJson1_1ListPublishedSchemaArnsCommand = async (
   input: ListPublishedSchemaArnsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/published";
   let body: any;
   const bodyParams: any = {};
@@ -2173,8 +2223,9 @@ export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/tags";
   let body: any;
   const bodyParams: any = {};
@@ -2204,11 +2255,12 @@ export const serializeAws_restJson1_1ListTypedLinkFacetAttributesCommand = async
   input: ListTypedLinkFacetAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.SchemaArn)) {
-    headers["x-amz-data-partition"] = input.SchemaArn!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.SchemaArn) && {
+      "x-amz-data-partition": input.SchemaArn!
+    })
+  };
   let resolvedPath =
     "/amazonclouddirectory/2017-01-11/typedlink/facet/attributes";
   let body: any;
@@ -2239,11 +2291,12 @@ export const serializeAws_restJson1_1ListTypedLinkFacetNamesCommand = async (
   input: ListTypedLinkFacetNamesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.SchemaArn)) {
-    headers["x-amz-data-partition"] = input.SchemaArn!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.SchemaArn) && {
+      "x-amz-data-partition": input.SchemaArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/facet/list";
   let body: any;
   const bodyParams: any = {};
@@ -2270,11 +2323,12 @@ export const serializeAws_restJson1_1LookupPolicyCommand = async (
   input: LookupPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/policy/lookup";
   let body: any;
   const bodyParams: any = {};
@@ -2307,11 +2361,12 @@ export const serializeAws_restJson1_1PublishSchemaCommand = async (
   input: PublishSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.DevelopmentSchemaArn)) {
-    headers["x-amz-data-partition"] = input.DevelopmentSchemaArn!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.DevelopmentSchemaArn) && {
+      "x-amz-data-partition": input.DevelopmentSchemaArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/publish";
   let body: any;
   const bodyParams: any = {};
@@ -2341,11 +2396,12 @@ export const serializeAws_restJson1_1PutSchemaFromJsonCommand = async (
   input: PutSchemaFromJsonCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.SchemaArn)) {
-    headers["x-amz-data-partition"] = input.SchemaArn!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.SchemaArn) && {
+      "x-amz-data-partition": input.SchemaArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/json";
   let body: any;
   const bodyParams: any = {};
@@ -2369,11 +2425,12 @@ export const serializeAws_restJson1_1RemoveFacetFromObjectCommand = async (
   input: RemoveFacetFromObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/facets/delete";
   let body: any;
   const bodyParams: any = {};
@@ -2406,8 +2463,9 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/tags/add";
   let body: any;
   const bodyParams: any = {};
@@ -2434,8 +2492,9 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/tags/remove";
   let body: any;
   const bodyParams: any = {};
@@ -2465,11 +2524,12 @@ export const serializeAws_restJson1_1UpdateFacetCommand = async (
   input: UpdateFacetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.SchemaArn)) {
-    headers["x-amz-data-partition"] = input.SchemaArn!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.SchemaArn) && {
+      "x-amz-data-partition": input.SchemaArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/facet";
   let body: any;
   const bodyParams: any = {};
@@ -2504,11 +2564,12 @@ export const serializeAws_restJson1_1UpdateLinkAttributesCommand = async (
   input: UpdateLinkAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath =
     "/amazonclouddirectory/2017-01-11/typedlink/attributes/update";
   let body: any;
@@ -2546,11 +2607,12 @@ export const serializeAws_restJson1_1UpdateObjectAttributesCommand = async (
   input: UpdateObjectAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/update";
   let body: any;
   const bodyParams: any = {};
@@ -2585,11 +2647,12 @@ export const serializeAws_restJson1_1UpdateSchemaCommand = async (
   input: UpdateSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.SchemaArn)) {
-    headers["x-amz-data-partition"] = input.SchemaArn!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.SchemaArn) && {
+      "x-amz-data-partition": input.SchemaArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/update";
   let body: any;
   const bodyParams: any = {};
@@ -2613,11 +2676,12 @@ export const serializeAws_restJson1_1UpdateTypedLinkFacetCommand = async (
   input: UpdateTypedLinkFacetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.SchemaArn)) {
-    headers["x-amz-data-partition"] = input.SchemaArn!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.SchemaArn) && {
+      "x-amz-data-partition": input.SchemaArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/facet";
   let body: any;
   const bodyParams: any = {};
@@ -2657,8 +2721,9 @@ export const serializeAws_restJson1_1UpgradeAppliedSchemaCommand = async (
   input: UpgradeAppliedSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/upgradeapplied";
   let body: any;
   const bodyParams: any = {};
@@ -2688,8 +2753,9 @@ export const serializeAws_restJson1_1UpgradePublishedSchemaCommand = async (
   input: UpgradePublishedSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/upgradepublished";
   let body: any;
   const bodyParams: any = {};

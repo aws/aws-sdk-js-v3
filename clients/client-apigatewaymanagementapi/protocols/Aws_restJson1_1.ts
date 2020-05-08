@@ -36,8 +36,9 @@ export const serializeAws_restJson1_1DeleteConnectionCommand = async (
   input: DeleteConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/@connections/{ConnectionId}";
   if (input.ConnectionId !== undefined) {
     const labelValue: string = input.ConnectionId;
@@ -70,8 +71,9 @@ export const serializeAws_restJson1_1GetConnectionCommand = async (
   input: GetConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/@connections/{ConnectionId}";
   if (input.ConnectionId !== undefined) {
     const labelValue: string = input.ConnectionId;
@@ -104,8 +106,9 @@ export const serializeAws_restJson1_1PostToConnectionCommand = async (
   input: PostToConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/octet-stream";
+  const headers: any = {
+    "Content-Type": "application/octet-stream"
+  };
   let resolvedPath = "/@connections/{ConnectionId}";
   if (input.ConnectionId !== undefined) {
     const labelValue: string = input.ConnectionId;

@@ -134,8 +134,9 @@ export const serializeAws_restJson1_1CreateBrokerCommand = async (
   input: CreateBrokerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/brokers";
   let body: any;
   const bodyParams: any = {};
@@ -233,8 +234,9 @@ export const serializeAws_restJson1_1CreateConfigurationCommand = async (
   input: CreateConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/configurations";
   let body: any;
   const bodyParams: any = {};
@@ -270,8 +272,9 @@ export const serializeAws_restJson1_1CreateTagsCommand = async (
   input: CreateTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -312,8 +315,9 @@ export const serializeAws_restJson1_1CreateUserCommand = async (
   input: CreateUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/brokers/{BrokerId}/users/{Username}";
   if (input.BrokerId !== undefined) {
     const labelValue: string = input.BrokerId;
@@ -370,8 +374,9 @@ export const serializeAws_restJson1_1DeleteBrokerCommand = async (
   input: DeleteBrokerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/brokers/{BrokerId}";
   if (input.BrokerId !== undefined) {
     const labelValue: string = input.BrokerId;
@@ -402,8 +407,9 @@ export const serializeAws_restJson1_1DeleteTagsCommand = async (
   input: DeleteTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -441,8 +447,9 @@ export const serializeAws_restJson1_1DeleteUserCommand = async (
   input: DeleteUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/brokers/{BrokerId}/users/{Username}";
   if (input.BrokerId !== undefined) {
     const labelValue: string = input.BrokerId;
@@ -485,8 +492,9 @@ export const serializeAws_restJson1_1DescribeBrokerCommand = async (
   input: DescribeBrokerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/brokers/{BrokerId}";
   if (input.BrokerId !== undefined) {
     const labelValue: string = input.BrokerId;
@@ -517,8 +525,9 @@ export const serializeAws_restJson1_1DescribeBrokerEngineTypesCommand = async (
   input: DescribeBrokerEngineTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/broker-engine-types";
   const query: any = {};
   if (input.EngineType !== undefined) {
@@ -548,8 +557,9 @@ export const serializeAws_restJson1_1DescribeBrokerInstanceOptionsCommand = asyn
   input: DescribeBrokerInstanceOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/broker-instance-options";
   const query: any = {};
   if (input.EngineType !== undefined) {
@@ -585,8 +595,9 @@ export const serializeAws_restJson1_1DescribeConfigurationCommand = async (
   input: DescribeConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/configurations/{ConfigurationId}";
   if (input.ConfigurationId !== undefined) {
     const labelValue: string = input.ConfigurationId;
@@ -619,8 +630,9 @@ export const serializeAws_restJson1_1DescribeConfigurationRevisionCommand = asyn
   input: DescribeConfigurationRevisionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/v1/configurations/{ConfigurationId}/revisions/{ConfigurationRevision}";
   if (input.ConfigurationId !== undefined) {
@@ -670,8 +682,9 @@ export const serializeAws_restJson1_1DescribeUserCommand = async (
   input: DescribeUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/brokers/{BrokerId}/users/{Username}";
   if (input.BrokerId !== undefined) {
     const labelValue: string = input.BrokerId;
@@ -714,8 +727,9 @@ export const serializeAws_restJson1_1ListBrokersCommand = async (
   input: ListBrokersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/brokers";
   const query: any = {};
   if (input.MaxResults !== undefined) {
@@ -742,8 +756,9 @@ export const serializeAws_restJson1_1ListConfigurationRevisionsCommand = async (
   input: ListConfigurationRevisionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/configurations/{ConfigurationId}/revisions";
   if (input.ConfigurationId !== undefined) {
     const labelValue: string = input.ConfigurationId;
@@ -784,8 +799,9 @@ export const serializeAws_restJson1_1ListConfigurationsCommand = async (
   input: ListConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/configurations";
   const query: any = {};
   if (input.MaxResults !== undefined) {
@@ -812,8 +828,9 @@ export const serializeAws_restJson1_1ListTagsCommand = async (
   input: ListTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -846,8 +863,9 @@ export const serializeAws_restJson1_1ListUsersCommand = async (
   input: ListUsersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/brokers/{BrokerId}/users";
   if (input.BrokerId !== undefined) {
     const labelValue: string = input.BrokerId;
@@ -886,8 +904,9 @@ export const serializeAws_restJson1_1RebootBrokerCommand = async (
   input: RebootBrokerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/brokers/{BrokerId}/reboot";
   if (input.BrokerId !== undefined) {
     const labelValue: string = input.BrokerId;
@@ -918,8 +937,9 @@ export const serializeAws_restJson1_1UpdateBrokerCommand = async (
   input: UpdateBrokerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/brokers/{BrokerId}";
   if (input.BrokerId !== undefined) {
     const labelValue: string = input.BrokerId;
@@ -976,8 +996,9 @@ export const serializeAws_restJson1_1UpdateConfigurationCommand = async (
   input: UpdateConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/configurations/{ConfigurationId}";
   if (input.ConfigurationId !== undefined) {
     const labelValue: string = input.ConfigurationId;
@@ -1018,8 +1039,9 @@ export const serializeAws_restJson1_1UpdateUserCommand = async (
   input: UpdateUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/brokers/{BrokerId}/users/{Username}";
   if (input.BrokerId !== undefined) {
     const labelValue: string = input.BrokerId;

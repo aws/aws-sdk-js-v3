@@ -42,11 +42,12 @@ export const serializeAws_restJson1_1GetRoleCredentialsCommand = async (
   input: GetRoleCredentialsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.accessToken)) {
-    headers["x-amz-sso_bearer_token"] = input.accessToken!;
-  }
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.accessToken) && {
+      "x-amz-sso_bearer_token": input.accessToken!
+    })
+  };
   let resolvedPath = "/federation/credentials";
   const query: any = {};
   if (input.accountId !== undefined) {
@@ -73,11 +74,12 @@ export const serializeAws_restJson1_1ListAccountRolesCommand = async (
   input: ListAccountRolesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.accessToken)) {
-    headers["x-amz-sso_bearer_token"] = input.accessToken!;
-  }
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.accessToken) && {
+      "x-amz-sso_bearer_token": input.accessToken!
+    })
+  };
   let resolvedPath = "/assignment/roles";
   const query: any = {};
   if (input.accountId !== undefined) {
@@ -107,11 +109,12 @@ export const serializeAws_restJson1_1ListAccountsCommand = async (
   input: ListAccountsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.accessToken)) {
-    headers["x-amz-sso_bearer_token"] = input.accessToken!;
-  }
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.accessToken) && {
+      "x-amz-sso_bearer_token": input.accessToken!
+    })
+  };
   let resolvedPath = "/assignment/accounts";
   const query: any = {};
   if (input.maxResults !== undefined) {
@@ -138,11 +141,12 @@ export const serializeAws_restJson1_1LogoutCommand = async (
   input: LogoutCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.accessToken)) {
-    headers["x-amz-sso_bearer_token"] = input.accessToken!;
-  }
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.accessToken) && {
+      "x-amz-sso_bearer_token": input.accessToken!
+    })
+  };
   let resolvedPath = "/logout";
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();

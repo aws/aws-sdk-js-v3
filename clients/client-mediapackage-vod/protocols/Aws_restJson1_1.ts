@@ -90,8 +90,9 @@ export const serializeAws_restJson1_1CreateAssetCommand = async (
   input: CreateAssetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/assets";
   let body: any;
   const bodyParams: any = {};
@@ -127,8 +128,9 @@ export const serializeAws_restJson1_1CreatePackagingConfigurationCommand = async
   input: CreatePackagingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/packaging_configurations";
   let body: any;
   const bodyParams: any = {};
@@ -179,8 +181,9 @@ export const serializeAws_restJson1_1CreatePackagingGroupCommand = async (
   input: CreatePackagingGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/packaging_groups";
   let body: any;
   const bodyParams: any = {};
@@ -204,8 +207,9 @@ export const serializeAws_restJson1_1DeleteAssetCommand = async (
   input: DeleteAssetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/assets/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -236,8 +240,9 @@ export const serializeAws_restJson1_1DeletePackagingConfigurationCommand = async
   input: DeletePackagingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/packaging_configurations/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -268,8 +273,9 @@ export const serializeAws_restJson1_1DeletePackagingGroupCommand = async (
   input: DeletePackagingGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/packaging_groups/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -300,8 +306,9 @@ export const serializeAws_restJson1_1DescribeAssetCommand = async (
   input: DescribeAssetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/assets/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -332,8 +339,9 @@ export const serializeAws_restJson1_1DescribePackagingConfigurationCommand = asy
   input: DescribePackagingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/packaging_configurations/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -364,8 +372,9 @@ export const serializeAws_restJson1_1DescribePackagingGroupCommand = async (
   input: DescribePackagingGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/packaging_groups/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -396,8 +405,9 @@ export const serializeAws_restJson1_1ListAssetsCommand = async (
   input: ListAssetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/assets";
   const query: any = {};
   if (input.MaxResults !== undefined) {
@@ -427,8 +437,9 @@ export const serializeAws_restJson1_1ListPackagingConfigurationsCommand = async 
   input: ListPackagingConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/packaging_configurations";
   const query: any = {};
   if (input.MaxResults !== undefined) {
@@ -458,8 +469,9 @@ export const serializeAws_restJson1_1ListPackagingGroupsCommand = async (
   input: ListPackagingGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/packaging_groups";
   const query: any = {};
   if (input.MaxResults !== undefined) {

@@ -55,9 +55,10 @@ export const serializeAws_json1_0DescribeStreamCommand = async (
   input: DescribeStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDBStreams_20120810.DescribeStream";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDBStreams_20120810.DescribeStream"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0DescribeStreamInput(input, context)
@@ -69,9 +70,10 @@ export const serializeAws_json1_0GetRecordsCommand = async (
   input: GetRecordsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDBStreams_20120810.GetRecords";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDBStreams_20120810.GetRecords"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0GetRecordsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -81,9 +83,10 @@ export const serializeAws_json1_0GetShardIteratorCommand = async (
   input: GetShardIteratorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDBStreams_20120810.GetShardIterator";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDBStreams_20120810.GetShardIterator"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0GetShardIteratorInput(input, context)
@@ -95,9 +98,10 @@ export const serializeAws_json1_0ListStreamsCommand = async (
   input: ListStreamsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDBStreams_20120810.ListStreams";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDBStreams_20120810.ListStreams"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ListStreamsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);

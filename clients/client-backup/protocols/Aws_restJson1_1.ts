@@ -232,8 +232,9 @@ export const serializeAws_restJson1_1CreateBackupPlanCommand = async (
   input: CreateBackupPlanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/backup/plans";
   let body: any;
   const bodyParams: any = {};
@@ -269,8 +270,9 @@ export const serializeAws_restJson1_1CreateBackupSelectionCommand = async (
   input: CreateBackupSelectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/backup/plans/{BackupPlanId}/selections";
   if (input.BackupPlanId !== undefined) {
     const labelValue: string = input.BackupPlanId;
@@ -314,8 +316,9 @@ export const serializeAws_restJson1_1CreateBackupVaultCommand = async (
   input: CreateBackupVaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/backup-vaults/{BackupVaultName}";
   if (input.BackupVaultName !== undefined) {
     const labelValue: string = input.BackupVaultName;
@@ -362,8 +365,9 @@ export const serializeAws_restJson1_1DeleteBackupPlanCommand = async (
   input: DeleteBackupPlanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/backup/plans/{BackupPlanId}";
   if (input.BackupPlanId !== undefined) {
     const labelValue: string = input.BackupPlanId;
@@ -396,8 +400,9 @@ export const serializeAws_restJson1_1DeleteBackupSelectionCommand = async (
   input: DeleteBackupSelectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/backup/plans/{BackupPlanId}/selections/{SelectionId}";
   if (input.BackupPlanId !== undefined) {
     const labelValue: string = input.BackupPlanId;
@@ -444,8 +449,9 @@ export const serializeAws_restJson1_1DeleteBackupVaultCommand = async (
   input: DeleteBackupVaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/backup-vaults/{BackupVaultName}";
   if (input.BackupVaultName !== undefined) {
     const labelValue: string = input.BackupVaultName;
@@ -478,8 +484,9 @@ export const serializeAws_restJson1_1DeleteBackupVaultAccessPolicyCommand = asyn
   input: DeleteBackupVaultAccessPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/backup-vaults/{BackupVaultName}/access-policy";
   if (input.BackupVaultName !== undefined) {
     const labelValue: string = input.BackupVaultName;
@@ -512,8 +519,9 @@ export const serializeAws_restJson1_1DeleteBackupVaultNotificationsCommand = asy
   input: DeleteBackupVaultNotificationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/backup-vaults/{BackupVaultName}/notification-configuration";
   if (input.BackupVaultName !== undefined) {
@@ -547,8 +555,9 @@ export const serializeAws_restJson1_1DeleteRecoveryPointCommand = async (
   input: DeleteRecoveryPointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}";
   if (input.BackupVaultName !== undefined) {
@@ -598,8 +607,9 @@ export const serializeAws_restJson1_1DescribeBackupJobCommand = async (
   input: DescribeBackupJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/backup-jobs/{BackupJobId}";
   if (input.BackupJobId !== undefined) {
     const labelValue: string = input.BackupJobId;
@@ -632,8 +642,9 @@ export const serializeAws_restJson1_1DescribeBackupVaultCommand = async (
   input: DescribeBackupVaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/backup-vaults/{BackupVaultName}";
   if (input.BackupVaultName !== undefined) {
     const labelValue: string = input.BackupVaultName;
@@ -666,8 +677,9 @@ export const serializeAws_restJson1_1DescribeCopyJobCommand = async (
   input: DescribeCopyJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/copy-jobs/{CopyJobId}";
   if (input.CopyJobId !== undefined) {
     const labelValue: string = input.CopyJobId;
@@ -698,8 +710,9 @@ export const serializeAws_restJson1_1DescribeProtectedResourceCommand = async (
   input: DescribeProtectedResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/resources/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -732,8 +745,9 @@ export const serializeAws_restJson1_1DescribeRecoveryPointCommand = async (
   input: DescribeRecoveryPointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}";
   if (input.BackupVaultName !== undefined) {
@@ -783,8 +797,9 @@ export const serializeAws_restJson1_1DescribeRestoreJobCommand = async (
   input: DescribeRestoreJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/restore-jobs/{RestoreJobId}";
   if (input.RestoreJobId !== undefined) {
     const labelValue: string = input.RestoreJobId;
@@ -817,8 +832,9 @@ export const serializeAws_restJson1_1ExportBackupPlanTemplateCommand = async (
   input: ExportBackupPlanTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/backup/plans/{BackupPlanId}/toTemplate";
   if (input.BackupPlanId !== undefined) {
     const labelValue: string = input.BackupPlanId;
@@ -851,8 +867,9 @@ export const serializeAws_restJson1_1GetBackupPlanCommand = async (
   input: GetBackupPlanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/backup/plans/{BackupPlanId}";
   if (input.BackupPlanId !== undefined) {
     const labelValue: string = input.BackupPlanId;
@@ -890,8 +907,9 @@ export const serializeAws_restJson1_1GetBackupPlanFromJSONCommand = async (
   input: GetBackupPlanFromJSONCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/backup/template/json/toPlan";
   let body: any;
   const bodyParams: any = {};
@@ -915,8 +933,9 @@ export const serializeAws_restJson1_1GetBackupPlanFromTemplateCommand = async (
   input: GetBackupPlanFromTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/backup/template/plans/{BackupPlanTemplateId}/toPlan";
   if (input.BackupPlanTemplateId !== undefined) {
     const labelValue: string = input.BackupPlanTemplateId;
@@ -951,8 +970,9 @@ export const serializeAws_restJson1_1GetBackupSelectionCommand = async (
   input: GetBackupSelectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/backup/plans/{BackupPlanId}/selections/{SelectionId}";
   if (input.BackupPlanId !== undefined) {
     const labelValue: string = input.BackupPlanId;
@@ -999,8 +1019,9 @@ export const serializeAws_restJson1_1GetBackupVaultAccessPolicyCommand = async (
   input: GetBackupVaultAccessPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/backup-vaults/{BackupVaultName}/access-policy";
   if (input.BackupVaultName !== undefined) {
     const labelValue: string = input.BackupVaultName;
@@ -1033,8 +1054,9 @@ export const serializeAws_restJson1_1GetBackupVaultNotificationsCommand = async 
   input: GetBackupVaultNotificationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/backup-vaults/{BackupVaultName}/notification-configuration";
   if (input.BackupVaultName !== undefined) {
@@ -1068,8 +1090,9 @@ export const serializeAws_restJson1_1GetRecoveryPointRestoreMetadataCommand = as
   input: GetRecoveryPointRestoreMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}/restore-metadata";
   if (input.BackupVaultName !== undefined) {
@@ -1119,8 +1142,9 @@ export const serializeAws_restJson1_1GetSupportedResourceTypesCommand = async (
   input: GetSupportedResourceTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/supported-resource-types";
   let body: any;
   body = "{}";
@@ -1140,8 +1164,9 @@ export const serializeAws_restJson1_1ListBackupJobsCommand = async (
   input: ListBackupJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/backup-jobs";
   const query: any = {};
   if (input.ByBackupVaultName !== undefined) {
@@ -1190,8 +1215,9 @@ export const serializeAws_restJson1_1ListBackupPlanTemplatesCommand = async (
   input: ListBackupPlanTemplatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/backup/template/plans";
   const query: any = {};
   if (input.MaxResults !== undefined) {
@@ -1218,8 +1244,9 @@ export const serializeAws_restJson1_1ListBackupPlanVersionsCommand = async (
   input: ListBackupPlanVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/backup/plans/{BackupPlanId}/versions";
   if (input.BackupPlanId !== undefined) {
     const labelValue: string = input.BackupPlanId;
@@ -1260,8 +1287,9 @@ export const serializeAws_restJson1_1ListBackupPlansCommand = async (
   input: ListBackupPlansCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/backup/plans";
   const query: any = {};
   if (input.IncludeDeleted !== undefined) {
@@ -1291,8 +1319,9 @@ export const serializeAws_restJson1_1ListBackupSelectionsCommand = async (
   input: ListBackupSelectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/backup/plans/{BackupPlanId}/selections";
   if (input.BackupPlanId !== undefined) {
     const labelValue: string = input.BackupPlanId;
@@ -1333,8 +1362,9 @@ export const serializeAws_restJson1_1ListBackupVaultsCommand = async (
   input: ListBackupVaultsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/backup-vaults";
   const query: any = {};
   if (input.MaxResults !== undefined) {
@@ -1361,8 +1391,9 @@ export const serializeAws_restJson1_1ListCopyJobsCommand = async (
   input: ListCopyJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/copy-jobs";
   const query: any = {};
   if (input.ByCreatedAfter !== undefined) {
@@ -1411,8 +1442,9 @@ export const serializeAws_restJson1_1ListProtectedResourcesCommand = async (
   input: ListProtectedResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/resources";
   const query: any = {};
   if (input.MaxResults !== undefined) {
@@ -1439,8 +1471,9 @@ export const serializeAws_restJson1_1ListRecoveryPointsByBackupVaultCommand = as
   input: ListRecoveryPointsByBackupVaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/backup-vaults/{BackupVaultName}/recovery-points";
   if (input.BackupVaultName !== undefined) {
     const labelValue: string = input.BackupVaultName;
@@ -1500,8 +1533,9 @@ export const serializeAws_restJson1_1ListRecoveryPointsByResourceCommand = async
   input: ListRecoveryPointsByResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/resources/{ResourceArn}/recovery-points";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -1542,8 +1576,9 @@ export const serializeAws_restJson1_1ListRestoreJobsCommand = async (
   input: ListRestoreJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/restore-jobs";
   const query: any = {};
   if (input.MaxResults !== undefined) {
@@ -1570,8 +1605,9 @@ export const serializeAws_restJson1_1ListTagsCommand = async (
   input: ListTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -1612,8 +1648,9 @@ export const serializeAws_restJson1_1PutBackupVaultAccessPolicyCommand = async (
   input: PutBackupVaultAccessPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/backup-vaults/{BackupVaultName}/access-policy";
   if (input.BackupVaultName !== undefined) {
     const labelValue: string = input.BackupVaultName;
@@ -1651,8 +1688,9 @@ export const serializeAws_restJson1_1PutBackupVaultNotificationsCommand = async 
   input: PutBackupVaultNotificationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath =
     "/backup-vaults/{BackupVaultName}/notification-configuration";
   if (input.BackupVaultName !== undefined) {
@@ -1697,8 +1735,9 @@ export const serializeAws_restJson1_1StartBackupJobCommand = async (
   input: StartBackupJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/backup-jobs";
   let body: any;
   const bodyParams: any = {};
@@ -1749,8 +1788,9 @@ export const serializeAws_restJson1_1StartCopyJobCommand = async (
   input: StartCopyJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/copy-jobs";
   let body: any;
   const bodyParams: any = {};
@@ -1792,8 +1832,9 @@ export const serializeAws_restJson1_1StartRestoreJobCommand = async (
   input: StartRestoreJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/restore-jobs";
   let body: any;
   const bodyParams: any = {};
@@ -1832,8 +1873,9 @@ export const serializeAws_restJson1_1StopBackupJobCommand = async (
   input: StopBackupJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/backup-jobs/{BackupJobId}";
   if (input.BackupJobId !== undefined) {
     const labelValue: string = input.BackupJobId;
@@ -1866,8 +1908,9 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -1905,8 +1948,9 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/untag/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -1947,8 +1991,9 @@ export const serializeAws_restJson1_1UpdateBackupPlanCommand = async (
   input: UpdateBackupPlanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/backup/plans/{BackupPlanId}";
   if (input.BackupPlanId !== undefined) {
     const labelValue: string = input.BackupPlanId;
@@ -1989,8 +2034,9 @@ export const serializeAws_restJson1_1UpdateRecoveryPointLifecycleCommand = async
   input: UpdateRecoveryPointLifecycleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath =
     "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}";
   if (input.BackupVaultName !== undefined) {

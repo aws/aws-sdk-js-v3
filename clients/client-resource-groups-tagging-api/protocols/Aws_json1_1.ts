@@ -78,10 +78,10 @@ export const serializeAws_json1_1DescribeReportCreationCommand = async (
   input: DescribeReportCreationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "ResourceGroupsTaggingAPI_20170126.DescribeReportCreation";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ResourceGroupsTaggingAPI_20170126.DescribeReportCreation"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeReportCreationInput(input, context)
@@ -93,10 +93,10 @@ export const serializeAws_json1_1GetComplianceSummaryCommand = async (
   input: GetComplianceSummaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "ResourceGroupsTaggingAPI_20170126.GetComplianceSummary";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ResourceGroupsTaggingAPI_20170126.GetComplianceSummary"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetComplianceSummaryInput(input, context)
@@ -108,9 +108,10 @@ export const serializeAws_json1_1GetResourcesCommand = async (
   input: GetResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "ResourceGroupsTaggingAPI_20170126.GetResources";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ResourceGroupsTaggingAPI_20170126.GetResources"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetResourcesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -120,9 +121,10 @@ export const serializeAws_json1_1GetTagKeysCommand = async (
   input: GetTagKeysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "ResourceGroupsTaggingAPI_20170126.GetTagKeys";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ResourceGroupsTaggingAPI_20170126.GetTagKeys"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetTagKeysInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -132,9 +134,10 @@ export const serializeAws_json1_1GetTagValuesCommand = async (
   input: GetTagValuesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "ResourceGroupsTaggingAPI_20170126.GetTagValues";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ResourceGroupsTaggingAPI_20170126.GetTagValues"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetTagValuesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -144,10 +147,10 @@ export const serializeAws_json1_1StartReportCreationCommand = async (
   input: StartReportCreationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "ResourceGroupsTaggingAPI_20170126.StartReportCreation";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ResourceGroupsTaggingAPI_20170126.StartReportCreation"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartReportCreationInput(input, context)
@@ -159,9 +162,10 @@ export const serializeAws_json1_1TagResourcesCommand = async (
   input: TagResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "ResourceGroupsTaggingAPI_20170126.TagResources";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ResourceGroupsTaggingAPI_20170126.TagResources"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourcesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -171,9 +175,10 @@ export const serializeAws_json1_1UntagResourcesCommand = async (
   input: UntagResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "ResourceGroupsTaggingAPI_20170126.UntagResources";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ResourceGroupsTaggingAPI_20170126.UntagResources"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UntagResourcesInput(input, context)

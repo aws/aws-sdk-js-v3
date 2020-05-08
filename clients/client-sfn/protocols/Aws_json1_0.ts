@@ -209,9 +209,10 @@ export const serializeAws_json1_0CreateActivityCommand = async (
   input: CreateActivityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "AWSStepFunctions.CreateActivity";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "AWSStepFunctions.CreateActivity"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0CreateActivityInput(input, context)
@@ -223,9 +224,10 @@ export const serializeAws_json1_0CreateStateMachineCommand = async (
   input: CreateStateMachineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "AWSStepFunctions.CreateStateMachine";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "AWSStepFunctions.CreateStateMachine"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0CreateStateMachineInput(input, context)
@@ -237,9 +239,10 @@ export const serializeAws_json1_0DeleteActivityCommand = async (
   input: DeleteActivityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "AWSStepFunctions.DeleteActivity";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "AWSStepFunctions.DeleteActivity"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0DeleteActivityInput(input, context)
@@ -251,9 +254,10 @@ export const serializeAws_json1_0DeleteStateMachineCommand = async (
   input: DeleteStateMachineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "AWSStepFunctions.DeleteStateMachine";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "AWSStepFunctions.DeleteStateMachine"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0DeleteStateMachineInput(input, context)
@@ -265,9 +269,10 @@ export const serializeAws_json1_0DescribeActivityCommand = async (
   input: DescribeActivityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "AWSStepFunctions.DescribeActivity";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "AWSStepFunctions.DescribeActivity"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0DescribeActivityInput(input, context)
@@ -279,9 +284,10 @@ export const serializeAws_json1_0DescribeExecutionCommand = async (
   input: DescribeExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "AWSStepFunctions.DescribeExecution";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "AWSStepFunctions.DescribeExecution"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0DescribeExecutionInput(input, context)
@@ -293,9 +299,10 @@ export const serializeAws_json1_0DescribeStateMachineCommand = async (
   input: DescribeStateMachineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "AWSStepFunctions.DescribeStateMachine";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "AWSStepFunctions.DescribeStateMachine"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0DescribeStateMachineInput(input, context)
@@ -307,9 +314,10 @@ export const serializeAws_json1_0DescribeStateMachineForExecutionCommand = async
   input: DescribeStateMachineForExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "AWSStepFunctions.DescribeStateMachineForExecution";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "AWSStepFunctions.DescribeStateMachineForExecution"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0DescribeStateMachineForExecutionInput(input, context)
@@ -321,9 +329,10 @@ export const serializeAws_json1_0GetActivityTaskCommand = async (
   input: GetActivityTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "AWSStepFunctions.GetActivityTask";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "AWSStepFunctions.GetActivityTask"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0GetActivityTaskInput(input, context)
@@ -335,9 +344,10 @@ export const serializeAws_json1_0GetExecutionHistoryCommand = async (
   input: GetExecutionHistoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "AWSStepFunctions.GetExecutionHistory";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "AWSStepFunctions.GetExecutionHistory"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0GetExecutionHistoryInput(input, context)
@@ -349,9 +359,10 @@ export const serializeAws_json1_0ListActivitiesCommand = async (
   input: ListActivitiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "AWSStepFunctions.ListActivities";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "AWSStepFunctions.ListActivities"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0ListActivitiesInput(input, context)
@@ -363,9 +374,10 @@ export const serializeAws_json1_0ListExecutionsCommand = async (
   input: ListExecutionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "AWSStepFunctions.ListExecutions";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "AWSStepFunctions.ListExecutions"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0ListExecutionsInput(input, context)
@@ -377,9 +389,10 @@ export const serializeAws_json1_0ListStateMachinesCommand = async (
   input: ListStateMachinesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "AWSStepFunctions.ListStateMachines";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "AWSStepFunctions.ListStateMachines"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0ListStateMachinesInput(input, context)
@@ -391,9 +404,10 @@ export const serializeAws_json1_0ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "AWSStepFunctions.ListTagsForResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "AWSStepFunctions.ListTagsForResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0ListTagsForResourceInput(input, context)
@@ -405,9 +419,10 @@ export const serializeAws_json1_0SendTaskFailureCommand = async (
   input: SendTaskFailureCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "AWSStepFunctions.SendTaskFailure";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "AWSStepFunctions.SendTaskFailure"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0SendTaskFailureInput(input, context)
@@ -419,9 +434,10 @@ export const serializeAws_json1_0SendTaskHeartbeatCommand = async (
   input: SendTaskHeartbeatCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "AWSStepFunctions.SendTaskHeartbeat";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "AWSStepFunctions.SendTaskHeartbeat"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0SendTaskHeartbeatInput(input, context)
@@ -433,9 +449,10 @@ export const serializeAws_json1_0SendTaskSuccessCommand = async (
   input: SendTaskSuccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "AWSStepFunctions.SendTaskSuccess";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "AWSStepFunctions.SendTaskSuccess"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0SendTaskSuccessInput(input, context)
@@ -447,9 +464,10 @@ export const serializeAws_json1_0StartExecutionCommand = async (
   input: StartExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "AWSStepFunctions.StartExecution";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "AWSStepFunctions.StartExecution"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0StartExecutionInput(input, context)
@@ -461,9 +479,10 @@ export const serializeAws_json1_0StopExecutionCommand = async (
   input: StopExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "AWSStepFunctions.StopExecution";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "AWSStepFunctions.StopExecution"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0StopExecutionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -473,9 +492,10 @@ export const serializeAws_json1_0TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "AWSStepFunctions.TagResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "AWSStepFunctions.TagResource"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0TagResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -485,9 +505,10 @@ export const serializeAws_json1_0UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "AWSStepFunctions.UntagResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "AWSStepFunctions.UntagResource"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0UntagResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -497,9 +518,10 @@ export const serializeAws_json1_0UpdateStateMachineCommand = async (
   input: UpdateStateMachineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "AWSStepFunctions.UpdateStateMachine";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "AWSStepFunctions.UpdateStateMachine"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0UpdateStateMachineInput(input, context)

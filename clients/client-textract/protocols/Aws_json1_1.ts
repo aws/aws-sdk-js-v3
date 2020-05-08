@@ -86,9 +86,10 @@ export const serializeAws_json1_1AnalyzeDocumentCommand = async (
   input: AnalyzeDocumentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Textract.AnalyzeDocument";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Textract.AnalyzeDocument"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AnalyzeDocumentRequest(input, context)
@@ -100,9 +101,10 @@ export const serializeAws_json1_1DetectDocumentTextCommand = async (
   input: DetectDocumentTextCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Textract.DetectDocumentText";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Textract.DetectDocumentText"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DetectDocumentTextRequest(input, context)
@@ -114,9 +116,10 @@ export const serializeAws_json1_1GetDocumentAnalysisCommand = async (
   input: GetDocumentAnalysisCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Textract.GetDocumentAnalysis";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Textract.GetDocumentAnalysis"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetDocumentAnalysisRequest(input, context)
@@ -128,9 +131,10 @@ export const serializeAws_json1_1GetDocumentTextDetectionCommand = async (
   input: GetDocumentTextDetectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Textract.GetDocumentTextDetection";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Textract.GetDocumentTextDetection"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetDocumentTextDetectionRequest(input, context)
@@ -142,9 +146,10 @@ export const serializeAws_json1_1StartDocumentAnalysisCommand = async (
   input: StartDocumentAnalysisCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Textract.StartDocumentAnalysis";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Textract.StartDocumentAnalysis"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartDocumentAnalysisRequest(input, context)
@@ -156,9 +161,10 @@ export const serializeAws_json1_1StartDocumentTextDetectionCommand = async (
   input: StartDocumentTextDetectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Textract.StartDocumentTextDetection";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Textract.StartDocumentTextDetection"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartDocumentTextDetectionRequest(input, context)

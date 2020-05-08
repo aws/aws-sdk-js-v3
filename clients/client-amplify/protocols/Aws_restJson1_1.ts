@@ -188,8 +188,9 @@ export const serializeAws_restJson1_1CreateAppCommand = async (
   input: CreateAppCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/apps";
   let body: any;
   const bodyParams: any = {};
@@ -279,8 +280,9 @@ export const serializeAws_restJson1_1CreateBackendEnvironmentCommand = async (
   input: CreateBackendEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/apps/{appId}/backendenvironments";
   if (input.appId !== undefined) {
     const labelValue: string = input.appId;
@@ -322,8 +324,9 @@ export const serializeAws_restJson1_1CreateBranchCommand = async (
   input: CreateBranchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/apps/{appId}/branches";
   if (input.appId !== undefined) {
     const labelValue: string = input.appId;
@@ -409,8 +412,9 @@ export const serializeAws_restJson1_1CreateDeploymentCommand = async (
   input: CreateDeploymentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/apps/{appId}/branches/{branchName}/deployments";
   if (input.appId !== undefined) {
     const labelValue: string = input.appId;
@@ -461,8 +465,9 @@ export const serializeAws_restJson1_1CreateDomainAssociationCommand = async (
   input: CreateDomainAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/apps/{appId}/domains";
   if (input.appId !== undefined) {
     const labelValue: string = input.appId;
@@ -507,8 +512,9 @@ export const serializeAws_restJson1_1CreateWebhookCommand = async (
   input: CreateWebhookCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/apps/{appId}/webhooks";
   if (input.appId !== undefined) {
     const labelValue: string = input.appId;
@@ -547,8 +553,9 @@ export const serializeAws_restJson1_1DeleteAppCommand = async (
   input: DeleteAppCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/apps/{appId}";
   if (input.appId !== undefined) {
     const labelValue: string = input.appId;
@@ -579,8 +586,9 @@ export const serializeAws_restJson1_1DeleteBackendEnvironmentCommand = async (
   input: DeleteBackendEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/apps/{appId}/backendenvironments/{environmentName}";
   if (input.appId !== undefined) {
     const labelValue: string = input.appId;
@@ -625,8 +633,9 @@ export const serializeAws_restJson1_1DeleteBranchCommand = async (
   input: DeleteBranchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/apps/{appId}/branches/{branchName}";
   if (input.appId !== undefined) {
     const labelValue: string = input.appId;
@@ -669,8 +678,9 @@ export const serializeAws_restJson1_1DeleteDomainAssociationCommand = async (
   input: DeleteDomainAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/apps/{appId}/domains/{domainName}";
   if (input.appId !== undefined) {
     const labelValue: string = input.appId;
@@ -713,8 +723,9 @@ export const serializeAws_restJson1_1DeleteJobCommand = async (
   input: DeleteJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/apps/{appId}/branches/{branchName}/jobs/{jobId}";
   if (input.appId !== undefined) {
     const labelValue: string = input.appId;
@@ -769,8 +780,9 @@ export const serializeAws_restJson1_1DeleteWebhookCommand = async (
   input: DeleteWebhookCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/webhooks/{webhookId}";
   if (input.webhookId !== undefined) {
     const labelValue: string = input.webhookId;
@@ -801,8 +813,9 @@ export const serializeAws_restJson1_1GenerateAccessLogsCommand = async (
   input: GenerateAccessLogsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/apps/{appId}/accesslogs";
   if (input.appId !== undefined) {
     const labelValue: string = input.appId;
@@ -844,8 +857,9 @@ export const serializeAws_restJson1_1GetAppCommand = async (
   input: GetAppCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/apps/{appId}";
   if (input.appId !== undefined) {
     const labelValue: string = input.appId;
@@ -876,8 +890,9 @@ export const serializeAws_restJson1_1GetArtifactUrlCommand = async (
   input: GetArtifactUrlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/artifacts/{artifactId}";
   if (input.artifactId !== undefined) {
     const labelValue: string = input.artifactId;
@@ -908,8 +923,9 @@ export const serializeAws_restJson1_1GetBackendEnvironmentCommand = async (
   input: GetBackendEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/apps/{appId}/backendenvironments/{environmentName}";
   if (input.appId !== undefined) {
     const labelValue: string = input.appId;
@@ -954,8 +970,9 @@ export const serializeAws_restJson1_1GetBranchCommand = async (
   input: GetBranchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/apps/{appId}/branches/{branchName}";
   if (input.appId !== undefined) {
     const labelValue: string = input.appId;
@@ -998,8 +1015,9 @@ export const serializeAws_restJson1_1GetDomainAssociationCommand = async (
   input: GetDomainAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/apps/{appId}/domains/{domainName}";
   if (input.appId !== undefined) {
     const labelValue: string = input.appId;
@@ -1042,8 +1060,9 @@ export const serializeAws_restJson1_1GetJobCommand = async (
   input: GetJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/apps/{appId}/branches/{branchName}/jobs/{jobId}";
   if (input.appId !== undefined) {
     const labelValue: string = input.appId;
@@ -1098,8 +1117,9 @@ export const serializeAws_restJson1_1GetWebhookCommand = async (
   input: GetWebhookCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/webhooks/{webhookId}";
   if (input.webhookId !== undefined) {
     const labelValue: string = input.webhookId;
@@ -1130,8 +1150,9 @@ export const serializeAws_restJson1_1ListAppsCommand = async (
   input: ListAppsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/apps";
   const query: any = {};
   if (input.maxResults !== undefined) {
@@ -1158,8 +1179,9 @@ export const serializeAws_restJson1_1ListArtifactsCommand = async (
   input: ListArtifactsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/apps/{appId}/branches/{branchName}/jobs/{jobId}/artifacts";
   if (input.appId !== undefined) {
@@ -1223,8 +1245,9 @@ export const serializeAws_restJson1_1ListBackendEnvironmentsCommand = async (
   input: ListBackendEnvironmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/apps/{appId}/backendenvironments";
   if (input.appId !== undefined) {
     const labelValue: string = input.appId;
@@ -1268,8 +1291,9 @@ export const serializeAws_restJson1_1ListBranchesCommand = async (
   input: ListBranchesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/apps/{appId}/branches";
   if (input.appId !== undefined) {
     const labelValue: string = input.appId;
@@ -1308,8 +1332,9 @@ export const serializeAws_restJson1_1ListDomainAssociationsCommand = async (
   input: ListDomainAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/apps/{appId}/domains";
   if (input.appId !== undefined) {
     const labelValue: string = input.appId;
@@ -1348,8 +1373,9 @@ export const serializeAws_restJson1_1ListJobsCommand = async (
   input: ListJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/apps/{appId}/branches/{branchName}/jobs";
   if (input.appId !== undefined) {
     const labelValue: string = input.appId;
@@ -1400,8 +1426,9 @@ export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
@@ -1434,8 +1461,9 @@ export const serializeAws_restJson1_1ListWebhooksCommand = async (
   input: ListWebhooksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/apps/{appId}/webhooks";
   if (input.appId !== undefined) {
     const labelValue: string = input.appId;
@@ -1474,8 +1502,9 @@ export const serializeAws_restJson1_1StartDeploymentCommand = async (
   input: StartDeploymentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/apps/{appId}/branches/{branchName}/deployments/start";
   if (input.appId !== undefined) {
     const labelValue: string = input.appId;
@@ -1526,8 +1555,9 @@ export const serializeAws_restJson1_1StartJobCommand = async (
   input: StartJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/apps/{appId}/branches/{branchName}/jobs";
   if (input.appId !== undefined) {
     const labelValue: string = input.appId;
@@ -1590,8 +1620,9 @@ export const serializeAws_restJson1_1StopJobCommand = async (
   input: StopJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/apps/{appId}/branches/{branchName}/jobs/{jobId}/stop";
   if (input.appId !== undefined) {
     const labelValue: string = input.appId;
@@ -1646,8 +1677,9 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
@@ -1685,8 +1717,9 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
@@ -1724,8 +1757,9 @@ export const serializeAws_restJson1_1UpdateAppCommand = async (
   input: UpdateAppCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/apps/{appId}";
   if (input.appId !== undefined) {
     const labelValue: string = input.appId;
@@ -1824,8 +1858,9 @@ export const serializeAws_restJson1_1UpdateBranchCommand = async (
   input: UpdateBranchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/apps/{appId}/branches/{branchName}";
   if (input.appId !== undefined) {
     const labelValue: string = input.appId;
@@ -1917,8 +1952,9 @@ export const serializeAws_restJson1_1UpdateDomainAssociationCommand = async (
   input: UpdateDomainAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/apps/{appId}/domains/{domainName}";
   if (input.appId !== undefined) {
     const labelValue: string = input.appId;
@@ -1972,8 +2008,9 @@ export const serializeAws_restJson1_1UpdateWebhookCommand = async (
   input: UpdateWebhookCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/webhooks/{webhookId}";
   if (input.webhookId !== undefined) {
     const labelValue: string = input.webhookId;
