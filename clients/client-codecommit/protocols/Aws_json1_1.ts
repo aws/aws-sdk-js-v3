@@ -2380,9 +2380,7 @@ const deserializeAws_json1_1BatchDescribeMergeConflictsCommandError = async (
 export const deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<
-  BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput
-> => {
+): Promise<BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandError(
       output,
@@ -2406,9 +2404,7 @@ export const deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepo
 const deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<
-  BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput
-> => {
+): Promise<BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)

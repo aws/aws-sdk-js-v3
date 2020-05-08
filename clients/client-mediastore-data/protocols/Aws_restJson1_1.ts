@@ -155,16 +155,13 @@ export const serializeAws_restJson1_1ListItemsCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/";
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken;
-  }
-  if (input.Path !== undefined) {
-    query["Path"] = input.Path;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && {
+      MaxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Path !== undefined && { Path: input.Path })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({

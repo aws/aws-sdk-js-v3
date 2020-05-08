@@ -124,10 +124,9 @@ export const serializeAws_restJson1_1PublishCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: topic.");
   }
-  const query: any = {};
-  if (input.qos !== undefined) {
-    query["qos"] = input.qos.toString();
-  }
+  const query: any = {
+    ...(input.qos !== undefined && { qos: input.qos.toString() })
+  };
   let body: any;
   if (input.payload !== undefined) {
     body = input.payload;

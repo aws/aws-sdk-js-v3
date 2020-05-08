@@ -62,10 +62,9 @@ export const serializeAws_restJson1_1GetSnapshotBlockCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: SnapshotId.");
   }
-  const query: any = {};
-  if (input.BlockToken !== undefined) {
-    query["blockToken"] = input.BlockToken;
-  }
+  const query: any = {
+    ...(input.BlockToken !== undefined && { blockToken: input.BlockToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -103,19 +102,18 @@ export const serializeAws_restJson1_1ListChangedBlocksCommand = async (
       "No value provided for input HTTP label: SecondSnapshotId."
     );
   }
-  const query: any = {};
-  if (input.FirstSnapshotId !== undefined) {
-    query["firstSnapshotId"] = input.FirstSnapshotId;
-  }
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["pageToken"] = input.NextToken;
-  }
-  if (input.StartingBlockIndex !== undefined) {
-    query["startingBlockIndex"] = input.StartingBlockIndex.toString();
-  }
+  const query: any = {
+    ...(input.FirstSnapshotId !== undefined && {
+      firstSnapshotId: input.FirstSnapshotId
+    }),
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { pageToken: input.NextToken }),
+    ...(input.StartingBlockIndex !== undefined && {
+      startingBlockIndex: input.StartingBlockIndex.toString()
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -149,16 +147,15 @@ export const serializeAws_restJson1_1ListSnapshotBlocksCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: SnapshotId.");
   }
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["pageToken"] = input.NextToken;
-  }
-  if (input.StartingBlockIndex !== undefined) {
-    query["startingBlockIndex"] = input.StartingBlockIndex.toString();
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { pageToken: input.NextToken }),
+    ...(input.StartingBlockIndex !== undefined && {
+      startingBlockIndex: input.StartingBlockIndex.toString()
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({

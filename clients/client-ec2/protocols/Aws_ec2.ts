@@ -20469,9 +20469,7 @@ const deserializeAws_ec2DescribeLaunchTemplatesCommandError = async (
 export const deserializeAws_ec2DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<
-  DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput
-> => {
+): Promise<DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_ec2DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandError(
       output,
@@ -20496,9 +20494,7 @@ export const deserializeAws_ec2DescribeLocalGatewayRouteTableVirtualInterfaceGro
 const deserializeAws_ec2DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<
-  DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput
-> => {
+): Promise<DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)

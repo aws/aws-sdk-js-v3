@@ -128,10 +128,9 @@ export const serializeAws_restJson1_1DescribeDetectorCommand = async (
       "No value provided for input HTTP label: detectorModelName."
     );
   }
-  const query: any = {};
-  if (input.keyValue !== undefined) {
-    query["keyValue"] = input.keyValue;
-  }
+  const query: any = {
+    ...(input.keyValue !== undefined && { keyValue: input.keyValue })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -169,16 +168,13 @@ export const serializeAws_restJson1_1ListDetectorsCommand = async (
       "No value provided for input HTTP label: detectorModelName."
     );
   }
-  const query: any = {};
-  if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
-  }
-  if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken;
-  }
-  if (input.stateName !== undefined) {
-    query["stateName"] = input.stateName;
-  }
+  const query: any = {
+    ...(input.maxResults !== undefined && {
+      maxResults: input.maxResults.toString()
+    }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.stateName !== undefined && { stateName: input.stateName })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({

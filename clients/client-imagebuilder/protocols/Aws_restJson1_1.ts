@@ -604,10 +604,11 @@ export const serializeAws_restJson1_1DeleteComponentCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/DeleteComponent";
-  const query: any = {};
-  if (input.componentBuildVersionArn !== undefined) {
-    query["componentBuildVersionArn"] = input.componentBuildVersionArn;
-  }
+  const query: any = {
+    ...(input.componentBuildVersionArn !== undefined && {
+      componentBuildVersionArn: input.componentBuildVersionArn
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -629,10 +630,11 @@ export const serializeAws_restJson1_1DeleteDistributionConfigurationCommand = as
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/DeleteDistributionConfiguration";
-  const query: any = {};
-  if (input.distributionConfigurationArn !== undefined) {
-    query["distributionConfigurationArn"] = input.distributionConfigurationArn;
-  }
+  const query: any = {
+    ...(input.distributionConfigurationArn !== undefined && {
+      distributionConfigurationArn: input.distributionConfigurationArn
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -654,10 +656,11 @@ export const serializeAws_restJson1_1DeleteImageCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/DeleteImage";
-  const query: any = {};
-  if (input.imageBuildVersionArn !== undefined) {
-    query["imageBuildVersionArn"] = input.imageBuildVersionArn;
-  }
+  const query: any = {
+    ...(input.imageBuildVersionArn !== undefined && {
+      imageBuildVersionArn: input.imageBuildVersionArn
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -679,10 +682,11 @@ export const serializeAws_restJson1_1DeleteImagePipelineCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/DeleteImagePipeline";
-  const query: any = {};
-  if (input.imagePipelineArn !== undefined) {
-    query["imagePipelineArn"] = input.imagePipelineArn;
-  }
+  const query: any = {
+    ...(input.imagePipelineArn !== undefined && {
+      imagePipelineArn: input.imagePipelineArn
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -704,10 +708,11 @@ export const serializeAws_restJson1_1DeleteImageRecipeCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/DeleteImageRecipe";
-  const query: any = {};
-  if (input.imageRecipeArn !== undefined) {
-    query["imageRecipeArn"] = input.imageRecipeArn;
-  }
+  const query: any = {
+    ...(input.imageRecipeArn !== undefined && {
+      imageRecipeArn: input.imageRecipeArn
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -729,11 +734,11 @@ export const serializeAws_restJson1_1DeleteInfrastructureConfigurationCommand = 
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/DeleteInfrastructureConfiguration";
-  const query: any = {};
-  if (input.infrastructureConfigurationArn !== undefined) {
-    query["infrastructureConfigurationArn"] =
-      input.infrastructureConfigurationArn;
-  }
+  const query: any = {
+    ...(input.infrastructureConfigurationArn !== undefined && {
+      infrastructureConfigurationArn: input.infrastructureConfigurationArn
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -755,10 +760,11 @@ export const serializeAws_restJson1_1GetComponentCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/GetComponent";
-  const query: any = {};
-  if (input.componentBuildVersionArn !== undefined) {
-    query["componentBuildVersionArn"] = input.componentBuildVersionArn;
-  }
+  const query: any = {
+    ...(input.componentBuildVersionArn !== undefined && {
+      componentBuildVersionArn: input.componentBuildVersionArn
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -780,10 +786,11 @@ export const serializeAws_restJson1_1GetComponentPolicyCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/GetComponentPolicy";
-  const query: any = {};
-  if (input.componentArn !== undefined) {
-    query["componentArn"] = input.componentArn;
-  }
+  const query: any = {
+    ...(input.componentArn !== undefined && {
+      componentArn: input.componentArn
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -805,10 +812,11 @@ export const serializeAws_restJson1_1GetDistributionConfigurationCommand = async
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/GetDistributionConfiguration";
-  const query: any = {};
-  if (input.distributionConfigurationArn !== undefined) {
-    query["distributionConfigurationArn"] = input.distributionConfigurationArn;
-  }
+  const query: any = {
+    ...(input.distributionConfigurationArn !== undefined && {
+      distributionConfigurationArn: input.distributionConfigurationArn
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -830,10 +838,11 @@ export const serializeAws_restJson1_1GetImageCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/GetImage";
-  const query: any = {};
-  if (input.imageBuildVersionArn !== undefined) {
-    query["imageBuildVersionArn"] = input.imageBuildVersionArn;
-  }
+  const query: any = {
+    ...(input.imageBuildVersionArn !== undefined && {
+      imageBuildVersionArn: input.imageBuildVersionArn
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -855,10 +864,11 @@ export const serializeAws_restJson1_1GetImagePipelineCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/GetImagePipeline";
-  const query: any = {};
-  if (input.imagePipelineArn !== undefined) {
-    query["imagePipelineArn"] = input.imagePipelineArn;
-  }
+  const query: any = {
+    ...(input.imagePipelineArn !== undefined && {
+      imagePipelineArn: input.imagePipelineArn
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -880,10 +890,9 @@ export const serializeAws_restJson1_1GetImagePolicyCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/GetImagePolicy";
-  const query: any = {};
-  if (input.imageArn !== undefined) {
-    query["imageArn"] = input.imageArn;
-  }
+  const query: any = {
+    ...(input.imageArn !== undefined && { imageArn: input.imageArn })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -905,10 +914,11 @@ export const serializeAws_restJson1_1GetImageRecipeCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/GetImageRecipe";
-  const query: any = {};
-  if (input.imageRecipeArn !== undefined) {
-    query["imageRecipeArn"] = input.imageRecipeArn;
-  }
+  const query: any = {
+    ...(input.imageRecipeArn !== undefined && {
+      imageRecipeArn: input.imageRecipeArn
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -930,10 +940,11 @@ export const serializeAws_restJson1_1GetImageRecipePolicyCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/GetImageRecipePolicy";
-  const query: any = {};
-  if (input.imageRecipeArn !== undefined) {
-    query["imageRecipeArn"] = input.imageRecipeArn;
-  }
+  const query: any = {
+    ...(input.imageRecipeArn !== undefined && {
+      imageRecipeArn: input.imageRecipeArn
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -955,11 +966,11 @@ export const serializeAws_restJson1_1GetInfrastructureConfigurationCommand = asy
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/GetInfrastructureConfiguration";
-  const query: any = {};
-  if (input.infrastructureConfigurationArn !== undefined) {
-    query["infrastructureConfigurationArn"] =
-      input.infrastructureConfigurationArn;
-  }
+  const query: any = {
+    ...(input.infrastructureConfigurationArn !== undefined && {
+      infrastructureConfigurationArn: input.infrastructureConfigurationArn
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1562,10 +1573,11 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
-  const query: any = {};
-  if (input.tagKeys !== undefined) {
-    query["tagKeys"] = (input.tagKeys || []).map(_entry => _entry);
-  }
+  const query: any = {
+    ...(input.tagKeys !== undefined && {
+      tagKeys: (input.tagKeys || []).map(_entry => _entry)
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({

@@ -1264,16 +1264,15 @@ export const serializeAws_restXmlGetGeoLocationCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/geolocation";
-  const query: any = {};
-  if (input.ContinentCode !== undefined) {
-    query["continentcode"] = input.ContinentCode;
-  }
-  if (input.CountryCode !== undefined) {
-    query["countrycode"] = input.CountryCode;
-  }
-  if (input.SubdivisionCode !== undefined) {
-    query["subdivisioncode"] = input.SubdivisionCode;
-  }
+  const query: any = {
+    ...(input.ContinentCode !== undefined && {
+      continentcode: input.ContinentCode
+    }),
+    ...(input.CountryCode !== undefined && { countrycode: input.CountryCode }),
+    ...(input.SubdivisionCode !== undefined && {
+      subdivisioncode: input.SubdivisionCode
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1726,19 +1725,18 @@ export const serializeAws_restXmlListGeoLocationsCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/geolocations";
-  const query: any = {};
-  if (input.MaxItems !== undefined) {
-    query["maxitems"] = input.MaxItems;
-  }
-  if (input.StartContinentCode !== undefined) {
-    query["startcontinentcode"] = input.StartContinentCode;
-  }
-  if (input.StartCountryCode !== undefined) {
-    query["startcountrycode"] = input.StartCountryCode;
-  }
-  if (input.StartSubdivisionCode !== undefined) {
-    query["startsubdivisioncode"] = input.StartSubdivisionCode;
-  }
+  const query: any = {
+    ...(input.MaxItems !== undefined && { maxitems: input.MaxItems }),
+    ...(input.StartContinentCode !== undefined && {
+      startcontinentcode: input.StartContinentCode
+    }),
+    ...(input.StartCountryCode !== undefined && {
+      startcountrycode: input.StartCountryCode
+    }),
+    ...(input.StartSubdivisionCode !== undefined && {
+      startsubdivisioncode: input.StartSubdivisionCode
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1760,13 +1758,10 @@ export const serializeAws_restXmlListHealthChecksCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/healthcheck";
-  const query: any = {};
-  if (input.Marker !== undefined) {
-    query["marker"] = input.Marker;
-  }
-  if (input.MaxItems !== undefined) {
-    query["maxitems"] = input.MaxItems;
-  }
+  const query: any = {
+    ...(input.Marker !== undefined && { marker: input.Marker }),
+    ...(input.MaxItems !== undefined && { maxitems: input.MaxItems })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1788,16 +1783,13 @@ export const serializeAws_restXmlListHostedZonesCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/hostedzone";
-  const query: any = {};
-  if (input.DelegationSetId !== undefined) {
-    query["delegationsetid"] = input.DelegationSetId;
-  }
-  if (input.Marker !== undefined) {
-    query["marker"] = input.Marker;
-  }
-  if (input.MaxItems !== undefined) {
-    query["maxitems"] = input.MaxItems;
-  }
+  const query: any = {
+    ...(input.DelegationSetId !== undefined && {
+      delegationsetid: input.DelegationSetId
+    }),
+    ...(input.Marker !== undefined && { marker: input.Marker }),
+    ...(input.MaxItems !== undefined && { maxitems: input.MaxItems })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1819,16 +1811,13 @@ export const serializeAws_restXmlListHostedZonesByNameCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/hostedzonesbyname";
-  const query: any = {};
-  if (input.DNSName !== undefined) {
-    query["dnsname"] = input.DNSName;
-  }
-  if (input.HostedZoneId !== undefined) {
-    query["hostedzoneid"] = input.HostedZoneId;
-  }
-  if (input.MaxItems !== undefined) {
-    query["maxitems"] = input.MaxItems;
-  }
+  const query: any = {
+    ...(input.DNSName !== undefined && { dnsname: input.DNSName }),
+    ...(input.HostedZoneId !== undefined && {
+      hostedzoneid: input.HostedZoneId
+    }),
+    ...(input.MaxItems !== undefined && { maxitems: input.MaxItems })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1850,16 +1839,13 @@ export const serializeAws_restXmlListQueryLoggingConfigsCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/queryloggingconfig";
-  const query: any = {};
-  if (input.HostedZoneId !== undefined) {
-    query["hostedzoneid"] = input.HostedZoneId;
-  }
-  if (input.MaxResults !== undefined) {
-    query["maxresults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    query["nexttoken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.HostedZoneId !== undefined && {
+      hostedzoneid: input.HostedZoneId
+    }),
+    ...(input.MaxResults !== undefined && { maxresults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { nexttoken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1895,19 +1881,14 @@ export const serializeAws_restXmlListResourceRecordSetsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: HostedZoneId.");
   }
-  const query: any = {};
-  if (input.MaxItems !== undefined) {
-    query["maxitems"] = input.MaxItems;
-  }
-  if (input.StartRecordIdentifier !== undefined) {
-    query["identifier"] = input.StartRecordIdentifier;
-  }
-  if (input.StartRecordName !== undefined) {
-    query["name"] = input.StartRecordName;
-  }
-  if (input.StartRecordType !== undefined) {
-    query["type"] = input.StartRecordType;
-  }
+  const query: any = {
+    ...(input.MaxItems !== undefined && { maxitems: input.MaxItems }),
+    ...(input.StartRecordIdentifier !== undefined && {
+      identifier: input.StartRecordIdentifier
+    }),
+    ...(input.StartRecordName !== undefined && { name: input.StartRecordName }),
+    ...(input.StartRecordType !== undefined && { type: input.StartRecordType })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1929,13 +1910,10 @@ export const serializeAws_restXmlListReusableDelegationSetsCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/delegationset";
-  const query: any = {};
-  if (input.Marker !== undefined) {
-    query["marker"] = input.Marker;
-  }
-  if (input.MaxItems !== undefined) {
-    query["maxitems"] = input.MaxItems;
-  }
+  const query: any = {
+    ...(input.Marker !== undefined && { marker: input.Marker }),
+    ...(input.MaxItems !== undefined && { maxitems: input.MaxItems })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2055,13 +2033,12 @@ export const serializeAws_restXmlListTrafficPoliciesCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/trafficpolicies";
-  const query: any = {};
-  if (input.MaxItems !== undefined) {
-    query["maxitems"] = input.MaxItems;
-  }
-  if (input.TrafficPolicyIdMarker !== undefined) {
-    query["trafficpolicyid"] = input.TrafficPolicyIdMarker;
-  }
+  const query: any = {
+    ...(input.MaxItems !== undefined && { maxitems: input.MaxItems }),
+    ...(input.TrafficPolicyIdMarker !== undefined && {
+      trafficpolicyid: input.TrafficPolicyIdMarker
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2083,19 +2060,18 @@ export const serializeAws_restXmlListTrafficPolicyInstancesCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/trafficpolicyinstances";
-  const query: any = {};
-  if (input.HostedZoneIdMarker !== undefined) {
-    query["hostedzoneid"] = input.HostedZoneIdMarker;
-  }
-  if (input.MaxItems !== undefined) {
-    query["maxitems"] = input.MaxItems;
-  }
-  if (input.TrafficPolicyInstanceNameMarker !== undefined) {
-    query["trafficpolicyinstancename"] = input.TrafficPolicyInstanceNameMarker;
-  }
-  if (input.TrafficPolicyInstanceTypeMarker !== undefined) {
-    query["trafficpolicyinstancetype"] = input.TrafficPolicyInstanceTypeMarker;
-  }
+  const query: any = {
+    ...(input.HostedZoneIdMarker !== undefined && {
+      hostedzoneid: input.HostedZoneIdMarker
+    }),
+    ...(input.MaxItems !== undefined && { maxitems: input.MaxItems }),
+    ...(input.TrafficPolicyInstanceNameMarker !== undefined && {
+      trafficpolicyinstancename: input.TrafficPolicyInstanceNameMarker
+    }),
+    ...(input.TrafficPolicyInstanceTypeMarker !== undefined && {
+      trafficpolicyinstancetype: input.TrafficPolicyInstanceTypeMarker
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2117,19 +2093,16 @@ export const serializeAws_restXmlListTrafficPolicyInstancesByHostedZoneCommand =
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/trafficpolicyinstances/hostedzone";
-  const query: any = {};
-  if (input.HostedZoneId !== undefined) {
-    query["id"] = input.HostedZoneId;
-  }
-  if (input.MaxItems !== undefined) {
-    query["maxitems"] = input.MaxItems;
-  }
-  if (input.TrafficPolicyInstanceNameMarker !== undefined) {
-    query["trafficpolicyinstancename"] = input.TrafficPolicyInstanceNameMarker;
-  }
-  if (input.TrafficPolicyInstanceTypeMarker !== undefined) {
-    query["trafficpolicyinstancetype"] = input.TrafficPolicyInstanceTypeMarker;
-  }
+  const query: any = {
+    ...(input.HostedZoneId !== undefined && { id: input.HostedZoneId }),
+    ...(input.MaxItems !== undefined && { maxitems: input.MaxItems }),
+    ...(input.TrafficPolicyInstanceNameMarker !== undefined && {
+      trafficpolicyinstancename: input.TrafficPolicyInstanceNameMarker
+    }),
+    ...(input.TrafficPolicyInstanceTypeMarker !== undefined && {
+      trafficpolicyinstancetype: input.TrafficPolicyInstanceTypeMarker
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2151,25 +2124,22 @@ export const serializeAws_restXmlListTrafficPolicyInstancesByPolicyCommand = asy
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/trafficpolicyinstances/trafficpolicy";
-  const query: any = {};
-  if (input.HostedZoneIdMarker !== undefined) {
-    query["hostedzoneid"] = input.HostedZoneIdMarker;
-  }
-  if (input.MaxItems !== undefined) {
-    query["maxitems"] = input.MaxItems;
-  }
-  if (input.TrafficPolicyId !== undefined) {
-    query["id"] = input.TrafficPolicyId;
-  }
-  if (input.TrafficPolicyInstanceNameMarker !== undefined) {
-    query["trafficpolicyinstancename"] = input.TrafficPolicyInstanceNameMarker;
-  }
-  if (input.TrafficPolicyInstanceTypeMarker !== undefined) {
-    query["trafficpolicyinstancetype"] = input.TrafficPolicyInstanceTypeMarker;
-  }
-  if (input.TrafficPolicyVersion !== undefined) {
-    query["version"] = input.TrafficPolicyVersion.toString();
-  }
+  const query: any = {
+    ...(input.HostedZoneIdMarker !== undefined && {
+      hostedzoneid: input.HostedZoneIdMarker
+    }),
+    ...(input.MaxItems !== undefined && { maxitems: input.MaxItems }),
+    ...(input.TrafficPolicyId !== undefined && { id: input.TrafficPolicyId }),
+    ...(input.TrafficPolicyInstanceNameMarker !== undefined && {
+      trafficpolicyinstancename: input.TrafficPolicyInstanceNameMarker
+    }),
+    ...(input.TrafficPolicyInstanceTypeMarker !== undefined && {
+      trafficpolicyinstancetype: input.TrafficPolicyInstanceTypeMarker
+    }),
+    ...(input.TrafficPolicyVersion !== undefined && {
+      version: input.TrafficPolicyVersion.toString()
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2203,13 +2173,12 @@ export const serializeAws_restXmlListTrafficPolicyVersionsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
-  const query: any = {};
-  if (input.MaxItems !== undefined) {
-    query["maxitems"] = input.MaxItems;
-  }
-  if (input.TrafficPolicyVersionMarker !== undefined) {
-    query["trafficpolicyversion"] = input.TrafficPolicyVersionMarker;
-  }
+  const query: any = {
+    ...(input.MaxItems !== undefined && { maxitems: input.MaxItems }),
+    ...(input.TrafficPolicyVersionMarker !== undefined && {
+      trafficpolicyversion: input.TrafficPolicyVersionMarker
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2246,13 +2215,10 @@ export const serializeAws_restXmlListVPCAssociationAuthorizationsCommand = async
   } else {
     throw new Error("No value provided for input HTTP label: HostedZoneId.");
   }
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxresults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    query["nexttoken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && { maxresults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { nexttoken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2274,25 +2240,20 @@ export const serializeAws_restXmlTestDNSAnswerCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/testdnsanswer";
-  const query: any = {};
-  if (input.EDNS0ClientSubnetIP !== undefined) {
-    query["edns0clientsubnetip"] = input.EDNS0ClientSubnetIP;
-  }
-  if (input.EDNS0ClientSubnetMask !== undefined) {
-    query["edns0clientsubnetmask"] = input.EDNS0ClientSubnetMask;
-  }
-  if (input.HostedZoneId !== undefined) {
-    query["hostedzoneid"] = input.HostedZoneId;
-  }
-  if (input.RecordName !== undefined) {
-    query["recordname"] = input.RecordName;
-  }
-  if (input.RecordType !== undefined) {
-    query["recordtype"] = input.RecordType;
-  }
-  if (input.ResolverIP !== undefined) {
-    query["resolverip"] = input.ResolverIP;
-  }
+  const query: any = {
+    ...(input.EDNS0ClientSubnetIP !== undefined && {
+      edns0clientsubnetip: input.EDNS0ClientSubnetIP
+    }),
+    ...(input.EDNS0ClientSubnetMask !== undefined && {
+      edns0clientsubnetmask: input.EDNS0ClientSubnetMask
+    }),
+    ...(input.HostedZoneId !== undefined && {
+      hostedzoneid: input.HostedZoneId
+    }),
+    ...(input.RecordName !== undefined && { recordname: input.RecordName }),
+    ...(input.RecordType !== undefined && { recordtype: input.RecordType }),
+    ...(input.ResolverIP !== undefined && { resolverip: input.ResolverIP })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({

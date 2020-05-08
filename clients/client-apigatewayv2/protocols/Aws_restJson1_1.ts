@@ -1646,13 +1646,10 @@ export const serializeAws_restJson1_1GetApiMappingsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: DomainName.");
   }
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1674,13 +1671,10 @@ export const serializeAws_restJson1_1GetApisCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/v2/apis";
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1760,13 +1754,10 @@ export const serializeAws_restJson1_1GetAuthorizersCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1846,13 +1837,10 @@ export const serializeAws_restJson1_1GetDeploymentsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1906,13 +1894,10 @@ export const serializeAws_restJson1_1GetDomainNamesCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/v2/domainnames";
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2070,13 +2055,10 @@ export const serializeAws_restJson1_1GetIntegrationResponsesCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: IntegrationId.");
   }
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2110,13 +2092,10 @@ export const serializeAws_restJson1_1GetIntegrationsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2238,13 +2217,10 @@ export const serializeAws_restJson1_1GetModelsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2393,13 +2369,10 @@ export const serializeAws_restJson1_1GetRouteResponsesCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: RouteId.");
   }
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2433,13 +2406,10 @@ export const serializeAws_restJson1_1GetRoutesCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2517,13 +2487,10 @@ export const serializeAws_restJson1_1GetStagesCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2579,13 +2546,12 @@ export const serializeAws_restJson1_1ImportApiCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v2/apis";
-  const query: any = {};
-  if (input.Basepath !== undefined) {
-    query["basepath"] = input.Basepath;
-  }
-  if (input.FailOnWarnings !== undefined) {
-    query["failOnWarnings"] = input.FailOnWarnings.toString();
-  }
+  const query: any = {
+    ...(input.Basepath !== undefined && { basepath: input.Basepath }),
+    ...(input.FailOnWarnings !== undefined && {
+      failOnWarnings: input.FailOnWarnings.toString()
+    })
+  };
   let body: any;
   const bodyParams: any = {};
   if (input.Body !== undefined) {
@@ -2624,13 +2590,12 @@ export const serializeAws_restJson1_1ReimportApiCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
-  const query: any = {};
-  if (input.Basepath !== undefined) {
-    query["basepath"] = input.Basepath;
-  }
-  if (input.FailOnWarnings !== undefined) {
-    query["failOnWarnings"] = input.FailOnWarnings.toString();
-  }
+  const query: any = {
+    ...(input.Basepath !== undefined && { basepath: input.Basepath }),
+    ...(input.FailOnWarnings !== undefined && {
+      failOnWarnings: input.FailOnWarnings.toString()
+    })
+  };
   let body: any;
   const bodyParams: any = {};
   if (input.Body !== undefined) {
@@ -2710,10 +2675,11 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
-  const query: any = {};
-  if (input.TagKeys !== undefined) {
-    query["tagKeys"] = (input.TagKeys || []).map(_entry => _entry);
-  }
+  const query: any = {
+    ...(input.TagKeys !== undefined && {
+      tagKeys: (input.TagKeys || []).map(_entry => _entry)
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({

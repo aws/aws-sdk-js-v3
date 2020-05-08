@@ -229,22 +229,15 @@ export const serializeAws_restJson1_1ListSigningJobsCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/signing-jobs";
-  const query: any = {};
-  if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
-  }
-  if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken;
-  }
-  if (input.platformId !== undefined) {
-    query["platformId"] = input.platformId;
-  }
-  if (input.requestedBy !== undefined) {
-    query["requestedBy"] = input.requestedBy;
-  }
-  if (input.status !== undefined) {
-    query["status"] = input.status;
-  }
+  const query: any = {
+    ...(input.maxResults !== undefined && {
+      maxResults: input.maxResults.toString()
+    }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.platformId !== undefined && { platformId: input.platformId }),
+    ...(input.requestedBy !== undefined && { requestedBy: input.requestedBy }),
+    ...(input.status !== undefined && { status: input.status })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -266,22 +259,15 @@ export const serializeAws_restJson1_1ListSigningPlatformsCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/signing-platforms";
-  const query: any = {};
-  if (input.category !== undefined) {
-    query["category"] = input.category;
-  }
-  if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
-  }
-  if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken;
-  }
-  if (input.partner !== undefined) {
-    query["partner"] = input.partner;
-  }
-  if (input.target !== undefined) {
-    query["target"] = input.target;
-  }
+  const query: any = {
+    ...(input.category !== undefined && { category: input.category }),
+    ...(input.maxResults !== undefined && {
+      maxResults: input.maxResults.toString()
+    }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.partner !== undefined && { partner: input.partner }),
+    ...(input.target !== undefined && { target: input.target })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -303,16 +289,15 @@ export const serializeAws_restJson1_1ListSigningProfilesCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/signing-profiles";
-  const query: any = {};
-  if (input.includeCanceled !== undefined) {
-    query["includeCanceled"] = input.includeCanceled.toString();
-  }
-  if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
-  }
-  if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken;
-  }
+  const query: any = {
+    ...(input.includeCanceled !== undefined && {
+      includeCanceled: input.includeCanceled.toString()
+    }),
+    ...(input.maxResults !== undefined && {
+      maxResults: input.maxResults.toString()
+    }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -524,10 +509,11 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
-  const query: any = {};
-  if (input.tagKeys !== undefined) {
-    query["tagKeys"] = (input.tagKeys || []).map(_entry => _entry);
-  }
+  const query: any = {
+    ...(input.tagKeys !== undefined && {
+      tagKeys: (input.tagKeys || []).map(_entry => _entry)
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({

@@ -112,10 +112,9 @@ export const serializeAws_restJson1_1CreateProfilingGroupCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/profilingGroups";
-  const query: any = {};
-  if (input.clientToken !== undefined) {
-    query["clientToken"] = input.clientToken;
-  }
+  const query: any = {
+    ...(input.clientToken !== undefined && { clientToken: input.clientToken })
+  };
   let body: any;
   const bodyParams: any = {};
   if (input.agentOrchestrationConfig !== undefined) {
@@ -222,16 +221,15 @@ export const serializeAws_restJson1_1ListProfilingGroupsCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/profilingGroups";
-  const query: any = {};
-  if (input.includeDescription !== undefined) {
-    query["includeDescription"] = input.includeDescription.toString();
-  }
-  if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
-  }
-  if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken;
-  }
+  const query: any = {
+    ...(input.includeDescription !== undefined && {
+      includeDescription: input.includeDescription.toString()
+    }),
+    ...(input.maxResults !== undefined && {
+      maxResults: input.maxResults.toString()
+    }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -318,23 +316,18 @@ export const serializeAws_restJson1_1GetProfileCommand = async (
       "No value provided for input HTTP label: profilingGroupName."
     );
   }
-  const query: any = {};
-  if (input.endTime !== undefined) {
-    query["endTime"] = (
-      input.endTime.toISOString().split(".")[0] + "Z"
-    ).toString();
-  }
-  if (input.maxDepth !== undefined) {
-    query["maxDepth"] = input.maxDepth.toString();
-  }
-  if (input.period !== undefined) {
-    query["period"] = input.period;
-  }
-  if (input.startTime !== undefined) {
-    query["startTime"] = (
-      input.startTime.toISOString().split(".")[0] + "Z"
-    ).toString();
-  }
+  const query: any = {
+    ...(input.endTime !== undefined && {
+      endTime: (input.endTime.toISOString().split(".")[0] + "Z").toString()
+    }),
+    ...(input.maxDepth !== undefined && {
+      maxDepth: input.maxDepth.toString()
+    }),
+    ...(input.period !== undefined && { period: input.period }),
+    ...(input.startTime !== undefined && {
+      startTime: (input.startTime.toISOString().split(".")[0] + "Z").toString()
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -372,29 +365,20 @@ export const serializeAws_restJson1_1ListProfileTimesCommand = async (
       "No value provided for input HTTP label: profilingGroupName."
     );
   }
-  const query: any = {};
-  if (input.endTime !== undefined) {
-    query["endTime"] = (
-      input.endTime.toISOString().split(".")[0] + "Z"
-    ).toString();
-  }
-  if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
-  }
-  if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken;
-  }
-  if (input.orderBy !== undefined) {
-    query["orderBy"] = input.orderBy;
-  }
-  if (input.period !== undefined) {
-    query["period"] = input.period;
-  }
-  if (input.startTime !== undefined) {
-    query["startTime"] = (
-      input.startTime.toISOString().split(".")[0] + "Z"
-    ).toString();
-  }
+  const query: any = {
+    ...(input.endTime !== undefined && {
+      endTime: (input.endTime.toISOString().split(".")[0] + "Z").toString()
+    }),
+    ...(input.maxResults !== undefined && {
+      maxResults: input.maxResults.toString()
+    }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.orderBy !== undefined && { orderBy: input.orderBy }),
+    ...(input.period !== undefined && { period: input.period }),
+    ...(input.startTime !== undefined && {
+      startTime: (input.startTime.toISOString().split(".")[0] + "Z").toString()
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -435,10 +419,11 @@ export const serializeAws_restJson1_1PostAgentProfileCommand = async (
       "No value provided for input HTTP label: profilingGroupName."
     );
   }
-  const query: any = {};
-  if (input.profileToken !== undefined) {
-    query["profileToken"] = input.profileToken;
-  }
+  const query: any = {
+    ...(input.profileToken !== undefined && {
+      profileToken: input.profileToken
+    })
+  };
   let body: any;
   if (input.agentProfile !== undefined) {
     body = input.agentProfile;

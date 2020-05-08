@@ -71,16 +71,11 @@ export const serializeAws_restJson1_1CreateProjectCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "application/octet-stream";
   let resolvedPath = "/projects";
-  const query: any = {};
-  if (input.name !== undefined) {
-    query["name"] = input.name;
-  }
-  if (input.region !== undefined) {
-    query["region"] = input.region;
-  }
-  if (input.snapshotId !== undefined) {
-    query["snapshotId"] = input.snapshotId;
-  }
+  const query: any = {
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.region !== undefined && { region: input.region }),
+    ...(input.snapshotId !== undefined && { snapshotId: input.snapshotId })
+  };
   let body: any;
   if (input.contents !== undefined) {
     body = input.contents;
@@ -169,13 +164,12 @@ export const serializeAws_restJson1_1DescribeProjectCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/project";
-  const query: any = {};
-  if (input.projectId !== undefined) {
-    query["projectId"] = input.projectId;
-  }
-  if (input.syncFromResources !== undefined) {
-    query["syncFromResources"] = input.syncFromResources.toString();
-  }
+  const query: any = {
+    ...(input.projectId !== undefined && { projectId: input.projectId }),
+    ...(input.syncFromResources !== undefined && {
+      syncFromResources: input.syncFromResources.toString()
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -209,13 +203,10 @@ export const serializeAws_restJson1_1ExportBundleCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: bundleId.");
   }
-  const query: any = {};
-  if (input.platform !== undefined) {
-    query["platform"] = input.platform;
-  }
-  if (input.projectId !== undefined) {
-    query["projectId"] = input.projectId;
-  }
+  const query: any = {
+    ...(input.platform !== undefined && { platform: input.platform }),
+    ...(input.projectId !== undefined && { projectId: input.projectId })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -269,13 +260,12 @@ export const serializeAws_restJson1_1ListBundlesCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/bundles";
-  const query: any = {};
-  if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
-  }
-  if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken;
-  }
+  const query: any = {
+    ...(input.maxResults !== undefined && {
+      maxResults: input.maxResults.toString()
+    }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -297,13 +287,12 @@ export const serializeAws_restJson1_1ListProjectsCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/projects";
-  const query: any = {};
-  if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
-  }
-  if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken;
-  }
+  const query: any = {
+    ...(input.maxResults !== undefined && {
+      maxResults: input.maxResults.toString()
+    }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -325,10 +314,9 @@ export const serializeAws_restJson1_1UpdateProjectCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "application/octet-stream";
   let resolvedPath = "/update";
-  const query: any = {};
-  if (input.projectId !== undefined) {
-    query["projectId"] = input.projectId;
-  }
+  const query: any = {
+    ...(input.projectId !== undefined && { projectId: input.projectId })
+  };
   let body: any;
   if (input.contents !== undefined) {
     body = input.contents;

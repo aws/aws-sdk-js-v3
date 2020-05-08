@@ -298,13 +298,12 @@ export const serializeAws_restJson1_1DeleteResourceShareCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/deleteresourceshare";
-  const query: any = {};
-  if (input.clientToken !== undefined) {
-    query["clientToken"] = input.clientToken;
-  }
-  if (input.resourceShareArn !== undefined) {
-    query["resourceShareArn"] = input.resourceShareArn;
-  }
+  const query: any = {
+    ...(input.clientToken !== undefined && { clientToken: input.clientToken }),
+    ...(input.resourceShareArn !== undefined && {
+      resourceShareArn: input.resourceShareArn
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -821,10 +820,11 @@ export const serializeAws_restJson1_1PromoteResourceShareCreatedFromPolicyComman
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/promoteresourcesharecreatedfrompolicy";
-  const query: any = {};
-  if (input.resourceShareArn !== undefined) {
-    query["resourceShareArn"] = input.resourceShareArn;
-  }
+  const query: any = {
+    ...(input.resourceShareArn !== undefined && {
+      resourceShareArn: input.resourceShareArn
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({

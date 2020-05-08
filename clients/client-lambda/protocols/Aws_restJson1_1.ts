@@ -300,10 +300,9 @@ export const serializeAws_restJson1_1AddLayerVersionPermissionCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: VersionNumber.");
   }
-  const query: any = {};
-  if (input.RevisionId !== undefined) {
-    query["RevisionId"] = input.RevisionId;
-  }
+  const query: any = {
+    ...(input.RevisionId !== undefined && { RevisionId: input.RevisionId })
+  };
   let body: any;
   const bodyParams: any = {};
   if (input.Action !== undefined) {
@@ -353,10 +352,9 @@ export const serializeAws_restJson1_1AddPermissionCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: FunctionName.");
   }
-  const query: any = {};
-  if (input.Qualifier !== undefined) {
-    query["Qualifier"] = input.Qualifier;
-  }
+  const query: any = {
+    ...(input.Qualifier !== undefined && { Qualifier: input.Qualifier })
+  };
   let body: any;
   const bodyParams: any = {};
   if (input.Action !== undefined) {
@@ -698,10 +696,9 @@ export const serializeAws_restJson1_1DeleteFunctionCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: FunctionName.");
   }
-  const query: any = {};
-  if (input.Qualifier !== undefined) {
-    query["Qualifier"] = input.Qualifier;
-  }
+  const query: any = {
+    ...(input.Qualifier !== undefined && { Qualifier: input.Qualifier })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -771,10 +768,9 @@ export const serializeAws_restJson1_1DeleteFunctionEventInvokeConfigCommand = as
   } else {
     throw new Error("No value provided for input HTTP label: FunctionName.");
   }
-  const query: any = {};
-  if (input.Qualifier !== undefined) {
-    query["Qualifier"] = input.Qualifier;
-  }
+  const query: any = {
+    ...(input.Qualifier !== undefined && { Qualifier: input.Qualifier })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -857,10 +853,9 @@ export const serializeAws_restJson1_1DeleteProvisionedConcurrencyConfigCommand =
   } else {
     throw new Error("No value provided for input HTTP label: FunctionName.");
   }
-  const query: any = {};
-  if (input.Qualifier !== undefined) {
-    query["Qualifier"] = input.Qualifier;
-  }
+  const query: any = {
+    ...(input.Qualifier !== undefined && { Qualifier: input.Qualifier })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -995,10 +990,9 @@ export const serializeAws_restJson1_1GetFunctionCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: FunctionName.");
   }
-  const query: any = {};
-  if (input.Qualifier !== undefined) {
-    query["Qualifier"] = input.Qualifier;
-  }
+  const query: any = {
+    ...(input.Qualifier !== undefined && { Qualifier: input.Qualifier })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1068,10 +1062,9 @@ export const serializeAws_restJson1_1GetFunctionConfigurationCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: FunctionName.");
   }
-  const query: any = {};
-  if (input.Qualifier !== undefined) {
-    query["Qualifier"] = input.Qualifier;
-  }
+  const query: any = {
+    ...(input.Qualifier !== undefined && { Qualifier: input.Qualifier })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1107,10 +1100,9 @@ export const serializeAws_restJson1_1GetFunctionEventInvokeConfigCommand = async
   } else {
     throw new Error("No value provided for input HTTP label: FunctionName.");
   }
-  const query: any = {};
-  if (input.Qualifier !== undefined) {
-    query["Qualifier"] = input.Qualifier;
-  }
+  const query: any = {
+    ...(input.Qualifier !== undefined && { Qualifier: input.Qualifier })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1179,11 +1171,9 @@ export const serializeAws_restJson1_1GetLayerVersionByArnCommand = async (
   headers["Content-Type"] = "";
   let resolvedPath = "/2018-10-31/layers";
   const query: any = {
-    find: "LayerVersion"
+    find: "LayerVersion",
+    ...(input.Arn !== undefined && { Arn: input.Arn })
   };
-  if (input.Arn !== undefined) {
-    query["Arn"] = input.Arn;
-  }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1266,10 +1256,9 @@ export const serializeAws_restJson1_1GetPolicyCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: FunctionName.");
   }
-  const query: any = {};
-  if (input.Qualifier !== undefined) {
-    query["Qualifier"] = input.Qualifier;
-  }
+  const query: any = {
+    ...(input.Qualifier !== undefined && { Qualifier: input.Qualifier })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1306,10 +1295,9 @@ export const serializeAws_restJson1_1GetProvisionedConcurrencyConfigCommand = as
   } else {
     throw new Error("No value provided for input HTTP label: FunctionName.");
   }
-  const query: any = {};
-  if (input.Qualifier !== undefined) {
-    query["Qualifier"] = input.Qualifier;
-  }
+  const query: any = {
+    ...(input.Qualifier !== undefined && { Qualifier: input.Qualifier })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1354,10 +1342,9 @@ export const serializeAws_restJson1_1InvokeCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: FunctionName.");
   }
-  const query: any = {};
-  if (input.Qualifier !== undefined) {
-    query["Qualifier"] = input.Qualifier;
-  }
+  const query: any = {
+    ...(input.Qualifier !== undefined && { Qualifier: input.Qualifier })
+  };
   let body: any;
   if (input.Payload !== undefined) {
     body = input.Payload;
@@ -1433,16 +1420,13 @@ export const serializeAws_restJson1_1ListAliasesCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: FunctionName.");
   }
-  const query: any = {};
-  if (input.FunctionVersion !== undefined) {
-    query["FunctionVersion"] = input.FunctionVersion;
-  }
-  if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker;
-  }
-  if (input.MaxItems !== undefined) {
-    query["MaxItems"] = input.MaxItems.toString();
-  }
+  const query: any = {
+    ...(input.FunctionVersion !== undefined && {
+      FunctionVersion: input.FunctionVersion
+    }),
+    ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1464,19 +1448,16 @@ export const serializeAws_restJson1_1ListEventSourceMappingsCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2015-03-31/event-source-mappings";
-  const query: any = {};
-  if (input.EventSourceArn !== undefined) {
-    query["EventSourceArn"] = input.EventSourceArn;
-  }
-  if (input.FunctionName !== undefined) {
-    query["FunctionName"] = input.FunctionName;
-  }
-  if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker;
-  }
-  if (input.MaxItems !== undefined) {
-    query["MaxItems"] = input.MaxItems.toString();
-  }
+  const query: any = {
+    ...(input.EventSourceArn !== undefined && {
+      EventSourceArn: input.EventSourceArn
+    }),
+    ...(input.FunctionName !== undefined && {
+      FunctionName: input.FunctionName
+    }),
+    ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1513,13 +1494,10 @@ export const serializeAws_restJson1_1ListFunctionEventInvokeConfigsCommand = asy
   } else {
     throw new Error("No value provided for input HTTP label: FunctionName.");
   }
-  const query: any = {};
-  if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker;
-  }
-  if (input.MaxItems !== undefined) {
-    query["MaxItems"] = input.MaxItems.toString();
-  }
+  const query: any = {
+    ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1541,19 +1519,16 @@ export const serializeAws_restJson1_1ListFunctionsCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2015-03-31/functions";
-  const query: any = {};
-  if (input.FunctionVersion !== undefined) {
-    query["FunctionVersion"] = input.FunctionVersion;
-  }
-  if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker;
-  }
-  if (input.MasterRegion !== undefined) {
-    query["MasterRegion"] = input.MasterRegion;
-  }
-  if (input.MaxItems !== undefined) {
-    query["MaxItems"] = input.MaxItems.toString();
-  }
+  const query: any = {
+    ...(input.FunctionVersion !== undefined && {
+      FunctionVersion: input.FunctionVersion
+    }),
+    ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.MasterRegion !== undefined && {
+      MasterRegion: input.MasterRegion
+    }),
+    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1587,16 +1562,13 @@ export const serializeAws_restJson1_1ListLayerVersionsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: LayerName.");
   }
-  const query: any = {};
-  if (input.CompatibleRuntime !== undefined) {
-    query["CompatibleRuntime"] = input.CompatibleRuntime;
-  }
-  if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker;
-  }
-  if (input.MaxItems !== undefined) {
-    query["MaxItems"] = input.MaxItems.toString();
-  }
+  const query: any = {
+    ...(input.CompatibleRuntime !== undefined && {
+      CompatibleRuntime: input.CompatibleRuntime
+    }),
+    ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1618,16 +1590,13 @@ export const serializeAws_restJson1_1ListLayersCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2018-10-31/layers";
-  const query: any = {};
-  if (input.CompatibleRuntime !== undefined) {
-    query["CompatibleRuntime"] = input.CompatibleRuntime;
-  }
-  if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker;
-  }
-  if (input.MaxItems !== undefined) {
-    query["MaxItems"] = input.MaxItems.toString();
-  }
+  const query: any = {
+    ...(input.CompatibleRuntime !== undefined && {
+      CompatibleRuntime: input.CompatibleRuntime
+    }),
+    ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1665,14 +1634,10 @@ export const serializeAws_restJson1_1ListProvisionedConcurrencyConfigsCommand = 
     throw new Error("No value provided for input HTTP label: FunctionName.");
   }
   const query: any = {
-    List: "ALL"
+    List: "ALL",
+    ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() })
   };
-  if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker;
-  }
-  if (input.MaxItems !== undefined) {
-    query["MaxItems"] = input.MaxItems.toString();
-  }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1740,13 +1705,10 @@ export const serializeAws_restJson1_1ListVersionsByFunctionCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: FunctionName.");
   }
-  const query: any = {};
-  if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker;
-  }
-  if (input.MaxItems !== undefined) {
-    query["MaxItems"] = input.MaxItems.toString();
-  }
+  const query: any = {
+    ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1921,10 +1883,9 @@ export const serializeAws_restJson1_1PutFunctionEventInvokeConfigCommand = async
   } else {
     throw new Error("No value provided for input HTTP label: FunctionName.");
   }
-  const query: any = {};
-  if (input.Qualifier !== undefined) {
-    query["Qualifier"] = input.Qualifier;
-  }
+  const query: any = {
+    ...(input.Qualifier !== undefined && { Qualifier: input.Qualifier })
+  };
   let body: any;
   const bodyParams: any = {};
   if (input.DestinationConfig !== undefined) {
@@ -1975,10 +1936,9 @@ export const serializeAws_restJson1_1PutProvisionedConcurrencyConfigCommand = as
   } else {
     throw new Error("No value provided for input HTTP label: FunctionName.");
   }
-  const query: any = {};
-  if (input.Qualifier !== undefined) {
-    query["Qualifier"] = input.Qualifier;
-  }
+  const query: any = {
+    ...(input.Qualifier !== undefined && { Qualifier: input.Qualifier })
+  };
   let body: any;
   const bodyParams: any = {};
   if (input.ProvisionedConcurrentExecutions !== undefined) {
@@ -2047,10 +2007,9 @@ export const serializeAws_restJson1_1RemoveLayerVersionPermissionCommand = async
   } else {
     throw new Error("No value provided for input HTTP label: VersionNumber.");
   }
-  const query: any = {};
-  if (input.RevisionId !== undefined) {
-    query["RevisionId"] = input.RevisionId;
-  }
+  const query: any = {
+    ...(input.RevisionId !== undefined && { RevisionId: input.RevisionId })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2101,13 +2060,10 @@ export const serializeAws_restJson1_1RemovePermissionCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: StatementId.");
   }
-  const query: any = {};
-  if (input.Qualifier !== undefined) {
-    query["Qualifier"] = input.Qualifier;
-  }
-  if (input.RevisionId !== undefined) {
-    query["RevisionId"] = input.RevisionId;
-  }
+  const query: any = {
+    ...(input.Qualifier !== undefined && { Qualifier: input.Qualifier }),
+    ...(input.RevisionId !== undefined && { RevisionId: input.RevisionId })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2178,10 +2134,11 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: Resource.");
   }
-  const query: any = {};
-  if (input.TagKeys !== undefined) {
-    query["tagKeys"] = (input.TagKeys || []).map(_entry => _entry);
-  }
+  const query: any = {
+    ...(input.TagKeys !== undefined && {
+      tagKeys: (input.TagKeys || []).map(_entry => _entry)
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2494,10 +2451,9 @@ export const serializeAws_restJson1_1UpdateFunctionEventInvokeConfigCommand = as
   } else {
     throw new Error("No value provided for input HTTP label: FunctionName.");
   }
-  const query: any = {};
-  if (input.Qualifier !== undefined) {
-    query["Qualifier"] = input.Qualifier;
-  }
+  const query: any = {
+    ...(input.Qualifier !== undefined && { Qualifier: input.Qualifier })
+  };
   let body: any;
   const bodyParams: any = {};
   if (input.DestinationConfig !== undefined) {

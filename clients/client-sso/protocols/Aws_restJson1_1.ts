@@ -48,13 +48,10 @@ export const serializeAws_restJson1_1GetRoleCredentialsCommand = async (
     headers["x-amz-sso_bearer_token"] = input.accessToken!;
   }
   let resolvedPath = "/federation/credentials";
-  const query: any = {};
-  if (input.accountId !== undefined) {
-    query["account_id"] = input.accountId;
-  }
-  if (input.roleName !== undefined) {
-    query["role_name"] = input.roleName;
-  }
+  const query: any = {
+    ...(input.accountId !== undefined && { account_id: input.accountId }),
+    ...(input.roleName !== undefined && { role_name: input.roleName })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -79,16 +76,13 @@ export const serializeAws_restJson1_1ListAccountRolesCommand = async (
     headers["x-amz-sso_bearer_token"] = input.accessToken!;
   }
   let resolvedPath = "/assignment/roles";
-  const query: any = {};
-  if (input.accountId !== undefined) {
-    query["account_id"] = input.accountId;
-  }
-  if (input.maxResults !== undefined) {
-    query["max_result"] = input.maxResults.toString();
-  }
-  if (input.nextToken !== undefined) {
-    query["next_token"] = input.nextToken;
-  }
+  const query: any = {
+    ...(input.accountId !== undefined && { account_id: input.accountId }),
+    ...(input.maxResults !== undefined && {
+      max_result: input.maxResults.toString()
+    }),
+    ...(input.nextToken !== undefined && { next_token: input.nextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -113,13 +107,12 @@ export const serializeAws_restJson1_1ListAccountsCommand = async (
     headers["x-amz-sso_bearer_token"] = input.accessToken!;
   }
   let resolvedPath = "/assignment/accounts";
-  const query: any = {};
-  if (input.maxResults !== undefined) {
-    query["max_result"] = input.maxResults.toString();
-  }
-  if (input.nextToken !== undefined) {
-    query["next_token"] = input.nextToken;
-  }
+  const query: any = {
+    ...(input.maxResults !== undefined && {
+      max_result: input.maxResults.toString()
+    }),
+    ...(input.nextToken !== undefined && { next_token: input.nextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({

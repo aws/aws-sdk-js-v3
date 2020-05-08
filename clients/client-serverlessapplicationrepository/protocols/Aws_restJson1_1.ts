@@ -404,10 +404,11 @@ export const serializeAws_restJson1_1GetApplicationCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
-  const query: any = {};
-  if (input.SemanticVersion !== undefined) {
-    query["semanticVersion"] = input.SemanticVersion;
-  }
+  const query: any = {
+    ...(input.SemanticVersion !== undefined && {
+      semanticVersion: input.SemanticVersion
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -523,16 +524,15 @@ export const serializeAws_restJson1_1ListApplicationDependenciesCommand = async 
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
-  const query: any = {};
-  if (input.MaxItems !== undefined) {
-    query["maxItems"] = input.MaxItems.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
-  if (input.SemanticVersion !== undefined) {
-    query["semanticVersion"] = input.SemanticVersion;
-  }
+  const query: any = {
+    ...(input.MaxItems !== undefined && {
+      maxItems: input.MaxItems.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.SemanticVersion !== undefined && {
+      semanticVersion: input.SemanticVersion
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -568,13 +568,12 @@ export const serializeAws_restJson1_1ListApplicationVersionsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
-  const query: any = {};
-  if (input.MaxItems !== undefined) {
-    query["maxItems"] = input.MaxItems.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxItems !== undefined && {
+      maxItems: input.MaxItems.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -596,13 +595,12 @@ export const serializeAws_restJson1_1ListApplicationsCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/applications";
-  const query: any = {};
-  if (input.MaxItems !== undefined) {
-    query["maxItems"] = input.MaxItems.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxItems !== undefined && {
+      maxItems: input.MaxItems.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({

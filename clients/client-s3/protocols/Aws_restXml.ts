@@ -525,11 +525,9 @@ export const serializeAws_restXmlAbortMultipartUploadCommand = async (
     throw new Error("No value provided for input HTTP label: Key.");
   }
   const query: any = {
-    "x-id": "AbortMultipartUpload"
+    "x-id": "AbortMultipartUpload",
+    ...(input.UploadId !== undefined && { uploadId: input.UploadId })
   };
-  if (input.UploadId !== undefined) {
-    query["uploadId"] = input.UploadId;
-  }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -581,10 +579,9 @@ export const serializeAws_restXmlCompleteMultipartUploadCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: Key.");
   }
-  const query: any = {};
-  if (input.UploadId !== undefined) {
-    query["uploadId"] = input.UploadId;
-  }
+  const query: any = {
+    ...(input.UploadId !== undefined && { uploadId: input.UploadId })
+  };
   let body: any;
   let contents: any;
   if (input.MultipartUpload !== undefined) {
@@ -1042,11 +1039,9 @@ export const serializeAws_restXmlDeleteBucketAnalyticsConfigurationCommand = asy
     throw new Error("No value provided for input HTTP label: Bucket.");
   }
   const query: any = {
-    analytics: ""
+    analytics: "",
+    ...(input.Id !== undefined && { id: input.Id })
   };
-  if (input.Id !== undefined) {
-    query["id"] = input.Id;
-  }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1153,11 +1148,9 @@ export const serializeAws_restXmlDeleteBucketInventoryConfigurationCommand = asy
     throw new Error("No value provided for input HTTP label: Bucket.");
   }
   const query: any = {
-    inventory: ""
+    inventory: "",
+    ...(input.Id !== undefined && { id: input.Id })
   };
-  if (input.Id !== undefined) {
-    query["id"] = input.Id;
-  }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1228,11 +1221,9 @@ export const serializeAws_restXmlDeleteBucketMetricsConfigurationCommand = async
     throw new Error("No value provided for input HTTP label: Bucket.");
   }
   const query: any = {
-    metrics: ""
+    metrics: "",
+    ...(input.Id !== undefined && { id: input.Id })
   };
-  if (input.Id !== undefined) {
-    query["id"] = input.Id;
-  }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1437,11 +1428,9 @@ export const serializeAws_restXmlDeleteObjectCommand = async (
     throw new Error("No value provided for input HTTP label: Key.");
   }
   const query: any = {
-    "x-id": "DeleteObject"
+    "x-id": "DeleteObject",
+    ...(input.VersionId !== undefined && { versionId: input.VersionId })
   };
-  if (input.VersionId !== undefined) {
-    query["versionId"] = input.VersionId;
-  }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1491,11 +1480,9 @@ export const serializeAws_restXmlDeleteObjectTaggingCommand = async (
     throw new Error("No value provided for input HTTP label: Key.");
   }
   const query: any = {
-    tagging: ""
+    tagging: "",
+    ...(input.VersionId !== undefined && { versionId: input.VersionId })
   };
-  if (input.VersionId !== undefined) {
-    query["versionId"] = input.VersionId;
-  }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1693,11 +1680,9 @@ export const serializeAws_restXmlGetBucketAnalyticsConfigurationCommand = async 
   }
   const query: any = {
     analytics: "",
-    "x-id": "GetBucketAnalyticsConfiguration"
+    "x-id": "GetBucketAnalyticsConfiguration",
+    ...(input.Id !== undefined && { id: input.Id })
   };
-  if (input.Id !== undefined) {
-    query["id"] = input.Id;
-  }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1805,11 +1790,9 @@ export const serializeAws_restXmlGetBucketInventoryConfigurationCommand = async 
   }
   const query: any = {
     inventory: "",
-    "x-id": "GetBucketInventoryConfiguration"
+    "x-id": "GetBucketInventoryConfiguration",
+    ...(input.Id !== undefined && { id: input.Id })
   };
-  if (input.Id !== undefined) {
-    query["id"] = input.Id;
-  }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1953,11 +1936,9 @@ export const serializeAws_restXmlGetBucketMetricsConfigurationCommand = async (
   }
   const query: any = {
     metrics: "",
-    "x-id": "GetBucketMetricsConfiguration"
+    "x-id": "GetBucketMetricsConfiguration",
+    ...(input.Id !== undefined && { id: input.Id })
   };
-  if (input.Id !== undefined) {
-    query["id"] = input.Id;
-  }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2332,34 +2313,32 @@ export const serializeAws_restXmlGetObjectCommand = async (
     throw new Error("No value provided for input HTTP label: Key.");
   }
   const query: any = {
-    "x-id": "GetObject"
+    "x-id": "GetObject",
+    ...(input.PartNumber !== undefined && {
+      partNumber: input.PartNumber.toString()
+    }),
+    ...(input.ResponseCacheControl !== undefined && {
+      "response-cache-control": input.ResponseCacheControl
+    }),
+    ...(input.ResponseContentDisposition !== undefined && {
+      "response-content-disposition": input.ResponseContentDisposition
+    }),
+    ...(input.ResponseContentEncoding !== undefined && {
+      "response-content-encoding": input.ResponseContentEncoding
+    }),
+    ...(input.ResponseContentLanguage !== undefined && {
+      "response-content-language": input.ResponseContentLanguage
+    }),
+    ...(input.ResponseContentType !== undefined && {
+      "response-content-type": input.ResponseContentType
+    }),
+    ...(input.ResponseExpires !== undefined && {
+      "response-expires": (
+        input.ResponseExpires.toISOString().split(".")[0] + "Z"
+      ).toString()
+    }),
+    ...(input.VersionId !== undefined && { versionId: input.VersionId })
   };
-  if (input.PartNumber !== undefined) {
-    query["partNumber"] = input.PartNumber.toString();
-  }
-  if (input.ResponseCacheControl !== undefined) {
-    query["response-cache-control"] = input.ResponseCacheControl;
-  }
-  if (input.ResponseContentDisposition !== undefined) {
-    query["response-content-disposition"] = input.ResponseContentDisposition;
-  }
-  if (input.ResponseContentEncoding !== undefined) {
-    query["response-content-encoding"] = input.ResponseContentEncoding;
-  }
-  if (input.ResponseContentLanguage !== undefined) {
-    query["response-content-language"] = input.ResponseContentLanguage;
-  }
-  if (input.ResponseContentType !== undefined) {
-    query["response-content-type"] = input.ResponseContentType;
-  }
-  if (input.ResponseExpires !== undefined) {
-    query["response-expires"] = (
-      input.ResponseExpires.toISOString().split(".")[0] + "Z"
-    ).toString();
-  }
-  if (input.VersionId !== undefined) {
-    query["versionId"] = input.VersionId;
-  }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2412,11 +2391,9 @@ export const serializeAws_restXmlGetObjectAclCommand = async (
     throw new Error("No value provided for input HTTP label: Key.");
   }
   const query: any = {
-    acl: ""
+    acl: "",
+    ...(input.VersionId !== undefined && { versionId: input.VersionId })
   };
-  if (input.VersionId !== undefined) {
-    query["versionId"] = input.VersionId;
-  }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2469,11 +2446,9 @@ export const serializeAws_restXmlGetObjectLegalHoldCommand = async (
     throw new Error("No value provided for input HTTP label: Key.");
   }
   const query: any = {
-    "legal-hold": ""
+    "legal-hold": "",
+    ...(input.VersionId !== undefined && { versionId: input.VersionId })
   };
-  if (input.VersionId !== undefined) {
-    query["versionId"] = input.VersionId;
-  }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2562,11 +2537,9 @@ export const serializeAws_restXmlGetObjectRetentionCommand = async (
     throw new Error("No value provided for input HTTP label: Key.");
   }
   const query: any = {
-    retention: ""
+    retention: "",
+    ...(input.VersionId !== undefined && { versionId: input.VersionId })
   };
-  if (input.VersionId !== undefined) {
-    query["versionId"] = input.VersionId;
-  }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2616,11 +2589,9 @@ export const serializeAws_restXmlGetObjectTaggingCommand = async (
     throw new Error("No value provided for input HTTP label: Key.");
   }
   const query: any = {
-    tagging: ""
+    tagging: "",
+    ...(input.VersionId !== undefined && { versionId: input.VersionId })
   };
-  if (input.VersionId !== undefined) {
-    query["versionId"] = input.VersionId;
-  }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2828,13 +2799,12 @@ export const serializeAws_restXmlHeadObjectCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: Key.");
   }
-  const query: any = {};
-  if (input.PartNumber !== undefined) {
-    query["partNumber"] = input.PartNumber.toString();
-  }
-  if (input.VersionId !== undefined) {
-    query["versionId"] = input.VersionId;
-  }
+  const query: any = {
+    ...(input.PartNumber !== undefined && {
+      partNumber: input.PartNumber.toString()
+    }),
+    ...(input.VersionId !== undefined && { versionId: input.VersionId })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2870,11 +2840,11 @@ export const serializeAws_restXmlListBucketAnalyticsConfigurationsCommand = asyn
   }
   const query: any = {
     analytics: "",
-    "x-id": "ListBucketAnalyticsConfigurations"
+    "x-id": "ListBucketAnalyticsConfigurations",
+    ...(input.ContinuationToken !== undefined && {
+      "continuation-token": input.ContinuationToken
+    })
   };
-  if (input.ContinuationToken !== undefined) {
-    query["continuation-token"] = input.ContinuationToken;
-  }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2910,11 +2880,11 @@ export const serializeAws_restXmlListBucketInventoryConfigurationsCommand = asyn
   }
   const query: any = {
     inventory: "",
-    "x-id": "ListBucketInventoryConfigurations"
+    "x-id": "ListBucketInventoryConfigurations",
+    ...(input.ContinuationToken !== undefined && {
+      "continuation-token": input.ContinuationToken
+    })
   };
-  if (input.ContinuationToken !== undefined) {
-    query["continuation-token"] = input.ContinuationToken;
-  }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2950,11 +2920,11 @@ export const serializeAws_restXmlListBucketMetricsConfigurationsCommand = async 
   }
   const query: any = {
     metrics: "",
-    "x-id": "ListBucketMetricsConfigurations"
+    "x-id": "ListBucketMetricsConfigurations",
+    ...(input.ContinuationToken !== undefined && {
+      "continuation-token": input.ContinuationToken
+    })
   };
-  if (input.ContinuationToken !== undefined) {
-    query["continuation-token"] = input.ContinuationToken;
-  }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -3010,26 +2980,20 @@ export const serializeAws_restXmlListMultipartUploadsCommand = async (
     throw new Error("No value provided for input HTTP label: Bucket.");
   }
   const query: any = {
-    uploads: ""
+    uploads: "",
+    ...(input.Delimiter !== undefined && { delimiter: input.Delimiter }),
+    ...(input.EncodingType !== undefined && {
+      "encoding-type": input.EncodingType
+    }),
+    ...(input.KeyMarker !== undefined && { "key-marker": input.KeyMarker }),
+    ...(input.MaxUploads !== undefined && {
+      "max-uploads": input.MaxUploads.toString()
+    }),
+    ...(input.Prefix !== undefined && { prefix: input.Prefix }),
+    ...(input.UploadIdMarker !== undefined && {
+      "upload-id-marker": input.UploadIdMarker
+    })
   };
-  if (input.Delimiter !== undefined) {
-    query["delimiter"] = input.Delimiter;
-  }
-  if (input.EncodingType !== undefined) {
-    query["encoding-type"] = input.EncodingType;
-  }
-  if (input.KeyMarker !== undefined) {
-    query["key-marker"] = input.KeyMarker;
-  }
-  if (input.MaxUploads !== undefined) {
-    query["max-uploads"] = input.MaxUploads.toString();
-  }
-  if (input.Prefix !== undefined) {
-    query["prefix"] = input.Prefix;
-  }
-  if (input.UploadIdMarker !== undefined) {
-    query["upload-id-marker"] = input.UploadIdMarker;
-  }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -3064,26 +3028,20 @@ export const serializeAws_restXmlListObjectVersionsCommand = async (
     throw new Error("No value provided for input HTTP label: Bucket.");
   }
   const query: any = {
-    versions: ""
+    versions: "",
+    ...(input.Delimiter !== undefined && { delimiter: input.Delimiter }),
+    ...(input.EncodingType !== undefined && {
+      "encoding-type": input.EncodingType
+    }),
+    ...(input.KeyMarker !== undefined && { "key-marker": input.KeyMarker }),
+    ...(input.MaxKeys !== undefined && {
+      "max-keys": input.MaxKeys.toString()
+    }),
+    ...(input.Prefix !== undefined && { prefix: input.Prefix }),
+    ...(input.VersionIdMarker !== undefined && {
+      "version-id-marker": input.VersionIdMarker
+    })
   };
-  if (input.Delimiter !== undefined) {
-    query["delimiter"] = input.Delimiter;
-  }
-  if (input.EncodingType !== undefined) {
-    query["encoding-type"] = input.EncodingType;
-  }
-  if (input.KeyMarker !== undefined) {
-    query["key-marker"] = input.KeyMarker;
-  }
-  if (input.MaxKeys !== undefined) {
-    query["max-keys"] = input.MaxKeys.toString();
-  }
-  if (input.Prefix !== undefined) {
-    query["prefix"] = input.Prefix;
-  }
-  if (input.VersionIdMarker !== undefined) {
-    query["version-id-marker"] = input.VersionIdMarker;
-  }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -3120,22 +3078,17 @@ export const serializeAws_restXmlListObjectsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
   }
-  const query: any = {};
-  if (input.Delimiter !== undefined) {
-    query["delimiter"] = input.Delimiter;
-  }
-  if (input.EncodingType !== undefined) {
-    query["encoding-type"] = input.EncodingType;
-  }
-  if (input.Marker !== undefined) {
-    query["marker"] = input.Marker;
-  }
-  if (input.MaxKeys !== undefined) {
-    query["max-keys"] = input.MaxKeys.toString();
-  }
-  if (input.Prefix !== undefined) {
-    query["prefix"] = input.Prefix;
-  }
+  const query: any = {
+    ...(input.Delimiter !== undefined && { delimiter: input.Delimiter }),
+    ...(input.EncodingType !== undefined && {
+      "encoding-type": input.EncodingType
+    }),
+    ...(input.Marker !== undefined && { marker: input.Marker }),
+    ...(input.MaxKeys !== undefined && {
+      "max-keys": input.MaxKeys.toString()
+    }),
+    ...(input.Prefix !== undefined && { prefix: input.Prefix })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -3173,29 +3126,23 @@ export const serializeAws_restXmlListObjectsV2Command = async (
     throw new Error("No value provided for input HTTP label: Bucket.");
   }
   const query: any = {
-    "list-type": "2"
+    "list-type": "2",
+    ...(input.ContinuationToken !== undefined && {
+      "continuation-token": input.ContinuationToken
+    }),
+    ...(input.Delimiter !== undefined && { delimiter: input.Delimiter }),
+    ...(input.EncodingType !== undefined && {
+      "encoding-type": input.EncodingType
+    }),
+    ...(input.FetchOwner !== undefined && {
+      "fetch-owner": input.FetchOwner.toString()
+    }),
+    ...(input.MaxKeys !== undefined && {
+      "max-keys": input.MaxKeys.toString()
+    }),
+    ...(input.Prefix !== undefined && { prefix: input.Prefix }),
+    ...(input.StartAfter !== undefined && { "start-after": input.StartAfter })
   };
-  if (input.ContinuationToken !== undefined) {
-    query["continuation-token"] = input.ContinuationToken;
-  }
-  if (input.Delimiter !== undefined) {
-    query["delimiter"] = input.Delimiter;
-  }
-  if (input.EncodingType !== undefined) {
-    query["encoding-type"] = input.EncodingType;
-  }
-  if (input.FetchOwner !== undefined) {
-    query["fetch-owner"] = input.FetchOwner.toString();
-  }
-  if (input.MaxKeys !== undefined) {
-    query["max-keys"] = input.MaxKeys.toString();
-  }
-  if (input.Prefix !== undefined) {
-    query["prefix"] = input.Prefix;
-  }
-  if (input.StartAfter !== undefined) {
-    query["start-after"] = input.StartAfter;
-  }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -3248,17 +3195,15 @@ export const serializeAws_restXmlListPartsCommand = async (
     throw new Error("No value provided for input HTTP label: Key.");
   }
   const query: any = {
-    "x-id": "ListParts"
+    "x-id": "ListParts",
+    ...(input.MaxParts !== undefined && {
+      "max-parts": input.MaxParts.toString()
+    }),
+    ...(input.PartNumberMarker !== undefined && {
+      "part-number-marker": input.PartNumberMarker.toString()
+    }),
+    ...(input.UploadId !== undefined && { uploadId: input.UploadId })
   };
-  if (input.MaxParts !== undefined) {
-    query["max-parts"] = input.MaxParts.toString();
-  }
-  if (input.PartNumberMarker !== undefined) {
-    query["part-number-marker"] = input.PartNumberMarker.toString();
-  }
-  if (input.UploadId !== undefined) {
-    query["uploadId"] = input.UploadId;
-  }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -3406,11 +3351,9 @@ export const serializeAws_restXmlPutBucketAnalyticsConfigurationCommand = async 
     throw new Error("No value provided for input HTTP label: Bucket.");
   }
   const query: any = {
-    analytics: ""
+    analytics: "",
+    ...(input.Id !== undefined && { id: input.Id })
   };
-  if (input.Id !== undefined) {
-    query["id"] = input.Id;
-  }
   let body: any;
   let contents: any;
   if (input.AnalyticsConfiguration !== undefined) {
@@ -3553,11 +3496,9 @@ export const serializeAws_restXmlPutBucketInventoryConfigurationCommand = async 
     throw new Error("No value provided for input HTTP label: Bucket.");
   }
   const query: any = {
-    inventory: ""
+    inventory: "",
+    ...(input.Id !== undefined && { id: input.Id })
   };
-  if (input.Id !== undefined) {
-    query["id"] = input.Id;
-  }
   let body: any;
   let contents: any;
   if (input.InventoryConfiguration !== undefined) {
@@ -3697,11 +3638,9 @@ export const serializeAws_restXmlPutBucketMetricsConfigurationCommand = async (
     throw new Error("No value provided for input HTTP label: Bucket.");
   }
   const query: any = {
-    metrics: ""
+    metrics: "",
+    ...(input.Id !== undefined && { id: input.Id })
   };
-  if (input.Id !== undefined) {
-    query["id"] = input.Id;
-  }
   let body: any;
   let contents: any;
   if (input.MetricsConfiguration !== undefined) {
@@ -4282,11 +4221,9 @@ export const serializeAws_restXmlPutObjectAclCommand = async (
     throw new Error("No value provided for input HTTP label: Key.");
   }
   const query: any = {
-    acl: ""
+    acl: "",
+    ...(input.VersionId !== undefined && { versionId: input.VersionId })
   };
-  if (input.VersionId !== undefined) {
-    query["versionId"] = input.VersionId;
-  }
   let body: any;
   let contents: any;
   if (input.AccessControlPolicy !== undefined) {
@@ -4352,11 +4289,9 @@ export const serializeAws_restXmlPutObjectLegalHoldCommand = async (
     throw new Error("No value provided for input HTTP label: Key.");
   }
   const query: any = {
-    "legal-hold": ""
+    "legal-hold": "",
+    ...(input.VersionId !== undefined && { versionId: input.VersionId })
   };
-  if (input.VersionId !== undefined) {
-    query["versionId"] = input.VersionId;
-  }
   let body: any;
   let contents: any;
   if (input.LegalHold !== undefined) {
@@ -4482,11 +4417,9 @@ export const serializeAws_restXmlPutObjectRetentionCommand = async (
     throw new Error("No value provided for input HTTP label: Key.");
   }
   const query: any = {
-    retention: ""
+    retention: "",
+    ...(input.VersionId !== undefined && { versionId: input.VersionId })
   };
-  if (input.VersionId !== undefined) {
-    query["versionId"] = input.VersionId;
-  }
   let body: any;
   let contents: any;
   if (input.Retention !== undefined) {
@@ -4549,11 +4482,9 @@ export const serializeAws_restXmlPutObjectTaggingCommand = async (
     throw new Error("No value provided for input HTTP label: Key.");
   }
   const query: any = {
-    tagging: ""
+    tagging: "",
+    ...(input.VersionId !== undefined && { versionId: input.VersionId })
   };
-  if (input.VersionId !== undefined) {
-    query["versionId"] = input.VersionId;
-  }
   let body: any;
   let contents: any;
   if (input.Tagging !== undefined) {
@@ -4662,11 +4593,9 @@ export const serializeAws_restXmlRestoreObjectCommand = async (
     throw new Error("No value provided for input HTTP label: Key.");
   }
   const query: any = {
-    restore: ""
+    restore: "",
+    ...(input.VersionId !== undefined && { versionId: input.VersionId })
   };
-  if (input.VersionId !== undefined) {
-    query["versionId"] = input.VersionId;
-  }
   let body: any;
   let contents: any;
   if (input.RestoreRequest !== undefined) {
@@ -4861,14 +4790,12 @@ export const serializeAws_restXmlUploadPartCommand = async (
     throw new Error("No value provided for input HTTP label: Key.");
   }
   const query: any = {
-    "x-id": "UploadPart"
+    "x-id": "UploadPart",
+    ...(input.PartNumber !== undefined && {
+      partNumber: input.PartNumber.toString()
+    }),
+    ...(input.UploadId !== undefined && { uploadId: input.UploadId })
   };
-  if (input.PartNumber !== undefined) {
-    query["partNumber"] = input.PartNumber.toString();
-  }
-  if (input.UploadId !== undefined) {
-    query["uploadId"] = input.UploadId;
-  }
   let body: any;
   let contents: any;
   if (input.Body !== undefined) {
@@ -4978,14 +4905,12 @@ export const serializeAws_restXmlUploadPartCopyCommand = async (
     throw new Error("No value provided for input HTTP label: Key.");
   }
   const query: any = {
-    "x-id": "UploadPartCopy"
+    "x-id": "UploadPartCopy",
+    ...(input.PartNumber !== undefined && {
+      partNumber: input.PartNumber.toString()
+    }),
+    ...(input.UploadId !== undefined && { uploadId: input.UploadId })
   };
-  if (input.PartNumber !== undefined) {
-    query["partNumber"] = input.PartNumber.toString();
-  }
-  if (input.UploadId !== undefined) {
-    query["uploadId"] = input.UploadId;
-  }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({

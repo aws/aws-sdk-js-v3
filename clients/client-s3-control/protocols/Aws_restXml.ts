@@ -533,16 +533,13 @@ export const serializeAws_restXmlListAccessPointsCommand = async (
     headers["x-amz-account-id"] = input.AccountId!;
   }
   let resolvedPath = "/v20180820/accesspoint";
-  const query: any = {};
-  if (input.Bucket !== undefined) {
-    query["bucket"] = input.Bucket;
-  }
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.Bucket !== undefined && { bucket: input.Bucket }),
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -567,16 +564,15 @@ export const serializeAws_restXmlListJobsCommand = async (
     headers["x-amz-account-id"] = input.AccountId!;
   }
   let resolvedPath = "/v20180820/jobs";
-  const query: any = {};
-  if (input.JobStatuses !== undefined) {
-    query["jobStatuses"] = (input.JobStatuses || []).map(_entry => _entry);
-  }
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.JobStatuses !== undefined && {
+      jobStatuses: (input.JobStatuses || []).map(_entry => _entry)
+    }),
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -697,10 +693,9 @@ export const serializeAws_restXmlUpdateJobPriorityCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: JobId.");
   }
-  const query: any = {};
-  if (input.Priority !== undefined) {
-    query["priority"] = input.Priority.toString();
-  }
+  const query: any = {
+    ...(input.Priority !== undefined && { priority: input.Priority.toString() })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -737,13 +732,14 @@ export const serializeAws_restXmlUpdateJobStatusCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: JobId.");
   }
-  const query: any = {};
-  if (input.RequestedJobStatus !== undefined) {
-    query["requestedJobStatus"] = input.RequestedJobStatus;
-  }
-  if (input.StatusUpdateReason !== undefined) {
-    query["statusUpdateReason"] = input.StatusUpdateReason;
-  }
+  const query: any = {
+    ...(input.RequestedJobStatus !== undefined && {
+      requestedJobStatus: input.RequestedJobStatus
+    }),
+    ...(input.StatusUpdateReason !== undefined && {
+      statusUpdateReason: input.StatusUpdateReason
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({

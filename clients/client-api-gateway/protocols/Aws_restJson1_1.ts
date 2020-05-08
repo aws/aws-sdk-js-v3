@@ -3065,10 +3065,11 @@ export const serializeAws_restJson1_1GetApiKeyCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: apiKey.");
   }
-  const query: any = {};
-  if (input.includeValue !== undefined) {
-    query["includeValue"] = input.includeValue.toString();
-  }
+  const query: any = {
+    ...(input.includeValue !== undefined && {
+      includeValue: input.includeValue.toString()
+    })
+  };
   let body: any;
   const bodyParams: any = {};
   if (input.name !== undefined) {
@@ -3107,22 +3108,15 @@ export const serializeAws_restJson1_1GetApiKeysCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/apikeys";
-  const query: any = {};
-  if (input.customerId !== undefined) {
-    query["customerId"] = input.customerId;
-  }
-  if (input.includeValues !== undefined) {
-    query["includeValues"] = input.includeValues.toString();
-  }
-  if (input.limit !== undefined) {
-    query["limit"] = input.limit.toString();
-  }
-  if (input.nameQuery !== undefined) {
-    query["name"] = input.nameQuery;
-  }
-  if (input.position !== undefined) {
-    query["position"] = input.position;
-  }
+  const query: any = {
+    ...(input.customerId !== undefined && { customerId: input.customerId }),
+    ...(input.includeValues !== undefined && {
+      includeValues: input.includeValues.toString()
+    }),
+    ...(input.limit !== undefined && { limit: input.limit.toString() }),
+    ...(input.nameQuery !== undefined && { name: input.nameQuery }),
+    ...(input.position !== undefined && { position: input.position })
+  };
   let body: any;
   const bodyParams: any = {};
   if (input.name !== undefined) {
@@ -3236,13 +3230,10 @@ export const serializeAws_restJson1_1GetAuthorizersCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
-  const query: any = {};
-  if (input.limit !== undefined) {
-    query["limit"] = input.limit.toString();
-  }
-  if (input.position !== undefined) {
-    query["position"] = input.position;
-  }
+  const query: any = {
+    ...(input.limit !== undefined && { limit: input.limit.toString() }),
+    ...(input.position !== undefined && { position: input.position })
+  };
   let body: any;
   const bodyParams: any = {};
   if (input.name !== undefined) {
@@ -3354,13 +3345,10 @@ export const serializeAws_restJson1_1GetBasePathMappingsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: domainName.");
   }
-  const query: any = {};
-  if (input.limit !== undefined) {
-    query["limit"] = input.limit.toString();
-  }
-  if (input.position !== undefined) {
-    query["position"] = input.position;
-  }
+  const query: any = {
+    ...(input.limit !== undefined && { limit: input.limit.toString() }),
+    ...(input.position !== undefined && { position: input.position })
+  };
   let body: any;
   const bodyParams: any = {};
   if (input.name !== undefined) {
@@ -3452,13 +3440,10 @@ export const serializeAws_restJson1_1GetClientCertificatesCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/clientcertificates";
-  const query: any = {};
-  if (input.limit !== undefined) {
-    query["limit"] = input.limit.toString();
-  }
-  if (input.position !== undefined) {
-    query["position"] = input.position;
-  }
+  const query: any = {
+    ...(input.limit !== undefined && { limit: input.limit.toString() }),
+    ...(input.position !== undefined && { position: input.position })
+  };
   let body: any;
   const bodyParams: any = {};
   if (input.name !== undefined) {
@@ -3523,10 +3508,11 @@ export const serializeAws_restJson1_1GetDeploymentCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
-  const query: any = {};
-  if (input.embed !== undefined) {
-    query["embed"] = (input.embed || []).map(_entry => _entry);
-  }
+  const query: any = {
+    ...(input.embed !== undefined && {
+      embed: (input.embed || []).map(_entry => _entry)
+    })
+  };
   let body: any;
   const bodyParams: any = {};
   if (input.name !== undefined) {
@@ -3577,13 +3563,10 @@ export const serializeAws_restJson1_1GetDeploymentsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
-  const query: any = {};
-  if (input.limit !== undefined) {
-    query["limit"] = input.limit.toString();
-  }
-  if (input.position !== undefined) {
-    query["position"] = input.position;
-  }
+  const query: any = {
+    ...(input.limit !== undefined && { limit: input.limit.toString() }),
+    ...(input.position !== undefined && { position: input.position })
+  };
   let body: any;
   const bodyParams: any = {};
   if (input.name !== undefined) {
@@ -3700,25 +3683,16 @@ export const serializeAws_restJson1_1GetDocumentationPartsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
-  const query: any = {};
-  if (input.limit !== undefined) {
-    query["limit"] = input.limit.toString();
-  }
-  if (input.locationStatus !== undefined) {
-    query["locationStatus"] = input.locationStatus;
-  }
-  if (input.nameQuery !== undefined) {
-    query["name"] = input.nameQuery;
-  }
-  if (input.path !== undefined) {
-    query["path"] = input.path;
-  }
-  if (input.position !== undefined) {
-    query["position"] = input.position;
-  }
-  if (input.type !== undefined) {
-    query["type"] = input.type;
-  }
+  const query: any = {
+    ...(input.limit !== undefined && { limit: input.limit.toString() }),
+    ...(input.locationStatus !== undefined && {
+      locationStatus: input.locationStatus
+    }),
+    ...(input.nameQuery !== undefined && { name: input.nameQuery }),
+    ...(input.path !== undefined && { path: input.path }),
+    ...(input.position !== undefined && { position: input.position }),
+    ...(input.type !== undefined && { type: input.type })
+  };
   let body: any;
   const bodyParams: any = {};
   if (input.name !== undefined) {
@@ -3835,13 +3809,10 @@ export const serializeAws_restJson1_1GetDocumentationVersionsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
-  const query: any = {};
-  if (input.limit !== undefined) {
-    query["limit"] = input.limit.toString();
-  }
-  if (input.position !== undefined) {
-    query["position"] = input.position;
-  }
+  const query: any = {
+    ...(input.limit !== undefined && { limit: input.limit.toString() }),
+    ...(input.position !== undefined && { position: input.position })
+  };
   let body: any;
   const bodyParams: any = {};
   if (input.name !== undefined) {
@@ -3929,13 +3900,10 @@ export const serializeAws_restJson1_1GetDomainNamesCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/domainnames";
-  const query: any = {};
-  if (input.limit !== undefined) {
-    query["limit"] = input.limit.toString();
-  }
-  if (input.position !== undefined) {
-    query["position"] = input.position;
-  }
+  const query: any = {
+    ...(input.limit !== undefined && { limit: input.limit.toString() }),
+    ...(input.position !== undefined && { position: input.position })
+  };
   let body: any;
   const bodyParams: any = {};
   if (input.name !== undefined) {
@@ -4117,13 +4085,10 @@ export const serializeAws_restJson1_1GetGatewayResponsesCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
-  const query: any = {};
-  if (input.limit !== undefined) {
-    query["limit"] = input.limit.toString();
-  }
-  if (input.position !== undefined) {
-    query["position"] = input.position;
-  }
+  const query: any = {
+    ...(input.limit !== undefined && { limit: input.limit.toString() }),
+    ...(input.position !== undefined && { position: input.position })
+  };
   let body: any;
   const bodyParams: any = {};
   if (input.name !== undefined) {
@@ -4506,10 +4471,9 @@ export const serializeAws_restJson1_1GetModelCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
-  const query: any = {};
-  if (input.flatten !== undefined) {
-    query["flatten"] = input.flatten.toString();
-  }
+  const query: any = {
+    ...(input.flatten !== undefined && { flatten: input.flatten.toString() })
+  };
   let body: any;
   const bodyParams: any = {};
   if (input.name !== undefined) {
@@ -4622,13 +4586,10 @@ export const serializeAws_restJson1_1GetModelsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
-  const query: any = {};
-  if (input.limit !== undefined) {
-    query["limit"] = input.limit.toString();
-  }
-  if (input.position !== undefined) {
-    query["position"] = input.position;
-  }
+  const query: any = {
+    ...(input.limit !== undefined && { limit: input.limit.toString() }),
+    ...(input.position !== undefined && { position: input.position })
+  };
   let body: any;
   const bodyParams: any = {};
   if (input.name !== undefined) {
@@ -4745,13 +4706,10 @@ export const serializeAws_restJson1_1GetRequestValidatorsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
-  const query: any = {};
-  if (input.limit !== undefined) {
-    query["limit"] = input.limit.toString();
-  }
-  if (input.position !== undefined) {
-    query["position"] = input.position;
-  }
+  const query: any = {
+    ...(input.limit !== undefined && { limit: input.limit.toString() }),
+    ...(input.position !== undefined && { position: input.position })
+  };
   let body: any;
   const bodyParams: any = {};
   if (input.name !== undefined) {
@@ -4814,10 +4772,11 @@ export const serializeAws_restJson1_1GetResourceCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
-  const query: any = {};
-  if (input.embed !== undefined) {
-    query["embed"] = (input.embed || []).map(_entry => _entry);
-  }
+  const query: any = {
+    ...(input.embed !== undefined && {
+      embed: (input.embed || []).map(_entry => _entry)
+    })
+  };
   let body: any;
   const bodyParams: any = {};
   if (input.name !== undefined) {
@@ -4868,16 +4827,13 @@ export const serializeAws_restJson1_1GetResourcesCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
-  const query: any = {};
-  if (input.embed !== undefined) {
-    query["embed"] = (input.embed || []).map(_entry => _entry);
-  }
-  if (input.limit !== undefined) {
-    query["limit"] = input.limit.toString();
-  }
-  if (input.position !== undefined) {
-    query["position"] = input.position;
-  }
+  const query: any = {
+    ...(input.embed !== undefined && {
+      embed: (input.embed || []).map(_entry => _entry)
+    }),
+    ...(input.limit !== undefined && { limit: input.limit.toString() }),
+    ...(input.position !== undefined && { position: input.position })
+  };
   let body: any;
   const bodyParams: any = {};
   if (input.name !== undefined) {
@@ -4965,13 +4921,10 @@ export const serializeAws_restJson1_1GetRestApisCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/restapis";
-  const query: any = {};
-  if (input.limit !== undefined) {
-    query["limit"] = input.limit.toString();
-  }
-  if (input.position !== undefined) {
-    query["position"] = input.position;
-  }
+  const query: any = {
+    ...(input.limit !== undefined && { limit: input.limit.toString() }),
+    ...(input.position !== undefined && { position: input.position })
+  };
   let body: any;
   const bodyParams: any = {};
   if (input.name !== undefined) {
@@ -5123,13 +5076,10 @@ export const serializeAws_restJson1_1GetSdkTypesCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/sdktypes";
-  const query: any = {};
-  if (input.limit !== undefined) {
-    query["limit"] = input.limit.toString();
-  }
-  if (input.position !== undefined) {
-    query["position"] = input.position;
-  }
+  const query: any = {
+    ...(input.limit !== undefined && { limit: input.limit.toString() }),
+    ...(input.position !== undefined && { position: input.position })
+  };
   let body: any;
   const bodyParams: any = {};
   if (input.name !== undefined) {
@@ -5241,10 +5191,11 @@ export const serializeAws_restJson1_1GetStagesCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
-  const query: any = {};
-  if (input.deploymentId !== undefined) {
-    query["deploymentId"] = input.deploymentId;
-  }
+  const query: any = {
+    ...(input.deploymentId !== undefined && {
+      deploymentId: input.deploymentId
+    })
+  };
   let body: any;
   const bodyParams: any = {};
   if (input.name !== undefined) {
@@ -5297,13 +5248,10 @@ export const serializeAws_restJson1_1GetTagsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
-  const query: any = {};
-  if (input.limit !== undefined) {
-    query["limit"] = input.limit.toString();
-  }
-  if (input.position !== undefined) {
-    query["position"] = input.position;
-  }
+  const query: any = {
+    ...(input.limit !== undefined && { limit: input.limit.toString() }),
+    ...(input.position !== undefined && { position: input.position })
+  };
   let body: any;
   const bodyParams: any = {};
   if (input.name !== undefined) {
@@ -5356,22 +5304,13 @@ export const serializeAws_restJson1_1GetUsageCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: usagePlanId.");
   }
-  const query: any = {};
-  if (input.endDate !== undefined) {
-    query["endDate"] = input.endDate;
-  }
-  if (input.keyId !== undefined) {
-    query["keyId"] = input.keyId;
-  }
-  if (input.limit !== undefined) {
-    query["limit"] = input.limit.toString();
-  }
-  if (input.position !== undefined) {
-    query["position"] = input.position;
-  }
-  if (input.startDate !== undefined) {
-    query["startDate"] = input.startDate;
-  }
+  const query: any = {
+    ...(input.endDate !== undefined && { endDate: input.endDate }),
+    ...(input.keyId !== undefined && { keyId: input.keyId }),
+    ...(input.limit !== undefined && { limit: input.limit.toString() }),
+    ...(input.position !== undefined && { position: input.position }),
+    ...(input.startDate !== undefined && { startDate: input.startDate })
+  };
   let body: any;
   const bodyParams: any = {};
   if (input.name !== undefined) {
@@ -5538,16 +5477,11 @@ export const serializeAws_restJson1_1GetUsagePlanKeysCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: usagePlanId.");
   }
-  const query: any = {};
-  if (input.limit !== undefined) {
-    query["limit"] = input.limit.toString();
-  }
-  if (input.nameQuery !== undefined) {
-    query["name"] = input.nameQuery;
-  }
-  if (input.position !== undefined) {
-    query["position"] = input.position;
-  }
+  const query: any = {
+    ...(input.limit !== undefined && { limit: input.limit.toString() }),
+    ...(input.nameQuery !== undefined && { name: input.nameQuery }),
+    ...(input.position !== undefined && { position: input.position })
+  };
   let body: any;
   const bodyParams: any = {};
   if (input.name !== undefined) {
@@ -5586,16 +5520,11 @@ export const serializeAws_restJson1_1GetUsagePlansCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/usageplans";
-  const query: any = {};
-  if (input.keyId !== undefined) {
-    query["keyId"] = input.keyId;
-  }
-  if (input.limit !== undefined) {
-    query["limit"] = input.limit.toString();
-  }
-  if (input.position !== undefined) {
-    query["position"] = input.position;
-  }
+  const query: any = {
+    ...(input.keyId !== undefined && { keyId: input.keyId }),
+    ...(input.limit !== undefined && { limit: input.limit.toString() }),
+    ...(input.position !== undefined && { position: input.position })
+  };
   let body: any;
   const bodyParams: any = {};
   if (input.name !== undefined) {
@@ -5683,13 +5612,10 @@ export const serializeAws_restJson1_1GetVpcLinksCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/vpclinks";
-  const query: any = {};
-  if (input.limit !== undefined) {
-    query["limit"] = input.limit.toString();
-  }
-  if (input.position !== undefined) {
-    query["position"] = input.position;
-  }
+  const query: any = {
+    ...(input.limit !== undefined && { limit: input.limit.toString() }),
+    ...(input.position !== undefined && { position: input.position })
+  };
   let body: any;
   const bodyParams: any = {};
   if (input.name !== undefined) {
@@ -5729,14 +5655,12 @@ export const serializeAws_restJson1_1ImportApiKeysCommand = async (
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/apikeys";
   const query: any = {
-    mode: "import"
+    mode: "import",
+    ...(input.failOnWarnings !== undefined && {
+      failonwarnings: input.failOnWarnings.toString()
+    }),
+    ...(input.format !== undefined && { format: input.format })
   };
-  if (input.failOnWarnings !== undefined) {
-    query["failonwarnings"] = input.failOnWarnings.toString();
-  }
-  if (input.format !== undefined) {
-    query["format"] = input.format;
-  }
   let body: any;
   const bodyParams: any = {};
   if (input.name !== undefined) {
@@ -5787,13 +5711,12 @@ export const serializeAws_restJson1_1ImportDocumentationPartsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
-  const query: any = {};
-  if (input.failOnWarnings !== undefined) {
-    query["failonwarnings"] = input.failOnWarnings.toString();
-  }
-  if (input.mode !== undefined) {
-    query["mode"] = input.mode;
-  }
+  const query: any = {
+    ...(input.failOnWarnings !== undefined && {
+      failonwarnings: input.failOnWarnings.toString()
+    }),
+    ...(input.mode !== undefined && { mode: input.mode })
+  };
   let body: any;
   const bodyParams: any = {};
   if (input.name !== undefined) {
@@ -5833,11 +5756,11 @@ export const serializeAws_restJson1_1ImportRestApiCommand = async (
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/restapis";
   const query: any = {
-    mode: "import"
+    mode: "import",
+    ...(input.failOnWarnings !== undefined && {
+      failonwarnings: input.failOnWarnings.toString()
+    })
   };
-  if (input.failOnWarnings !== undefined) {
-    query["failonwarnings"] = input.failOnWarnings.toString();
-  }
   let body: any;
   const bodyParams: any = {};
   if (input.name !== undefined) {
@@ -6419,13 +6342,12 @@ export const serializeAws_restJson1_1PutRestApiCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
-  const query: any = {};
-  if (input.failOnWarnings !== undefined) {
-    query["failonwarnings"] = input.failOnWarnings.toString();
-  }
-  if (input.mode !== undefined) {
-    query["mode"] = input.mode;
-  }
+  const query: any = {
+    ...(input.failOnWarnings !== undefined && {
+      failonwarnings: input.failOnWarnings.toString()
+    }),
+    ...(input.mode !== undefined && { mode: input.mode })
+  };
   let body: any;
   const bodyParams: any = {};
   if (input.name !== undefined) {
@@ -6707,10 +6629,11 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
-  const query: any = {};
-  if (input.tagKeys !== undefined) {
-    query["tagKeys"] = (input.tagKeys || []).map(_entry => _entry);
-  }
+  const query: any = {
+    ...(input.tagKeys !== undefined && {
+      tagKeys: (input.tagKeys || []).map(_entry => _entry)
+    })
+  };
   let body: any;
   const bodyParams: any = {};
   if (input.name !== undefined) {

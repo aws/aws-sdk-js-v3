@@ -72,13 +72,14 @@ export const serializeAws_restJson1_1DescribeJobExecutionCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
   }
-  const query: any = {};
-  if (input.executionNumber !== undefined) {
-    query["executionNumber"] = input.executionNumber.toString();
-  }
-  if (input.includeJobDocument !== undefined) {
-    query["includeJobDocument"] = input.includeJobDocument.toString();
-  }
+  const query: any = {
+    ...(input.executionNumber !== undefined && {
+      executionNumber: input.executionNumber.toString()
+    }),
+    ...(input.includeJobDocument !== undefined && {
+      includeJobDocument: input.includeJobDocument.toString()
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({

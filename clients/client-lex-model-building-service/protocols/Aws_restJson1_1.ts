@@ -783,16 +783,15 @@ export const serializeAws_restJson1_1GetBotAliasesCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: botName.");
   }
-  const query: any = {};
-  if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
-  }
-  if (input.nameContains !== undefined) {
-    query["nameContains"] = input.nameContains;
-  }
-  if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken;
-  }
+  const query: any = {
+    ...(input.maxResults !== undefined && {
+      maxResults: input.maxResults.toString()
+    }),
+    ...(input.nameContains !== undefined && {
+      nameContains: input.nameContains
+    }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -894,16 +893,15 @@ export const serializeAws_restJson1_1GetBotChannelAssociationsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: botName.");
   }
-  const query: any = {};
-  if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
-  }
-  if (input.nameContains !== undefined) {
-    query["nameContains"] = input.nameContains;
-  }
-  if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken;
-  }
+  const query: any = {
+    ...(input.maxResults !== undefined && {
+      maxResults: input.maxResults.toString()
+    }),
+    ...(input.nameContains !== undefined && {
+      nameContains: input.nameContains
+    }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -937,13 +935,12 @@ export const serializeAws_restJson1_1GetBotVersionsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
-  const query: any = {};
-  if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
-  }
-  if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken;
-  }
+  const query: any = {
+    ...(input.maxResults !== undefined && {
+      maxResults: input.maxResults.toString()
+    }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -965,16 +962,15 @@ export const serializeAws_restJson1_1GetBotsCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/bots";
-  const query: any = {};
-  if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
-  }
-  if (input.nameContains !== undefined) {
-    query["nameContains"] = input.nameContains;
-  }
-  if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken;
-  }
+  const query: any = {
+    ...(input.maxResults !== undefined && {
+      maxResults: input.maxResults.toString()
+    }),
+    ...(input.nameContains !== undefined && {
+      nameContains: input.nameContains
+    }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1028,19 +1024,16 @@ export const serializeAws_restJson1_1GetBuiltinIntentsCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/builtins/intents";
-  const query: any = {};
-  if (input.locale !== undefined) {
-    query["locale"] = input.locale;
-  }
-  if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
-  }
-  if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken;
-  }
-  if (input.signatureContains !== undefined) {
-    query["signatureContains"] = input.signatureContains;
-  }
+  const query: any = {
+    ...(input.locale !== undefined && { locale: input.locale }),
+    ...(input.maxResults !== undefined && {
+      maxResults: input.maxResults.toString()
+    }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.signatureContains !== undefined && {
+      signatureContains: input.signatureContains
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1062,19 +1055,16 @@ export const serializeAws_restJson1_1GetBuiltinSlotTypesCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/builtins/slottypes";
-  const query: any = {};
-  if (input.locale !== undefined) {
-    query["locale"] = input.locale;
-  }
-  if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
-  }
-  if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken;
-  }
-  if (input.signatureContains !== undefined) {
-    query["signatureContains"] = input.signatureContains;
-  }
+  const query: any = {
+    ...(input.locale !== undefined && { locale: input.locale }),
+    ...(input.maxResults !== undefined && {
+      maxResults: input.maxResults.toString()
+    }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.signatureContains !== undefined && {
+      signatureContains: input.signatureContains
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1096,19 +1086,14 @@ export const serializeAws_restJson1_1GetExportCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/exports";
-  const query: any = {};
-  if (input.exportType !== undefined) {
-    query["exportType"] = input.exportType;
-  }
-  if (input.name !== undefined) {
-    query["name"] = input.name;
-  }
-  if (input.resourceType !== undefined) {
-    query["resourceType"] = input.resourceType;
-  }
-  if (input.version !== undefined) {
-    query["version"] = input.version;
-  }
+  const query: any = {
+    ...(input.exportType !== undefined && { exportType: input.exportType }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.resourceType !== undefined && {
+      resourceType: input.resourceType
+    }),
+    ...(input.version !== undefined && { version: input.version })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1218,13 +1203,12 @@ export const serializeAws_restJson1_1GetIntentVersionsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
-  const query: any = {};
-  if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
-  }
-  if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken;
-  }
+  const query: any = {
+    ...(input.maxResults !== undefined && {
+      maxResults: input.maxResults.toString()
+    }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1246,16 +1230,15 @@ export const serializeAws_restJson1_1GetIntentsCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/intents";
-  const query: any = {};
-  if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
-  }
-  if (input.nameContains !== undefined) {
-    query["nameContains"] = input.nameContains;
-  }
-  if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken;
-  }
+  const query: any = {
+    ...(input.maxResults !== undefined && {
+      maxResults: input.maxResults.toString()
+    }),
+    ...(input.nameContains !== undefined && {
+      nameContains: input.nameContains
+    }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1333,13 +1316,12 @@ export const serializeAws_restJson1_1GetSlotTypeVersionsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
-  const query: any = {};
-  if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
-  }
-  if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken;
-  }
+  const query: any = {
+    ...(input.maxResults !== undefined && {
+      maxResults: input.maxResults.toString()
+    }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1361,16 +1343,15 @@ export const serializeAws_restJson1_1GetSlotTypesCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/slottypes";
-  const query: any = {};
-  if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
-  }
-  if (input.nameContains !== undefined) {
-    query["nameContains"] = input.nameContains;
-  }
-  if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken;
-  }
+  const query: any = {
+    ...(input.maxResults !== undefined && {
+      maxResults: input.maxResults.toString()
+    }),
+    ...(input.nameContains !== undefined && {
+      nameContains: input.nameContains
+    }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1405,14 +1386,12 @@ export const serializeAws_restJson1_1GetUtterancesViewCommand = async (
     throw new Error("No value provided for input HTTP label: botName.");
   }
   const query: any = {
-    view: "aggregation"
+    view: "aggregation",
+    ...(input.botVersions !== undefined && {
+      bot_versions: (input.botVersions || []).map(_entry => _entry)
+    }),
+    ...(input.statusType !== undefined && { status_type: input.statusType })
   };
-  if (input.botVersions !== undefined) {
-    query["bot_versions"] = (input.botVersions || []).map(_entry => _entry);
-  }
-  if (input.statusType !== undefined) {
-    query["status_type"] = input.statusType;
-  }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({

@@ -1191,19 +1191,12 @@ export const serializeAws_restJson1_1ListJobsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
-  const query: any = {};
-  if (input.completed !== undefined) {
-    query["completed"] = input.completed;
-  }
-  if (input.limit !== undefined) {
-    query["limit"] = input.limit;
-  }
-  if (input.marker !== undefined) {
-    query["marker"] = input.marker;
-  }
-  if (input.statuscode !== undefined) {
-    query["statuscode"] = input.statuscode;
-  }
+  const query: any = {
+    ...(input.completed !== undefined && { completed: input.completed }),
+    ...(input.limit !== undefined && { limit: input.limit }),
+    ...(input.marker !== undefined && { marker: input.marker }),
+    ...(input.statuscode !== undefined && { statuscode: input.statuscode })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1249,13 +1242,10 @@ export const serializeAws_restJson1_1ListMultipartUploadsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
-  const query: any = {};
-  if (input.limit !== undefined) {
-    query["limit"] = input.limit;
-  }
-  if (input.marker !== undefined) {
-    query["marker"] = input.marker;
-  }
+  const query: any = {
+    ...(input.limit !== undefined && { limit: input.limit }),
+    ...(input.marker !== undefined && { marker: input.marker })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1314,13 +1304,10 @@ export const serializeAws_restJson1_1ListPartsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
-  const query: any = {};
-  if (input.limit !== undefined) {
-    query["limit"] = input.limit;
-  }
-  if (input.marker !== undefined) {
-    query["marker"] = input.marker;
-  }
+  const query: any = {
+    ...(input.limit !== undefined && { limit: input.limit }),
+    ...(input.marker !== undefined && { marker: input.marker })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1430,13 +1417,10 @@ export const serializeAws_restJson1_1ListVaultsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
   }
-  const query: any = {};
-  if (input.limit !== undefined) {
-    query["limit"] = input.limit;
-  }
-  if (input.marker !== undefined) {
-    query["marker"] = input.marker;
-  }
+  const query: any = {
+    ...(input.limit !== undefined && { limit: input.limit }),
+    ...(input.marker !== undefined && { marker: input.marker })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({

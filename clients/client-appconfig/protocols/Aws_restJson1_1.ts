@@ -583,13 +583,12 @@ export const serializeAws_restJson1_1GetConfigurationCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: Environment.");
   }
-  const query: any = {};
-  if (input.ClientConfigurationVersion !== undefined) {
-    query["client_configuration_version"] = input.ClientConfigurationVersion;
-  }
-  if (input.ClientId !== undefined) {
-    query["client_id"] = input.ClientId;
-  }
+  const query: any = {
+    ...(input.ClientConfigurationVersion !== undefined && {
+      client_configuration_version: input.ClientConfigurationVersion
+    }),
+    ...(input.ClientId !== undefined && { client_id: input.ClientId })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -812,13 +811,12 @@ export const serializeAws_restJson1_1ListApplicationsCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/applications";
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["max_results"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["next_token"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && {
+      max_results: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { next_token: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -854,13 +852,12 @@ export const serializeAws_restJson1_1ListConfigurationProfilesCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["max_results"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["next_token"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && {
+      max_results: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { next_token: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -882,13 +879,12 @@ export const serializeAws_restJson1_1ListDeploymentStrategiesCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/deploymentstrategies";
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["max_results"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["next_token"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && {
+      max_results: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { next_token: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -939,13 +935,12 @@ export const serializeAws_restJson1_1ListDeploymentsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: EnvironmentId.");
   }
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["max_results"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["next_token"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && {
+      max_results: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { next_token: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -981,13 +976,12 @@ export const serializeAws_restJson1_1ListEnvironmentsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["max_results"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["next_token"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && {
+      max_results: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { next_token: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1227,10 +1221,11 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
-  const query: any = {};
-  if (input.TagKeys !== undefined) {
-    query["tagKeys"] = (input.TagKeys || []).map(_entry => _entry);
-  }
+  const query: any = {
+    ...(input.TagKeys !== undefined && {
+      tagKeys: (input.TagKeys || []).map(_entry => _entry)
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1510,10 +1505,11 @@ export const serializeAws_restJson1_1ValidateConfigurationCommand = async (
       "No value provided for input HTTP label: ConfigurationProfileId."
     );
   }
-  const query: any = {};
-  if (input.ConfigurationVersion !== undefined) {
-    query["configuration_version"] = input.ConfigurationVersion;
-  }
+  const query: any = {
+    ...(input.ConfigurationVersion !== undefined && {
+      configuration_version: input.ConfigurationVersion
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
