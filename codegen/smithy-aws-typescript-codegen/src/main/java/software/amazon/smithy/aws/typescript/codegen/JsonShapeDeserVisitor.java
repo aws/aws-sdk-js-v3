@@ -76,12 +76,11 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
 
         // Get the right serialization for each entry in the map. Undefined
         // outputs won't have this deserializer invoked.
-        writer.write("const mapParams: any = {};");
-        writer.openBlock("Object.keys(output).forEach(key => {", "});", () -> {
+        writer.openBlock("return Object.keys(output).reduce((acc: any, key: string) => {", "}, {});", () -> {
             // Dispatch to the output value provider for any additional handling.
-            writer.write("mapParams[key] = $L;", target.accept(getMemberVisitor("output[key]")));
+            writer.write("acc[key] = $L;", target.accept(getMemberVisitor("output[key]")));
+            writer.write("return acc;");
         });
-        writer.write("return mapParams;");
     }
 
     @Override
