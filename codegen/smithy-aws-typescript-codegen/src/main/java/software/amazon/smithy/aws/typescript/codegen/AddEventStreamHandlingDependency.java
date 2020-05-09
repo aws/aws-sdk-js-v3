@@ -1,5 +1,9 @@
 package software.amazon.smithy.aws.typescript.codegen;
 
+import static software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin.Convention.HAS_CONFIG;
+import static software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin.Convention.HAS_MIDDLEWARE;
+
+
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -21,14 +25,23 @@ import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegrati
 import software.amazon.smithy.utils.ListUtils;
 import software.amazon.smithy.utils.MapUtils;
 
-public class AddEventStreamSigningDependency implements TypeScriptIntegration {
+/**
+ * Adds runtime client plugins that handle the eventstream flow in request,
+ * including eventstream payload signing.
+ */
+public class AddEventStreamHandlingDependency implements TypeScriptIntegration {
     @Override
     public List<RuntimeClientPlugin> getClientPlugins() {
         return ListUtils.of(
                 RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.MIDDLEWARE_EVENTSTREAM_SIGNING.dependency,
-                                "EventStream")
-                        .servicePredicate(AddEventStreamSigningDependency::hasEventStreamInput)
+                        .withConventions(AwsDependency.MIDDLEWARE_EVENTSTREAM.dependency,
+                                "EventStream", HAS_CONFIG)
+                        .servicePredicate(AddEventStreamHandlingDependency::hasEventStreamInput)
+                        .build(),
+                RuntimeClientPlugin.builder()
+                        .withConventions(AwsDependency.MIDDLEWARE_EVENTSTREAM.dependency,
+                                "EventStream", HAS_MIDDLEWARE)
+                        .operationPredicate((m, s, o) -> AddEventStreamHandlingDependency.hasEventStreamInput(m, s))
                         .build()
         );
     }
@@ -41,10 +54,10 @@ public class AddEventStreamSigningDependency implements TypeScriptIntegration {
             TypeScriptWriter writer
     ) {
         if (hasEventStreamInput(model, settings.getService(model))) {
-            writer.addImport("EventStreamSignerProvider", "__EventStreamSignerProvider",
+            writer.addImport("EventStreamPayloadHandlerProvider", "__EventStreamPayloadHandlerProvider",
                     TypeScriptDependency.AWS_SDK_TYPES.packageName);
-            writer.writeDocs("The function that provides necessary utilities for singing event stream");
-            writer.write("eventStreamSignerProvider?: __EventStreamSignerProvider;\n");
+            writer.writeDocs("The function that provides necessary utilities for handling request event stream.");
+            writer.write("eventStreamPayloadHandlerProvider?: __EventStreamPayloadHandlerProvider;\n");
         }
     }
 
@@ -62,25 +75,24 @@ public class AddEventStreamSigningDependency implements TypeScriptIntegration {
 
         switch (target) {
             case NODE:
-                return MapUtils.of("eventStreamSignerProvider", writer -> {
-                    writer.addDependency(AwsDependency.AWS_SDK_EVENTSTREAM_SIGNER_NODE);
-                    writer.addImport("eventStreamSignerProvider", "eventStreamSignerProvider",
-                            AwsDependency.AWS_SDK_EVENTSTREAM_SIGNER_NODE.packageName);
-                    writer.write("eventStreamSignerProvider,");
+                return MapUtils.of("eventStreamPayloadHandlerProvider", writer -> {
+                    writer.addDependency(AwsDependency.AWS_SDK_EVENTSTREAM_HANDLER_NODE);
+                    writer.addImport("eventStreamPayloadHandlerProvider", "eventStreamPayloadHandlerProvider",
+                            AwsDependency.AWS_SDK_EVENTSTREAM_HANDLER_NODE.packageName);
+                    writer.write("eventStreamPayloadHandlerProvider,");
                 });
             case BROWSER:
                 /**
                  * Browser doesn't support streaming requests as of March 2020.
-                 * Here we don't supply invalidFunction. Each service client needs to support eventstream request
-                 * in browsers has to implement a customization providing its own eventStreamSignerProvider
-                 * TODO: update this when WebSocket event stream support lands
+                 * Each service client needs to support eventstream request in browser individually.
+                 * Services like TranscribeStreaming support it via WebSocket.
                  */
-                return MapUtils.of("eventStreamSignerProvider", writer -> {
+                return MapUtils.of("eventStreamPayloadHandlerProvider", writer -> {
                     writer.addDependency(TypeScriptDependency.INVALID_DEPENDENCY);
                     writer.addImport("invalidFunction", "invalidFunction",
                             TypeScriptDependency.INVALID_DEPENDENCY.packageName);
-                    writer.openBlock("eventStreamSignerProvider: () => ({", "}),", () -> {
-                        writer.write("sign: invalidFunction(\"event stream request is not supported in browser.\"),");
+                    writer.openBlock("eventStreamPayloadHandlerProvider: () => ({", "}),", () -> {
+                        writer.write("handle: invalidFunction(\"event stream request is not supported in browser.\"),");
                     });
                 });
             case REACT_NATIVE:
@@ -89,12 +101,12 @@ public class AddEventStreamSigningDependency implements TypeScriptIntegration {
                  * Here we don't supply invalidFunction. Each service client needs to support eventstream request
                  * in RN has to implement a customization providing its own eventStreamSignerProvider
                  */
-                return MapUtils.of("eventStreamSignerProvider", writer -> {
+                return MapUtils.of("eventStreamPayloadHandlerProvider", writer -> {
                     writer.addDependency(TypeScriptDependency.INVALID_DEPENDENCY);
                     writer.addImport("invalidFunction", "invalidFunction",
                             TypeScriptDependency.INVALID_DEPENDENCY.packageName);
-                    writer.openBlock("eventStreamSignerProvider: () => ({", "}),", () -> {
-                        writer.write("sign: invalidFunction(\"event stream request is not supported in ReactNative.\"),");
+                    writer.openBlock("eventStreamPayloadHandlerProvider: () => ({", "}),", () -> {
+                        writer.write("handle: invalidFunction(\"event stream request is not supported in ReactNative.\"),");
                     });
                 });
             default:

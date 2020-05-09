@@ -56,8 +56,9 @@ public enum AwsDependency implements SymbolDependencyContainer {
     XML_PARSER(NORMAL_DEPENDENCY, "fast-xml-parser", "^3.16.0"),
     UUID_GENERATOR(NORMAL_DEPENDENCY, "uuid", "^7.0.0"),
     UUID_GENERATOR_TYPES(DEV_DEPENDENCY, "@types/uuid", "^7.0.0"),
-    MIDDLEWARE_EVENTSTREAM_SIGNING(NORMAL_DEPENDENCY, "@aws-sdk/middleware-eventstream-signing", "^1.0.0-beta.0"),
-    AWS_SDK_EVENTSTREAM_SIGNER_NODE(NORMAL_DEPENDENCY, "@aws-sdk/eventstream-signer-node", "^1.0.0-beta.0");
+    MIDDLEWARE_EVENTSTREAM(NORMAL_DEPENDENCY, "@aws-sdk/middleware-eventstream", "^1.0.0-beta.0"),
+    AWS_SDK_EVENTSTREAM_HANDLER_NODE(NORMAL_DEPENDENCY, "@aws-sdk/eventstream-handler-node", "^1.0.0-beta.0"),
+    TRANSCRIBESTREAMING_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/eventstream-handler", "^1.0.0-beta.0");
 
     public final String packageName;
     public final String version;
