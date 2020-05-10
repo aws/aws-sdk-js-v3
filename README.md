@@ -137,7 +137,7 @@ All clients have been published to NPM and can be installed as described above. 
 1. Under the repository root directory, run following command to link and build the whole library, the process may take several minutes:
 
    ```
-   yarn & yarn test:all
+   yarn && yarn test:all
    ```
 
    For more information, please refer to [contributing guide](https://github.com/aws/aws-sdk-js-v3/blob/master/CONTRIBUTING.md#setup-and-testing).
