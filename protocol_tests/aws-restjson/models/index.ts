@@ -16,12 +16,12 @@ export interface AllQueryStringTypesInput {
   queryFloat?: number;
   queryInteger?: number;
   queryIntegerList?: number[];
-  queryIntegerSet?: Set<number>;
+  queryIntegerSet?: number[];
   queryLong?: number;
   queryShort?: number;
   queryString?: string;
   queryStringList?: string[];
-  queryStringSet?: Set<string>;
+  queryStringSet?: string[];
   queryTimestamp?: Date;
   queryTimestampList?: Date[];
 }
@@ -239,7 +239,7 @@ export interface InputAndOutputWithHeadersIO {
   headerShort?: number;
   headerString?: string;
   headerStringList?: string[];
-  headerStringSet?: Set<string>;
+  headerStringSet?: string[];
   headerTimestampList?: Date[];
   headerTrueBool?: boolean;
 }
@@ -280,7 +280,7 @@ export interface JsonEnumsInputOutput {
   fooEnum3?: FooEnum | string;
   fooEnumList?: (FooEnum | string)[];
   fooEnumMap?: { [key: string]: FooEnum | string };
-  fooEnumSet?: Set<FooEnum | string>;
+  fooEnumSet?: (FooEnum | string)[];
 }
 
 export namespace JsonEnumsInputOutput {
@@ -299,7 +299,7 @@ export interface JsonListsInputOutput {
   nestedStringList?: string[][];
 
   stringList?: string[];
-  stringSet?: Set<string>;
+  stringSet?: string[];
   structureList?: StructureListMember[];
   timestampList?: Date[];
 }
