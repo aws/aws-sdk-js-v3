@@ -2394,10 +2394,10 @@ const serializeAws_json1_1CreateSecretRequest = (
   input: CreateSecretRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.ClientRequestToken !== undefined) {
     bodyParams["ClientRequestToken"] = input.ClientRequestToken;
   }
@@ -2573,10 +2573,10 @@ const serializeAws_json1_1PutSecretValueRequest = (
   input: PutSecretValueRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.ClientRequestToken !== undefined) {
     bodyParams["ClientRequestToken"] = input.ClientRequestToken;
   }
@@ -2613,10 +2613,10 @@ const serializeAws_json1_1RotateSecretRequest = (
   input: RotateSecretRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.ClientRequestToken !== undefined) {
     bodyParams["ClientRequestToken"] = input.ClientRequestToken;
   }
@@ -2725,10 +2725,10 @@ const serializeAws_json1_1UpdateSecretRequest = (
   input: UpdateSecretRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.ClientRequestToken !== undefined) {
     bodyParams["ClientRequestToken"] = input.ClientRequestToken;
   }

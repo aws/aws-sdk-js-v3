@@ -4148,10 +4148,10 @@ const serializeAws_json1_1StartImportTaskRequest = (
   input: StartImportTaskRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
   if (input.clientRequestToken === undefined) {
     input.clientRequestToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.clientRequestToken !== undefined) {
     bodyParams["clientRequestToken"] = input.clientRequestToken;
   }

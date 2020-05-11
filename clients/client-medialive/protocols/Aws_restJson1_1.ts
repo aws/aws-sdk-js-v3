@@ -432,6 +432,9 @@ export const serializeAws_restJson1_1CreateChannelCommand = async (
   };
   let resolvedPath = "/prod/channels";
   let body: any;
+  if (input.RequestId === undefined) {
+    input.RequestId = generateIdempotencyToken();
+  }
   const bodyParams: any = {};
   if (input.ChannelClass !== undefined) {
     bodyParams["channelClass"] = input.ChannelClass;
@@ -472,9 +475,6 @@ export const serializeAws_restJson1_1CreateChannelCommand = async (
   if (input.Name !== undefined) {
     bodyParams["name"] = input.Name;
   }
-  if (input.RequestId === undefined) {
-    input.RequestId = generateIdempotencyToken();
-  }
   if (input.RequestId !== undefined) {
     bodyParams["requestId"] = input.RequestId;
   }
@@ -509,6 +509,9 @@ export const serializeAws_restJson1_1CreateInputCommand = async (
   };
   let resolvedPath = "/prod/inputs";
   let body: any;
+  if (input.RequestId === undefined) {
+    input.RequestId = generateIdempotencyToken();
+  }
   const bodyParams: any = {};
   if (input.Destinations !== undefined) {
     bodyParams[
@@ -536,9 +539,6 @@ export const serializeAws_restJson1_1CreateInputCommand = async (
   }
   if (input.Name !== undefined) {
     bodyParams["name"] = input.Name;
-  }
-  if (input.RequestId === undefined) {
-    input.RequestId = generateIdempotencyToken();
   }
   if (input.RequestId !== undefined) {
     bodyParams["requestId"] = input.RequestId;
@@ -620,6 +620,9 @@ export const serializeAws_restJson1_1CreateMultiplexCommand = async (
   };
   let resolvedPath = "/prod/multiplexes";
   let body: any;
+  if (input.RequestId === undefined) {
+    input.RequestId = generateIdempotencyToken();
+  }
   const bodyParams: any = {};
   if (input.AvailabilityZones !== undefined) {
     bodyParams["availabilityZones"] = serializeAws_restJson1_1__listOf__string(
@@ -635,9 +638,6 @@ export const serializeAws_restJson1_1CreateMultiplexCommand = async (
   }
   if (input.Name !== undefined) {
     bodyParams["name"] = input.Name;
-  }
-  if (input.RequestId === undefined) {
-    input.RequestId = generateIdempotencyToken();
   }
   if (input.RequestId !== undefined) {
     bodyParams["requestId"] = input.RequestId;
@@ -681,6 +681,9 @@ export const serializeAws_restJson1_1CreateMultiplexProgramCommand = async (
     throw new Error("No value provided for input HTTP label: MultiplexId.");
   }
   let body: any;
+  if (input.RequestId === undefined) {
+    input.RequestId = generateIdempotencyToken();
+  }
   const bodyParams: any = {};
   if (input.MultiplexProgramSettings !== undefined) {
     bodyParams[
@@ -692,9 +695,6 @@ export const serializeAws_restJson1_1CreateMultiplexProgramCommand = async (
   }
   if (input.ProgramName !== undefined) {
     bodyParams["programName"] = input.ProgramName;
-  }
-  if (input.RequestId === undefined) {
-    input.RequestId = generateIdempotencyToken();
   }
   if (input.RequestId !== undefined) {
     bodyParams["requestId"] = input.RequestId;
@@ -1653,15 +1653,15 @@ export const serializeAws_restJson1_1PurchaseOfferingCommand = async (
     throw new Error("No value provided for input HTTP label: OfferingId.");
   }
   let body: any;
+  if (input.RequestId === undefined) {
+    input.RequestId = generateIdempotencyToken();
+  }
   const bodyParams: any = {};
   if (input.Count !== undefined) {
     bodyParams["count"] = input.Count;
   }
   if (input.Name !== undefined) {
     bodyParams["name"] = input.Name;
-  }
-  if (input.RequestId === undefined) {
-    input.RequestId = generateIdempotencyToken();
   }
   if (input.RequestId !== undefined) {
     bodyParams["requestId"] = input.RequestId;

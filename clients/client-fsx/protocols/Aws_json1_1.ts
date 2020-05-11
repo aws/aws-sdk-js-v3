@@ -2336,10 +2336,10 @@ const serializeAws_json1_1CreateBackupRequest = (
   input: CreateBackupRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.ClientRequestToken !== undefined) {
     bodyParams["ClientRequestToken"] = input.ClientRequestToken;
   }
@@ -2356,10 +2356,10 @@ const serializeAws_json1_1CreateDataRepositoryTaskRequest = (
   input: CreateDataRepositoryTaskRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.ClientRequestToken !== undefined) {
     bodyParams["ClientRequestToken"] = input.ClientRequestToken;
   }
@@ -2391,12 +2391,12 @@ const serializeAws_json1_1CreateFileSystemFromBackupRequest = (
   input: CreateFileSystemFromBackupRequest,
   context: __SerdeContext
 ): any => {
+  if (input.ClientRequestToken === undefined) {
+    input.ClientRequestToken = generateIdempotencyToken();
+  }
   const bodyParams: any = {};
   if (input.BackupId !== undefined) {
     bodyParams["BackupId"] = input.BackupId;
-  }
-  if (input.ClientRequestToken === undefined) {
-    input.ClientRequestToken = generateIdempotencyToken();
   }
   if (input.ClientRequestToken !== undefined) {
     bodyParams["ClientRequestToken"] = input.ClientRequestToken;
@@ -2451,10 +2451,10 @@ const serializeAws_json1_1CreateFileSystemRequest = (
   input: CreateFileSystemRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.ClientRequestToken !== undefined) {
     bodyParams["ClientRequestToken"] = input.ClientRequestToken;
   }
@@ -2597,12 +2597,12 @@ const serializeAws_json1_1DeleteBackupRequest = (
   input: DeleteBackupRequest,
   context: __SerdeContext
 ): any => {
+  if (input.ClientRequestToken === undefined) {
+    input.ClientRequestToken = generateIdempotencyToken();
+  }
   const bodyParams: any = {};
   if (input.BackupId !== undefined) {
     bodyParams["BackupId"] = input.BackupId;
-  }
-  if (input.ClientRequestToken === undefined) {
-    input.ClientRequestToken = generateIdempotencyToken();
   }
   if (input.ClientRequestToken !== undefined) {
     bodyParams["ClientRequestToken"] = input.ClientRequestToken;
@@ -2614,10 +2614,10 @@ const serializeAws_json1_1DeleteFileSystemRequest = (
   input: DeleteFileSystemRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.ClientRequestToken !== undefined) {
     bodyParams["ClientRequestToken"] = input.ClientRequestToken;
   }
@@ -2950,10 +2950,10 @@ const serializeAws_json1_1UpdateFileSystemRequest = (
   input: UpdateFileSystemRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.ClientRequestToken !== undefined) {
     bodyParams["ClientRequestToken"] = input.ClientRequestToken;
   }

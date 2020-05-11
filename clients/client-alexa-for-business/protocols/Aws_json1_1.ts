@@ -8782,10 +8782,10 @@ const serializeAws_json1_1SendAnnouncementRequest = (
   input: SendAnnouncementRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.ClientRequestToken !== undefined) {
     bodyParams["ClientRequestToken"] = input.ClientRequestToken;
   }
@@ -9008,10 +9008,10 @@ const serializeAws_json1_1CreateAddressBookRequest = (
   input: CreateAddressBookRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.ClientRequestToken !== undefined) {
     bodyParams["ClientRequestToken"] = input.ClientRequestToken;
   }
@@ -9028,10 +9028,10 @@ const serializeAws_json1_1CreateBusinessReportScheduleRequest = (
   input: CreateBusinessReportScheduleRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.ClientRequestToken !== undefined) {
     bodyParams["ClientRequestToken"] = input.ClientRequestToken;
   }
@@ -9066,10 +9066,10 @@ const serializeAws_json1_1CreateConferenceProviderRequest = (
   input: CreateConferenceProviderRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.ClientRequestToken !== undefined) {
     bodyParams["ClientRequestToken"] = input.ClientRequestToken;
   }
@@ -9104,10 +9104,10 @@ const serializeAws_json1_1CreateContactRequest = (
   input: CreateContactRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.ClientRequestToken !== undefined) {
     bodyParams["ClientRequestToken"] = input.ClientRequestToken;
   }
@@ -9164,10 +9164,10 @@ const serializeAws_json1_1CreateGatewayGroupRequest = (
   input: CreateGatewayGroupRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.ClientRequestToken !== undefined) {
     bodyParams["ClientRequestToken"] = input.ClientRequestToken;
   }
@@ -9230,12 +9230,12 @@ const serializeAws_json1_1CreateNetworkProfileRequest = (
   input: CreateNetworkProfileRequest,
   context: __SerdeContext
 ): any => {
+  if (input.ClientRequestToken === undefined) {
+    input.ClientRequestToken = generateIdempotencyToken();
+  }
   const bodyParams: any = {};
   if (input.CertificateAuthorityArn !== undefined) {
     bodyParams["CertificateAuthorityArn"] = input.CertificateAuthorityArn;
-  }
-  if (input.ClientRequestToken === undefined) {
-    input.ClientRequestToken = generateIdempotencyToken();
   }
   if (input.ClientRequestToken !== undefined) {
     bodyParams["ClientRequestToken"] = input.ClientRequestToken;
@@ -9274,12 +9274,12 @@ const serializeAws_json1_1CreateProfileRequest = (
   input: CreateProfileRequest,
   context: __SerdeContext
 ): any => {
+  if (input.ClientRequestToken === undefined) {
+    input.ClientRequestToken = generateIdempotencyToken();
+  }
   const bodyParams: any = {};
   if (input.Address !== undefined) {
     bodyParams["Address"] = input.Address;
-  }
-  if (input.ClientRequestToken === undefined) {
-    input.ClientRequestToken = generateIdempotencyToken();
   }
   if (input.ClientRequestToken !== undefined) {
     bodyParams["ClientRequestToken"] = input.ClientRequestToken;
@@ -9340,10 +9340,10 @@ const serializeAws_json1_1CreateRoomRequest = (
   input: CreateRoomRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.ClientRequestToken !== undefined) {
     bodyParams["ClientRequestToken"] = input.ClientRequestToken;
   }
@@ -9369,10 +9369,10 @@ const serializeAws_json1_1CreateSkillGroupRequest = (
   input: CreateSkillGroupRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.ClientRequestToken !== undefined) {
     bodyParams["ClientRequestToken"] = input.ClientRequestToken;
   }
@@ -9389,10 +9389,10 @@ const serializeAws_json1_1CreateUserRequest = (
   input: CreateUserRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.ClientRequestToken !== undefined) {
     bodyParams["ClientRequestToken"] = input.ClientRequestToken;
   }

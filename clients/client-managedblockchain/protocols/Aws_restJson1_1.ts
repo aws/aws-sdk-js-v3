@@ -145,10 +145,10 @@ export const serializeAws_restJson1_1CreateMemberCommand = async (
     throw new Error("No value provided for input HTTP label: NetworkId.");
   }
   let body: any;
-  const bodyParams: any = {};
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.ClientRequestToken !== undefined) {
     bodyParams["ClientRequestToken"] = input.ClientRequestToken;
   }
@@ -185,10 +185,10 @@ export const serializeAws_restJson1_1CreateNetworkCommand = async (
   };
   let resolvedPath = "/networks";
   let body: any;
-  const bodyParams: any = {};
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.ClientRequestToken !== undefined) {
     bodyParams["ClientRequestToken"] = input.ClientRequestToken;
   }
@@ -272,10 +272,10 @@ export const serializeAws_restJson1_1CreateNodeCommand = async (
     throw new Error("No value provided for input HTTP label: NetworkId.");
   }
   let body: any;
-  const bodyParams: any = {};
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.ClientRequestToken !== undefined) {
     bodyParams["ClientRequestToken"] = input.ClientRequestToken;
   }
@@ -319,15 +319,15 @@ export const serializeAws_restJson1_1CreateProposalCommand = async (
     throw new Error("No value provided for input HTTP label: NetworkId.");
   }
   let body: any;
+  if (input.ClientRequestToken === undefined) {
+    input.ClientRequestToken = generateIdempotencyToken();
+  }
   const bodyParams: any = {};
   if (input.Actions !== undefined) {
     bodyParams["Actions"] = serializeAws_restJson1_1ProposalActions(
       input.Actions,
       context
     );
-  }
-  if (input.ClientRequestToken === undefined) {
-    input.ClientRequestToken = generateIdempotencyToken();
   }
   if (input.ClientRequestToken !== undefined) {
     bodyParams["ClientRequestToken"] = input.ClientRequestToken;

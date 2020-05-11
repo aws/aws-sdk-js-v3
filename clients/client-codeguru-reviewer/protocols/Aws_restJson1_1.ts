@@ -51,10 +51,10 @@ export const serializeAws_restJson1_1AssociateRepositoryCommand = async (
   };
   let resolvedPath = "/associations";
   let body: any;
-  const bodyParams: any = {};
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.ClientRequestToken !== undefined) {
     bodyParams["ClientRequestToken"] = input.ClientRequestToken;
   }

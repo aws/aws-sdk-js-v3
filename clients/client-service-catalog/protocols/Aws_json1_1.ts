@@ -2424,7 +2424,9 @@ const deserializeAws_json1_1AssociateTagOptionWithResourceCommandError = async (
 export const deserializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchAssociateServiceActionWithProvisioningArtifactCommandOutput> => {
+): Promise<
+  BatchAssociateServiceActionWithProvisioningArtifactCommandOutput
+> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactCommandError(
       output,
@@ -2448,7 +2450,9 @@ export const deserializeAws_json1_1BatchAssociateServiceActionWithProvisioningAr
 const deserializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchAssociateServiceActionWithProvisioningArtifactCommandOutput> => {
+): Promise<
+  BatchAssociateServiceActionWithProvisioningArtifactCommandOutput
+> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2490,7 +2494,9 @@ const deserializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactC
 export const deserializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifactCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput> => {
+): Promise<
+  BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput
+> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifactCommandError(
       output,
@@ -2514,7 +2520,9 @@ export const deserializeAws_json1_1BatchDisassociateServiceActionFromProvisionin
 const deserializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifactCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput> => {
+): Promise<
+  BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput
+> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -8750,6 +8758,9 @@ const serializeAws_json1_1CopyProductInput = (
   input: CopyProductInput,
   context: __SerdeContext
 ): any => {
+  if (input.IdempotencyToken === undefined) {
+    input.IdempotencyToken = generateIdempotencyToken();
+  }
   const bodyParams: any = {};
   if (input.AcceptLanguage !== undefined) {
     bodyParams["AcceptLanguage"] = input.AcceptLanguage;
@@ -8759,9 +8770,6 @@ const serializeAws_json1_1CopyProductInput = (
       input.CopyOptions,
       context
     );
-  }
-  if (input.IdempotencyToken === undefined) {
-    input.IdempotencyToken = generateIdempotencyToken();
   }
   if (input.IdempotencyToken !== undefined) {
     bodyParams["IdempotencyToken"] = input.IdempotencyToken;
@@ -8790,15 +8798,15 @@ const serializeAws_json1_1CreateConstraintInput = (
   input: CreateConstraintInput,
   context: __SerdeContext
 ): any => {
+  if (input.IdempotencyToken === undefined) {
+    input.IdempotencyToken = generateIdempotencyToken();
+  }
   const bodyParams: any = {};
   if (input.AcceptLanguage !== undefined) {
     bodyParams["AcceptLanguage"] = input.AcceptLanguage;
   }
   if (input.Description !== undefined) {
     bodyParams["Description"] = input.Description;
-  }
-  if (input.IdempotencyToken === undefined) {
-    input.IdempotencyToken = generateIdempotencyToken();
   }
   if (input.IdempotencyToken !== undefined) {
     bodyParams["IdempotencyToken"] = input.IdempotencyToken;
@@ -8822,6 +8830,9 @@ const serializeAws_json1_1CreatePortfolioInput = (
   input: CreatePortfolioInput,
   context: __SerdeContext
 ): any => {
+  if (input.IdempotencyToken === undefined) {
+    input.IdempotencyToken = generateIdempotencyToken();
+  }
   const bodyParams: any = {};
   if (input.AcceptLanguage !== undefined) {
     bodyParams["AcceptLanguage"] = input.AcceptLanguage;
@@ -8831,9 +8842,6 @@ const serializeAws_json1_1CreatePortfolioInput = (
   }
   if (input.DisplayName !== undefined) {
     bodyParams["DisplayName"] = input.DisplayName;
-  }
-  if (input.IdempotencyToken === undefined) {
-    input.IdempotencyToken = generateIdempotencyToken();
   }
   if (input.IdempotencyToken !== undefined) {
     bodyParams["IdempotencyToken"] = input.IdempotencyToken;
@@ -8874,6 +8882,9 @@ const serializeAws_json1_1CreateProductInput = (
   input: CreateProductInput,
   context: __SerdeContext
 ): any => {
+  if (input.IdempotencyToken === undefined) {
+    input.IdempotencyToken = generateIdempotencyToken();
+  }
   const bodyParams: any = {};
   if (input.AcceptLanguage !== undefined) {
     bodyParams["AcceptLanguage"] = input.AcceptLanguage;
@@ -8883,9 +8894,6 @@ const serializeAws_json1_1CreateProductInput = (
   }
   if (input.Distributor !== undefined) {
     bodyParams["Distributor"] = input.Distributor;
-  }
-  if (input.IdempotencyToken === undefined) {
-    input.IdempotencyToken = generateIdempotencyToken();
   }
   if (input.IdempotencyToken !== undefined) {
     bodyParams["IdempotencyToken"] = input.IdempotencyToken;
@@ -8926,12 +8934,12 @@ const serializeAws_json1_1CreateProvisionedProductPlanInput = (
   input: CreateProvisionedProductPlanInput,
   context: __SerdeContext
 ): any => {
+  if (input.IdempotencyToken === undefined) {
+    input.IdempotencyToken = generateIdempotencyToken();
+  }
   const bodyParams: any = {};
   if (input.AcceptLanguage !== undefined) {
     bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.IdempotencyToken === undefined) {
-    input.IdempotencyToken = generateIdempotencyToken();
   }
   if (input.IdempotencyToken !== undefined) {
     bodyParams["IdempotencyToken"] = input.IdempotencyToken;
@@ -8978,12 +8986,12 @@ const serializeAws_json1_1CreateProvisioningArtifactInput = (
   input: CreateProvisioningArtifactInput,
   context: __SerdeContext
 ): any => {
+  if (input.IdempotencyToken === undefined) {
+    input.IdempotencyToken = generateIdempotencyToken();
+  }
   const bodyParams: any = {};
   if (input.AcceptLanguage !== undefined) {
     bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.IdempotencyToken === undefined) {
-    input.IdempotencyToken = generateIdempotencyToken();
   }
   if (input.IdempotencyToken !== undefined) {
     bodyParams["IdempotencyToken"] = input.IdempotencyToken;
@@ -9006,6 +9014,9 @@ const serializeAws_json1_1CreateServiceActionInput = (
   input: CreateServiceActionInput,
   context: __SerdeContext
 ): any => {
+  if (input.IdempotencyToken === undefined) {
+    input.IdempotencyToken = generateIdempotencyToken();
+  }
   const bodyParams: any = {};
   if (input.AcceptLanguage !== undefined) {
     bodyParams["AcceptLanguage"] = input.AcceptLanguage;
@@ -9021,9 +9032,6 @@ const serializeAws_json1_1CreateServiceActionInput = (
   }
   if (input.Description !== undefined) {
     bodyParams["Description"] = input.Description;
-  }
-  if (input.IdempotencyToken === undefined) {
-    input.IdempotencyToken = generateIdempotencyToken();
   }
   if (input.IdempotencyToken !== undefined) {
     bodyParams["IdempotencyToken"] = input.IdempotencyToken;
@@ -9455,12 +9463,12 @@ const serializeAws_json1_1ExecuteProvisionedProductPlanInput = (
   input: ExecuteProvisionedProductPlanInput,
   context: __SerdeContext
 ): any => {
+  if (input.IdempotencyToken === undefined) {
+    input.IdempotencyToken = generateIdempotencyToken();
+  }
   const bodyParams: any = {};
   if (input.AcceptLanguage !== undefined) {
     bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.IdempotencyToken === undefined) {
-    input.IdempotencyToken = generateIdempotencyToken();
   }
   if (input.IdempotencyToken !== undefined) {
     bodyParams["IdempotencyToken"] = input.IdempotencyToken;
@@ -9475,12 +9483,12 @@ const serializeAws_json1_1ExecuteProvisionedProductServiceActionInput = (
   input: ExecuteProvisionedProductServiceActionInput,
   context: __SerdeContext
 ): any => {
+  if (input.ExecuteToken === undefined) {
+    input.ExecuteToken = generateIdempotencyToken();
+  }
   const bodyParams: any = {};
   if (input.AcceptLanguage !== undefined) {
     bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.ExecuteToken === undefined) {
-    input.ExecuteToken = generateIdempotencyToken();
   }
   if (input.ExecuteToken !== undefined) {
     bodyParams["ExecuteToken"] = input.ExecuteToken;
@@ -9924,6 +9932,9 @@ const serializeAws_json1_1ProvisionProductInput = (
   input: ProvisionProductInput,
   context: __SerdeContext
 ): any => {
+  if (input.ProvisionToken === undefined) {
+    input.ProvisionToken = generateIdempotencyToken();
+  }
   const bodyParams: any = {};
   if (input.AcceptLanguage !== undefined) {
     bodyParams["AcceptLanguage"] = input.AcceptLanguage;
@@ -9939,9 +9950,6 @@ const serializeAws_json1_1ProvisionProductInput = (
   }
   if (input.ProductId !== undefined) {
     bodyParams["ProductId"] = input.ProductId;
-  }
-  if (input.ProvisionToken === undefined) {
-    input.ProvisionToken = generateIdempotencyToken();
   }
   if (input.ProvisionToken !== undefined) {
     bodyParams["ProvisionToken"] = input.ProvisionToken;
@@ -10367,6 +10375,9 @@ const serializeAws_json1_1TerminateProvisionedProductInput = (
   input: TerminateProvisionedProductInput,
   context: __SerdeContext
 ): any => {
+  if (input.TerminateToken === undefined) {
+    input.TerminateToken = generateIdempotencyToken();
+  }
   const bodyParams: any = {};
   if (input.AcceptLanguage !== undefined) {
     bodyParams["AcceptLanguage"] = input.AcceptLanguage;
@@ -10379,9 +10390,6 @@ const serializeAws_json1_1TerminateProvisionedProductInput = (
   }
   if (input.ProvisionedProductName !== undefined) {
     bodyParams["ProvisionedProductName"] = input.ProvisionedProductName;
-  }
-  if (input.TerminateToken === undefined) {
-    input.TerminateToken = generateIdempotencyToken();
   }
   if (input.TerminateToken !== undefined) {
     bodyParams["TerminateToken"] = input.TerminateToken;
@@ -10489,6 +10497,9 @@ const serializeAws_json1_1UpdateProvisionedProductInput = (
   input: UpdateProvisionedProductInput,
   context: __SerdeContext
 ): any => {
+  if (input.UpdateToken === undefined) {
+    input.UpdateToken = generateIdempotencyToken();
+  }
   const bodyParams: any = {};
   if (input.AcceptLanguage !== undefined) {
     bodyParams["AcceptLanguage"] = input.AcceptLanguage;
@@ -10527,9 +10538,6 @@ const serializeAws_json1_1UpdateProvisionedProductInput = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1Tags(input.Tags, context);
   }
-  if (input.UpdateToken === undefined) {
-    input.UpdateToken = generateIdempotencyToken();
-  }
   if (input.UpdateToken !== undefined) {
     bodyParams["UpdateToken"] = input.UpdateToken;
   }
@@ -10540,12 +10548,12 @@ const serializeAws_json1_1UpdateProvisionedProductPropertiesInput = (
   input: UpdateProvisionedProductPropertiesInput,
   context: __SerdeContext
 ): any => {
+  if (input.IdempotencyToken === undefined) {
+    input.IdempotencyToken = generateIdempotencyToken();
+  }
   const bodyParams: any = {};
   if (input.AcceptLanguage !== undefined) {
     bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.IdempotencyToken === undefined) {
-    input.IdempotencyToken = generateIdempotencyToken();
   }
   if (input.IdempotencyToken !== undefined) {
     bodyParams["IdempotencyToken"] = input.IdempotencyToken;

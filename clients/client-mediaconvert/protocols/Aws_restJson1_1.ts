@@ -320,6 +320,9 @@ export const serializeAws_restJson1_1CreateJobCommand = async (
   };
   let resolvedPath = "/2017-08-29/jobs";
   let body: any;
+  if (input.ClientRequestToken === undefined) {
+    input.ClientRequestToken = generateIdempotencyToken();
+  }
   const bodyParams: any = {};
   if (input.AccelerationSettings !== undefined) {
     bodyParams[
@@ -331,9 +334,6 @@ export const serializeAws_restJson1_1CreateJobCommand = async (
   }
   if (input.BillingTagsSource !== undefined) {
     bodyParams["billingTagsSource"] = input.BillingTagsSource;
-  }
-  if (input.ClientRequestToken === undefined) {
-    input.ClientRequestToken = generateIdempotencyToken();
   }
   if (input.ClientRequestToken !== undefined) {
     bodyParams["clientRequestToken"] = input.ClientRequestToken;

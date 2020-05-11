@@ -114,6 +114,9 @@ export const serializeAws_restJson1_1CreateAnalyzerCommand = async (
   };
   let resolvedPath = "/analyzer";
   let body: any;
+  if (input.clientToken === undefined) {
+    input.clientToken = generateIdempotencyToken();
+  }
   const bodyParams: any = {};
   if (input.analyzerName !== undefined) {
     bodyParams["analyzerName"] = input.analyzerName;
@@ -123,9 +126,6 @@ export const serializeAws_restJson1_1CreateAnalyzerCommand = async (
       input.archiveRules,
       context
     );
-  }
-  if (input.clientToken === undefined) {
-    input.clientToken = generateIdempotencyToken();
   }
   if (input.clientToken !== undefined) {
     bodyParams["clientToken"] = input.clientToken;
@@ -172,10 +172,10 @@ export const serializeAws_restJson1_1CreateArchiveRuleCommand = async (
     throw new Error("No value provided for input HTTP label: analyzerName.");
   }
   let body: any;
-  const bodyParams: any = {};
   if (input.clientToken === undefined) {
     input.clientToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.clientToken !== undefined) {
     bodyParams["clientToken"] = input.clientToken;
   }
@@ -766,10 +766,10 @@ export const serializeAws_restJson1_1UpdateArchiveRuleCommand = async (
     throw new Error("No value provided for input HTTP label: ruleName.");
   }
   let body: any;
-  const bodyParams: any = {};
   if (input.clientToken === undefined) {
     input.clientToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.clientToken !== undefined) {
     bodyParams["clientToken"] = input.clientToken;
   }
@@ -801,12 +801,12 @@ export const serializeAws_restJson1_1UpdateFindingsCommand = async (
   };
   let resolvedPath = "/finding";
   let body: any;
+  if (input.clientToken === undefined) {
+    input.clientToken = generateIdempotencyToken();
+  }
   const bodyParams: any = {};
   if (input.analyzerArn !== undefined) {
     bodyParams["analyzerArn"] = input.analyzerArn;
-  }
-  if (input.clientToken === undefined) {
-    input.clientToken = generateIdempotencyToken();
   }
   if (input.clientToken !== undefined) {
     bodyParams["clientToken"] = input.clientToken;

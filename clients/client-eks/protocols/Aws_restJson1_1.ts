@@ -142,10 +142,10 @@ export const serializeAws_restJson1_1CreateClusterCommand = async (
   };
   let resolvedPath = "/clusters";
   let body: any;
-  const bodyParams: any = {};
   if (input.clientRequestToken === undefined) {
     input.clientRequestToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.clientRequestToken !== undefined) {
     bodyParams["clientRequestToken"] = input.clientRequestToken;
   }
@@ -209,10 +209,10 @@ export const serializeAws_restJson1_1CreateFargateProfileCommand = async (
     throw new Error("No value provided for input HTTP label: clusterName.");
   }
   let body: any;
-  const bodyParams: any = {};
   if (input.clientRequestToken === undefined) {
     input.clientRequestToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.clientRequestToken !== undefined) {
     bodyParams["clientRequestToken"] = input.clientRequestToken;
   }
@@ -273,12 +273,12 @@ export const serializeAws_restJson1_1CreateNodegroupCommand = async (
     throw new Error("No value provided for input HTTP label: clusterName.");
   }
   let body: any;
+  if (input.clientRequestToken === undefined) {
+    input.clientRequestToken = generateIdempotencyToken();
+  }
   const bodyParams: any = {};
   if (input.amiType !== undefined) {
     bodyParams["amiType"] = input.amiType;
-  }
-  if (input.clientRequestToken === undefined) {
-    input.clientRequestToken = generateIdempotencyToken();
   }
   if (input.clientRequestToken !== undefined) {
     bodyParams["clientRequestToken"] = input.clientRequestToken;
@@ -957,10 +957,10 @@ export const serializeAws_restJson1_1UpdateClusterConfigCommand = async (
     throw new Error("No value provided for input HTTP label: name.");
   }
   let body: any;
-  const bodyParams: any = {};
   if (input.clientRequestToken === undefined) {
     input.clientRequestToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.clientRequestToken !== undefined) {
     bodyParams["clientRequestToken"] = input.clientRequestToken;
   }
@@ -1010,10 +1010,10 @@ export const serializeAws_restJson1_1UpdateClusterVersionCommand = async (
     throw new Error("No value provided for input HTTP label: name.");
   }
   let body: any;
-  const bodyParams: any = {};
   if (input.clientRequestToken === undefined) {
     input.clientRequestToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.clientRequestToken !== undefined) {
     bodyParams["clientRequestToken"] = input.clientRequestToken;
   }
@@ -1071,10 +1071,10 @@ export const serializeAws_restJson1_1UpdateNodegroupConfigCommand = async (
     throw new Error("No value provided for input HTTP label: nodegroupName.");
   }
   let body: any;
-  const bodyParams: any = {};
   if (input.clientRequestToken === undefined) {
     input.clientRequestToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.clientRequestToken !== undefined) {
     bodyParams["clientRequestToken"] = input.clientRequestToken;
   }
@@ -1143,10 +1143,10 @@ export const serializeAws_restJson1_1UpdateNodegroupVersionCommand = async (
     throw new Error("No value provided for input HTTP label: nodegroupName.");
   }
   let body: any;
-  const bodyParams: any = {};
   if (input.clientRequestToken === undefined) {
     input.clientRequestToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.clientRequestToken !== undefined) {
     bodyParams["clientRequestToken"] = input.clientRequestToken;
   }

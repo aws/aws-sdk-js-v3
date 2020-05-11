@@ -288,10 +288,10 @@ export const serializeAws_restJson1_1CreateDeploymentJobCommand = async (
   };
   let resolvedPath = "/createDeploymentJob";
   let body: any;
-  const bodyParams: any = {};
   if (input.clientRequestToken === undefined) {
     input.clientRequestToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.clientRequestToken !== undefined) {
     bodyParams["clientRequestToken"] = input.clientRequestToken;
   }
@@ -559,10 +559,10 @@ export const serializeAws_restJson1_1CreateSimulationJobCommand = async (
   };
   let resolvedPath = "/createSimulationJob";
   let body: any;
-  const bodyParams: any = {};
   if (input.clientRequestToken === undefined) {
     input.clientRequestToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.clientRequestToken !== undefined) {
     bodyParams["clientRequestToken"] = input.clientRequestToken;
   }
@@ -1247,10 +1247,10 @@ export const serializeAws_restJson1_1SyncDeploymentJobCommand = async (
   };
   let resolvedPath = "/syncDeploymentJob";
   let body: any;
-  const bodyParams: any = {};
   if (input.clientRequestToken === undefined) {
     input.clientRequestToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.clientRequestToken !== undefined) {
     bodyParams["clientRequestToken"] = input.clientRequestToken;
   }

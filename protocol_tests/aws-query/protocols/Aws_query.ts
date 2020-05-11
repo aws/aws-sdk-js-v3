@@ -1701,10 +1701,10 @@ const serializeAws_queryQueryIdempotencyTokenAutoFillInput = (
   input: QueryIdempotencyTokenAutoFillInput,
   context: __SerdeContext
 ): any => {
-  const entries: any = {};
   if (input.token === undefined) {
     input.token = generateIdempotencyToken();
   }
+  const entries: any = {};
   if (input.token !== undefined) {
     entries["token"] = input.token;
   }

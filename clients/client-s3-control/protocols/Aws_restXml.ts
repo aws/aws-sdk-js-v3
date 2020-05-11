@@ -197,15 +197,15 @@ export const serializeAws_restXmlCreateJobCommand = async (
   };
   let resolvedPath = "/v20180820/jobs";
   let body: any;
+  if (input.ClientRequestToken === undefined) {
+    input.ClientRequestToken = generateIdempotencyToken();
+  }
   body = '<?xml version="1.0" encoding="UTF-8"?>';
   const bodyNode = new __XmlNode("CreateJobRequest");
   bodyNode.addAttribute(
     "xmlns",
     "http://awss3control.amazonaws.com/doc/2018-08-20/"
   );
-  if (input.ClientRequestToken === undefined) {
-    input.ClientRequestToken = generateIdempotencyToken();
-  }
   if (input.ClientRequestToken !== undefined) {
     const node = new __XmlNode("NonEmptyMaxLength64String")
       .addChildNode(new __XmlText(input.ClientRequestToken))

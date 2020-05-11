@@ -6676,6 +6676,9 @@ const serializeAws_queryCreateStackInstancesInput = (
   input: CreateStackInstancesInput,
   context: __SerdeContext
 ): any => {
+  if (input.OperationId === undefined) {
+    input.OperationId = generateIdempotencyToken();
+  }
   const entries: any = {};
   if (input.Accounts !== undefined) {
     const memberEntries = serializeAws_queryAccountList(
@@ -6686,9 +6689,6 @@ const serializeAws_queryCreateStackInstancesInput = (
       const loc = `Accounts.${key}`;
       entries[loc] = memberEntries[key];
     });
-  }
-  if (input.OperationId === undefined) {
-    input.OperationId = generateIdempotencyToken();
   }
   if (input.OperationId !== undefined) {
     entries["OperationId"] = input.OperationId;
@@ -6730,6 +6730,9 @@ const serializeAws_queryCreateStackSetInput = (
   input: CreateStackSetInput,
   context: __SerdeContext
 ): any => {
+  if (input.ClientRequestToken === undefined) {
+    input.ClientRequestToken = generateIdempotencyToken();
+  }
   const entries: any = {};
   if (input.AdministrationRoleARN !== undefined) {
     entries["AdministrationRoleARN"] = input.AdministrationRoleARN;
@@ -6743,9 +6746,6 @@ const serializeAws_queryCreateStackSetInput = (
       const loc = `Capabilities.${key}`;
       entries[loc] = memberEntries[key];
     });
-  }
-  if (input.ClientRequestToken === undefined) {
-    input.ClientRequestToken = generateIdempotencyToken();
   }
   if (input.ClientRequestToken !== undefined) {
     entries["ClientRequestToken"] = input.ClientRequestToken;
@@ -6789,6 +6789,9 @@ const serializeAws_queryDeleteStackInstancesInput = (
   input: DeleteStackInstancesInput,
   context: __SerdeContext
 ): any => {
+  if (input.OperationId === undefined) {
+    input.OperationId = generateIdempotencyToken();
+  }
   const entries: any = {};
   if (input.Accounts !== undefined) {
     const memberEntries = serializeAws_queryAccountList(
@@ -6799,9 +6802,6 @@ const serializeAws_queryDeleteStackInstancesInput = (
       const loc = `Accounts.${key}`;
       entries[loc] = memberEntries[key];
     });
-  }
-  if (input.OperationId === undefined) {
-    input.OperationId = generateIdempotencyToken();
   }
   if (input.OperationId !== undefined) {
     entries["OperationId"] = input.OperationId;
@@ -6889,10 +6889,10 @@ const serializeAws_queryDetectStackSetDriftInput = (
   input: DetectStackSetDriftInput,
   context: __SerdeContext
 ): any => {
-  const entries: any = {};
   if (input.OperationId === undefined) {
     input.OperationId = generateIdempotencyToken();
   }
+  const entries: any = {};
   if (input.OperationId !== undefined) {
     entries["OperationId"] = input.OperationId;
   }
@@ -7050,6 +7050,9 @@ const serializeAws_queryUpdateStackInstancesInput = (
   input: UpdateStackInstancesInput,
   context: __SerdeContext
 ): any => {
+  if (input.OperationId === undefined) {
+    input.OperationId = generateIdempotencyToken();
+  }
   const entries: any = {};
   if (input.Accounts !== undefined) {
     const memberEntries = serializeAws_queryAccountList(
@@ -7060,9 +7063,6 @@ const serializeAws_queryUpdateStackInstancesInput = (
       const loc = `Accounts.${key}`;
       entries[loc] = memberEntries[key];
     });
-  }
-  if (input.OperationId === undefined) {
-    input.OperationId = generateIdempotencyToken();
   }
   if (input.OperationId !== undefined) {
     entries["OperationId"] = input.OperationId;
@@ -7104,6 +7104,9 @@ const serializeAws_queryUpdateStackSetInput = (
   input: UpdateStackSetInput,
   context: __SerdeContext
 ): any => {
+  if (input.OperationId === undefined) {
+    input.OperationId = generateIdempotencyToken();
+  }
   const entries: any = {};
   if (input.Accounts !== undefined) {
     const memberEntries = serializeAws_queryAccountList(
@@ -7133,9 +7136,6 @@ const serializeAws_queryUpdateStackSetInput = (
   }
   if (input.ExecutionRoleName !== undefined) {
     entries["ExecutionRoleName"] = input.ExecutionRoleName;
-  }
-  if (input.OperationId === undefined) {
-    input.OperationId = generateIdempotencyToken();
   }
   if (input.OperationId !== undefined) {
     entries["OperationId"] = input.OperationId;

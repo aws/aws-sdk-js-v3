@@ -205,10 +205,10 @@ export const serializeAws_restJson1_1CreateMeshCommand = async (
   };
   let resolvedPath = "/v20190125/meshes";
   let body: any;
-  const bodyParams: any = {};
   if (input.clientToken === undefined) {
     input.clientToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.clientToken !== undefined) {
     bodyParams["clientToken"] = input.clientToken;
   }
@@ -272,10 +272,10 @@ export const serializeAws_restJson1_1CreateRouteCommand = async (
     );
   }
   let body: any;
-  const bodyParams: any = {};
   if (input.clientToken === undefined) {
     input.clientToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.clientToken !== undefined) {
     bodyParams["clientToken"] = input.clientToken;
   }
@@ -322,10 +322,10 @@ export const serializeAws_restJson1_1CreateVirtualNodeCommand = async (
     throw new Error("No value provided for input HTTP label: meshName.");
   }
   let body: any;
-  const bodyParams: any = {};
   if (input.clientToken === undefined) {
     input.clientToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.clientToken !== undefined) {
     bodyParams["clientToken"] = input.clientToken;
   }
@@ -375,10 +375,10 @@ export const serializeAws_restJson1_1CreateVirtualRouterCommand = async (
     throw new Error("No value provided for input HTTP label: meshName.");
   }
   let body: any;
-  const bodyParams: any = {};
   if (input.clientToken === undefined) {
     input.clientToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.clientToken !== undefined) {
     bodyParams["clientToken"] = input.clientToken;
   }
@@ -428,10 +428,10 @@ export const serializeAws_restJson1_1CreateVirtualServiceCommand = async (
     throw new Error("No value provided for input HTTP label: meshName.");
   }
   let body: any;
-  const bodyParams: any = {};
   if (input.clientToken === undefined) {
     input.clientToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.clientToken !== undefined) {
     bodyParams["clientToken"] = input.clientToken;
   }
@@ -1252,10 +1252,10 @@ export const serializeAws_restJson1_1UpdateMeshCommand = async (
     throw new Error("No value provided for input HTTP label: meshName.");
   }
   let body: any;
-  const bodyParams: any = {};
   if (input.clientToken === undefined) {
     input.clientToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.clientToken !== undefined) {
     bodyParams["clientToken"] = input.clientToken;
   }
@@ -1325,10 +1325,10 @@ export const serializeAws_restJson1_1UpdateRouteCommand = async (
     );
   }
   let body: any;
-  const bodyParams: any = {};
   if (input.clientToken === undefined) {
     input.clientToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.clientToken !== undefined) {
     bodyParams["clientToken"] = input.clientToken;
   }
@@ -1384,10 +1384,10 @@ export const serializeAws_restJson1_1UpdateVirtualNodeCommand = async (
     throw new Error("No value provided for input HTTP label: virtualNodeName.");
   }
   let body: any;
-  const bodyParams: any = {};
   if (input.clientToken === undefined) {
     input.clientToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.clientToken !== undefined) {
     bodyParams["clientToken"] = input.clientToken;
   }
@@ -1448,10 +1448,10 @@ export const serializeAws_restJson1_1UpdateVirtualRouterCommand = async (
     );
   }
   let body: any;
-  const bodyParams: any = {};
   if (input.clientToken === undefined) {
     input.clientToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.clientToken !== undefined) {
     bodyParams["clientToken"] = input.clientToken;
   }
@@ -1512,10 +1512,10 @@ export const serializeAws_restJson1_1UpdateVirtualServiceCommand = async (
     );
   }
   let body: any;
-  const bodyParams: any = {};
   if (input.clientToken === undefined) {
     input.clientToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.clientToken !== undefined) {
     bodyParams["clientToken"] = input.clientToken;
   }

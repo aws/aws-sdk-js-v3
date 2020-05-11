@@ -16797,12 +16797,12 @@ const serializeAws_json1_1CreateMaintenanceWindowRequest = (
   input: CreateMaintenanceWindowRequest,
   context: __SerdeContext
 ): any => {
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
   const bodyParams: any = {};
   if (input.AllowUnassociatedTargets !== undefined) {
     bodyParams["AllowUnassociatedTargets"] = input.AllowUnassociatedTargets;
-  }
-  if (input.ClientToken === undefined) {
-    input.ClientToken = generateIdempotencyToken();
   }
   if (input.ClientToken !== undefined) {
     bodyParams["ClientToken"] = input.ClientToken;
@@ -16888,6 +16888,9 @@ const serializeAws_json1_1CreatePatchBaselineRequest = (
   input: CreatePatchBaselineRequest,
   context: __SerdeContext
 ): any => {
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
   const bodyParams: any = {};
   if (input.ApprovalRules !== undefined) {
     bodyParams["ApprovalRules"] = serializeAws_json1_1PatchRuleGroup(
@@ -16908,9 +16911,6 @@ const serializeAws_json1_1CreatePatchBaselineRequest = (
   if (input.ApprovedPatchesEnableNonSecurity !== undefined) {
     bodyParams["ApprovedPatchesEnableNonSecurity"] =
       input.ApprovedPatchesEnableNonSecurity;
-  }
-  if (input.ClientToken === undefined) {
-    input.ClientToken = generateIdempotencyToken();
   }
   if (input.ClientToken !== undefined) {
     bodyParams["ClientToken"] = input.ClientToken;
@@ -17031,10 +17031,10 @@ const serializeAws_json1_1DeleteInventoryRequest = (
   input: DeleteInventoryRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
   if (input.ClientToken === undefined) {
     input.ClientToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.ClientToken !== undefined) {
     bodyParams["ClientToken"] = input.ClientToken;
   }
@@ -19941,10 +19941,10 @@ const serializeAws_json1_1RegisterTargetWithMaintenanceWindowRequest = (
   input: RegisterTargetWithMaintenanceWindowRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
   if (input.ClientToken === undefined) {
     input.ClientToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.ClientToken !== undefined) {
     bodyParams["ClientToken"] = input.ClientToken;
   }
@@ -19973,10 +19973,10 @@ const serializeAws_json1_1RegisterTaskWithMaintenanceWindowRequest = (
   input: RegisterTaskWithMaintenanceWindowRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
   if (input.ClientToken === undefined) {
     input.ClientToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.ClientToken !== undefined) {
     bodyParams["ClientToken"] = input.ClientToken;
   }

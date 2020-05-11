@@ -1960,10 +1960,10 @@ const serializeAws_json1_1StartEntitiesDetectionV2JobRequest = (
   input: StartEntitiesDetectionV2JobRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.ClientRequestToken !== undefined) {
     bodyParams["ClientRequestToken"] = input.ClientRequestToken;
   }
@@ -1998,10 +1998,10 @@ const serializeAws_json1_1StartPHIDetectionJobRequest = (
   input: StartPHIDetectionJobRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.ClientRequestToken !== undefined) {
     bodyParams["ClientRequestToken"] = input.ClientRequestToken;
   }

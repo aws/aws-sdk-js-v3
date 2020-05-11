@@ -2342,10 +2342,10 @@ const serializeAws_json1_1CreateHttpNamespaceRequest = (
   input: CreateHttpNamespaceRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
   if (input.CreatorRequestId === undefined) {
     input.CreatorRequestId = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.CreatorRequestId !== undefined) {
     bodyParams["CreatorRequestId"] = input.CreatorRequestId;
   }
@@ -2362,10 +2362,10 @@ const serializeAws_json1_1CreatePrivateDnsNamespaceRequest = (
   input: CreatePrivateDnsNamespaceRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
   if (input.CreatorRequestId === undefined) {
     input.CreatorRequestId = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.CreatorRequestId !== undefined) {
     bodyParams["CreatorRequestId"] = input.CreatorRequestId;
   }
@@ -2385,10 +2385,10 @@ const serializeAws_json1_1CreatePublicDnsNamespaceRequest = (
   input: CreatePublicDnsNamespaceRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
   if (input.CreatorRequestId === undefined) {
     input.CreatorRequestId = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.CreatorRequestId !== undefined) {
     bodyParams["CreatorRequestId"] = input.CreatorRequestId;
   }
@@ -2405,10 +2405,10 @@ const serializeAws_json1_1CreateServiceRequest = (
   input: CreateServiceRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
   if (input.CreatorRequestId === undefined) {
     input.CreatorRequestId = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.CreatorRequestId !== undefined) {
     bodyParams["CreatorRequestId"] = input.CreatorRequestId;
   }
@@ -2828,15 +2828,15 @@ const serializeAws_json1_1RegisterInstanceRequest = (
   input: RegisterInstanceRequest,
   context: __SerdeContext
 ): any => {
+  if (input.CreatorRequestId === undefined) {
+    input.CreatorRequestId = generateIdempotencyToken();
+  }
   const bodyParams: any = {};
   if (input.Attributes !== undefined) {
     bodyParams["Attributes"] = serializeAws_json1_1Attributes(
       input.Attributes,
       context
     );
-  }
-  if (input.CreatorRequestId === undefined) {
-    input.CreatorRequestId = generateIdempotencyToken();
   }
   if (input.CreatorRequestId !== undefined) {
     bodyParams["CreatorRequestId"] = input.CreatorRequestId;

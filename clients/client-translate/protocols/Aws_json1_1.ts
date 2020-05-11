@@ -1444,10 +1444,10 @@ const serializeAws_json1_1StartTextTranslationJobRequest = (
   input: StartTextTranslationJobRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
   if (input.ClientToken === undefined) {
     input.ClientToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.ClientToken !== undefined) {
     bodyParams["ClientToken"] = input.ClientToken;
   }

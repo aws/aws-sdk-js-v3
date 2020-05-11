@@ -1002,15 +1002,15 @@ export const serializeAws_restJson1_1StartChatContactCommand = async (
   };
   let resolvedPath = "/contact/chat";
   let body: any;
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
   const bodyParams: any = {};
   if (input.Attributes !== undefined) {
     bodyParams["Attributes"] = serializeAws_restJson1_1Attributes(
       input.Attributes,
       context
     );
-  }
-  if (input.ClientToken === undefined) {
-    input.ClientToken = generateIdempotencyToken();
   }
   if (input.ClientToken !== undefined) {
     bodyParams["ClientToken"] = input.ClientToken;
@@ -1057,15 +1057,15 @@ export const serializeAws_restJson1_1StartOutboundVoiceContactCommand = async (
   };
   let resolvedPath = "/contact/outbound-voice";
   let body: any;
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
   const bodyParams: any = {};
   if (input.Attributes !== undefined) {
     bodyParams["Attributes"] = serializeAws_restJson1_1Attributes(
       input.Attributes,
       context
     );
-  }
-  if (input.ClientToken === undefined) {
-    input.ClientToken = generateIdempotencyToken();
   }
   if (input.ClientToken !== undefined) {
     bodyParams["ClientToken"] = input.ClientToken;

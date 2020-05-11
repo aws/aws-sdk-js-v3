@@ -86,10 +86,10 @@ export const serializeAws_restJson1_1DisconnectParticipantCommand = async (
   };
   let resolvedPath = "/participant/disconnect";
   let body: any;
-  const bodyParams: any = {};
   if (input.ClientToken === undefined) {
     input.ClientToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.ClientToken !== undefined) {
     bodyParams["ClientToken"] = input.ClientToken;
   }
@@ -165,10 +165,10 @@ export const serializeAws_restJson1_1SendEventCommand = async (
   };
   let resolvedPath = "/participant/event";
   let body: any;
-  const bodyParams: any = {};
   if (input.ClientToken === undefined) {
     input.ClientToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.ClientToken !== undefined) {
     bodyParams["ClientToken"] = input.ClientToken;
   }
@@ -203,10 +203,10 @@ export const serializeAws_restJson1_1SendMessageCommand = async (
   };
   let resolvedPath = "/participant/message";
   let body: any;
-  const bodyParams: any = {};
   if (input.ClientToken === undefined) {
     input.ClientToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.ClientToken !== undefined) {
     bodyParams["ClientToken"] = input.ClientToken;
   }

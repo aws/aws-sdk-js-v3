@@ -5717,10 +5717,10 @@ const serializeAws_json1_1StartPipelineExecutionInput = (
   input: StartPipelineExecutionInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
   if (input.clientRequestToken === undefined) {
     input.clientRequestToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.clientRequestToken !== undefined) {
     bodyParams["clientRequestToken"] = input.clientRequestToken;
   }

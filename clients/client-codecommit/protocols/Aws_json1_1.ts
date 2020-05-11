@@ -2448,7 +2448,9 @@ const deserializeAws_json1_1BatchDescribeMergeConflictsCommandError = async (
 export const deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput> => {
+): Promise<
+  BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput
+> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandError(
       output,
@@ -2472,7 +2474,9 @@ export const deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepo
 const deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput> => {
+): Promise<
+  BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput
+> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -20765,10 +20769,10 @@ const serializeAws_json1_1CreatePullRequestInput = (
   input: CreatePullRequestInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
   if (input.clientRequestToken === undefined) {
     input.clientRequestToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.clientRequestToken !== undefined) {
     bodyParams["clientRequestToken"] = input.clientRequestToken;
   }
@@ -21736,15 +21740,15 @@ const serializeAws_json1_1PostCommentForComparedCommitInput = (
   input: PostCommentForComparedCommitInput,
   context: __SerdeContext
 ): any => {
+  if (input.clientRequestToken === undefined) {
+    input.clientRequestToken = generateIdempotencyToken();
+  }
   const bodyParams: any = {};
   if (input.afterCommitId !== undefined) {
     bodyParams["afterCommitId"] = input.afterCommitId;
   }
   if (input.beforeCommitId !== undefined) {
     bodyParams["beforeCommitId"] = input.beforeCommitId;
-  }
-  if (input.clientRequestToken === undefined) {
-    input.clientRequestToken = generateIdempotencyToken();
   }
   if (input.clientRequestToken !== undefined) {
     bodyParams["clientRequestToken"] = input.clientRequestToken;
@@ -21768,15 +21772,15 @@ const serializeAws_json1_1PostCommentForPullRequestInput = (
   input: PostCommentForPullRequestInput,
   context: __SerdeContext
 ): any => {
+  if (input.clientRequestToken === undefined) {
+    input.clientRequestToken = generateIdempotencyToken();
+  }
   const bodyParams: any = {};
   if (input.afterCommitId !== undefined) {
     bodyParams["afterCommitId"] = input.afterCommitId;
   }
   if (input.beforeCommitId !== undefined) {
     bodyParams["beforeCommitId"] = input.beforeCommitId;
-  }
-  if (input.clientRequestToken === undefined) {
-    input.clientRequestToken = generateIdempotencyToken();
   }
   if (input.clientRequestToken !== undefined) {
     bodyParams["clientRequestToken"] = input.clientRequestToken;
@@ -21803,10 +21807,10 @@ const serializeAws_json1_1PostCommentReplyInput = (
   input: PostCommentReplyInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
   if (input.clientRequestToken === undefined) {
     input.clientRequestToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.clientRequestToken !== undefined) {
     bodyParams["clientRequestToken"] = input.clientRequestToken;
   }

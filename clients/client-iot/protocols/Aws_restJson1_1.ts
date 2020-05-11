@@ -8242,6 +8242,9 @@ export const serializeAws_restJson1_1StartAuditMitigationActionsTaskCommand = as
     throw new Error("No value provided for input HTTP label: taskId.");
   }
   let body: any;
+  if (input.clientRequestToken === undefined) {
+    input.clientRequestToken = generateIdempotencyToken();
+  }
   const bodyParams: any = {};
   if (input.auditCheckToActionsMapping !== undefined) {
     bodyParams[
@@ -8250,9 +8253,6 @@ export const serializeAws_restJson1_1StartAuditMitigationActionsTaskCommand = as
       input.auditCheckToActionsMapping,
       context
     );
-  }
-  if (input.clientRequestToken === undefined) {
-    input.clientRequestToken = generateIdempotencyToken();
   }
   if (input.clientRequestToken !== undefined) {
     bodyParams["clientRequestToken"] = input.clientRequestToken;

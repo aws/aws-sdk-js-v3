@@ -20868,7 +20868,9 @@ const deserializeAws_ec2DescribeLaunchTemplatesCommandError = async (
 export const deserializeAws_ec2DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput> => {
+): Promise<
+  DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput
+> => {
   if (output.statusCode >= 400) {
     return deserializeAws_ec2DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandError(
       output,
@@ -20893,7 +20895,9 @@ export const deserializeAws_ec2DescribeLocalGatewayRouteTableVirtualInterfaceGro
 const deserializeAws_ec2DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput> => {
+): Promise<
+  DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput
+> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -32570,10 +32574,10 @@ const serializeAws_ec2AssociateClientVpnTargetNetworkRequest = (
   input: AssociateClientVpnTargetNetworkRequest,
   context: __SerdeContext
 ): any => {
-  const entries: any = {};
   if (input.ClientToken === undefined) {
     input.ClientToken = generateIdempotencyToken();
   }
+  const entries: any = {};
   if (input.ClientToken !== undefined) {
     entries["ClientToken"] = input.ClientToken;
   }
@@ -32873,15 +32877,15 @@ const serializeAws_ec2AuthorizeClientVpnIngressRequest = (
   input: AuthorizeClientVpnIngressRequest,
   context: __SerdeContext
 ): any => {
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
   const entries: any = {};
   if (input.AccessGroupId !== undefined) {
     entries["AccessGroupId"] = input.AccessGroupId;
   }
   if (input.AuthorizeAllGroups !== undefined) {
     entries["AuthorizeAllGroups"] = input.AuthorizeAllGroups;
-  }
-  if (input.ClientToken === undefined) {
-    input.ClientToken = generateIdempotencyToken();
   }
   if (input.ClientToken !== undefined) {
     entries["ClientToken"] = input.ClientToken;
@@ -33693,6 +33697,9 @@ const serializeAws_ec2CreateClientVpnEndpointRequest = (
   input: CreateClientVpnEndpointRequest,
   context: __SerdeContext
 ): any => {
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
   const entries: any = {};
   if (input.AuthenticationOptions !== undefined) {
     const memberEntries = serializeAws_ec2ClientVpnAuthenticationRequestList(
@@ -33706,9 +33713,6 @@ const serializeAws_ec2CreateClientVpnEndpointRequest = (
   }
   if (input.ClientCidrBlock !== undefined) {
     entries["ClientCidrBlock"] = input.ClientCidrBlock;
-  }
-  if (input.ClientToken === undefined) {
-    input.ClientToken = generateIdempotencyToken();
   }
   if (input.ClientToken !== undefined) {
     entries["ClientToken"] = input.ClientToken;
@@ -33768,10 +33772,10 @@ const serializeAws_ec2CreateClientVpnRouteRequest = (
   input: CreateClientVpnRouteRequest,
   context: __SerdeContext
 ): any => {
-  const entries: any = {};
   if (input.ClientToken === undefined) {
     input.ClientToken = generateIdempotencyToken();
   }
+  const entries: any = {};
   if (input.ClientToken !== undefined) {
     entries["ClientToken"] = input.ClientToken;
   }
@@ -34692,10 +34696,10 @@ const serializeAws_ec2CreateTrafficMirrorFilterRequest = (
   input: CreateTrafficMirrorFilterRequest,
   context: __SerdeContext
 ): any => {
-  const entries: any = {};
   if (input.ClientToken === undefined) {
     input.ClientToken = generateIdempotencyToken();
   }
+  const entries: any = {};
   if (input.ClientToken !== undefined) {
     entries["ClientToken"] = input.ClientToken;
   }
@@ -34722,10 +34726,10 @@ const serializeAws_ec2CreateTrafficMirrorFilterRuleRequest = (
   input: CreateTrafficMirrorFilterRuleRequest,
   context: __SerdeContext
 ): any => {
-  const entries: any = {};
   if (input.ClientToken === undefined) {
     input.ClientToken = generateIdempotencyToken();
   }
+  const entries: any = {};
   if (input.ClientToken !== undefined) {
     entries["ClientToken"] = input.ClientToken;
   }
@@ -34783,10 +34787,10 @@ const serializeAws_ec2CreateTrafficMirrorSessionRequest = (
   input: CreateTrafficMirrorSessionRequest,
   context: __SerdeContext
 ): any => {
-  const entries: any = {};
   if (input.ClientToken === undefined) {
     input.ClientToken = generateIdempotencyToken();
   }
+  const entries: any = {};
   if (input.ClientToken !== undefined) {
     entries["ClientToken"] = input.ClientToken;
   }
@@ -34831,10 +34835,10 @@ const serializeAws_ec2CreateTrafficMirrorTargetRequest = (
   input: CreateTrafficMirrorTargetRequest,
   context: __SerdeContext
 ): any => {
-  const entries: any = {};
   if (input.ClientToken === undefined) {
     input.ClientToken = generateIdempotencyToken();
   }
+  const entries: any = {};
   if (input.ClientToken !== undefined) {
     entries["ClientToken"] = input.ClientToken;
   }
@@ -40539,10 +40543,10 @@ const serializeAws_ec2ExportImageRequest = (
   input: ExportImageRequest,
   context: __SerdeContext
 ): any => {
-  const entries: any = {};
   if (input.ClientToken === undefined) {
     input.ClientToken = generateIdempotencyToken();
   }
+  const entries: any = {};
   if (input.ClientToken !== undefined) {
     entries["ClientToken"] = input.ClientToken;
   }
@@ -45241,10 +45245,10 @@ const serializeAws_ec2PurchaseScheduledInstancesRequest = (
   input: PurchaseScheduledInstancesRequest,
   context: __SerdeContext
 ): any => {
-  const entries: any = {};
   if (input.ClientToken === undefined) {
     input.ClientToken = generateIdempotencyToken();
   }
+  const entries: any = {};
   if (input.ClientToken !== undefined) {
     entries["ClientToken"] = input.ClientToken;
   }
@@ -46809,10 +46813,10 @@ const serializeAws_ec2RunScheduledInstancesRequest = (
   input: RunScheduledInstancesRequest,
   context: __SerdeContext
 ): any => {
-  const entries: any = {};
   if (input.ClientToken === undefined) {
     input.ClientToken = generateIdempotencyToken();
   }
+  const entries: any = {};
   if (input.ClientToken !== undefined) {
     entries["ClientToken"] = input.ClientToken;
   }

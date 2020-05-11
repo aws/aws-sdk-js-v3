@@ -265,12 +265,12 @@ export const serializeAws_restJson1_1CreateComponentCommand = async (
   };
   let resolvedPath = "/CreateComponent";
   let body: any;
+  if (input.clientToken === undefined) {
+    input.clientToken = generateIdempotencyToken();
+  }
   const bodyParams: any = {};
   if (input.changeDescription !== undefined) {
     bodyParams["changeDescription"] = input.changeDescription;
-  }
-  if (input.clientToken === undefined) {
-    input.clientToken = generateIdempotencyToken();
   }
   if (input.clientToken !== undefined) {
     bodyParams["clientToken"] = input.clientToken;
@@ -321,10 +321,10 @@ export const serializeAws_restJson1_1CreateDistributionConfigurationCommand = as
   };
   let resolvedPath = "/CreateDistributionConfiguration";
   let body: any;
-  const bodyParams: any = {};
   if (input.clientToken === undefined) {
     input.clientToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.clientToken !== undefined) {
     bodyParams["clientToken"] = input.clientToken;
   }
@@ -365,10 +365,10 @@ export const serializeAws_restJson1_1CreateImageCommand = async (
   };
   let resolvedPath = "/CreateImage";
   let body: any;
-  const bodyParams: any = {};
   if (input.clientToken === undefined) {
     input.clientToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.clientToken !== undefined) {
     bodyParams["clientToken"] = input.clientToken;
   }
@@ -416,10 +416,10 @@ export const serializeAws_restJson1_1CreateImagePipelineCommand = async (
   };
   let resolvedPath = "/CreateImagePipeline";
   let body: any;
-  const bodyParams: any = {};
   if (input.clientToken === undefined) {
     input.clientToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.clientToken !== undefined) {
     bodyParams["clientToken"] = input.clientToken;
   }
@@ -482,6 +482,9 @@ export const serializeAws_restJson1_1CreateImageRecipeCommand = async (
   };
   let resolvedPath = "/CreateImageRecipe";
   let body: any;
+  if (input.clientToken === undefined) {
+    input.clientToken = generateIdempotencyToken();
+  }
   const bodyParams: any = {};
   if (input.blockDeviceMappings !== undefined) {
     bodyParams[
@@ -490,9 +493,6 @@ export const serializeAws_restJson1_1CreateImageRecipeCommand = async (
       input.blockDeviceMappings,
       context
     );
-  }
-  if (input.clientToken === undefined) {
-    input.clientToken = generateIdempotencyToken();
   }
   if (input.clientToken !== undefined) {
     bodyParams["clientToken"] = input.clientToken;
@@ -542,10 +542,10 @@ export const serializeAws_restJson1_1CreateInfrastructureConfigurationCommand = 
   };
   let resolvedPath = "/CreateInfrastructureConfiguration";
   let body: any;
-  const bodyParams: any = {};
   if (input.clientToken === undefined) {
     input.clientToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.clientToken !== undefined) {
     bodyParams["clientToken"] = input.clientToken;
   }
@@ -1016,12 +1016,12 @@ export const serializeAws_restJson1_1ImportComponentCommand = async (
   };
   let resolvedPath = "/ImportComponent";
   let body: any;
+  if (input.clientToken === undefined) {
+    input.clientToken = generateIdempotencyToken();
+  }
   const bodyParams: any = {};
   if (input.changeDescription !== undefined) {
     bodyParams["changeDescription"] = input.changeDescription;
-  }
-  if (input.clientToken === undefined) {
-    input.clientToken = generateIdempotencyToken();
   }
   if (input.clientToken !== undefined) {
     bodyParams["clientToken"] = input.clientToken;
@@ -1527,10 +1527,10 @@ export const serializeAws_restJson1_1StartImagePipelineExecutionCommand = async 
   };
   let resolvedPath = "/StartImagePipelineExecution";
   let body: any;
-  const bodyParams: any = {};
   if (input.clientToken === undefined) {
     input.clientToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.clientToken !== undefined) {
     bodyParams["clientToken"] = input.clientToken;
   }
@@ -1640,10 +1640,10 @@ export const serializeAws_restJson1_1UpdateDistributionConfigurationCommand = as
   };
   let resolvedPath = "/UpdateDistributionConfiguration";
   let body: any;
-  const bodyParams: any = {};
   if (input.clientToken === undefined) {
     input.clientToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.clientToken !== undefined) {
     bodyParams["clientToken"] = input.clientToken;
   }
@@ -1682,10 +1682,10 @@ export const serializeAws_restJson1_1UpdateImagePipelineCommand = async (
   };
   let resolvedPath = "/UpdateImagePipeline";
   let body: any;
-  const bodyParams: any = {};
   if (input.clientToken === undefined) {
     input.clientToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.clientToken !== undefined) {
     bodyParams["clientToken"] = input.clientToken;
   }
@@ -1745,10 +1745,10 @@ export const serializeAws_restJson1_1UpdateInfrastructureConfigurationCommand = 
   };
   let resolvedPath = "/UpdateInfrastructureConfiguration";
   let body: any;
-  const bodyParams: any = {};
   if (input.clientToken === undefined) {
     input.clientToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.clientToken !== undefined) {
     bodyParams["clientToken"] = input.clientToken;
   }

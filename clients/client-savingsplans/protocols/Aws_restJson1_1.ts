@@ -265,10 +265,10 @@ export const serializeAws_restJson1_1CreateSavingsPlanCommand = async (
   };
   let resolvedPath = "/CreateSavingsPlan";
   let body: any;
-  const bodyParams: any = {};
   if (input.clientToken === undefined) {
     input.clientToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.clientToken !== undefined) {
     bodyParams["clientToken"] = input.clientToken;
   }

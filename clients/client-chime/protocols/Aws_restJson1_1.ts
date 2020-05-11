@@ -1076,10 +1076,10 @@ export const serializeAws_restJson1_1CreateMeetingCommand = async (
   };
   let resolvedPath = "/meetings";
   let body: any;
-  const bodyParams: any = {};
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.ClientRequestToken !== undefined) {
     bodyParams["ClientRequestToken"] = input.ClientRequestToken;
   }
@@ -1165,10 +1165,10 @@ export const serializeAws_restJson1_1CreateRoomCommand = async (
     throw new Error("No value provided for input HTTP label: AccountId.");
   }
   let body: any;
-  const bodyParams: any = {};
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.ClientRequestToken !== undefined) {
     bodyParams["ClientRequestToken"] = input.ClientRequestToken;
   }

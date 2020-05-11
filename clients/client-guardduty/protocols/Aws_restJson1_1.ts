@@ -348,10 +348,10 @@ export const serializeAws_restJson1_1CreateDetectorCommand = async (
   };
   let resolvedPath = "/detector";
   let body: any;
-  const bodyParams: any = {};
   if (input.ClientToken === undefined) {
     input.ClientToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.ClientToken !== undefined) {
     bodyParams["clientToken"] = input.ClientToken;
   }
@@ -398,12 +398,12 @@ export const serializeAws_restJson1_1CreateFilterCommand = async (
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   let body: any;
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
   const bodyParams: any = {};
   if (input.Action !== undefined) {
     bodyParams["action"] = input.Action;
-  }
-  if (input.ClientToken === undefined) {
-    input.ClientToken = generateIdempotencyToken();
   }
   if (input.ClientToken !== undefined) {
     bodyParams["clientToken"] = input.ClientToken;
@@ -460,12 +460,12 @@ export const serializeAws_restJson1_1CreateIPSetCommand = async (
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   let body: any;
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
   const bodyParams: any = {};
   if (input.Activate !== undefined) {
     bodyParams["activate"] = input.Activate;
-  }
-  if (input.ClientToken === undefined) {
-    input.ClientToken = generateIdempotencyToken();
   }
   if (input.ClientToken !== undefined) {
     bodyParams["clientToken"] = input.ClientToken;
@@ -557,10 +557,10 @@ export const serializeAws_restJson1_1CreatePublishingDestinationCommand = async 
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   let body: any;
-  const bodyParams: any = {};
   if (input.ClientToken === undefined) {
     input.ClientToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.ClientToken !== undefined) {
     bodyParams["clientToken"] = input.ClientToken;
   }
@@ -650,12 +650,12 @@ export const serializeAws_restJson1_1CreateThreatIntelSetCommand = async (
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   let body: any;
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
   const bodyParams: any = {};
   if (input.Activate !== undefined) {
     bodyParams["activate"] = input.Activate;
-  }
-  if (input.ClientToken === undefined) {
-    input.ClientToken = generateIdempotencyToken();
   }
   if (input.ClientToken !== undefined) {
     bodyParams["clientToken"] = input.ClientToken;

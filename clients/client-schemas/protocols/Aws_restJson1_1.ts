@@ -1376,10 +1376,10 @@ export const serializeAws_restJson1_1UpdateSchemaCommand = async (
     throw new Error("No value provided for input HTTP label: SchemaName.");
   }
   let body: any;
-  const bodyParams: any = {};
   if (input.ClientTokenId === undefined) {
     input.ClientTokenId = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.ClientTokenId !== undefined) {
     bodyParams["ClientTokenId"] = input.ClientTokenId;
   }

@@ -139,6 +139,9 @@ export const serializeAws_restJson1_1CreateBrokerCommand = async (
   };
   let resolvedPath = "/v1/brokers";
   let body: any;
+  if (input.CreatorRequestId === undefined) {
+    input.CreatorRequestId = generateIdempotencyToken();
+  }
   const bodyParams: any = {};
   if (input.AutoMinorVersionUpgrade !== undefined) {
     bodyParams["autoMinorVersionUpgrade"] = input.AutoMinorVersionUpgrade;
@@ -151,9 +154,6 @@ export const serializeAws_restJson1_1CreateBrokerCommand = async (
       input.Configuration,
       context
     );
-  }
-  if (input.CreatorRequestId === undefined) {
-    input.CreatorRequestId = generateIdempotencyToken();
   }
   if (input.CreatorRequestId !== undefined) {
     bodyParams["creatorRequestId"] = input.CreatorRequestId;

@@ -152,10 +152,10 @@ export const serializeAws_restJson1_1CreateAccessPointCommand = async (
   };
   let resolvedPath = "/2015-02-01/access-points";
   let body: any;
-  const bodyParams: any = {};
   if (input.ClientToken === undefined) {
     input.ClientToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.ClientToken !== undefined) {
     bodyParams["ClientToken"] = input.ClientToken;
   }
@@ -199,10 +199,10 @@ export const serializeAws_restJson1_1CreateFileSystemCommand = async (
   };
   let resolvedPath = "/2015-02-01/file-systems";
   let body: any;
-  const bodyParams: any = {};
   if (input.CreationToken === undefined) {
     input.CreationToken = generateIdempotencyToken();
   }
+  const bodyParams: any = {};
   if (input.CreationToken !== undefined) {
     bodyParams["CreationToken"] = input.CreationToken;
   }
