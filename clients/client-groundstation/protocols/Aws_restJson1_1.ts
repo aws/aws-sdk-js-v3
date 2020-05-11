@@ -3577,22 +3577,16 @@ const serializeAws_restJson1_1DataflowEdge = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1DataflowEdgeList = (
   input: string[][],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1DataflowEdge(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1DataflowEdge(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1DataflowEndpoint = (
@@ -3672,22 +3666,16 @@ const serializeAws_restJson1_1EndpointDetailsList = (
   input: EndpointDetails[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1EndpointDetails(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1EndpointDetails(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1StatusList = (
   input: (ContactStatus | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1TrackingConfig = (
@@ -3786,11 +3774,7 @@ const serializeAws_restJson1_1SecurityGroupIdList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1SocketAddress = (
@@ -3834,11 +3818,7 @@ const serializeAws_restJson1_1SubnetList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1TagsMap = (

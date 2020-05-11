@@ -431,22 +431,14 @@ const serializeAws_json1_1MetricQueryList = (
   input: MetricQuery[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1MetricQuery(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1MetricQuery(entry, context));
 };
 
 const serializeAws_json1_1StringList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const deserializeAws_json1_1InternalServiceError = (

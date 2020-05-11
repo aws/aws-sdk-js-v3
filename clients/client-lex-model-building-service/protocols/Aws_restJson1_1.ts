@@ -6379,11 +6379,9 @@ const serializeAws_restJson1_1EnumerationValues = (
   input: EnumerationValue[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1EnumerationValue(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1EnumerationValue(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1FollowUpPrompt = (
@@ -6441,22 +6439,14 @@ const serializeAws_restJson1_1IntentList = (
   input: Intent[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1Intent(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_restJson1_1Intent(entry, context));
 };
 
 const serializeAws_restJson1_1IntentUtteranceList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1LogSettingsRequest = (
@@ -6483,11 +6473,9 @@ const serializeAws_restJson1_1LogSettingsRequestList = (
   input: LogSettingsRequest[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1LogSettingsRequest(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1LogSettingsRequest(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1Message = (
@@ -6511,11 +6499,7 @@ const serializeAws_restJson1_1MessageList = (
   input: Message[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1Message(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_restJson1_1Message(entry, context));
 };
 
 const serializeAws_restJson1_1Prompt = (
@@ -6586,22 +6570,14 @@ const serializeAws_restJson1_1SlotList = (
   input: Slot[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1Slot(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_restJson1_1Slot(entry, context));
 };
 
 const serializeAws_restJson1_1SlotUtteranceList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1Statement = (
@@ -6625,11 +6601,7 @@ const serializeAws_restJson1_1SynonymList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const deserializeAws_restJson1_1BotAliasMetadata = (

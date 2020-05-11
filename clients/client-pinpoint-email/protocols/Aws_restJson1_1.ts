@@ -5847,11 +5847,7 @@ const serializeAws_restJson1_1TagList = (
   input: Tag[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1Tag(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_restJson1_1Tag(entry, context));
 };
 
 const serializeAws_restJson1_1Body = (
@@ -5905,13 +5901,9 @@ const serializeAws_restJson1_1CloudWatchDimensionConfigurations = (
   input: CloudWatchDimensionConfiguration[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_restJson1_1CloudWatchDimensionConfiguration(entry, context)
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1CloudWatchDimensionConfiguration(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1Content = (
@@ -5996,24 +5988,16 @@ const serializeAws_restJson1_1DomainDeliverabilityTrackingOptions = (
   input: DomainDeliverabilityTrackingOption[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_restJson1_1DomainDeliverabilityTrackingOption(entry, context)
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1DomainDeliverabilityTrackingOption(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1EmailAddressList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1EmailContent = (
@@ -6090,11 +6074,7 @@ const serializeAws_restJson1_1EventTypes = (
   input: (EventType | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1InboxPlacementTrackingOption = (
@@ -6118,11 +6098,7 @@ const serializeAws_restJson1_1IspNameList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1KinesisFirehoseDestination = (
@@ -6174,11 +6150,7 @@ const serializeAws_restJson1_1MessageTagList = (
   input: MessageTag[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1MessageTag(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_restJson1_1MessageTag(entry, context));
 };
 
 const serializeAws_restJson1_1PinpointDestination = (

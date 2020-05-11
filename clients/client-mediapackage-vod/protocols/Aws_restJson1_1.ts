@@ -2416,44 +2416,34 @@ const serializeAws_restJson1_1__listOfDashManifest = (
   input: DashManifest[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1DashManifest(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1DashManifest(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1__listOfHlsManifest = (
   input: HlsManifest[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1HlsManifest(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1HlsManifest(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1__listOfMssManifest = (
   input: MssManifest[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1MssManifest(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1MssManifest(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1__listOf__string = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const deserializeAws_restJson1_1AssetShallow = (

@@ -3805,11 +3805,7 @@ const serializeAws_json1_1AssignmentStatusList = (
   input: (AssignmentStatus | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1AssociateQualificationWithWorkerRequest = (
@@ -4063,11 +4059,7 @@ const serializeAws_json1_1CustomerIdList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1DeleteHITRequest = (
@@ -4127,11 +4119,7 @@ const serializeAws_json1_1EventTypeList = (
   input: (EventType | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1GetAccountBalanceRequest = (
@@ -4221,22 +4209,16 @@ const serializeAws_json1_1HITLayoutParameterList = (
   input: HITLayoutParameter[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1HITLayoutParameter(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1HITLayoutParameter(entry, context)
+  );
 };
 
 const serializeAws_json1_1IntegerList = (
   input: number[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1ListAssignmentsForHITRequest = (
@@ -4454,11 +4436,7 @@ const serializeAws_json1_1LocaleList = (
   input: Locale[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1Locale(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1Locale(entry, context));
 };
 
 const serializeAws_json1_1NotificationSpecification = (
@@ -4525,11 +4503,9 @@ const serializeAws_json1_1ParameterMapEntryList = (
   input: ParameterMapEntry[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1ParameterMapEntry(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1ParameterMapEntry(entry, context)
+  );
 };
 
 const serializeAws_json1_1PolicyParameter = (
@@ -4559,11 +4535,9 @@ const serializeAws_json1_1PolicyParameterList = (
   input: PolicyParameter[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1PolicyParameter(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1PolicyParameter(entry, context)
+  );
 };
 
 const serializeAws_json1_1QualificationRequirement = (
@@ -4602,11 +4576,9 @@ const serializeAws_json1_1QualificationRequirementList = (
   input: QualificationRequirement[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1QualificationRequirement(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1QualificationRequirement(entry, context)
+  );
 };
 
 const serializeAws_json1_1RejectAssignmentRequest = (
@@ -4658,11 +4630,7 @@ const serializeAws_json1_1ReviewPolicyLevelList = (
   input: (ReviewPolicyLevel | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1SendBonusRequest = (
@@ -4709,11 +4677,7 @@ const serializeAws_json1_1StringList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1UpdateExpirationForHITRequest = (

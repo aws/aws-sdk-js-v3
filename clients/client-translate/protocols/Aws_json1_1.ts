@@ -1433,11 +1433,7 @@ const serializeAws_json1_1ResourceNameList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1StartTextTranslationJobRequest = (
@@ -1504,11 +1500,7 @@ const serializeAws_json1_1TargetLanguageCodeStringList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1TerminologyData = (

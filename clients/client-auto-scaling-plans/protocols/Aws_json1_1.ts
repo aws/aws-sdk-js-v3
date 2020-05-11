@@ -843,11 +843,9 @@ const serializeAws_json1_1ApplicationSources = (
   input: ApplicationSource[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1ApplicationSource(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1ApplicationSource(entry, context)
+  );
 };
 
 const serializeAws_json1_1CreateScalingPlanRequest = (
@@ -1038,11 +1036,9 @@ const serializeAws_json1_1MetricDimensions = (
   input: MetricDimension[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1MetricDimension(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1MetricDimension(entry, context)
+  );
 };
 
 const serializeAws_json1_1PredefinedLoadMetricSpecification = (
@@ -1146,22 +1142,16 @@ const serializeAws_json1_1ScalingInstructions = (
   input: ScalingInstruction[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1ScalingInstruction(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1ScalingInstruction(entry, context)
+  );
 };
 
 const serializeAws_json1_1ScalingPlanNames = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1TagFilter = (
@@ -1182,22 +1172,14 @@ const serializeAws_json1_1TagFilters = (
   input: TagFilter[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1TagFilter(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1TagFilter(entry, context));
 };
 
 const serializeAws_json1_1TagValues = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1TargetTrackingConfiguration = (
@@ -1243,13 +1225,9 @@ const serializeAws_json1_1TargetTrackingConfigurations = (
   input: TargetTrackingConfiguration[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_json1_1TargetTrackingConfiguration(entry, context)
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1TargetTrackingConfiguration(entry, context)
+  );
 };
 
 const serializeAws_json1_1UpdateScalingPlanRequest = (

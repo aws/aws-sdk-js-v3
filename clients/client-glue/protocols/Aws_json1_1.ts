@@ -15052,22 +15052,14 @@ const serializeAws_json1_1NameStringList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1TagKeysList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1TagsMap = (
@@ -15151,22 +15143,16 @@ const serializeAws_json1_1BatchDeletePartitionValueList = (
   input: PartitionValueList[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1PartitionValueList(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1PartitionValueList(entry, context)
+  );
 };
 
 const serializeAws_json1_1BatchDeleteTableNameList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1BatchDeleteTableRequest = (
@@ -15193,11 +15179,7 @@ const serializeAws_json1_1BatchDeleteTableVersionList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1BatchDeleteTableVersionRequest = (
@@ -15252,22 +15234,16 @@ const serializeAws_json1_1BatchGetPartitionValueList = (
   input: PartitionValueList[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1PartitionValueList(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1PartitionValueList(entry, context)
+  );
 };
 
 const serializeAws_json1_1BoundedPartitionValueList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1Column = (
@@ -15297,22 +15273,14 @@ const serializeAws_json1_1ColumnList = (
   input: Column[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1Column(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1Column(entry, context));
 };
 
 const serializeAws_json1_1ColumnValueStringList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1ConnectionInput = (
@@ -15545,11 +15513,7 @@ const serializeAws_json1_1DeleteConnectionNameList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1DeleteConnectionRequest = (
@@ -16003,11 +15967,7 @@ const serializeAws_json1_1MatchCriteria = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1Order = (
@@ -16028,11 +15988,7 @@ const serializeAws_json1_1OrderList = (
   input: Order[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1Order(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1Order(entry, context));
 };
 
 const serializeAws_json1_1ParametersMap = (
@@ -16085,11 +16041,7 @@ const serializeAws_json1_1PartitionInputList = (
   input: PartitionInput[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1PartitionInput(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1PartitionInput(entry, context));
 };
 
 const serializeAws_json1_1PartitionValueList = (
@@ -16110,11 +16062,7 @@ const serializeAws_json1_1PermissionList = (
   input: (Permission | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1PhysicalConnectionRequirements = (
@@ -16161,11 +16109,9 @@ const serializeAws_json1_1PrincipalPermissionsList = (
   input: PrincipalPermissions[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1PrincipalPermissions(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1PrincipalPermissions(entry, context)
+  );
 };
 
 const serializeAws_json1_1PropertyPredicate = (
@@ -16239,22 +16185,16 @@ const serializeAws_json1_1ResourceUriList = (
   input: ResourceUri[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1ResourceUri(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1ResourceUri(entry, context));
 };
 
 const serializeAws_json1_1SearchPropertyPredicates = (
   input: PropertyPredicate[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1PropertyPredicate(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1PropertyPredicate(entry, context)
+  );
 };
 
 const serializeAws_json1_1SearchTablesRequest = (
@@ -16293,11 +16233,7 @@ const serializeAws_json1_1SecurityGroupIdList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1Segment = (
@@ -16368,11 +16304,7 @@ const serializeAws_json1_1SortCriteria = (
   input: SortCriterion[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1SortCriterion(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1SortCriterion(entry, context));
 };
 
 const serializeAws_json1_1SortCriterion = (
@@ -16655,11 +16587,7 @@ const serializeAws_json1_1ValueStringList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1BatchGetDevEndpointsRequest = (
@@ -16811,11 +16739,7 @@ const serializeAws_json1_1DevEndpointNames = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1EncryptionConfiguration = (
@@ -16957,11 +16881,7 @@ const serializeAws_json1_1PublicKeysList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1ResetJobBookmarkRequest = (
@@ -16996,22 +16916,14 @@ const serializeAws_json1_1S3EncryptionList = (
   input: S3Encryption[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1S3Encryption(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1S3Encryption(entry, context));
 };
 
 const serializeAws_json1_1StringList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1UpdateDevEndpointRequest = (
@@ -17259,11 +17171,7 @@ const serializeAws_json1_1GlueTables = (
   input: GlueTable[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1GlueTable(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1GlueTable(entry, context));
 };
 
 const serializeAws_json1_1SchemaColumn = (
@@ -17443,11 +17351,7 @@ const serializeAws_json1_1TransformSchema = (
   input: SchemaColumn[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1SchemaColumn(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1SchemaColumn(entry, context));
 };
 
 const serializeAws_json1_1TransformSortCriteria = (
@@ -17546,11 +17450,7 @@ const serializeAws_json1_1ActionList = (
   input: Action[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1Action(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1Action(entry, context));
 };
 
 const serializeAws_json1_1BatchGetJobsRequest = (
@@ -17602,11 +17502,7 @@ const serializeAws_json1_1BatchStopJobRunJobRunIdList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1BatchStopJobRunRequest = (
@@ -17653,11 +17549,7 @@ const serializeAws_json1_1ConditionList = (
   input: Condition[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1Condition(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1Condition(entry, context));
 };
 
 const serializeAws_json1_1ConnectionsList = (
@@ -18046,11 +17938,7 @@ const serializeAws_json1_1JobNameList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1JobUpdate = (
@@ -18192,11 +18080,7 @@ const serializeAws_json1_1OrchestrationStringList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1Predicate = (
@@ -18319,11 +18203,7 @@ const serializeAws_json1_1TriggerNameList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1TriggerUpdate = (
@@ -18415,11 +18295,7 @@ const serializeAws_json1_1WorkflowNames = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1WorkflowRunProperties = (
@@ -18450,11 +18326,7 @@ const serializeAws_json1_1CatalogEntries = (
   input: CatalogEntry[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1CatalogEntry(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1CatalogEntry(entry, context));
 };
 
 const serializeAws_json1_1CatalogEntry = (
@@ -18475,11 +18347,7 @@ const serializeAws_json1_1CatalogTablesList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1CatalogTarget = (
@@ -18503,22 +18371,14 @@ const serializeAws_json1_1CatalogTargetList = (
   input: CatalogTarget[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1CatalogTarget(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1CatalogTarget(entry, context));
 };
 
 const serializeAws_json1_1ClassifierNameList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1CodeGenEdge = (
@@ -18582,22 +18442,14 @@ const serializeAws_json1_1CodeGenNodeArgs = (
   input: CodeGenNodeArg[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1CodeGenNodeArg(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1CodeGenNodeArg(entry, context));
 };
 
 const serializeAws_json1_1CrawlerNameList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1CrawlerTargets = (
@@ -18833,33 +18685,21 @@ const serializeAws_json1_1CsvHeader = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1DagEdges = (
   input: CodeGenEdge[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1CodeGenEdge(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1CodeGenEdge(entry, context));
 };
 
 const serializeAws_json1_1DagNodes = (
   input: CodeGenNode[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1CodeGenNode(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1CodeGenNode(entry, context));
 };
 
 const serializeAws_json1_1DeleteClassifierRequest = (
@@ -18899,11 +18739,7 @@ const serializeAws_json1_1DynamoDBTargetList = (
   input: DynamoDBTarget[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1DynamoDBTarget(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1DynamoDBTarget(entry, context));
 };
 
 const serializeAws_json1_1GetClassifierRequest = (
@@ -19072,11 +18908,7 @@ const serializeAws_json1_1JdbcTargetList = (
   input: JdbcTarget[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1JdbcTarget(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1JdbcTarget(entry, context));
 };
 
 const serializeAws_json1_1ListCrawlersRequest = (
@@ -19149,22 +18981,14 @@ const serializeAws_json1_1MappingList = (
   input: MappingEntry[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1MappingEntry(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1MappingEntry(entry, context));
 };
 
 const serializeAws_json1_1PathList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1S3Target = (
@@ -19188,11 +19012,7 @@ const serializeAws_json1_1S3TargetList = (
   input: S3Target[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1S3Target(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1S3Target(entry, context));
 };
 
 const serializeAws_json1_1SchemaChangePolicy = (

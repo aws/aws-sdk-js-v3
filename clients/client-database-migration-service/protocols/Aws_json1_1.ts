@@ -6069,11 +6069,7 @@ const serializeAws_json1_1EventCategoriesList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1Filter = (
@@ -6097,22 +6093,14 @@ const serializeAws_json1_1FilterList = (
   input: Filter[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1Filter(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1Filter(entry, context));
 };
 
 const serializeAws_json1_1FilterValueList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1ImportCertificateMessage = (
@@ -6141,11 +6129,7 @@ const serializeAws_json1_1KeyList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1KinesisSettings = (
@@ -6663,11 +6647,7 @@ const serializeAws_json1_1SourceIdsList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1StartReplicationTaskAssessmentMessage = (
@@ -6721,22 +6701,14 @@ const serializeAws_json1_1SubnetIdentifierList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1TableListToReload = (
   input: TableToReload[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1TableToReload(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1TableToReload(entry, context));
 };
 
 const serializeAws_json1_1TableToReload = (
@@ -6768,11 +6740,7 @@ const serializeAws_json1_1TagList = (
   input: Tag[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1Tag(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1Tag(entry, context));
 };
 
 const serializeAws_json1_1TestConnectionMessage = (
@@ -6793,11 +6761,7 @@ const serializeAws_json1_1VpcSecurityGroupIdList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const deserializeAws_json1_1AccessDeniedFault = (

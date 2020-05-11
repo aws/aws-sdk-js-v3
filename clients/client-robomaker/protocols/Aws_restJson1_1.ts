@@ -5933,11 +5933,7 @@ const serializeAws_restJson1_1Arns = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1DataSourceConfig = (
@@ -5964,11 +5960,9 @@ const serializeAws_restJson1_1DataSourceConfigs = (
   input: DataSourceConfig[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1DataSourceConfig(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1DataSourceConfig(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1DeploymentApplicationConfig = (
@@ -5995,13 +5989,9 @@ const serializeAws_restJson1_1DeploymentApplicationConfigs = (
   input: DeploymentApplicationConfig[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_restJson1_1DeploymentApplicationConfig(entry, context)
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1DeploymentApplicationConfig(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1DeploymentConfig = (
@@ -6088,22 +6078,14 @@ const serializeAws_restJson1_1FilterValues = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1Filters = (
   input: Filter[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1Filter(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_restJson1_1Filter(entry, context));
 };
 
 const serializeAws_restJson1_1LaunchConfig = (
@@ -6196,11 +6178,9 @@ const serializeAws_restJson1_1PortMappingList = (
   input: PortMapping[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1PortMapping(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1PortMapping(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1RenderingEngine = (
@@ -6241,13 +6221,9 @@ const serializeAws_restJson1_1RobotApplicationConfigs = (
   input: RobotApplicationConfig[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_restJson1_1RobotApplicationConfig(entry, context)
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1RobotApplicationConfig(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1RobotSoftwareSuite = (
@@ -6268,11 +6244,7 @@ const serializeAws_restJson1_1S3Keys = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1S3Object = (
@@ -6296,11 +6268,7 @@ const serializeAws_restJson1_1SecurityGroups = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1SimulationApplicationConfig = (
@@ -6327,13 +6295,9 @@ const serializeAws_restJson1_1SimulationApplicationConfigs = (
   input: SimulationApplicationConfig[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_restJson1_1SimulationApplicationConfig(entry, context)
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1SimulationApplicationConfig(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1SimulationSoftwareSuite = (
@@ -6371,22 +6335,16 @@ const serializeAws_restJson1_1SourceConfigs = (
   input: SourceConfig[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1SourceConfig(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1SourceConfig(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1Subnets = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1TagMap = (

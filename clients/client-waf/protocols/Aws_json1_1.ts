@@ -9995,11 +9995,9 @@ const serializeAws_json1_1ByteMatchSetUpdates = (
   input: ByteMatchSetUpdate[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1ByteMatchSetUpdate(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1ByteMatchSetUpdate(entry, context)
+  );
 };
 
 const serializeAws_json1_1ByteMatchTuple = (
@@ -10434,11 +10432,7 @@ const serializeAws_json1_1ExcludedRules = (
   input: ExcludedRule[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1ExcludedRule(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1ExcludedRule(entry, context));
 };
 
 const serializeAws_json1_1FieldToMatch = (
@@ -10490,11 +10484,9 @@ const serializeAws_json1_1GeoMatchSetUpdates = (
   input: GeoMatchSetUpdate[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1GeoMatchSetUpdate(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1GeoMatchSetUpdate(entry, context)
+  );
 };
 
 const serializeAws_json1_1GetByteMatchSetRequest = (
@@ -10742,11 +10734,7 @@ const serializeAws_json1_1IPSetUpdates = (
   input: IPSetUpdate[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1IPSetUpdate(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1IPSetUpdate(entry, context));
 };
 
 const serializeAws_json1_1ListActivatedRulesInRuleGroupRequest = (
@@ -10983,11 +10971,7 @@ const serializeAws_json1_1LogDestinationConfigs = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1LoggingConfiguration = (
@@ -11066,11 +11050,7 @@ const serializeAws_json1_1RedactedFields = (
   input: FieldToMatch[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1FieldToMatch(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1FieldToMatch(entry, context));
 };
 
 const serializeAws_json1_1RegexMatchSetUpdate = (
@@ -11094,11 +11074,9 @@ const serializeAws_json1_1RegexMatchSetUpdates = (
   input: RegexMatchSetUpdate[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1RegexMatchSetUpdate(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1RegexMatchSetUpdate(entry, context)
+  );
 };
 
 const serializeAws_json1_1RegexMatchTuple = (
@@ -11139,11 +11117,9 @@ const serializeAws_json1_1RegexPatternSetUpdates = (
   input: RegexPatternSetUpdate[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1RegexPatternSetUpdate(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1RegexPatternSetUpdate(entry, context)
+  );
 };
 
 const serializeAws_json1_1RuleGroupUpdate = (
@@ -11167,11 +11143,9 @@ const serializeAws_json1_1RuleGroupUpdates = (
   input: RuleGroupUpdate[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1RuleGroupUpdate(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1RuleGroupUpdate(entry, context)
+  );
 };
 
 const serializeAws_json1_1RuleUpdate = (
@@ -11195,11 +11169,7 @@ const serializeAws_json1_1RuleUpdates = (
   input: RuleUpdate[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1RuleUpdate(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1RuleUpdate(entry, context));
 };
 
 const serializeAws_json1_1SizeConstraint = (
@@ -11246,11 +11216,9 @@ const serializeAws_json1_1SizeConstraintSetUpdates = (
   input: SizeConstraintSetUpdate[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1SizeConstraintSetUpdate(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1SizeConstraintSetUpdate(entry, context)
+  );
 };
 
 const serializeAws_json1_1SqlInjectionMatchSetUpdate = (
@@ -11276,13 +11244,9 @@ const serializeAws_json1_1SqlInjectionMatchSetUpdates = (
   input: SqlInjectionMatchSetUpdate[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_json1_1SqlInjectionMatchSetUpdate(entry, context)
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1SqlInjectionMatchSetUpdate(entry, context)
+  );
 };
 
 const serializeAws_json1_1SqlInjectionMatchTuple = (
@@ -11317,22 +11281,14 @@ const serializeAws_json1_1TagKeyList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1TagList = (
   input: Tag[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1Tag(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1Tag(entry, context));
 };
 
 const serializeAws_json1_1TagResourceRequest = (
@@ -11672,11 +11628,7 @@ const serializeAws_json1_1WebACLUpdates = (
   input: WebACLUpdate[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1WebACLUpdate(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1WebACLUpdate(entry, context));
 };
 
 const serializeAws_json1_1XssMatchSetUpdate = (
@@ -11700,11 +11652,9 @@ const serializeAws_json1_1XssMatchSetUpdates = (
   input: XssMatchSetUpdate[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1XssMatchSetUpdate(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1XssMatchSetUpdate(entry, context)
+  );
 };
 
 const serializeAws_json1_1XssMatchTuple = (

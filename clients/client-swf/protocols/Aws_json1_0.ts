@@ -4129,11 +4129,7 @@ const serializeAws_json1_0DecisionList = (
   input: Decision[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_0Decision(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_0Decision(entry, context));
 };
 
 const serializeAws_json1_0ExecutionTimeFilter = (
@@ -4224,22 +4220,14 @@ const serializeAws_json1_0ResourceTagKeyList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_0ResourceTagList = (
   input: ResourceTag[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_0ResourceTag(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_0ResourceTag(entry, context));
 };
 
 const serializeAws_json1_0ScheduleActivityTaskDecisionAttributes = (
@@ -4412,11 +4400,7 @@ const serializeAws_json1_0TagList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_0TaskList = (

@@ -3582,22 +3582,14 @@ const serializeAws_json1_1AgentIds = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1ApplicationIdsList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1AssociateConfigurationItemsToApplicationRequest = (
@@ -3635,22 +3627,14 @@ const serializeAws_json1_1ConfigurationIdList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1ContinuousExportIds = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1CreateApplicationRequest = (
@@ -3822,11 +3806,9 @@ const serializeAws_json1_1DescribeImportTasksFilterList = (
   input: ImportTaskFilter[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1ImportTaskFilter(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1ImportTaskFilter(entry, context)
+  );
 };
 
 const serializeAws_json1_1DescribeImportTasksRequest = (
@@ -3890,11 +3872,7 @@ const serializeAws_json1_1ExportDataFormats = (
   input: (ExportDataFormat | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1ExportFilter = (
@@ -3921,22 +3899,14 @@ const serializeAws_json1_1ExportFilters = (
   input: ExportFilter[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1ExportFilter(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1ExportFilter(entry, context));
 };
 
 const serializeAws_json1_1ExportIds = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1Filter = (
@@ -3963,22 +3933,14 @@ const serializeAws_json1_1FilterValues = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1Filters = (
   input: Filter[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1Filter(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1Filter(entry, context));
 };
 
 const serializeAws_json1_1GetDiscoverySummaryRequest = (
@@ -4010,11 +3972,7 @@ const serializeAws_json1_1ImportTaskFilterValueList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1ListConfigurationsRequest = (
@@ -4089,11 +4047,7 @@ const serializeAws_json1_1OrderByList = (
   input: OrderByElement[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1OrderByElement(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1OrderByElement(entry, context));
 };
 
 const serializeAws_json1_1StartContinuousExportRequest = (
@@ -4221,33 +4175,21 @@ const serializeAws_json1_1TagFilters = (
   input: TagFilter[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1TagFilter(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1TagFilter(entry, context));
 };
 
 const serializeAws_json1_1TagSet = (
   input: Tag[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1Tag(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1Tag(entry, context));
 };
 
 const serializeAws_json1_1ToDeleteIdentifierList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1UpdateApplicationRequest = (

@@ -5319,11 +5319,7 @@ const serializeAws_restJson1_1AccessControlPolicyList = (
   input: Grant[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1Grant(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_restJson1_1Grant(entry, context));
 };
 
 const serializeAws_restJson1_1CSVInput = (
@@ -5583,11 +5579,9 @@ const serializeAws_restJson1_1DataRetrievalRulesList = (
   input: DataRetrievalRule[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1DataRetrievalRule(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1DataRetrievalRule(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1InventoryRetrievalJobInput = (
@@ -5663,22 +5657,14 @@ const serializeAws_restJson1_1NotificationEventList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1TagKeyList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1TagMap = (

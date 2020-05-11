@@ -2281,11 +2281,9 @@ const serializeAws_json1_1CostCategoryRulesList = (
   input: CostCategoryRule[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1CostCategoryRule(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1CostCategoryRule(entry, context)
+  );
 };
 
 const serializeAws_json1_1CostCategoryValues = (
@@ -2422,11 +2420,7 @@ const serializeAws_json1_1Expressions = (
   input: Expression[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1Expression(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1Expression(entry, context));
 };
 
 const serializeAws_json1_1GetCostAndUsageRequest = (
@@ -2879,11 +2873,9 @@ const serializeAws_json1_1GroupDefinitions = (
   input: GroupDefinition[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1GroupDefinition(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1GroupDefinition(entry, context)
+  );
 };
 
 const serializeAws_json1_1ListCostCategoryDefinitionsRequest = (
@@ -2904,11 +2896,7 @@ const serializeAws_json1_1MetricNames = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1ServiceSpecification = (
@@ -2963,11 +2951,7 @@ const serializeAws_json1_1Values = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const deserializeAws_json1_1Attributes = (

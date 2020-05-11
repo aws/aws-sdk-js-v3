@@ -3141,11 +3141,9 @@ const serializeAws_restJson1_1StructureList = (
   input: StructureListMember[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1StructureListMember(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1StructureListMember(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1StructureListMember = (
@@ -3166,22 +3164,14 @@ const serializeAws_restJson1_1BooleanList = (
   input: boolean[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1FooEnumList = (
   input: (FooEnum | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1FooEnumMap = (
@@ -3198,11 +3188,7 @@ const serializeAws_restJson1_1FooEnumSet = (
   input: (FooEnum | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1GreetingStruct = (
@@ -3220,55 +3206,35 @@ const serializeAws_restJson1_1IntegerList = (
   input: number[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1NestedStringList = (
   input: string[][],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1StringList(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_restJson1_1StringList(entry, context));
 };
 
 const serializeAws_restJson1_1StringList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1StringSet = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1TimestampList = (
   input: Date[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(Math.round(entry.getTime() / 1000));
-  }
-  return contents;
+  return input.map(entry => Math.round(entry.getTime() / 1000));
 };
 
 const deserializeAws_restJson1_1ComplexNestedErrorData = (

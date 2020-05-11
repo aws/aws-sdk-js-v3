@@ -1710,11 +1710,7 @@ const serializeAws_restJson1_1EventTypeIds = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1ListEventTypesFilter = (
@@ -1735,11 +1731,9 @@ const serializeAws_restJson1_1ListEventTypesFilters = (
   input: ListEventTypesFilter[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1ListEventTypesFilter(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1ListEventTypesFilter(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1ListNotificationRulesFilter = (
@@ -1760,13 +1754,9 @@ const serializeAws_restJson1_1ListNotificationRulesFilters = (
   input: ListNotificationRulesFilter[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_restJson1_1ListNotificationRulesFilter(entry, context)
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1ListNotificationRulesFilter(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1ListTargetsFilter = (
@@ -1787,22 +1777,16 @@ const serializeAws_restJson1_1ListTargetsFilters = (
   input: ListTargetsFilter[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1ListTargetsFilter(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1ListTargetsFilter(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1TagKeys = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1Tags = (
@@ -1833,11 +1817,7 @@ const serializeAws_restJson1_1Targets = (
   input: Target[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1Target(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_restJson1_1Target(entry, context));
 };
 
 const deserializeAws_restJson1_1EventTypeBatch = (

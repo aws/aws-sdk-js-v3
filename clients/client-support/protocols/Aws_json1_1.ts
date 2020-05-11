@@ -1571,11 +1571,7 @@ const serializeAws_json1_1Attachments = (
   input: Attachment[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1Attachment(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1Attachment(entry, context));
 };
 
 const serializeAws_json1_1AddAttachmentsToSetRequest = (
@@ -1622,22 +1618,14 @@ const serializeAws_json1_1CaseIdList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1CcEmailAddressList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1CreateCaseRequest = (
@@ -1793,11 +1781,7 @@ const serializeAws_json1_1ServiceCodeList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesRequest = (
@@ -1868,11 +1852,7 @@ const serializeAws_json1_1StringList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const deserializeAws_json1_1Attachment = (

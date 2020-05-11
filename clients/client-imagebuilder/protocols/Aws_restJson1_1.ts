@@ -7850,11 +7850,7 @@ const serializeAws_restJson1_1AccountList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1AmiDistributionConfiguration = (
@@ -7889,11 +7885,7 @@ const serializeAws_restJson1_1ArnList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1ComponentConfiguration = (
@@ -7911,13 +7903,9 @@ const serializeAws_restJson1_1ComponentConfigurationList = (
   input: ComponentConfiguration[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_restJson1_1ComponentConfiguration(entry, context)
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1ComponentConfiguration(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1Distribution = (
@@ -7949,11 +7937,9 @@ const serializeAws_restJson1_1DistributionList = (
   input: Distribution[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1Distribution(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1Distribution(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1EbsInstanceBlockDeviceSpecification = (
@@ -8006,22 +7992,14 @@ const serializeAws_restJson1_1FilterList = (
   input: Filter[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1Filter(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_restJson1_1Filter(entry, context));
 };
 
 const serializeAws_restJson1_1FilterValues = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1ImageTestsConfiguration = (
@@ -8067,24 +8045,16 @@ const serializeAws_restJson1_1InstanceBlockDeviceMappings = (
   input: InstanceBlockDeviceMapping[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_restJson1_1InstanceBlockDeviceMapping(entry, context)
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1InstanceBlockDeviceMapping(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1InstanceTypeList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1LaunchPermissionConfiguration = (
@@ -8154,22 +8124,14 @@ const serializeAws_restJson1_1SecurityGroupIds = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1StringList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1TagMap = (

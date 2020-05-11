@@ -2424,7 +2424,9 @@ const deserializeAws_json1_1AssociateTagOptionWithResourceCommandError = async (
 export const deserializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchAssociateServiceActionWithProvisioningArtifactCommandOutput> => {
+): Promise<
+  BatchAssociateServiceActionWithProvisioningArtifactCommandOutput
+> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactCommandError(
       output,
@@ -2448,7 +2450,9 @@ export const deserializeAws_json1_1BatchAssociateServiceActionWithProvisioningAr
 const deserializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchAssociateServiceActionWithProvisioningArtifactCommandOutput> => {
+): Promise<
+  BatchAssociateServiceActionWithProvisioningArtifactCommandOutput
+> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2490,7 +2494,9 @@ const deserializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactC
 export const deserializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifactCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput> => {
+): Promise<
+  BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput
+> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifactCommandError(
       output,
@@ -2514,7 +2520,9 @@ export const deserializeAws_json1_1BatchDisassociateServiceActionFromProvisionin
 const deserializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifactCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput> => {
+): Promise<
+  BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput
+> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -8616,11 +8624,7 @@ const serializeAws_json1_1AddTags = (
   input: Tag[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1Tag(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1Tag(entry, context));
 };
 
 const serializeAws_json1_1AssociateBudgetWithResourceInput = (
@@ -8739,11 +8743,7 @@ const serializeAws_json1_1CopyOptions = (
   input: (CopyOption | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1CopyProductInput = (
@@ -9517,11 +9517,7 @@ const serializeAws_json1_1ExecutionParameterValueList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1GetAWSOrganizationsAccessStatusInput = (
@@ -9878,11 +9874,7 @@ const serializeAws_json1_1NotificationArns = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1OrganizationNode = (
@@ -9903,11 +9895,7 @@ const serializeAws_json1_1ProductViewFilterValues = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1ProductViewFilters = (
@@ -10001,11 +9989,7 @@ const serializeAws_json1_1ProvisionedProductViewFilterValues = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1ProvisioningArtifactInfo = (
@@ -10062,11 +10046,9 @@ const serializeAws_json1_1ProvisioningParameters = (
   input: ProvisioningParameter[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1ProvisioningParameter(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1ProvisioningParameter(entry, context)
+  );
 };
 
 const serializeAws_json1_1ProvisioningPreferences = (
@@ -10265,11 +10247,9 @@ const serializeAws_json1_1ServiceActionAssociations = (
   input: ServiceActionAssociation[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1ServiceActionAssociation(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1ServiceActionAssociation(entry, context)
+  );
 };
 
 const serializeAws_json1_1ServiceActionDefinitionMap = (
@@ -10286,16 +10266,9 @@ const serializeAws_json1_1SourceProvisioningArtifactProperties = (
   input: { [key: string]: string }[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_json1_1SourceProvisioningArtifactPropertiesMap(
-        entry,
-        context
-      )
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1SourceProvisioningArtifactPropertiesMap(entry, context)
+  );
 };
 
 const serializeAws_json1_1SourceProvisioningArtifactPropertiesMap = (
@@ -10312,22 +10285,14 @@ const serializeAws_json1_1StackSetAccounts = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1StackSetRegions = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
@@ -10345,22 +10310,14 @@ const serializeAws_json1_1TagKeys = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1Tags = (
   input: Tag[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1Tag(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1Tag(entry, context));
 };
 
 const serializeAws_json1_1TerminateProvisionedProductInput = (
@@ -10614,13 +10571,9 @@ const serializeAws_json1_1UpdateProvisioningParameters = (
   input: UpdateProvisioningParameter[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_json1_1UpdateProvisioningParameter(entry, context)
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1UpdateProvisioningParameter(entry, context)
+  );
 };
 
 const serializeAws_json1_1UpdateProvisioningPreferences = (

@@ -2446,11 +2446,9 @@ const serializeAws_json1_1EmergencyContactList = (
   input: EmergencyContact[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1EmergencyContact(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1EmergencyContact(entry, context)
+  );
 };
 
 const serializeAws_json1_1GetSubscriptionStateRequest = (
@@ -2511,11 +2509,7 @@ const serializeAws_json1_1ResourceArnFilterList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1TimeRange = (

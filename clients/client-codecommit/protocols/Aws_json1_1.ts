@@ -2448,7 +2448,9 @@ const deserializeAws_json1_1BatchDescribeMergeConflictsCommandError = async (
 export const deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput> => {
+): Promise<
+  BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput
+> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandError(
       output,
@@ -2472,7 +2474,9 @@ export const deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepo
 const deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput> => {
+): Promise<
+  BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput
+> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -20617,22 +20621,14 @@ const serializeAws_json1_1BranchNameList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1CommitIdsInputList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1ConflictResolution = (
@@ -20888,11 +20884,9 @@ const serializeAws_json1_1DeleteFileEntries = (
   input: DeleteFileEntry[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1DeleteFileEntry(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1DeleteFileEntry(entry, context)
+  );
 };
 
 const serializeAws_json1_1DeleteFileEntry = (
@@ -21053,11 +21047,7 @@ const serializeAws_json1_1FilePaths = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1GetApprovalRuleTemplateInput = (
@@ -21823,11 +21813,7 @@ const serializeAws_json1_1PutFileEntries = (
   input: PutFileEntry[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1PutFileEntry(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1PutFileEntry(entry, context));
 };
 
 const serializeAws_json1_1PutFileEntry = (
@@ -21909,11 +21895,9 @@ const serializeAws_json1_1ReplaceContentEntries = (
   input: ReplaceContentEntry[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1ReplaceContentEntry(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1ReplaceContentEntry(entry, context)
+  );
 };
 
 const serializeAws_json1_1ReplaceContentEntry = (
@@ -21940,11 +21924,7 @@ const serializeAws_json1_1RepositoryNameList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1RepositoryTrigger = (
@@ -21980,33 +21960,25 @@ const serializeAws_json1_1RepositoryTriggerEventList = (
   input: (RepositoryTriggerEventEnum | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1RepositoryTriggersList = (
   input: RepositoryTrigger[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1RepositoryTrigger(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1RepositoryTrigger(entry, context)
+  );
 };
 
 const serializeAws_json1_1SetFileModeEntries = (
   input: SetFileModeEntry[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1SetFileModeEntry(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1SetFileModeEntry(entry, context)
+  );
 };
 
 const serializeAws_json1_1SetFileModeEntry = (
@@ -22041,11 +22013,7 @@ const serializeAws_json1_1TagKeysList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1TagResourceInput = (
@@ -22093,11 +22061,7 @@ const serializeAws_json1_1TargetList = (
   input: Target[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1Target(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1Target(entry, context));
 };
 
 const serializeAws_json1_1TestRepositoryTriggersInput = (

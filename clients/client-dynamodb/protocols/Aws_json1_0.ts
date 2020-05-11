@@ -5526,22 +5526,16 @@ const serializeAws_json1_0AttributeDefinitions = (
   input: AttributeDefinition[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_0AttributeDefinition(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_0AttributeDefinition(entry, context)
+  );
 };
 
 const serializeAws_json1_0AttributeNameList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_0AttributeUpdates = (
@@ -5605,11 +5599,7 @@ const serializeAws_json1_0AttributeValueList = (
   input: AttributeValue[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_0AttributeValue(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_0AttributeValue(entry, context));
 };
 
 const serializeAws_json1_0AttributeValueUpdate = (
@@ -5758,11 +5748,7 @@ const serializeAws_json1_0BinarySetAttributeValue = (
   input: Uint8Array[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(context.base64Encoder(entry));
-  }
-  return contents;
+  return input.map(entry => context.base64Encoder(entry));
 };
 
 const serializeAws_json1_0Condition = (
@@ -6422,24 +6408,18 @@ const serializeAws_json1_0GlobalSecondaryIndexAutoScalingUpdateList = (
   input: GlobalSecondaryIndexAutoScalingUpdate[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_json1_0GlobalSecondaryIndexAutoScalingUpdate(entry, context)
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_0GlobalSecondaryIndexAutoScalingUpdate(entry, context)
+  );
 };
 
 const serializeAws_json1_0GlobalSecondaryIndexList = (
   input: GlobalSecondaryIndex[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_0GlobalSecondaryIndex(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_0GlobalSecondaryIndex(entry, context)
+  );
 };
 
 const serializeAws_json1_0GlobalSecondaryIndexUpdate = (
@@ -6472,13 +6452,9 @@ const serializeAws_json1_0GlobalSecondaryIndexUpdateList = (
   input: GlobalSecondaryIndexUpdate[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_json1_0GlobalSecondaryIndexUpdate(entry, context)
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_0GlobalSecondaryIndexUpdate(entry, context)
+  );
 };
 
 const serializeAws_json1_0GlobalTableGlobalSecondaryIndexSettingsUpdate = (
@@ -6508,16 +6484,12 @@ const serializeAws_json1_0GlobalTableGlobalSecondaryIndexSettingsUpdateList = (
   input: GlobalTableGlobalSecondaryIndexSettingsUpdate[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_json1_0GlobalTableGlobalSecondaryIndexSettingsUpdate(
-        entry,
-        context
-      )
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_0GlobalTableGlobalSecondaryIndexSettingsUpdate(
+      entry,
+      context
+    )
+  );
 };
 
 const serializeAws_json1_0Key = (
@@ -6544,22 +6516,16 @@ const serializeAws_json1_0KeyList = (
   input: { [key: string]: AttributeValue }[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_0Key(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_0Key(entry, context));
 };
 
 const serializeAws_json1_0KeySchema = (
   input: KeySchemaElement[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_0KeySchemaElement(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_0KeySchemaElement(entry, context)
+  );
 };
 
 const serializeAws_json1_0KeySchemaElement = (
@@ -6611,11 +6577,7 @@ const serializeAws_json1_0ListAttributeValue = (
   input: AttributeValue[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_0AttributeValue(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_0AttributeValue(entry, context));
 };
 
 const serializeAws_json1_0ListBackupsInput = (
@@ -6738,11 +6700,9 @@ const serializeAws_json1_0LocalSecondaryIndexList = (
   input: LocalSecondaryIndex[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_0LocalSecondaryIndex(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_0LocalSecondaryIndex(entry, context)
+  );
 };
 
 const serializeAws_json1_0MapAttributeValue = (
@@ -6759,22 +6719,14 @@ const serializeAws_json1_0NonKeyAttributeNameList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_0NumberSetAttributeValue = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_0PointInTimeRecoverySpecification = (
@@ -7071,11 +7023,9 @@ const serializeAws_json1_0ReplicaAutoScalingUpdateList = (
   input: ReplicaAutoScalingUpdate[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_0ReplicaAutoScalingUpdate(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_0ReplicaAutoScalingUpdate(entry, context)
+  );
 };
 
 const serializeAws_json1_0ReplicaGlobalSecondaryIndex = (
@@ -7120,29 +7070,21 @@ const serializeAws_json1_0ReplicaGlobalSecondaryIndexAutoScalingUpdateList = (
   input: ReplicaGlobalSecondaryIndexAutoScalingUpdate[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_json1_0ReplicaGlobalSecondaryIndexAutoScalingUpdate(
-        entry,
-        context
-      )
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_0ReplicaGlobalSecondaryIndexAutoScalingUpdate(
+      entry,
+      context
+    )
+  );
 };
 
 const serializeAws_json1_0ReplicaGlobalSecondaryIndexList = (
   input: ReplicaGlobalSecondaryIndex[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_json1_0ReplicaGlobalSecondaryIndex(entry, context)
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_0ReplicaGlobalSecondaryIndex(entry, context)
+  );
 };
 
 const serializeAws_json1_0ReplicaGlobalSecondaryIndexSettingsUpdate = (
@@ -7172,27 +7114,19 @@ const serializeAws_json1_0ReplicaGlobalSecondaryIndexSettingsUpdateList = (
   input: ReplicaGlobalSecondaryIndexSettingsUpdate[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_json1_0ReplicaGlobalSecondaryIndexSettingsUpdate(
-        entry,
-        context
-      )
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_0ReplicaGlobalSecondaryIndexSettingsUpdate(
+      entry,
+      context
+    )
+  );
 };
 
 const serializeAws_json1_0ReplicaList = (
   input: Replica[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_0Replica(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_0Replica(entry, context));
 };
 
 const serializeAws_json1_0ReplicaSettingsUpdate = (
@@ -7232,11 +7166,9 @@ const serializeAws_json1_0ReplicaSettingsUpdateList = (
   input: ReplicaSettingsUpdate[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_0ReplicaSettingsUpdate(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_0ReplicaSettingsUpdate(entry, context)
+  );
 };
 
 const serializeAws_json1_0ReplicaUpdate = (
@@ -7263,11 +7195,7 @@ const serializeAws_json1_0ReplicaUpdateList = (
   input: ReplicaUpdate[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_0ReplicaUpdate(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_0ReplicaUpdate(entry, context));
 };
 
 const serializeAws_json1_0ReplicationGroupUpdate = (
@@ -7306,11 +7234,9 @@ const serializeAws_json1_0ReplicationGroupUpdateList = (
   input: ReplicationGroupUpdate[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_0ReplicationGroupUpdate(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_0ReplicationGroupUpdate(entry, context)
+  );
 };
 
 const serializeAws_json1_0RestoreTableFromBackupInput = (
@@ -7513,11 +7439,7 @@ const serializeAws_json1_0StringSetAttributeValue = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_0Tag = (input: Tag, context: __SerdeContext): any => {
@@ -7535,22 +7457,14 @@ const serializeAws_json1_0TagKeyList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_0TagList = (
   input: Tag[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_0Tag(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_0Tag(entry, context));
 };
 
 const serializeAws_json1_0TagResourceInput = (
@@ -7596,11 +7510,9 @@ const serializeAws_json1_0TransactGetItemList = (
   input: TransactGetItem[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_0TransactGetItem(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_0TransactGetItem(entry, context)
+  );
 };
 
 const serializeAws_json1_0TransactGetItemsInput = (
@@ -7647,11 +7559,9 @@ const serializeAws_json1_0TransactWriteItemList = (
   input: TransactWriteItem[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_0TransactWriteItem(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_0TransactWriteItem(entry, context)
+  );
 };
 
 const serializeAws_json1_0TransactWriteItemsInput = (
@@ -8082,11 +7992,7 @@ const serializeAws_json1_0WriteRequests = (
   input: WriteRequest[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_0WriteRequest(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_0WriteRequest(entry, context));
 };
 
 const deserializeAws_json1_0DescribeEndpointsResponse = (

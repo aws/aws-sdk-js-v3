@@ -743,11 +743,7 @@ const serializeAws_restJson1_1Messages = (
   input: Message[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1Message(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_restJson1_1Message(entry, context));
 };
 
 const serializeAws_restJson1_1TimerDefinition = (
@@ -768,11 +764,9 @@ const serializeAws_restJson1_1TimerDefinitions = (
   input: TimerDefinition[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1TimerDefinition(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1TimerDefinition(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1UpdateDetectorRequest = (
@@ -802,13 +796,9 @@ const serializeAws_restJson1_1UpdateDetectorRequests = (
   input: UpdateDetectorRequest[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_restJson1_1UpdateDetectorRequest(entry, context)
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1UpdateDetectorRequest(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1VariableDefinition = (
@@ -829,11 +819,9 @@ const serializeAws_restJson1_1VariableDefinitions = (
   input: VariableDefinition[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1VariableDefinition(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1VariableDefinition(entry, context)
+  );
 };
 
 const deserializeAws_restJson1_1BatchPutMessageErrorEntries = (
