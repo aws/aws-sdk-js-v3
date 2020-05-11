@@ -139,9 +139,10 @@ export const serializeAws_json1_1CancelRotateSecretCommand = async (
   input: CancelRotateSecretCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "secretsmanager.CancelRotateSecret";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "secretsmanager.CancelRotateSecret"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CancelRotateSecretRequest(input, context)
@@ -153,9 +154,10 @@ export const serializeAws_json1_1CreateSecretCommand = async (
   input: CreateSecretCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "secretsmanager.CreateSecret";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "secretsmanager.CreateSecret"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateSecretRequest(input, context)
@@ -167,9 +169,10 @@ export const serializeAws_json1_1DeleteResourcePolicyCommand = async (
   input: DeleteResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "secretsmanager.DeleteResourcePolicy";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "secretsmanager.DeleteResourcePolicy"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteResourcePolicyRequest(input, context)
@@ -181,9 +184,10 @@ export const serializeAws_json1_1DeleteSecretCommand = async (
   input: DeleteSecretCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "secretsmanager.DeleteSecret";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "secretsmanager.DeleteSecret"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteSecretRequest(input, context)
@@ -195,9 +199,10 @@ export const serializeAws_json1_1DescribeSecretCommand = async (
   input: DescribeSecretCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "secretsmanager.DescribeSecret";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "secretsmanager.DescribeSecret"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeSecretRequest(input, context)
@@ -209,9 +214,10 @@ export const serializeAws_json1_1GetRandomPasswordCommand = async (
   input: GetRandomPasswordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "secretsmanager.GetRandomPassword";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "secretsmanager.GetRandomPassword"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetRandomPasswordRequest(input, context)
@@ -223,9 +229,10 @@ export const serializeAws_json1_1GetResourcePolicyCommand = async (
   input: GetResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "secretsmanager.GetResourcePolicy";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "secretsmanager.GetResourcePolicy"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetResourcePolicyRequest(input, context)
@@ -237,9 +244,10 @@ export const serializeAws_json1_1GetSecretValueCommand = async (
   input: GetSecretValueCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "secretsmanager.GetSecretValue";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "secretsmanager.GetSecretValue"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetSecretValueRequest(input, context)
@@ -251,9 +259,10 @@ export const serializeAws_json1_1ListSecretVersionIdsCommand = async (
   input: ListSecretVersionIdsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "secretsmanager.ListSecretVersionIds";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "secretsmanager.ListSecretVersionIds"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListSecretVersionIdsRequest(input, context)
@@ -265,9 +274,10 @@ export const serializeAws_json1_1ListSecretsCommand = async (
   input: ListSecretsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "secretsmanager.ListSecrets";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "secretsmanager.ListSecrets"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListSecretsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -277,9 +287,10 @@ export const serializeAws_json1_1PutResourcePolicyCommand = async (
   input: PutResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "secretsmanager.PutResourcePolicy";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "secretsmanager.PutResourcePolicy"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutResourcePolicyRequest(input, context)
@@ -291,9 +302,10 @@ export const serializeAws_json1_1PutSecretValueCommand = async (
   input: PutSecretValueCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "secretsmanager.PutSecretValue";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "secretsmanager.PutSecretValue"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutSecretValueRequest(input, context)
@@ -305,9 +317,10 @@ export const serializeAws_json1_1RestoreSecretCommand = async (
   input: RestoreSecretCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "secretsmanager.RestoreSecret";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "secretsmanager.RestoreSecret"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RestoreSecretRequest(input, context)
@@ -319,9 +332,10 @@ export const serializeAws_json1_1RotateSecretCommand = async (
   input: RotateSecretCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "secretsmanager.RotateSecret";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "secretsmanager.RotateSecret"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RotateSecretRequest(input, context)
@@ -333,9 +347,10 @@ export const serializeAws_json1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "secretsmanager.TagResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "secretsmanager.TagResource"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -345,9 +360,10 @@ export const serializeAws_json1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "secretsmanager.UntagResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "secretsmanager.UntagResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UntagResourceRequest(input, context)
@@ -359,9 +375,10 @@ export const serializeAws_json1_1UpdateSecretCommand = async (
   input: UpdateSecretCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "secretsmanager.UpdateSecret";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "secretsmanager.UpdateSecret"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateSecretRequest(input, context)
@@ -373,9 +390,10 @@ export const serializeAws_json1_1UpdateSecretVersionStageCommand = async (
   input: UpdateSecretVersionStageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "secretsmanager.UpdateSecretVersionStage";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "secretsmanager.UpdateSecretVersionStage"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateSecretVersionStageRequest(input, context)

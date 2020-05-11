@@ -54,8 +54,9 @@ export const serializeAws_restJson1_1DeletePlaybackConfigurationCommand = async 
   input: DeletePlaybackConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/playbackConfiguration/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
@@ -86,8 +87,9 @@ export const serializeAws_restJson1_1GetPlaybackConfigurationCommand = async (
   input: GetPlaybackConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/playbackConfiguration/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
@@ -118,8 +120,9 @@ export const serializeAws_restJson1_1ListPlaybackConfigurationsCommand = async (
   input: ListPlaybackConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/playbackConfigurations";
   const query: any = {
     ...(input.MaxResults !== undefined && {
@@ -145,8 +148,9 @@ export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -179,8 +183,9 @@ export const serializeAws_restJson1_1PutPlaybackConfigurationCommand = async (
   input: PutPlaybackConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/playbackConfiguration";
   let body: any;
   const bodyParams: any = {};
@@ -244,8 +249,9 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -286,8 +292,9 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;

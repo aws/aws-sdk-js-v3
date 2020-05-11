@@ -234,8 +234,9 @@ export const serializeAws_restJson1_1CreateConfigurationSetCommand = async (
   input: CreateConfigurationSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/email/configuration-sets";
   let body: any;
   const bodyParams: any = {};
@@ -286,8 +287,9 @@ export const serializeAws_restJson1_1CreateConfigurationSetEventDestinationComma
   input: CreateConfigurationSetEventDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath =
     "/v1/email/configuration-sets/{ConfigurationSetName}/event-destinations";
   if (input.ConfigurationSetName !== undefined) {
@@ -336,8 +338,9 @@ export const serializeAws_restJson1_1CreateDedicatedIpPoolCommand = async (
   input: CreateDedicatedIpPoolCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/email/dedicated-ip-pools";
   let body: any;
   const bodyParams: any = {};
@@ -364,8 +367,9 @@ export const serializeAws_restJson1_1CreateDeliverabilityTestReportCommand = asy
   input: CreateDeliverabilityTestReportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/email/deliverability-dashboard/test";
   let body: any;
   const bodyParams: any = {};
@@ -401,8 +405,9 @@ export const serializeAws_restJson1_1CreateEmailIdentityCommand = async (
   input: CreateEmailIdentityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/email/identities";
   let body: any;
   const bodyParams: any = {};
@@ -429,8 +434,9 @@ export const serializeAws_restJson1_1DeleteConfigurationSetCommand = async (
   input: DeleteConfigurationSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/email/configuration-sets/{ConfigurationSetName}";
   if (input.ConfigurationSetName !== undefined) {
     const labelValue: string = input.ConfigurationSetName;
@@ -465,8 +471,9 @@ export const serializeAws_restJson1_1DeleteConfigurationSetEventDestinationComma
   input: DeleteConfigurationSetEventDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/v1/email/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}";
   if (input.ConfigurationSetName !== undefined) {
@@ -518,8 +525,9 @@ export const serializeAws_restJson1_1DeleteDedicatedIpPoolCommand = async (
   input: DeleteDedicatedIpPoolCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/email/dedicated-ip-pools/{PoolName}";
   if (input.PoolName !== undefined) {
     const labelValue: string = input.PoolName;
@@ -550,8 +558,9 @@ export const serializeAws_restJson1_1DeleteEmailIdentityCommand = async (
   input: DeleteEmailIdentityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/email/identities/{EmailIdentity}";
   if (input.EmailIdentity !== undefined) {
     const labelValue: string = input.EmailIdentity;
@@ -584,8 +593,9 @@ export const serializeAws_restJson1_1GetAccountCommand = async (
   input: GetAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/email/account";
   let body: any;
   body = "{}";
@@ -605,8 +615,9 @@ export const serializeAws_restJson1_1GetBlacklistReportsCommand = async (
   input: GetBlacklistReportsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/email/deliverability-dashboard/blacklist-report";
   const query: any = {
     ...(input.BlacklistItemNames !== undefined && {
@@ -631,8 +642,9 @@ export const serializeAws_restJson1_1GetConfigurationSetCommand = async (
   input: GetConfigurationSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/email/configuration-sets/{ConfigurationSetName}";
   if (input.ConfigurationSetName !== undefined) {
     const labelValue: string = input.ConfigurationSetName;
@@ -667,8 +679,9 @@ export const serializeAws_restJson1_1GetConfigurationSetEventDestinationsCommand
   input: GetConfigurationSetEventDestinationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/v1/email/configuration-sets/{ConfigurationSetName}/event-destinations";
   if (input.ConfigurationSetName !== undefined) {
@@ -704,8 +717,9 @@ export const serializeAws_restJson1_1GetDedicatedIpCommand = async (
   input: GetDedicatedIpCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/email/dedicated-ips/{Ip}";
   if (input.Ip !== undefined) {
     const labelValue: string = input.Ip;
@@ -736,8 +750,9 @@ export const serializeAws_restJson1_1GetDedicatedIpsCommand = async (
   input: GetDedicatedIpsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/email/dedicated-ips";
   const query: any = {
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
@@ -764,8 +779,9 @@ export const serializeAws_restJson1_1GetDeliverabilityDashboardOptionsCommand = 
   input: GetDeliverabilityDashboardOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/email/deliverability-dashboard";
   let body: any;
   body = "{}";
@@ -785,8 +801,9 @@ export const serializeAws_restJson1_1GetDeliverabilityTestReportCommand = async 
   input: GetDeliverabilityTestReportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/v1/email/deliverability-dashboard/test-reports/{ReportId}";
   if (input.ReportId !== undefined) {
@@ -818,8 +835,9 @@ export const serializeAws_restJson1_1GetDomainDeliverabilityCampaignCommand = as
   input: GetDomainDeliverabilityCampaignCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/v1/email/deliverability-dashboard/campaigns/{CampaignId}";
   if (input.CampaignId !== undefined) {
@@ -851,8 +869,9 @@ export const serializeAws_restJson1_1GetDomainStatisticsReportCommand = async (
   input: GetDomainStatisticsReportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/v1/email/deliverability-dashboard/statistics-report/{Domain}";
   if (input.Domain !== undefined) {
@@ -893,8 +912,9 @@ export const serializeAws_restJson1_1GetEmailIdentityCommand = async (
   input: GetEmailIdentityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/email/identities/{EmailIdentity}";
   if (input.EmailIdentity !== undefined) {
     const labelValue: string = input.EmailIdentity;
@@ -927,8 +947,9 @@ export const serializeAws_restJson1_1ListConfigurationSetsCommand = async (
   input: ListConfigurationSetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/email/configuration-sets";
   const query: any = {
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
@@ -952,8 +973,9 @@ export const serializeAws_restJson1_1ListDedicatedIpPoolsCommand = async (
   input: ListDedicatedIpPoolsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/email/dedicated-ip-pools";
   const query: any = {
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
@@ -977,8 +999,9 @@ export const serializeAws_restJson1_1ListDeliverabilityTestReportsCommand = asyn
   input: ListDeliverabilityTestReportsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/email/deliverability-dashboard/test-reports";
   const query: any = {
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
@@ -1002,8 +1025,9 @@ export const serializeAws_restJson1_1ListDomainDeliverabilityCampaignsCommand = 
   input: ListDomainDeliverabilityCampaignsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/v1/email/deliverability-dashboard/domains/{SubscribedDomain}/campaigns";
   if (input.SubscribedDomain !== undefined) {
@@ -1052,8 +1076,9 @@ export const serializeAws_restJson1_1ListEmailIdentitiesCommand = async (
   input: ListEmailIdentitiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/email/identities";
   const query: any = {
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
@@ -1077,8 +1102,9 @@ export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/email/tags";
   const query: any = {
     ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn })
@@ -1101,8 +1127,9 @@ export const serializeAws_restJson1_1PutAccountDedicatedIpWarmupAttributesComman
   input: PutAccountDedicatedIpWarmupAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/email/account/dedicated-ips/warmup";
   let body: any;
   const bodyParams: any = {};
@@ -1126,8 +1153,9 @@ export const serializeAws_restJson1_1PutAccountSendingAttributesCommand = async 
   input: PutAccountSendingAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/email/account/sending";
   let body: any;
   const bodyParams: any = {};
@@ -1151,8 +1179,9 @@ export const serializeAws_restJson1_1PutConfigurationSetDeliveryOptionsCommand =
   input: PutConfigurationSetDeliveryOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath =
     "/v1/email/configuration-sets/{ConfigurationSetName}/delivery-options";
   if (input.ConfigurationSetName !== undefined) {
@@ -1196,8 +1225,9 @@ export const serializeAws_restJson1_1PutConfigurationSetReputationOptionsCommand
   input: PutConfigurationSetReputationOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath =
     "/v1/email/configuration-sets/{ConfigurationSetName}/reputation-options";
   if (input.ConfigurationSetName !== undefined) {
@@ -1238,8 +1268,9 @@ export const serializeAws_restJson1_1PutConfigurationSetSendingOptionsCommand = 
   input: PutConfigurationSetSendingOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath =
     "/v1/email/configuration-sets/{ConfigurationSetName}/sending";
   if (input.ConfigurationSetName !== undefined) {
@@ -1280,8 +1311,9 @@ export const serializeAws_restJson1_1PutConfigurationSetTrackingOptionsCommand =
   input: PutConfigurationSetTrackingOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath =
     "/v1/email/configuration-sets/{ConfigurationSetName}/tracking-options";
   if (input.ConfigurationSetName !== undefined) {
@@ -1322,8 +1354,9 @@ export const serializeAws_restJson1_1PutDedicatedIpInPoolCommand = async (
   input: PutDedicatedIpInPoolCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/email/dedicated-ips/{Ip}/pool";
   if (input.Ip !== undefined) {
     const labelValue: string = input.Ip;
@@ -1359,8 +1392,9 @@ export const serializeAws_restJson1_1PutDedicatedIpWarmupAttributesCommand = asy
   input: PutDedicatedIpWarmupAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/email/dedicated-ips/{Ip}/warmup";
   if (input.Ip !== undefined) {
     const labelValue: string = input.Ip;
@@ -1396,8 +1430,9 @@ export const serializeAws_restJson1_1PutDeliverabilityDashboardOptionCommand = a
   input: PutDeliverabilityDashboardOptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/email/deliverability-dashboard";
   let body: any;
   const bodyParams: any = {};
@@ -1429,8 +1464,9 @@ export const serializeAws_restJson1_1PutEmailIdentityDkimAttributesCommand = asy
   input: PutEmailIdentityDkimAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/email/identities/{EmailIdentity}/dkim";
   if (input.EmailIdentity !== undefined) {
     const labelValue: string = input.EmailIdentity;
@@ -1468,8 +1504,9 @@ export const serializeAws_restJson1_1PutEmailIdentityFeedbackAttributesCommand =
   input: PutEmailIdentityFeedbackAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/email/identities/{EmailIdentity}/feedback";
   if (input.EmailIdentity !== undefined) {
     const labelValue: string = input.EmailIdentity;
@@ -1507,8 +1544,9 @@ export const serializeAws_restJson1_1PutEmailIdentityMailFromAttributesCommand =
   input: PutEmailIdentityMailFromAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/email/identities/{EmailIdentity}/mail-from";
   if (input.EmailIdentity !== undefined) {
     const labelValue: string = input.EmailIdentity;
@@ -1549,8 +1587,9 @@ export const serializeAws_restJson1_1SendEmailCommand = async (
   input: SendEmailCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/email/outbound-emails";
   let body: any;
   const bodyParams: any = {};
@@ -1605,8 +1644,9 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/email/tags";
   let body: any;
   const bodyParams: any = {};
@@ -1633,8 +1673,9 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/email/tags";
   const query: any = {
     ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
@@ -1660,8 +1701,9 @@ export const serializeAws_restJson1_1UpdateConfigurationSetEventDestinationComma
   input: UpdateConfigurationSetEventDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath =
     "/v1/email/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}";
   if (input.ConfigurationSetName !== undefined) {

@@ -40,9 +40,10 @@ export const serializeAws_json1_1EmptyOperationCommand = async (
   input: EmptyOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "JsonProtocol.EmptyOperation";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "JsonProtocol.EmptyOperation"
+  };
   return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
 };
 
@@ -50,9 +51,10 @@ export const serializeAws_json1_1KitchenSinkOperationCommand = async (
   input: KitchenSinkOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "JsonProtocol.KitchenSinkOperation";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "JsonProtocol.KitchenSinkOperation"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1KitchenSink(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -62,9 +64,10 @@ export const serializeAws_json1_1OperationWithOptionalInputOutputCommand = async
   input: OperationWithOptionalInputOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "JsonProtocol.OperationWithOptionalInputOutput";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "JsonProtocol.OperationWithOptionalInputOutput"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1SimpleStruct(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);

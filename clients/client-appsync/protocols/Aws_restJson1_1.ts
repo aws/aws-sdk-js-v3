@@ -219,8 +219,9 @@ export const serializeAws_restJson1_1CreateApiCacheCommand = async (
   input: CreateApiCacheCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/apis/{apiId}/ApiCaches";
   if (input.apiId !== undefined) {
     const labelValue: string = input.apiId;
@@ -268,8 +269,9 @@ export const serializeAws_restJson1_1CreateApiKeyCommand = async (
   input: CreateApiKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/apis/{apiId}/apikeys";
   if (input.apiId !== undefined) {
     const labelValue: string = input.apiId;
@@ -308,8 +310,9 @@ export const serializeAws_restJson1_1CreateDataSourceCommand = async (
   input: CreateDataSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/apis/{apiId}/datasources";
   if (input.apiId !== undefined) {
     const labelValue: string = input.apiId;
@@ -390,8 +393,9 @@ export const serializeAws_restJson1_1CreateFunctionCommand = async (
   input: CreateFunctionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/apis/{apiId}/functions";
   if (input.apiId !== undefined) {
     const labelValue: string = input.apiId;
@@ -442,8 +446,9 @@ export const serializeAws_restJson1_1CreateGraphqlApiCommand = async (
   input: CreateGraphqlApiCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/apis";
   let body: any;
   const bodyParams: any = {};
@@ -501,8 +506,9 @@ export const serializeAws_restJson1_1CreateResolverCommand = async (
   input: CreateResolverCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/apis/{apiId}/types/{typeName}/resolvers";
   if (input.apiId !== undefined) {
     const labelValue: string = input.apiId;
@@ -580,8 +586,9 @@ export const serializeAws_restJson1_1CreateTypeCommand = async (
   input: CreateTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/apis/{apiId}/types";
   if (input.apiId !== undefined) {
     const labelValue: string = input.apiId;
@@ -620,8 +627,9 @@ export const serializeAws_restJson1_1DeleteApiCacheCommand = async (
   input: DeleteApiCacheCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/apis/{apiId}/ApiCaches";
   if (input.apiId !== undefined) {
     const labelValue: string = input.apiId;
@@ -652,8 +660,9 @@ export const serializeAws_restJson1_1DeleteApiKeyCommand = async (
   input: DeleteApiKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/apis/{apiId}/apikeys/{id}";
   if (input.apiId !== undefined) {
     const labelValue: string = input.apiId;
@@ -696,8 +705,9 @@ export const serializeAws_restJson1_1DeleteDataSourceCommand = async (
   input: DeleteDataSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/apis/{apiId}/datasources/{name}";
   if (input.apiId !== undefined) {
     const labelValue: string = input.apiId;
@@ -740,8 +750,9 @@ export const serializeAws_restJson1_1DeleteFunctionCommand = async (
   input: DeleteFunctionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/apis/{apiId}/functions/{functionId}";
   if (input.apiId !== undefined) {
     const labelValue: string = input.apiId;
@@ -784,8 +795,9 @@ export const serializeAws_restJson1_1DeleteGraphqlApiCommand = async (
   input: DeleteGraphqlApiCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/apis/{apiId}";
   if (input.apiId !== undefined) {
     const labelValue: string = input.apiId;
@@ -816,8 +828,9 @@ export const serializeAws_restJson1_1DeleteResolverCommand = async (
   input: DeleteResolverCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/apis/{apiId}/types/{typeName}/resolvers/{fieldName}";
   if (input.apiId !== undefined) {
     const labelValue: string = input.apiId;
@@ -872,8 +885,9 @@ export const serializeAws_restJson1_1DeleteTypeCommand = async (
   input: DeleteTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/apis/{apiId}/types/{typeName}";
   if (input.apiId !== undefined) {
     const labelValue: string = input.apiId;
@@ -916,8 +930,9 @@ export const serializeAws_restJson1_1FlushApiCacheCommand = async (
   input: FlushApiCacheCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/apis/{apiId}/FlushCache";
   if (input.apiId !== undefined) {
     const labelValue: string = input.apiId;
@@ -948,8 +963,9 @@ export const serializeAws_restJson1_1GetApiCacheCommand = async (
   input: GetApiCacheCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/apis/{apiId}/ApiCaches";
   if (input.apiId !== undefined) {
     const labelValue: string = input.apiId;
@@ -980,8 +996,9 @@ export const serializeAws_restJson1_1GetDataSourceCommand = async (
   input: GetDataSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/apis/{apiId}/datasources/{name}";
   if (input.apiId !== undefined) {
     const labelValue: string = input.apiId;
@@ -1024,8 +1041,9 @@ export const serializeAws_restJson1_1GetFunctionCommand = async (
   input: GetFunctionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/apis/{apiId}/functions/{functionId}";
   if (input.apiId !== undefined) {
     const labelValue: string = input.apiId;
@@ -1068,8 +1086,9 @@ export const serializeAws_restJson1_1GetGraphqlApiCommand = async (
   input: GetGraphqlApiCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/apis/{apiId}";
   if (input.apiId !== undefined) {
     const labelValue: string = input.apiId;
@@ -1100,8 +1119,9 @@ export const serializeAws_restJson1_1GetIntrospectionSchemaCommand = async (
   input: GetIntrospectionSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/apis/{apiId}/schema";
   if (input.apiId !== undefined) {
     const labelValue: string = input.apiId;
@@ -1139,8 +1159,9 @@ export const serializeAws_restJson1_1GetResolverCommand = async (
   input: GetResolverCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/apis/{apiId}/types/{typeName}/resolvers/{fieldName}";
   if (input.apiId !== undefined) {
     const labelValue: string = input.apiId;
@@ -1195,8 +1216,9 @@ export const serializeAws_restJson1_1GetSchemaCreationStatusCommand = async (
   input: GetSchemaCreationStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/apis/{apiId}/schemacreation";
   if (input.apiId !== undefined) {
     const labelValue: string = input.apiId;
@@ -1227,8 +1249,9 @@ export const serializeAws_restJson1_1GetTypeCommand = async (
   input: GetTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/apis/{apiId}/types/{typeName}";
   if (input.apiId !== undefined) {
     const labelValue: string = input.apiId;
@@ -1275,8 +1298,9 @@ export const serializeAws_restJson1_1ListApiKeysCommand = async (
   input: ListApiKeysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/apis/{apiId}/apikeys";
   if (input.apiId !== undefined) {
     const labelValue: string = input.apiId;
@@ -1314,8 +1338,9 @@ export const serializeAws_restJson1_1ListDataSourcesCommand = async (
   input: ListDataSourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/apis/{apiId}/datasources";
   if (input.apiId !== undefined) {
     const labelValue: string = input.apiId;
@@ -1353,8 +1378,9 @@ export const serializeAws_restJson1_1ListFunctionsCommand = async (
   input: ListFunctionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/apis/{apiId}/functions";
   if (input.apiId !== undefined) {
     const labelValue: string = input.apiId;
@@ -1392,8 +1418,9 @@ export const serializeAws_restJson1_1ListGraphqlApisCommand = async (
   input: ListGraphqlApisCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/apis";
   const query: any = {
     ...(input.maxResults !== undefined && {
@@ -1419,8 +1446,9 @@ export const serializeAws_restJson1_1ListResolversCommand = async (
   input: ListResolversCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/apis/{apiId}/types/{typeName}/resolvers";
   if (input.apiId !== undefined) {
     const labelValue: string = input.apiId;
@@ -1470,8 +1498,9 @@ export const serializeAws_restJson1_1ListResolversByFunctionCommand = async (
   input: ListResolversByFunctionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/apis/{apiId}/functions/{functionId}/resolvers";
   if (input.apiId !== undefined) {
     const labelValue: string = input.apiId;
@@ -1521,8 +1550,9 @@ export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
@@ -1555,8 +1585,9 @@ export const serializeAws_restJson1_1ListTypesCommand = async (
   input: ListTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/apis/{apiId}/types";
   if (input.apiId !== undefined) {
     const labelValue: string = input.apiId;
@@ -1595,8 +1626,9 @@ export const serializeAws_restJson1_1StartSchemaCreationCommand = async (
   input: StartSchemaCreationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/apis/{apiId}/schemacreation";
   if (input.apiId !== undefined) {
     const labelValue: string = input.apiId;
@@ -1632,8 +1664,9 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
@@ -1671,8 +1704,9 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
@@ -1711,8 +1745,9 @@ export const serializeAws_restJson1_1UpdateApiCacheCommand = async (
   input: UpdateApiCacheCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/apis/{apiId}/ApiCaches/update";
   if (input.apiId !== undefined) {
     const labelValue: string = input.apiId;
@@ -1754,8 +1789,9 @@ export const serializeAws_restJson1_1UpdateApiKeyCommand = async (
   input: UpdateApiKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/apis/{apiId}/apikeys/{id}";
   if (input.apiId !== undefined) {
     const labelValue: string = input.apiId;
@@ -1806,8 +1842,9 @@ export const serializeAws_restJson1_1UpdateDataSourceCommand = async (
   input: UpdateDataSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/apis/{apiId}/datasources/{name}";
   if (input.apiId !== undefined) {
     const labelValue: string = input.apiId;
@@ -1897,8 +1934,9 @@ export const serializeAws_restJson1_1UpdateFunctionCommand = async (
   input: UpdateFunctionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/apis/{apiId}/functions/{functionId}";
   if (input.apiId !== undefined) {
     const labelValue: string = input.apiId;
@@ -1961,8 +1999,9 @@ export const serializeAws_restJson1_1UpdateGraphqlApiCommand = async (
   input: UpdateGraphqlApiCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/apis/{apiId}";
   if (input.apiId !== undefined) {
     const labelValue: string = input.apiId;
@@ -2029,8 +2068,9 @@ export const serializeAws_restJson1_1UpdateResolverCommand = async (
   input: UpdateResolverCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/apis/{apiId}/types/{typeName}/resolvers/{fieldName}";
   if (input.apiId !== undefined) {
     const labelValue: string = input.apiId;
@@ -2117,8 +2157,9 @@ export const serializeAws_restJson1_1UpdateTypeCommand = async (
   input: UpdateTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/apis/{apiId}/types/{typeName}";
   if (input.apiId !== undefined) {
     const labelValue: string = input.apiId;

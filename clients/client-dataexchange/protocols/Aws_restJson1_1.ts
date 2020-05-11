@@ -136,8 +136,9 @@ export const serializeAws_restJson1_1CancelJobCommand = async (
   input: CancelJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/jobs/{JobId}";
   if (input.JobId !== undefined) {
     const labelValue: string = input.JobId;
@@ -168,8 +169,9 @@ export const serializeAws_restJson1_1CreateDataSetCommand = async (
   input: CreateDataSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/data-sets";
   let body: any;
   const bodyParams: any = {};
@@ -205,8 +207,9 @@ export const serializeAws_restJson1_1CreateJobCommand = async (
   input: CreateJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/jobs";
   let body: any;
   const bodyParams: any = {};
@@ -236,8 +239,9 @@ export const serializeAws_restJson1_1CreateRevisionCommand = async (
   input: CreateRevisionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/data-sets/{DataSetId}/revisions";
   if (input.DataSetId !== undefined) {
     const labelValue: string = input.DataSetId;
@@ -279,8 +283,9 @@ export const serializeAws_restJson1_1DeleteAssetCommand = async (
   input: DeleteAssetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/v1/data-sets/{DataSetId}/revisions/{RevisionId}/assets/{AssetId}";
   if (input.AssetId !== undefined) {
@@ -336,8 +341,9 @@ export const serializeAws_restJson1_1DeleteDataSetCommand = async (
   input: DeleteDataSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/data-sets/{DataSetId}";
   if (input.DataSetId !== undefined) {
     const labelValue: string = input.DataSetId;
@@ -368,8 +374,9 @@ export const serializeAws_restJson1_1DeleteRevisionCommand = async (
   input: DeleteRevisionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/data-sets/{DataSetId}/revisions/{RevisionId}";
   if (input.DataSetId !== undefined) {
     const labelValue: string = input.DataSetId;
@@ -412,8 +419,9 @@ export const serializeAws_restJson1_1GetAssetCommand = async (
   input: GetAssetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/v1/data-sets/{DataSetId}/revisions/{RevisionId}/assets/{AssetId}";
   if (input.AssetId !== undefined) {
@@ -469,8 +477,9 @@ export const serializeAws_restJson1_1GetDataSetCommand = async (
   input: GetDataSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/data-sets/{DataSetId}";
   if (input.DataSetId !== undefined) {
     const labelValue: string = input.DataSetId;
@@ -501,8 +510,9 @@ export const serializeAws_restJson1_1GetJobCommand = async (
   input: GetJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/jobs/{JobId}";
   if (input.JobId !== undefined) {
     const labelValue: string = input.JobId;
@@ -533,8 +543,9 @@ export const serializeAws_restJson1_1GetRevisionCommand = async (
   input: GetRevisionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/data-sets/{DataSetId}/revisions/{RevisionId}";
   if (input.DataSetId !== undefined) {
     const labelValue: string = input.DataSetId;
@@ -577,8 +588,9 @@ export const serializeAws_restJson1_1ListDataSetRevisionsCommand = async (
   input: ListDataSetRevisionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/data-sets/{DataSetId}/revisions";
   if (input.DataSetId !== undefined) {
     const labelValue: string = input.DataSetId;
@@ -616,8 +628,9 @@ export const serializeAws_restJson1_1ListDataSetsCommand = async (
   input: ListDataSetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/data-sets";
   const query: any = {
     ...(input.MaxResults !== undefined && {
@@ -644,8 +657,9 @@ export const serializeAws_restJson1_1ListJobsCommand = async (
   input: ListJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/jobs";
   const query: any = {
     ...(input.DataSetId !== undefined && { dataSetId: input.DataSetId }),
@@ -673,8 +687,9 @@ export const serializeAws_restJson1_1ListRevisionAssetsCommand = async (
   input: ListRevisionAssetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/data-sets/{DataSetId}/revisions/{RevisionId}/assets";
   if (input.DataSetId !== undefined) {
     const labelValue: string = input.DataSetId;
@@ -724,8 +739,9 @@ export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -758,8 +774,9 @@ export const serializeAws_restJson1_1StartJobCommand = async (
   input: StartJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/jobs/{JobId}";
   if (input.JobId !== undefined) {
     const labelValue: string = input.JobId;
@@ -790,8 +807,9 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -832,8 +850,9 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -872,8 +891,9 @@ export const serializeAws_restJson1_1UpdateAssetCommand = async (
   input: UpdateAssetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath =
     "/v1/data-sets/{DataSetId}/revisions/{RevisionId}/assets/{AssetId}";
   if (input.AssetId !== undefined) {
@@ -934,8 +954,9 @@ export const serializeAws_restJson1_1UpdateDataSetCommand = async (
   input: UpdateDataSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/data-sets/{DataSetId}";
   if (input.DataSetId !== undefined) {
     const labelValue: string = input.DataSetId;
@@ -974,8 +995,9 @@ export const serializeAws_restJson1_1UpdateRevisionCommand = async (
   input: UpdateRevisionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/data-sets/{DataSetId}/revisions/{RevisionId}";
   if (input.DataSetId !== undefined) {
     const labelValue: string = input.DataSetId;

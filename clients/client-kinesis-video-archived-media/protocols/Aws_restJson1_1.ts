@@ -47,8 +47,9 @@ export const serializeAws_restJson1_1GetDASHStreamingSessionURLCommand = async (
   input: GetDASHStreamingSessionURLCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/getDASHStreamingSessionURL";
   let body: any;
   const bodyParams: any = {};
@@ -98,8 +99,9 @@ export const serializeAws_restJson1_1GetHLSStreamingSessionURLCommand = async (
   input: GetHLSStreamingSessionURLCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/getHLSStreamingSessionURL";
   let body: any;
   const bodyParams: any = {};
@@ -153,8 +155,9 @@ export const serializeAws_restJson1_1GetMediaForFragmentListCommand = async (
   input: GetMediaForFragmentListCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/getMediaForFragmentList";
   let body: any;
   const bodyParams: any = {};
@@ -184,8 +187,9 @@ export const serializeAws_restJson1_1ListFragmentsCommand = async (
   input: ListFragmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/listFragments";
   let body: any;
   const bodyParams: any = {};

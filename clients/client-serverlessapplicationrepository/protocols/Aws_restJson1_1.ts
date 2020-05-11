@@ -88,8 +88,9 @@ export const serializeAws_restJson1_1CreateApplicationCommand = async (
   input: CreateApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/applications";
   let body: any;
   const bodyParams: any = {};
@@ -158,8 +159,9 @@ export const serializeAws_restJson1_1CreateApplicationVersionCommand = async (
   input: CreateApplicationVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/applications/{ApplicationId}/versions/{SemanticVersion}";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -220,8 +222,9 @@ export const serializeAws_restJson1_1CreateCloudFormationChangeSetCommand = asyn
   input: CreateCloudFormationChangeSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/applications/{ApplicationId}/changesets";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -314,8 +317,9 @@ export const serializeAws_restJson1_1CreateCloudFormationTemplateCommand = async
   input: CreateCloudFormationTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/applications/{ApplicationId}/templates";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -353,8 +357,9 @@ export const serializeAws_restJson1_1DeleteApplicationCommand = async (
   input: DeleteApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/applications/{ApplicationId}";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -387,8 +392,9 @@ export const serializeAws_restJson1_1GetApplicationCommand = async (
   input: GetApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/applications/{ApplicationId}";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -427,8 +433,9 @@ export const serializeAws_restJson1_1GetApplicationPolicyCommand = async (
   input: GetApplicationPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/applications/{ApplicationId}/policy";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -461,8 +468,9 @@ export const serializeAws_restJson1_1GetCloudFormationTemplateCommand = async (
   input: GetCloudFormationTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/applications/{ApplicationId}/templates/{TemplateId}";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -507,8 +515,9 @@ export const serializeAws_restJson1_1ListApplicationDependenciesCommand = async 
   input: ListApplicationDependenciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/applications/{ApplicationId}/dependencies";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -551,8 +560,9 @@ export const serializeAws_restJson1_1ListApplicationVersionsCommand = async (
   input: ListApplicationVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/applications/{ApplicationId}/versions";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -592,8 +602,9 @@ export const serializeAws_restJson1_1ListApplicationsCommand = async (
   input: ListApplicationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/applications";
   const query: any = {
     ...(input.MaxItems !== undefined && {
@@ -619,8 +630,9 @@ export const serializeAws_restJson1_1PutApplicationPolicyCommand = async (
   input: PutApplicationPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/applications/{ApplicationId}/policy";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -663,8 +675,9 @@ export const serializeAws_restJson1_1UpdateApplicationCommand = async (
   input: UpdateApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/applications/{ApplicationId}";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;

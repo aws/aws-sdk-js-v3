@@ -45,8 +45,9 @@ export const serializeAws_restJson1_1DescribeJobExecutionCommand = async (
   input: DescribeJobExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/things/{thingName}/jobs/{jobId}";
   if (input.jobId !== undefined) {
     const labelValue: string = input.jobId;
@@ -98,8 +99,9 @@ export const serializeAws_restJson1_1GetPendingJobExecutionsCommand = async (
   input: GetPendingJobExecutionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/things/{thingName}/jobs";
   if (input.thingName !== undefined) {
     const labelValue: string = input.thingName;
@@ -130,8 +132,9 @@ export const serializeAws_restJson1_1StartNextPendingJobExecutionCommand = async
   input: StartNextPendingJobExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/things/{thingName}/jobs/$next";
   if (input.thingName !== undefined) {
     const labelValue: string = input.thingName;
@@ -173,8 +176,9 @@ export const serializeAws_restJson1_1UpdateJobExecutionCommand = async (
   input: UpdateJobExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/things/{thingName}/jobs/{jobId}";
   if (input.jobId !== undefined) {
     const labelValue: string = input.jobId;

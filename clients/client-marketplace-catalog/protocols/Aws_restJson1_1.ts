@@ -59,8 +59,9 @@ export const serializeAws_restJson1_1CancelChangeSetCommand = async (
   input: CancelChangeSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/CancelChangeSet";
   const query: any = {
     ...(input.Catalog !== undefined && { catalog: input.Catalog }),
@@ -84,8 +85,9 @@ export const serializeAws_restJson1_1DescribeChangeSetCommand = async (
   input: DescribeChangeSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/DescribeChangeSet";
   const query: any = {
     ...(input.Catalog !== undefined && { catalog: input.Catalog }),
@@ -109,8 +111,9 @@ export const serializeAws_restJson1_1DescribeEntityCommand = async (
   input: DescribeEntityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/DescribeEntity";
   const query: any = {
     ...(input.Catalog !== undefined && { catalog: input.Catalog }),
@@ -134,8 +137,9 @@ export const serializeAws_restJson1_1ListChangeSetsCommand = async (
   input: ListChangeSetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/ListChangeSets";
   let body: any;
   const bodyParams: any = {};
@@ -174,8 +178,9 @@ export const serializeAws_restJson1_1ListEntitiesCommand = async (
   input: ListEntitiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/ListEntities";
   let body: any;
   const bodyParams: any = {};
@@ -217,8 +222,9 @@ export const serializeAws_restJson1_1StartChangeSetCommand = async (
   input: StartChangeSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/StartChangeSet";
   let body: any;
   const bodyParams: any = {};

@@ -94,8 +94,9 @@ export const serializeAws_restJson1_1CancelSigningProfileCommand = async (
   input: CancelSigningProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/signing-profiles/{profileName}";
   if (input.profileName !== undefined) {
     const labelValue: string = input.profileName;
@@ -128,8 +129,9 @@ export const serializeAws_restJson1_1DescribeSigningJobCommand = async (
   input: DescribeSigningJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/signing-jobs/{jobId}";
   if (input.jobId !== undefined) {
     const labelValue: string = input.jobId;
@@ -160,8 +162,9 @@ export const serializeAws_restJson1_1GetSigningPlatformCommand = async (
   input: GetSigningPlatformCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/signing-platforms/{platformId}";
   if (input.platformId !== undefined) {
     const labelValue: string = input.platformId;
@@ -192,8 +195,9 @@ export const serializeAws_restJson1_1GetSigningProfileCommand = async (
   input: GetSigningProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/signing-profiles/{profileName}";
   if (input.profileName !== undefined) {
     const labelValue: string = input.profileName;
@@ -226,8 +230,9 @@ export const serializeAws_restJson1_1ListSigningJobsCommand = async (
   input: ListSigningJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/signing-jobs";
   const query: any = {
     ...(input.maxResults !== undefined && {
@@ -256,8 +261,9 @@ export const serializeAws_restJson1_1ListSigningPlatformsCommand = async (
   input: ListSigningPlatformsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/signing-platforms";
   const query: any = {
     ...(input.category !== undefined && { category: input.category }),
@@ -286,8 +292,9 @@ export const serializeAws_restJson1_1ListSigningProfilesCommand = async (
   input: ListSigningProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/signing-profiles";
   const query: any = {
     ...(input.includeCanceled !== undefined && {
@@ -316,8 +323,9 @@ export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
@@ -350,8 +358,9 @@ export const serializeAws_restJson1_1PutSigningProfileCommand = async (
   input: PutSigningProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/signing-profiles/{profileName}";
   if (input.profileName !== undefined) {
     const labelValue: string = input.profileName;
@@ -410,8 +419,9 @@ export const serializeAws_restJson1_1StartSigningJobCommand = async (
   input: StartSigningJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/signing-jobs";
   let body: any;
   const bodyParams: any = {};
@@ -453,8 +463,9 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
@@ -492,8 +503,9 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;

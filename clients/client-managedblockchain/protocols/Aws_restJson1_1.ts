@@ -128,8 +128,9 @@ export const serializeAws_restJson1_1CreateMemberCommand = async (
   input: CreateMemberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/networks/{NetworkId}/members";
   if (input.NetworkId !== undefined) {
     const labelValue: string = input.NetworkId;
@@ -179,8 +180,9 @@ export const serializeAws_restJson1_1CreateNetworkCommand = async (
   input: CreateNetworkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/networks";
   let body: any;
   const bodyParams: any = {};
@@ -241,8 +243,9 @@ export const serializeAws_restJson1_1CreateNodeCommand = async (
   input: CreateNodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/networks/{NetworkId}/members/{MemberId}/nodes";
   if (input.MemberId !== undefined) {
     const labelValue: string = input.MemberId;
@@ -299,8 +302,9 @@ export const serializeAws_restJson1_1CreateProposalCommand = async (
   input: CreateProposalCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/networks/{NetworkId}/proposals";
   if (input.NetworkId !== undefined) {
     const labelValue: string = input.NetworkId;
@@ -351,8 +355,9 @@ export const serializeAws_restJson1_1DeleteMemberCommand = async (
   input: DeleteMemberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/networks/{NetworkId}/members/{MemberId}";
   if (input.MemberId !== undefined) {
     const labelValue: string = input.MemberId;
@@ -395,8 +400,9 @@ export const serializeAws_restJson1_1DeleteNodeCommand = async (
   input: DeleteNodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/networks/{NetworkId}/members/{MemberId}/nodes/{NodeId}";
   if (input.MemberId !== undefined) {
     const labelValue: string = input.MemberId;
@@ -451,8 +457,9 @@ export const serializeAws_restJson1_1GetMemberCommand = async (
   input: GetMemberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/networks/{NetworkId}/members/{MemberId}";
   if (input.MemberId !== undefined) {
     const labelValue: string = input.MemberId;
@@ -495,8 +502,9 @@ export const serializeAws_restJson1_1GetNetworkCommand = async (
   input: GetNetworkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/networks/{NetworkId}";
   if (input.NetworkId !== undefined) {
     const labelValue: string = input.NetworkId;
@@ -527,8 +535,9 @@ export const serializeAws_restJson1_1GetNodeCommand = async (
   input: GetNodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/networks/{NetworkId}/members/{MemberId}/nodes/{NodeId}";
   if (input.MemberId !== undefined) {
     const labelValue: string = input.MemberId;
@@ -583,8 +592,9 @@ export const serializeAws_restJson1_1GetProposalCommand = async (
   input: GetProposalCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/networks/{NetworkId}/proposals/{ProposalId}";
   if (input.NetworkId !== undefined) {
     const labelValue: string = input.NetworkId;
@@ -627,8 +637,9 @@ export const serializeAws_restJson1_1ListInvitationsCommand = async (
   input: ListInvitationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/invitations";
   const query: any = {
     ...(input.MaxResults !== undefined && {
@@ -654,8 +665,9 @@ export const serializeAws_restJson1_1ListMembersCommand = async (
   input: ListMembersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/networks/{NetworkId}/members";
   if (input.NetworkId !== undefined) {
     const labelValue: string = input.NetworkId;
@@ -696,8 +708,9 @@ export const serializeAws_restJson1_1ListNetworksCommand = async (
   input: ListNetworksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/networks";
   const query: any = {
     ...(input.Framework !== undefined && { framework: input.Framework }),
@@ -726,8 +739,9 @@ export const serializeAws_restJson1_1ListNodesCommand = async (
   input: ListNodesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/networks/{NetworkId}/members/{MemberId}/nodes";
   if (input.MemberId !== undefined) {
     const labelValue: string = input.MemberId;
@@ -778,8 +792,9 @@ export const serializeAws_restJson1_1ListProposalVotesCommand = async (
   input: ListProposalVotesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/networks/{NetworkId}/proposals/{ProposalId}/votes";
   if (input.NetworkId !== undefined) {
     const labelValue: string = input.NetworkId;
@@ -829,8 +844,9 @@ export const serializeAws_restJson1_1ListProposalsCommand = async (
   input: ListProposalsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/networks/{NetworkId}/proposals";
   if (input.NetworkId !== undefined) {
     const labelValue: string = input.NetworkId;
@@ -868,8 +884,9 @@ export const serializeAws_restJson1_1RejectInvitationCommand = async (
   input: RejectInvitationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/invitations/{InvitationId}";
   if (input.InvitationId !== undefined) {
     const labelValue: string = input.InvitationId;
@@ -902,8 +919,9 @@ export const serializeAws_restJson1_1VoteOnProposalCommand = async (
   input: VoteOnProposalCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/networks/{NetworkId}/proposals/{ProposalId}/votes";
   if (input.NetworkId !== undefined) {
     const labelValue: string = input.NetworkId;

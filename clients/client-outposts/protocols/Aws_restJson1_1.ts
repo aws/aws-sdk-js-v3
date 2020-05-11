@@ -47,8 +47,9 @@ export const serializeAws_restJson1_1CreateOutpostCommand = async (
   input: CreateOutpostCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/outposts";
   let body: any;
   const bodyParams: any = {};
@@ -84,8 +85,9 @@ export const serializeAws_restJson1_1GetOutpostCommand = async (
   input: GetOutpostCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/outposts/{OutpostId}";
   if (input.OutpostId !== undefined) {
     const labelValue: string = input.OutpostId;
@@ -116,8 +118,9 @@ export const serializeAws_restJson1_1GetOutpostInstanceTypesCommand = async (
   input: GetOutpostInstanceTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/outposts/{OutpostId}/instanceTypes";
   if (input.OutpostId !== undefined) {
     const labelValue: string = input.OutpostId;
@@ -155,8 +158,9 @@ export const serializeAws_restJson1_1ListOutpostsCommand = async (
   input: ListOutpostsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/outposts";
   const query: any = {
     ...(input.MaxResults !== undefined && {
@@ -182,8 +186,9 @@ export const serializeAws_restJson1_1ListSitesCommand = async (
   input: ListSitesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/sites";
   const query: any = {
     ...(input.MaxResults !== undefined && {

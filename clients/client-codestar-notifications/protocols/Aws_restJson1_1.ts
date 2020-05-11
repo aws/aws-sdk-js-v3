@@ -84,8 +84,9 @@ export const serializeAws_restJson1_1CreateNotificationRuleCommand = async (
   input: CreateNotificationRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/createNotificationRule";
   let body: any;
   const bodyParams: any = {};
@@ -139,8 +140,9 @@ export const serializeAws_restJson1_1DeleteNotificationRuleCommand = async (
   input: DeleteNotificationRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/deleteNotificationRule";
   let body: any;
   const bodyParams: any = {};
@@ -164,8 +166,9 @@ export const serializeAws_restJson1_1DeleteTargetCommand = async (
   input: DeleteTargetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/deleteTarget";
   let body: any;
   const bodyParams: any = {};
@@ -192,8 +195,9 @@ export const serializeAws_restJson1_1DescribeNotificationRuleCommand = async (
   input: DescribeNotificationRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/describeNotificationRule";
   let body: any;
   const bodyParams: any = {};
@@ -217,8 +221,9 @@ export const serializeAws_restJson1_1ListEventTypesCommand = async (
   input: ListEventTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/listEventTypes";
   let body: any;
   const bodyParams: any = {};
@@ -251,8 +256,9 @@ export const serializeAws_restJson1_1ListNotificationRulesCommand = async (
   input: ListNotificationRulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/listNotificationRules";
   let body: any;
   const bodyParams: any = {};
@@ -287,8 +293,9 @@ export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/listTagsForResource";
   let body: any;
   const bodyParams: any = {};
@@ -312,8 +319,9 @@ export const serializeAws_restJson1_1ListTargetsCommand = async (
   input: ListTargetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/listTargets";
   let body: any;
   const bodyParams: any = {};
@@ -346,8 +354,9 @@ export const serializeAws_restJson1_1SubscribeCommand = async (
   input: SubscribeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/subscribe";
   let body: any;
   const bodyParams: any = {};
@@ -380,8 +389,9 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/tagResource";
   let body: any;
   const bodyParams: any = {};
@@ -408,8 +418,9 @@ export const serializeAws_restJson1_1UnsubscribeCommand = async (
   input: UnsubscribeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/unsubscribe";
   let body: any;
   const bodyParams: any = {};
@@ -436,8 +447,9 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/untagResource";
   let body: any;
   const bodyParams: any = {};
@@ -467,8 +479,9 @@ export const serializeAws_restJson1_1UpdateNotificationRuleCommand = async (
   input: UpdateNotificationRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/updateNotificationRule";
   let body: any;
   const bodyParams: any = {};

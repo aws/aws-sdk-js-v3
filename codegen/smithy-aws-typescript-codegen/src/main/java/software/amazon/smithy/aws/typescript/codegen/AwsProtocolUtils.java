@@ -59,7 +59,7 @@ final class AwsProtocolUtils {
         operation.getTrait(UnsignedPayloadTrait.class)
                 .filter(trait -> trait.getValues().contains("aws.v4"))
                 .ifPresent(trait -> {
-                    writer.write("headers['x-amz-content-sha256'] = 'UNSIGNED_PAYLOAD';");
+                    writer.write("'x-amz-content-sha256': 'UNSIGNED_PAYLOAD',");
                 });
     }
 

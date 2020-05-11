@@ -151,9 +151,10 @@ export const serializeAws_json1_1AssociateTeamMemberCommand = async (
   input: AssociateTeamMemberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeStar_20170419.AssociateTeamMember";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeStar_20170419.AssociateTeamMember"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AssociateTeamMemberRequest(input, context)
@@ -165,9 +166,10 @@ export const serializeAws_json1_1CreateProjectCommand = async (
   input: CreateProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeStar_20170419.CreateProject";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeStar_20170419.CreateProject"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateProjectRequest(input, context)
@@ -179,9 +181,10 @@ export const serializeAws_json1_1CreateUserProfileCommand = async (
   input: CreateUserProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeStar_20170419.CreateUserProfile";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeStar_20170419.CreateUserProfile"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateUserProfileRequest(input, context)
@@ -193,9 +196,10 @@ export const serializeAws_json1_1DeleteProjectCommand = async (
   input: DeleteProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeStar_20170419.DeleteProject";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeStar_20170419.DeleteProject"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteProjectRequest(input, context)
@@ -207,9 +211,10 @@ export const serializeAws_json1_1DeleteUserProfileCommand = async (
   input: DeleteUserProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeStar_20170419.DeleteUserProfile";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeStar_20170419.DeleteUserProfile"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteUserProfileRequest(input, context)
@@ -221,9 +226,10 @@ export const serializeAws_json1_1DescribeProjectCommand = async (
   input: DescribeProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeStar_20170419.DescribeProject";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeStar_20170419.DescribeProject"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeProjectRequest(input, context)
@@ -235,9 +241,10 @@ export const serializeAws_json1_1DescribeUserProfileCommand = async (
   input: DescribeUserProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeStar_20170419.DescribeUserProfile";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeStar_20170419.DescribeUserProfile"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeUserProfileRequest(input, context)
@@ -249,9 +256,10 @@ export const serializeAws_json1_1DisassociateTeamMemberCommand = async (
   input: DisassociateTeamMemberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeStar_20170419.DisassociateTeamMember";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeStar_20170419.DisassociateTeamMember"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DisassociateTeamMemberRequest(input, context)
@@ -263,9 +271,10 @@ export const serializeAws_json1_1ListProjectsCommand = async (
   input: ListProjectsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeStar_20170419.ListProjects";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeStar_20170419.ListProjects"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListProjectsRequest(input, context)
@@ -277,9 +286,10 @@ export const serializeAws_json1_1ListResourcesCommand = async (
   input: ListResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeStar_20170419.ListResources";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeStar_20170419.ListResources"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListResourcesRequest(input, context)
@@ -291,9 +301,10 @@ export const serializeAws_json1_1ListTagsForProjectCommand = async (
   input: ListTagsForProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeStar_20170419.ListTagsForProject";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeStar_20170419.ListTagsForProject"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTagsForProjectRequest(input, context)
@@ -305,9 +316,10 @@ export const serializeAws_json1_1ListTeamMembersCommand = async (
   input: ListTeamMembersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeStar_20170419.ListTeamMembers";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeStar_20170419.ListTeamMembers"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTeamMembersRequest(input, context)
@@ -319,9 +331,10 @@ export const serializeAws_json1_1ListUserProfilesCommand = async (
   input: ListUserProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeStar_20170419.ListUserProfiles";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeStar_20170419.ListUserProfiles"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListUserProfilesRequest(input, context)
@@ -333,9 +346,10 @@ export const serializeAws_json1_1TagProjectCommand = async (
   input: TagProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeStar_20170419.TagProject";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeStar_20170419.TagProject"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagProjectRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -345,9 +359,10 @@ export const serializeAws_json1_1UntagProjectCommand = async (
   input: UntagProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeStar_20170419.UntagProject";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeStar_20170419.UntagProject"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UntagProjectRequest(input, context)
@@ -359,9 +374,10 @@ export const serializeAws_json1_1UpdateProjectCommand = async (
   input: UpdateProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeStar_20170419.UpdateProject";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeStar_20170419.UpdateProject"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateProjectRequest(input, context)
@@ -373,9 +389,10 @@ export const serializeAws_json1_1UpdateTeamMemberCommand = async (
   input: UpdateTeamMemberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeStar_20170419.UpdateTeamMember";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeStar_20170419.UpdateTeamMember"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateTeamMemberRequest(input, context)
@@ -387,9 +404,10 @@ export const serializeAws_json1_1UpdateUserProfileCommand = async (
   input: UpdateUserProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeStar_20170419.UpdateUserProfile";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeStar_20170419.UpdateUserProfile"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateUserProfileRequest(input, context)

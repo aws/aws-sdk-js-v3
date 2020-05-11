@@ -40,8 +40,9 @@ export const serializeAws_restJson1_1CreateTokenCommand = async (
   input: CreateTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/token";
   let body: any;
   const bodyParams: any = {};
@@ -86,8 +87,9 @@ export const serializeAws_restJson1_1RegisterClientCommand = async (
   input: RegisterClientCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/client/register";
   let body: any;
   const bodyParams: any = {};
@@ -120,8 +122,9 @@ export const serializeAws_restJson1_1StartDeviceAuthorizationCommand = async (
   input: StartDeviceAuthorizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/device_authorization";
   let body: any;
   const bodyParams: any = {};

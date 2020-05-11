@@ -109,8 +109,9 @@ export const serializeAws_restJson1_1AddFlowOutputsCommand = async (
   input: AddFlowOutputsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/flows/{FlowArn}/outputs";
   if (input.FlowArn !== undefined) {
     const labelValue: string = input.FlowArn;
@@ -149,8 +150,9 @@ export const serializeAws_restJson1_1CreateFlowCommand = async (
   input: CreateFlowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/flows";
   let body: any;
   const bodyParams: any = {};
@@ -197,8 +199,9 @@ export const serializeAws_restJson1_1DeleteFlowCommand = async (
   input: DeleteFlowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/flows/{FlowArn}";
   if (input.FlowArn !== undefined) {
     const labelValue: string = input.FlowArn;
@@ -229,8 +232,9 @@ export const serializeAws_restJson1_1DescribeFlowCommand = async (
   input: DescribeFlowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/flows/{FlowArn}";
   if (input.FlowArn !== undefined) {
     const labelValue: string = input.FlowArn;
@@ -261,8 +265,9 @@ export const serializeAws_restJson1_1GrantFlowEntitlementsCommand = async (
   input: GrantFlowEntitlementsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/flows/{FlowArn}/entitlements";
   if (input.FlowArn !== undefined) {
     const labelValue: string = input.FlowArn;
@@ -303,8 +308,9 @@ export const serializeAws_restJson1_1ListEntitlementsCommand = async (
   input: ListEntitlementsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/entitlements";
   const query: any = {
     ...(input.MaxResults !== undefined && {
@@ -330,8 +336,9 @@ export const serializeAws_restJson1_1ListFlowsCommand = async (
   input: ListFlowsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/flows";
   const query: any = {
     ...(input.MaxResults !== undefined && {
@@ -357,8 +364,9 @@ export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -391,8 +399,9 @@ export const serializeAws_restJson1_1RemoveFlowOutputCommand = async (
   input: RemoveFlowOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/flows/{FlowArn}/outputs/{OutputArn}";
   if (input.FlowArn !== undefined) {
     const labelValue: string = input.FlowArn;
@@ -435,8 +444,9 @@ export const serializeAws_restJson1_1RevokeFlowEntitlementCommand = async (
   input: RevokeFlowEntitlementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/flows/{FlowArn}/entitlements/{EntitlementArn}";
   if (input.EntitlementArn !== undefined) {
     const labelValue: string = input.EntitlementArn;
@@ -481,8 +491,9 @@ export const serializeAws_restJson1_1StartFlowCommand = async (
   input: StartFlowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/flows/start/{FlowArn}";
   if (input.FlowArn !== undefined) {
     const labelValue: string = input.FlowArn;
@@ -513,8 +524,9 @@ export const serializeAws_restJson1_1StopFlowCommand = async (
   input: StopFlowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/flows/stop/{FlowArn}";
   if (input.FlowArn !== undefined) {
     const labelValue: string = input.FlowArn;
@@ -545,8 +557,9 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -587,8 +600,9 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -627,8 +641,9 @@ export const serializeAws_restJson1_1UpdateFlowEntitlementCommand = async (
   input: UpdateFlowEntitlementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/flows/{FlowArn}/entitlements/{EntitlementArn}";
   if (input.EntitlementArn !== undefined) {
     const labelValue: string = input.EntitlementArn;
@@ -690,8 +705,9 @@ export const serializeAws_restJson1_1UpdateFlowOutputCommand = async (
   input: UpdateFlowOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/flows/{FlowArn}/outputs/{OutputArn}";
   if (input.FlowArn !== undefined) {
     const labelValue: string = input.FlowArn;
@@ -772,8 +788,9 @@ export const serializeAws_restJson1_1UpdateFlowSourceCommand = async (
   input: UpdateFlowSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/flows/{FlowArn}/source/{SourceArn}";
   if (input.FlowArn !== undefined) {
     const labelValue: string = input.FlowArn;

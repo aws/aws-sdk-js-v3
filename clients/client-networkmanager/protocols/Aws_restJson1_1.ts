@@ -150,8 +150,9 @@ export const serializeAws_restJson1_1AssociateCustomerGatewayCommand = async (
   input: AssociateCustomerGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath =
     "/global-networks/{GlobalNetworkId}/customer-gateway-associations";
   if (input.GlobalNetworkId !== undefined) {
@@ -196,8 +197,9 @@ export const serializeAws_restJson1_1AssociateLinkCommand = async (
   input: AssociateLinkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/global-networks/{GlobalNetworkId}/link-associations";
   if (input.GlobalNetworkId !== undefined) {
     const labelValue: string = input.GlobalNetworkId;
@@ -238,8 +240,9 @@ export const serializeAws_restJson1_1CreateDeviceCommand = async (
   input: CreateDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/global-networks/{GlobalNetworkId}/devices";
   if (input.GlobalNetworkId !== undefined) {
     const labelValue: string = input.GlobalNetworkId;
@@ -301,8 +304,9 @@ export const serializeAws_restJson1_1CreateGlobalNetworkCommand = async (
   input: CreateGlobalNetworkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/global-networks";
   let body: any;
   const bodyParams: any = {};
@@ -329,8 +333,9 @@ export const serializeAws_restJson1_1CreateLinkCommand = async (
   input: CreateLinkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/global-networks/{GlobalNetworkId}/links";
   if (input.GlobalNetworkId !== undefined) {
     const labelValue: string = input.GlobalNetworkId;
@@ -386,8 +391,9 @@ export const serializeAws_restJson1_1CreateSiteCommand = async (
   input: CreateSiteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/global-networks/{GlobalNetworkId}/sites";
   if (input.GlobalNetworkId !== undefined) {
     const labelValue: string = input.GlobalNetworkId;
@@ -434,8 +440,9 @@ export const serializeAws_restJson1_1DeleteDeviceCommand = async (
   input: DeleteDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/global-networks/{GlobalNetworkId}/devices/{DeviceId}";
   if (input.DeviceId !== undefined) {
     const labelValue: string = input.DeviceId;
@@ -480,8 +487,9 @@ export const serializeAws_restJson1_1DeleteGlobalNetworkCommand = async (
   input: DeleteGlobalNetworkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/global-networks/{GlobalNetworkId}";
   if (input.GlobalNetworkId !== undefined) {
     const labelValue: string = input.GlobalNetworkId;
@@ -514,8 +522,9 @@ export const serializeAws_restJson1_1DeleteLinkCommand = async (
   input: DeleteLinkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/global-networks/{GlobalNetworkId}/links/{LinkId}";
   if (input.GlobalNetworkId !== undefined) {
     const labelValue: string = input.GlobalNetworkId;
@@ -560,8 +569,9 @@ export const serializeAws_restJson1_1DeleteSiteCommand = async (
   input: DeleteSiteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/global-networks/{GlobalNetworkId}/sites/{SiteId}";
   if (input.GlobalNetworkId !== undefined) {
     const labelValue: string = input.GlobalNetworkId;
@@ -606,8 +616,9 @@ export const serializeAws_restJson1_1DeregisterTransitGatewayCommand = async (
   input: DeregisterTransitGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/global-networks/{GlobalNetworkId}/transit-gateway-registrations/{TransitGatewayArn}";
   if (input.GlobalNetworkId !== undefined) {
@@ -657,8 +668,9 @@ export const serializeAws_restJson1_1DescribeGlobalNetworksCommand = async (
   input: DescribeGlobalNetworksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/global-networks";
   const query: any = {
     ...(input.GlobalNetworkIds !== undefined && {
@@ -687,8 +699,9 @@ export const serializeAws_restJson1_1DisassociateCustomerGatewayCommand = async 
   input: DisassociateCustomerGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/global-networks/{GlobalNetworkId}/customer-gateway-associations/{CustomerGatewayArn}";
   if (input.CustomerGatewayArn !== undefined) {
@@ -738,8 +751,9 @@ export const serializeAws_restJson1_1DisassociateLinkCommand = async (
   input: DisassociateLinkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/global-networks/{GlobalNetworkId}/link-associations";
   if (input.GlobalNetworkId !== undefined) {
     const labelValue: string = input.GlobalNetworkId;
@@ -777,8 +791,9 @@ export const serializeAws_restJson1_1GetCustomerGatewayAssociationsCommand = asy
   input: GetCustomerGatewayAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/global-networks/{GlobalNetworkId}/customer-gateway-associations";
   if (input.GlobalNetworkId !== undefined) {
@@ -824,8 +839,9 @@ export const serializeAws_restJson1_1GetDevicesCommand = async (
   input: GetDevicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/global-networks/{GlobalNetworkId}/devices";
   if (input.GlobalNetworkId !== undefined) {
     const labelValue: string = input.GlobalNetworkId;
@@ -869,8 +885,9 @@ export const serializeAws_restJson1_1GetLinkAssociationsCommand = async (
   input: GetLinkAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/global-networks/{GlobalNetworkId}/link-associations";
   if (input.GlobalNetworkId !== undefined) {
     const labelValue: string = input.GlobalNetworkId;
@@ -912,8 +929,9 @@ export const serializeAws_restJson1_1GetLinksCommand = async (
   input: GetLinksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/global-networks/{GlobalNetworkId}/links";
   if (input.GlobalNetworkId !== undefined) {
     const labelValue: string = input.GlobalNetworkId;
@@ -959,8 +977,9 @@ export const serializeAws_restJson1_1GetSitesCommand = async (
   input: GetSitesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/global-networks/{GlobalNetworkId}/sites";
   if (input.GlobalNetworkId !== undefined) {
     const labelValue: string = input.GlobalNetworkId;
@@ -1003,8 +1022,9 @@ export const serializeAws_restJson1_1GetTransitGatewayRegistrationsCommand = asy
   input: GetTransitGatewayRegistrationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/global-networks/{GlobalNetworkId}/transit-gateway-registrations";
   if (input.GlobalNetworkId !== undefined) {
@@ -1048,8 +1068,9 @@ export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -1082,8 +1103,9 @@ export const serializeAws_restJson1_1RegisterTransitGatewayCommand = async (
   input: RegisterTransitGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath =
     "/global-networks/{GlobalNetworkId}/transit-gateway-registrations";
   if (input.GlobalNetworkId !== undefined) {
@@ -1122,8 +1144,9 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -1161,8 +1184,9 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -1201,8 +1225,9 @@ export const serializeAws_restJson1_1UpdateDeviceCommand = async (
   input: UpdateDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/global-networks/{GlobalNetworkId}/devices/{DeviceId}";
   if (input.DeviceId !== undefined) {
     const labelValue: string = input.DeviceId;
@@ -1273,8 +1298,9 @@ export const serializeAws_restJson1_1UpdateGlobalNetworkCommand = async (
   input: UpdateGlobalNetworkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/global-networks/{GlobalNetworkId}";
   if (input.GlobalNetworkId !== undefined) {
     const labelValue: string = input.GlobalNetworkId;
@@ -1312,8 +1338,9 @@ export const serializeAws_restJson1_1UpdateLinkCommand = async (
   input: UpdateLinkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/global-networks/{GlobalNetworkId}/links/{LinkId}";
   if (input.GlobalNetworkId !== undefined) {
     const labelValue: string = input.GlobalNetworkId;
@@ -1375,8 +1402,9 @@ export const serializeAws_restJson1_1UpdateSiteCommand = async (
   input: UpdateSiteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/global-networks/{GlobalNetworkId}/sites/{SiteId}";
   if (input.GlobalNetworkId !== undefined) {
     const labelValue: string = input.GlobalNetworkId;

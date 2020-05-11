@@ -67,9 +67,10 @@ export const serializeAws_json1_1CloseTunnelCommand = async (
   input: CloseTunnelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "IoTSecuredTunneling.CloseTunnel";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "IoTSecuredTunneling.CloseTunnel"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CloseTunnelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -79,9 +80,10 @@ export const serializeAws_json1_1DescribeTunnelCommand = async (
   input: DescribeTunnelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "IoTSecuredTunneling.DescribeTunnel";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "IoTSecuredTunneling.DescribeTunnel"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeTunnelRequest(input, context)
@@ -93,9 +95,10 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "IoTSecuredTunneling.ListTagsForResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "IoTSecuredTunneling.ListTagsForResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTagsForResourceRequest(input, context)
@@ -107,9 +110,10 @@ export const serializeAws_json1_1ListTunnelsCommand = async (
   input: ListTunnelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "IoTSecuredTunneling.ListTunnels";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "IoTSecuredTunneling.ListTunnels"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTunnelsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -119,9 +123,10 @@ export const serializeAws_json1_1OpenTunnelCommand = async (
   input: OpenTunnelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "IoTSecuredTunneling.OpenTunnel";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "IoTSecuredTunneling.OpenTunnel"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1OpenTunnelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -131,9 +136,10 @@ export const serializeAws_json1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "IoTSecuredTunneling.TagResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "IoTSecuredTunneling.TagResource"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -143,9 +149,10 @@ export const serializeAws_json1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "IoTSecuredTunneling.UntagResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "IoTSecuredTunneling.UntagResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UntagResourceRequest(input, context)

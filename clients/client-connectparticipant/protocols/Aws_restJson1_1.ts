@@ -46,11 +46,12 @@ export const serializeAws_restJson1_1CreateParticipantConnectionCommand = async 
   input: CreateParticipantConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.ParticipantToken)) {
-    headers["X-Amz-Bearer"] = input.ParticipantToken!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.ParticipantToken) && {
+      "X-Amz-Bearer": input.ParticipantToken!
+    })
+  };
   let resolvedPath = "/participant/connection";
   let body: any;
   const bodyParams: any = {};
@@ -77,11 +78,12 @@ export const serializeAws_restJson1_1DisconnectParticipantCommand = async (
   input: DisconnectParticipantCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.ConnectionToken)) {
-    headers["X-Amz-Bearer"] = input.ConnectionToken!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.ConnectionToken) && {
+      "X-Amz-Bearer": input.ConnectionToken!
+    })
+  };
   let resolvedPath = "/participant/disconnect";
   let body: any;
   const bodyParams: any = {};
@@ -108,11 +110,12 @@ export const serializeAws_restJson1_1GetTranscriptCommand = async (
   input: GetTranscriptCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.ConnectionToken)) {
-    headers["X-Amz-Bearer"] = input.ConnectionToken!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.ConnectionToken) && {
+      "X-Amz-Bearer": input.ConnectionToken!
+    })
+  };
   let resolvedPath = "/participant/transcript";
   let body: any;
   const bodyParams: any = {};
@@ -154,11 +157,12 @@ export const serializeAws_restJson1_1SendEventCommand = async (
   input: SendEventCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.ConnectionToken)) {
-    headers["X-Amz-Bearer"] = input.ConnectionToken!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.ConnectionToken) && {
+      "X-Amz-Bearer": input.ConnectionToken!
+    })
+  };
   let resolvedPath = "/participant/event";
   let body: any;
   const bodyParams: any = {};
@@ -191,11 +195,12 @@ export const serializeAws_restJson1_1SendMessageCommand = async (
   input: SendMessageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.ConnectionToken)) {
-    headers["X-Amz-Bearer"] = input.ConnectionToken!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.ConnectionToken) && {
+      "X-Amz-Bearer": input.ConnectionToken!
+    })
+  };
   let resolvedPath = "/participant/message";
   let body: any;
   const bodyParams: any = {};

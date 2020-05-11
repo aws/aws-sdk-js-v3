@@ -198,10 +198,10 @@ export const serializeAws_json1_1CreateCostCategoryDefinitionCommand = async (
   input: CreateCostCategoryDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSInsightsIndexService.CreateCostCategoryDefinition";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSInsightsIndexService.CreateCostCategoryDefinition"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateCostCategoryDefinitionRequest(input, context)
@@ -213,10 +213,10 @@ export const serializeAws_json1_1DeleteCostCategoryDefinitionCommand = async (
   input: DeleteCostCategoryDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSInsightsIndexService.DeleteCostCategoryDefinition";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSInsightsIndexService.DeleteCostCategoryDefinition"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteCostCategoryDefinitionRequest(input, context)
@@ -228,10 +228,10 @@ export const serializeAws_json1_1DescribeCostCategoryDefinitionCommand = async (
   input: DescribeCostCategoryDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSInsightsIndexService.DescribeCostCategoryDefinition";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSInsightsIndexService.DescribeCostCategoryDefinition"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeCostCategoryDefinitionRequest(input, context)
@@ -243,9 +243,10 @@ export const serializeAws_json1_1GetCostAndUsageCommand = async (
   input: GetCostAndUsageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSInsightsIndexService.GetCostAndUsage";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSInsightsIndexService.GetCostAndUsage"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetCostAndUsageRequest(input, context)
@@ -257,10 +258,10 @@ export const serializeAws_json1_1GetCostAndUsageWithResourcesCommand = async (
   input: GetCostAndUsageWithResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSInsightsIndexService.GetCostAndUsageWithResources";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSInsightsIndexService.GetCostAndUsageWithResources"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetCostAndUsageWithResourcesRequest(input, context)
@@ -272,9 +273,10 @@ export const serializeAws_json1_1GetCostForecastCommand = async (
   input: GetCostForecastCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSInsightsIndexService.GetCostForecast";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSInsightsIndexService.GetCostForecast"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetCostForecastRequest(input, context)
@@ -286,9 +288,10 @@ export const serializeAws_json1_1GetDimensionValuesCommand = async (
   input: GetDimensionValuesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSInsightsIndexService.GetDimensionValues";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSInsightsIndexService.GetDimensionValues"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetDimensionValuesRequest(input, context)
@@ -300,9 +303,10 @@ export const serializeAws_json1_1GetReservationCoverageCommand = async (
   input: GetReservationCoverageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSInsightsIndexService.GetReservationCoverage";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSInsightsIndexService.GetReservationCoverage"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetReservationCoverageRequest(input, context)
@@ -314,10 +318,11 @@ export const serializeAws_json1_1GetReservationPurchaseRecommendationCommand = a
   input: GetReservationPurchaseRecommendationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSInsightsIndexService.GetReservationPurchaseRecommendation";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "AWSInsightsIndexService.GetReservationPurchaseRecommendation"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetReservationPurchaseRecommendationRequest(
@@ -332,9 +337,10 @@ export const serializeAws_json1_1GetReservationUtilizationCommand = async (
   input: GetReservationUtilizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSInsightsIndexService.GetReservationUtilization";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSInsightsIndexService.GetReservationUtilization"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetReservationUtilizationRequest(input, context)
@@ -346,10 +352,10 @@ export const serializeAws_json1_1GetRightsizingRecommendationCommand = async (
   input: GetRightsizingRecommendationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSInsightsIndexService.GetRightsizingRecommendation";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSInsightsIndexService.GetRightsizingRecommendation"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetRightsizingRecommendationRequest(input, context)
@@ -361,9 +367,10 @@ export const serializeAws_json1_1GetSavingsPlansCoverageCommand = async (
   input: GetSavingsPlansCoverageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSInsightsIndexService.GetSavingsPlansCoverage";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSInsightsIndexService.GetSavingsPlansCoverage"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetSavingsPlansCoverageRequest(input, context)
@@ -375,10 +382,11 @@ export const serializeAws_json1_1GetSavingsPlansPurchaseRecommendationCommand = 
   input: GetSavingsPlansPurchaseRecommendationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSInsightsIndexService.GetSavingsPlansPurchaseRecommendation";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "AWSInsightsIndexService.GetSavingsPlansPurchaseRecommendation"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetSavingsPlansPurchaseRecommendationRequest(
@@ -393,10 +401,10 @@ export const serializeAws_json1_1GetSavingsPlansUtilizationCommand = async (
   input: GetSavingsPlansUtilizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSInsightsIndexService.GetSavingsPlansUtilization";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSInsightsIndexService.GetSavingsPlansUtilization"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetSavingsPlansUtilizationRequest(input, context)
@@ -408,10 +416,10 @@ export const serializeAws_json1_1GetSavingsPlansUtilizationDetailsCommand = asyn
   input: GetSavingsPlansUtilizationDetailsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSInsightsIndexService.GetSavingsPlansUtilizationDetails";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSInsightsIndexService.GetSavingsPlansUtilizationDetails"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetSavingsPlansUtilizationDetailsRequest(input, context)
@@ -423,9 +431,10 @@ export const serializeAws_json1_1GetTagsCommand = async (
   input: GetTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSInsightsIndexService.GetTags";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSInsightsIndexService.GetTags"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetTagsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -435,9 +444,10 @@ export const serializeAws_json1_1GetUsageForecastCommand = async (
   input: GetUsageForecastCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSInsightsIndexService.GetUsageForecast";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSInsightsIndexService.GetUsageForecast"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetUsageForecastRequest(input, context)
@@ -449,10 +459,10 @@ export const serializeAws_json1_1ListCostCategoryDefinitionsCommand = async (
   input: ListCostCategoryDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSInsightsIndexService.ListCostCategoryDefinitions";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSInsightsIndexService.ListCostCategoryDefinitions"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListCostCategoryDefinitionsRequest(input, context)
@@ -464,10 +474,10 @@ export const serializeAws_json1_1UpdateCostCategoryDefinitionCommand = async (
   input: UpdateCostCategoryDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSInsightsIndexService.UpdateCostCategoryDefinition";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSInsightsIndexService.UpdateCostCategoryDefinition"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateCostCategoryDefinitionRequest(input, context)

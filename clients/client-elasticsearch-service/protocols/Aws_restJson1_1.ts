@@ -161,8 +161,9 @@ export const serializeAws_restJson1_1AddTagsCommand = async (
   input: AddTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/2015-01-01/tags";
   let body: any;
   const bodyParams: any = {};
@@ -192,8 +193,9 @@ export const serializeAws_restJson1_1CancelElasticsearchServiceSoftwareUpdateCom
   input: CancelElasticsearchServiceSoftwareUpdateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/2015-01-01/es/serviceSoftwareUpdate/cancel";
   let body: any;
   const bodyParams: any = {};
@@ -217,8 +219,9 @@ export const serializeAws_restJson1_1CreateElasticsearchDomainCommand = async (
   input: CreateElasticsearchDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/2015-01-01/es/domain";
   let body: any;
   const bodyParams: any = {};
@@ -318,8 +321,9 @@ export const serializeAws_restJson1_1DeleteElasticsearchDomainCommand = async (
   input: DeleteElasticsearchDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2015-01-01/es/domain/{DomainName}";
   if (input.DomainName !== undefined) {
     const labelValue: string = input.DomainName;
@@ -350,8 +354,9 @@ export const serializeAws_restJson1_1DeleteElasticsearchServiceRoleCommand = asy
   input: DeleteElasticsearchServiceRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2015-01-01/es/role";
   let body: any;
   body = "{}";
@@ -371,8 +376,9 @@ export const serializeAws_restJson1_1DescribeElasticsearchDomainCommand = async 
   input: DescribeElasticsearchDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2015-01-01/es/domain/{DomainName}";
   if (input.DomainName !== undefined) {
     const labelValue: string = input.DomainName;
@@ -403,8 +409,9 @@ export const serializeAws_restJson1_1DescribeElasticsearchDomainConfigCommand = 
   input: DescribeElasticsearchDomainConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2015-01-01/es/domain/{DomainName}/config";
   if (input.DomainName !== undefined) {
     const labelValue: string = input.DomainName;
@@ -435,8 +442,9 @@ export const serializeAws_restJson1_1DescribeElasticsearchDomainsCommand = async
   input: DescribeElasticsearchDomainsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/2015-01-01/es/domain-info";
   let body: any;
   const bodyParams: any = {};
@@ -463,8 +471,9 @@ export const serializeAws_restJson1_1DescribeElasticsearchInstanceTypeLimitsComm
   input: DescribeElasticsearchInstanceTypeLimitsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/2015-01-01/es/instanceTypeLimits/{ElasticsearchVersion}/{InstanceType}";
   if (input.ElasticsearchVersion !== undefined) {
@@ -518,8 +527,9 @@ export const serializeAws_restJson1_1DescribeReservedElasticsearchInstanceOfferi
   input: DescribeReservedElasticsearchInstanceOfferingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2015-01-01/es/reservedInstanceOfferings";
   const query: any = {
     ...(input.MaxResults !== undefined && {
@@ -548,8 +558,9 @@ export const serializeAws_restJson1_1DescribeReservedElasticsearchInstancesComma
   input: DescribeReservedElasticsearchInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2015-01-01/es/reservedInstances";
   const query: any = {
     ...(input.MaxResults !== undefined && {
@@ -578,8 +589,9 @@ export const serializeAws_restJson1_1GetCompatibleElasticsearchVersionsCommand =
   input: GetCompatibleElasticsearchVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2015-01-01/es/compatibleVersions";
   const query: any = {
     ...(input.DomainName !== undefined && { domainName: input.DomainName })
@@ -602,8 +614,9 @@ export const serializeAws_restJson1_1GetUpgradeHistoryCommand = async (
   input: GetUpgradeHistoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2015-01-01/es/upgradeDomain/{DomainName}/history";
   if (input.DomainName !== undefined) {
     const labelValue: string = input.DomainName;
@@ -641,8 +654,9 @@ export const serializeAws_restJson1_1GetUpgradeStatusCommand = async (
   input: GetUpgradeStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2015-01-01/es/upgradeDomain/{DomainName}/status";
   if (input.DomainName !== undefined) {
     const labelValue: string = input.DomainName;
@@ -673,8 +687,9 @@ export const serializeAws_restJson1_1ListDomainNamesCommand = async (
   input: ListDomainNamesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2015-01-01/domain";
   let body: any;
   body = "{}";
@@ -694,8 +709,9 @@ export const serializeAws_restJson1_1ListElasticsearchInstanceTypesCommand = asy
   input: ListElasticsearchInstanceTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2015-01-01/es/instanceTypes/{ElasticsearchVersion}";
   if (input.ElasticsearchVersion !== undefined) {
     const labelValue: string = input.ElasticsearchVersion;
@@ -738,8 +754,9 @@ export const serializeAws_restJson1_1ListElasticsearchVersionsCommand = async (
   input: ListElasticsearchVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2015-01-01/es/versions";
   const query: any = {
     ...(input.MaxResults !== undefined && {
@@ -765,8 +782,9 @@ export const serializeAws_restJson1_1ListTagsCommand = async (
   input: ListTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2015-01-01/tags";
   const query: any = {
     ...(input.ARN !== undefined && { arn: input.ARN })
@@ -789,8 +807,9 @@ export const serializeAws_restJson1_1PurchaseReservedElasticsearchInstanceOfferi
   input: PurchaseReservedElasticsearchInstanceOfferingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/2015-01-01/es/purchaseReservedInstanceOffering";
   let body: any;
   const bodyParams: any = {};
@@ -821,8 +840,9 @@ export const serializeAws_restJson1_1RemoveTagsCommand = async (
   input: RemoveTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/2015-01-01/tags-removal";
   let body: any;
   const bodyParams: any = {};
@@ -852,8 +872,9 @@ export const serializeAws_restJson1_1StartElasticsearchServiceSoftwareUpdateComm
   input: StartElasticsearchServiceSoftwareUpdateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/2015-01-01/es/serviceSoftwareUpdate/start";
   let body: any;
   const bodyParams: any = {};
@@ -877,8 +898,9 @@ export const serializeAws_restJson1_1UpdateElasticsearchDomainConfigCommand = as
   input: UpdateElasticsearchDomainConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/2015-01-01/es/domain/{DomainName}/config";
   if (input.DomainName !== undefined) {
     const labelValue: string = input.DomainName;
@@ -968,8 +990,9 @@ export const serializeAws_restJson1_1UpgradeElasticsearchDomainCommand = async (
   input: UpgradeElasticsearchDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/2015-01-01/es/upgradeDomain";
   let body: any;
   const bodyParams: any = {};

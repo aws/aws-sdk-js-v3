@@ -136,9 +136,10 @@ export const serializeAws_json1_1AssociateCreatedArtifactCommand = async (
   input: AssociateCreatedArtifactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSMigrationHub.AssociateCreatedArtifact";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSMigrationHub.AssociateCreatedArtifact"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AssociateCreatedArtifactRequest(input, context)
@@ -150,9 +151,10 @@ export const serializeAws_json1_1AssociateDiscoveredResourceCommand = async (
   input: AssociateDiscoveredResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSMigrationHub.AssociateDiscoveredResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSMigrationHub.AssociateDiscoveredResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AssociateDiscoveredResourceRequest(input, context)
@@ -164,9 +166,10 @@ export const serializeAws_json1_1CreateProgressUpdateStreamCommand = async (
   input: CreateProgressUpdateStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSMigrationHub.CreateProgressUpdateStream";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSMigrationHub.CreateProgressUpdateStream"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateProgressUpdateStreamRequest(input, context)
@@ -178,9 +181,10 @@ export const serializeAws_json1_1DeleteProgressUpdateStreamCommand = async (
   input: DeleteProgressUpdateStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSMigrationHub.DeleteProgressUpdateStream";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSMigrationHub.DeleteProgressUpdateStream"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteProgressUpdateStreamRequest(input, context)
@@ -192,9 +196,10 @@ export const serializeAws_json1_1DescribeApplicationStateCommand = async (
   input: DescribeApplicationStateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSMigrationHub.DescribeApplicationState";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSMigrationHub.DescribeApplicationState"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeApplicationStateRequest(input, context)
@@ -206,9 +211,10 @@ export const serializeAws_json1_1DescribeMigrationTaskCommand = async (
   input: DescribeMigrationTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSMigrationHub.DescribeMigrationTask";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSMigrationHub.DescribeMigrationTask"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeMigrationTaskRequest(input, context)
@@ -220,9 +226,10 @@ export const serializeAws_json1_1DisassociateCreatedArtifactCommand = async (
   input: DisassociateCreatedArtifactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSMigrationHub.DisassociateCreatedArtifact";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSMigrationHub.DisassociateCreatedArtifact"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DisassociateCreatedArtifactRequest(input, context)
@@ -234,9 +241,10 @@ export const serializeAws_json1_1DisassociateDiscoveredResourceCommand = async (
   input: DisassociateDiscoveredResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSMigrationHub.DisassociateDiscoveredResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSMigrationHub.DisassociateDiscoveredResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DisassociateDiscoveredResourceRequest(input, context)
@@ -248,9 +256,10 @@ export const serializeAws_json1_1ImportMigrationTaskCommand = async (
   input: ImportMigrationTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSMigrationHub.ImportMigrationTask";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSMigrationHub.ImportMigrationTask"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ImportMigrationTaskRequest(input, context)
@@ -262,9 +271,10 @@ export const serializeAws_json1_1ListApplicationStatesCommand = async (
   input: ListApplicationStatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSMigrationHub.ListApplicationStates";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSMigrationHub.ListApplicationStates"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListApplicationStatesRequest(input, context)
@@ -276,9 +286,10 @@ export const serializeAws_json1_1ListCreatedArtifactsCommand = async (
   input: ListCreatedArtifactsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSMigrationHub.ListCreatedArtifacts";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSMigrationHub.ListCreatedArtifacts"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListCreatedArtifactsRequest(input, context)
@@ -290,9 +301,10 @@ export const serializeAws_json1_1ListDiscoveredResourcesCommand = async (
   input: ListDiscoveredResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSMigrationHub.ListDiscoveredResources";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSMigrationHub.ListDiscoveredResources"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListDiscoveredResourcesRequest(input, context)
@@ -304,9 +316,10 @@ export const serializeAws_json1_1ListMigrationTasksCommand = async (
   input: ListMigrationTasksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSMigrationHub.ListMigrationTasks";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSMigrationHub.ListMigrationTasks"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListMigrationTasksRequest(input, context)
@@ -318,9 +331,10 @@ export const serializeAws_json1_1ListProgressUpdateStreamsCommand = async (
   input: ListProgressUpdateStreamsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSMigrationHub.ListProgressUpdateStreams";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSMigrationHub.ListProgressUpdateStreams"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListProgressUpdateStreamsRequest(input, context)
@@ -332,9 +346,10 @@ export const serializeAws_json1_1NotifyApplicationStateCommand = async (
   input: NotifyApplicationStateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSMigrationHub.NotifyApplicationState";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSMigrationHub.NotifyApplicationState"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1NotifyApplicationStateRequest(input, context)
@@ -346,9 +361,10 @@ export const serializeAws_json1_1NotifyMigrationTaskStateCommand = async (
   input: NotifyMigrationTaskStateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSMigrationHub.NotifyMigrationTaskState";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSMigrationHub.NotifyMigrationTaskState"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1NotifyMigrationTaskStateRequest(input, context)
@@ -360,9 +376,10 @@ export const serializeAws_json1_1PutResourceAttributesCommand = async (
   input: PutResourceAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSMigrationHub.PutResourceAttributes";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSMigrationHub.PutResourceAttributes"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutResourceAttributesRequest(input, context)

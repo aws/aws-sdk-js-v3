@@ -57,8 +57,9 @@ export const serializeAws_restJson1_1DeleteSessionCommand = async (
   input: DeleteSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/bot/{botName}/alias/{botAlias}/user/{userId}/session";
   if (input.botAlias !== undefined) {
     const labelValue: string = input.botAlias;
@@ -113,8 +114,9 @@ export const serializeAws_restJson1_1GetSessionCommand = async (
   input: GetSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/bot/{botName}/alias/{botAlias}/user/{userId}/session";
   if (input.botAlias !== undefined) {
     const labelValue: string = input.botAlias;
@@ -175,25 +177,24 @@ export const serializeAws_restJson1_1PostContentCommand = async (
   input: PostContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/octet-stream";
-  headers["x-amz-content-sha256"] = "UNSIGNED_PAYLOAD";
-  if (isSerializableHeaderValue(input.accept)) {
-    headers["Accept"] = input.accept!;
-  }
-  if (isSerializableHeaderValue(input.contentType)) {
-    headers["Content-Type"] = input.contentType!;
-  }
-  if (isSerializableHeaderValue(input.requestAttributes)) {
-    headers["x-amz-lex-request-attributes"] = __LazyJsonString.fromObject(
-      input.requestAttributes!
-    );
-  }
-  if (isSerializableHeaderValue(input.sessionAttributes)) {
-    headers["x-amz-lex-session-attributes"] = __LazyJsonString.fromObject(
-      input.sessionAttributes!
-    );
-  }
+  const headers: any = {
+    "Content-Type": "application/octet-stream",
+    "x-amz-content-sha256": "UNSIGNED_PAYLOAD",
+    ...(isSerializableHeaderValue(input.accept) && { Accept: input.accept! }),
+    ...(isSerializableHeaderValue(input.contentType) && {
+      "Content-Type": input.contentType!
+    }),
+    ...(isSerializableHeaderValue(input.requestAttributes) && {
+      "x-amz-lex-request-attributes": __LazyJsonString.fromObject(
+        input.requestAttributes!
+      )
+    }),
+    ...(isSerializableHeaderValue(input.sessionAttributes) && {
+      "x-amz-lex-session-attributes": __LazyJsonString.fromObject(
+        input.sessionAttributes!
+      )
+    })
+  };
   let resolvedPath = "/bot/{botName}/alias/{botAlias}/user/{userId}/content";
   if (input.botAlias !== undefined) {
     const labelValue: string = input.botAlias;
@@ -251,8 +252,9 @@ export const serializeAws_restJson1_1PostTextCommand = async (
   input: PostTextCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/bot/{botName}/alias/{botAlias}/user/{userId}/text";
   if (input.botAlias !== undefined) {
     const labelValue: string = input.botAlias;
@@ -324,11 +326,10 @@ export const serializeAws_restJson1_1PutSessionCommand = async (
   input: PutSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.accept)) {
-    headers["Accept"] = input.accept!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.accept) && { Accept: input.accept! })
+  };
   let resolvedPath = "/bot/{botName}/alias/{botAlias}/user/{userId}/session";
   if (input.botAlias !== undefined) {
     const labelValue: string = input.botAlias;

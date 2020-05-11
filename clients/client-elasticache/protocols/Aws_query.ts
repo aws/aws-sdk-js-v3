@@ -403,8 +403,9 @@ export const serializeAws_queryAddTagsToResourceCommand = async (
   input: AddTagsToResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryAddTagsToResourceMessage(input, context);
   body = buildFormUrlencodedString({
@@ -419,8 +420,9 @@ export const serializeAws_queryAuthorizeCacheSecurityGroupIngressCommand = async
   input: AuthorizeCacheSecurityGroupIngressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryAuthorizeCacheSecurityGroupIngressMessage(
     input,
@@ -438,8 +440,9 @@ export const serializeAws_queryBatchApplyUpdateActionCommand = async (
   input: BatchApplyUpdateActionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryBatchApplyUpdateActionMessage(
     input,
@@ -457,8 +460,9 @@ export const serializeAws_queryBatchStopUpdateActionCommand = async (
   input: BatchStopUpdateActionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryBatchStopUpdateActionMessage(
     input,
@@ -476,8 +480,9 @@ export const serializeAws_queryCompleteMigrationCommand = async (
   input: CompleteMigrationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCompleteMigrationMessage(input, context);
   body = buildFormUrlencodedString({
@@ -492,8 +497,9 @@ export const serializeAws_queryCopySnapshotCommand = async (
   input: CopySnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCopySnapshotMessage(input, context);
   body = buildFormUrlencodedString({
@@ -508,8 +514,9 @@ export const serializeAws_queryCreateCacheClusterCommand = async (
   input: CreateCacheClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCreateCacheClusterMessage(input, context);
   body = buildFormUrlencodedString({
@@ -524,8 +531,9 @@ export const serializeAws_queryCreateCacheParameterGroupCommand = async (
   input: CreateCacheParameterGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCreateCacheParameterGroupMessage(
     input,
@@ -543,8 +551,9 @@ export const serializeAws_queryCreateCacheSecurityGroupCommand = async (
   input: CreateCacheSecurityGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCreateCacheSecurityGroupMessage(
     input,
@@ -562,8 +571,9 @@ export const serializeAws_queryCreateCacheSubnetGroupCommand = async (
   input: CreateCacheSubnetGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCreateCacheSubnetGroupMessage(
     input,
@@ -581,8 +591,9 @@ export const serializeAws_queryCreateReplicationGroupCommand = async (
   input: CreateReplicationGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCreateReplicationGroupMessage(
     input,
@@ -600,8 +611,9 @@ export const serializeAws_queryCreateSnapshotCommand = async (
   input: CreateSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCreateSnapshotMessage(input, context);
   body = buildFormUrlencodedString({
@@ -616,8 +628,9 @@ export const serializeAws_queryDecreaseReplicaCountCommand = async (
   input: DecreaseReplicaCountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDecreaseReplicaCountMessage(input, context);
   body = buildFormUrlencodedString({
@@ -632,8 +645,9 @@ export const serializeAws_queryDeleteCacheClusterCommand = async (
   input: DeleteCacheClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteCacheClusterMessage(input, context);
   body = buildFormUrlencodedString({
@@ -648,8 +662,9 @@ export const serializeAws_queryDeleteCacheParameterGroupCommand = async (
   input: DeleteCacheParameterGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteCacheParameterGroupMessage(
     input,
@@ -667,8 +682,9 @@ export const serializeAws_queryDeleteCacheSecurityGroupCommand = async (
   input: DeleteCacheSecurityGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteCacheSecurityGroupMessage(
     input,
@@ -686,8 +702,9 @@ export const serializeAws_queryDeleteCacheSubnetGroupCommand = async (
   input: DeleteCacheSubnetGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteCacheSubnetGroupMessage(
     input,
@@ -705,8 +722,9 @@ export const serializeAws_queryDeleteReplicationGroupCommand = async (
   input: DeleteReplicationGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteReplicationGroupMessage(
     input,
@@ -724,8 +742,9 @@ export const serializeAws_queryDeleteSnapshotCommand = async (
   input: DeleteSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteSnapshotMessage(input, context);
   body = buildFormUrlencodedString({
@@ -740,8 +759,9 @@ export const serializeAws_queryDescribeCacheClustersCommand = async (
   input: DescribeCacheClustersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeCacheClustersMessage(
     input,
@@ -759,8 +779,9 @@ export const serializeAws_queryDescribeCacheEngineVersionsCommand = async (
   input: DescribeCacheEngineVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeCacheEngineVersionsMessage(
     input,
@@ -778,8 +799,9 @@ export const serializeAws_queryDescribeCacheParameterGroupsCommand = async (
   input: DescribeCacheParameterGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeCacheParameterGroupsMessage(
     input,
@@ -797,8 +819,9 @@ export const serializeAws_queryDescribeCacheParametersCommand = async (
   input: DescribeCacheParametersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeCacheParametersMessage(
     input,
@@ -816,8 +839,9 @@ export const serializeAws_queryDescribeCacheSecurityGroupsCommand = async (
   input: DescribeCacheSecurityGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeCacheSecurityGroupsMessage(
     input,
@@ -835,8 +859,9 @@ export const serializeAws_queryDescribeCacheSubnetGroupsCommand = async (
   input: DescribeCacheSubnetGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeCacheSubnetGroupsMessage(
     input,
@@ -854,8 +879,9 @@ export const serializeAws_queryDescribeEngineDefaultParametersCommand = async (
   input: DescribeEngineDefaultParametersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeEngineDefaultParametersMessage(
     input,
@@ -873,8 +899,9 @@ export const serializeAws_queryDescribeEventsCommand = async (
   input: DescribeEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeEventsMessage(input, context);
   body = buildFormUrlencodedString({
@@ -889,8 +916,9 @@ export const serializeAws_queryDescribeReplicationGroupsCommand = async (
   input: DescribeReplicationGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeReplicationGroupsMessage(
     input,
@@ -908,8 +936,9 @@ export const serializeAws_queryDescribeReservedCacheNodesCommand = async (
   input: DescribeReservedCacheNodesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeReservedCacheNodesMessage(
     input,
@@ -927,8 +956,9 @@ export const serializeAws_queryDescribeReservedCacheNodesOfferingsCommand = asyn
   input: DescribeReservedCacheNodesOfferingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeReservedCacheNodesOfferingsMessage(
     input,
@@ -946,8 +976,9 @@ export const serializeAws_queryDescribeServiceUpdatesCommand = async (
   input: DescribeServiceUpdatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeServiceUpdatesMessage(
     input,
@@ -965,8 +996,9 @@ export const serializeAws_queryDescribeSnapshotsCommand = async (
   input: DescribeSnapshotsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeSnapshotsMessage(input, context);
   body = buildFormUrlencodedString({
@@ -981,8 +1013,9 @@ export const serializeAws_queryDescribeUpdateActionsCommand = async (
   input: DescribeUpdateActionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeUpdateActionsMessage(
     input,
@@ -1000,8 +1033,9 @@ export const serializeAws_queryIncreaseReplicaCountCommand = async (
   input: IncreaseReplicaCountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryIncreaseReplicaCountMessage(input, context);
   body = buildFormUrlencodedString({
@@ -1016,8 +1050,9 @@ export const serializeAws_queryListAllowedNodeTypeModificationsCommand = async (
   input: ListAllowedNodeTypeModificationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryListAllowedNodeTypeModificationsMessage(
     input,
@@ -1035,8 +1070,9 @@ export const serializeAws_queryListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryListTagsForResourceMessage(input, context);
   body = buildFormUrlencodedString({
@@ -1051,8 +1087,9 @@ export const serializeAws_queryModifyCacheClusterCommand = async (
   input: ModifyCacheClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryModifyCacheClusterMessage(input, context);
   body = buildFormUrlencodedString({
@@ -1067,8 +1104,9 @@ export const serializeAws_queryModifyCacheParameterGroupCommand = async (
   input: ModifyCacheParameterGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryModifyCacheParameterGroupMessage(
     input,
@@ -1086,8 +1124,9 @@ export const serializeAws_queryModifyCacheSubnetGroupCommand = async (
   input: ModifyCacheSubnetGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryModifyCacheSubnetGroupMessage(
     input,
@@ -1105,8 +1144,9 @@ export const serializeAws_queryModifyReplicationGroupCommand = async (
   input: ModifyReplicationGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryModifyReplicationGroupMessage(
     input,
@@ -1124,8 +1164,9 @@ export const serializeAws_queryModifyReplicationGroupShardConfigurationCommand =
   input: ModifyReplicationGroupShardConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryModifyReplicationGroupShardConfigurationMessage(
     input,
@@ -1143,8 +1184,9 @@ export const serializeAws_queryPurchaseReservedCacheNodesOfferingCommand = async
   input: PurchaseReservedCacheNodesOfferingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryPurchaseReservedCacheNodesOfferingMessage(
     input,
@@ -1162,8 +1204,9 @@ export const serializeAws_queryRebootCacheClusterCommand = async (
   input: RebootCacheClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryRebootCacheClusterMessage(input, context);
   body = buildFormUrlencodedString({
@@ -1178,8 +1221,9 @@ export const serializeAws_queryRemoveTagsFromResourceCommand = async (
   input: RemoveTagsFromResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryRemoveTagsFromResourceMessage(
     input,
@@ -1197,8 +1241,9 @@ export const serializeAws_queryResetCacheParameterGroupCommand = async (
   input: ResetCacheParameterGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryResetCacheParameterGroupMessage(
     input,
@@ -1216,8 +1261,9 @@ export const serializeAws_queryRevokeCacheSecurityGroupIngressCommand = async (
   input: RevokeCacheSecurityGroupIngressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryRevokeCacheSecurityGroupIngressMessage(
     input,
@@ -1235,8 +1281,9 @@ export const serializeAws_queryStartMigrationCommand = async (
   input: StartMigrationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryStartMigrationMessage(input, context);
   body = buildFormUrlencodedString({
@@ -1251,8 +1298,9 @@ export const serializeAws_queryTestFailoverCommand = async (
   input: TestFailoverCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryTestFailoverMessage(input, context);
   body = buildFormUrlencodedString({

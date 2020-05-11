@@ -256,8 +256,9 @@ export const serializeAws_restJson1_1AssociateCertificateCommand = async (
   input: AssociateCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/2017-08-29/certificates";
   let body: any;
   const bodyParams: any = {};
@@ -281,8 +282,9 @@ export const serializeAws_restJson1_1CancelJobCommand = async (
   input: CancelJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2017-08-29/jobs/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -313,8 +315,9 @@ export const serializeAws_restJson1_1CreateJobCommand = async (
   input: CreateJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/2017-08-29/jobs";
   let body: any;
   const bodyParams: any = {};
@@ -388,8 +391,9 @@ export const serializeAws_restJson1_1CreateJobTemplateCommand = async (
   input: CreateJobTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/2017-08-29/jobTemplates";
   let body: any;
   const bodyParams: any = {};
@@ -448,8 +452,9 @@ export const serializeAws_restJson1_1CreatePresetCommand = async (
   input: CreatePresetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/2017-08-29/presets";
   let body: any;
   const bodyParams: any = {};
@@ -491,8 +496,9 @@ export const serializeAws_restJson1_1CreateQueueCommand = async (
   input: CreateQueueCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/2017-08-29/queues";
   let body: any;
   const bodyParams: any = {};
@@ -539,8 +545,9 @@ export const serializeAws_restJson1_1DeleteJobTemplateCommand = async (
   input: DeleteJobTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2017-08-29/jobTemplates/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
@@ -571,8 +578,9 @@ export const serializeAws_restJson1_1DeletePresetCommand = async (
   input: DeletePresetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2017-08-29/presets/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
@@ -603,8 +611,9 @@ export const serializeAws_restJson1_1DeleteQueueCommand = async (
   input: DeleteQueueCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2017-08-29/queues/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
@@ -635,8 +644,9 @@ export const serializeAws_restJson1_1DescribeEndpointsCommand = async (
   input: DescribeEndpointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/2017-08-29/endpoints";
   let body: any;
   const bodyParams: any = {};
@@ -666,8 +676,9 @@ export const serializeAws_restJson1_1DisassociateCertificateCommand = async (
   input: DisassociateCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2017-08-29/certificates/{Arn}";
   if (input.Arn !== undefined) {
     const labelValue: string = input.Arn;
@@ -698,8 +709,9 @@ export const serializeAws_restJson1_1GetJobCommand = async (
   input: GetJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2017-08-29/jobs/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -730,8 +742,9 @@ export const serializeAws_restJson1_1GetJobTemplateCommand = async (
   input: GetJobTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2017-08-29/jobTemplates/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
@@ -762,8 +775,9 @@ export const serializeAws_restJson1_1GetPresetCommand = async (
   input: GetPresetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2017-08-29/presets/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
@@ -794,8 +808,9 @@ export const serializeAws_restJson1_1GetQueueCommand = async (
   input: GetQueueCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2017-08-29/queues/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
@@ -826,8 +841,9 @@ export const serializeAws_restJson1_1ListJobTemplatesCommand = async (
   input: ListJobTemplatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2017-08-29/jobTemplates";
   const query: any = {
     ...(input.Category !== undefined && { category: input.Category }),
@@ -856,8 +872,9 @@ export const serializeAws_restJson1_1ListJobsCommand = async (
   input: ListJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2017-08-29/jobs";
   const query: any = {
     ...(input.MaxResults !== undefined && {
@@ -886,8 +903,9 @@ export const serializeAws_restJson1_1ListPresetsCommand = async (
   input: ListPresetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2017-08-29/presets";
   const query: any = {
     ...(input.Category !== undefined && { category: input.Category }),
@@ -916,8 +934,9 @@ export const serializeAws_restJson1_1ListQueuesCommand = async (
   input: ListQueuesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2017-08-29/queues";
   const query: any = {
     ...(input.ListBy !== undefined && { listBy: input.ListBy }),
@@ -945,8 +964,9 @@ export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2017-08-29/tags/{Arn}";
   if (input.Arn !== undefined) {
     const labelValue: string = input.Arn;
@@ -977,8 +997,9 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/2017-08-29/tags";
   let body: any;
   const bodyParams: any = {};
@@ -1008,8 +1029,9 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/2017-08-29/tags/{Arn}";
   if (input.Arn !== undefined) {
     const labelValue: string = input.Arn;
@@ -1048,8 +1070,9 @@ export const serializeAws_restJson1_1UpdateJobTemplateCommand = async (
   input: UpdateJobTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/2017-08-29/jobTemplates/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
@@ -1111,8 +1134,9 @@ export const serializeAws_restJson1_1UpdatePresetCommand = async (
   input: UpdatePresetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/2017-08-29/presets/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
@@ -1157,8 +1181,9 @@ export const serializeAws_restJson1_1UpdateQueueCommand = async (
   input: UpdateQueueCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/2017-08-29/queues/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;

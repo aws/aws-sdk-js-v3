@@ -224,8 +224,9 @@ export const serializeAws_restJson1_1CancelPipelineReprocessingCommand = async (
   input: CancelPipelineReprocessingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/pipelines/{pipelineName}/reprocessing/{reprocessingId}";
   if (input.pipelineName !== undefined) {
     const labelValue: string = input.pipelineName;
@@ -272,8 +273,9 @@ export const serializeAws_restJson1_1CreateChannelCommand = async (
   input: CreateChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/channels";
   let body: any;
   const bodyParams: any = {};
@@ -312,8 +314,9 @@ export const serializeAws_restJson1_1CreateDatasetCommand = async (
   input: CreateDatasetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/datasets";
   let body: any;
   const bodyParams: any = {};
@@ -374,8 +377,9 @@ export const serializeAws_restJson1_1CreateDatasetContentCommand = async (
   input: CreateDatasetContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/datasets/{datasetName}/content";
   if (input.datasetName !== undefined) {
     const labelValue: string = input.datasetName;
@@ -408,8 +412,9 @@ export const serializeAws_restJson1_1CreateDatastoreCommand = async (
   input: CreateDatastoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/datastores";
   let body: any;
   const bodyParams: any = {};
@@ -448,8 +453,9 @@ export const serializeAws_restJson1_1CreatePipelineCommand = async (
   input: CreatePipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/pipelines";
   let body: any;
   const bodyParams: any = {};
@@ -484,8 +490,9 @@ export const serializeAws_restJson1_1DeleteChannelCommand = async (
   input: DeleteChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/channels/{channelName}";
   if (input.channelName !== undefined) {
     const labelValue: string = input.channelName;
@@ -518,8 +525,9 @@ export const serializeAws_restJson1_1DeleteDatasetCommand = async (
   input: DeleteDatasetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/datasets/{datasetName}";
   if (input.datasetName !== undefined) {
     const labelValue: string = input.datasetName;
@@ -552,8 +560,9 @@ export const serializeAws_restJson1_1DeleteDatasetContentCommand = async (
   input: DeleteDatasetContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/datasets/{datasetName}/content";
   if (input.datasetName !== undefined) {
     const labelValue: string = input.datasetName;
@@ -590,8 +599,9 @@ export const serializeAws_restJson1_1DeleteDatastoreCommand = async (
   input: DeleteDatastoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/datastores/{datastoreName}";
   if (input.datastoreName !== undefined) {
     const labelValue: string = input.datastoreName;
@@ -624,8 +634,9 @@ export const serializeAws_restJson1_1DeletePipelineCommand = async (
   input: DeletePipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/pipelines/{pipelineName}";
   if (input.pipelineName !== undefined) {
     const labelValue: string = input.pipelineName;
@@ -658,8 +669,9 @@ export const serializeAws_restJson1_1DescribeChannelCommand = async (
   input: DescribeChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/channels/{channelName}";
   if (input.channelName !== undefined) {
     const labelValue: string = input.channelName;
@@ -698,8 +710,9 @@ export const serializeAws_restJson1_1DescribeDatasetCommand = async (
   input: DescribeDatasetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/datasets/{datasetName}";
   if (input.datasetName !== undefined) {
     const labelValue: string = input.datasetName;
@@ -732,8 +745,9 @@ export const serializeAws_restJson1_1DescribeDatastoreCommand = async (
   input: DescribeDatastoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/datastores/{datastoreName}";
   if (input.datastoreName !== undefined) {
     const labelValue: string = input.datastoreName;
@@ -772,8 +786,9 @@ export const serializeAws_restJson1_1DescribeLoggingOptionsCommand = async (
   input: DescribeLoggingOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/logging";
   let body: any;
   body = "{}";
@@ -793,8 +808,9 @@ export const serializeAws_restJson1_1DescribePipelineCommand = async (
   input: DescribePipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/pipelines/{pipelineName}";
   if (input.pipelineName !== undefined) {
     const labelValue: string = input.pipelineName;
@@ -827,8 +843,9 @@ export const serializeAws_restJson1_1GetDatasetContentCommand = async (
   input: GetDatasetContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/datasets/{datasetName}/content";
   if (input.datasetName !== undefined) {
     const labelValue: string = input.datasetName;
@@ -865,8 +882,9 @@ export const serializeAws_restJson1_1ListChannelsCommand = async (
   input: ListChannelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/channels";
   const query: any = {
     ...(input.maxResults !== undefined && {
@@ -892,8 +910,9 @@ export const serializeAws_restJson1_1ListDatasetContentsCommand = async (
   input: ListDatasetContentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/datasets/{datasetName}/contents";
   if (input.datasetName !== undefined) {
     const labelValue: string = input.datasetName;
@@ -943,8 +962,9 @@ export const serializeAws_restJson1_1ListDatasetsCommand = async (
   input: ListDatasetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/datasets";
   const query: any = {
     ...(input.maxResults !== undefined && {
@@ -970,8 +990,9 @@ export const serializeAws_restJson1_1ListDatastoresCommand = async (
   input: ListDatastoresCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/datastores";
   const query: any = {
     ...(input.maxResults !== undefined && {
@@ -997,8 +1018,9 @@ export const serializeAws_restJson1_1ListPipelinesCommand = async (
   input: ListPipelinesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/pipelines";
   const query: any = {
     ...(input.maxResults !== undefined && {
@@ -1024,8 +1046,9 @@ export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/tags";
   const query: any = {
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn })
@@ -1048,8 +1071,9 @@ export const serializeAws_restJson1_1PutLoggingOptionsCommand = async (
   input: PutLoggingOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/logging";
   let body: any;
   const bodyParams: any = {};
@@ -1076,8 +1100,9 @@ export const serializeAws_restJson1_1RunPipelineActivityCommand = async (
   input: RunPipelineActivityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/pipelineactivities/run";
   let body: any;
   const bodyParams: any = {};
@@ -1110,8 +1135,9 @@ export const serializeAws_restJson1_1SampleChannelDataCommand = async (
   input: SampleChannelDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/channels/{channelName}/sample";
   if (input.channelName !== undefined) {
     const labelValue: string = input.channelName;
@@ -1156,8 +1182,9 @@ export const serializeAws_restJson1_1StartPipelineReprocessingCommand = async (
   input: StartPipelineReprocessingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/pipelines/{pipelineName}/reprocessing";
   if (input.pipelineName !== undefined) {
     const labelValue: string = input.pipelineName;
@@ -1198,8 +1225,9 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/tags";
   const query: any = {
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn })
@@ -1227,8 +1255,9 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/tags";
   const query: any = {
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
@@ -1254,8 +1283,9 @@ export const serializeAws_restJson1_1UpdateChannelCommand = async (
   input: UpdateChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/channels/{channelName}";
   if (input.channelName !== undefined) {
     const labelValue: string = input.channelName;
@@ -1302,8 +1332,9 @@ export const serializeAws_restJson1_1UpdateDatasetCommand = async (
   input: UpdateDatasetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/datasets/{datasetName}";
   if (input.datasetName !== undefined) {
     const labelValue: string = input.datasetName;
@@ -1372,8 +1403,9 @@ export const serializeAws_restJson1_1UpdateDatastoreCommand = async (
   input: UpdateDatastoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/datastores/{datastoreName}";
   if (input.datastoreName !== undefined) {
     const labelValue: string = input.datastoreName;
@@ -1420,8 +1452,9 @@ export const serializeAws_restJson1_1UpdatePipelineCommand = async (
   input: UpdatePipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/pipelines/{pipelineName}";
   if (input.pipelineName !== undefined) {
     const labelValue: string = input.pipelineName;
@@ -1464,8 +1497,9 @@ export const serializeAws_restJson1_1BatchPutMessageCommand = async (
   input: BatchPutMessageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/messages/batch";
   let body: any;
   const bodyParams: any = {};

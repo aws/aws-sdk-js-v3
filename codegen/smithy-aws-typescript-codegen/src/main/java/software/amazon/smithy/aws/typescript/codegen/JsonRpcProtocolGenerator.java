@@ -84,7 +84,7 @@ abstract class JsonRpcProtocolGenerator extends HttpRpcProtocolGenerator {
         // separated by a '.' character, for the target header.
         TypeScriptWriter writer = context.getWriter();
         String target = context.getService().getId().getName() + "." + operation.getId().getName();
-        writer.write("headers['X-Amz-Target'] = $S;", target);
+        writer.write("'X-Amz-Target': $S,", target);
     }
 
     @Override

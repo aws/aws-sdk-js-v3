@@ -30,9 +30,10 @@ export const serializeAws_json1_1QueryForecastCommand = async (
   input: QueryForecastCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecastRuntime.QueryForecast";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecastRuntime.QueryForecast"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1QueryForecastRequest(input, context)

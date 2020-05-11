@@ -84,8 +84,9 @@ export const serializeAws_restJson1_1DeleteLexiconCommand = async (
   input: DeleteLexiconCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/lexicons/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
@@ -116,8 +117,9 @@ export const serializeAws_restJson1_1DescribeVoicesCommand = async (
   input: DescribeVoicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/voices";
   const query: any = {
     ...(input.Engine !== undefined && { Engine: input.Engine }),
@@ -147,8 +149,9 @@ export const serializeAws_restJson1_1GetLexiconCommand = async (
   input: GetLexiconCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/lexicons/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
@@ -179,8 +182,9 @@ export const serializeAws_restJson1_1GetSpeechSynthesisTaskCommand = async (
   input: GetSpeechSynthesisTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/synthesisTasks/{TaskId}";
   if (input.TaskId !== undefined) {
     const labelValue: string = input.TaskId;
@@ -211,8 +215,9 @@ export const serializeAws_restJson1_1ListLexiconsCommand = async (
   input: ListLexiconsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/lexicons";
   const query: any = {
     ...(input.NextToken !== undefined && { NextToken: input.NextToken })
@@ -235,8 +240,9 @@ export const serializeAws_restJson1_1ListSpeechSynthesisTasksCommand = async (
   input: ListSpeechSynthesisTasksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/synthesisTasks";
   const query: any = {
     ...(input.MaxResults !== undefined && {
@@ -263,8 +269,9 @@ export const serializeAws_restJson1_1PutLexiconCommand = async (
   input: PutLexiconCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/lexicons/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
@@ -300,8 +307,9 @@ export const serializeAws_restJson1_1StartSpeechSynthesisTaskCommand = async (
   input: StartSpeechSynthesisTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/synthesisTasks";
   let body: any;
   const bodyParams: any = {};
@@ -364,8 +372,9 @@ export const serializeAws_restJson1_1SynthesizeSpeechCommand = async (
   input: SynthesizeSpeechCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/speech";
   let body: any;
   const bodyParams: any = {};

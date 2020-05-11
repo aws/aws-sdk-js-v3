@@ -83,8 +83,9 @@ export const serializeAws_queryAssumeRoleCommand = async (
   input: AssumeRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryAssumeRoleRequest(input, context);
   body = buildFormUrlencodedString({
@@ -99,8 +100,9 @@ export const serializeAws_queryAssumeRoleWithSAMLCommand = async (
   input: AssumeRoleWithSAMLCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryAssumeRoleWithSAMLRequest(input, context);
   body = buildFormUrlencodedString({
@@ -115,8 +117,9 @@ export const serializeAws_queryAssumeRoleWithWebIdentityCommand = async (
   input: AssumeRoleWithWebIdentityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryAssumeRoleWithWebIdentityRequest(
     input,
@@ -134,8 +137,9 @@ export const serializeAws_queryDecodeAuthorizationMessageCommand = async (
   input: DecodeAuthorizationMessageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDecodeAuthorizationMessageRequest(
     input,
@@ -153,8 +157,9 @@ export const serializeAws_queryGetAccessKeyInfoCommand = async (
   input: GetAccessKeyInfoCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryGetAccessKeyInfoRequest(input, context);
   body = buildFormUrlencodedString({
@@ -169,8 +174,9 @@ export const serializeAws_queryGetCallerIdentityCommand = async (
   input: GetCallerIdentityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryGetCallerIdentityRequest(input, context);
   body = buildFormUrlencodedString({
@@ -185,8 +191,9 @@ export const serializeAws_queryGetFederationTokenCommand = async (
   input: GetFederationTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryGetFederationTokenRequest(input, context);
   body = buildFormUrlencodedString({
@@ -201,8 +208,9 @@ export const serializeAws_queryGetSessionTokenCommand = async (
   input: GetSessionTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryGetSessionTokenRequest(input, context);
   body = buildFormUrlencodedString({

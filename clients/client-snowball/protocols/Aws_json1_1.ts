@@ -158,9 +158,10 @@ export const serializeAws_json1_1CancelClusterCommand = async (
   input: CancelClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.CancelCluster";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSIESnowballJobManagementService.CancelCluster"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CancelClusterRequest(input, context)
@@ -172,9 +173,10 @@ export const serializeAws_json1_1CancelJobCommand = async (
   input: CancelJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.CancelJob";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSIESnowballJobManagementService.CancelJob"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CancelJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -184,9 +186,10 @@ export const serializeAws_json1_1CreateAddressCommand = async (
   input: CreateAddressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.CreateAddress";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSIESnowballJobManagementService.CreateAddress"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateAddressRequest(input, context)
@@ -198,9 +201,10 @@ export const serializeAws_json1_1CreateClusterCommand = async (
   input: CreateClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.CreateCluster";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSIESnowballJobManagementService.CreateCluster"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateClusterRequest(input, context)
@@ -212,9 +216,10 @@ export const serializeAws_json1_1CreateJobCommand = async (
   input: CreateJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.CreateJob";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSIESnowballJobManagementService.CreateJob"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -224,9 +229,10 @@ export const serializeAws_json1_1DescribeAddressCommand = async (
   input: DescribeAddressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.DescribeAddress";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSIESnowballJobManagementService.DescribeAddress"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeAddressRequest(input, context)
@@ -238,10 +244,10 @@ export const serializeAws_json1_1DescribeAddressesCommand = async (
   input: DescribeAddressesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSIESnowballJobManagementService.DescribeAddresses";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSIESnowballJobManagementService.DescribeAddresses"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeAddressesRequest(input, context)
@@ -253,9 +259,10 @@ export const serializeAws_json1_1DescribeClusterCommand = async (
   input: DescribeClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.DescribeCluster";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSIESnowballJobManagementService.DescribeCluster"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeClusterRequest(input, context)
@@ -267,9 +274,10 @@ export const serializeAws_json1_1DescribeJobCommand = async (
   input: DescribeJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.DescribeJob";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSIESnowballJobManagementService.DescribeJob"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -279,9 +287,10 @@ export const serializeAws_json1_1GetJobManifestCommand = async (
   input: GetJobManifestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.GetJobManifest";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSIESnowballJobManagementService.GetJobManifest"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetJobManifestRequest(input, context)
@@ -293,10 +302,10 @@ export const serializeAws_json1_1GetJobUnlockCodeCommand = async (
   input: GetJobUnlockCodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSIESnowballJobManagementService.GetJobUnlockCode";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSIESnowballJobManagementService.GetJobUnlockCode"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetJobUnlockCodeRequest(input, context)
@@ -308,10 +317,10 @@ export const serializeAws_json1_1GetSnowballUsageCommand = async (
   input: GetSnowballUsageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSIESnowballJobManagementService.GetSnowballUsage";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSIESnowballJobManagementService.GetSnowballUsage"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetSnowballUsageRequest(input, context)
@@ -323,10 +332,10 @@ export const serializeAws_json1_1GetSoftwareUpdatesCommand = async (
   input: GetSoftwareUpdatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSIESnowballJobManagementService.GetSoftwareUpdates";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSIESnowballJobManagementService.GetSoftwareUpdates"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetSoftwareUpdatesRequest(input, context)
@@ -338,9 +347,10 @@ export const serializeAws_json1_1ListClusterJobsCommand = async (
   input: ListClusterJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.ListClusterJobs";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSIESnowballJobManagementService.ListClusterJobs"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListClusterJobsRequest(input, context)
@@ -352,9 +362,10 @@ export const serializeAws_json1_1ListClustersCommand = async (
   input: ListClustersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.ListClusters";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSIESnowballJobManagementService.ListClusters"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListClustersRequest(input, context)
@@ -366,10 +377,10 @@ export const serializeAws_json1_1ListCompatibleImagesCommand = async (
   input: ListCompatibleImagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSIESnowballJobManagementService.ListCompatibleImages";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSIESnowballJobManagementService.ListCompatibleImages"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListCompatibleImagesRequest(input, context)
@@ -381,9 +392,10 @@ export const serializeAws_json1_1ListJobsCommand = async (
   input: ListJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.ListJobs";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSIESnowballJobManagementService.ListJobs"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -393,9 +405,10 @@ export const serializeAws_json1_1UpdateClusterCommand = async (
   input: UpdateClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.UpdateCluster";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSIESnowballJobManagementService.UpdateCluster"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateClusterRequest(input, context)
@@ -407,9 +420,10 @@ export const serializeAws_json1_1UpdateJobCommand = async (
   input: UpdateJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.UpdateJob";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSIESnowballJobManagementService.UpdateJob"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);

@@ -126,9 +126,10 @@ export const serializeAws_json1_1AddAttachmentsToSetCommand = async (
   input: AddAttachmentsToSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSSupport_20130415.AddAttachmentsToSet";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSSupport_20130415.AddAttachmentsToSet"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AddAttachmentsToSetRequest(input, context)
@@ -140,9 +141,10 @@ export const serializeAws_json1_1AddCommunicationToCaseCommand = async (
   input: AddCommunicationToCaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSSupport_20130415.AddCommunicationToCase";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSSupport_20130415.AddCommunicationToCase"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AddCommunicationToCaseRequest(input, context)
@@ -154,9 +156,10 @@ export const serializeAws_json1_1CreateCaseCommand = async (
   input: CreateCaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSSupport_20130415.CreateCase";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSSupport_20130415.CreateCase"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateCaseRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -166,9 +169,10 @@ export const serializeAws_json1_1DescribeAttachmentCommand = async (
   input: DescribeAttachmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSSupport_20130415.DescribeAttachment";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSSupport_20130415.DescribeAttachment"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeAttachmentRequest(input, context)
@@ -180,9 +184,10 @@ export const serializeAws_json1_1DescribeCasesCommand = async (
   input: DescribeCasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSSupport_20130415.DescribeCases";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSSupport_20130415.DescribeCases"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeCasesRequest(input, context)
@@ -194,9 +199,10 @@ export const serializeAws_json1_1DescribeCommunicationsCommand = async (
   input: DescribeCommunicationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSSupport_20130415.DescribeCommunications";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSSupport_20130415.DescribeCommunications"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeCommunicationsRequest(input, context)
@@ -208,9 +214,10 @@ export const serializeAws_json1_1DescribeServicesCommand = async (
   input: DescribeServicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSSupport_20130415.DescribeServices";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSSupport_20130415.DescribeServices"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeServicesRequest(input, context)
@@ -222,9 +229,10 @@ export const serializeAws_json1_1DescribeSeverityLevelsCommand = async (
   input: DescribeSeverityLevelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSSupport_20130415.DescribeSeverityLevels";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSSupport_20130415.DescribeSeverityLevels"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeSeverityLevelsRequest(input, context)
@@ -236,9 +244,10 @@ export const serializeAws_json1_1ResolveCaseCommand = async (
   input: ResolveCaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSSupport_20130415.ResolveCase";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSSupport_20130415.ResolveCase"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ResolveCaseRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -248,10 +257,11 @@ export const serializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesComma
   input: DescribeTrustedAdvisorCheckRefreshStatusesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSSupport_20130415.DescribeTrustedAdvisorCheckRefreshStatuses";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "AWSSupport_20130415.DescribeTrustedAdvisorCheckRefreshStatuses"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesRequest(
@@ -266,10 +276,10 @@ export const serializeAws_json1_1DescribeTrustedAdvisorCheckResultCommand = asyn
   input: DescribeTrustedAdvisorCheckResultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSSupport_20130415.DescribeTrustedAdvisorCheckResult";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSSupport_20130415.DescribeTrustedAdvisorCheckResult"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeTrustedAdvisorCheckResultRequest(input, context)
@@ -281,10 +291,10 @@ export const serializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCommand = a
   input: DescribeTrustedAdvisorCheckSummariesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSSupport_20130415.DescribeTrustedAdvisorCheckSummaries";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSSupport_20130415.DescribeTrustedAdvisorCheckSummaries"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeTrustedAdvisorCheckSummariesRequest(
@@ -299,9 +309,10 @@ export const serializeAws_json1_1DescribeTrustedAdvisorChecksCommand = async (
   input: DescribeTrustedAdvisorChecksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSSupport_20130415.DescribeTrustedAdvisorChecks";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSSupport_20130415.DescribeTrustedAdvisorChecks"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeTrustedAdvisorChecksRequest(input, context)
@@ -313,9 +324,10 @@ export const serializeAws_json1_1RefreshTrustedAdvisorCheckCommand = async (
   input: RefreshTrustedAdvisorCheckCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSSupport_20130415.RefreshTrustedAdvisorCheck";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSSupport_20130415.RefreshTrustedAdvisorCheck"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RefreshTrustedAdvisorCheckRequest(input, context)

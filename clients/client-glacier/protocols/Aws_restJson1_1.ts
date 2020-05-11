@@ -182,8 +182,9 @@ export const serializeAws_restJson1_1AbortMultipartUploadCommand = async (
   input: AbortMultipartUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}";
   if (input.accountId !== undefined) {
@@ -239,8 +240,9 @@ export const serializeAws_restJson1_1AbortVaultLockCommand = async (
   input: AbortVaultLockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/{accountId}/vaults/{vaultName}/lock-policy";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
@@ -283,8 +285,9 @@ export const serializeAws_restJson1_1AddTagsToVaultCommand = async (
   input: AddTagsToVaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/{accountId}/vaults/{vaultName}/tags";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
@@ -336,14 +339,15 @@ export const serializeAws_restJson1_1CompleteMultipartUploadCommand = async (
   input: CompleteMultipartUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.archiveSize)) {
-    headers["x-amz-archive-size"] = input.archiveSize!;
-  }
-  if (isSerializableHeaderValue(input.checksum)) {
-    headers["x-amz-sha256-tree-hash"] = input.checksum!;
-  }
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.archiveSize) && {
+      "x-amz-archive-size": input.archiveSize!
+    }),
+    ...(isSerializableHeaderValue(input.checksum) && {
+      "x-amz-sha256-tree-hash": input.checksum!
+    })
+  };
   let resolvedPath =
     "/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}";
   if (input.accountId !== undefined) {
@@ -399,8 +403,9 @@ export const serializeAws_restJson1_1CompleteVaultLockCommand = async (
   input: CompleteVaultLockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/{accountId}/vaults/{vaultName}/lock-policy/{lockId}";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
@@ -455,8 +460,9 @@ export const serializeAws_restJson1_1CreateVaultCommand = async (
   input: CreateVaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/{accountId}/vaults/{vaultName}";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
@@ -499,8 +505,9 @@ export const serializeAws_restJson1_1DeleteArchiveCommand = async (
   input: DeleteArchiveCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/{accountId}/vaults/{vaultName}/archives/{archiveId}";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
@@ -555,8 +562,9 @@ export const serializeAws_restJson1_1DeleteVaultCommand = async (
   input: DeleteVaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/{accountId}/vaults/{vaultName}";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
@@ -599,8 +607,9 @@ export const serializeAws_restJson1_1DeleteVaultAccessPolicyCommand = async (
   input: DeleteVaultAccessPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/{accountId}/vaults/{vaultName}/access-policy";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
@@ -643,8 +652,9 @@ export const serializeAws_restJson1_1DeleteVaultNotificationsCommand = async (
   input: DeleteVaultNotificationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/{accountId}/vaults/{vaultName}/notification-configuration";
   if (input.accountId !== undefined) {
@@ -688,8 +698,9 @@ export const serializeAws_restJson1_1DescribeJobCommand = async (
   input: DescribeJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/{accountId}/vaults/{vaultName}/jobs/{jobId}";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
@@ -744,8 +755,9 @@ export const serializeAws_restJson1_1DescribeVaultCommand = async (
   input: DescribeVaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/{accountId}/vaults/{vaultName}";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
@@ -788,8 +800,9 @@ export const serializeAws_restJson1_1GetDataRetrievalPolicyCommand = async (
   input: GetDataRetrievalPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/{accountId}/policies/data-retrieval";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
@@ -820,11 +833,10 @@ export const serializeAws_restJson1_1GetJobOutputCommand = async (
   input: GetJobOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.range)) {
-    headers["Range"] = input.range!;
-  }
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.range) && { Range: input.range! })
+  };
   let resolvedPath = "/{accountId}/vaults/{vaultName}/jobs/{jobId}/output";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
@@ -879,8 +891,9 @@ export const serializeAws_restJson1_1GetVaultAccessPolicyCommand = async (
   input: GetVaultAccessPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/{accountId}/vaults/{vaultName}/access-policy";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
@@ -923,8 +936,9 @@ export const serializeAws_restJson1_1GetVaultLockCommand = async (
   input: GetVaultLockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/{accountId}/vaults/{vaultName}/lock-policy";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
@@ -967,8 +981,9 @@ export const serializeAws_restJson1_1GetVaultNotificationsCommand = async (
   input: GetVaultNotificationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/{accountId}/vaults/{vaultName}/notification-configuration";
   if (input.accountId !== undefined) {
@@ -1012,8 +1027,9 @@ export const serializeAws_restJson1_1InitiateJobCommand = async (
   input: InitiateJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/{accountId}/vaults/{vaultName}/jobs";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
@@ -1063,14 +1079,15 @@ export const serializeAws_restJson1_1InitiateMultipartUploadCommand = async (
   input: InitiateMultipartUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.archiveDescription)) {
-    headers["x-amz-archive-description"] = input.archiveDescription!;
-  }
-  if (isSerializableHeaderValue(input.partSize)) {
-    headers["x-amz-part-size"] = input.partSize!;
-  }
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.archiveDescription) && {
+      "x-amz-archive-description": input.archiveDescription!
+    }),
+    ...(isSerializableHeaderValue(input.partSize) && {
+      "x-amz-part-size": input.partSize!
+    })
+  };
   let resolvedPath = "/{accountId}/vaults/{vaultName}/multipart-uploads";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
@@ -1113,8 +1130,9 @@ export const serializeAws_restJson1_1InitiateVaultLockCommand = async (
   input: InitiateVaultLockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/{accountId}/vaults/{vaultName}/lock-policy";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
@@ -1164,8 +1182,9 @@ export const serializeAws_restJson1_1ListJobsCommand = async (
   input: ListJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/{accountId}/vaults/{vaultName}/jobs";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
@@ -1215,8 +1234,9 @@ export const serializeAws_restJson1_1ListMultipartUploadsCommand = async (
   input: ListMultipartUploadsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/{accountId}/vaults/{vaultName}/multipart-uploads";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
@@ -1264,8 +1284,9 @@ export const serializeAws_restJson1_1ListPartsCommand = async (
   input: ListPartsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}";
   if (input.accountId !== undefined) {
@@ -1326,8 +1347,9 @@ export const serializeAws_restJson1_1ListProvisionedCapacityCommand = async (
   input: ListProvisionedCapacityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/{accountId}/provisioned-capacity";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
@@ -1358,8 +1380,9 @@ export const serializeAws_restJson1_1ListTagsForVaultCommand = async (
   input: ListTagsForVaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/{accountId}/vaults/{vaultName}/tags";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
@@ -1402,8 +1425,9 @@ export const serializeAws_restJson1_1ListVaultsCommand = async (
   input: ListVaultsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/{accountId}/vaults";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
@@ -1439,8 +1463,9 @@ export const serializeAws_restJson1_1PurchaseProvisionedCapacityCommand = async 
   input: PurchaseProvisionedCapacityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/{accountId}/provisioned-capacity";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
@@ -1471,8 +1496,9 @@ export const serializeAws_restJson1_1RemoveTagsFromVaultCommand = async (
   input: RemoveTagsFromVaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/{accountId}/vaults/{vaultName}/tags";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
@@ -1527,8 +1553,9 @@ export const serializeAws_restJson1_1SetDataRetrievalPolicyCommand = async (
   input: SetDataRetrievalPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/{accountId}/policies/data-retrieval";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
@@ -1567,8 +1594,9 @@ export const serializeAws_restJson1_1SetVaultAccessPolicyCommand = async (
   input: SetVaultAccessPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/{accountId}/vaults/{vaultName}/access-policy";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
@@ -1618,8 +1646,9 @@ export const serializeAws_restJson1_1SetVaultNotificationsCommand = async (
   input: SetVaultNotificationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath =
     "/{accountId}/vaults/{vaultName}/notification-configuration";
   if (input.accountId !== undefined) {
@@ -1673,14 +1702,15 @@ export const serializeAws_restJson1_1UploadArchiveCommand = async (
   input: UploadArchiveCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/octet-stream";
-  if (isSerializableHeaderValue(input.archiveDescription)) {
-    headers["x-amz-archive-description"] = input.archiveDescription!;
-  }
-  if (isSerializableHeaderValue(input.checksum)) {
-    headers["x-amz-sha256-tree-hash"] = input.checksum!;
-  }
+  const headers: any = {
+    "Content-Type": "application/octet-stream",
+    ...(isSerializableHeaderValue(input.archiveDescription) && {
+      "x-amz-archive-description": input.archiveDescription!
+    }),
+    ...(isSerializableHeaderValue(input.checksum) && {
+      "x-amz-sha256-tree-hash": input.checksum!
+    })
+  };
   let resolvedPath = "/{accountId}/vaults/{vaultName}/archives";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
@@ -1726,14 +1756,15 @@ export const serializeAws_restJson1_1UploadMultipartPartCommand = async (
   input: UploadMultipartPartCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/octet-stream";
-  if (isSerializableHeaderValue(input.checksum)) {
-    headers["x-amz-sha256-tree-hash"] = input.checksum!;
-  }
-  if (isSerializableHeaderValue(input.range)) {
-    headers["Content-Range"] = input.range!;
-  }
+  const headers: any = {
+    "Content-Type": "application/octet-stream",
+    ...(isSerializableHeaderValue(input.checksum) && {
+      "x-amz-sha256-tree-hash": input.checksum!
+    }),
+    ...(isSerializableHeaderValue(input.range) && {
+      "Content-Range": input.range!
+    })
+  };
   let resolvedPath =
     "/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}";
   if (input.accountId !== undefined) {

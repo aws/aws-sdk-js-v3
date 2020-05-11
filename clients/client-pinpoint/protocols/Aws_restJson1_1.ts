@@ -618,8 +618,9 @@ export const serializeAws_restJson1_1CreateAppCommand = async (
   input: CreateAppCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/apps";
   let body: any;
   if (input.CreateApplicationRequest !== undefined) {
@@ -648,8 +649,9 @@ export const serializeAws_restJson1_1CreateCampaignCommand = async (
   input: CreateCampaignCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/campaigns";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -692,8 +694,9 @@ export const serializeAws_restJson1_1CreateEmailTemplateCommand = async (
   input: CreateEmailTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/templates/{TemplateName}/email";
   if (input.TemplateName !== undefined) {
     const labelValue: string = input.TemplateName;
@@ -736,8 +739,9 @@ export const serializeAws_restJson1_1CreateExportJobCommand = async (
   input: CreateExportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/jobs/export";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -780,8 +784,9 @@ export const serializeAws_restJson1_1CreateImportJobCommand = async (
   input: CreateImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/jobs/import";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -824,8 +829,9 @@ export const serializeAws_restJson1_1CreateJourneyCommand = async (
   input: CreateJourneyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/journeys";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -868,8 +874,9 @@ export const serializeAws_restJson1_1CreatePushTemplateCommand = async (
   input: CreatePushTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/templates/{TemplateName}/push";
   if (input.TemplateName !== undefined) {
     const labelValue: string = input.TemplateName;
@@ -912,8 +919,9 @@ export const serializeAws_restJson1_1CreateSegmentCommand = async (
   input: CreateSegmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/segments";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -956,8 +964,9 @@ export const serializeAws_restJson1_1CreateSmsTemplateCommand = async (
   input: CreateSmsTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/templates/{TemplateName}/sms";
   if (input.TemplateName !== undefined) {
     const labelValue: string = input.TemplateName;
@@ -1000,8 +1009,9 @@ export const serializeAws_restJson1_1CreateVoiceTemplateCommand = async (
   input: CreateVoiceTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/templates/{TemplateName}/voice";
   if (input.TemplateName !== undefined) {
     const labelValue: string = input.TemplateName;
@@ -1044,8 +1054,9 @@ export const serializeAws_restJson1_1DeleteAdmChannelCommand = async (
   input: DeleteAdmChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/channels/adm";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -1078,8 +1089,9 @@ export const serializeAws_restJson1_1DeleteApnsChannelCommand = async (
   input: DeleteApnsChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/channels/apns";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -1112,8 +1124,9 @@ export const serializeAws_restJson1_1DeleteApnsSandboxChannelCommand = async (
   input: DeleteApnsSandboxChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/channels/apns_sandbox";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -1146,8 +1159,9 @@ export const serializeAws_restJson1_1DeleteApnsVoipChannelCommand = async (
   input: DeleteApnsVoipChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/channels/apns_voip";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -1180,8 +1194,9 @@ export const serializeAws_restJson1_1DeleteApnsVoipSandboxChannelCommand = async
   input: DeleteApnsVoipSandboxChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/channels/apns_voip_sandbox";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -1214,8 +1229,9 @@ export const serializeAws_restJson1_1DeleteAppCommand = async (
   input: DeleteAppCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -1248,8 +1264,9 @@ export const serializeAws_restJson1_1DeleteBaiduChannelCommand = async (
   input: DeleteBaiduChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/channels/baidu";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -1282,8 +1299,9 @@ export const serializeAws_restJson1_1DeleteCampaignCommand = async (
   input: DeleteCampaignCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/campaigns/{CampaignId}";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -1328,8 +1346,9 @@ export const serializeAws_restJson1_1DeleteEmailChannelCommand = async (
   input: DeleteEmailChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/channels/email";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -1362,8 +1381,9 @@ export const serializeAws_restJson1_1DeleteEmailTemplateCommand = async (
   input: DeleteEmailTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/templates/{TemplateName}/email";
   if (input.TemplateName !== undefined) {
     const labelValue: string = input.TemplateName;
@@ -1400,8 +1420,9 @@ export const serializeAws_restJson1_1DeleteEndpointCommand = async (
   input: DeleteEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/endpoints/{EndpointId}";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -1446,8 +1467,9 @@ export const serializeAws_restJson1_1DeleteEventStreamCommand = async (
   input: DeleteEventStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/eventstream";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -1480,8 +1502,9 @@ export const serializeAws_restJson1_1DeleteGcmChannelCommand = async (
   input: DeleteGcmChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/channels/gcm";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -1514,8 +1537,9 @@ export const serializeAws_restJson1_1DeleteJourneyCommand = async (
   input: DeleteJourneyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/journeys/{JourneyId}";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -1560,8 +1584,9 @@ export const serializeAws_restJson1_1DeletePushTemplateCommand = async (
   input: DeletePushTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/templates/{TemplateName}/push";
   if (input.TemplateName !== undefined) {
     const labelValue: string = input.TemplateName;
@@ -1598,8 +1623,9 @@ export const serializeAws_restJson1_1DeleteSegmentCommand = async (
   input: DeleteSegmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/segments/{SegmentId}";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -1644,8 +1670,9 @@ export const serializeAws_restJson1_1DeleteSmsChannelCommand = async (
   input: DeleteSmsChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/channels/sms";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -1678,8 +1705,9 @@ export const serializeAws_restJson1_1DeleteSmsTemplateCommand = async (
   input: DeleteSmsTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/templates/{TemplateName}/sms";
   if (input.TemplateName !== undefined) {
     const labelValue: string = input.TemplateName;
@@ -1716,8 +1744,9 @@ export const serializeAws_restJson1_1DeleteUserEndpointsCommand = async (
   input: DeleteUserEndpointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/users/{UserId}";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -1762,8 +1791,9 @@ export const serializeAws_restJson1_1DeleteVoiceChannelCommand = async (
   input: DeleteVoiceChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/channels/voice";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -1796,8 +1826,9 @@ export const serializeAws_restJson1_1DeleteVoiceTemplateCommand = async (
   input: DeleteVoiceTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/templates/{TemplateName}/voice";
   if (input.TemplateName !== undefined) {
     const labelValue: string = input.TemplateName;
@@ -1834,8 +1865,9 @@ export const serializeAws_restJson1_1GetAdmChannelCommand = async (
   input: GetAdmChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/channels/adm";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -1868,8 +1900,9 @@ export const serializeAws_restJson1_1GetApnsChannelCommand = async (
   input: GetApnsChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/channels/apns";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -1902,8 +1935,9 @@ export const serializeAws_restJson1_1GetApnsSandboxChannelCommand = async (
   input: GetApnsSandboxChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/channels/apns_sandbox";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -1936,8 +1970,9 @@ export const serializeAws_restJson1_1GetApnsVoipChannelCommand = async (
   input: GetApnsVoipChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/channels/apns_voip";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -1970,8 +2005,9 @@ export const serializeAws_restJson1_1GetApnsVoipSandboxChannelCommand = async (
   input: GetApnsVoipSandboxChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/channels/apns_voip_sandbox";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -2004,8 +2040,9 @@ export const serializeAws_restJson1_1GetAppCommand = async (
   input: GetAppCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -2038,8 +2075,9 @@ export const serializeAws_restJson1_1GetApplicationDateRangeKpiCommand = async (
   input: GetApplicationDateRangeKpiCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/kpis/daterange/{KpiName}";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -2097,8 +2135,9 @@ export const serializeAws_restJson1_1GetApplicationSettingsCommand = async (
   input: GetApplicationSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/settings";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -2131,8 +2170,9 @@ export const serializeAws_restJson1_1GetAppsCommand = async (
   input: GetAppsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/apps";
   const query: any = {
     ...(input.PageSize !== undefined && { "page-size": input.PageSize }),
@@ -2156,8 +2196,9 @@ export const serializeAws_restJson1_1GetBaiduChannelCommand = async (
   input: GetBaiduChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/channels/baidu";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -2190,8 +2231,9 @@ export const serializeAws_restJson1_1GetCampaignCommand = async (
   input: GetCampaignCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/campaigns/{CampaignId}";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -2236,8 +2278,9 @@ export const serializeAws_restJson1_1GetCampaignActivitiesCommand = async (
   input: GetCampaignActivitiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/v1/apps/{ApplicationId}/campaigns/{CampaignId}/activities";
   if (input.ApplicationId !== undefined) {
@@ -2288,8 +2331,9 @@ export const serializeAws_restJson1_1GetCampaignDateRangeKpiCommand = async (
   input: GetCampaignDateRangeKpiCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/v1/apps/{ApplicationId}/campaigns/{CampaignId}/kpis/daterange/{KpiName}";
   if (input.ApplicationId !== undefined) {
@@ -2360,8 +2404,9 @@ export const serializeAws_restJson1_1GetCampaignVersionCommand = async (
   input: GetCampaignVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/v1/apps/{ApplicationId}/campaigns/{CampaignId}/versions/{Version}";
   if (input.ApplicationId !== undefined) {
@@ -2419,8 +2464,9 @@ export const serializeAws_restJson1_1GetCampaignVersionsCommand = async (
   input: GetCampaignVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/campaigns/{CampaignId}/versions";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -2470,8 +2516,9 @@ export const serializeAws_restJson1_1GetCampaignsCommand = async (
   input: GetCampaignsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/campaigns";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -2509,8 +2556,9 @@ export const serializeAws_restJson1_1GetChannelsCommand = async (
   input: GetChannelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/channels";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -2543,8 +2591,9 @@ export const serializeAws_restJson1_1GetEmailChannelCommand = async (
   input: GetEmailChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/channels/email";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -2577,8 +2626,9 @@ export const serializeAws_restJson1_1GetEmailTemplateCommand = async (
   input: GetEmailTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/templates/{TemplateName}/email";
   if (input.TemplateName !== undefined) {
     const labelValue: string = input.TemplateName;
@@ -2615,8 +2665,9 @@ export const serializeAws_restJson1_1GetEndpointCommand = async (
   input: GetEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/endpoints/{EndpointId}";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -2661,8 +2712,9 @@ export const serializeAws_restJson1_1GetEventStreamCommand = async (
   input: GetEventStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/eventstream";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -2695,8 +2747,9 @@ export const serializeAws_restJson1_1GetExportJobCommand = async (
   input: GetExportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/jobs/export/{JobId}";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -2741,8 +2794,9 @@ export const serializeAws_restJson1_1GetExportJobsCommand = async (
   input: GetExportJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/jobs/export";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -2780,8 +2834,9 @@ export const serializeAws_restJson1_1GetGcmChannelCommand = async (
   input: GetGcmChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/channels/gcm";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -2814,8 +2869,9 @@ export const serializeAws_restJson1_1GetImportJobCommand = async (
   input: GetImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/jobs/import/{JobId}";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -2860,8 +2916,9 @@ export const serializeAws_restJson1_1GetImportJobsCommand = async (
   input: GetImportJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/jobs/import";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -2899,8 +2956,9 @@ export const serializeAws_restJson1_1GetJourneyCommand = async (
   input: GetJourneyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/journeys/{JourneyId}";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -2945,8 +3003,9 @@ export const serializeAws_restJson1_1GetJourneyDateRangeKpiCommand = async (
   input: GetJourneyDateRangeKpiCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/v1/apps/{ApplicationId}/journeys/{JourneyId}/kpis/daterange/{KpiName}";
   if (input.ApplicationId !== undefined) {
@@ -3017,8 +3076,9 @@ export const serializeAws_restJson1_1GetJourneyExecutionActivityMetricsCommand =
   input: GetJourneyExecutionActivityMetricsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/v1/apps/{ApplicationId}/journeys/{JourneyId}/activities/{JourneyActivityId}/execution-metrics";
   if (input.ApplicationId !== undefined) {
@@ -3085,8 +3145,9 @@ export const serializeAws_restJson1_1GetJourneyExecutionMetricsCommand = async (
   input: GetJourneyExecutionMetricsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/v1/apps/{ApplicationId}/journeys/{JourneyId}/execution-metrics";
   if (input.ApplicationId !== undefined) {
@@ -3137,8 +3198,9 @@ export const serializeAws_restJson1_1GetPushTemplateCommand = async (
   input: GetPushTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/templates/{TemplateName}/push";
   if (input.TemplateName !== undefined) {
     const labelValue: string = input.TemplateName;
@@ -3175,8 +3237,9 @@ export const serializeAws_restJson1_1GetSegmentCommand = async (
   input: GetSegmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/segments/{SegmentId}";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -3221,8 +3284,9 @@ export const serializeAws_restJson1_1GetSegmentExportJobsCommand = async (
   input: GetSegmentExportJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/v1/apps/{ApplicationId}/segments/{SegmentId}/jobs/export";
   if (input.ApplicationId !== undefined) {
@@ -3273,8 +3337,9 @@ export const serializeAws_restJson1_1GetSegmentImportJobsCommand = async (
   input: GetSegmentImportJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/v1/apps/{ApplicationId}/segments/{SegmentId}/jobs/import";
   if (input.ApplicationId !== undefined) {
@@ -3325,8 +3390,9 @@ export const serializeAws_restJson1_1GetSegmentVersionCommand = async (
   input: GetSegmentVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/v1/apps/{ApplicationId}/segments/{SegmentId}/versions/{Version}";
   if (input.ApplicationId !== undefined) {
@@ -3384,8 +3450,9 @@ export const serializeAws_restJson1_1GetSegmentVersionsCommand = async (
   input: GetSegmentVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/segments/{SegmentId}/versions";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -3435,8 +3502,9 @@ export const serializeAws_restJson1_1GetSegmentsCommand = async (
   input: GetSegmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/segments";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -3474,8 +3542,9 @@ export const serializeAws_restJson1_1GetSmsChannelCommand = async (
   input: GetSmsChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/channels/sms";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -3508,8 +3577,9 @@ export const serializeAws_restJson1_1GetSmsTemplateCommand = async (
   input: GetSmsTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/templates/{TemplateName}/sms";
   if (input.TemplateName !== undefined) {
     const labelValue: string = input.TemplateName;
@@ -3546,8 +3616,9 @@ export const serializeAws_restJson1_1GetUserEndpointsCommand = async (
   input: GetUserEndpointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/users/{UserId}";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -3592,8 +3663,9 @@ export const serializeAws_restJson1_1GetVoiceChannelCommand = async (
   input: GetVoiceChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/channels/voice";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -3626,8 +3698,9 @@ export const serializeAws_restJson1_1GetVoiceTemplateCommand = async (
   input: GetVoiceTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/templates/{TemplateName}/voice";
   if (input.TemplateName !== undefined) {
     const labelValue: string = input.TemplateName;
@@ -3664,8 +3737,9 @@ export const serializeAws_restJson1_1ListJourneysCommand = async (
   input: ListJourneysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/journeys";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -3703,8 +3777,9 @@ export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -3737,8 +3812,9 @@ export const serializeAws_restJson1_1ListTemplateVersionsCommand = async (
   input: ListTemplateVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/templates/{TemplateName}/{TemplateType}/versions";
   if (input.TemplateName !== undefined) {
     const labelValue: string = input.TemplateName;
@@ -3790,8 +3866,9 @@ export const serializeAws_restJson1_1ListTemplatesCommand = async (
   input: ListTemplatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/templates";
   const query: any = {
     ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
@@ -3819,8 +3896,9 @@ export const serializeAws_restJson1_1PhoneNumberValidateCommand = async (
   input: PhoneNumberValidateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/phone/number/validate";
   let body: any;
   if (input.NumberValidateRequest !== undefined) {
@@ -3849,8 +3927,9 @@ export const serializeAws_restJson1_1PutEventStreamCommand = async (
   input: PutEventStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/eventstream";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -3893,8 +3972,9 @@ export const serializeAws_restJson1_1PutEventsCommand = async (
   input: PutEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/events";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -3934,8 +4014,9 @@ export const serializeAws_restJson1_1RemoveAttributesCommand = async (
   input: RemoveAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/attributes/{AttributeType}";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -3992,8 +4073,9 @@ export const serializeAws_restJson1_1SendMessagesCommand = async (
   input: SendMessagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/messages";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -4036,8 +4118,9 @@ export const serializeAws_restJson1_1SendUsersMessagesCommand = async (
   input: SendUsersMessagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/users-messages";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -4080,8 +4163,9 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -4121,8 +4205,9 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -4161,8 +4246,9 @@ export const serializeAws_restJson1_1UpdateAdmChannelCommand = async (
   input: UpdateAdmChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/channels/adm";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -4205,8 +4291,9 @@ export const serializeAws_restJson1_1UpdateApnsChannelCommand = async (
   input: UpdateApnsChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/channels/apns";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -4249,8 +4336,9 @@ export const serializeAws_restJson1_1UpdateApnsSandboxChannelCommand = async (
   input: UpdateApnsSandboxChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/channels/apns_sandbox";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -4293,8 +4381,9 @@ export const serializeAws_restJson1_1UpdateApnsVoipChannelCommand = async (
   input: UpdateApnsVoipChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/channels/apns_voip";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -4337,8 +4426,9 @@ export const serializeAws_restJson1_1UpdateApnsVoipSandboxChannelCommand = async
   input: UpdateApnsVoipSandboxChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/channels/apns_voip_sandbox";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -4381,8 +4471,9 @@ export const serializeAws_restJson1_1UpdateApplicationSettingsCommand = async (
   input: UpdateApplicationSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/settings";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -4425,8 +4516,9 @@ export const serializeAws_restJson1_1UpdateBaiduChannelCommand = async (
   input: UpdateBaiduChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/channels/baidu";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -4469,8 +4561,9 @@ export const serializeAws_restJson1_1UpdateCampaignCommand = async (
   input: UpdateCampaignCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/campaigns/{CampaignId}";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -4525,8 +4618,9 @@ export const serializeAws_restJson1_1UpdateEmailChannelCommand = async (
   input: UpdateEmailChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/channels/email";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -4569,8 +4663,9 @@ export const serializeAws_restJson1_1UpdateEmailTemplateCommand = async (
   input: UpdateEmailTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/templates/{TemplateName}/email";
   if (input.TemplateName !== undefined) {
     const labelValue: string = input.TemplateName;
@@ -4620,8 +4715,9 @@ export const serializeAws_restJson1_1UpdateEndpointCommand = async (
   input: UpdateEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/endpoints/{EndpointId}";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -4676,8 +4772,9 @@ export const serializeAws_restJson1_1UpdateEndpointsBatchCommand = async (
   input: UpdateEndpointsBatchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/endpoints";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -4720,8 +4817,9 @@ export const serializeAws_restJson1_1UpdateGcmChannelCommand = async (
   input: UpdateGcmChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/channels/gcm";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -4764,8 +4862,9 @@ export const serializeAws_restJson1_1UpdateJourneyCommand = async (
   input: UpdateJourneyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/journeys/{JourneyId}";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -4820,8 +4919,9 @@ export const serializeAws_restJson1_1UpdateJourneyStateCommand = async (
   input: UpdateJourneyStateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/journeys/{JourneyId}/state";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -4876,8 +4976,9 @@ export const serializeAws_restJson1_1UpdatePushTemplateCommand = async (
   input: UpdatePushTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/templates/{TemplateName}/push";
   if (input.TemplateName !== undefined) {
     const labelValue: string = input.TemplateName;
@@ -4927,8 +5028,9 @@ export const serializeAws_restJson1_1UpdateSegmentCommand = async (
   input: UpdateSegmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/segments/{SegmentId}";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -4983,8 +5085,9 @@ export const serializeAws_restJson1_1UpdateSmsChannelCommand = async (
   input: UpdateSmsChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/channels/sms";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -5027,8 +5130,9 @@ export const serializeAws_restJson1_1UpdateSmsTemplateCommand = async (
   input: UpdateSmsTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/templates/{TemplateName}/sms";
   if (input.TemplateName !== undefined) {
     const labelValue: string = input.TemplateName;
@@ -5078,8 +5182,9 @@ export const serializeAws_restJson1_1UpdateTemplateActiveVersionCommand = async 
   input: UpdateTemplateActiveVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath =
     "/v1/templates/{TemplateName}/{TemplateType}/active-version";
   if (input.TemplateName !== undefined) {
@@ -5137,8 +5242,9 @@ export const serializeAws_restJson1_1UpdateVoiceChannelCommand = async (
   input: UpdateVoiceChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/apps/{ApplicationId}/channels/voice";
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
@@ -5181,8 +5287,9 @@ export const serializeAws_restJson1_1UpdateVoiceTemplateCommand = async (
   input: UpdateVoiceTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/templates/{TemplateName}/voice";
   if (input.TemplateName !== undefined) {
     const labelValue: string = input.TemplateName;

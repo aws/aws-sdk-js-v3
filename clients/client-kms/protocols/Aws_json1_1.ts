@@ -318,9 +318,10 @@ export const serializeAws_json1_1CancelKeyDeletionCommand = async (
   input: CancelKeyDeletionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TrentService.CancelKeyDeletion";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TrentService.CancelKeyDeletion"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CancelKeyDeletionRequest(input, context)
@@ -332,9 +333,10 @@ export const serializeAws_json1_1ConnectCustomKeyStoreCommand = async (
   input: ConnectCustomKeyStoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TrentService.ConnectCustomKeyStore";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TrentService.ConnectCustomKeyStore"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ConnectCustomKeyStoreRequest(input, context)
@@ -346,9 +348,10 @@ export const serializeAws_json1_1CreateAliasCommand = async (
   input: CreateAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TrentService.CreateAlias";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TrentService.CreateAlias"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateAliasRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -358,9 +361,10 @@ export const serializeAws_json1_1CreateCustomKeyStoreCommand = async (
   input: CreateCustomKeyStoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TrentService.CreateCustomKeyStore";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TrentService.CreateCustomKeyStore"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateCustomKeyStoreRequest(input, context)
@@ -372,9 +376,10 @@ export const serializeAws_json1_1CreateGrantCommand = async (
   input: CreateGrantCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TrentService.CreateGrant";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TrentService.CreateGrant"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateGrantRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -384,9 +389,10 @@ export const serializeAws_json1_1CreateKeyCommand = async (
   input: CreateKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TrentService.CreateKey";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TrentService.CreateKey"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateKeyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -396,9 +402,10 @@ export const serializeAws_json1_1DecryptCommand = async (
   input: DecryptCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TrentService.Decrypt";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TrentService.Decrypt"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DecryptRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -408,9 +415,10 @@ export const serializeAws_json1_1DeleteAliasCommand = async (
   input: DeleteAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TrentService.DeleteAlias";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TrentService.DeleteAlias"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteAliasRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -420,9 +428,10 @@ export const serializeAws_json1_1DeleteCustomKeyStoreCommand = async (
   input: DeleteCustomKeyStoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TrentService.DeleteCustomKeyStore";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TrentService.DeleteCustomKeyStore"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteCustomKeyStoreRequest(input, context)
@@ -434,9 +443,10 @@ export const serializeAws_json1_1DeleteImportedKeyMaterialCommand = async (
   input: DeleteImportedKeyMaterialCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TrentService.DeleteImportedKeyMaterial";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TrentService.DeleteImportedKeyMaterial"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteImportedKeyMaterialRequest(input, context)
@@ -448,9 +458,10 @@ export const serializeAws_json1_1DescribeCustomKeyStoresCommand = async (
   input: DescribeCustomKeyStoresCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TrentService.DescribeCustomKeyStores";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TrentService.DescribeCustomKeyStores"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeCustomKeyStoresRequest(input, context)
@@ -462,9 +473,10 @@ export const serializeAws_json1_1DescribeKeyCommand = async (
   input: DescribeKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TrentService.DescribeKey";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TrentService.DescribeKey"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeKeyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -474,9 +486,10 @@ export const serializeAws_json1_1DisableKeyCommand = async (
   input: DisableKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TrentService.DisableKey";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TrentService.DisableKey"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DisableKeyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -486,9 +499,10 @@ export const serializeAws_json1_1DisableKeyRotationCommand = async (
   input: DisableKeyRotationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TrentService.DisableKeyRotation";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TrentService.DisableKeyRotation"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DisableKeyRotationRequest(input, context)
@@ -500,9 +514,10 @@ export const serializeAws_json1_1DisconnectCustomKeyStoreCommand = async (
   input: DisconnectCustomKeyStoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TrentService.DisconnectCustomKeyStore";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TrentService.DisconnectCustomKeyStore"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DisconnectCustomKeyStoreRequest(input, context)
@@ -514,9 +529,10 @@ export const serializeAws_json1_1EnableKeyCommand = async (
   input: EnableKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TrentService.EnableKey";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TrentService.EnableKey"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1EnableKeyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -526,9 +542,10 @@ export const serializeAws_json1_1EnableKeyRotationCommand = async (
   input: EnableKeyRotationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TrentService.EnableKeyRotation";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TrentService.EnableKeyRotation"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1EnableKeyRotationRequest(input, context)
@@ -540,9 +557,10 @@ export const serializeAws_json1_1EncryptCommand = async (
   input: EncryptCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TrentService.Encrypt";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TrentService.Encrypt"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1EncryptRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -552,9 +570,10 @@ export const serializeAws_json1_1GenerateDataKeyCommand = async (
   input: GenerateDataKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TrentService.GenerateDataKey";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TrentService.GenerateDataKey"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GenerateDataKeyRequest(input, context)
@@ -566,9 +585,10 @@ export const serializeAws_json1_1GenerateDataKeyPairCommand = async (
   input: GenerateDataKeyPairCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TrentService.GenerateDataKeyPair";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TrentService.GenerateDataKeyPair"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GenerateDataKeyPairRequest(input, context)
@@ -580,9 +600,10 @@ export const serializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCommand = as
   input: GenerateDataKeyPairWithoutPlaintextCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TrentService.GenerateDataKeyPairWithoutPlaintext";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TrentService.GenerateDataKeyPairWithoutPlaintext"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GenerateDataKeyPairWithoutPlaintextRequest(
@@ -597,9 +618,10 @@ export const serializeAws_json1_1GenerateDataKeyWithoutPlaintextCommand = async 
   input: GenerateDataKeyWithoutPlaintextCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TrentService.GenerateDataKeyWithoutPlaintext";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TrentService.GenerateDataKeyWithoutPlaintext"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GenerateDataKeyWithoutPlaintextRequest(input, context)
@@ -611,9 +633,10 @@ export const serializeAws_json1_1GenerateRandomCommand = async (
   input: GenerateRandomCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TrentService.GenerateRandom";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TrentService.GenerateRandom"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GenerateRandomRequest(input, context)
@@ -625,9 +648,10 @@ export const serializeAws_json1_1GetKeyPolicyCommand = async (
   input: GetKeyPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TrentService.GetKeyPolicy";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TrentService.GetKeyPolicy"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetKeyPolicyRequest(input, context)
@@ -639,9 +663,10 @@ export const serializeAws_json1_1GetKeyRotationStatusCommand = async (
   input: GetKeyRotationStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TrentService.GetKeyRotationStatus";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TrentService.GetKeyRotationStatus"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetKeyRotationStatusRequest(input, context)
@@ -653,9 +678,10 @@ export const serializeAws_json1_1GetParametersForImportCommand = async (
   input: GetParametersForImportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TrentService.GetParametersForImport";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TrentService.GetParametersForImport"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetParametersForImportRequest(input, context)
@@ -667,9 +693,10 @@ export const serializeAws_json1_1GetPublicKeyCommand = async (
   input: GetPublicKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TrentService.GetPublicKey";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TrentService.GetPublicKey"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetPublicKeyRequest(input, context)
@@ -681,9 +708,10 @@ export const serializeAws_json1_1ImportKeyMaterialCommand = async (
   input: ImportKeyMaterialCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TrentService.ImportKeyMaterial";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TrentService.ImportKeyMaterial"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ImportKeyMaterialRequest(input, context)
@@ -695,9 +723,10 @@ export const serializeAws_json1_1ListAliasesCommand = async (
   input: ListAliasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TrentService.ListAliases";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TrentService.ListAliases"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListAliasesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -707,9 +736,10 @@ export const serializeAws_json1_1ListGrantsCommand = async (
   input: ListGrantsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TrentService.ListGrants";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TrentService.ListGrants"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListGrantsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -719,9 +749,10 @@ export const serializeAws_json1_1ListKeyPoliciesCommand = async (
   input: ListKeyPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TrentService.ListKeyPolicies";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TrentService.ListKeyPolicies"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListKeyPoliciesRequest(input, context)
@@ -733,9 +764,10 @@ export const serializeAws_json1_1ListKeysCommand = async (
   input: ListKeysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TrentService.ListKeys";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TrentService.ListKeys"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListKeysRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -745,9 +777,10 @@ export const serializeAws_json1_1ListResourceTagsCommand = async (
   input: ListResourceTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TrentService.ListResourceTags";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TrentService.ListResourceTags"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListResourceTagsRequest(input, context)
@@ -759,9 +792,10 @@ export const serializeAws_json1_1ListRetirableGrantsCommand = async (
   input: ListRetirableGrantsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TrentService.ListRetirableGrants";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TrentService.ListRetirableGrants"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListRetirableGrantsRequest(input, context)
@@ -773,9 +807,10 @@ export const serializeAws_json1_1PutKeyPolicyCommand = async (
   input: PutKeyPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TrentService.PutKeyPolicy";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TrentService.PutKeyPolicy"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutKeyPolicyRequest(input, context)
@@ -787,9 +822,10 @@ export const serializeAws_json1_1ReEncryptCommand = async (
   input: ReEncryptCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TrentService.ReEncrypt";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TrentService.ReEncrypt"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ReEncryptRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -799,9 +835,10 @@ export const serializeAws_json1_1RetireGrantCommand = async (
   input: RetireGrantCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TrentService.RetireGrant";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TrentService.RetireGrant"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1RetireGrantRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -811,9 +848,10 @@ export const serializeAws_json1_1RevokeGrantCommand = async (
   input: RevokeGrantCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TrentService.RevokeGrant";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TrentService.RevokeGrant"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1RevokeGrantRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -823,9 +861,10 @@ export const serializeAws_json1_1ScheduleKeyDeletionCommand = async (
   input: ScheduleKeyDeletionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TrentService.ScheduleKeyDeletion";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TrentService.ScheduleKeyDeletion"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ScheduleKeyDeletionRequest(input, context)
@@ -837,9 +876,10 @@ export const serializeAws_json1_1SignCommand = async (
   input: SignCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TrentService.Sign";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TrentService.Sign"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1SignRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -849,9 +889,10 @@ export const serializeAws_json1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TrentService.TagResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TrentService.TagResource"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -861,9 +902,10 @@ export const serializeAws_json1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TrentService.UntagResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TrentService.UntagResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UntagResourceRequest(input, context)
@@ -875,9 +917,10 @@ export const serializeAws_json1_1UpdateAliasCommand = async (
   input: UpdateAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TrentService.UpdateAlias";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TrentService.UpdateAlias"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateAliasRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -887,9 +930,10 @@ export const serializeAws_json1_1UpdateCustomKeyStoreCommand = async (
   input: UpdateCustomKeyStoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TrentService.UpdateCustomKeyStore";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TrentService.UpdateCustomKeyStore"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateCustomKeyStoreRequest(input, context)
@@ -901,9 +945,10 @@ export const serializeAws_json1_1UpdateKeyDescriptionCommand = async (
   input: UpdateKeyDescriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TrentService.UpdateKeyDescription";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TrentService.UpdateKeyDescription"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateKeyDescriptionRequest(input, context)
@@ -915,9 +960,10 @@ export const serializeAws_json1_1VerifyCommand = async (
   input: VerifyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "TrentService.Verify";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TrentService.Verify"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1VerifyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);

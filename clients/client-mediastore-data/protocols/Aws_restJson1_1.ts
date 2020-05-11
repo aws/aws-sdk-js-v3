@@ -44,8 +44,9 @@ export const serializeAws_restJson1_1DeleteObjectCommand = async (
   input: DeleteObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/{Path+}";
   if (input.Path !== undefined) {
     const labelValue: string = input.Path;
@@ -79,8 +80,9 @@ export const serializeAws_restJson1_1DescribeObjectCommand = async (
   input: DescribeObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/{Path+}";
   if (input.Path !== undefined) {
     const labelValue: string = input.Path;
@@ -114,11 +116,10 @@ export const serializeAws_restJson1_1GetObjectCommand = async (
   input: GetObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.Range)) {
-    headers["Range"] = input.Range!;
-  }
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.Range) && { Range: input.Range! })
+  };
   let resolvedPath = "/{Path+}";
   if (input.Path !== undefined) {
     const labelValue: string = input.Path;
@@ -152,8 +153,9 @@ export const serializeAws_restJson1_1ListItemsCommand = async (
   input: ListItemsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/";
   const query: any = {
     ...(input.MaxResults !== undefined && {
@@ -180,18 +182,19 @@ export const serializeAws_restJson1_1PutObjectCommand = async (
   input: PutObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/octet-stream";
-  headers["x-amz-content-sha256"] = "UNSIGNED_PAYLOAD";
-  if (isSerializableHeaderValue(input.CacheControl)) {
-    headers["Cache-Control"] = input.CacheControl!;
-  }
-  if (isSerializableHeaderValue(input.ContentType)) {
-    headers["Content-Type"] = input.ContentType!;
-  }
-  if (isSerializableHeaderValue(input.StorageClass)) {
-    headers["x-amz-storage-class"] = input.StorageClass!;
-  }
+  const headers: any = {
+    "Content-Type": "application/octet-stream",
+    "x-amz-content-sha256": "UNSIGNED_PAYLOAD",
+    ...(isSerializableHeaderValue(input.CacheControl) && {
+      "Cache-Control": input.CacheControl!
+    }),
+    ...(isSerializableHeaderValue(input.ContentType) && {
+      "Content-Type": input.ContentType!
+    }),
+    ...(isSerializableHeaderValue(input.StorageClass) && {
+      "x-amz-storage-class": input.StorageClass!
+    })
+  };
   let resolvedPath = "/{Path+}";
   if (input.Path !== undefined) {
     const labelValue: string = input.Path;

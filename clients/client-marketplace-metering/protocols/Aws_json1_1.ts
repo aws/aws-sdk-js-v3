@@ -58,9 +58,10 @@ export const serializeAws_json1_1BatchMeterUsageCommand = async (
   input: BatchMeterUsageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSMPMeteringService.BatchMeterUsage";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSMPMeteringService.BatchMeterUsage"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchMeterUsageRequest(input, context)
@@ -72,9 +73,10 @@ export const serializeAws_json1_1MeterUsageCommand = async (
   input: MeterUsageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSMPMeteringService.MeterUsage";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSMPMeteringService.MeterUsage"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1MeterUsageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -84,9 +86,10 @@ export const serializeAws_json1_1RegisterUsageCommand = async (
   input: RegisterUsageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSMPMeteringService.RegisterUsage";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSMPMeteringService.RegisterUsage"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RegisterUsageRequest(input, context)
@@ -98,9 +101,10 @@ export const serializeAws_json1_1ResolveCustomerCommand = async (
   input: ResolveCustomerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSMPMeteringService.ResolveCustomer";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSMPMeteringService.ResolveCustomer"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ResolveCustomerRequest(input, context)

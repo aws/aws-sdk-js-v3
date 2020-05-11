@@ -90,8 +90,9 @@ export const serializeAws_restJson1_1CreateLedgerCommand = async (
   input: CreateLedgerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/ledgers";
   let body: any;
   const bodyParams: any = {};
@@ -124,8 +125,9 @@ export const serializeAws_restJson1_1DeleteLedgerCommand = async (
   input: DeleteLedgerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/ledgers/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
@@ -156,8 +158,9 @@ export const serializeAws_restJson1_1DescribeJournalS3ExportCommand = async (
   input: DescribeJournalS3ExportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/ledgers/{Name}/journal-s3-exports/{ExportId}";
   if (input.ExportId !== undefined) {
     const labelValue: string = input.ExportId;
@@ -200,8 +203,9 @@ export const serializeAws_restJson1_1DescribeLedgerCommand = async (
   input: DescribeLedgerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/ledgers/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
@@ -232,8 +236,9 @@ export const serializeAws_restJson1_1ExportJournalToS3Command = async (
   input: ExportJournalToS3CommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/ledgers/{Name}/journal-s3-exports";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
@@ -287,8 +292,9 @@ export const serializeAws_restJson1_1GetBlockCommand = async (
   input: GetBlockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/ledgers/{Name}/block";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
@@ -333,8 +339,9 @@ export const serializeAws_restJson1_1GetDigestCommand = async (
   input: GetDigestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/ledgers/{Name}/digest";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
@@ -365,8 +372,9 @@ export const serializeAws_restJson1_1GetRevisionCommand = async (
   input: GetRevisionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/ledgers/{Name}/revision";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
@@ -414,8 +422,9 @@ export const serializeAws_restJson1_1ListJournalS3ExportsCommand = async (
   input: ListJournalS3ExportsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/journal-s3-exports";
   const query: any = {
     ...(input.MaxResults !== undefined && {
@@ -441,8 +450,9 @@ export const serializeAws_restJson1_1ListJournalS3ExportsForLedgerCommand = asyn
   input: ListJournalS3ExportsForLedgerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/ledgers/{Name}/journal-s3-exports";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
@@ -480,8 +490,9 @@ export const serializeAws_restJson1_1ListLedgersCommand = async (
   input: ListLedgersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/ledgers";
   const query: any = {
     ...(input.MaxResults !== undefined && {
@@ -507,8 +518,9 @@ export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -541,8 +553,9 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -580,8 +593,9 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -620,8 +634,9 @@ export const serializeAws_restJson1_1UpdateLedgerCommand = async (
   input: UpdateLedgerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/ledgers/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;

@@ -119,8 +119,9 @@ export const serializeAws_restJson1_1CreateChannelCommand = async (
   input: CreateChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/channels";
   let body: any;
   const bodyParams: any = {};
@@ -150,8 +151,9 @@ export const serializeAws_restJson1_1CreateHarvestJobCommand = async (
   input: CreateHarvestJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/harvest_jobs";
   let body: any;
   const bodyParams: any = {};
@@ -190,8 +192,9 @@ export const serializeAws_restJson1_1CreateOriginEndpointCommand = async (
   input: CreateOriginEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/origin_endpoints";
   let body: any;
   const bodyParams: any = {};
@@ -274,8 +277,9 @@ export const serializeAws_restJson1_1DeleteChannelCommand = async (
   input: DeleteChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/channels/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -306,8 +310,9 @@ export const serializeAws_restJson1_1DeleteOriginEndpointCommand = async (
   input: DeleteOriginEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/origin_endpoints/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -338,8 +343,9 @@ export const serializeAws_restJson1_1DescribeChannelCommand = async (
   input: DescribeChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/channels/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -370,8 +376,9 @@ export const serializeAws_restJson1_1DescribeHarvestJobCommand = async (
   input: DescribeHarvestJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/harvest_jobs/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -402,8 +409,9 @@ export const serializeAws_restJson1_1DescribeOriginEndpointCommand = async (
   input: DescribeOriginEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/origin_endpoints/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -434,8 +442,9 @@ export const serializeAws_restJson1_1ListChannelsCommand = async (
   input: ListChannelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/channels";
   const query: any = {
     ...(input.MaxResults !== undefined && {
@@ -461,8 +470,9 @@ export const serializeAws_restJson1_1ListHarvestJobsCommand = async (
   input: ListHarvestJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/harvest_jobs";
   const query: any = {
     ...(input.IncludeChannelId !== undefined && {
@@ -494,8 +504,9 @@ export const serializeAws_restJson1_1ListOriginEndpointsCommand = async (
   input: ListOriginEndpointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/origin_endpoints";
   const query: any = {
     ...(input.ChannelId !== undefined && { channelId: input.ChannelId }),
@@ -522,8 +533,9 @@ export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -556,8 +568,9 @@ export const serializeAws_restJson1_1RotateChannelCredentialsCommand = async (
   input: RotateChannelCredentialsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/channels/{Id}/credentials";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -588,8 +601,9 @@ export const serializeAws_restJson1_1RotateIngestEndpointCredentialsCommand = as
   input: RotateIngestEndpointCredentialsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/channels/{Id}/ingest_endpoints/{IngestEndpointId}/credentials";
   if (input.Id !== undefined) {
@@ -637,8 +651,9 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -679,8 +694,9 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -719,8 +735,9 @@ export const serializeAws_restJson1_1UpdateChannelCommand = async (
   input: UpdateChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/channels/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -756,8 +773,9 @@ export const serializeAws_restJson1_1UpdateOriginEndpointCommand = async (
   input: UpdateOriginEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/origin_endpoints/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;

@@ -270,8 +270,9 @@ export const serializeAws_restJson1_1AddLayerVersionPermissionCommand = async (
   input: AddLayerVersionPermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath =
     "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}/policy";
   if (input.LayerName !== undefined) {
@@ -335,8 +336,9 @@ export const serializeAws_restJson1_1AddPermissionCommand = async (
   input: AddPermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/2015-03-31/functions/{FunctionName}/policy";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
@@ -396,8 +398,9 @@ export const serializeAws_restJson1_1CreateAliasCommand = async (
   input: CreateAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/2015-03-31/functions/{FunctionName}/aliases";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
@@ -449,8 +452,9 @@ export const serializeAws_restJson1_1CreateEventSourceMappingCommand = async (
   input: CreateEventSourceMappingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/2015-03-31/event-source-mappings";
   let body: any;
   const bodyParams: any = {};
@@ -513,8 +517,9 @@ export const serializeAws_restJson1_1CreateFunctionCommand = async (
   input: CreateFunctionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/2015-03-31/functions";
   let body: any;
   const bodyParams: any = {};
@@ -601,8 +606,9 @@ export const serializeAws_restJson1_1DeleteAliasCommand = async (
   input: DeleteAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2015-03-31/functions/{FunctionName}/aliases/{Name}";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
@@ -647,8 +653,9 @@ export const serializeAws_restJson1_1DeleteEventSourceMappingCommand = async (
   input: DeleteEventSourceMappingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2015-03-31/event-source-mappings/{UUID}";
   if (input.UUID !== undefined) {
     const labelValue: string = input.UUID;
@@ -679,8 +686,9 @@ export const serializeAws_restJson1_1DeleteFunctionCommand = async (
   input: DeleteFunctionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2015-03-31/functions/{FunctionName}";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
@@ -717,8 +725,9 @@ export const serializeAws_restJson1_1DeleteFunctionConcurrencyCommand = async (
   input: DeleteFunctionConcurrencyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2017-10-31/functions/{FunctionName}/concurrency";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
@@ -751,8 +760,9 @@ export const serializeAws_restJson1_1DeleteFunctionEventInvokeConfigCommand = as
   input: DeleteFunctionEventInvokeConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2019-09-25/functions/{FunctionName}/event-invoke-config";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
@@ -789,8 +799,9 @@ export const serializeAws_restJson1_1DeleteLayerVersionCommand = async (
   input: DeleteLayerVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}";
   if (input.LayerName !== undefined) {
     const labelValue: string = input.LayerName;
@@ -835,8 +846,9 @@ export const serializeAws_restJson1_1DeleteProvisionedConcurrencyConfigCommand =
   input: DeleteProvisionedConcurrencyConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/2019-09-30/functions/{FunctionName}/provisioned-concurrency";
   if (input.FunctionName !== undefined) {
@@ -874,8 +886,9 @@ export const serializeAws_restJson1_1GetAccountSettingsCommand = async (
   input: GetAccountSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2016-08-19/account-settings";
   let body: any;
   body = "{}";
@@ -895,8 +908,9 @@ export const serializeAws_restJson1_1GetAliasCommand = async (
   input: GetAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2015-03-31/functions/{FunctionName}/aliases/{Name}";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
@@ -941,8 +955,9 @@ export const serializeAws_restJson1_1GetEventSourceMappingCommand = async (
   input: GetEventSourceMappingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2015-03-31/event-source-mappings/{UUID}";
   if (input.UUID !== undefined) {
     const labelValue: string = input.UUID;
@@ -973,8 +988,9 @@ export const serializeAws_restJson1_1GetFunctionCommand = async (
   input: GetFunctionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2015-03-31/functions/{FunctionName}";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
@@ -1011,8 +1027,9 @@ export const serializeAws_restJson1_1GetFunctionConcurrencyCommand = async (
   input: GetFunctionConcurrencyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2019-09-30/functions/{FunctionName}/concurrency";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
@@ -1045,8 +1062,9 @@ export const serializeAws_restJson1_1GetFunctionConfigurationCommand = async (
   input: GetFunctionConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2015-03-31/functions/{FunctionName}/configuration";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
@@ -1083,8 +1101,9 @@ export const serializeAws_restJson1_1GetFunctionEventInvokeConfigCommand = async
   input: GetFunctionEventInvokeConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2019-09-25/functions/{FunctionName}/event-invoke-config";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
@@ -1121,8 +1140,9 @@ export const serializeAws_restJson1_1GetLayerVersionCommand = async (
   input: GetLayerVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}";
   if (input.LayerName !== undefined) {
     const labelValue: string = input.LayerName;
@@ -1167,8 +1187,9 @@ export const serializeAws_restJson1_1GetLayerVersionByArnCommand = async (
   input: GetLayerVersionByArnCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2018-10-31/layers";
   const query: any = {
     find: "LayerVersion",
@@ -1192,8 +1213,9 @@ export const serializeAws_restJson1_1GetLayerVersionPolicyCommand = async (
   input: GetLayerVersionPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}/policy";
   if (input.LayerName !== undefined) {
@@ -1239,8 +1261,9 @@ export const serializeAws_restJson1_1GetPolicyCommand = async (
   input: GetPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2015-03-31/functions/{FunctionName}/policy";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
@@ -1277,8 +1300,9 @@ export const serializeAws_restJson1_1GetProvisionedConcurrencyConfigCommand = as
   input: GetProvisionedConcurrencyConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/2019-09-30/functions/{FunctionName}/provisioned-concurrency";
   if (input.FunctionName !== undefined) {
@@ -1316,17 +1340,18 @@ export const serializeAws_restJson1_1InvokeCommand = async (
   input: InvokeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/octet-stream";
-  if (isSerializableHeaderValue(input.ClientContext)) {
-    headers["X-Amz-Client-Context"] = input.ClientContext!;
-  }
-  if (isSerializableHeaderValue(input.InvocationType)) {
-    headers["X-Amz-Invocation-Type"] = input.InvocationType!;
-  }
-  if (isSerializableHeaderValue(input.LogType)) {
-    headers["X-Amz-Log-Type"] = input.LogType!;
-  }
+  const headers: any = {
+    "Content-Type": "application/octet-stream",
+    ...(isSerializableHeaderValue(input.ClientContext) && {
+      "X-Amz-Client-Context": input.ClientContext!
+    }),
+    ...(isSerializableHeaderValue(input.InvocationType) && {
+      "X-Amz-Invocation-Type": input.InvocationType!
+    }),
+    ...(isSerializableHeaderValue(input.LogType) && {
+      "X-Amz-Log-Type": input.LogType!
+    })
+  };
   let resolvedPath = "/2015-03-31/functions/{FunctionName}/invocations";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
@@ -1366,8 +1391,9 @@ export const serializeAws_restJson1_1InvokeAsyncCommand = async (
   input: InvokeAsyncCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/octet-stream";
+  const headers: any = {
+    "Content-Type": "application/octet-stream"
+  };
   let resolvedPath = "/2014-11-13/functions/{FunctionName}/invoke-async";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
@@ -1403,8 +1429,9 @@ export const serializeAws_restJson1_1ListAliasesCommand = async (
   input: ListAliasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2015-03-31/functions/{FunctionName}/aliases";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
@@ -1445,8 +1472,9 @@ export const serializeAws_restJson1_1ListEventSourceMappingsCommand = async (
   input: ListEventSourceMappingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2015-03-31/event-source-mappings";
   const query: any = {
     ...(input.EventSourceArn !== undefined && {
@@ -1476,8 +1504,9 @@ export const serializeAws_restJson1_1ListFunctionEventInvokeConfigsCommand = asy
   input: ListFunctionEventInvokeConfigsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/2019-09-25/functions/{FunctionName}/event-invoke-config/list";
   if (input.FunctionName !== undefined) {
@@ -1516,8 +1545,9 @@ export const serializeAws_restJson1_1ListFunctionsCommand = async (
   input: ListFunctionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2015-03-31/functions";
   const query: any = {
     ...(input.FunctionVersion !== undefined && {
@@ -1547,8 +1577,9 @@ export const serializeAws_restJson1_1ListLayerVersionsCommand = async (
   input: ListLayerVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2018-10-31/layers/{LayerName}/versions";
   if (input.LayerName !== undefined) {
     const labelValue: string = input.LayerName;
@@ -1587,8 +1618,9 @@ export const serializeAws_restJson1_1ListLayersCommand = async (
   input: ListLayersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2018-10-31/layers";
   const query: any = {
     ...(input.CompatibleRuntime !== undefined && {
@@ -1615,8 +1647,9 @@ export const serializeAws_restJson1_1ListProvisionedConcurrencyConfigsCommand = 
   input: ListProvisionedConcurrencyConfigsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/2019-09-30/functions/{FunctionName}/provisioned-concurrency";
   if (input.FunctionName !== undefined) {
@@ -1656,8 +1689,9 @@ export const serializeAws_restJson1_1ListTagsCommand = async (
   input: ListTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2017-03-31/tags/{Resource}";
   if (input.Resource !== undefined) {
     const labelValue: string = input.Resource;
@@ -1688,8 +1722,9 @@ export const serializeAws_restJson1_1ListVersionsByFunctionCommand = async (
   input: ListVersionsByFunctionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2015-03-31/functions/{FunctionName}/versions";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
@@ -1727,8 +1762,9 @@ export const serializeAws_restJson1_1PublishLayerVersionCommand = async (
   input: PublishLayerVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/2018-10-31/layers/{LayerName}/versions";
   if (input.LayerName !== undefined) {
     const labelValue: string = input.LayerName;
@@ -1781,8 +1817,9 @@ export const serializeAws_restJson1_1PublishVersionCommand = async (
   input: PublishVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/2015-03-31/functions/{FunctionName}/versions";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
@@ -1826,8 +1863,9 @@ export const serializeAws_restJson1_1PutFunctionConcurrencyCommand = async (
   input: PutFunctionConcurrencyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/2017-10-31/functions/{FunctionName}/concurrency";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
@@ -1866,8 +1904,9 @@ export const serializeAws_restJson1_1PutFunctionEventInvokeConfigCommand = async
   input: PutFunctionEventInvokeConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/2019-09-25/functions/{FunctionName}/event-invoke-config";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
@@ -1918,8 +1957,9 @@ export const serializeAws_restJson1_1PutProvisionedConcurrencyConfigCommand = as
   input: PutProvisionedConcurrencyConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath =
     "/2019-09-30/functions/{FunctionName}/provisioned-concurrency";
   if (input.FunctionName !== undefined) {
@@ -1963,8 +2003,9 @@ export const serializeAws_restJson1_1RemoveLayerVersionPermissionCommand = async
   input: RemoveLayerVersionPermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}/policy/{StatementId}";
   if (input.LayerName !== undefined) {
@@ -2028,8 +2069,9 @@ export const serializeAws_restJson1_1RemovePermissionCommand = async (
   input: RemovePermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/2015-03-31/functions/{FunctionName}/policy/{StatementId}";
   if (input.FunctionName !== undefined) {
@@ -2082,8 +2124,9 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/2017-03-31/tags/{Resource}";
   if (input.Resource !== undefined) {
     const labelValue: string = input.Resource;
@@ -2119,8 +2162,9 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2017-03-31/tags/{Resource}";
   if (input.Resource !== undefined) {
     const labelValue: string = input.Resource;
@@ -2157,8 +2201,9 @@ export const serializeAws_restJson1_1UpdateAliasCommand = async (
   input: UpdateAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/2015-03-31/functions/{FunctionName}/aliases/{Name}";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
@@ -2222,8 +2267,9 @@ export const serializeAws_restJson1_1UpdateEventSourceMappingCommand = async (
   input: UpdateEventSourceMappingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/2015-03-31/event-source-mappings/{UUID}";
   if (input.UUID !== undefined) {
     const labelValue: string = input.UUID;
@@ -2287,8 +2333,9 @@ export const serializeAws_restJson1_1UpdateFunctionCodeCommand = async (
   input: UpdateFunctionCodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/2015-03-31/functions/{FunctionName}/code";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
@@ -2344,8 +2391,9 @@ export const serializeAws_restJson1_1UpdateFunctionConfigurationCommand = async 
   input: UpdateFunctionConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/2015-03-31/functions/{FunctionName}/configuration";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
@@ -2434,8 +2482,9 @@ export const serializeAws_restJson1_1UpdateFunctionEventInvokeConfigCommand = as
   input: UpdateFunctionEventInvokeConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/2019-09-25/functions/{FunctionName}/event-invoke-config";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;

@@ -191,8 +191,9 @@ export const serializeAws_restXmlAllQueryStringTypesCommand = async (
   input: AllQueryStringTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/AllQueryStringTypesInput";
   const query: any = {
     ...(input.queryBoolean !== undefined && {
@@ -280,8 +281,9 @@ export const serializeAws_restXmlConstantAndVariableQueryStringCommand = async (
   input: ConstantAndVariableQueryStringCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/ConstantAndVariableQueryString";
   const query: any = {
     foo: "bar",
@@ -306,8 +308,9 @@ export const serializeAws_restXmlConstantQueryStringCommand = async (
   input: ConstantQueryStringCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/ConstantQueryString/{hello}";
   if (input.hello !== undefined) {
     const labelValue: string = input.hello;
@@ -343,8 +346,9 @@ export const serializeAws_restXmlEmptyInputAndEmptyOutputCommand = async (
   input: EmptyInputAndEmptyOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/EmptyInputAndEmptyOutput";
   let body: any;
   body = "";
@@ -364,8 +368,9 @@ export const serializeAws_restXmlFlattenedXmlMapCommand = async (
   input: FlattenedXmlMapCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/FlattenedXmlMap";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
@@ -394,8 +399,9 @@ export const serializeAws_restXmlFlattenedXmlMapWithXmlNameCommand = async (
   input: FlattenedXmlMapWithXmlNameCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/FlattenedXmlMapWithXmlName";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
@@ -427,8 +433,9 @@ export const serializeAws_restXmlGreetingWithErrorsCommand = async (
   input: GreetingWithErrorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/GreetingWithErrors";
   let body: any;
   body = "";
@@ -448,11 +455,10 @@ export const serializeAws_restXmlHttpPayloadTraitsCommand = async (
   input: HttpPayloadTraitsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/octet-stream";
-  if (isSerializableHeaderValue(input.foo)) {
-    headers["X-Foo"] = input.foo!;
-  }
+  const headers: any = {
+    "Content-Type": "application/octet-stream",
+    ...(isSerializableHeaderValue(input.foo) && { "X-Foo": input.foo! })
+  };
   let resolvedPath = "/HttpPayloadTraits";
   let body: any;
   let contents: any;
@@ -476,11 +482,10 @@ export const serializeAws_restXmlHttpPayloadTraitsWithMediaTypeCommand = async (
   input: HttpPayloadTraitsWithMediaTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "text/plain";
-  if (isSerializableHeaderValue(input.foo)) {
-    headers["X-Foo"] = input.foo!;
-  }
+  const headers: any = {
+    "Content-Type": "text/plain",
+    ...(isSerializableHeaderValue(input.foo) && { "X-Foo": input.foo! })
+  };
   let resolvedPath = "/HttpPayloadTraitsWithMediaType";
   let body: any;
   let contents: any;
@@ -504,8 +509,9 @@ export const serializeAws_restXmlHttpPayloadWithStructureCommand = async (
   input: HttpPayloadWithStructureCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/HttpPayloadWithStructure";
   let body: any;
   let contents: any;
@@ -530,8 +536,9 @@ export const serializeAws_restXmlHttpPayloadWithXmlNameCommand = async (
   input: HttpPayloadWithXmlNameCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/HttpPayloadWithXmlName";
   let body: any;
   let contents: any;
@@ -556,8 +563,9 @@ export const serializeAws_restXmlHttpPayloadWithXmlNamespaceCommand = async (
   input: HttpPayloadWithXmlNamespaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/HttpPayloadWithXmlNamespace";
   let body: any;
   let contents: any;
@@ -586,8 +594,9 @@ export const serializeAws_restXmlHttpPayloadWithXmlNamespaceAndPrefixCommand = a
   input: HttpPayloadWithXmlNamespaceAndPrefixCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/HttpPayloadWithXmlNamespaceAndPrefix";
   let body: any;
   let contents: any;
@@ -616,16 +625,15 @@ export const serializeAws_restXmlHttpPrefixHeadersCommand = async (
   input: HttpPrefixHeadersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.foo)) {
-    headers["X-Foo"] = input.foo!;
-  }
-  if (input.fooMap !== undefined) {
-    Object.keys(input.fooMap).forEach(suffix => {
-      headers["X-Foo-" + suffix] = input.fooMap![suffix];
-    });
-  }
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.foo) && { "X-Foo": input.foo! }),
+    ...(input.fooMap !== undefined &&
+      Object.keys(input.fooMap).reduce((acc: any, suffix: string) => {
+        acc["X-Foo-" + suffix] = input.fooMap![suffix];
+        return acc;
+      }, {}))
+  };
   let resolvedPath = "/HttpPrefixHeaders";
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -644,8 +652,9 @@ export const serializeAws_restXmlHttpRequestWithGreedyLabelInPathCommand = async
   input: HttpRequestWithGreedyLabelInPathCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/HttpRequestWithGreedyLabelInPath/foo/{foo}/baz/{baz+}";
   if (input.baz !== undefined) {
     const labelValue: string = input.baz;
@@ -691,8 +700,9 @@ export const serializeAws_restXmlHttpRequestWithLabelsCommand = async (
   input: HttpRequestWithLabelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/HttpRequestWithLabels/{string}/{short}/{integer}/{long}/{float}/{double}/{boolean}/{timestamp}";
   if (input.boolean !== undefined) {
@@ -812,8 +822,9 @@ export const serializeAws_restXmlHttpRequestWithLabelsAndTimestampFormatCommand 
   input: HttpRequestWithLabelsAndTimestampFormatCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/HttpRequestWithLabelsAndTimestampFormat/{memberEpochSeconds}/{memberHttpDate}/{memberDateTime}/{defaultFormat}/{targetEpochSeconds}/{targetHttpDate}/{targetDateTime}";
   if (input.defaultFormat !== undefined) {
@@ -949,8 +960,9 @@ export const serializeAws_restXmlIgnoreQueryParamsInResponseCommand = async (
   input: IgnoreQueryParamsInResponseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/IgnoreQueryParamsInResponse";
   let body: any;
   body = "";
@@ -970,74 +982,75 @@ export const serializeAws_restXmlInputAndOutputWithHeadersCommand = async (
   input: InputAndOutputWithHeadersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.headerBooleanList)) {
-    headers["X-BooleanList"] = (input.headerBooleanList! || [])
-      .map(_entry => _entry.toString())
-      .join(", ");
-  }
-  if (isSerializableHeaderValue(input.headerByte)) {
-    headers["X-Byte"] = input.headerByte!.toString();
-  }
-  if (isSerializableHeaderValue(input.headerDouble)) {
-    headers["X-Double"] =
-      input.headerDouble! % 1 == 0
-        ? input.headerDouble! + ".0"
-        : input.headerDouble!.toString();
-  }
-  if (isSerializableHeaderValue(input.headerEnum)) {
-    headers["X-Enum"] = input.headerEnum!;
-  }
-  if (isSerializableHeaderValue(input.headerEnumList)) {
-    headers["X-EnumList"] = (input.headerEnumList! || [])
-      .map(_entry => _entry)
-      .join(", ");
-  }
-  if (isSerializableHeaderValue(input.headerFalseBool)) {
-    headers["X-Boolean2"] = input.headerFalseBool!.toString();
-  }
-  if (isSerializableHeaderValue(input.headerFloat)) {
-    headers["X-Float"] =
-      input.headerFloat! % 1 == 0
-        ? input.headerFloat! + ".0"
-        : input.headerFloat!.toString();
-  }
-  if (isSerializableHeaderValue(input.headerInteger)) {
-    headers["X-Integer"] = input.headerInteger!.toString();
-  }
-  if (isSerializableHeaderValue(input.headerIntegerList)) {
-    headers["X-IntegerList"] = (input.headerIntegerList! || [])
-      .map(_entry => _entry.toString())
-      .join(", ");
-  }
-  if (isSerializableHeaderValue(input.headerLong)) {
-    headers["X-Long"] = input.headerLong!.toString();
-  }
-  if (isSerializableHeaderValue(input.headerShort)) {
-    headers["X-Short"] = input.headerShort!.toString();
-  }
-  if (isSerializableHeaderValue(input.headerString)) {
-    headers["X-String"] = input.headerString!;
-  }
-  if (isSerializableHeaderValue(input.headerStringList)) {
-    headers["X-StringList"] = (input.headerStringList! || [])
-      .map(_entry => _entry)
-      .join(", ");
-  }
-  if (isSerializableHeaderValue(input.headerStringSet)) {
-    headers["X-StringSet"] = (Array.from(input.headerStringSet!.values()) || [])
-      .map(_entry => _entry)
-      .join(", ");
-  }
-  if (isSerializableHeaderValue(input.headerTimestampList)) {
-    headers["X-TimestampList"] = (input.headerTimestampList! || [])
-      .map(_entry => __dateToUtcString(_entry).toString())
-      .join(", ");
-  }
-  if (isSerializableHeaderValue(input.headerTrueBool)) {
-    headers["X-Boolean1"] = input.headerTrueBool!.toString();
-  }
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.headerBooleanList) && {
+      "X-BooleanList": (input.headerBooleanList! || [])
+        .map(_entry => _entry.toString())
+        .join(", ")
+    }),
+    ...(isSerializableHeaderValue(input.headerByte) && {
+      "X-Byte": input.headerByte!.toString()
+    }),
+    ...(isSerializableHeaderValue(input.headerDouble) && {
+      "X-Double":
+        input.headerDouble! % 1 == 0
+          ? input.headerDouble! + ".0"
+          : input.headerDouble!.toString()
+    }),
+    ...(isSerializableHeaderValue(input.headerEnum) && {
+      "X-Enum": input.headerEnum!
+    }),
+    ...(isSerializableHeaderValue(input.headerEnumList) && {
+      "X-EnumList": (input.headerEnumList! || [])
+        .map(_entry => _entry)
+        .join(", ")
+    }),
+    ...(isSerializableHeaderValue(input.headerFalseBool) && {
+      "X-Boolean2": input.headerFalseBool!.toString()
+    }),
+    ...(isSerializableHeaderValue(input.headerFloat) && {
+      "X-Float":
+        input.headerFloat! % 1 == 0
+          ? input.headerFloat! + ".0"
+          : input.headerFloat!.toString()
+    }),
+    ...(isSerializableHeaderValue(input.headerInteger) && {
+      "X-Integer": input.headerInteger!.toString()
+    }),
+    ...(isSerializableHeaderValue(input.headerIntegerList) && {
+      "X-IntegerList": (input.headerIntegerList! || [])
+        .map(_entry => _entry.toString())
+        .join(", ")
+    }),
+    ...(isSerializableHeaderValue(input.headerLong) && {
+      "X-Long": input.headerLong!.toString()
+    }),
+    ...(isSerializableHeaderValue(input.headerShort) && {
+      "X-Short": input.headerShort!.toString()
+    }),
+    ...(isSerializableHeaderValue(input.headerString) && {
+      "X-String": input.headerString!
+    }),
+    ...(isSerializableHeaderValue(input.headerStringList) && {
+      "X-StringList": (input.headerStringList! || [])
+        .map(_entry => _entry)
+        .join(", ")
+    }),
+    ...(isSerializableHeaderValue(input.headerStringSet) && {
+      "X-StringSet": (Array.from(input.headerStringSet!.values()) || [])
+        .map(_entry => _entry)
+        .join(", ")
+    }),
+    ...(isSerializableHeaderValue(input.headerTimestampList) && {
+      "X-TimestampList": (input.headerTimestampList! || [])
+        .map(_entry => __dateToUtcString(_entry).toString())
+        .join(", ")
+    }),
+    ...(isSerializableHeaderValue(input.headerTrueBool) && {
+      "X-Boolean1": input.headerTrueBool!.toString()
+    })
+  };
   let resolvedPath = "/InputAndOutputWithHeaders";
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1056,8 +1069,9 @@ export const serializeAws_restXmlNoInputAndNoOutputCommand = async (
   input: NoInputAndNoOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/NoInputAndNoOutput";
   let body: any;
   body = "";
@@ -1077,8 +1091,9 @@ export const serializeAws_restXmlNoInputAndOutputCommand = async (
   input: NoInputAndOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/NoInputAndOutputOutput";
   let body: any;
   body = "";
@@ -1098,17 +1113,14 @@ export const serializeAws_restXmlNullAndEmptyHeadersClientCommand = async (
   input: NullAndEmptyHeadersClientCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.a)) {
-    headers["X-A"] = input.a!;
-  }
-  if (isSerializableHeaderValue(input.b)) {
-    headers["X-B"] = input.b!;
-  }
-  if (isSerializableHeaderValue(input.c)) {
-    headers["X-C"] = (input.c! || []).map(_entry => _entry).join(", ");
-  }
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.a) && { "X-A": input.a! }),
+    ...(isSerializableHeaderValue(input.b) && { "X-B": input.b! }),
+    ...(isSerializableHeaderValue(input.c) && {
+      "X-C": (input.c! || []).map(_entry => _entry).join(", ")
+    })
+  };
   let resolvedPath = "/NullAndEmptyHeadersClient";
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1127,17 +1139,14 @@ export const serializeAws_restXmlNullAndEmptyHeadersServerCommand = async (
   input: NullAndEmptyHeadersServerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.a)) {
-    headers["X-A"] = input.a!;
-  }
-  if (isSerializableHeaderValue(input.b)) {
-    headers["X-B"] = input.b!;
-  }
-  if (isSerializableHeaderValue(input.c)) {
-    headers["X-C"] = (input.c! || []).map(_entry => _entry).join(", ");
-  }
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.a) && { "X-A": input.a! }),
+    ...(isSerializableHeaderValue(input.b) && { "X-B": input.b! }),
+    ...(isSerializableHeaderValue(input.c) && {
+      "X-C": (input.c! || []).map(_entry => _entry).join(", ")
+    })
+  };
   let resolvedPath = "/NullAndEmptyHeadersServer";
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1156,8 +1165,9 @@ export const serializeAws_restXmlOmitsNullSerializesEmptyStringCommand = async (
   input: OmitsNullSerializesEmptyStringCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/OmitsNullSerializesEmptyString";
   const query: any = {
     ...(input.emptyString !== undefined && { Empty: input.emptyString }),
@@ -1181,8 +1191,9 @@ export const serializeAws_restXmlQueryIdempotencyTokenAutoFillCommand = async (
   input: QueryIdempotencyTokenAutoFillCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/QueryIdempotencyTokenAutoFill";
   const query: any = {
     ...(input.token !== undefined && { token: input.token })
@@ -1205,8 +1216,9 @@ export const serializeAws_restXmlRecursiveShapesCommand = async (
   input: RecursiveShapesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/RecursiveShapes";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
@@ -1235,11 +1247,10 @@ export const serializeAws_restXmlSimpleScalarPropertiesCommand = async (
   input: SimpleScalarPropertiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
-  if (isSerializableHeaderValue(input.foo)) {
-    headers["X-Foo"] = input.foo!;
-  }
+  const headers: any = {
+    "Content-Type": "application/xml",
+    ...(isSerializableHeaderValue(input.foo) && { "X-Foo": input.foo! })
+  };
   let resolvedPath = "/SimpleScalarProperties";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
@@ -1315,43 +1326,38 @@ export const serializeAws_restXmlTimestampFormatHeadersCommand = async (
   input: TimestampFormatHeadersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.defaultFormat)) {
-    headers["X-defaultFormat"] = __dateToUtcString(
-      input.defaultFormat!
-    ).toString();
-  }
-  if (isSerializableHeaderValue(input.memberDateTime)) {
-    headers["X-memberDateTime"] = (
-      input.memberDateTime!.toISOString().split(".")[0] + "Z"
-    ).toString();
-  }
-  if (isSerializableHeaderValue(input.memberEpochSeconds)) {
-    headers["X-memberEpochSeconds"] = Math.round(
-      input.memberEpochSeconds!.getTime() / 1000
-    ).toString();
-  }
-  if (isSerializableHeaderValue(input.memberHttpDate)) {
-    headers["X-memberHttpDate"] = __dateToUtcString(
-      input.memberHttpDate!
-    ).toString();
-  }
-  if (isSerializableHeaderValue(input.targetDateTime)) {
-    headers["X-targetDateTime"] = (
-      input.targetDateTime!.toISOString().split(".")[0] + "Z"
-    ).toString();
-  }
-  if (isSerializableHeaderValue(input.targetEpochSeconds)) {
-    headers["X-targetEpochSeconds"] = Math.round(
-      input.targetEpochSeconds!.getTime() / 1000
-    ).toString();
-  }
-  if (isSerializableHeaderValue(input.targetHttpDate)) {
-    headers["X-targetHttpDate"] = __dateToUtcString(
-      input.targetHttpDate!
-    ).toString();
-  }
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.defaultFormat) && {
+      "X-defaultFormat": __dateToUtcString(input.defaultFormat!).toString()
+    }),
+    ...(isSerializableHeaderValue(input.memberDateTime) && {
+      "X-memberDateTime": (
+        input.memberDateTime!.toISOString().split(".")[0] + "Z"
+      ).toString()
+    }),
+    ...(isSerializableHeaderValue(input.memberEpochSeconds) && {
+      "X-memberEpochSeconds": Math.round(
+        input.memberEpochSeconds!.getTime() / 1000
+      ).toString()
+    }),
+    ...(isSerializableHeaderValue(input.memberHttpDate) && {
+      "X-memberHttpDate": __dateToUtcString(input.memberHttpDate!).toString()
+    }),
+    ...(isSerializableHeaderValue(input.targetDateTime) && {
+      "X-targetDateTime": (
+        input.targetDateTime!.toISOString().split(".")[0] + "Z"
+      ).toString()
+    }),
+    ...(isSerializableHeaderValue(input.targetEpochSeconds) && {
+      "X-targetEpochSeconds": Math.round(
+        input.targetEpochSeconds!.getTime() / 1000
+      ).toString()
+    }),
+    ...(isSerializableHeaderValue(input.targetHttpDate) && {
+      "X-targetHttpDate": __dateToUtcString(input.targetHttpDate!).toString()
+    })
+  };
   let resolvedPath = "/TimestampFormatHeaders";
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1370,8 +1376,9 @@ export const serializeAws_restXmlXmlAttributesCommand = async (
   input: XmlAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/XmlAttributes";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
@@ -1402,8 +1409,9 @@ export const serializeAws_restXmlXmlAttributesOnPayloadCommand = async (
   input: XmlAttributesOnPayloadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/XmlAttributesOnPayload";
   let body: any;
   let contents: any;
@@ -1431,8 +1439,9 @@ export const serializeAws_restXmlXmlBlobsCommand = async (
   input: XmlBlobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/XmlBlobs";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
@@ -1460,8 +1469,9 @@ export const serializeAws_restXmlXmlEnumsCommand = async (
   input: XmlEnumsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/XmlEnums";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
@@ -1525,8 +1535,9 @@ export const serializeAws_restXmlXmlListsCommand = async (
   input: XmlListsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/XmlLists";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
@@ -1652,8 +1663,9 @@ export const serializeAws_restXmlXmlMapsCommand = async (
   input: XmlMapsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/XmlMaps";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
@@ -1686,8 +1698,9 @@ export const serializeAws_restXmlXmlMapsXmlNameCommand = async (
   input: XmlMapsXmlNameCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/XmlMapsXmlName";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
@@ -1720,8 +1733,9 @@ export const serializeAws_restXmlXmlNamespacesCommand = async (
   input: XmlNamespacesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/XmlNamespaces";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
@@ -1751,8 +1765,9 @@ export const serializeAws_restXmlXmlTimestampsCommand = async (
   input: XmlTimestampsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/XmlTimestamps";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';

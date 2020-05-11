@@ -44,9 +44,10 @@ export const serializeAws_json1_0SendCommandCommand = async (
   input: SendCommandCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "QLDBSession.SendCommand";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "QLDBSession.SendCommand"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0SendCommandRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);

@@ -94,8 +94,9 @@ export const serializeAws_restJson1_1AssociateDeviceWithPlacementCommand = async
   input: AssociateDeviceWithPlacementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath =
     "/projects/{projectName}/placements/{placementName}/devices/{deviceTemplateName}";
   if (input.deviceTemplateName !== undefined) {
@@ -164,8 +165,9 @@ export const serializeAws_restJson1_1CreatePlacementCommand = async (
   input: CreatePlacementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/projects/{projectName}/placements";
   if (input.projectName !== undefined) {
     const labelValue: string = input.projectName;
@@ -209,8 +211,9 @@ export const serializeAws_restJson1_1CreateProjectCommand = async (
   input: CreateProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/projects";
   let body: any;
   const bodyParams: any = {};
@@ -246,8 +249,9 @@ export const serializeAws_restJson1_1DeletePlacementCommand = async (
   input: DeletePlacementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/projects/{projectName}/placements/{placementName}";
   if (input.placementName !== undefined) {
     const labelValue: string = input.placementName;
@@ -294,8 +298,9 @@ export const serializeAws_restJson1_1DeleteProjectCommand = async (
   input: DeleteProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/projects/{projectName}";
   if (input.projectName !== undefined) {
     const labelValue: string = input.projectName;
@@ -328,8 +333,9 @@ export const serializeAws_restJson1_1DescribePlacementCommand = async (
   input: DescribePlacementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/projects/{projectName}/placements/{placementName}";
   if (input.placementName !== undefined) {
     const labelValue: string = input.placementName;
@@ -376,8 +382,9 @@ export const serializeAws_restJson1_1DescribeProjectCommand = async (
   input: DescribeProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/projects/{projectName}";
   if (input.projectName !== undefined) {
     const labelValue: string = input.projectName;
@@ -410,8 +417,9 @@ export const serializeAws_restJson1_1DisassociateDeviceFromPlacementCommand = as
   input: DisassociateDeviceFromPlacementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/projects/{projectName}/placements/{placementName}/devices/{deviceTemplateName}";
   if (input.deviceTemplateName !== undefined) {
@@ -475,8 +483,9 @@ export const serializeAws_restJson1_1GetDevicesInPlacementCommand = async (
   input: GetDevicesInPlacementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/projects/{projectName}/placements/{placementName}/devices";
   if (input.placementName !== undefined) {
@@ -524,8 +533,9 @@ export const serializeAws_restJson1_1ListPlacementsCommand = async (
   input: ListPlacementsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/projects/{projectName}/placements";
   if (input.projectName !== undefined) {
     const labelValue: string = input.projectName;
@@ -565,8 +575,9 @@ export const serializeAws_restJson1_1ListProjectsCommand = async (
   input: ListProjectsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/projects";
   const query: any = {
     ...(input.maxResults !== undefined && {
@@ -592,8 +603,9 @@ export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
@@ -626,8 +638,9 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
@@ -665,8 +678,9 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
@@ -705,8 +719,9 @@ export const serializeAws_restJson1_1UpdatePlacementCommand = async (
   input: UpdatePlacementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/projects/{projectName}/placements/{placementName}";
   if (input.placementName !== undefined) {
     const labelValue: string = input.placementName;
@@ -761,8 +776,9 @@ export const serializeAws_restJson1_1UpdateProjectCommand = async (
   input: UpdateProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/projects/{projectName}";
   if (input.projectName !== undefined) {
     const labelValue: string = input.projectName;

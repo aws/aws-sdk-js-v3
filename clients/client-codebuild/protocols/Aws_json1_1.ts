@@ -265,9 +265,10 @@ export const serializeAws_json1_1BatchDeleteBuildsCommand = async (
   input: BatchDeleteBuildsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeBuild_20161006.BatchDeleteBuilds";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeBuild_20161006.BatchDeleteBuilds"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchDeleteBuildsInput(input, context)
@@ -279,9 +280,10 @@ export const serializeAws_json1_1BatchGetBuildsCommand = async (
   input: BatchGetBuildsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeBuild_20161006.BatchGetBuilds";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeBuild_20161006.BatchGetBuilds"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchGetBuildsInput(input, context)
@@ -293,9 +295,10 @@ export const serializeAws_json1_1BatchGetProjectsCommand = async (
   input: BatchGetProjectsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeBuild_20161006.BatchGetProjects";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeBuild_20161006.BatchGetProjects"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchGetProjectsInput(input, context)
@@ -307,9 +310,10 @@ export const serializeAws_json1_1BatchGetReportGroupsCommand = async (
   input: BatchGetReportGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeBuild_20161006.BatchGetReportGroups";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeBuild_20161006.BatchGetReportGroups"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchGetReportGroupsInput(input, context)
@@ -321,9 +325,10 @@ export const serializeAws_json1_1BatchGetReportsCommand = async (
   input: BatchGetReportsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeBuild_20161006.BatchGetReports";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeBuild_20161006.BatchGetReports"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchGetReportsInput(input, context)
@@ -335,9 +340,10 @@ export const serializeAws_json1_1CreateProjectCommand = async (
   input: CreateProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeBuild_20161006.CreateProject";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeBuild_20161006.CreateProject"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateProjectInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -347,9 +353,10 @@ export const serializeAws_json1_1CreateReportGroupCommand = async (
   input: CreateReportGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeBuild_20161006.CreateReportGroup";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeBuild_20161006.CreateReportGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateReportGroupInput(input, context)
@@ -361,9 +368,10 @@ export const serializeAws_json1_1CreateWebhookCommand = async (
   input: CreateWebhookCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeBuild_20161006.CreateWebhook";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeBuild_20161006.CreateWebhook"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateWebhookInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -373,9 +381,10 @@ export const serializeAws_json1_1DeleteProjectCommand = async (
   input: DeleteProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeBuild_20161006.DeleteProject";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeBuild_20161006.DeleteProject"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteProjectInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -385,9 +394,10 @@ export const serializeAws_json1_1DeleteReportCommand = async (
   input: DeleteReportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeBuild_20161006.DeleteReport";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeBuild_20161006.DeleteReport"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteReportInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -397,9 +407,10 @@ export const serializeAws_json1_1DeleteReportGroupCommand = async (
   input: DeleteReportGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeBuild_20161006.DeleteReportGroup";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeBuild_20161006.DeleteReportGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteReportGroupInput(input, context)
@@ -411,9 +422,10 @@ export const serializeAws_json1_1DeleteResourcePolicyCommand = async (
   input: DeleteResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeBuild_20161006.DeleteResourcePolicy";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeBuild_20161006.DeleteResourcePolicy"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteResourcePolicyInput(input, context)
@@ -425,9 +437,10 @@ export const serializeAws_json1_1DeleteSourceCredentialsCommand = async (
   input: DeleteSourceCredentialsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeBuild_20161006.DeleteSourceCredentials";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeBuild_20161006.DeleteSourceCredentials"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteSourceCredentialsInput(input, context)
@@ -439,9 +452,10 @@ export const serializeAws_json1_1DeleteWebhookCommand = async (
   input: DeleteWebhookCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeBuild_20161006.DeleteWebhook";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeBuild_20161006.DeleteWebhook"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteWebhookInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -451,9 +465,10 @@ export const serializeAws_json1_1DescribeTestCasesCommand = async (
   input: DescribeTestCasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeBuild_20161006.DescribeTestCases";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeBuild_20161006.DescribeTestCases"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeTestCasesInput(input, context)
@@ -465,9 +480,10 @@ export const serializeAws_json1_1GetResourcePolicyCommand = async (
   input: GetResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeBuild_20161006.GetResourcePolicy";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeBuild_20161006.GetResourcePolicy"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetResourcePolicyInput(input, context)
@@ -479,9 +495,10 @@ export const serializeAws_json1_1ImportSourceCredentialsCommand = async (
   input: ImportSourceCredentialsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeBuild_20161006.ImportSourceCredentials";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeBuild_20161006.ImportSourceCredentials"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ImportSourceCredentialsInput(input, context)
@@ -493,9 +510,10 @@ export const serializeAws_json1_1InvalidateProjectCacheCommand = async (
   input: InvalidateProjectCacheCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeBuild_20161006.InvalidateProjectCache";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeBuild_20161006.InvalidateProjectCache"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1InvalidateProjectCacheInput(input, context)
@@ -507,9 +525,10 @@ export const serializeAws_json1_1ListBuildsCommand = async (
   input: ListBuildsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeBuild_20161006.ListBuilds";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeBuild_20161006.ListBuilds"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListBuildsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -519,9 +538,10 @@ export const serializeAws_json1_1ListBuildsForProjectCommand = async (
   input: ListBuildsForProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeBuild_20161006.ListBuildsForProject";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeBuild_20161006.ListBuildsForProject"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListBuildsForProjectInput(input, context)
@@ -533,9 +553,10 @@ export const serializeAws_json1_1ListCuratedEnvironmentImagesCommand = async (
   input: ListCuratedEnvironmentImagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeBuild_20161006.ListCuratedEnvironmentImages";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeBuild_20161006.ListCuratedEnvironmentImages"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListCuratedEnvironmentImagesInput(input, context)
@@ -547,9 +568,10 @@ export const serializeAws_json1_1ListProjectsCommand = async (
   input: ListProjectsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeBuild_20161006.ListProjects";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeBuild_20161006.ListProjects"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListProjectsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -559,9 +581,10 @@ export const serializeAws_json1_1ListReportGroupsCommand = async (
   input: ListReportGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeBuild_20161006.ListReportGroups";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeBuild_20161006.ListReportGroups"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListReportGroupsInput(input, context)
@@ -573,9 +596,10 @@ export const serializeAws_json1_1ListReportsCommand = async (
   input: ListReportsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeBuild_20161006.ListReports";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeBuild_20161006.ListReports"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListReportsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -585,9 +609,10 @@ export const serializeAws_json1_1ListReportsForReportGroupCommand = async (
   input: ListReportsForReportGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeBuild_20161006.ListReportsForReportGroup";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeBuild_20161006.ListReportsForReportGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListReportsForReportGroupInput(input, context)
@@ -599,9 +624,10 @@ export const serializeAws_json1_1ListSharedProjectsCommand = async (
   input: ListSharedProjectsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeBuild_20161006.ListSharedProjects";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeBuild_20161006.ListSharedProjects"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListSharedProjectsInput(input, context)
@@ -613,9 +639,10 @@ export const serializeAws_json1_1ListSharedReportGroupsCommand = async (
   input: ListSharedReportGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeBuild_20161006.ListSharedReportGroups";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeBuild_20161006.ListSharedReportGroups"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListSharedReportGroupsInput(input, context)
@@ -627,9 +654,10 @@ export const serializeAws_json1_1ListSourceCredentialsCommand = async (
   input: ListSourceCredentialsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeBuild_20161006.ListSourceCredentials";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeBuild_20161006.ListSourceCredentials"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListSourceCredentialsInput(input, context)
@@ -641,9 +669,10 @@ export const serializeAws_json1_1PutResourcePolicyCommand = async (
   input: PutResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeBuild_20161006.PutResourcePolicy";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeBuild_20161006.PutResourcePolicy"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutResourcePolicyInput(input, context)
@@ -655,9 +684,10 @@ export const serializeAws_json1_1StartBuildCommand = async (
   input: StartBuildCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeBuild_20161006.StartBuild";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeBuild_20161006.StartBuild"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartBuildInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -667,9 +697,10 @@ export const serializeAws_json1_1StopBuildCommand = async (
   input: StopBuildCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeBuild_20161006.StopBuild";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeBuild_20161006.StopBuild"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StopBuildInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -679,9 +710,10 @@ export const serializeAws_json1_1UpdateProjectCommand = async (
   input: UpdateProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeBuild_20161006.UpdateProject";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeBuild_20161006.UpdateProject"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateProjectInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -691,9 +723,10 @@ export const serializeAws_json1_1UpdateReportGroupCommand = async (
   input: UpdateReportGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeBuild_20161006.UpdateReportGroup";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeBuild_20161006.UpdateReportGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateReportGroupInput(input, context)
@@ -705,9 +738,10 @@ export const serializeAws_json1_1UpdateWebhookCommand = async (
   input: UpdateWebhookCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeBuild_20161006.UpdateWebhook";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeBuild_20161006.UpdateWebhook"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateWebhookInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);

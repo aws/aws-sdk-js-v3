@@ -135,10 +135,10 @@ export const serializeAws_json1_1AssociateServiceQuotaTemplateCommand = async (
   input: AssociateServiceQuotaTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "ServiceQuotasV20190624.AssociateServiceQuotaTemplate";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ServiceQuotasV20190624.AssociateServiceQuotaTemplate"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AssociateServiceQuotaTemplateRequest(input, context)
@@ -150,10 +150,11 @@ export const serializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateCo
   input: DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "ServiceQuotasV20190624.DeleteServiceQuotaIncreaseRequestFromTemplate";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "ServiceQuotasV20190624.DeleteServiceQuotaIncreaseRequestFromTemplate"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateRequest(
@@ -168,10 +169,10 @@ export const serializeAws_json1_1DisassociateServiceQuotaTemplateCommand = async
   input: DisassociateServiceQuotaTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "ServiceQuotasV20190624.DisassociateServiceQuotaTemplate";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ServiceQuotasV20190624.DisassociateServiceQuotaTemplate"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DisassociateServiceQuotaTemplateRequest(input, context)
@@ -183,9 +184,10 @@ export const serializeAws_json1_1GetAWSDefaultServiceQuotaCommand = async (
   input: GetAWSDefaultServiceQuotaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "ServiceQuotasV20190624.GetAWSDefaultServiceQuota";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ServiceQuotasV20190624.GetAWSDefaultServiceQuota"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetAWSDefaultServiceQuotaRequest(input, context)
@@ -197,10 +199,11 @@ export const serializeAws_json1_1GetAssociationForServiceQuotaTemplateCommand = 
   input: GetAssociationForServiceQuotaTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "ServiceQuotasV20190624.GetAssociationForServiceQuotaTemplate";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "ServiceQuotasV20190624.GetAssociationForServiceQuotaTemplate"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetAssociationForServiceQuotaTemplateRequest(
@@ -215,10 +218,10 @@ export const serializeAws_json1_1GetRequestedServiceQuotaChangeCommand = async (
   input: GetRequestedServiceQuotaChangeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "ServiceQuotasV20190624.GetRequestedServiceQuotaChange";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ServiceQuotasV20190624.GetRequestedServiceQuotaChange"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetRequestedServiceQuotaChangeRequest(input, context)
@@ -230,9 +233,10 @@ export const serializeAws_json1_1GetServiceQuotaCommand = async (
   input: GetServiceQuotaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "ServiceQuotasV20190624.GetServiceQuota";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ServiceQuotasV20190624.GetServiceQuota"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetServiceQuotaRequest(input, context)
@@ -244,10 +248,11 @@ export const serializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateComma
   input: GetServiceQuotaIncreaseRequestFromTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "ServiceQuotasV20190624.GetServiceQuotaIncreaseRequestFromTemplate";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "ServiceQuotasV20190624.GetServiceQuotaIncreaseRequestFromTemplate"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateRequest(
@@ -262,10 +267,10 @@ export const serializeAws_json1_1ListAWSDefaultServiceQuotasCommand = async (
   input: ListAWSDefaultServiceQuotasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "ServiceQuotasV20190624.ListAWSDefaultServiceQuotas";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ServiceQuotasV20190624.ListAWSDefaultServiceQuotas"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListAWSDefaultServiceQuotasRequest(input, context)
@@ -277,10 +282,11 @@ export const serializeAws_json1_1ListRequestedServiceQuotaChangeHistoryCommand =
   input: ListRequestedServiceQuotaChangeHistoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "ServiceQuotasV20190624.ListRequestedServiceQuotaChangeHistory";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "ServiceQuotasV20190624.ListRequestedServiceQuotaChangeHistory"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListRequestedServiceQuotaChangeHistoryRequest(
@@ -295,10 +301,11 @@ export const serializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaCo
   input: ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "ServiceQuotasV20190624.ListRequestedServiceQuotaChangeHistoryByQuota";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "ServiceQuotasV20190624.ListRequestedServiceQuotaChangeHistoryByQuota"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaRequest(
@@ -313,10 +320,11 @@ export const serializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateComma
   input: ListServiceQuotaIncreaseRequestsInTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "ServiceQuotasV20190624.ListServiceQuotaIncreaseRequestsInTemplate";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "ServiceQuotasV20190624.ListServiceQuotaIncreaseRequestsInTemplate"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateRequest(
@@ -331,9 +339,10 @@ export const serializeAws_json1_1ListServiceQuotasCommand = async (
   input: ListServiceQuotasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "ServiceQuotasV20190624.ListServiceQuotas";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ServiceQuotasV20190624.ListServiceQuotas"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListServiceQuotasRequest(input, context)
@@ -345,9 +354,10 @@ export const serializeAws_json1_1ListServicesCommand = async (
   input: ListServicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "ServiceQuotasV20190624.ListServices";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ServiceQuotasV20190624.ListServices"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListServicesRequest(input, context)
@@ -359,10 +369,11 @@ export const serializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateComma
   input: PutServiceQuotaIncreaseRequestIntoTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "ServiceQuotasV20190624.PutServiceQuotaIncreaseRequestIntoTemplate";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "ServiceQuotasV20190624.PutServiceQuotaIncreaseRequestIntoTemplate"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateRequest(
@@ -377,10 +388,10 @@ export const serializeAws_json1_1RequestServiceQuotaIncreaseCommand = async (
   input: RequestServiceQuotaIncreaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "ServiceQuotasV20190624.RequestServiceQuotaIncrease";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ServiceQuotasV20190624.RequestServiceQuotaIncrease"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RequestServiceQuotaIncreaseRequest(input, context)

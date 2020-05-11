@@ -450,8 +450,9 @@ export const serializeAws_restJson1_1AssociatePhoneNumberWithUserCommand = async
   input: AssociatePhoneNumberWithUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/accounts/{AccountId}/users/{UserId}";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -503,8 +504,9 @@ export const serializeAws_restJson1_1AssociatePhoneNumbersWithVoiceConnectorComm
   input: AssociatePhoneNumbersWithVoiceConnectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/voice-connectors/{VoiceConnectorId}";
   if (input.VoiceConnectorId !== undefined) {
     const labelValue: string = input.VoiceConnectorId;
@@ -556,8 +558,9 @@ export const serializeAws_restJson1_1AssociatePhoneNumbersWithVoiceConnectorGrou
   input: AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/voice-connector-groups/{VoiceConnectorGroupId}";
   if (input.VoiceConnectorGroupId !== undefined) {
     const labelValue: string = input.VoiceConnectorGroupId;
@@ -609,8 +612,9 @@ export const serializeAws_restJson1_1AssociateSigninDelegateGroupsWithAccountCom
   input: AssociateSigninDelegateGroupsWithAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/accounts/{AccountId}";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -655,8 +659,9 @@ export const serializeAws_restJson1_1BatchCreateAttendeeCommand = async (
   input: BatchCreateAttendeeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/meetings/{MeetingId}/attendees";
   if (input.MeetingId !== undefined) {
     const labelValue: string = input.MeetingId;
@@ -701,8 +706,9 @@ export const serializeAws_restJson1_1BatchCreateRoomMembershipCommand = async (
   input: BatchCreateRoomMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/accounts/{AccountId}/rooms/{RoomId}/memberships";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -759,8 +765,9 @@ export const serializeAws_restJson1_1BatchDeletePhoneNumberCommand = async (
   input: BatchDeletePhoneNumberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/phone-numbers";
   const query: any = {
     operation: "batch-delete"
@@ -791,8 +798,9 @@ export const serializeAws_restJson1_1BatchSuspendUserCommand = async (
   input: BatchSuspendUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/accounts/{AccountId}/users";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -835,8 +843,9 @@ export const serializeAws_restJson1_1BatchUnsuspendUserCommand = async (
   input: BatchUnsuspendUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/accounts/{AccountId}/users";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -879,8 +888,9 @@ export const serializeAws_restJson1_1BatchUpdatePhoneNumberCommand = async (
   input: BatchUpdatePhoneNumberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/phone-numbers";
   const query: any = {
     operation: "batch-update"
@@ -913,8 +923,9 @@ export const serializeAws_restJson1_1BatchUpdateUserCommand = async (
   input: BatchUpdateUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/accounts/{AccountId}/users";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -955,8 +966,9 @@ export const serializeAws_restJson1_1CreateAccountCommand = async (
   input: CreateAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/accounts";
   let body: any;
   const bodyParams: any = {};
@@ -980,8 +992,9 @@ export const serializeAws_restJson1_1CreateAttendeeCommand = async (
   input: CreateAttendeeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/meetings/{MeetingId}/attendees";
   if (input.MeetingId !== undefined) {
     const labelValue: string = input.MeetingId;
@@ -1017,8 +1030,9 @@ export const serializeAws_restJson1_1CreateBotCommand = async (
   input: CreateBotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/accounts/{AccountId}/bots";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -1057,8 +1071,9 @@ export const serializeAws_restJson1_1CreateMeetingCommand = async (
   input: CreateMeetingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/meetings";
   let body: any;
   const bodyParams: any = {};
@@ -1099,8 +1114,9 @@ export const serializeAws_restJson1_1CreatePhoneNumberOrderCommand = async (
   input: CreatePhoneNumberOrderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/phone-number-orders";
   let body: any;
   const bodyParams: any = {};
@@ -1132,8 +1148,9 @@ export const serializeAws_restJson1_1CreateRoomCommand = async (
   input: CreateRoomCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/accounts/{AccountId}/rooms";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -1175,8 +1192,9 @@ export const serializeAws_restJson1_1CreateRoomMembershipCommand = async (
   input: CreateRoomMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/accounts/{AccountId}/rooms/{RoomId}/memberships";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -1227,8 +1245,9 @@ export const serializeAws_restJson1_1CreateUserCommand = async (
   input: CreateUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/accounts/{AccountId}/users";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -1274,8 +1293,9 @@ export const serializeAws_restJson1_1CreateVoiceConnectorCommand = async (
   input: CreateVoiceConnectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/voice-connectors";
   let body: any;
   const bodyParams: any = {};
@@ -1305,8 +1325,9 @@ export const serializeAws_restJson1_1CreateVoiceConnectorGroupCommand = async (
   input: CreateVoiceConnectorGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/voice-connector-groups";
   let body: any;
   const bodyParams: any = {};
@@ -1338,8 +1359,9 @@ export const serializeAws_restJson1_1DeleteAccountCommand = async (
   input: DeleteAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/accounts/{AccountId}";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -1370,8 +1392,9 @@ export const serializeAws_restJson1_1DeleteAttendeeCommand = async (
   input: DeleteAttendeeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/meetings/{MeetingId}/attendees/{AttendeeId}";
   if (input.AttendeeId !== undefined) {
     const labelValue: string = input.AttendeeId;
@@ -1414,8 +1437,9 @@ export const serializeAws_restJson1_1DeleteEventsConfigurationCommand = async (
   input: DeleteEventsConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/accounts/{AccountId}/bots/{BotId}/events-configuration";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -1458,8 +1482,9 @@ export const serializeAws_restJson1_1DeleteMeetingCommand = async (
   input: DeleteMeetingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/meetings/{MeetingId}";
   if (input.MeetingId !== undefined) {
     const labelValue: string = input.MeetingId;
@@ -1490,8 +1515,9 @@ export const serializeAws_restJson1_1DeletePhoneNumberCommand = async (
   input: DeletePhoneNumberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/phone-numbers/{PhoneNumberId}";
   if (input.PhoneNumberId !== undefined) {
     const labelValue: string = input.PhoneNumberId;
@@ -1524,8 +1550,9 @@ export const serializeAws_restJson1_1DeleteRoomCommand = async (
   input: DeleteRoomCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/accounts/{AccountId}/rooms/{RoomId}";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -1568,8 +1595,9 @@ export const serializeAws_restJson1_1DeleteRoomMembershipCommand = async (
   input: DeleteRoomMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/accounts/{AccountId}/rooms/{RoomId}/memberships/{MemberId}";
   if (input.AccountId !== undefined) {
@@ -1625,8 +1653,9 @@ export const serializeAws_restJson1_1DeleteVoiceConnectorCommand = async (
   input: DeleteVoiceConnectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/voice-connectors/{VoiceConnectorId}";
   if (input.VoiceConnectorId !== undefined) {
     const labelValue: string = input.VoiceConnectorId;
@@ -1661,8 +1690,9 @@ export const serializeAws_restJson1_1DeleteVoiceConnectorGroupCommand = async (
   input: DeleteVoiceConnectorGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/voice-connector-groups/{VoiceConnectorGroupId}";
   if (input.VoiceConnectorGroupId !== undefined) {
     const labelValue: string = input.VoiceConnectorGroupId;
@@ -1697,8 +1727,9 @@ export const serializeAws_restJson1_1DeleteVoiceConnectorOriginationCommand = as
   input: DeleteVoiceConnectorOriginationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/voice-connectors/{VoiceConnectorId}/origination";
   if (input.VoiceConnectorId !== undefined) {
     const labelValue: string = input.VoiceConnectorId;
@@ -1733,8 +1764,9 @@ export const serializeAws_restJson1_1DeleteVoiceConnectorStreamingConfigurationC
   input: DeleteVoiceConnectorStreamingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/voice-connectors/{VoiceConnectorId}/streaming-configuration";
   if (input.VoiceConnectorId !== undefined) {
@@ -1770,8 +1802,9 @@ export const serializeAws_restJson1_1DeleteVoiceConnectorTerminationCommand = as
   input: DeleteVoiceConnectorTerminationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/voice-connectors/{VoiceConnectorId}/termination";
   if (input.VoiceConnectorId !== undefined) {
     const labelValue: string = input.VoiceConnectorId;
@@ -1806,8 +1839,9 @@ export const serializeAws_restJson1_1DeleteVoiceConnectorTerminationCredentialsC
   input: DeleteVoiceConnectorTerminationCredentialsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath =
     "/voice-connectors/{VoiceConnectorId}/termination/credentials";
   if (input.VoiceConnectorId !== undefined) {
@@ -1855,8 +1889,9 @@ export const serializeAws_restJson1_1DisassociatePhoneNumberFromUserCommand = as
   input: DisassociatePhoneNumberFromUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/accounts/{AccountId}/users/{UserId}";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -1903,8 +1938,9 @@ export const serializeAws_restJson1_1DisassociatePhoneNumbersFromVoiceConnectorC
   input: DisassociatePhoneNumbersFromVoiceConnectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/voice-connectors/{VoiceConnectorId}";
   if (input.VoiceConnectorId !== undefined) {
     const labelValue: string = input.VoiceConnectorId;
@@ -1953,8 +1989,9 @@ export const serializeAws_restJson1_1DisassociatePhoneNumbersFromVoiceConnectorG
   input: DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/voice-connector-groups/{VoiceConnectorGroupId}";
   if (input.VoiceConnectorGroupId !== undefined) {
     const labelValue: string = input.VoiceConnectorGroupId;
@@ -2003,8 +2040,9 @@ export const serializeAws_restJson1_1DisassociateSigninDelegateGroupsFromAccount
   input: DisassociateSigninDelegateGroupsFromAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/accounts/{AccountId}";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -2047,8 +2085,9 @@ export const serializeAws_restJson1_1GetAccountCommand = async (
   input: GetAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/accounts/{AccountId}";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -2079,8 +2118,9 @@ export const serializeAws_restJson1_1GetAccountSettingsCommand = async (
   input: GetAccountSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/accounts/{AccountId}/settings";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -2111,8 +2151,9 @@ export const serializeAws_restJson1_1GetAttendeeCommand = async (
   input: GetAttendeeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/meetings/{MeetingId}/attendees/{AttendeeId}";
   if (input.AttendeeId !== undefined) {
     const labelValue: string = input.AttendeeId;
@@ -2155,8 +2196,9 @@ export const serializeAws_restJson1_1GetBotCommand = async (
   input: GetBotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/accounts/{AccountId}/bots/{BotId}";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -2199,8 +2241,9 @@ export const serializeAws_restJson1_1GetEventsConfigurationCommand = async (
   input: GetEventsConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/accounts/{AccountId}/bots/{BotId}/events-configuration";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -2243,8 +2286,9 @@ export const serializeAws_restJson1_1GetGlobalSettingsCommand = async (
   input: GetGlobalSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/settings";
   let body: any;
   body = "{}";
@@ -2264,8 +2308,9 @@ export const serializeAws_restJson1_1GetMeetingCommand = async (
   input: GetMeetingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/meetings/{MeetingId}";
   if (input.MeetingId !== undefined) {
     const labelValue: string = input.MeetingId;
@@ -2296,8 +2341,9 @@ export const serializeAws_restJson1_1GetPhoneNumberCommand = async (
   input: GetPhoneNumberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/phone-numbers/{PhoneNumberId}";
   if (input.PhoneNumberId !== undefined) {
     const labelValue: string = input.PhoneNumberId;
@@ -2330,8 +2376,9 @@ export const serializeAws_restJson1_1GetPhoneNumberOrderCommand = async (
   input: GetPhoneNumberOrderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/phone-number-orders/{PhoneNumberOrderId}";
   if (input.PhoneNumberOrderId !== undefined) {
     const labelValue: string = input.PhoneNumberOrderId;
@@ -2366,8 +2413,9 @@ export const serializeAws_restJson1_1GetPhoneNumberSettingsCommand = async (
   input: GetPhoneNumberSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/settings/phone-number";
   let body: any;
   body = "{}";
@@ -2387,8 +2435,9 @@ export const serializeAws_restJson1_1GetRoomCommand = async (
   input: GetRoomCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/accounts/{AccountId}/rooms/{RoomId}";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -2431,8 +2480,9 @@ export const serializeAws_restJson1_1GetUserCommand = async (
   input: GetUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/accounts/{AccountId}/users/{UserId}";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -2475,8 +2525,9 @@ export const serializeAws_restJson1_1GetUserSettingsCommand = async (
   input: GetUserSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/accounts/{AccountId}/users/{UserId}/settings";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -2519,8 +2570,9 @@ export const serializeAws_restJson1_1GetVoiceConnectorCommand = async (
   input: GetVoiceConnectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/voice-connectors/{VoiceConnectorId}";
   if (input.VoiceConnectorId !== undefined) {
     const labelValue: string = input.VoiceConnectorId;
@@ -2555,8 +2607,9 @@ export const serializeAws_restJson1_1GetVoiceConnectorGroupCommand = async (
   input: GetVoiceConnectorGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/voice-connector-groups/{VoiceConnectorGroupId}";
   if (input.VoiceConnectorGroupId !== undefined) {
     const labelValue: string = input.VoiceConnectorGroupId;
@@ -2591,8 +2644,9 @@ export const serializeAws_restJson1_1GetVoiceConnectorLoggingConfigurationComman
   input: GetVoiceConnectorLoggingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/voice-connectors/{VoiceConnectorId}/logging-configuration";
   if (input.VoiceConnectorId !== undefined) {
@@ -2628,8 +2682,9 @@ export const serializeAws_restJson1_1GetVoiceConnectorOriginationCommand = async
   input: GetVoiceConnectorOriginationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/voice-connectors/{VoiceConnectorId}/origination";
   if (input.VoiceConnectorId !== undefined) {
     const labelValue: string = input.VoiceConnectorId;
@@ -2664,8 +2719,9 @@ export const serializeAws_restJson1_1GetVoiceConnectorStreamingConfigurationComm
   input: GetVoiceConnectorStreamingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/voice-connectors/{VoiceConnectorId}/streaming-configuration";
   if (input.VoiceConnectorId !== undefined) {
@@ -2701,8 +2757,9 @@ export const serializeAws_restJson1_1GetVoiceConnectorTerminationCommand = async
   input: GetVoiceConnectorTerminationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/voice-connectors/{VoiceConnectorId}/termination";
   if (input.VoiceConnectorId !== undefined) {
     const labelValue: string = input.VoiceConnectorId;
@@ -2737,8 +2794,9 @@ export const serializeAws_restJson1_1GetVoiceConnectorTerminationHealthCommand =
   input: GetVoiceConnectorTerminationHealthCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/voice-connectors/{VoiceConnectorId}/termination/health";
   if (input.VoiceConnectorId !== undefined) {
     const labelValue: string = input.VoiceConnectorId;
@@ -2773,8 +2831,9 @@ export const serializeAws_restJson1_1InviteUsersCommand = async (
   input: InviteUsersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/accounts/{AccountId}/users";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -2820,8 +2879,9 @@ export const serializeAws_restJson1_1ListAccountsCommand = async (
   input: ListAccountsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/accounts";
   const query: any = {
     ...(input.MaxResults !== undefined && {
@@ -2849,8 +2909,9 @@ export const serializeAws_restJson1_1ListAttendeesCommand = async (
   input: ListAttendeesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/meetings/{MeetingId}/attendees";
   if (input.MeetingId !== undefined) {
     const labelValue: string = input.MeetingId;
@@ -2888,8 +2949,9 @@ export const serializeAws_restJson1_1ListBotsCommand = async (
   input: ListBotsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/accounts/{AccountId}/bots";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -2927,8 +2989,9 @@ export const serializeAws_restJson1_1ListMeetingsCommand = async (
   input: ListMeetingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/meetings";
   const query: any = {
     ...(input.MaxResults !== undefined && {
@@ -2954,8 +3017,9 @@ export const serializeAws_restJson1_1ListPhoneNumberOrdersCommand = async (
   input: ListPhoneNumberOrdersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/phone-number-orders";
   const query: any = {
     ...(input.MaxResults !== undefined && {
@@ -2981,8 +3045,9 @@ export const serializeAws_restJson1_1ListPhoneNumbersCommand = async (
   input: ListPhoneNumbersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/phone-numbers";
   const query: any = {
     ...(input.FilterName !== undefined && { "filter-name": input.FilterName }),
@@ -3016,8 +3081,9 @@ export const serializeAws_restJson1_1ListRoomMembershipsCommand = async (
   input: ListRoomMembershipsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/accounts/{AccountId}/rooms/{RoomId}/memberships";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -3067,8 +3133,9 @@ export const serializeAws_restJson1_1ListRoomsCommand = async (
   input: ListRoomsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/accounts/{AccountId}/rooms";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -3107,8 +3174,9 @@ export const serializeAws_restJson1_1ListUsersCommand = async (
   input: ListUsersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/accounts/{AccountId}/users";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -3148,8 +3216,9 @@ export const serializeAws_restJson1_1ListVoiceConnectorGroupsCommand = async (
   input: ListVoiceConnectorGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/voice-connector-groups";
   const query: any = {
     ...(input.MaxResults !== undefined && {
@@ -3175,8 +3244,9 @@ export const serializeAws_restJson1_1ListVoiceConnectorTerminationCredentialsCom
   input: ListVoiceConnectorTerminationCredentialsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/voice-connectors/{VoiceConnectorId}/termination/credentials";
   if (input.VoiceConnectorId !== undefined) {
@@ -3212,8 +3282,9 @@ export const serializeAws_restJson1_1ListVoiceConnectorsCommand = async (
   input: ListVoiceConnectorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/voice-connectors";
   const query: any = {
     ...(input.MaxResults !== undefined && {
@@ -3239,8 +3310,9 @@ export const serializeAws_restJson1_1LogoutUserCommand = async (
   input: LogoutUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/accounts/{AccountId}/users/{UserId}";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -3287,8 +3359,9 @@ export const serializeAws_restJson1_1PutEventsConfigurationCommand = async (
   input: PutEventsConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/accounts/{AccountId}/bots/{BotId}/events-configuration";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -3340,8 +3413,9 @@ export const serializeAws_restJson1_1PutVoiceConnectorLoggingConfigurationComman
   input: PutVoiceConnectorLoggingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath =
     "/voice-connectors/{VoiceConnectorId}/logging-configuration";
   if (input.VoiceConnectorId !== undefined) {
@@ -3387,8 +3461,9 @@ export const serializeAws_restJson1_1PutVoiceConnectorOriginationCommand = async
   input: PutVoiceConnectorOriginationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/voice-connectors/{VoiceConnectorId}/origination";
   if (input.VoiceConnectorId !== undefined) {
     const labelValue: string = input.VoiceConnectorId;
@@ -3431,8 +3506,9 @@ export const serializeAws_restJson1_1PutVoiceConnectorStreamingConfigurationComm
   input: PutVoiceConnectorStreamingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath =
     "/voice-connectors/{VoiceConnectorId}/streaming-configuration";
   if (input.VoiceConnectorId !== undefined) {
@@ -3478,8 +3554,9 @@ export const serializeAws_restJson1_1PutVoiceConnectorTerminationCommand = async
   input: PutVoiceConnectorTerminationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/voice-connectors/{VoiceConnectorId}/termination";
   if (input.VoiceConnectorId !== undefined) {
     const labelValue: string = input.VoiceConnectorId;
@@ -3522,8 +3599,9 @@ export const serializeAws_restJson1_1PutVoiceConnectorTerminationCredentialsComm
   input: PutVoiceConnectorTerminationCredentialsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath =
     "/voice-connectors/{VoiceConnectorId}/termination/credentials";
   if (input.VoiceConnectorId !== undefined) {
@@ -3571,8 +3649,9 @@ export const serializeAws_restJson1_1RegenerateSecurityTokenCommand = async (
   input: RegenerateSecurityTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/accounts/{AccountId}/bots/{BotId}";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -3619,8 +3698,9 @@ export const serializeAws_restJson1_1ResetPersonalPINCommand = async (
   input: ResetPersonalPINCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/accounts/{AccountId}/users/{UserId}";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -3667,8 +3747,9 @@ export const serializeAws_restJson1_1RestorePhoneNumberCommand = async (
   input: RestorePhoneNumberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/phone-numbers/{PhoneNumberId}";
   if (input.PhoneNumberId !== undefined) {
     const labelValue: string = input.PhoneNumberId;
@@ -3705,8 +3786,9 @@ export const serializeAws_restJson1_1SearchAvailablePhoneNumbersCommand = async 
   input: SearchAvailablePhoneNumbersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/search";
   const query: any = {
     type: "phone-numbers",
@@ -3740,8 +3822,9 @@ export const serializeAws_restJson1_1UpdateAccountCommand = async (
   input: UpdateAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/accounts/{AccountId}";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -3777,8 +3860,9 @@ export const serializeAws_restJson1_1UpdateAccountSettingsCommand = async (
   input: UpdateAccountSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/accounts/{AccountId}/settings";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -3817,8 +3901,9 @@ export const serializeAws_restJson1_1UpdateBotCommand = async (
   input: UpdateBotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/accounts/{AccountId}/bots/{BotId}";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -3866,8 +3951,9 @@ export const serializeAws_restJson1_1UpdateGlobalSettingsCommand = async (
   input: UpdateGlobalSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/settings";
   let body: any;
   const bodyParams: any = {};
@@ -3904,8 +3990,9 @@ export const serializeAws_restJson1_1UpdatePhoneNumberCommand = async (
   input: UpdatePhoneNumberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/phone-numbers/{PhoneNumberId}";
   if (input.PhoneNumberId !== undefined) {
     const labelValue: string = input.PhoneNumberId;
@@ -3946,8 +4033,9 @@ export const serializeAws_restJson1_1UpdatePhoneNumberSettingsCommand = async (
   input: UpdatePhoneNumberSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/settings/phone-number";
   let body: any;
   const bodyParams: any = {};
@@ -3971,8 +4059,9 @@ export const serializeAws_restJson1_1UpdateRoomCommand = async (
   input: UpdateRoomCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/accounts/{AccountId}/rooms/{RoomId}";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -4020,8 +4109,9 @@ export const serializeAws_restJson1_1UpdateRoomMembershipCommand = async (
   input: UpdateRoomMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath =
     "/accounts/{AccountId}/rooms/{RoomId}/memberships/{MemberId}";
   if (input.AccountId !== undefined) {
@@ -4082,8 +4172,9 @@ export const serializeAws_restJson1_1UpdateUserCommand = async (
   input: UpdateUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/accounts/{AccountId}/users/{UserId}";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -4142,8 +4233,9 @@ export const serializeAws_restJson1_1UpdateUserSettingsCommand = async (
   input: UpdateUserSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/accounts/{AccountId}/users/{UserId}/settings";
   if (input.AccountId !== undefined) {
     const labelValue: string = input.AccountId;
@@ -4194,8 +4286,9 @@ export const serializeAws_restJson1_1UpdateVoiceConnectorCommand = async (
   input: UpdateVoiceConnectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/voice-connectors/{VoiceConnectorId}";
   if (input.VoiceConnectorId !== undefined) {
     const labelValue: string = input.VoiceConnectorId;
@@ -4238,8 +4331,9 @@ export const serializeAws_restJson1_1UpdateVoiceConnectorGroupCommand = async (
   input: UpdateVoiceConnectorGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/voice-connector-groups/{VoiceConnectorGroupId}";
   if (input.VoiceConnectorGroupId !== undefined) {
     const labelValue: string = input.VoiceConnectorGroupId;

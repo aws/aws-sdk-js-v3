@@ -345,9 +345,10 @@ export const serializeAws_json1_1AcceptHandshakeCommand = async (
   input: AcceptHandshakeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSOrganizationsV20161128.AcceptHandshake";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrganizationsV20161128.AcceptHandshake"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AcceptHandshakeRequest(input, context)
@@ -359,9 +360,10 @@ export const serializeAws_json1_1AttachPolicyCommand = async (
   input: AttachPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSOrganizationsV20161128.AttachPolicy";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrganizationsV20161128.AttachPolicy"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AttachPolicyRequest(input, context)
@@ -373,9 +375,10 @@ export const serializeAws_json1_1CancelHandshakeCommand = async (
   input: CancelHandshakeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSOrganizationsV20161128.CancelHandshake";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrganizationsV20161128.CancelHandshake"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CancelHandshakeRequest(input, context)
@@ -387,9 +390,10 @@ export const serializeAws_json1_1CreateAccountCommand = async (
   input: CreateAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSOrganizationsV20161128.CreateAccount";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrganizationsV20161128.CreateAccount"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateAccountRequest(input, context)
@@ -401,9 +405,10 @@ export const serializeAws_json1_1CreateGovCloudAccountCommand = async (
   input: CreateGovCloudAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSOrganizationsV20161128.CreateGovCloudAccount";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrganizationsV20161128.CreateGovCloudAccount"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateGovCloudAccountRequest(input, context)
@@ -415,9 +420,10 @@ export const serializeAws_json1_1CreateOrganizationCommand = async (
   input: CreateOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSOrganizationsV20161128.CreateOrganization";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrganizationsV20161128.CreateOrganization"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateOrganizationRequest(input, context)
@@ -429,10 +435,10 @@ export const serializeAws_json1_1CreateOrganizationalUnitCommand = async (
   input: CreateOrganizationalUnitCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSOrganizationsV20161128.CreateOrganizationalUnit";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrganizationsV20161128.CreateOrganizationalUnit"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateOrganizationalUnitRequest(input, context)
@@ -444,9 +450,10 @@ export const serializeAws_json1_1CreatePolicyCommand = async (
   input: CreatePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSOrganizationsV20161128.CreatePolicy";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrganizationsV20161128.CreatePolicy"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreatePolicyRequest(input, context)
@@ -458,9 +465,10 @@ export const serializeAws_json1_1DeclineHandshakeCommand = async (
   input: DeclineHandshakeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSOrganizationsV20161128.DeclineHandshake";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrganizationsV20161128.DeclineHandshake"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeclineHandshakeRequest(input, context)
@@ -472,9 +480,10 @@ export const serializeAws_json1_1DeleteOrganizationCommand = async (
   input: DeleteOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSOrganizationsV20161128.DeleteOrganization";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrganizationsV20161128.DeleteOrganization"
+  };
   return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
 };
 
@@ -482,10 +491,10 @@ export const serializeAws_json1_1DeleteOrganizationalUnitCommand = async (
   input: DeleteOrganizationalUnitCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSOrganizationsV20161128.DeleteOrganizationalUnit";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrganizationsV20161128.DeleteOrganizationalUnit"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteOrganizationalUnitRequest(input, context)
@@ -497,9 +506,10 @@ export const serializeAws_json1_1DeletePolicyCommand = async (
   input: DeletePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSOrganizationsV20161128.DeletePolicy";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrganizationsV20161128.DeletePolicy"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeletePolicyRequest(input, context)
@@ -511,9 +521,10 @@ export const serializeAws_json1_1DescribeAccountCommand = async (
   input: DescribeAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSOrganizationsV20161128.DescribeAccount";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrganizationsV20161128.DescribeAccount"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeAccountRequest(input, context)
@@ -525,10 +536,10 @@ export const serializeAws_json1_1DescribeCreateAccountStatusCommand = async (
   input: DescribeCreateAccountStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSOrganizationsV20161128.DescribeCreateAccountStatus";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrganizationsV20161128.DescribeCreateAccountStatus"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeCreateAccountStatusRequest(input, context)
@@ -540,9 +551,10 @@ export const serializeAws_json1_1DescribeEffectivePolicyCommand = async (
   input: DescribeEffectivePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSOrganizationsV20161128.DescribeEffectivePolicy";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrganizationsV20161128.DescribeEffectivePolicy"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEffectivePolicyRequest(input, context)
@@ -554,9 +566,10 @@ export const serializeAws_json1_1DescribeHandshakeCommand = async (
   input: DescribeHandshakeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSOrganizationsV20161128.DescribeHandshake";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrganizationsV20161128.DescribeHandshake"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeHandshakeRequest(input, context)
@@ -568,9 +581,10 @@ export const serializeAws_json1_1DescribeOrganizationCommand = async (
   input: DescribeOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSOrganizationsV20161128.DescribeOrganization";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrganizationsV20161128.DescribeOrganization"
+  };
   return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
 };
 
@@ -578,10 +592,10 @@ export const serializeAws_json1_1DescribeOrganizationalUnitCommand = async (
   input: DescribeOrganizationalUnitCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSOrganizationsV20161128.DescribeOrganizationalUnit";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrganizationsV20161128.DescribeOrganizationalUnit"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeOrganizationalUnitRequest(input, context)
@@ -593,9 +607,10 @@ export const serializeAws_json1_1DescribePolicyCommand = async (
   input: DescribePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSOrganizationsV20161128.DescribePolicy";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrganizationsV20161128.DescribePolicy"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribePolicyRequest(input, context)
@@ -607,9 +622,10 @@ export const serializeAws_json1_1DetachPolicyCommand = async (
   input: DetachPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSOrganizationsV20161128.DetachPolicy";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrganizationsV20161128.DetachPolicy"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DetachPolicyRequest(input, context)
@@ -621,9 +637,10 @@ export const serializeAws_json1_1DisableAWSServiceAccessCommand = async (
   input: DisableAWSServiceAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSOrganizationsV20161128.DisableAWSServiceAccess";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrganizationsV20161128.DisableAWSServiceAccess"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DisableAWSServiceAccessRequest(input, context)
@@ -635,9 +652,10 @@ export const serializeAws_json1_1DisablePolicyTypeCommand = async (
   input: DisablePolicyTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSOrganizationsV20161128.DisablePolicyType";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrganizationsV20161128.DisablePolicyType"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DisablePolicyTypeRequest(input, context)
@@ -649,9 +667,10 @@ export const serializeAws_json1_1EnableAWSServiceAccessCommand = async (
   input: EnableAWSServiceAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSOrganizationsV20161128.EnableAWSServiceAccess";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrganizationsV20161128.EnableAWSServiceAccess"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1EnableAWSServiceAccessRequest(input, context)
@@ -663,9 +682,10 @@ export const serializeAws_json1_1EnableAllFeaturesCommand = async (
   input: EnableAllFeaturesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSOrganizationsV20161128.EnableAllFeatures";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrganizationsV20161128.EnableAllFeatures"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1EnableAllFeaturesRequest(input, context)
@@ -677,9 +697,10 @@ export const serializeAws_json1_1EnablePolicyTypeCommand = async (
   input: EnablePolicyTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSOrganizationsV20161128.EnablePolicyType";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrganizationsV20161128.EnablePolicyType"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1EnablePolicyTypeRequest(input, context)
@@ -691,10 +712,10 @@ export const serializeAws_json1_1InviteAccountToOrganizationCommand = async (
   input: InviteAccountToOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSOrganizationsV20161128.InviteAccountToOrganization";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrganizationsV20161128.InviteAccountToOrganization"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1InviteAccountToOrganizationRequest(input, context)
@@ -706,9 +727,10 @@ export const serializeAws_json1_1LeaveOrganizationCommand = async (
   input: LeaveOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSOrganizationsV20161128.LeaveOrganization";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrganizationsV20161128.LeaveOrganization"
+  };
   return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
 };
 
@@ -716,10 +738,11 @@ export const serializeAws_json1_1ListAWSServiceAccessForOrganizationCommand = as
   input: ListAWSServiceAccessForOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSOrganizationsV20161128.ListAWSServiceAccessForOrganization";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "AWSOrganizationsV20161128.ListAWSServiceAccessForOrganization"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListAWSServiceAccessForOrganizationRequest(
@@ -734,9 +757,10 @@ export const serializeAws_json1_1ListAccountsCommand = async (
   input: ListAccountsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSOrganizationsV20161128.ListAccounts";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrganizationsV20161128.ListAccounts"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListAccountsRequest(input, context)
@@ -748,9 +772,10 @@ export const serializeAws_json1_1ListAccountsForParentCommand = async (
   input: ListAccountsForParentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSOrganizationsV20161128.ListAccountsForParent";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrganizationsV20161128.ListAccountsForParent"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListAccountsForParentRequest(input, context)
@@ -762,9 +787,10 @@ export const serializeAws_json1_1ListChildrenCommand = async (
   input: ListChildrenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSOrganizationsV20161128.ListChildren";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrganizationsV20161128.ListChildren"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListChildrenRequest(input, context)
@@ -776,9 +802,10 @@ export const serializeAws_json1_1ListCreateAccountStatusCommand = async (
   input: ListCreateAccountStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSOrganizationsV20161128.ListCreateAccountStatus";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrganizationsV20161128.ListCreateAccountStatus"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListCreateAccountStatusRequest(input, context)
@@ -790,10 +817,10 @@ export const serializeAws_json1_1ListHandshakesForAccountCommand = async (
   input: ListHandshakesForAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSOrganizationsV20161128.ListHandshakesForAccount";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrganizationsV20161128.ListHandshakesForAccount"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListHandshakesForAccountRequest(input, context)
@@ -805,10 +832,10 @@ export const serializeAws_json1_1ListHandshakesForOrganizationCommand = async (
   input: ListHandshakesForOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSOrganizationsV20161128.ListHandshakesForOrganization";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrganizationsV20161128.ListHandshakesForOrganization"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListHandshakesForOrganizationRequest(input, context)
@@ -820,10 +847,10 @@ export const serializeAws_json1_1ListOrganizationalUnitsForParentCommand = async
   input: ListOrganizationalUnitsForParentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSOrganizationsV20161128.ListOrganizationalUnitsForParent";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrganizationsV20161128.ListOrganizationalUnitsForParent"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListOrganizationalUnitsForParentRequest(input, context)
@@ -835,9 +862,10 @@ export const serializeAws_json1_1ListParentsCommand = async (
   input: ListParentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSOrganizationsV20161128.ListParents";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrganizationsV20161128.ListParents"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListParentsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -847,9 +875,10 @@ export const serializeAws_json1_1ListPoliciesCommand = async (
   input: ListPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSOrganizationsV20161128.ListPolicies";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrganizationsV20161128.ListPolicies"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListPoliciesRequest(input, context)
@@ -861,9 +890,10 @@ export const serializeAws_json1_1ListPoliciesForTargetCommand = async (
   input: ListPoliciesForTargetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSOrganizationsV20161128.ListPoliciesForTarget";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrganizationsV20161128.ListPoliciesForTarget"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListPoliciesForTargetRequest(input, context)
@@ -875,9 +905,10 @@ export const serializeAws_json1_1ListRootsCommand = async (
   input: ListRootsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSOrganizationsV20161128.ListRoots";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrganizationsV20161128.ListRoots"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListRootsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -887,9 +918,10 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSOrganizationsV20161128.ListTagsForResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrganizationsV20161128.ListTagsForResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTagsForResourceRequest(input, context)
@@ -901,9 +933,10 @@ export const serializeAws_json1_1ListTargetsForPolicyCommand = async (
   input: ListTargetsForPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSOrganizationsV20161128.ListTargetsForPolicy";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrganizationsV20161128.ListTargetsForPolicy"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTargetsForPolicyRequest(input, context)
@@ -915,9 +948,10 @@ export const serializeAws_json1_1MoveAccountCommand = async (
   input: MoveAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSOrganizationsV20161128.MoveAccount";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrganizationsV20161128.MoveAccount"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1MoveAccountRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -927,10 +961,10 @@ export const serializeAws_json1_1RemoveAccountFromOrganizationCommand = async (
   input: RemoveAccountFromOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSOrganizationsV20161128.RemoveAccountFromOrganization";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrganizationsV20161128.RemoveAccountFromOrganization"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RemoveAccountFromOrganizationRequest(input, context)
@@ -942,9 +976,10 @@ export const serializeAws_json1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSOrganizationsV20161128.TagResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrganizationsV20161128.TagResource"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -954,9 +989,10 @@ export const serializeAws_json1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSOrganizationsV20161128.UntagResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrganizationsV20161128.UntagResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UntagResourceRequest(input, context)
@@ -968,10 +1004,10 @@ export const serializeAws_json1_1UpdateOrganizationalUnitCommand = async (
   input: UpdateOrganizationalUnitCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSOrganizationsV20161128.UpdateOrganizationalUnit";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrganizationsV20161128.UpdateOrganizationalUnit"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateOrganizationalUnitRequest(input, context)
@@ -983,9 +1019,10 @@ export const serializeAws_json1_1UpdatePolicyCommand = async (
   input: UpdatePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSOrganizationsV20161128.UpdatePolicy";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrganizationsV20161128.UpdatePolicy"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdatePolicyRequest(input, context)

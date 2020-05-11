@@ -69,8 +69,9 @@ export const serializeAws_restJson1_1AcceptInvitationCommand = async (
   input: AcceptInvitationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/invitation";
   let body: any;
   const bodyParams: any = {};
@@ -94,8 +95,9 @@ export const serializeAws_restJson1_1CreateGraphCommand = async (
   input: CreateGraphCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/graph";
   let body: any;
   body = "{}";
@@ -115,8 +117,9 @@ export const serializeAws_restJson1_1CreateMembersCommand = async (
   input: CreateMembersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/graph/members";
   let body: any;
   const bodyParams: any = {};
@@ -149,8 +152,9 @@ export const serializeAws_restJson1_1DeleteGraphCommand = async (
   input: DeleteGraphCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/graph/removal";
   let body: any;
   const bodyParams: any = {};
@@ -174,8 +178,9 @@ export const serializeAws_restJson1_1DeleteMembersCommand = async (
   input: DeleteMembersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/graph/members/removal";
   let body: any;
   const bodyParams: any = {};
@@ -205,8 +210,9 @@ export const serializeAws_restJson1_1DisassociateMembershipCommand = async (
   input: DisassociateMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/membership/removal";
   let body: any;
   const bodyParams: any = {};
@@ -230,8 +236,9 @@ export const serializeAws_restJson1_1GetMembersCommand = async (
   input: GetMembersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/graph/members/get";
   let body: any;
   const bodyParams: any = {};
@@ -261,8 +268,9 @@ export const serializeAws_restJson1_1ListGraphsCommand = async (
   input: ListGraphsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/graphs/list";
   let body: any;
   const bodyParams: any = {};
@@ -289,8 +297,9 @@ export const serializeAws_restJson1_1ListInvitationsCommand = async (
   input: ListInvitationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/invitations/list";
   let body: any;
   const bodyParams: any = {};
@@ -317,8 +326,9 @@ export const serializeAws_restJson1_1ListMembersCommand = async (
   input: ListMembersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/graph/members/list";
   let body: any;
   const bodyParams: any = {};
@@ -348,8 +358,9 @@ export const serializeAws_restJson1_1RejectInvitationCommand = async (
   input: RejectInvitationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/invitation/removal";
   let body: any;
   const bodyParams: any = {};

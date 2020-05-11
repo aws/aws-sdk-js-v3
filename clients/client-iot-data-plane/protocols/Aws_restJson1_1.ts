@@ -45,8 +45,9 @@ export const serializeAws_restJson1_1DeleteThingShadowCommand = async (
   input: DeleteThingShadowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/things/{thingName}/shadow";
   if (input.thingName !== undefined) {
     const labelValue: string = input.thingName;
@@ -77,8 +78,9 @@ export const serializeAws_restJson1_1GetThingShadowCommand = async (
   input: GetThingShadowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/things/{thingName}/shadow";
   if (input.thingName !== undefined) {
     const labelValue: string = input.thingName;
@@ -109,8 +111,9 @@ export const serializeAws_restJson1_1PublishCommand = async (
   input: PublishCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/octet-stream";
+  const headers: any = {
+    "Content-Type": "application/octet-stream"
+  };
   let resolvedPath = "/topics/{topic}";
   if (input.topic !== undefined) {
     const labelValue: string = input.topic;
@@ -148,8 +151,9 @@ export const serializeAws_restJson1_1UpdateThingShadowCommand = async (
   input: UpdateThingShadowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/octet-stream";
+  const headers: any = {
+    "Content-Type": "application/octet-stream"
+  };
   let resolvedPath = "/things/{thingName}/shadow";
   if (input.thingName !== undefined) {
     const labelValue: string = input.thingName;

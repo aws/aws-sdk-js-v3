@@ -194,10 +194,11 @@ export const serializeAws_json1_1AssociateConfigurationItemsToApplicationCommand
   input: AssociateConfigurationItemsToApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSPoseidonService_V2015_11_01.AssociateConfigurationItemsToApplication";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "AWSPoseidonService_V2015_11_01.AssociateConfigurationItemsToApplication"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AssociateConfigurationItemsToApplicationRequest(
@@ -212,10 +213,10 @@ export const serializeAws_json1_1BatchDeleteImportDataCommand = async (
   input: BatchDeleteImportDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSPoseidonService_V2015_11_01.BatchDeleteImportData";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSPoseidonService_V2015_11_01.BatchDeleteImportData"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchDeleteImportDataRequest(input, context)
@@ -227,9 +228,10 @@ export const serializeAws_json1_1CreateApplicationCommand = async (
   input: CreateApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSPoseidonService_V2015_11_01.CreateApplication";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSPoseidonService_V2015_11_01.CreateApplication"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateApplicationRequest(input, context)
@@ -241,9 +243,10 @@ export const serializeAws_json1_1CreateTagsCommand = async (
   input: CreateTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSPoseidonService_V2015_11_01.CreateTags";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSPoseidonService_V2015_11_01.CreateTags"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateTagsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -253,9 +256,10 @@ export const serializeAws_json1_1DeleteApplicationsCommand = async (
   input: DeleteApplicationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSPoseidonService_V2015_11_01.DeleteApplications";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSPoseidonService_V2015_11_01.DeleteApplications"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteApplicationsRequest(input, context)
@@ -267,9 +271,10 @@ export const serializeAws_json1_1DeleteTagsCommand = async (
   input: DeleteTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSPoseidonService_V2015_11_01.DeleteTags";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSPoseidonService_V2015_11_01.DeleteTags"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteTagsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -279,9 +284,10 @@ export const serializeAws_json1_1DescribeAgentsCommand = async (
   input: DescribeAgentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSPoseidonService_V2015_11_01.DescribeAgents";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSPoseidonService_V2015_11_01.DescribeAgents"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeAgentsRequest(input, context)
@@ -293,10 +299,10 @@ export const serializeAws_json1_1DescribeConfigurationsCommand = async (
   input: DescribeConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSPoseidonService_V2015_11_01.DescribeConfigurations";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSPoseidonService_V2015_11_01.DescribeConfigurations"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeConfigurationsRequest(input, context)
@@ -308,10 +314,10 @@ export const serializeAws_json1_1DescribeContinuousExportsCommand = async (
   input: DescribeContinuousExportsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSPoseidonService_V2015_11_01.DescribeContinuousExports";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSPoseidonService_V2015_11_01.DescribeContinuousExports"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeContinuousExportsRequest(input, context)
@@ -323,10 +329,11 @@ export const serializeAws_json1_1DescribeExportConfigurationsCommand = async (
   input: DescribeExportConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSPoseidonService_V2015_11_01.DescribeExportConfigurations";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "AWSPoseidonService_V2015_11_01.DescribeExportConfigurations"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeExportConfigurationsRequest(input, context)
@@ -338,10 +345,10 @@ export const serializeAws_json1_1DescribeExportTasksCommand = async (
   input: DescribeExportTasksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSPoseidonService_V2015_11_01.DescribeExportTasks";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSPoseidonService_V2015_11_01.DescribeExportTasks"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeExportTasksRequest(input, context)
@@ -353,10 +360,10 @@ export const serializeAws_json1_1DescribeImportTasksCommand = async (
   input: DescribeImportTasksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSPoseidonService_V2015_11_01.DescribeImportTasks";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSPoseidonService_V2015_11_01.DescribeImportTasks"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeImportTasksRequest(input, context)
@@ -368,9 +375,10 @@ export const serializeAws_json1_1DescribeTagsCommand = async (
   input: DescribeTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSPoseidonService_V2015_11_01.DescribeTags";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSPoseidonService_V2015_11_01.DescribeTags"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeTagsRequest(input, context)
@@ -382,10 +390,11 @@ export const serializeAws_json1_1DisassociateConfigurationItemsFromApplicationCo
   input: DisassociateConfigurationItemsFromApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSPoseidonService_V2015_11_01.DisassociateConfigurationItemsFromApplication";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "AWSPoseidonService_V2015_11_01.DisassociateConfigurationItemsFromApplication"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DisassociateConfigurationItemsFromApplicationRequest(
@@ -400,10 +409,10 @@ export const serializeAws_json1_1ExportConfigurationsCommand = async (
   input: ExportConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSPoseidonService_V2015_11_01.ExportConfigurations";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSPoseidonService_V2015_11_01.ExportConfigurations"
+  };
   return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
 };
 
@@ -411,10 +420,10 @@ export const serializeAws_json1_1GetDiscoverySummaryCommand = async (
   input: GetDiscoverySummaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSPoseidonService_V2015_11_01.GetDiscoverySummary";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSPoseidonService_V2015_11_01.GetDiscoverySummary"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetDiscoverySummaryRequest(input, context)
@@ -426,9 +435,10 @@ export const serializeAws_json1_1ListConfigurationsCommand = async (
   input: ListConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSPoseidonService_V2015_11_01.ListConfigurations";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSPoseidonService_V2015_11_01.ListConfigurations"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListConfigurationsRequest(input, context)
@@ -440,10 +450,10 @@ export const serializeAws_json1_1ListServerNeighborsCommand = async (
   input: ListServerNeighborsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSPoseidonService_V2015_11_01.ListServerNeighbors";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSPoseidonService_V2015_11_01.ListServerNeighbors"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListServerNeighborsRequest(input, context)
@@ -455,10 +465,10 @@ export const serializeAws_json1_1StartContinuousExportCommand = async (
   input: StartContinuousExportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSPoseidonService_V2015_11_01.StartContinuousExport";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSPoseidonService_V2015_11_01.StartContinuousExport"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartContinuousExportRequest(input, context)
@@ -470,10 +480,11 @@ export const serializeAws_json1_1StartDataCollectionByAgentIdsCommand = async (
   input: StartDataCollectionByAgentIdsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSPoseidonService_V2015_11_01.StartDataCollectionByAgentIds";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "AWSPoseidonService_V2015_11_01.StartDataCollectionByAgentIds"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartDataCollectionByAgentIdsRequest(input, context)
@@ -485,9 +496,10 @@ export const serializeAws_json1_1StartExportTaskCommand = async (
   input: StartExportTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSPoseidonService_V2015_11_01.StartExportTask";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSPoseidonService_V2015_11_01.StartExportTask"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartExportTaskRequest(input, context)
@@ -499,9 +511,10 @@ export const serializeAws_json1_1StartImportTaskCommand = async (
   input: StartImportTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSPoseidonService_V2015_11_01.StartImportTask";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSPoseidonService_V2015_11_01.StartImportTask"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartImportTaskRequest(input, context)
@@ -513,10 +526,10 @@ export const serializeAws_json1_1StopContinuousExportCommand = async (
   input: StopContinuousExportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSPoseidonService_V2015_11_01.StopContinuousExport";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSPoseidonService_V2015_11_01.StopContinuousExport"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StopContinuousExportRequest(input, context)
@@ -528,10 +541,11 @@ export const serializeAws_json1_1StopDataCollectionByAgentIdsCommand = async (
   input: StopDataCollectionByAgentIdsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSPoseidonService_V2015_11_01.StopDataCollectionByAgentIds";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "AWSPoseidonService_V2015_11_01.StopDataCollectionByAgentIds"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StopDataCollectionByAgentIdsRequest(input, context)
@@ -543,9 +557,10 @@ export const serializeAws_json1_1UpdateApplicationCommand = async (
   input: UpdateApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSPoseidonService_V2015_11_01.UpdateApplication";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSPoseidonService_V2015_11_01.UpdateApplication"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateApplicationRequest(input, context)

@@ -114,8 +114,9 @@ export const serializeAws_restJson1_1CreateSignalingChannelCommand = async (
   input: CreateSignalingChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/createSignalingChannel";
   let body: any;
   const bodyParams: any = {};
@@ -156,8 +157,9 @@ export const serializeAws_restJson1_1CreateStreamCommand = async (
   input: CreateStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/createStream";
   let body: any;
   const bodyParams: any = {};
@@ -199,8 +201,9 @@ export const serializeAws_restJson1_1DeleteSignalingChannelCommand = async (
   input: DeleteSignalingChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/deleteSignalingChannel";
   let body: any;
   const bodyParams: any = {};
@@ -227,8 +230,9 @@ export const serializeAws_restJson1_1DeleteStreamCommand = async (
   input: DeleteStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/deleteStream";
   let body: any;
   const bodyParams: any = {};
@@ -255,8 +259,9 @@ export const serializeAws_restJson1_1DescribeSignalingChannelCommand = async (
   input: DescribeSignalingChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/describeSignalingChannel";
   let body: any;
   const bodyParams: any = {};
@@ -283,8 +288,9 @@ export const serializeAws_restJson1_1DescribeStreamCommand = async (
   input: DescribeStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/describeStream";
   let body: any;
   const bodyParams: any = {};
@@ -311,8 +317,9 @@ export const serializeAws_restJson1_1GetDataEndpointCommand = async (
   input: GetDataEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/getDataEndpoint";
   let body: any;
   const bodyParams: any = {};
@@ -342,8 +349,9 @@ export const serializeAws_restJson1_1GetSignalingChannelEndpointCommand = async 
   input: GetSignalingChannelEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/getSignalingChannelEndpoint";
   let body: any;
   const bodyParams: any = {};
@@ -375,8 +383,9 @@ export const serializeAws_restJson1_1ListSignalingChannelsCommand = async (
   input: ListSignalingChannelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/listSignalingChannels";
   let body: any;
   const bodyParams: any = {};
@@ -411,8 +420,9 @@ export const serializeAws_restJson1_1ListStreamsCommand = async (
   input: ListStreamsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/listStreams";
   let body: any;
   const bodyParams: any = {};
@@ -447,8 +457,9 @@ export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/ListTagsForResource";
   let body: any;
   const bodyParams: any = {};
@@ -475,8 +486,9 @@ export const serializeAws_restJson1_1ListTagsForStreamCommand = async (
   input: ListTagsForStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/listTagsForStream";
   let body: any;
   const bodyParams: any = {};
@@ -506,8 +518,9 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/TagResource";
   let body: any;
   const bodyParams: any = {};
@@ -534,8 +547,9 @@ export const serializeAws_restJson1_1TagStreamCommand = async (
   input: TagStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/tagStream";
   let body: any;
   const bodyParams: any = {};
@@ -568,8 +582,9 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/UntagResource";
   let body: any;
   const bodyParams: any = {};
@@ -599,8 +614,9 @@ export const serializeAws_restJson1_1UntagStreamCommand = async (
   input: UntagStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/untagStream";
   let body: any;
   const bodyParams: any = {};
@@ -633,8 +649,9 @@ export const serializeAws_restJson1_1UpdateDataRetentionCommand = async (
   input: UpdateDataRetentionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/updateDataRetention";
   let body: any;
   const bodyParams: any = {};
@@ -670,8 +687,9 @@ export const serializeAws_restJson1_1UpdateSignalingChannelCommand = async (
   input: UpdateSignalingChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/updateSignalingChannel";
   let body: any;
   const bodyParams: any = {};
@@ -706,8 +724,9 @@ export const serializeAws_restJson1_1UpdateStreamCommand = async (
   input: UpdateStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/updateStream";
   let body: any;
   const bodyParams: any = {};

@@ -228,8 +228,9 @@ export const serializeAws_queryDeleteAlarmsCommand = async (
   input: DeleteAlarmsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteAlarmsInput(input, context);
   body = buildFormUrlencodedString({
@@ -244,8 +245,9 @@ export const serializeAws_queryDeleteAnomalyDetectorCommand = async (
   input: DeleteAnomalyDetectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteAnomalyDetectorInput(input, context);
   body = buildFormUrlencodedString({
@@ -260,8 +262,9 @@ export const serializeAws_queryDeleteDashboardsCommand = async (
   input: DeleteDashboardsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteDashboardsInput(input, context);
   body = buildFormUrlencodedString({
@@ -276,8 +279,9 @@ export const serializeAws_queryDeleteInsightRulesCommand = async (
   input: DeleteInsightRulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteInsightRulesInput(input, context);
   body = buildFormUrlencodedString({
@@ -292,8 +296,9 @@ export const serializeAws_queryDescribeAlarmHistoryCommand = async (
   input: DescribeAlarmHistoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeAlarmHistoryInput(input, context);
   body = buildFormUrlencodedString({
@@ -308,8 +313,9 @@ export const serializeAws_queryDescribeAlarmsCommand = async (
   input: DescribeAlarmsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeAlarmsInput(input, context);
   body = buildFormUrlencodedString({
@@ -324,8 +330,9 @@ export const serializeAws_queryDescribeAlarmsForMetricCommand = async (
   input: DescribeAlarmsForMetricCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeAlarmsForMetricInput(
     input,
@@ -343,8 +350,9 @@ export const serializeAws_queryDescribeAnomalyDetectorsCommand = async (
   input: DescribeAnomalyDetectorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeAnomalyDetectorsInput(
     input,
@@ -362,8 +370,9 @@ export const serializeAws_queryDescribeInsightRulesCommand = async (
   input: DescribeInsightRulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeInsightRulesInput(input, context);
   body = buildFormUrlencodedString({
@@ -378,8 +387,9 @@ export const serializeAws_queryDisableAlarmActionsCommand = async (
   input: DisableAlarmActionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDisableAlarmActionsInput(input, context);
   body = buildFormUrlencodedString({
@@ -394,8 +404,9 @@ export const serializeAws_queryDisableInsightRulesCommand = async (
   input: DisableInsightRulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDisableInsightRulesInput(input, context);
   body = buildFormUrlencodedString({
@@ -410,8 +421,9 @@ export const serializeAws_queryEnableAlarmActionsCommand = async (
   input: EnableAlarmActionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryEnableAlarmActionsInput(input, context);
   body = buildFormUrlencodedString({
@@ -426,8 +438,9 @@ export const serializeAws_queryEnableInsightRulesCommand = async (
   input: EnableInsightRulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryEnableInsightRulesInput(input, context);
   body = buildFormUrlencodedString({
@@ -442,8 +455,9 @@ export const serializeAws_queryGetDashboardCommand = async (
   input: GetDashboardCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryGetDashboardInput(input, context);
   body = buildFormUrlencodedString({
@@ -458,8 +472,9 @@ export const serializeAws_queryGetInsightRuleReportCommand = async (
   input: GetInsightRuleReportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryGetInsightRuleReportInput(input, context);
   body = buildFormUrlencodedString({
@@ -474,8 +489,9 @@ export const serializeAws_queryGetMetricDataCommand = async (
   input: GetMetricDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryGetMetricDataInput(input, context);
   body = buildFormUrlencodedString({
@@ -490,8 +506,9 @@ export const serializeAws_queryGetMetricStatisticsCommand = async (
   input: GetMetricStatisticsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryGetMetricStatisticsInput(input, context);
   body = buildFormUrlencodedString({
@@ -506,8 +523,9 @@ export const serializeAws_queryGetMetricWidgetImageCommand = async (
   input: GetMetricWidgetImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryGetMetricWidgetImageInput(input, context);
   body = buildFormUrlencodedString({
@@ -522,8 +540,9 @@ export const serializeAws_queryListDashboardsCommand = async (
   input: ListDashboardsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryListDashboardsInput(input, context);
   body = buildFormUrlencodedString({
@@ -538,8 +557,9 @@ export const serializeAws_queryListMetricsCommand = async (
   input: ListMetricsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryListMetricsInput(input, context);
   body = buildFormUrlencodedString({
@@ -554,8 +574,9 @@ export const serializeAws_queryListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryListTagsForResourceInput(input, context);
   body = buildFormUrlencodedString({
@@ -570,8 +591,9 @@ export const serializeAws_queryPutAnomalyDetectorCommand = async (
   input: PutAnomalyDetectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryPutAnomalyDetectorInput(input, context);
   body = buildFormUrlencodedString({
@@ -586,8 +608,9 @@ export const serializeAws_queryPutDashboardCommand = async (
   input: PutDashboardCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryPutDashboardInput(input, context);
   body = buildFormUrlencodedString({
@@ -602,8 +625,9 @@ export const serializeAws_queryPutInsightRuleCommand = async (
   input: PutInsightRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryPutInsightRuleInput(input, context);
   body = buildFormUrlencodedString({
@@ -618,8 +642,9 @@ export const serializeAws_queryPutMetricAlarmCommand = async (
   input: PutMetricAlarmCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryPutMetricAlarmInput(input, context);
   body = buildFormUrlencodedString({
@@ -634,8 +659,9 @@ export const serializeAws_queryPutMetricDataCommand = async (
   input: PutMetricDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryPutMetricDataInput(input, context);
   body = buildFormUrlencodedString({
@@ -650,8 +676,9 @@ export const serializeAws_querySetAlarmStateCommand = async (
   input: SetAlarmStateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_querySetAlarmStateInput(input, context);
   body = buildFormUrlencodedString({
@@ -666,8 +693,9 @@ export const serializeAws_queryTagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryTagResourceInput(input, context);
   body = buildFormUrlencodedString({
@@ -682,8 +710,9 @@ export const serializeAws_queryUntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryUntagResourceInput(input, context);
   body = buildFormUrlencodedString({

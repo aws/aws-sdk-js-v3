@@ -118,9 +118,10 @@ export const serializeAws_json1_1BatchGrantPermissionsCommand = async (
   input: BatchGrantPermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSLakeFormation.BatchGrantPermissions";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLakeFormation.BatchGrantPermissions"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchGrantPermissionsRequest(input, context)
@@ -132,9 +133,10 @@ export const serializeAws_json1_1BatchRevokePermissionsCommand = async (
   input: BatchRevokePermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSLakeFormation.BatchRevokePermissions";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLakeFormation.BatchRevokePermissions"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchRevokePermissionsRequest(input, context)
@@ -146,9 +148,10 @@ export const serializeAws_json1_1DeregisterResourceCommand = async (
   input: DeregisterResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSLakeFormation.DeregisterResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLakeFormation.DeregisterResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeregisterResourceRequest(input, context)
@@ -160,9 +163,10 @@ export const serializeAws_json1_1DescribeResourceCommand = async (
   input: DescribeResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSLakeFormation.DescribeResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLakeFormation.DescribeResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeResourceRequest(input, context)
@@ -174,9 +178,10 @@ export const serializeAws_json1_1GetDataLakeSettingsCommand = async (
   input: GetDataLakeSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSLakeFormation.GetDataLakeSettings";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLakeFormation.GetDataLakeSettings"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetDataLakeSettingsRequest(input, context)
@@ -188,9 +193,10 @@ export const serializeAws_json1_1GetEffectivePermissionsForPathCommand = async (
   input: GetEffectivePermissionsForPathCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSLakeFormation.GetEffectivePermissionsForPath";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLakeFormation.GetEffectivePermissionsForPath"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetEffectivePermissionsForPathRequest(input, context)
@@ -202,9 +208,10 @@ export const serializeAws_json1_1GrantPermissionsCommand = async (
   input: GrantPermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSLakeFormation.GrantPermissions";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLakeFormation.GrantPermissions"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GrantPermissionsRequest(input, context)
@@ -216,9 +223,10 @@ export const serializeAws_json1_1ListPermissionsCommand = async (
   input: ListPermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSLakeFormation.ListPermissions";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLakeFormation.ListPermissions"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListPermissionsRequest(input, context)
@@ -230,9 +238,10 @@ export const serializeAws_json1_1ListResourcesCommand = async (
   input: ListResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSLakeFormation.ListResources";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLakeFormation.ListResources"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListResourcesRequest(input, context)
@@ -244,9 +253,10 @@ export const serializeAws_json1_1PutDataLakeSettingsCommand = async (
   input: PutDataLakeSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSLakeFormation.PutDataLakeSettings";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLakeFormation.PutDataLakeSettings"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutDataLakeSettingsRequest(input, context)
@@ -258,9 +268,10 @@ export const serializeAws_json1_1RegisterResourceCommand = async (
   input: RegisterResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSLakeFormation.RegisterResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLakeFormation.RegisterResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RegisterResourceRequest(input, context)
@@ -272,9 +283,10 @@ export const serializeAws_json1_1RevokePermissionsCommand = async (
   input: RevokePermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSLakeFormation.RevokePermissions";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLakeFormation.RevokePermissions"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RevokePermissionsRequest(input, context)
@@ -286,9 +298,10 @@ export const serializeAws_json1_1UpdateResourceCommand = async (
   input: UpdateResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSLakeFormation.UpdateResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLakeFormation.UpdateResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateResourceRequest(input, context)

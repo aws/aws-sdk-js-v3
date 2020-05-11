@@ -88,10 +88,10 @@ export const serializeAws_json1_1CreateEnvironmentEC2Command = async (
   input: CreateEnvironmentEC2CommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCloud9WorkspaceManagementService.CreateEnvironmentEC2";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSCloud9WorkspaceManagementService.CreateEnvironmentEC2"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateEnvironmentEC2Request(input, context)
@@ -103,10 +103,11 @@ export const serializeAws_json1_1CreateEnvironmentMembershipCommand = async (
   input: CreateEnvironmentMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCloud9WorkspaceManagementService.CreateEnvironmentMembership";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "AWSCloud9WorkspaceManagementService.CreateEnvironmentMembership"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateEnvironmentMembershipRequest(input, context)
@@ -118,10 +119,10 @@ export const serializeAws_json1_1DeleteEnvironmentCommand = async (
   input: DeleteEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCloud9WorkspaceManagementService.DeleteEnvironment";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSCloud9WorkspaceManagementService.DeleteEnvironment"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteEnvironmentRequest(input, context)
@@ -133,10 +134,11 @@ export const serializeAws_json1_1DeleteEnvironmentMembershipCommand = async (
   input: DeleteEnvironmentMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCloud9WorkspaceManagementService.DeleteEnvironmentMembership";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "AWSCloud9WorkspaceManagementService.DeleteEnvironmentMembership"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteEnvironmentMembershipRequest(input, context)
@@ -148,10 +150,11 @@ export const serializeAws_json1_1DescribeEnvironmentMembershipsCommand = async (
   input: DescribeEnvironmentMembershipsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCloud9WorkspaceManagementService.DescribeEnvironmentMemberships";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "AWSCloud9WorkspaceManagementService.DescribeEnvironmentMemberships"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEnvironmentMembershipsRequest(input, context)
@@ -163,10 +166,11 @@ export const serializeAws_json1_1DescribeEnvironmentStatusCommand = async (
   input: DescribeEnvironmentStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCloud9WorkspaceManagementService.DescribeEnvironmentStatus";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "AWSCloud9WorkspaceManagementService.DescribeEnvironmentStatus"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEnvironmentStatusRequest(input, context)
@@ -178,10 +182,10 @@ export const serializeAws_json1_1DescribeEnvironmentsCommand = async (
   input: DescribeEnvironmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCloud9WorkspaceManagementService.DescribeEnvironments";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSCloud9WorkspaceManagementService.DescribeEnvironments"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEnvironmentsRequest(input, context)
@@ -193,10 +197,10 @@ export const serializeAws_json1_1ListEnvironmentsCommand = async (
   input: ListEnvironmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCloud9WorkspaceManagementService.ListEnvironments";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSCloud9WorkspaceManagementService.ListEnvironments"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListEnvironmentsRequest(input, context)
@@ -208,10 +212,10 @@ export const serializeAws_json1_1UpdateEnvironmentCommand = async (
   input: UpdateEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCloud9WorkspaceManagementService.UpdateEnvironment";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSCloud9WorkspaceManagementService.UpdateEnvironment"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateEnvironmentRequest(input, context)
@@ -223,10 +227,11 @@ export const serializeAws_json1_1UpdateEnvironmentMembershipCommand = async (
   input: UpdateEnvironmentMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCloud9WorkspaceManagementService.UpdateEnvironmentMembership";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "AWSCloud9WorkspaceManagementService.UpdateEnvironmentMembership"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateEnvironmentMembershipRequest(input, context)

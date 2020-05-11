@@ -114,10 +114,10 @@ export const serializeAws_json1_1DescribeAffectedAccountsForOrganizationCommand 
   input: DescribeAffectedAccountsForOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSHealth_20160804.DescribeAffectedAccountsForOrganization";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSHealth_20160804.DescribeAffectedAccountsForOrganization"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeAffectedAccountsForOrganizationRequest(
@@ -132,9 +132,10 @@ export const serializeAws_json1_1DescribeAffectedEntitiesCommand = async (
   input: DescribeAffectedEntitiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSHealth_20160804.DescribeAffectedEntities";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSHealth_20160804.DescribeAffectedEntities"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeAffectedEntitiesRequest(input, context)
@@ -146,10 +147,10 @@ export const serializeAws_json1_1DescribeAffectedEntitiesForOrganizationCommand 
   input: DescribeAffectedEntitiesForOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSHealth_20160804.DescribeAffectedEntitiesForOrganization";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSHealth_20160804.DescribeAffectedEntitiesForOrganization"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeAffectedEntitiesForOrganizationRequest(
@@ -164,9 +165,10 @@ export const serializeAws_json1_1DescribeEntityAggregatesCommand = async (
   input: DescribeEntityAggregatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSHealth_20160804.DescribeEntityAggregates";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSHealth_20160804.DescribeEntityAggregates"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEntityAggregatesRequest(input, context)
@@ -178,9 +180,10 @@ export const serializeAws_json1_1DescribeEventAggregatesCommand = async (
   input: DescribeEventAggregatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSHealth_20160804.DescribeEventAggregates";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSHealth_20160804.DescribeEventAggregates"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEventAggregatesRequest(input, context)
@@ -192,9 +195,10 @@ export const serializeAws_json1_1DescribeEventDetailsCommand = async (
   input: DescribeEventDetailsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSHealth_20160804.DescribeEventDetails";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSHealth_20160804.DescribeEventDetails"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEventDetailsRequest(input, context)
@@ -206,10 +210,10 @@ export const serializeAws_json1_1DescribeEventDetailsForOrganizationCommand = as
   input: DescribeEventDetailsForOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSHealth_20160804.DescribeEventDetailsForOrganization";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSHealth_20160804.DescribeEventDetailsForOrganization"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEventDetailsForOrganizationRequest(
@@ -224,9 +228,10 @@ export const serializeAws_json1_1DescribeEventTypesCommand = async (
   input: DescribeEventTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSHealth_20160804.DescribeEventTypes";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSHealth_20160804.DescribeEventTypes"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEventTypesRequest(input, context)
@@ -238,9 +243,10 @@ export const serializeAws_json1_1DescribeEventsCommand = async (
   input: DescribeEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSHealth_20160804.DescribeEvents";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSHealth_20160804.DescribeEvents"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEventsRequest(input, context)
@@ -252,9 +258,10 @@ export const serializeAws_json1_1DescribeEventsForOrganizationCommand = async (
   input: DescribeEventsForOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSHealth_20160804.DescribeEventsForOrganization";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSHealth_20160804.DescribeEventsForOrganization"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEventsForOrganizationRequest(input, context)
@@ -266,10 +273,11 @@ export const serializeAws_json1_1DescribeHealthServiceStatusForOrganizationComma
   input: DescribeHealthServiceStatusForOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSHealth_20160804.DescribeHealthServiceStatusForOrganization";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "AWSHealth_20160804.DescribeHealthServiceStatusForOrganization"
+  };
   return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
 };
 
@@ -277,10 +285,11 @@ export const serializeAws_json1_1DisableHealthServiceAccessForOrganizationComman
   input: DisableHealthServiceAccessForOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSHealth_20160804.DisableHealthServiceAccessForOrganization";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "AWSHealth_20160804.DisableHealthServiceAccessForOrganization"
+  };
   return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
 };
 
@@ -288,10 +297,11 @@ export const serializeAws_json1_1EnableHealthServiceAccessForOrganizationCommand
   input: EnableHealthServiceAccessForOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSHealth_20160804.EnableHealthServiceAccessForOrganization";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "AWSHealth_20160804.EnableHealthServiceAccessForOrganization"
+  };
   return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
 };
 

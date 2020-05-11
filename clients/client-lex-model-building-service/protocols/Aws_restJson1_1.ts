@@ -195,8 +195,9 @@ export const serializeAws_restJson1_1CreateBotVersionCommand = async (
   input: CreateBotVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/bots/{name}/versions";
   if (input.name !== undefined) {
     const labelValue: string = input.name;
@@ -232,8 +233,9 @@ export const serializeAws_restJson1_1CreateIntentVersionCommand = async (
   input: CreateIntentVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/intents/{name}/versions";
   if (input.name !== undefined) {
     const labelValue: string = input.name;
@@ -269,8 +271,9 @@ export const serializeAws_restJson1_1CreateSlotTypeVersionCommand = async (
   input: CreateSlotTypeVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/slottypes/{name}/versions";
   if (input.name !== undefined) {
     const labelValue: string = input.name;
@@ -306,8 +309,9 @@ export const serializeAws_restJson1_1DeleteBotCommand = async (
   input: DeleteBotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/bots/{name}";
   if (input.name !== undefined) {
     const labelValue: string = input.name;
@@ -338,8 +342,9 @@ export const serializeAws_restJson1_1DeleteBotAliasCommand = async (
   input: DeleteBotAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/bots/{botName}/aliases/{name}";
   if (input.botName !== undefined) {
     const labelValue: string = input.botName;
@@ -382,8 +387,9 @@ export const serializeAws_restJson1_1DeleteBotChannelAssociationCommand = async 
   input: DeleteBotChannelAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/bots/{botName}/aliases/{botAlias}/channels/{name}";
   if (input.botAlias !== undefined) {
     const labelValue: string = input.botAlias;
@@ -438,8 +444,9 @@ export const serializeAws_restJson1_1DeleteBotVersionCommand = async (
   input: DeleteBotVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/bots/{name}/versions/{version}";
   if (input.name !== undefined) {
     const labelValue: string = input.name;
@@ -482,8 +489,9 @@ export const serializeAws_restJson1_1DeleteIntentCommand = async (
   input: DeleteIntentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/intents/{name}";
   if (input.name !== undefined) {
     const labelValue: string = input.name;
@@ -514,8 +522,9 @@ export const serializeAws_restJson1_1DeleteIntentVersionCommand = async (
   input: DeleteIntentVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/intents/{name}/versions/{version}";
   if (input.name !== undefined) {
     const labelValue: string = input.name;
@@ -558,8 +567,9 @@ export const serializeAws_restJson1_1DeleteSlotTypeCommand = async (
   input: DeleteSlotTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/slottypes/{name}";
   if (input.name !== undefined) {
     const labelValue: string = input.name;
@@ -590,8 +600,9 @@ export const serializeAws_restJson1_1DeleteSlotTypeVersionCommand = async (
   input: DeleteSlotTypeVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/slottypes/{name}/version/{version}";
   if (input.name !== undefined) {
     const labelValue: string = input.name;
@@ -634,8 +645,9 @@ export const serializeAws_restJson1_1DeleteUtterancesCommand = async (
   input: DeleteUtterancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/bots/{botName}/utterances/{userId}";
   if (input.botName !== undefined) {
     const labelValue: string = input.botName;
@@ -678,8 +690,9 @@ export const serializeAws_restJson1_1GetBotCommand = async (
   input: GetBotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/bots/{name}/versions/{versionOrAlias}";
   if (input.name !== undefined) {
     const labelValue: string = input.name;
@@ -724,8 +737,9 @@ export const serializeAws_restJson1_1GetBotAliasCommand = async (
   input: GetBotAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/bots/{botName}/aliases/{name}";
   if (input.botName !== undefined) {
     const labelValue: string = input.botName;
@@ -768,8 +782,9 @@ export const serializeAws_restJson1_1GetBotAliasesCommand = async (
   input: GetBotAliasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/bots/{botName}/aliases";
   if (input.botName !== undefined) {
     const labelValue: string = input.botName;
@@ -810,8 +825,9 @@ export const serializeAws_restJson1_1GetBotChannelAssociationCommand = async (
   input: GetBotChannelAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/bots/{botName}/aliases/{botAlias}/channels/{name}";
   if (input.botAlias !== undefined) {
     const labelValue: string = input.botAlias;
@@ -866,8 +882,9 @@ export const serializeAws_restJson1_1GetBotChannelAssociationsCommand = async (
   input: GetBotChannelAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/bots/{botName}/aliases/{botAlias}/channels";
   if (input.botAlias !== undefined) {
     const labelValue: string = input.botAlias;
@@ -920,8 +937,9 @@ export const serializeAws_restJson1_1GetBotVersionsCommand = async (
   input: GetBotVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/bots/{name}/versions";
   if (input.name !== undefined) {
     const labelValue: string = input.name;
@@ -959,8 +977,9 @@ export const serializeAws_restJson1_1GetBotsCommand = async (
   input: GetBotsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/bots";
   const query: any = {
     ...(input.maxResults !== undefined && {
@@ -989,8 +1008,9 @@ export const serializeAws_restJson1_1GetBuiltinIntentCommand = async (
   input: GetBuiltinIntentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/builtins/intents/{signature}";
   if (input.signature !== undefined) {
     const labelValue: string = input.signature;
@@ -1021,8 +1041,9 @@ export const serializeAws_restJson1_1GetBuiltinIntentsCommand = async (
   input: GetBuiltinIntentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/builtins/intents";
   const query: any = {
     ...(input.locale !== undefined && { locale: input.locale }),
@@ -1052,8 +1073,9 @@ export const serializeAws_restJson1_1GetBuiltinSlotTypesCommand = async (
   input: GetBuiltinSlotTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/builtins/slottypes";
   const query: any = {
     ...(input.locale !== undefined && { locale: input.locale }),
@@ -1083,8 +1105,9 @@ export const serializeAws_restJson1_1GetExportCommand = async (
   input: GetExportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/exports";
   const query: any = {
     ...(input.exportType !== undefined && { exportType: input.exportType }),
@@ -1112,8 +1135,9 @@ export const serializeAws_restJson1_1GetImportCommand = async (
   input: GetImportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/imports/{importId}";
   if (input.importId !== undefined) {
     const labelValue: string = input.importId;
@@ -1144,8 +1168,9 @@ export const serializeAws_restJson1_1GetIntentCommand = async (
   input: GetIntentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/intents/{name}/versions/{version}";
   if (input.name !== undefined) {
     const labelValue: string = input.name;
@@ -1188,8 +1213,9 @@ export const serializeAws_restJson1_1GetIntentVersionsCommand = async (
   input: GetIntentVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/intents/{name}/versions";
   if (input.name !== undefined) {
     const labelValue: string = input.name;
@@ -1227,8 +1253,9 @@ export const serializeAws_restJson1_1GetIntentsCommand = async (
   input: GetIntentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/intents";
   const query: any = {
     ...(input.maxResults !== undefined && {
@@ -1257,8 +1284,9 @@ export const serializeAws_restJson1_1GetSlotTypeCommand = async (
   input: GetSlotTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/slottypes/{name}/versions/{version}";
   if (input.name !== undefined) {
     const labelValue: string = input.name;
@@ -1301,8 +1329,9 @@ export const serializeAws_restJson1_1GetSlotTypeVersionsCommand = async (
   input: GetSlotTypeVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/slottypes/{name}/versions";
   if (input.name !== undefined) {
     const labelValue: string = input.name;
@@ -1340,8 +1369,9 @@ export const serializeAws_restJson1_1GetSlotTypesCommand = async (
   input: GetSlotTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/slottypes";
   const query: any = {
     ...(input.maxResults !== undefined && {
@@ -1370,8 +1400,9 @@ export const serializeAws_restJson1_1GetUtterancesViewCommand = async (
   input: GetUtterancesViewCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/bots/{botName}/utterances";
   if (input.botName !== undefined) {
     const labelValue: string = input.botName;
@@ -1410,8 +1441,9 @@ export const serializeAws_restJson1_1PutBotCommand = async (
   input: PutBotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/bots/{name}/versions/$LATEST";
   if (input.name !== undefined) {
     const labelValue: string = input.name;
@@ -1489,8 +1521,9 @@ export const serializeAws_restJson1_1PutBotAliasCommand = async (
   input: PutBotAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/bots/{botName}/aliases/{name}";
   if (input.botName !== undefined) {
     const labelValue: string = input.botName;
@@ -1552,8 +1585,9 @@ export const serializeAws_restJson1_1PutIntentCommand = async (
   input: PutIntentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/intents/{name}/versions/$LATEST";
   if (input.name !== undefined) {
     const labelValue: string = input.name;
@@ -1650,8 +1684,9 @@ export const serializeAws_restJson1_1PutSlotTypeCommand = async (
   input: PutSlotTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/slottypes/{name}/versions/$LATEST";
   if (input.name !== undefined) {
     const labelValue: string = input.name;
@@ -1702,8 +1737,9 @@ export const serializeAws_restJson1_1StartImportCommand = async (
   input: StartImportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/imports";
   let body: any;
   const bodyParams: any = {};

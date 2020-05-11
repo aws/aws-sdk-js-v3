@@ -143,9 +143,10 @@ export const serializeAws_json1_1AssociateNodeCommand = async (
   input: AssociateNodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "OpsWorksCM_V2016_11_01.AssociateNode";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "OpsWorksCM_V2016_11_01.AssociateNode"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AssociateNodeRequest(input, context)
@@ -157,9 +158,10 @@ export const serializeAws_json1_1CreateBackupCommand = async (
   input: CreateBackupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "OpsWorksCM_V2016_11_01.CreateBackup";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "OpsWorksCM_V2016_11_01.CreateBackup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateBackupRequest(input, context)
@@ -171,9 +173,10 @@ export const serializeAws_json1_1CreateServerCommand = async (
   input: CreateServerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "OpsWorksCM_V2016_11_01.CreateServer";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "OpsWorksCM_V2016_11_01.CreateServer"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateServerRequest(input, context)
@@ -185,9 +188,10 @@ export const serializeAws_json1_1DeleteBackupCommand = async (
   input: DeleteBackupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "OpsWorksCM_V2016_11_01.DeleteBackup";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "OpsWorksCM_V2016_11_01.DeleteBackup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteBackupRequest(input, context)
@@ -199,9 +203,10 @@ export const serializeAws_json1_1DeleteServerCommand = async (
   input: DeleteServerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "OpsWorksCM_V2016_11_01.DeleteServer";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "OpsWorksCM_V2016_11_01.DeleteServer"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteServerRequest(input, context)
@@ -213,9 +218,10 @@ export const serializeAws_json1_1DescribeAccountAttributesCommand = async (
   input: DescribeAccountAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "OpsWorksCM_V2016_11_01.DescribeAccountAttributes";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "OpsWorksCM_V2016_11_01.DescribeAccountAttributes"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeAccountAttributesRequest(input, context)
@@ -227,9 +233,10 @@ export const serializeAws_json1_1DescribeBackupsCommand = async (
   input: DescribeBackupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "OpsWorksCM_V2016_11_01.DescribeBackups";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "OpsWorksCM_V2016_11_01.DescribeBackups"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeBackupsRequest(input, context)
@@ -241,9 +248,10 @@ export const serializeAws_json1_1DescribeEventsCommand = async (
   input: DescribeEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "OpsWorksCM_V2016_11_01.DescribeEvents";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "OpsWorksCM_V2016_11_01.DescribeEvents"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEventsRequest(input, context)
@@ -255,10 +263,10 @@ export const serializeAws_json1_1DescribeNodeAssociationStatusCommand = async (
   input: DescribeNodeAssociationStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "OpsWorksCM_V2016_11_01.DescribeNodeAssociationStatus";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "OpsWorksCM_V2016_11_01.DescribeNodeAssociationStatus"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeNodeAssociationStatusRequest(input, context)
@@ -270,9 +278,10 @@ export const serializeAws_json1_1DescribeServersCommand = async (
   input: DescribeServersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "OpsWorksCM_V2016_11_01.DescribeServers";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "OpsWorksCM_V2016_11_01.DescribeServers"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeServersRequest(input, context)
@@ -284,9 +293,10 @@ export const serializeAws_json1_1DisassociateNodeCommand = async (
   input: DisassociateNodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "OpsWorksCM_V2016_11_01.DisassociateNode";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "OpsWorksCM_V2016_11_01.DisassociateNode"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DisassociateNodeRequest(input, context)
@@ -298,10 +308,10 @@ export const serializeAws_json1_1ExportServerEngineAttributeCommand = async (
   input: ExportServerEngineAttributeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "OpsWorksCM_V2016_11_01.ExportServerEngineAttribute";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "OpsWorksCM_V2016_11_01.ExportServerEngineAttribute"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ExportServerEngineAttributeRequest(input, context)
@@ -313,9 +323,10 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "OpsWorksCM_V2016_11_01.ListTagsForResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "OpsWorksCM_V2016_11_01.ListTagsForResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTagsForResourceRequest(input, context)
@@ -327,9 +338,10 @@ export const serializeAws_json1_1RestoreServerCommand = async (
   input: RestoreServerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "OpsWorksCM_V2016_11_01.RestoreServer";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "OpsWorksCM_V2016_11_01.RestoreServer"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RestoreServerRequest(input, context)
@@ -341,9 +353,10 @@ export const serializeAws_json1_1StartMaintenanceCommand = async (
   input: StartMaintenanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "OpsWorksCM_V2016_11_01.StartMaintenance";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "OpsWorksCM_V2016_11_01.StartMaintenance"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartMaintenanceRequest(input, context)
@@ -355,9 +368,10 @@ export const serializeAws_json1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "OpsWorksCM_V2016_11_01.TagResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "OpsWorksCM_V2016_11_01.TagResource"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -367,9 +381,10 @@ export const serializeAws_json1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "OpsWorksCM_V2016_11_01.UntagResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "OpsWorksCM_V2016_11_01.UntagResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UntagResourceRequest(input, context)
@@ -381,9 +396,10 @@ export const serializeAws_json1_1UpdateServerCommand = async (
   input: UpdateServerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "OpsWorksCM_V2016_11_01.UpdateServer";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "OpsWorksCM_V2016_11_01.UpdateServer"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateServerRequest(input, context)
@@ -395,10 +411,10 @@ export const serializeAws_json1_1UpdateServerEngineAttributesCommand = async (
   input: UpdateServerEngineAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "OpsWorksCM_V2016_11_01.UpdateServerEngineAttributes";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "OpsWorksCM_V2016_11_01.UpdateServerEngineAttributes"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateServerEngineAttributesRequest(input, context)

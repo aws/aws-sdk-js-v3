@@ -653,9 +653,10 @@ export const serializeAws_json1_1SendAnnouncementCommand = async (
   input: SendAnnouncementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.SendAnnouncement";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.SendAnnouncement"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1SendAnnouncementRequest(input, context)
@@ -667,9 +668,10 @@ export const serializeAws_json1_1DeleteDeviceUsageDataCommand = async (
   input: DeleteDeviceUsageDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.DeleteDeviceUsageData";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.DeleteDeviceUsageData"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteDeviceUsageDataRequest(input, context)
@@ -681,9 +683,10 @@ export const serializeAws_json1_1ApproveSkillCommand = async (
   input: ApproveSkillCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.ApproveSkill";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.ApproveSkill"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ApproveSkillRequest(input, context)
@@ -695,9 +698,10 @@ export const serializeAws_json1_1AssociateContactWithAddressBookCommand = async 
   input: AssociateContactWithAddressBookCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.AssociateContactWithAddressBook";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.AssociateContactWithAddressBook"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AssociateContactWithAddressBookRequest(input, context)
@@ -709,10 +713,10 @@ export const serializeAws_json1_1AssociateDeviceWithNetworkProfileCommand = asyn
   input: AssociateDeviceWithNetworkProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AlexaForBusiness.AssociateDeviceWithNetworkProfile";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.AssociateDeviceWithNetworkProfile"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AssociateDeviceWithNetworkProfileRequest(input, context)
@@ -724,9 +728,10 @@ export const serializeAws_json1_1AssociateDeviceWithRoomCommand = async (
   input: AssociateDeviceWithRoomCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.AssociateDeviceWithRoom";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.AssociateDeviceWithRoom"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AssociateDeviceWithRoomRequest(input, context)
@@ -738,9 +743,10 @@ export const serializeAws_json1_1AssociateSkillGroupWithRoomCommand = async (
   input: AssociateSkillGroupWithRoomCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.AssociateSkillGroupWithRoom";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.AssociateSkillGroupWithRoom"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AssociateSkillGroupWithRoomRequest(input, context)
@@ -752,9 +758,10 @@ export const serializeAws_json1_1AssociateSkillWithSkillGroupCommand = async (
   input: AssociateSkillWithSkillGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.AssociateSkillWithSkillGroup";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.AssociateSkillWithSkillGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AssociateSkillWithSkillGroupRequest(input, context)
@@ -766,9 +773,10 @@ export const serializeAws_json1_1AssociateSkillWithUsersCommand = async (
   input: AssociateSkillWithUsersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.AssociateSkillWithUsers";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.AssociateSkillWithUsers"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AssociateSkillWithUsersRequest(input, context)
@@ -780,9 +788,10 @@ export const serializeAws_json1_1CreateAddressBookCommand = async (
   input: CreateAddressBookCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.CreateAddressBook";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.CreateAddressBook"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateAddressBookRequest(input, context)
@@ -794,9 +803,10 @@ export const serializeAws_json1_1CreateBusinessReportScheduleCommand = async (
   input: CreateBusinessReportScheduleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.CreateBusinessReportSchedule";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.CreateBusinessReportSchedule"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateBusinessReportScheduleRequest(input, context)
@@ -808,9 +818,10 @@ export const serializeAws_json1_1CreateConferenceProviderCommand = async (
   input: CreateConferenceProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.CreateConferenceProvider";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.CreateConferenceProvider"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateConferenceProviderRequest(input, context)
@@ -822,9 +833,10 @@ export const serializeAws_json1_1CreateContactCommand = async (
   input: CreateContactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.CreateContact";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.CreateContact"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateContactRequest(input, context)
@@ -836,9 +848,10 @@ export const serializeAws_json1_1CreateGatewayGroupCommand = async (
   input: CreateGatewayGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.CreateGatewayGroup";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.CreateGatewayGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateGatewayGroupRequest(input, context)
@@ -850,9 +863,10 @@ export const serializeAws_json1_1CreateNetworkProfileCommand = async (
   input: CreateNetworkProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.CreateNetworkProfile";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.CreateNetworkProfile"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateNetworkProfileRequest(input, context)
@@ -864,9 +878,10 @@ export const serializeAws_json1_1CreateProfileCommand = async (
   input: CreateProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.CreateProfile";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.CreateProfile"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateProfileRequest(input, context)
@@ -878,9 +893,10 @@ export const serializeAws_json1_1CreateRoomCommand = async (
   input: CreateRoomCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.CreateRoom";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.CreateRoom"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateRoomRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -890,9 +906,10 @@ export const serializeAws_json1_1CreateSkillGroupCommand = async (
   input: CreateSkillGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.CreateSkillGroup";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.CreateSkillGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateSkillGroupRequest(input, context)
@@ -904,9 +921,10 @@ export const serializeAws_json1_1CreateUserCommand = async (
   input: CreateUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.CreateUser";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.CreateUser"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -916,9 +934,10 @@ export const serializeAws_json1_1DeleteAddressBookCommand = async (
   input: DeleteAddressBookCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.DeleteAddressBook";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.DeleteAddressBook"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteAddressBookRequest(input, context)
@@ -930,9 +949,10 @@ export const serializeAws_json1_1DeleteBusinessReportScheduleCommand = async (
   input: DeleteBusinessReportScheduleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.DeleteBusinessReportSchedule";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.DeleteBusinessReportSchedule"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteBusinessReportScheduleRequest(input, context)
@@ -944,9 +964,10 @@ export const serializeAws_json1_1DeleteConferenceProviderCommand = async (
   input: DeleteConferenceProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.DeleteConferenceProvider";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.DeleteConferenceProvider"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteConferenceProviderRequest(input, context)
@@ -958,9 +979,10 @@ export const serializeAws_json1_1DeleteContactCommand = async (
   input: DeleteContactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.DeleteContact";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.DeleteContact"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteContactRequest(input, context)
@@ -972,9 +994,10 @@ export const serializeAws_json1_1DeleteDeviceCommand = async (
   input: DeleteDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.DeleteDevice";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.DeleteDevice"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteDeviceRequest(input, context)
@@ -986,9 +1009,10 @@ export const serializeAws_json1_1DeleteGatewayGroupCommand = async (
   input: DeleteGatewayGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.DeleteGatewayGroup";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.DeleteGatewayGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteGatewayGroupRequest(input, context)
@@ -1000,9 +1024,10 @@ export const serializeAws_json1_1DeleteNetworkProfileCommand = async (
   input: DeleteNetworkProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.DeleteNetworkProfile";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.DeleteNetworkProfile"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteNetworkProfileRequest(input, context)
@@ -1014,9 +1039,10 @@ export const serializeAws_json1_1DeleteProfileCommand = async (
   input: DeleteProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.DeleteProfile";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.DeleteProfile"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteProfileRequest(input, context)
@@ -1028,9 +1054,10 @@ export const serializeAws_json1_1DeleteRoomCommand = async (
   input: DeleteRoomCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.DeleteRoom";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.DeleteRoom"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteRoomRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1040,9 +1067,10 @@ export const serializeAws_json1_1DeleteRoomSkillParameterCommand = async (
   input: DeleteRoomSkillParameterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.DeleteRoomSkillParameter";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.DeleteRoomSkillParameter"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteRoomSkillParameterRequest(input, context)
@@ -1054,9 +1082,10 @@ export const serializeAws_json1_1DeleteSkillAuthorizationCommand = async (
   input: DeleteSkillAuthorizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.DeleteSkillAuthorization";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.DeleteSkillAuthorization"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteSkillAuthorizationRequest(input, context)
@@ -1068,9 +1097,10 @@ export const serializeAws_json1_1DeleteSkillGroupCommand = async (
   input: DeleteSkillGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.DeleteSkillGroup";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.DeleteSkillGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteSkillGroupRequest(input, context)
@@ -1082,9 +1112,10 @@ export const serializeAws_json1_1DeleteUserCommand = async (
   input: DeleteUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.DeleteUser";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.DeleteUser"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1094,10 +1125,10 @@ export const serializeAws_json1_1DisassociateContactFromAddressBookCommand = asy
   input: DisassociateContactFromAddressBookCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AlexaForBusiness.DisassociateContactFromAddressBook";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.DisassociateContactFromAddressBook"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DisassociateContactFromAddressBookRequest(
@@ -1112,9 +1143,10 @@ export const serializeAws_json1_1DisassociateDeviceFromRoomCommand = async (
   input: DisassociateDeviceFromRoomCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.DisassociateDeviceFromRoom";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.DisassociateDeviceFromRoom"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DisassociateDeviceFromRoomRequest(input, context)
@@ -1126,9 +1158,10 @@ export const serializeAws_json1_1DisassociateSkillFromSkillGroupCommand = async 
   input: DisassociateSkillFromSkillGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.DisassociateSkillFromSkillGroup";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.DisassociateSkillFromSkillGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DisassociateSkillFromSkillGroupRequest(input, context)
@@ -1140,9 +1173,10 @@ export const serializeAws_json1_1DisassociateSkillFromUsersCommand = async (
   input: DisassociateSkillFromUsersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.DisassociateSkillFromUsers";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.DisassociateSkillFromUsers"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DisassociateSkillFromUsersRequest(input, context)
@@ -1154,9 +1188,10 @@ export const serializeAws_json1_1DisassociateSkillGroupFromRoomCommand = async (
   input: DisassociateSkillGroupFromRoomCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.DisassociateSkillGroupFromRoom";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.DisassociateSkillGroupFromRoom"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DisassociateSkillGroupFromRoomRequest(input, context)
@@ -1168,9 +1203,10 @@ export const serializeAws_json1_1ForgetSmartHomeAppliancesCommand = async (
   input: ForgetSmartHomeAppliancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.ForgetSmartHomeAppliances";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.ForgetSmartHomeAppliances"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ForgetSmartHomeAppliancesRequest(input, context)
@@ -1182,9 +1218,10 @@ export const serializeAws_json1_1GetAddressBookCommand = async (
   input: GetAddressBookCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.GetAddressBook";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.GetAddressBook"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetAddressBookRequest(input, context)
@@ -1196,9 +1233,10 @@ export const serializeAws_json1_1GetConferencePreferenceCommand = async (
   input: GetConferencePreferenceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.GetConferencePreference";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.GetConferencePreference"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetConferencePreferenceRequest(input, context)
@@ -1210,9 +1248,10 @@ export const serializeAws_json1_1GetConferenceProviderCommand = async (
   input: GetConferenceProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.GetConferenceProvider";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.GetConferenceProvider"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetConferenceProviderRequest(input, context)
@@ -1224,9 +1263,10 @@ export const serializeAws_json1_1GetContactCommand = async (
   input: GetContactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.GetContact";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.GetContact"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetContactRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1236,9 +1276,10 @@ export const serializeAws_json1_1GetDeviceCommand = async (
   input: GetDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.GetDevice";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.GetDevice"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetDeviceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1248,9 +1289,10 @@ export const serializeAws_json1_1GetGatewayCommand = async (
   input: GetGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.GetGateway";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.GetGateway"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetGatewayRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1260,9 +1302,10 @@ export const serializeAws_json1_1GetGatewayGroupCommand = async (
   input: GetGatewayGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.GetGatewayGroup";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.GetGatewayGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetGatewayGroupRequest(input, context)
@@ -1274,9 +1317,10 @@ export const serializeAws_json1_1GetInvitationConfigurationCommand = async (
   input: GetInvitationConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.GetInvitationConfiguration";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.GetInvitationConfiguration"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetInvitationConfigurationRequest(input, context)
@@ -1288,9 +1332,10 @@ export const serializeAws_json1_1GetNetworkProfileCommand = async (
   input: GetNetworkProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.GetNetworkProfile";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.GetNetworkProfile"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetNetworkProfileRequest(input, context)
@@ -1302,9 +1347,10 @@ export const serializeAws_json1_1GetProfileCommand = async (
   input: GetProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.GetProfile";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.GetProfile"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetProfileRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1314,9 +1360,10 @@ export const serializeAws_json1_1GetRoomCommand = async (
   input: GetRoomCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.GetRoom";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.GetRoom"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetRoomRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1326,9 +1373,10 @@ export const serializeAws_json1_1GetRoomSkillParameterCommand = async (
   input: GetRoomSkillParameterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.GetRoomSkillParameter";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.GetRoomSkillParameter"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetRoomSkillParameterRequest(input, context)
@@ -1340,9 +1388,10 @@ export const serializeAws_json1_1GetSkillGroupCommand = async (
   input: GetSkillGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.GetSkillGroup";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.GetSkillGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetSkillGroupRequest(input, context)
@@ -1354,9 +1403,10 @@ export const serializeAws_json1_1ListBusinessReportSchedulesCommand = async (
   input: ListBusinessReportSchedulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.ListBusinessReportSchedules";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.ListBusinessReportSchedules"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListBusinessReportSchedulesRequest(input, context)
@@ -1368,9 +1418,10 @@ export const serializeAws_json1_1ListConferenceProvidersCommand = async (
   input: ListConferenceProvidersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.ListConferenceProviders";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.ListConferenceProviders"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListConferenceProvidersRequest(input, context)
@@ -1382,9 +1433,10 @@ export const serializeAws_json1_1ListDeviceEventsCommand = async (
   input: ListDeviceEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.ListDeviceEvents";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.ListDeviceEvents"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListDeviceEventsRequest(input, context)
@@ -1396,9 +1448,10 @@ export const serializeAws_json1_1ListGatewayGroupsCommand = async (
   input: ListGatewayGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.ListGatewayGroups";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.ListGatewayGroups"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListGatewayGroupsRequest(input, context)
@@ -1410,9 +1463,10 @@ export const serializeAws_json1_1ListGatewaysCommand = async (
   input: ListGatewaysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.ListGateways";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.ListGateways"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListGatewaysRequest(input, context)
@@ -1424,9 +1478,10 @@ export const serializeAws_json1_1ListSkillsCommand = async (
   input: ListSkillsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.ListSkills";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.ListSkills"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListSkillsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1436,9 +1491,10 @@ export const serializeAws_json1_1ListSkillsStoreCategoriesCommand = async (
   input: ListSkillsStoreCategoriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.ListSkillsStoreCategories";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.ListSkillsStoreCategories"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListSkillsStoreCategoriesRequest(input, context)
@@ -1450,9 +1506,10 @@ export const serializeAws_json1_1ListSkillsStoreSkillsByCategoryCommand = async 
   input: ListSkillsStoreSkillsByCategoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.ListSkillsStoreSkillsByCategory";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.ListSkillsStoreSkillsByCategory"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListSkillsStoreSkillsByCategoryRequest(input, context)
@@ -1464,9 +1521,10 @@ export const serializeAws_json1_1ListSmartHomeAppliancesCommand = async (
   input: ListSmartHomeAppliancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.ListSmartHomeAppliances";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.ListSmartHomeAppliances"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListSmartHomeAppliancesRequest(input, context)
@@ -1478,9 +1536,10 @@ export const serializeAws_json1_1ListTagsCommand = async (
   input: ListTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.ListTags";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.ListTags"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTagsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1490,9 +1549,10 @@ export const serializeAws_json1_1PutConferencePreferenceCommand = async (
   input: PutConferencePreferenceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.PutConferencePreference";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.PutConferencePreference"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutConferencePreferenceRequest(input, context)
@@ -1504,9 +1564,10 @@ export const serializeAws_json1_1PutInvitationConfigurationCommand = async (
   input: PutInvitationConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.PutInvitationConfiguration";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.PutInvitationConfiguration"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutInvitationConfigurationRequest(input, context)
@@ -1518,9 +1579,10 @@ export const serializeAws_json1_1PutRoomSkillParameterCommand = async (
   input: PutRoomSkillParameterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.PutRoomSkillParameter";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.PutRoomSkillParameter"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutRoomSkillParameterRequest(input, context)
@@ -1532,9 +1594,10 @@ export const serializeAws_json1_1PutSkillAuthorizationCommand = async (
   input: PutSkillAuthorizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.PutSkillAuthorization";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.PutSkillAuthorization"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutSkillAuthorizationRequest(input, context)
@@ -1546,9 +1609,10 @@ export const serializeAws_json1_1RegisterAVSDeviceCommand = async (
   input: RegisterAVSDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.RegisterAVSDevice";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.RegisterAVSDevice"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RegisterAVSDeviceRequest(input, context)
@@ -1560,9 +1624,10 @@ export const serializeAws_json1_1RejectSkillCommand = async (
   input: RejectSkillCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.RejectSkill";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.RejectSkill"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1RejectSkillRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1572,9 +1637,10 @@ export const serializeAws_json1_1ResolveRoomCommand = async (
   input: ResolveRoomCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.ResolveRoom";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.ResolveRoom"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ResolveRoomRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1584,9 +1650,10 @@ export const serializeAws_json1_1RevokeInvitationCommand = async (
   input: RevokeInvitationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.RevokeInvitation";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.RevokeInvitation"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RevokeInvitationRequest(input, context)
@@ -1598,9 +1665,10 @@ export const serializeAws_json1_1SearchAddressBooksCommand = async (
   input: SearchAddressBooksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.SearchAddressBooks";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.SearchAddressBooks"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1SearchAddressBooksRequest(input, context)
@@ -1612,9 +1680,10 @@ export const serializeAws_json1_1SearchContactsCommand = async (
   input: SearchContactsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.SearchContacts";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.SearchContacts"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1SearchContactsRequest(input, context)
@@ -1626,9 +1695,10 @@ export const serializeAws_json1_1SearchDevicesCommand = async (
   input: SearchDevicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.SearchDevices";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.SearchDevices"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1SearchDevicesRequest(input, context)
@@ -1640,9 +1710,10 @@ export const serializeAws_json1_1SearchNetworkProfilesCommand = async (
   input: SearchNetworkProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.SearchNetworkProfiles";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.SearchNetworkProfiles"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1SearchNetworkProfilesRequest(input, context)
@@ -1654,9 +1725,10 @@ export const serializeAws_json1_1SearchProfilesCommand = async (
   input: SearchProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.SearchProfiles";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.SearchProfiles"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1SearchProfilesRequest(input, context)
@@ -1668,9 +1740,10 @@ export const serializeAws_json1_1SearchRoomsCommand = async (
   input: SearchRoomsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.SearchRooms";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.SearchRooms"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1SearchRoomsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1680,9 +1753,10 @@ export const serializeAws_json1_1SearchSkillGroupsCommand = async (
   input: SearchSkillGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.SearchSkillGroups";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.SearchSkillGroups"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1SearchSkillGroupsRequest(input, context)
@@ -1694,9 +1768,10 @@ export const serializeAws_json1_1SearchUsersCommand = async (
   input: SearchUsersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.SearchUsers";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.SearchUsers"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1SearchUsersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1706,9 +1781,10 @@ export const serializeAws_json1_1SendInvitationCommand = async (
   input: SendInvitationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.SendInvitation";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.SendInvitation"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1SendInvitationRequest(input, context)
@@ -1720,9 +1796,10 @@ export const serializeAws_json1_1StartDeviceSyncCommand = async (
   input: StartDeviceSyncCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.StartDeviceSync";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.StartDeviceSync"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartDeviceSyncRequest(input, context)
@@ -1734,9 +1811,10 @@ export const serializeAws_json1_1StartSmartHomeApplianceDiscoveryCommand = async
   input: StartSmartHomeApplianceDiscoveryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.StartSmartHomeApplianceDiscovery";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.StartSmartHomeApplianceDiscovery"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartSmartHomeApplianceDiscoveryRequest(input, context)
@@ -1748,9 +1826,10 @@ export const serializeAws_json1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.TagResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.TagResource"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1760,9 +1839,10 @@ export const serializeAws_json1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.UntagResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.UntagResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UntagResourceRequest(input, context)
@@ -1774,9 +1854,10 @@ export const serializeAws_json1_1UpdateAddressBookCommand = async (
   input: UpdateAddressBookCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.UpdateAddressBook";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.UpdateAddressBook"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateAddressBookRequest(input, context)
@@ -1788,9 +1869,10 @@ export const serializeAws_json1_1UpdateBusinessReportScheduleCommand = async (
   input: UpdateBusinessReportScheduleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.UpdateBusinessReportSchedule";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.UpdateBusinessReportSchedule"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateBusinessReportScheduleRequest(input, context)
@@ -1802,9 +1884,10 @@ export const serializeAws_json1_1UpdateConferenceProviderCommand = async (
   input: UpdateConferenceProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.UpdateConferenceProvider";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.UpdateConferenceProvider"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateConferenceProviderRequest(input, context)
@@ -1816,9 +1899,10 @@ export const serializeAws_json1_1UpdateContactCommand = async (
   input: UpdateContactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.UpdateContact";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.UpdateContact"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateContactRequest(input, context)
@@ -1830,9 +1914,10 @@ export const serializeAws_json1_1UpdateDeviceCommand = async (
   input: UpdateDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.UpdateDevice";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.UpdateDevice"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateDeviceRequest(input, context)
@@ -1844,9 +1929,10 @@ export const serializeAws_json1_1UpdateGatewayCommand = async (
   input: UpdateGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.UpdateGateway";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.UpdateGateway"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateGatewayRequest(input, context)
@@ -1858,9 +1944,10 @@ export const serializeAws_json1_1UpdateGatewayGroupCommand = async (
   input: UpdateGatewayGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.UpdateGatewayGroup";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.UpdateGatewayGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateGatewayGroupRequest(input, context)
@@ -1872,9 +1959,10 @@ export const serializeAws_json1_1UpdateNetworkProfileCommand = async (
   input: UpdateNetworkProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.UpdateNetworkProfile";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.UpdateNetworkProfile"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateNetworkProfileRequest(input, context)
@@ -1886,9 +1974,10 @@ export const serializeAws_json1_1UpdateProfileCommand = async (
   input: UpdateProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.UpdateProfile";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.UpdateProfile"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateProfileRequest(input, context)
@@ -1900,9 +1989,10 @@ export const serializeAws_json1_1UpdateRoomCommand = async (
   input: UpdateRoomCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.UpdateRoom";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.UpdateRoom"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateRoomRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1912,9 +2002,10 @@ export const serializeAws_json1_1UpdateSkillGroupCommand = async (
   input: UpdateSkillGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AlexaForBusiness.UpdateSkillGroup";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AlexaForBusiness.UpdateSkillGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateSkillGroupRequest(input, context)

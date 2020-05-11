@@ -421,8 +421,9 @@ export const serializeAws_restJson1_1AssociateRoleToGroupCommand = async (
   input: AssociateRoleToGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/greengrass/groups/{GroupId}/role";
   if (input.GroupId !== undefined) {
     const labelValue: string = input.GroupId;
@@ -458,8 +459,9 @@ export const serializeAws_restJson1_1AssociateServiceRoleToAccountCommand = asyn
   input: AssociateServiceRoleToAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/greengrass/servicerole";
   let body: any;
   const bodyParams: any = {};
@@ -483,11 +485,12 @@ export const serializeAws_restJson1_1CreateConnectorDefinitionCommand = async (
   input: CreateConnectorDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.AmznClientToken)) {
-    headers["X-Amzn-Client-Token"] = input.AmznClientToken!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.AmznClientToken) && {
+      "X-Amzn-Client-Token": input.AmznClientToken!
+    })
+  };
   let resolvedPath = "/greengrass/definition/connectors";
   let body: any;
   const bodyParams: any = {};
@@ -522,11 +525,12 @@ export const serializeAws_restJson1_1CreateConnectorDefinitionVersionCommand = a
   input: CreateConnectorDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.AmznClientToken)) {
-    headers["X-Amzn-Client-Token"] = input.AmznClientToken!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.AmznClientToken) && {
+      "X-Amzn-Client-Token": input.AmznClientToken!
+    })
+  };
   let resolvedPath =
     "/greengrass/definition/connectors/{ConnectorDefinitionId}/versions";
   if (input.ConnectorDefinitionId !== undefined) {
@@ -570,11 +574,12 @@ export const serializeAws_restJson1_1CreateCoreDefinitionCommand = async (
   input: CreateCoreDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.AmznClientToken)) {
-    headers["X-Amzn-Client-Token"] = input.AmznClientToken!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.AmznClientToken) && {
+      "X-Amzn-Client-Token": input.AmznClientToken!
+    })
+  };
   let resolvedPath = "/greengrass/definition/cores";
   let body: any;
   const bodyParams: any = {};
@@ -609,11 +614,12 @@ export const serializeAws_restJson1_1CreateCoreDefinitionVersionCommand = async 
   input: CreateCoreDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.AmznClientToken)) {
-    headers["X-Amzn-Client-Token"] = input.AmznClientToken!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.AmznClientToken) && {
+      "X-Amzn-Client-Token": input.AmznClientToken!
+    })
+  };
   let resolvedPath = "/greengrass/definition/cores/{CoreDefinitionId}/versions";
   if (input.CoreDefinitionId !== undefined) {
     const labelValue: string = input.CoreDefinitionId;
@@ -656,11 +662,12 @@ export const serializeAws_restJson1_1CreateDeploymentCommand = async (
   input: CreateDeploymentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.AmznClientToken)) {
-    headers["X-Amzn-Client-Token"] = input.AmznClientToken!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.AmznClientToken) && {
+      "X-Amzn-Client-Token": input.AmznClientToken!
+    })
+  };
   let resolvedPath = "/greengrass/groups/{GroupId}/deployments";
   if (input.GroupId !== undefined) {
     const labelValue: string = input.GroupId;
@@ -702,11 +709,12 @@ export const serializeAws_restJson1_1CreateDeviceDefinitionCommand = async (
   input: CreateDeviceDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.AmznClientToken)) {
-    headers["X-Amzn-Client-Token"] = input.AmznClientToken!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.AmznClientToken) && {
+      "X-Amzn-Client-Token": input.AmznClientToken!
+    })
+  };
   let resolvedPath = "/greengrass/definition/devices";
   let body: any;
   const bodyParams: any = {};
@@ -741,11 +749,12 @@ export const serializeAws_restJson1_1CreateDeviceDefinitionVersionCommand = asyn
   input: CreateDeviceDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.AmznClientToken)) {
-    headers["X-Amzn-Client-Token"] = input.AmznClientToken!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.AmznClientToken) && {
+      "X-Amzn-Client-Token": input.AmznClientToken!
+    })
+  };
   let resolvedPath =
     "/greengrass/definition/devices/{DeviceDefinitionId}/versions";
   if (input.DeviceDefinitionId !== undefined) {
@@ -789,11 +798,12 @@ export const serializeAws_restJson1_1CreateFunctionDefinitionCommand = async (
   input: CreateFunctionDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.AmznClientToken)) {
-    headers["X-Amzn-Client-Token"] = input.AmznClientToken!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.AmznClientToken) && {
+      "X-Amzn-Client-Token": input.AmznClientToken!
+    })
+  };
   let resolvedPath = "/greengrass/definition/functions";
   let body: any;
   const bodyParams: any = {};
@@ -828,11 +838,12 @@ export const serializeAws_restJson1_1CreateFunctionDefinitionVersionCommand = as
   input: CreateFunctionDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.AmznClientToken)) {
-    headers["X-Amzn-Client-Token"] = input.AmznClientToken!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.AmznClientToken) && {
+      "X-Amzn-Client-Token": input.AmznClientToken!
+    })
+  };
   let resolvedPath =
     "/greengrass/definition/functions/{FunctionDefinitionId}/versions";
   if (input.FunctionDefinitionId !== undefined) {
@@ -882,11 +893,12 @@ export const serializeAws_restJson1_1CreateGroupCommand = async (
   input: CreateGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.AmznClientToken)) {
-    headers["X-Amzn-Client-Token"] = input.AmznClientToken!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.AmznClientToken) && {
+      "X-Amzn-Client-Token": input.AmznClientToken!
+    })
+  };
   let resolvedPath = "/greengrass/groups";
   let body: any;
   const bodyParams: any = {};
@@ -919,11 +931,12 @@ export const serializeAws_restJson1_1CreateGroupCertificateAuthorityCommand = as
   input: CreateGroupCertificateAuthorityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.AmznClientToken)) {
-    headers["X-Amzn-Client-Token"] = input.AmznClientToken!;
-  }
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.AmznClientToken) && {
+      "X-Amzn-Client-Token": input.AmznClientToken!
+    })
+  };
   let resolvedPath = "/greengrass/groups/{GroupId}/certificateauthorities";
   if (input.GroupId !== undefined) {
     const labelValue: string = input.GroupId;
@@ -954,11 +967,12 @@ export const serializeAws_restJson1_1CreateGroupVersionCommand = async (
   input: CreateGroupVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.AmznClientToken)) {
-    headers["X-Amzn-Client-Token"] = input.AmznClientToken!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.AmznClientToken) && {
+      "X-Amzn-Client-Token": input.AmznClientToken!
+    })
+  };
   let resolvedPath = "/greengrass/groups/{GroupId}/versions";
   if (input.GroupId !== undefined) {
     const labelValue: string = input.GroupId;
@@ -1016,11 +1030,12 @@ export const serializeAws_restJson1_1CreateLoggerDefinitionCommand = async (
   input: CreateLoggerDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.AmznClientToken)) {
-    headers["X-Amzn-Client-Token"] = input.AmznClientToken!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.AmznClientToken) && {
+      "X-Amzn-Client-Token": input.AmznClientToken!
+    })
+  };
   let resolvedPath = "/greengrass/definition/loggers";
   let body: any;
   const bodyParams: any = {};
@@ -1055,11 +1070,12 @@ export const serializeAws_restJson1_1CreateLoggerDefinitionVersionCommand = asyn
   input: CreateLoggerDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.AmznClientToken)) {
-    headers["X-Amzn-Client-Token"] = input.AmznClientToken!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.AmznClientToken) && {
+      "X-Amzn-Client-Token": input.AmznClientToken!
+    })
+  };
   let resolvedPath =
     "/greengrass/definition/loggers/{LoggerDefinitionId}/versions";
   if (input.LoggerDefinitionId !== undefined) {
@@ -1103,11 +1119,12 @@ export const serializeAws_restJson1_1CreateResourceDefinitionCommand = async (
   input: CreateResourceDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.AmznClientToken)) {
-    headers["X-Amzn-Client-Token"] = input.AmznClientToken!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.AmznClientToken) && {
+      "X-Amzn-Client-Token": input.AmznClientToken!
+    })
+  };
   let resolvedPath = "/greengrass/definition/resources";
   let body: any;
   const bodyParams: any = {};
@@ -1142,11 +1159,12 @@ export const serializeAws_restJson1_1CreateResourceDefinitionVersionCommand = as
   input: CreateResourceDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.AmznClientToken)) {
-    headers["X-Amzn-Client-Token"] = input.AmznClientToken!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.AmznClientToken) && {
+      "X-Amzn-Client-Token": input.AmznClientToken!
+    })
+  };
   let resolvedPath =
     "/greengrass/definition/resources/{ResourceDefinitionId}/versions";
   if (input.ResourceDefinitionId !== undefined) {
@@ -1190,11 +1208,12 @@ export const serializeAws_restJson1_1CreateSoftwareUpdateJobCommand = async (
   input: CreateSoftwareUpdateJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.AmznClientToken)) {
-    headers["X-Amzn-Client-Token"] = input.AmznClientToken!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.AmznClientToken) && {
+      "X-Amzn-Client-Token": input.AmznClientToken!
+    })
+  };
   let resolvedPath = "/greengrass/updates";
   let body: any;
   const bodyParams: any = {};
@@ -1237,11 +1256,12 @@ export const serializeAws_restJson1_1CreateSubscriptionDefinitionCommand = async
   input: CreateSubscriptionDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.AmznClientToken)) {
-    headers["X-Amzn-Client-Token"] = input.AmznClientToken!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.AmznClientToken) && {
+      "X-Amzn-Client-Token": input.AmznClientToken!
+    })
+  };
   let resolvedPath = "/greengrass/definition/subscriptions";
   let body: any;
   const bodyParams: any = {};
@@ -1276,11 +1296,12 @@ export const serializeAws_restJson1_1CreateSubscriptionDefinitionVersionCommand 
   input: CreateSubscriptionDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.AmznClientToken)) {
-    headers["X-Amzn-Client-Token"] = input.AmznClientToken!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.AmznClientToken) && {
+      "X-Amzn-Client-Token": input.AmznClientToken!
+    })
+  };
   let resolvedPath =
     "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}/versions";
   if (input.SubscriptionDefinitionId !== undefined) {
@@ -1324,8 +1345,9 @@ export const serializeAws_restJson1_1DeleteConnectorDefinitionCommand = async (
   input: DeleteConnectorDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/greengrass/definition/connectors/{ConnectorDefinitionId}";
   if (input.ConnectorDefinitionId !== undefined) {
@@ -1361,8 +1383,9 @@ export const serializeAws_restJson1_1DeleteCoreDefinitionCommand = async (
   input: DeleteCoreDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/greengrass/definition/cores/{CoreDefinitionId}";
   if (input.CoreDefinitionId !== undefined) {
     const labelValue: string = input.CoreDefinitionId;
@@ -1397,8 +1420,9 @@ export const serializeAws_restJson1_1DeleteDeviceDefinitionCommand = async (
   input: DeleteDeviceDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/greengrass/definition/devices/{DeviceDefinitionId}";
   if (input.DeviceDefinitionId !== undefined) {
     const labelValue: string = input.DeviceDefinitionId;
@@ -1433,8 +1457,9 @@ export const serializeAws_restJson1_1DeleteFunctionDefinitionCommand = async (
   input: DeleteFunctionDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/greengrass/definition/functions/{FunctionDefinitionId}";
   if (input.FunctionDefinitionId !== undefined) {
     const labelValue: string = input.FunctionDefinitionId;
@@ -1469,8 +1494,9 @@ export const serializeAws_restJson1_1DeleteGroupCommand = async (
   input: DeleteGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/greengrass/groups/{GroupId}";
   if (input.GroupId !== undefined) {
     const labelValue: string = input.GroupId;
@@ -1501,8 +1527,9 @@ export const serializeAws_restJson1_1DeleteLoggerDefinitionCommand = async (
   input: DeleteLoggerDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/greengrass/definition/loggers/{LoggerDefinitionId}";
   if (input.LoggerDefinitionId !== undefined) {
     const labelValue: string = input.LoggerDefinitionId;
@@ -1537,8 +1564,9 @@ export const serializeAws_restJson1_1DeleteResourceDefinitionCommand = async (
   input: DeleteResourceDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/greengrass/definition/resources/{ResourceDefinitionId}";
   if (input.ResourceDefinitionId !== undefined) {
     const labelValue: string = input.ResourceDefinitionId;
@@ -1573,8 +1601,9 @@ export const serializeAws_restJson1_1DeleteSubscriptionDefinitionCommand = async
   input: DeleteSubscriptionDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}";
   if (input.SubscriptionDefinitionId !== undefined) {
@@ -1610,8 +1639,9 @@ export const serializeAws_restJson1_1DisassociateRoleFromGroupCommand = async (
   input: DisassociateRoleFromGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/greengrass/groups/{GroupId}/role";
   if (input.GroupId !== undefined) {
     const labelValue: string = input.GroupId;
@@ -1642,8 +1672,9 @@ export const serializeAws_restJson1_1DisassociateServiceRoleFromAccountCommand =
   input: DisassociateServiceRoleFromAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/greengrass/servicerole";
   let body: any;
   body = "{}";
@@ -1663,8 +1694,9 @@ export const serializeAws_restJson1_1GetAssociatedRoleCommand = async (
   input: GetAssociatedRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/greengrass/groups/{GroupId}/role";
   if (input.GroupId !== undefined) {
     const labelValue: string = input.GroupId;
@@ -1695,8 +1727,9 @@ export const serializeAws_restJson1_1GetBulkDeploymentStatusCommand = async (
   input: GetBulkDeploymentStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/greengrass/bulk/deployments/{BulkDeploymentId}/status";
   if (input.BulkDeploymentId !== undefined) {
     const labelValue: string = input.BulkDeploymentId;
@@ -1731,8 +1764,9 @@ export const serializeAws_restJson1_1GetConnectivityInfoCommand = async (
   input: GetConnectivityInfoCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/greengrass/things/{ThingName}/connectivityInfo";
   if (input.ThingName !== undefined) {
     const labelValue: string = input.ThingName;
@@ -1763,8 +1797,9 @@ export const serializeAws_restJson1_1GetConnectorDefinitionCommand = async (
   input: GetConnectorDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/greengrass/definition/connectors/{ConnectorDefinitionId}";
   if (input.ConnectorDefinitionId !== undefined) {
@@ -1800,8 +1835,9 @@ export const serializeAws_restJson1_1GetConnectorDefinitionVersionCommand = asyn
   input: GetConnectorDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/greengrass/definition/connectors/{ConnectorDefinitionId}/versions/{ConnectorDefinitionVersionId}";
   if (input.ConnectorDefinitionId !== undefined) {
@@ -1857,8 +1893,9 @@ export const serializeAws_restJson1_1GetCoreDefinitionCommand = async (
   input: GetCoreDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/greengrass/definition/cores/{CoreDefinitionId}";
   if (input.CoreDefinitionId !== undefined) {
     const labelValue: string = input.CoreDefinitionId;
@@ -1893,8 +1930,9 @@ export const serializeAws_restJson1_1GetCoreDefinitionVersionCommand = async (
   input: GetCoreDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/greengrass/definition/cores/{CoreDefinitionId}/versions/{CoreDefinitionVersionId}";
   if (input.CoreDefinitionId !== undefined) {
@@ -1946,8 +1984,9 @@ export const serializeAws_restJson1_1GetDeploymentStatusCommand = async (
   input: GetDeploymentStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/greengrass/groups/{GroupId}/deployments/{DeploymentId}/status";
   if (input.DeploymentId !== undefined) {
@@ -1993,8 +2032,9 @@ export const serializeAws_restJson1_1GetDeviceDefinitionCommand = async (
   input: GetDeviceDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/greengrass/definition/devices/{DeviceDefinitionId}";
   if (input.DeviceDefinitionId !== undefined) {
     const labelValue: string = input.DeviceDefinitionId;
@@ -2029,8 +2069,9 @@ export const serializeAws_restJson1_1GetDeviceDefinitionVersionCommand = async (
   input: GetDeviceDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/greengrass/definition/devices/{DeviceDefinitionId}/versions/{DeviceDefinitionVersionId}";
   if (input.DeviceDefinitionId !== undefined) {
@@ -2086,8 +2127,9 @@ export const serializeAws_restJson1_1GetFunctionDefinitionCommand = async (
   input: GetFunctionDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/greengrass/definition/functions/{FunctionDefinitionId}";
   if (input.FunctionDefinitionId !== undefined) {
     const labelValue: string = input.FunctionDefinitionId;
@@ -2122,8 +2164,9 @@ export const serializeAws_restJson1_1GetFunctionDefinitionVersionCommand = async
   input: GetFunctionDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/greengrass/definition/functions/{FunctionDefinitionId}/versions/{FunctionDefinitionVersionId}";
   if (input.FunctionDefinitionId !== undefined) {
@@ -2179,8 +2222,9 @@ export const serializeAws_restJson1_1GetGroupCommand = async (
   input: GetGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/greengrass/groups/{GroupId}";
   if (input.GroupId !== undefined) {
     const labelValue: string = input.GroupId;
@@ -2211,8 +2255,9 @@ export const serializeAws_restJson1_1GetGroupCertificateAuthorityCommand = async
   input: GetGroupCertificateAuthorityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/greengrass/groups/{GroupId}/certificateauthorities/{CertificateAuthorityId}";
   if (input.CertificateAuthorityId !== undefined) {
@@ -2260,8 +2305,9 @@ export const serializeAws_restJson1_1GetGroupCertificateConfigurationCommand = a
   input: GetGroupCertificateConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/greengrass/groups/{GroupId}/certificateauthorities/configuration/expiry";
   if (input.GroupId !== undefined) {
@@ -2293,8 +2339,9 @@ export const serializeAws_restJson1_1GetGroupVersionCommand = async (
   input: GetGroupVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/greengrass/groups/{GroupId}/versions/{GroupVersionId}";
   if (input.GroupId !== undefined) {
     const labelValue: string = input.GroupId;
@@ -2339,8 +2386,9 @@ export const serializeAws_restJson1_1GetLoggerDefinitionCommand = async (
   input: GetLoggerDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/greengrass/definition/loggers/{LoggerDefinitionId}";
   if (input.LoggerDefinitionId !== undefined) {
     const labelValue: string = input.LoggerDefinitionId;
@@ -2375,8 +2423,9 @@ export const serializeAws_restJson1_1GetLoggerDefinitionVersionCommand = async (
   input: GetLoggerDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/greengrass/definition/loggers/{LoggerDefinitionId}/versions/{LoggerDefinitionVersionId}";
   if (input.LoggerDefinitionId !== undefined) {
@@ -2432,8 +2481,9 @@ export const serializeAws_restJson1_1GetResourceDefinitionCommand = async (
   input: GetResourceDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/greengrass/definition/resources/{ResourceDefinitionId}";
   if (input.ResourceDefinitionId !== undefined) {
     const labelValue: string = input.ResourceDefinitionId;
@@ -2468,8 +2518,9 @@ export const serializeAws_restJson1_1GetResourceDefinitionVersionCommand = async
   input: GetResourceDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/greengrass/definition/resources/{ResourceDefinitionId}/versions/{ResourceDefinitionVersionId}";
   if (input.ResourceDefinitionId !== undefined) {
@@ -2521,8 +2572,9 @@ export const serializeAws_restJson1_1GetServiceRoleForAccountCommand = async (
   input: GetServiceRoleForAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/greengrass/servicerole";
   let body: any;
   body = "{}";
@@ -2542,8 +2594,9 @@ export const serializeAws_restJson1_1GetSubscriptionDefinitionCommand = async (
   input: GetSubscriptionDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}";
   if (input.SubscriptionDefinitionId !== undefined) {
@@ -2579,8 +2632,9 @@ export const serializeAws_restJson1_1GetSubscriptionDefinitionVersionCommand = a
   input: GetSubscriptionDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}/versions/{SubscriptionDefinitionVersionId}";
   if (input.SubscriptionDefinitionId !== undefined) {
@@ -2636,8 +2690,9 @@ export const serializeAws_restJson1_1ListBulkDeploymentDetailedReportsCommand = 
   input: ListBulkDeploymentDetailedReportsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/greengrass/bulk/deployments/{BulkDeploymentId}/detailed-reports";
   if (input.BulkDeploymentId !== undefined) {
@@ -2678,8 +2733,9 @@ export const serializeAws_restJson1_1ListBulkDeploymentsCommand = async (
   input: ListBulkDeploymentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/greengrass/bulk/deployments";
   const query: any = {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
@@ -2703,8 +2759,9 @@ export const serializeAws_restJson1_1ListConnectorDefinitionVersionsCommand = as
   input: ListConnectorDefinitionVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/greengrass/definition/connectors/{ConnectorDefinitionId}/versions";
   if (input.ConnectorDefinitionId !== undefined) {
@@ -2745,8 +2802,9 @@ export const serializeAws_restJson1_1ListConnectorDefinitionsCommand = async (
   input: ListConnectorDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/greengrass/definition/connectors";
   const query: any = {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
@@ -2770,8 +2828,9 @@ export const serializeAws_restJson1_1ListCoreDefinitionVersionsCommand = async (
   input: ListCoreDefinitionVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/greengrass/definition/cores/{CoreDefinitionId}/versions";
   if (input.CoreDefinitionId !== undefined) {
     const labelValue: string = input.CoreDefinitionId;
@@ -2811,8 +2870,9 @@ export const serializeAws_restJson1_1ListCoreDefinitionsCommand = async (
   input: ListCoreDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/greengrass/definition/cores";
   const query: any = {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
@@ -2836,8 +2896,9 @@ export const serializeAws_restJson1_1ListDeploymentsCommand = async (
   input: ListDeploymentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/greengrass/groups/{GroupId}/deployments";
   if (input.GroupId !== undefined) {
     const labelValue: string = input.GroupId;
@@ -2873,8 +2934,9 @@ export const serializeAws_restJson1_1ListDeviceDefinitionVersionsCommand = async
   input: ListDeviceDefinitionVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/greengrass/definition/devices/{DeviceDefinitionId}/versions";
   if (input.DeviceDefinitionId !== undefined) {
@@ -2915,8 +2977,9 @@ export const serializeAws_restJson1_1ListDeviceDefinitionsCommand = async (
   input: ListDeviceDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/greengrass/definition/devices";
   const query: any = {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
@@ -2940,8 +3003,9 @@ export const serializeAws_restJson1_1ListFunctionDefinitionVersionsCommand = asy
   input: ListFunctionDefinitionVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/greengrass/definition/functions/{FunctionDefinitionId}/versions";
   if (input.FunctionDefinitionId !== undefined) {
@@ -2982,8 +3046,9 @@ export const serializeAws_restJson1_1ListFunctionDefinitionsCommand = async (
   input: ListFunctionDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/greengrass/definition/functions";
   const query: any = {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
@@ -3007,8 +3072,9 @@ export const serializeAws_restJson1_1ListGroupCertificateAuthoritiesCommand = as
   input: ListGroupCertificateAuthoritiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/greengrass/groups/{GroupId}/certificateauthorities";
   if (input.GroupId !== undefined) {
     const labelValue: string = input.GroupId;
@@ -3039,8 +3105,9 @@ export const serializeAws_restJson1_1ListGroupVersionsCommand = async (
   input: ListGroupVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/greengrass/groups/{GroupId}/versions";
   if (input.GroupId !== undefined) {
     const labelValue: string = input.GroupId;
@@ -3076,8 +3143,9 @@ export const serializeAws_restJson1_1ListGroupsCommand = async (
   input: ListGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/greengrass/groups";
   const query: any = {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
@@ -3101,8 +3169,9 @@ export const serializeAws_restJson1_1ListLoggerDefinitionVersionsCommand = async
   input: ListLoggerDefinitionVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/greengrass/definition/loggers/{LoggerDefinitionId}/versions";
   if (input.LoggerDefinitionId !== undefined) {
@@ -3143,8 +3212,9 @@ export const serializeAws_restJson1_1ListLoggerDefinitionsCommand = async (
   input: ListLoggerDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/greengrass/definition/loggers";
   const query: any = {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
@@ -3168,8 +3238,9 @@ export const serializeAws_restJson1_1ListResourceDefinitionVersionsCommand = asy
   input: ListResourceDefinitionVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/greengrass/definition/resources/{ResourceDefinitionId}/versions";
   if (input.ResourceDefinitionId !== undefined) {
@@ -3210,8 +3281,9 @@ export const serializeAws_restJson1_1ListResourceDefinitionsCommand = async (
   input: ListResourceDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/greengrass/definition/resources";
   const query: any = {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
@@ -3235,8 +3307,9 @@ export const serializeAws_restJson1_1ListSubscriptionDefinitionVersionsCommand =
   input: ListSubscriptionDefinitionVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}/versions";
   if (input.SubscriptionDefinitionId !== undefined) {
@@ -3277,8 +3350,9 @@ export const serializeAws_restJson1_1ListSubscriptionDefinitionsCommand = async 
   input: ListSubscriptionDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/greengrass/definition/subscriptions";
   const query: any = {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
@@ -3302,8 +3376,9 @@ export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -3336,11 +3411,12 @@ export const serializeAws_restJson1_1ResetDeploymentsCommand = async (
   input: ResetDeploymentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.AmznClientToken)) {
-    headers["X-Amzn-Client-Token"] = input.AmznClientToken!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.AmznClientToken) && {
+      "X-Amzn-Client-Token": input.AmznClientToken!
+    })
+  };
   let resolvedPath = "/greengrass/groups/{GroupId}/deployments/$reset";
   if (input.GroupId !== undefined) {
     const labelValue: string = input.GroupId;
@@ -3376,11 +3452,12 @@ export const serializeAws_restJson1_1StartBulkDeploymentCommand = async (
   input: StartBulkDeploymentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.AmznClientToken)) {
-    headers["X-Amzn-Client-Token"] = input.AmznClientToken!;
-  }
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.AmznClientToken) && {
+      "X-Amzn-Client-Token": input.AmznClientToken!
+    })
+  };
   let resolvedPath = "/greengrass/bulk/deployments";
   let body: any;
   const bodyParams: any = {};
@@ -3410,8 +3487,9 @@ export const serializeAws_restJson1_1StopBulkDeploymentCommand = async (
   input: StopBulkDeploymentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/greengrass/bulk/deployments/{BulkDeploymentId}/$stop";
   if (input.BulkDeploymentId !== undefined) {
     const labelValue: string = input.BulkDeploymentId;
@@ -3446,8 +3524,9 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -3485,8 +3564,9 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -3525,8 +3605,9 @@ export const serializeAws_restJson1_1UpdateConnectivityInfoCommand = async (
   input: UpdateConnectivityInfoCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/greengrass/things/{ThingName}/connectivityInfo";
   if (input.ThingName !== undefined) {
     const labelValue: string = input.ThingName;
@@ -3567,8 +3648,9 @@ export const serializeAws_restJson1_1UpdateConnectorDefinitionCommand = async (
   input: UpdateConnectorDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath =
     "/greengrass/definition/connectors/{ConnectorDefinitionId}";
   if (input.ConnectorDefinitionId !== undefined) {
@@ -3609,8 +3691,9 @@ export const serializeAws_restJson1_1UpdateCoreDefinitionCommand = async (
   input: UpdateCoreDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/greengrass/definition/cores/{CoreDefinitionId}";
   if (input.CoreDefinitionId !== undefined) {
     const labelValue: string = input.CoreDefinitionId;
@@ -3650,8 +3733,9 @@ export const serializeAws_restJson1_1UpdateDeviceDefinitionCommand = async (
   input: UpdateDeviceDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/greengrass/definition/devices/{DeviceDefinitionId}";
   if (input.DeviceDefinitionId !== undefined) {
     const labelValue: string = input.DeviceDefinitionId;
@@ -3691,8 +3775,9 @@ export const serializeAws_restJson1_1UpdateFunctionDefinitionCommand = async (
   input: UpdateFunctionDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/greengrass/definition/functions/{FunctionDefinitionId}";
   if (input.FunctionDefinitionId !== undefined) {
     const labelValue: string = input.FunctionDefinitionId;
@@ -3732,8 +3817,9 @@ export const serializeAws_restJson1_1UpdateGroupCommand = async (
   input: UpdateGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/greengrass/groups/{GroupId}";
   if (input.GroupId !== undefined) {
     const labelValue: string = input.GroupId;
@@ -3769,8 +3855,9 @@ export const serializeAws_restJson1_1UpdateGroupCertificateConfigurationCommand 
   input: UpdateGroupCertificateConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath =
     "/greengrass/groups/{GroupId}/certificateauthorities/configuration/expiry";
   if (input.GroupId !== undefined) {
@@ -3808,8 +3895,9 @@ export const serializeAws_restJson1_1UpdateLoggerDefinitionCommand = async (
   input: UpdateLoggerDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/greengrass/definition/loggers/{LoggerDefinitionId}";
   if (input.LoggerDefinitionId !== undefined) {
     const labelValue: string = input.LoggerDefinitionId;
@@ -3849,8 +3937,9 @@ export const serializeAws_restJson1_1UpdateResourceDefinitionCommand = async (
   input: UpdateResourceDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/greengrass/definition/resources/{ResourceDefinitionId}";
   if (input.ResourceDefinitionId !== undefined) {
     const labelValue: string = input.ResourceDefinitionId;
@@ -3890,8 +3979,9 @@ export const serializeAws_restJson1_1UpdateSubscriptionDefinitionCommand = async
   input: UpdateSubscriptionDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath =
     "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}";
   if (input.SubscriptionDefinitionId !== undefined) {

@@ -126,11 +126,12 @@ export const serializeAws_restXmlCreateAccessPointCommand = async (
   input: CreateAccessPointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
-  if (isSerializableHeaderValue(input.AccountId)) {
-    headers["x-amz-account-id"] = input.AccountId!;
-  }
+  const headers: any = {
+    "Content-Type": "application/xml",
+    ...(isSerializableHeaderValue(input.AccountId) && {
+      "x-amz-account-id": input.AccountId!
+    })
+  };
   let resolvedPath = "/v20180820/accesspoint/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
@@ -188,11 +189,12 @@ export const serializeAws_restXmlCreateJobCommand = async (
   input: CreateJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
-  if (isSerializableHeaderValue(input.AccountId)) {
-    headers["x-amz-account-id"] = input.AccountId!;
-  }
+  const headers: any = {
+    "Content-Type": "application/xml",
+    ...(isSerializableHeaderValue(input.AccountId) && {
+      "x-amz-account-id": input.AccountId!
+    })
+  };
   let resolvedPath = "/v20180820/jobs";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
@@ -271,11 +273,12 @@ export const serializeAws_restXmlDeleteAccessPointCommand = async (
   input: DeleteAccessPointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.AccountId)) {
-    headers["x-amz-account-id"] = input.AccountId!;
-  }
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.AccountId) && {
+      "x-amz-account-id": input.AccountId!
+    })
+  };
   let resolvedPath = "/v20180820/accesspoint/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
@@ -306,11 +309,12 @@ export const serializeAws_restXmlDeleteAccessPointPolicyCommand = async (
   input: DeleteAccessPointPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.AccountId)) {
-    headers["x-amz-account-id"] = input.AccountId!;
-  }
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.AccountId) && {
+      "x-amz-account-id": input.AccountId!
+    })
+  };
   let resolvedPath = "/v20180820/accesspoint/{Name}/policy";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
@@ -341,11 +345,12 @@ export const serializeAws_restXmlDeletePublicAccessBlockCommand = async (
   input: DeletePublicAccessBlockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.AccountId)) {
-    headers["x-amz-account-id"] = input.AccountId!;
-  }
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.AccountId) && {
+      "x-amz-account-id": input.AccountId!
+    })
+  };
   let resolvedPath = "/v20180820/configuration/publicAccessBlock";
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -364,11 +369,12 @@ export const serializeAws_restXmlDescribeJobCommand = async (
   input: DescribeJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.AccountId)) {
-    headers["x-amz-account-id"] = input.AccountId!;
-  }
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.AccountId) && {
+      "x-amz-account-id": input.AccountId!
+    })
+  };
   let resolvedPath = "/v20180820/jobs/{JobId}";
   if (input.JobId !== undefined) {
     const labelValue: string = input.JobId;
@@ -399,11 +405,12 @@ export const serializeAws_restXmlGetAccessPointCommand = async (
   input: GetAccessPointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.AccountId)) {
-    headers["x-amz-account-id"] = input.AccountId!;
-  }
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.AccountId) && {
+      "x-amz-account-id": input.AccountId!
+    })
+  };
   let resolvedPath = "/v20180820/accesspoint/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
@@ -434,11 +441,12 @@ export const serializeAws_restXmlGetAccessPointPolicyCommand = async (
   input: GetAccessPointPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.AccountId)) {
-    headers["x-amz-account-id"] = input.AccountId!;
-  }
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.AccountId) && {
+      "x-amz-account-id": input.AccountId!
+    })
+  };
   let resolvedPath = "/v20180820/accesspoint/{Name}/policy";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
@@ -469,11 +477,12 @@ export const serializeAws_restXmlGetAccessPointPolicyStatusCommand = async (
   input: GetAccessPointPolicyStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.AccountId)) {
-    headers["x-amz-account-id"] = input.AccountId!;
-  }
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.AccountId) && {
+      "x-amz-account-id": input.AccountId!
+    })
+  };
   let resolvedPath = "/v20180820/accesspoint/{Name}/policyStatus";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
@@ -504,11 +513,12 @@ export const serializeAws_restXmlGetPublicAccessBlockCommand = async (
   input: GetPublicAccessBlockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.AccountId)) {
-    headers["x-amz-account-id"] = input.AccountId!;
-  }
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.AccountId) && {
+      "x-amz-account-id": input.AccountId!
+    })
+  };
   let resolvedPath = "/v20180820/configuration/publicAccessBlock";
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -527,11 +537,12 @@ export const serializeAws_restXmlListAccessPointsCommand = async (
   input: ListAccessPointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.AccountId)) {
-    headers["x-amz-account-id"] = input.AccountId!;
-  }
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.AccountId) && {
+      "x-amz-account-id": input.AccountId!
+    })
+  };
   let resolvedPath = "/v20180820/accesspoint";
   const query: any = {
     ...(input.Bucket !== undefined && { bucket: input.Bucket }),
@@ -558,11 +569,12 @@ export const serializeAws_restXmlListJobsCommand = async (
   input: ListJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.AccountId)) {
-    headers["x-amz-account-id"] = input.AccountId!;
-  }
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.AccountId) && {
+      "x-amz-account-id": input.AccountId!
+    })
+  };
   let resolvedPath = "/v20180820/jobs";
   const query: any = {
     ...(input.JobStatuses !== undefined && {
@@ -591,11 +603,12 @@ export const serializeAws_restXmlPutAccessPointPolicyCommand = async (
   input: PutAccessPointPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
-  if (isSerializableHeaderValue(input.AccountId)) {
-    headers["x-amz-account-id"] = input.AccountId!;
-  }
+  const headers: any = {
+    "Content-Type": "application/xml",
+    ...(isSerializableHeaderValue(input.AccountId) && {
+      "x-amz-account-id": input.AccountId!
+    })
+  };
   let resolvedPath = "/v20180820/accesspoint/{Name}/policy";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
@@ -639,11 +652,12 @@ export const serializeAws_restXmlPutPublicAccessBlockCommand = async (
   input: PutPublicAccessBlockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
-  if (isSerializableHeaderValue(input.AccountId)) {
-    headers["x-amz-account-id"] = input.AccountId!;
-  }
+  const headers: any = {
+    "Content-Type": "application/xml",
+    ...(isSerializableHeaderValue(input.AccountId) && {
+      "x-amz-account-id": input.AccountId!
+    })
+  };
   let resolvedPath = "/v20180820/configuration/publicAccessBlock";
   let body: any;
   let contents: any;
@@ -675,11 +689,12 @@ export const serializeAws_restXmlUpdateJobPriorityCommand = async (
   input: UpdateJobPriorityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.AccountId)) {
-    headers["x-amz-account-id"] = input.AccountId!;
-  }
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.AccountId) && {
+      "x-amz-account-id": input.AccountId!
+    })
+  };
   let resolvedPath = "/v20180820/jobs/{JobId}/priority";
   if (input.JobId !== undefined) {
     const labelValue: string = input.JobId;
@@ -714,11 +729,12 @@ export const serializeAws_restXmlUpdateJobStatusCommand = async (
   input: UpdateJobStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.AccountId)) {
-    headers["x-amz-account-id"] = input.AccountId!;
-  }
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.AccountId) && {
+      "x-amz-account-id": input.AccountId!
+    })
+  };
   let resolvedPath = "/v20180820/jobs/{JobId}/status";
   if (input.JobId !== undefined) {
     const labelValue: string = input.JobId;

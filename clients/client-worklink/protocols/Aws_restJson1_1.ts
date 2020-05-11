@@ -147,8 +147,9 @@ export const serializeAws_restJson1_1AssociateDomainCommand = async (
   input: AssociateDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/associateDomain";
   let body: any;
   const bodyParams: any = {};
@@ -181,8 +182,9 @@ export const serializeAws_restJson1_1AssociateWebsiteAuthorizationProviderComman
   input: AssociateWebsiteAuthorizationProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/associateWebsiteAuthorizationProvider";
   let body: any;
   const bodyParams: any = {};
@@ -212,8 +214,9 @@ export const serializeAws_restJson1_1AssociateWebsiteCertificateAuthorityCommand
   input: AssociateWebsiteCertificateAuthorityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/associateWebsiteCertificateAuthority";
   let body: any;
   const bodyParams: any = {};
@@ -243,8 +246,9 @@ export const serializeAws_restJson1_1CreateFleetCommand = async (
   input: CreateFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/createFleet";
   let body: any;
   const bodyParams: any = {};
@@ -274,8 +278,9 @@ export const serializeAws_restJson1_1DeleteFleetCommand = async (
   input: DeleteFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/deleteFleet";
   let body: any;
   const bodyParams: any = {};
@@ -299,8 +304,9 @@ export const serializeAws_restJson1_1DescribeAuditStreamConfigurationCommand = a
   input: DescribeAuditStreamConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/describeAuditStreamConfiguration";
   let body: any;
   const bodyParams: any = {};
@@ -324,8 +330,9 @@ export const serializeAws_restJson1_1DescribeCompanyNetworkConfigurationCommand 
   input: DescribeCompanyNetworkConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/describeCompanyNetworkConfiguration";
   let body: any;
   const bodyParams: any = {};
@@ -349,8 +356,9 @@ export const serializeAws_restJson1_1DescribeDeviceCommand = async (
   input: DescribeDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/describeDevice";
   let body: any;
   const bodyParams: any = {};
@@ -377,8 +385,9 @@ export const serializeAws_restJson1_1DescribeDevicePolicyConfigurationCommand = 
   input: DescribeDevicePolicyConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/describeDevicePolicyConfiguration";
   let body: any;
   const bodyParams: any = {};
@@ -402,8 +411,9 @@ export const serializeAws_restJson1_1DescribeDomainCommand = async (
   input: DescribeDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/describeDomain";
   let body: any;
   const bodyParams: any = {};
@@ -430,8 +440,9 @@ export const serializeAws_restJson1_1DescribeFleetMetadataCommand = async (
   input: DescribeFleetMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/describeFleetMetadata";
   let body: any;
   const bodyParams: any = {};
@@ -455,8 +466,9 @@ export const serializeAws_restJson1_1DescribeIdentityProviderConfigurationComman
   input: DescribeIdentityProviderConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/describeIdentityProviderConfiguration";
   let body: any;
   const bodyParams: any = {};
@@ -480,8 +492,9 @@ export const serializeAws_restJson1_1DescribeWebsiteCertificateAuthorityCommand 
   input: DescribeWebsiteCertificateAuthorityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/describeWebsiteCertificateAuthority";
   let body: any;
   const bodyParams: any = {};
@@ -508,8 +521,9 @@ export const serializeAws_restJson1_1DisassociateDomainCommand = async (
   input: DisassociateDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/disassociateDomain";
   let body: any;
   const bodyParams: any = {};
@@ -536,8 +550,9 @@ export const serializeAws_restJson1_1DisassociateWebsiteAuthorizationProviderCom
   input: DisassociateWebsiteAuthorizationProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/disassociateWebsiteAuthorizationProvider";
   let body: any;
   const bodyParams: any = {};
@@ -564,8 +579,9 @@ export const serializeAws_restJson1_1DisassociateWebsiteCertificateAuthorityComm
   input: DisassociateWebsiteCertificateAuthorityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/disassociateWebsiteCertificateAuthority";
   let body: any;
   const bodyParams: any = {};
@@ -592,8 +608,9 @@ export const serializeAws_restJson1_1ListDevicesCommand = async (
   input: ListDevicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/listDevices";
   let body: any;
   const bodyParams: any = {};
@@ -623,8 +640,9 @@ export const serializeAws_restJson1_1ListDomainsCommand = async (
   input: ListDomainsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/listDomains";
   let body: any;
   const bodyParams: any = {};
@@ -654,8 +672,9 @@ export const serializeAws_restJson1_1ListFleetsCommand = async (
   input: ListFleetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/listFleets";
   let body: any;
   const bodyParams: any = {};
@@ -682,8 +701,9 @@ export const serializeAws_restJson1_1ListWebsiteAuthorizationProvidersCommand = 
   input: ListWebsiteAuthorizationProvidersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/listWebsiteAuthorizationProviders";
   let body: any;
   const bodyParams: any = {};
@@ -713,8 +733,9 @@ export const serializeAws_restJson1_1ListWebsiteCertificateAuthoritiesCommand = 
   input: ListWebsiteCertificateAuthoritiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/listWebsiteCertificateAuthorities";
   let body: any;
   const bodyParams: any = {};
@@ -744,8 +765,9 @@ export const serializeAws_restJson1_1RestoreDomainAccessCommand = async (
   input: RestoreDomainAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/restoreDomainAccess";
   let body: any;
   const bodyParams: any = {};
@@ -772,8 +794,9 @@ export const serializeAws_restJson1_1RevokeDomainAccessCommand = async (
   input: RevokeDomainAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/revokeDomainAccess";
   let body: any;
   const bodyParams: any = {};
@@ -800,8 +823,9 @@ export const serializeAws_restJson1_1SignOutUserCommand = async (
   input: SignOutUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/signOutUser";
   let body: any;
   const bodyParams: any = {};
@@ -828,8 +852,9 @@ export const serializeAws_restJson1_1UpdateAuditStreamConfigurationCommand = asy
   input: UpdateAuditStreamConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/updateAuditStreamConfiguration";
   let body: any;
   const bodyParams: any = {};
@@ -856,8 +881,9 @@ export const serializeAws_restJson1_1UpdateCompanyNetworkConfigurationCommand = 
   input: UpdateCompanyNetworkConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/updateCompanyNetworkConfiguration";
   let body: any;
   const bodyParams: any = {};
@@ -896,8 +922,9 @@ export const serializeAws_restJson1_1UpdateDevicePolicyConfigurationCommand = as
   input: UpdateDevicePolicyConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/updateDevicePolicyConfiguration";
   let body: any;
   const bodyParams: any = {};
@@ -924,8 +951,9 @@ export const serializeAws_restJson1_1UpdateDomainMetadataCommand = async (
   input: UpdateDomainMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/updateDomainMetadata";
   let body: any;
   const bodyParams: any = {};
@@ -955,8 +983,9 @@ export const serializeAws_restJson1_1UpdateFleetMetadataCommand = async (
   input: UpdateFleetMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/UpdateFleetMetadata";
   let body: any;
   const bodyParams: any = {};
@@ -986,8 +1015,9 @@ export const serializeAws_restJson1_1UpdateIdentityProviderConfigurationCommand 
   input: UpdateIdentityProviderConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/updateIdentityProviderConfiguration";
   let body: any;
   const bodyParams: any = {};

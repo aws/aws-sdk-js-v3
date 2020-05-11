@@ -129,9 +129,10 @@ export const serializeAws_json1_1AssociateAdminAccountCommand = async (
   input: AssociateAdminAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSFMS_20180101.AssociateAdminAccount";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSFMS_20180101.AssociateAdminAccount"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AssociateAdminAccountRequest(input, context)
@@ -143,9 +144,10 @@ export const serializeAws_json1_1DeleteNotificationChannelCommand = async (
   input: DeleteNotificationChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSFMS_20180101.DeleteNotificationChannel";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSFMS_20180101.DeleteNotificationChannel"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteNotificationChannelRequest(input, context)
@@ -157,9 +159,10 @@ export const serializeAws_json1_1DeletePolicyCommand = async (
   input: DeletePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSFMS_20180101.DeletePolicy";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSFMS_20180101.DeletePolicy"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeletePolicyRequest(input, context)
@@ -171,9 +174,10 @@ export const serializeAws_json1_1DisassociateAdminAccountCommand = async (
   input: DisassociateAdminAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSFMS_20180101.DisassociateAdminAccount";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSFMS_20180101.DisassociateAdminAccount"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DisassociateAdminAccountRequest(input, context)
@@ -185,9 +189,10 @@ export const serializeAws_json1_1GetAdminAccountCommand = async (
   input: GetAdminAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSFMS_20180101.GetAdminAccount";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSFMS_20180101.GetAdminAccount"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetAdminAccountRequest(input, context)
@@ -199,9 +204,10 @@ export const serializeAws_json1_1GetComplianceDetailCommand = async (
   input: GetComplianceDetailCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSFMS_20180101.GetComplianceDetail";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSFMS_20180101.GetComplianceDetail"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetComplianceDetailRequest(input, context)
@@ -213,9 +219,10 @@ export const serializeAws_json1_1GetNotificationChannelCommand = async (
   input: GetNotificationChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSFMS_20180101.GetNotificationChannel";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSFMS_20180101.GetNotificationChannel"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetNotificationChannelRequest(input, context)
@@ -227,9 +234,10 @@ export const serializeAws_json1_1GetPolicyCommand = async (
   input: GetPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSFMS_20180101.GetPolicy";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSFMS_20180101.GetPolicy"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -239,9 +247,10 @@ export const serializeAws_json1_1GetProtectionStatusCommand = async (
   input: GetProtectionStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSFMS_20180101.GetProtectionStatus";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSFMS_20180101.GetProtectionStatus"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetProtectionStatusRequest(input, context)
@@ -253,9 +262,10 @@ export const serializeAws_json1_1ListComplianceStatusCommand = async (
   input: ListComplianceStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSFMS_20180101.ListComplianceStatus";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSFMS_20180101.ListComplianceStatus"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListComplianceStatusRequest(input, context)
@@ -267,9 +277,10 @@ export const serializeAws_json1_1ListMemberAccountsCommand = async (
   input: ListMemberAccountsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSFMS_20180101.ListMemberAccounts";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSFMS_20180101.ListMemberAccounts"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListMemberAccountsRequest(input, context)
@@ -281,9 +292,10 @@ export const serializeAws_json1_1ListPoliciesCommand = async (
   input: ListPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSFMS_20180101.ListPolicies";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSFMS_20180101.ListPolicies"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListPoliciesRequest(input, context)
@@ -295,9 +307,10 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSFMS_20180101.ListTagsForResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSFMS_20180101.ListTagsForResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTagsForResourceRequest(input, context)
@@ -309,9 +322,10 @@ export const serializeAws_json1_1PutNotificationChannelCommand = async (
   input: PutNotificationChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSFMS_20180101.PutNotificationChannel";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSFMS_20180101.PutNotificationChannel"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutNotificationChannelRequest(input, context)
@@ -323,9 +337,10 @@ export const serializeAws_json1_1PutPolicyCommand = async (
   input: PutPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSFMS_20180101.PutPolicy";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSFMS_20180101.PutPolicy"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -335,9 +350,10 @@ export const serializeAws_json1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSFMS_20180101.TagResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSFMS_20180101.TagResource"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -347,9 +363,10 @@ export const serializeAws_json1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSFMS_20180101.UntagResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSFMS_20180101.UntagResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UntagResourceRequest(input, context)

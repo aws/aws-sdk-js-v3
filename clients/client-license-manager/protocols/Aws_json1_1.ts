@@ -139,9 +139,10 @@ export const serializeAws_json1_1CreateLicenseConfigurationCommand = async (
   input: CreateLicenseConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSLicenseManager.CreateLicenseConfiguration";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLicenseManager.CreateLicenseConfiguration"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateLicenseConfigurationRequest(input, context)
@@ -153,9 +154,10 @@ export const serializeAws_json1_1DeleteLicenseConfigurationCommand = async (
   input: DeleteLicenseConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSLicenseManager.DeleteLicenseConfiguration";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLicenseManager.DeleteLicenseConfiguration"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteLicenseConfigurationRequest(input, context)
@@ -167,9 +169,10 @@ export const serializeAws_json1_1GetLicenseConfigurationCommand = async (
   input: GetLicenseConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSLicenseManager.GetLicenseConfiguration";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLicenseManager.GetLicenseConfiguration"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetLicenseConfigurationRequest(input, context)
@@ -181,9 +184,10 @@ export const serializeAws_json1_1GetServiceSettingsCommand = async (
   input: GetServiceSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSLicenseManager.GetServiceSettings";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLicenseManager.GetServiceSettings"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetServiceSettingsRequest(input, context)
@@ -195,10 +199,10 @@ export const serializeAws_json1_1ListAssociationsForLicenseConfigurationCommand 
   input: ListAssociationsForLicenseConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSLicenseManager.ListAssociationsForLicenseConfiguration";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLicenseManager.ListAssociationsForLicenseConfiguration"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListAssociationsForLicenseConfigurationRequest(
@@ -213,10 +217,11 @@ export const serializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCo
   input: ListFailuresForLicenseConfigurationOperationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSLicenseManager.ListFailuresForLicenseConfigurationOperations";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "AWSLicenseManager.ListFailuresForLicenseConfigurationOperations"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListFailuresForLicenseConfigurationOperationsRequest(
@@ -231,9 +236,10 @@ export const serializeAws_json1_1ListLicenseConfigurationsCommand = async (
   input: ListLicenseConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSLicenseManager.ListLicenseConfigurations";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLicenseManager.ListLicenseConfigurations"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListLicenseConfigurationsRequest(input, context)
@@ -245,10 +251,10 @@ export const serializeAws_json1_1ListLicenseSpecificationsForResourceCommand = a
   input: ListLicenseSpecificationsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSLicenseManager.ListLicenseSpecificationsForResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLicenseManager.ListLicenseSpecificationsForResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListLicenseSpecificationsForResourceRequest(
@@ -263,9 +269,10 @@ export const serializeAws_json1_1ListResourceInventoryCommand = async (
   input: ListResourceInventoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSLicenseManager.ListResourceInventory";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLicenseManager.ListResourceInventory"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListResourceInventoryRequest(input, context)
@@ -277,9 +284,10 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSLicenseManager.ListTagsForResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLicenseManager.ListTagsForResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTagsForResourceRequest(input, context)
@@ -291,10 +299,10 @@ export const serializeAws_json1_1ListUsageForLicenseConfigurationCommand = async
   input: ListUsageForLicenseConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSLicenseManager.ListUsageForLicenseConfiguration";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLicenseManager.ListUsageForLicenseConfiguration"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListUsageForLicenseConfigurationRequest(input, context)
@@ -306,9 +314,10 @@ export const serializeAws_json1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSLicenseManager.TagResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLicenseManager.TagResource"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -318,9 +327,10 @@ export const serializeAws_json1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSLicenseManager.UntagResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLicenseManager.UntagResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UntagResourceRequest(input, context)
@@ -332,9 +342,10 @@ export const serializeAws_json1_1UpdateLicenseConfigurationCommand = async (
   input: UpdateLicenseConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSLicenseManager.UpdateLicenseConfiguration";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLicenseManager.UpdateLicenseConfiguration"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateLicenseConfigurationRequest(input, context)
@@ -346,10 +357,10 @@ export const serializeAws_json1_1UpdateLicenseSpecificationsForResourceCommand =
   input: UpdateLicenseSpecificationsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSLicenseManager.UpdateLicenseSpecificationsForResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLicenseManager.UpdateLicenseSpecificationsForResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateLicenseSpecificationsForResourceRequest(
@@ -364,9 +375,10 @@ export const serializeAws_json1_1UpdateServiceSettingsCommand = async (
   input: UpdateServiceSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSLicenseManager.UpdateServiceSettings";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLicenseManager.UpdateServiceSettings"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateServiceSettingsRequest(input, context)

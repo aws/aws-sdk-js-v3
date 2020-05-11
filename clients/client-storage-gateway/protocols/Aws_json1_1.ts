@@ -491,9 +491,10 @@ export const serializeAws_json1_1ActivateGatewayCommand = async (
   input: ActivateGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.ActivateGateway";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.ActivateGateway"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ActivateGatewayInput(input, context)
@@ -505,9 +506,10 @@ export const serializeAws_json1_1AddCacheCommand = async (
   input: AddCacheCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.AddCache";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.AddCache"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AddCacheInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -517,9 +519,10 @@ export const serializeAws_json1_1AddTagsToResourceCommand = async (
   input: AddTagsToResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.AddTagsToResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.AddTagsToResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AddTagsToResourceInput(input, context)
@@ -531,9 +534,10 @@ export const serializeAws_json1_1AddUploadBufferCommand = async (
   input: AddUploadBufferCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.AddUploadBuffer";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.AddUploadBuffer"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AddUploadBufferInput(input, context)
@@ -545,9 +549,10 @@ export const serializeAws_json1_1AddWorkingStorageCommand = async (
   input: AddWorkingStorageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.AddWorkingStorage";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.AddWorkingStorage"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AddWorkingStorageInput(input, context)
@@ -559,9 +564,10 @@ export const serializeAws_json1_1AssignTapePoolCommand = async (
   input: AssignTapePoolCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.AssignTapePool";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.AssignTapePool"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AssignTapePoolInput(input, context)
@@ -573,9 +579,10 @@ export const serializeAws_json1_1AttachVolumeCommand = async (
   input: AttachVolumeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.AttachVolume";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.AttachVolume"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AttachVolumeInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -585,9 +592,10 @@ export const serializeAws_json1_1CancelArchivalCommand = async (
   input: CancelArchivalCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.CancelArchival";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.CancelArchival"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CancelArchivalInput(input, context)
@@ -599,9 +607,10 @@ export const serializeAws_json1_1CancelRetrievalCommand = async (
   input: CancelRetrievalCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.CancelRetrieval";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.CancelRetrieval"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CancelRetrievalInput(input, context)
@@ -613,9 +622,10 @@ export const serializeAws_json1_1CreateCachediSCSIVolumeCommand = async (
   input: CreateCachediSCSIVolumeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.CreateCachediSCSIVolume";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.CreateCachediSCSIVolume"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateCachediSCSIVolumeInput(input, context)
@@ -627,9 +637,10 @@ export const serializeAws_json1_1CreateNFSFileShareCommand = async (
   input: CreateNFSFileShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.CreateNFSFileShare";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.CreateNFSFileShare"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateNFSFileShareInput(input, context)
@@ -641,9 +652,10 @@ export const serializeAws_json1_1CreateSMBFileShareCommand = async (
   input: CreateSMBFileShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.CreateSMBFileShare";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.CreateSMBFileShare"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateSMBFileShareInput(input, context)
@@ -655,9 +667,10 @@ export const serializeAws_json1_1CreateSnapshotCommand = async (
   input: CreateSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.CreateSnapshot";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.CreateSnapshot"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateSnapshotInput(input, context)
@@ -669,10 +682,11 @@ export const serializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointCommand = 
   input: CreateSnapshotFromVolumeRecoveryPointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "StorageGateway_20130630.CreateSnapshotFromVolumeRecoveryPoint";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "StorageGateway_20130630.CreateSnapshotFromVolumeRecoveryPoint"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointInput(
@@ -687,9 +701,10 @@ export const serializeAws_json1_1CreateStorediSCSIVolumeCommand = async (
   input: CreateStorediSCSIVolumeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.CreateStorediSCSIVolume";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.CreateStorediSCSIVolume"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateStorediSCSIVolumeInput(input, context)
@@ -701,9 +716,10 @@ export const serializeAws_json1_1CreateTapeWithBarcodeCommand = async (
   input: CreateTapeWithBarcodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.CreateTapeWithBarcode";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.CreateTapeWithBarcode"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateTapeWithBarcodeInput(input, context)
@@ -715,9 +731,10 @@ export const serializeAws_json1_1CreateTapesCommand = async (
   input: CreateTapesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.CreateTapes";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.CreateTapes"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateTapesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -727,9 +744,10 @@ export const serializeAws_json1_1DeleteBandwidthRateLimitCommand = async (
   input: DeleteBandwidthRateLimitCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.DeleteBandwidthRateLimit";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.DeleteBandwidthRateLimit"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteBandwidthRateLimitInput(input, context)
@@ -741,9 +759,10 @@ export const serializeAws_json1_1DeleteChapCredentialsCommand = async (
   input: DeleteChapCredentialsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.DeleteChapCredentials";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.DeleteChapCredentials"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteChapCredentialsInput(input, context)
@@ -755,9 +774,10 @@ export const serializeAws_json1_1DeleteFileShareCommand = async (
   input: DeleteFileShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.DeleteFileShare";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.DeleteFileShare"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteFileShareInput(input, context)
@@ -769,9 +789,10 @@ export const serializeAws_json1_1DeleteGatewayCommand = async (
   input: DeleteGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.DeleteGateway";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.DeleteGateway"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteGatewayInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -781,9 +802,10 @@ export const serializeAws_json1_1DeleteSnapshotScheduleCommand = async (
   input: DeleteSnapshotScheduleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.DeleteSnapshotSchedule";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.DeleteSnapshotSchedule"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteSnapshotScheduleInput(input, context)
@@ -795,9 +817,10 @@ export const serializeAws_json1_1DeleteTapeCommand = async (
   input: DeleteTapeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.DeleteTape";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.DeleteTape"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteTapeInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -807,9 +830,10 @@ export const serializeAws_json1_1DeleteTapeArchiveCommand = async (
   input: DeleteTapeArchiveCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.DeleteTapeArchive";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.DeleteTapeArchive"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteTapeArchiveInput(input, context)
@@ -821,9 +845,10 @@ export const serializeAws_json1_1DeleteVolumeCommand = async (
   input: DeleteVolumeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.DeleteVolume";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.DeleteVolume"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteVolumeInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -833,10 +858,10 @@ export const serializeAws_json1_1DescribeAvailabilityMonitorTestCommand = async 
   input: DescribeAvailabilityMonitorTestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "StorageGateway_20130630.DescribeAvailabilityMonitorTest";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.DescribeAvailabilityMonitorTest"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeAvailabilityMonitorTestInput(input, context)
@@ -848,10 +873,10 @@ export const serializeAws_json1_1DescribeBandwidthRateLimitCommand = async (
   input: DescribeBandwidthRateLimitCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "StorageGateway_20130630.DescribeBandwidthRateLimit";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.DescribeBandwidthRateLimit"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeBandwidthRateLimitInput(input, context)
@@ -863,9 +888,10 @@ export const serializeAws_json1_1DescribeCacheCommand = async (
   input: DescribeCacheCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.DescribeCache";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.DescribeCache"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeCacheInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -875,10 +901,10 @@ export const serializeAws_json1_1DescribeCachediSCSIVolumesCommand = async (
   input: DescribeCachediSCSIVolumesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "StorageGateway_20130630.DescribeCachediSCSIVolumes";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.DescribeCachediSCSIVolumes"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeCachediSCSIVolumesInput(input, context)
@@ -890,9 +916,10 @@ export const serializeAws_json1_1DescribeChapCredentialsCommand = async (
   input: DescribeChapCredentialsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.DescribeChapCredentials";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.DescribeChapCredentials"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeChapCredentialsInput(input, context)
@@ -904,10 +931,10 @@ export const serializeAws_json1_1DescribeGatewayInformationCommand = async (
   input: DescribeGatewayInformationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "StorageGateway_20130630.DescribeGatewayInformation";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.DescribeGatewayInformation"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeGatewayInformationInput(input, context)
@@ -919,10 +946,10 @@ export const serializeAws_json1_1DescribeMaintenanceStartTimeCommand = async (
   input: DescribeMaintenanceStartTimeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "StorageGateway_20130630.DescribeMaintenanceStartTime";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.DescribeMaintenanceStartTime"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeMaintenanceStartTimeInput(input, context)
@@ -934,9 +961,10 @@ export const serializeAws_json1_1DescribeNFSFileSharesCommand = async (
   input: DescribeNFSFileSharesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.DescribeNFSFileShares";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.DescribeNFSFileShares"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeNFSFileSharesInput(input, context)
@@ -948,9 +976,10 @@ export const serializeAws_json1_1DescribeSMBFileSharesCommand = async (
   input: DescribeSMBFileSharesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.DescribeSMBFileShares";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.DescribeSMBFileShares"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeSMBFileSharesInput(input, context)
@@ -962,9 +991,10 @@ export const serializeAws_json1_1DescribeSMBSettingsCommand = async (
   input: DescribeSMBSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.DescribeSMBSettings";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.DescribeSMBSettings"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeSMBSettingsInput(input, context)
@@ -976,9 +1006,10 @@ export const serializeAws_json1_1DescribeSnapshotScheduleCommand = async (
   input: DescribeSnapshotScheduleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.DescribeSnapshotSchedule";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.DescribeSnapshotSchedule"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeSnapshotScheduleInput(input, context)
@@ -990,10 +1021,10 @@ export const serializeAws_json1_1DescribeStorediSCSIVolumesCommand = async (
   input: DescribeStorediSCSIVolumesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "StorageGateway_20130630.DescribeStorediSCSIVolumes";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.DescribeStorediSCSIVolumes"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeStorediSCSIVolumesInput(input, context)
@@ -1005,9 +1036,10 @@ export const serializeAws_json1_1DescribeTapeArchivesCommand = async (
   input: DescribeTapeArchivesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.DescribeTapeArchives";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.DescribeTapeArchives"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeTapeArchivesInput(input, context)
@@ -1019,10 +1051,10 @@ export const serializeAws_json1_1DescribeTapeRecoveryPointsCommand = async (
   input: DescribeTapeRecoveryPointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "StorageGateway_20130630.DescribeTapeRecoveryPoints";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.DescribeTapeRecoveryPoints"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeTapeRecoveryPointsInput(input, context)
@@ -1034,9 +1066,10 @@ export const serializeAws_json1_1DescribeTapesCommand = async (
   input: DescribeTapesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.DescribeTapes";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.DescribeTapes"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeTapesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1046,9 +1079,10 @@ export const serializeAws_json1_1DescribeUploadBufferCommand = async (
   input: DescribeUploadBufferCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.DescribeUploadBuffer";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.DescribeUploadBuffer"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeUploadBufferInput(input, context)
@@ -1060,9 +1094,10 @@ export const serializeAws_json1_1DescribeVTLDevicesCommand = async (
   input: DescribeVTLDevicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.DescribeVTLDevices";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.DescribeVTLDevices"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeVTLDevicesInput(input, context)
@@ -1074,9 +1109,10 @@ export const serializeAws_json1_1DescribeWorkingStorageCommand = async (
   input: DescribeWorkingStorageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.DescribeWorkingStorage";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.DescribeWorkingStorage"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeWorkingStorageInput(input, context)
@@ -1088,9 +1124,10 @@ export const serializeAws_json1_1DetachVolumeCommand = async (
   input: DetachVolumeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.DetachVolume";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.DetachVolume"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DetachVolumeInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1100,9 +1137,10 @@ export const serializeAws_json1_1DisableGatewayCommand = async (
   input: DisableGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.DisableGateway";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.DisableGateway"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DisableGatewayInput(input, context)
@@ -1114,9 +1152,10 @@ export const serializeAws_json1_1JoinDomainCommand = async (
   input: JoinDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.JoinDomain";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.JoinDomain"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1JoinDomainInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1126,9 +1165,10 @@ export const serializeAws_json1_1ListFileSharesCommand = async (
   input: ListFileSharesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.ListFileShares";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.ListFileShares"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListFileSharesInput(input, context)
@@ -1140,9 +1180,10 @@ export const serializeAws_json1_1ListGatewaysCommand = async (
   input: ListGatewaysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.ListGateways";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.ListGateways"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListGatewaysInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1152,9 +1193,10 @@ export const serializeAws_json1_1ListLocalDisksCommand = async (
   input: ListLocalDisksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.ListLocalDisks";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.ListLocalDisks"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListLocalDisksInput(input, context)
@@ -1166,9 +1208,10 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.ListTagsForResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.ListTagsForResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTagsForResourceInput(input, context)
@@ -1180,9 +1223,10 @@ export const serializeAws_json1_1ListTapesCommand = async (
   input: ListTapesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.ListTapes";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.ListTapes"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTapesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1192,9 +1236,10 @@ export const serializeAws_json1_1ListVolumeInitiatorsCommand = async (
   input: ListVolumeInitiatorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.ListVolumeInitiators";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.ListVolumeInitiators"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListVolumeInitiatorsInput(input, context)
@@ -1206,9 +1251,10 @@ export const serializeAws_json1_1ListVolumeRecoveryPointsCommand = async (
   input: ListVolumeRecoveryPointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.ListVolumeRecoveryPoints";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.ListVolumeRecoveryPoints"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListVolumeRecoveryPointsInput(input, context)
@@ -1220,9 +1266,10 @@ export const serializeAws_json1_1ListVolumesCommand = async (
   input: ListVolumesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.ListVolumes";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.ListVolumes"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListVolumesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1232,9 +1279,10 @@ export const serializeAws_json1_1NotifyWhenUploadedCommand = async (
   input: NotifyWhenUploadedCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.NotifyWhenUploaded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.NotifyWhenUploaded"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1NotifyWhenUploadedInput(input, context)
@@ -1246,9 +1294,10 @@ export const serializeAws_json1_1RefreshCacheCommand = async (
   input: RefreshCacheCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.RefreshCache";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.RefreshCache"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1RefreshCacheInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1258,9 +1307,10 @@ export const serializeAws_json1_1RemoveTagsFromResourceCommand = async (
   input: RemoveTagsFromResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.RemoveTagsFromResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.RemoveTagsFromResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RemoveTagsFromResourceInput(input, context)
@@ -1272,9 +1322,10 @@ export const serializeAws_json1_1ResetCacheCommand = async (
   input: ResetCacheCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.ResetCache";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.ResetCache"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ResetCacheInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1284,9 +1335,10 @@ export const serializeAws_json1_1RetrieveTapeArchiveCommand = async (
   input: RetrieveTapeArchiveCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.RetrieveTapeArchive";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.RetrieveTapeArchive"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RetrieveTapeArchiveInput(input, context)
@@ -1298,9 +1350,10 @@ export const serializeAws_json1_1RetrieveTapeRecoveryPointCommand = async (
   input: RetrieveTapeRecoveryPointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.RetrieveTapeRecoveryPoint";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.RetrieveTapeRecoveryPoint"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RetrieveTapeRecoveryPointInput(input, context)
@@ -1312,9 +1365,10 @@ export const serializeAws_json1_1SetLocalConsolePasswordCommand = async (
   input: SetLocalConsolePasswordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.SetLocalConsolePassword";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.SetLocalConsolePassword"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1SetLocalConsolePasswordInput(input, context)
@@ -1326,9 +1380,10 @@ export const serializeAws_json1_1SetSMBGuestPasswordCommand = async (
   input: SetSMBGuestPasswordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.SetSMBGuestPassword";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.SetSMBGuestPassword"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1SetSMBGuestPasswordInput(input, context)
@@ -1340,9 +1395,10 @@ export const serializeAws_json1_1ShutdownGatewayCommand = async (
   input: ShutdownGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.ShutdownGateway";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.ShutdownGateway"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ShutdownGatewayInput(input, context)
@@ -1354,10 +1410,10 @@ export const serializeAws_json1_1StartAvailabilityMonitorTestCommand = async (
   input: StartAvailabilityMonitorTestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "StorageGateway_20130630.StartAvailabilityMonitorTest";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.StartAvailabilityMonitorTest"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartAvailabilityMonitorTestInput(input, context)
@@ -1369,9 +1425,10 @@ export const serializeAws_json1_1StartGatewayCommand = async (
   input: StartGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.StartGateway";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.StartGateway"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartGatewayInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1381,9 +1438,10 @@ export const serializeAws_json1_1UpdateBandwidthRateLimitCommand = async (
   input: UpdateBandwidthRateLimitCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.UpdateBandwidthRateLimit";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.UpdateBandwidthRateLimit"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateBandwidthRateLimitInput(input, context)
@@ -1395,9 +1453,10 @@ export const serializeAws_json1_1UpdateChapCredentialsCommand = async (
   input: UpdateChapCredentialsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.UpdateChapCredentials";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.UpdateChapCredentials"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateChapCredentialsInput(input, context)
@@ -1409,9 +1468,10 @@ export const serializeAws_json1_1UpdateGatewayInformationCommand = async (
   input: UpdateGatewayInformationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.UpdateGatewayInformation";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.UpdateGatewayInformation"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateGatewayInformationInput(input, context)
@@ -1423,9 +1483,10 @@ export const serializeAws_json1_1UpdateGatewaySoftwareNowCommand = async (
   input: UpdateGatewaySoftwareNowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.UpdateGatewaySoftwareNow";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.UpdateGatewaySoftwareNow"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateGatewaySoftwareNowInput(input, context)
@@ -1437,10 +1498,10 @@ export const serializeAws_json1_1UpdateMaintenanceStartTimeCommand = async (
   input: UpdateMaintenanceStartTimeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "StorageGateway_20130630.UpdateMaintenanceStartTime";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.UpdateMaintenanceStartTime"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateMaintenanceStartTimeInput(input, context)
@@ -1452,9 +1513,10 @@ export const serializeAws_json1_1UpdateNFSFileShareCommand = async (
   input: UpdateNFSFileShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.UpdateNFSFileShare";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.UpdateNFSFileShare"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateNFSFileShareInput(input, context)
@@ -1466,9 +1528,10 @@ export const serializeAws_json1_1UpdateSMBFileShareCommand = async (
   input: UpdateSMBFileShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.UpdateSMBFileShare";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.UpdateSMBFileShare"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateSMBFileShareInput(input, context)
@@ -1480,9 +1543,10 @@ export const serializeAws_json1_1UpdateSMBSecurityStrategyCommand = async (
   input: UpdateSMBSecurityStrategyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.UpdateSMBSecurityStrategy";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.UpdateSMBSecurityStrategy"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateSMBSecurityStrategyInput(input, context)
@@ -1494,9 +1558,10 @@ export const serializeAws_json1_1UpdateSnapshotScheduleCommand = async (
   input: UpdateSnapshotScheduleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.UpdateSnapshotSchedule";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.UpdateSnapshotSchedule"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateSnapshotScheduleInput(input, context)
@@ -1508,9 +1573,10 @@ export const serializeAws_json1_1UpdateVTLDeviceTypeCommand = async (
   input: UpdateVTLDeviceTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "StorageGateway_20130630.UpdateVTLDeviceType";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.UpdateVTLDeviceType"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateVTLDeviceTypeInput(input, context)

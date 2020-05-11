@@ -144,9 +144,10 @@ export const serializeAws_json1_1CreateDeliveryStreamCommand = async (
   input: CreateDeliveryStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Firehose_20150804.CreateDeliveryStream";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Firehose_20150804.CreateDeliveryStream"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateDeliveryStreamInput(input, context)
@@ -158,9 +159,10 @@ export const serializeAws_json1_1DeleteDeliveryStreamCommand = async (
   input: DeleteDeliveryStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Firehose_20150804.DeleteDeliveryStream";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Firehose_20150804.DeleteDeliveryStream"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteDeliveryStreamInput(input, context)
@@ -172,9 +174,10 @@ export const serializeAws_json1_1DescribeDeliveryStreamCommand = async (
   input: DescribeDeliveryStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Firehose_20150804.DescribeDeliveryStream";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Firehose_20150804.DescribeDeliveryStream"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeDeliveryStreamInput(input, context)
@@ -186,9 +189,10 @@ export const serializeAws_json1_1ListDeliveryStreamsCommand = async (
   input: ListDeliveryStreamsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Firehose_20150804.ListDeliveryStreams";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Firehose_20150804.ListDeliveryStreams"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListDeliveryStreamsInput(input, context)
@@ -200,9 +204,10 @@ export const serializeAws_json1_1ListTagsForDeliveryStreamCommand = async (
   input: ListTagsForDeliveryStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Firehose_20150804.ListTagsForDeliveryStream";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Firehose_20150804.ListTagsForDeliveryStream"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTagsForDeliveryStreamInput(input, context)
@@ -214,9 +219,10 @@ export const serializeAws_json1_1PutRecordCommand = async (
   input: PutRecordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Firehose_20150804.PutRecord";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Firehose_20150804.PutRecord"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutRecordInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -226,9 +232,10 @@ export const serializeAws_json1_1PutRecordBatchCommand = async (
   input: PutRecordBatchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Firehose_20150804.PutRecordBatch";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Firehose_20150804.PutRecordBatch"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutRecordBatchInput(input, context)
@@ -240,9 +247,10 @@ export const serializeAws_json1_1StartDeliveryStreamEncryptionCommand = async (
   input: StartDeliveryStreamEncryptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Firehose_20150804.StartDeliveryStreamEncryption";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Firehose_20150804.StartDeliveryStreamEncryption"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartDeliveryStreamEncryptionInput(input, context)
@@ -254,9 +262,10 @@ export const serializeAws_json1_1StopDeliveryStreamEncryptionCommand = async (
   input: StopDeliveryStreamEncryptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Firehose_20150804.StopDeliveryStreamEncryption";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Firehose_20150804.StopDeliveryStreamEncryption"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StopDeliveryStreamEncryptionInput(input, context)
@@ -268,9 +277,10 @@ export const serializeAws_json1_1TagDeliveryStreamCommand = async (
   input: TagDeliveryStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Firehose_20150804.TagDeliveryStream";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Firehose_20150804.TagDeliveryStream"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1TagDeliveryStreamInput(input, context)
@@ -282,9 +292,10 @@ export const serializeAws_json1_1UntagDeliveryStreamCommand = async (
   input: UntagDeliveryStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Firehose_20150804.UntagDeliveryStream";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Firehose_20150804.UntagDeliveryStream"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UntagDeliveryStreamInput(input, context)
@@ -296,9 +307,10 @@ export const serializeAws_json1_1UpdateDestinationCommand = async (
   input: UpdateDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Firehose_20150804.UpdateDestination";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Firehose_20150804.UpdateDestination"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateDestinationInput(input, context)

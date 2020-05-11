@@ -171,9 +171,10 @@ export const serializeAws_json1_1CreateHttpNamespaceCommand = async (
   input: CreateHttpNamespaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.CreateHttpNamespace";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53AutoNaming_v20170314.CreateHttpNamespace"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateHttpNamespaceRequest(input, context)
@@ -185,10 +186,10 @@ export const serializeAws_json1_1CreatePrivateDnsNamespaceCommand = async (
   input: CreatePrivateDnsNamespaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "Route53AutoNaming_v20170314.CreatePrivateDnsNamespace";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53AutoNaming_v20170314.CreatePrivateDnsNamespace"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreatePrivateDnsNamespaceRequest(input, context)
@@ -200,10 +201,10 @@ export const serializeAws_json1_1CreatePublicDnsNamespaceCommand = async (
   input: CreatePublicDnsNamespaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "Route53AutoNaming_v20170314.CreatePublicDnsNamespace";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53AutoNaming_v20170314.CreatePublicDnsNamespace"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreatePublicDnsNamespaceRequest(input, context)
@@ -215,9 +216,10 @@ export const serializeAws_json1_1CreateServiceCommand = async (
   input: CreateServiceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.CreateService";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53AutoNaming_v20170314.CreateService"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateServiceRequest(input, context)
@@ -229,9 +231,10 @@ export const serializeAws_json1_1DeleteNamespaceCommand = async (
   input: DeleteNamespaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.DeleteNamespace";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53AutoNaming_v20170314.DeleteNamespace"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteNamespaceRequest(input, context)
@@ -243,9 +246,10 @@ export const serializeAws_json1_1DeleteServiceCommand = async (
   input: DeleteServiceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.DeleteService";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53AutoNaming_v20170314.DeleteService"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteServiceRequest(input, context)
@@ -257,9 +261,10 @@ export const serializeAws_json1_1DeregisterInstanceCommand = async (
   input: DeregisterInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.DeregisterInstance";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53AutoNaming_v20170314.DeregisterInstance"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeregisterInstanceRequest(input, context)
@@ -271,9 +276,10 @@ export const serializeAws_json1_1DiscoverInstancesCommand = async (
   input: DiscoverInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.DiscoverInstances";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53AutoNaming_v20170314.DiscoverInstances"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DiscoverInstancesRequest(input, context)
@@ -294,9 +300,10 @@ export const serializeAws_json1_1GetInstanceCommand = async (
   input: GetInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.GetInstance";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53AutoNaming_v20170314.GetInstance"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetInstanceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -306,10 +313,10 @@ export const serializeAws_json1_1GetInstancesHealthStatusCommand = async (
   input: GetInstancesHealthStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "Route53AutoNaming_v20170314.GetInstancesHealthStatus";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53AutoNaming_v20170314.GetInstancesHealthStatus"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetInstancesHealthStatusRequest(input, context)
@@ -321,9 +328,10 @@ export const serializeAws_json1_1GetNamespaceCommand = async (
   input: GetNamespaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.GetNamespace";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53AutoNaming_v20170314.GetNamespace"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetNamespaceRequest(input, context)
@@ -335,9 +343,10 @@ export const serializeAws_json1_1GetOperationCommand = async (
   input: GetOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.GetOperation";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53AutoNaming_v20170314.GetOperation"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetOperationRequest(input, context)
@@ -349,9 +358,10 @@ export const serializeAws_json1_1GetServiceCommand = async (
   input: GetServiceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.GetService";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53AutoNaming_v20170314.GetService"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetServiceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -361,9 +371,10 @@ export const serializeAws_json1_1ListInstancesCommand = async (
   input: ListInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.ListInstances";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53AutoNaming_v20170314.ListInstances"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListInstancesRequest(input, context)
@@ -375,9 +386,10 @@ export const serializeAws_json1_1ListNamespacesCommand = async (
   input: ListNamespacesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.ListNamespaces";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53AutoNaming_v20170314.ListNamespaces"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListNamespacesRequest(input, context)
@@ -389,9 +401,10 @@ export const serializeAws_json1_1ListOperationsCommand = async (
   input: ListOperationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.ListOperations";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53AutoNaming_v20170314.ListOperations"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListOperationsRequest(input, context)
@@ -403,9 +416,10 @@ export const serializeAws_json1_1ListServicesCommand = async (
   input: ListServicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.ListServices";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53AutoNaming_v20170314.ListServices"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListServicesRequest(input, context)
@@ -417,9 +431,10 @@ export const serializeAws_json1_1RegisterInstanceCommand = async (
   input: RegisterInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.RegisterInstance";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53AutoNaming_v20170314.RegisterInstance"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RegisterInstanceRequest(input, context)
@@ -431,10 +446,11 @@ export const serializeAws_json1_1UpdateInstanceCustomHealthStatusCommand = async
   input: UpdateInstanceCustomHealthStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "Route53AutoNaming_v20170314.UpdateInstanceCustomHealthStatus";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "Route53AutoNaming_v20170314.UpdateInstanceCustomHealthStatus"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateInstanceCustomHealthStatusRequest(input, context)
@@ -446,9 +462,10 @@ export const serializeAws_json1_1UpdateServiceCommand = async (
   input: UpdateServiceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.UpdateService";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53AutoNaming_v20170314.UpdateService"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateServiceRequest(input, context)

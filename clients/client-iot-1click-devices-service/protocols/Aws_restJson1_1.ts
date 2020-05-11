@@ -83,8 +83,9 @@ export const serializeAws_restJson1_1ClaimDevicesByClaimCodeCommand = async (
   input: ClaimDevicesByClaimCodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/claims/{ClaimCode}";
   if (input.ClaimCode !== undefined) {
     const labelValue: string = input.ClaimCode;
@@ -115,8 +116,9 @@ export const serializeAws_restJson1_1DescribeDeviceCommand = async (
   input: DescribeDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/devices/{DeviceId}";
   if (input.DeviceId !== undefined) {
     const labelValue: string = input.DeviceId;
@@ -147,8 +149,9 @@ export const serializeAws_restJson1_1FinalizeDeviceClaimCommand = async (
   input: FinalizeDeviceClaimCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/devices/{DeviceId}/finalize-claim";
   if (input.DeviceId !== undefined) {
     const labelValue: string = input.DeviceId;
@@ -187,8 +190,9 @@ export const serializeAws_restJson1_1GetDeviceMethodsCommand = async (
   input: GetDeviceMethodsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/devices/{DeviceId}/methods";
   if (input.DeviceId !== undefined) {
     const labelValue: string = input.DeviceId;
@@ -219,8 +223,9 @@ export const serializeAws_restJson1_1InitiateDeviceClaimCommand = async (
   input: InitiateDeviceClaimCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/devices/{DeviceId}/initiate-claim";
   if (input.DeviceId !== undefined) {
     const labelValue: string = input.DeviceId;
@@ -251,8 +256,9 @@ export const serializeAws_restJson1_1InvokeDeviceMethodCommand = async (
   input: InvokeDeviceMethodCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/devices/{DeviceId}/methods";
   if (input.DeviceId !== undefined) {
     const labelValue: string = input.DeviceId;
@@ -294,8 +300,9 @@ export const serializeAws_restJson1_1ListDeviceEventsCommand = async (
   input: ListDeviceEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/devices/{DeviceId}/events";
   if (input.DeviceId !== undefined) {
     const labelValue: string = input.DeviceId;
@@ -343,8 +350,9 @@ export const serializeAws_restJson1_1ListDevicesCommand = async (
   input: ListDevicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/devices";
   const query: any = {
     ...(input.DeviceType !== undefined && { deviceType: input.DeviceType }),
@@ -371,8 +379,9 @@ export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -405,8 +414,9 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -447,8 +457,9 @@ export const serializeAws_restJson1_1UnclaimDeviceCommand = async (
   input: UnclaimDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/devices/{DeviceId}/unclaim";
   if (input.DeviceId !== undefined) {
     const labelValue: string = input.DeviceId;
@@ -479,8 +490,9 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -519,8 +531,9 @@ export const serializeAws_restJson1_1UpdateDeviceStateCommand = async (
   input: UpdateDeviceStateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/devices/{DeviceId}/state";
   if (input.DeviceId !== undefined) {
     const labelValue: string = input.DeviceId;

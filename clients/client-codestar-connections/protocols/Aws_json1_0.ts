@@ -44,9 +44,10 @@ export const serializeAws_json1_0CreateConnectionCommand = async (
   input: CreateConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "CodeStar_connections_20191201.CreateConnection";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "CodeStar_connections_20191201.CreateConnection"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0CreateConnectionInput(input, context)
@@ -58,9 +59,10 @@ export const serializeAws_json1_0DeleteConnectionCommand = async (
   input: DeleteConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "CodeStar_connections_20191201.DeleteConnection";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "CodeStar_connections_20191201.DeleteConnection"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0DeleteConnectionInput(input, context)
@@ -72,9 +74,10 @@ export const serializeAws_json1_0GetConnectionCommand = async (
   input: GetConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "CodeStar_connections_20191201.GetConnection";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "CodeStar_connections_20191201.GetConnection"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0GetConnectionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -84,9 +87,10 @@ export const serializeAws_json1_0ListConnectionsCommand = async (
   input: ListConnectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "CodeStar_connections_20191201.ListConnections";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "CodeStar_connections_20191201.ListConnections"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0ListConnectionsInput(input, context)

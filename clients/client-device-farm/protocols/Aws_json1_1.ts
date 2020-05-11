@@ -539,9 +539,10 @@ export const serializeAws_json1_1CreateDevicePoolCommand = async (
   input: CreateDevicePoolCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.CreateDevicePool";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.CreateDevicePool"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateDevicePoolRequest(input, context)
@@ -553,9 +554,10 @@ export const serializeAws_json1_1CreateInstanceProfileCommand = async (
   input: CreateInstanceProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.CreateInstanceProfile";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.CreateInstanceProfile"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateInstanceProfileRequest(input, context)
@@ -567,9 +569,10 @@ export const serializeAws_json1_1CreateNetworkProfileCommand = async (
   input: CreateNetworkProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.CreateNetworkProfile";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.CreateNetworkProfile"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateNetworkProfileRequest(input, context)
@@ -581,9 +584,10 @@ export const serializeAws_json1_1CreateProjectCommand = async (
   input: CreateProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.CreateProject";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.CreateProject"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateProjectRequest(input, context)
@@ -595,9 +599,10 @@ export const serializeAws_json1_1CreateRemoteAccessSessionCommand = async (
   input: CreateRemoteAccessSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.CreateRemoteAccessSession";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.CreateRemoteAccessSession"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateRemoteAccessSessionRequest(input, context)
@@ -609,9 +614,10 @@ export const serializeAws_json1_1CreateTestGridProjectCommand = async (
   input: CreateTestGridProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.CreateTestGridProject";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.CreateTestGridProject"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateTestGridProjectRequest(input, context)
@@ -623,9 +629,10 @@ export const serializeAws_json1_1CreateTestGridUrlCommand = async (
   input: CreateTestGridUrlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.CreateTestGridUrl";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.CreateTestGridUrl"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateTestGridUrlRequest(input, context)
@@ -637,9 +644,10 @@ export const serializeAws_json1_1CreateUploadCommand = async (
   input: CreateUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.CreateUpload";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.CreateUpload"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateUploadRequest(input, context)
@@ -651,9 +659,10 @@ export const serializeAws_json1_1CreateVPCEConfigurationCommand = async (
   input: CreateVPCEConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.CreateVPCEConfiguration";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.CreateVPCEConfiguration"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateVPCEConfigurationRequest(input, context)
@@ -665,9 +674,10 @@ export const serializeAws_json1_1DeleteDevicePoolCommand = async (
   input: DeleteDevicePoolCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.DeleteDevicePool";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.DeleteDevicePool"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteDevicePoolRequest(input, context)
@@ -679,9 +689,10 @@ export const serializeAws_json1_1DeleteInstanceProfileCommand = async (
   input: DeleteInstanceProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.DeleteInstanceProfile";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.DeleteInstanceProfile"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteInstanceProfileRequest(input, context)
@@ -693,9 +704,10 @@ export const serializeAws_json1_1DeleteNetworkProfileCommand = async (
   input: DeleteNetworkProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.DeleteNetworkProfile";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.DeleteNetworkProfile"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteNetworkProfileRequest(input, context)
@@ -707,9 +719,10 @@ export const serializeAws_json1_1DeleteProjectCommand = async (
   input: DeleteProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.DeleteProject";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.DeleteProject"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteProjectRequest(input, context)
@@ -721,9 +734,10 @@ export const serializeAws_json1_1DeleteRemoteAccessSessionCommand = async (
   input: DeleteRemoteAccessSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.DeleteRemoteAccessSession";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.DeleteRemoteAccessSession"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteRemoteAccessSessionRequest(input, context)
@@ -735,9 +749,10 @@ export const serializeAws_json1_1DeleteRunCommand = async (
   input: DeleteRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.DeleteRun";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.DeleteRun"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteRunRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -747,9 +762,10 @@ export const serializeAws_json1_1DeleteTestGridProjectCommand = async (
   input: DeleteTestGridProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.DeleteTestGridProject";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.DeleteTestGridProject"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteTestGridProjectRequest(input, context)
@@ -761,9 +777,10 @@ export const serializeAws_json1_1DeleteUploadCommand = async (
   input: DeleteUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.DeleteUpload";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.DeleteUpload"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteUploadRequest(input, context)
@@ -775,9 +792,10 @@ export const serializeAws_json1_1DeleteVPCEConfigurationCommand = async (
   input: DeleteVPCEConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.DeleteVPCEConfiguration";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.DeleteVPCEConfiguration"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteVPCEConfigurationRequest(input, context)
@@ -789,9 +807,10 @@ export const serializeAws_json1_1GetAccountSettingsCommand = async (
   input: GetAccountSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.GetAccountSettings";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.GetAccountSettings"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetAccountSettingsRequest(input, context)
@@ -803,9 +822,10 @@ export const serializeAws_json1_1GetDeviceCommand = async (
   input: GetDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.GetDevice";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.GetDevice"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetDeviceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -815,9 +835,10 @@ export const serializeAws_json1_1GetDeviceInstanceCommand = async (
   input: GetDeviceInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.GetDeviceInstance";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.GetDeviceInstance"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetDeviceInstanceRequest(input, context)
@@ -829,9 +850,10 @@ export const serializeAws_json1_1GetDevicePoolCommand = async (
   input: GetDevicePoolCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.GetDevicePool";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.GetDevicePool"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetDevicePoolRequest(input, context)
@@ -843,9 +865,10 @@ export const serializeAws_json1_1GetDevicePoolCompatibilityCommand = async (
   input: GetDevicePoolCompatibilityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.GetDevicePoolCompatibility";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.GetDevicePoolCompatibility"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetDevicePoolCompatibilityRequest(input, context)
@@ -857,9 +880,10 @@ export const serializeAws_json1_1GetInstanceProfileCommand = async (
   input: GetInstanceProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.GetInstanceProfile";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.GetInstanceProfile"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetInstanceProfileRequest(input, context)
@@ -871,9 +895,10 @@ export const serializeAws_json1_1GetJobCommand = async (
   input: GetJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.GetJob";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.GetJob"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -883,9 +908,10 @@ export const serializeAws_json1_1GetNetworkProfileCommand = async (
   input: GetNetworkProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.GetNetworkProfile";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.GetNetworkProfile"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetNetworkProfileRequest(input, context)
@@ -897,9 +923,10 @@ export const serializeAws_json1_1GetOfferingStatusCommand = async (
   input: GetOfferingStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.GetOfferingStatus";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.GetOfferingStatus"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetOfferingStatusRequest(input, context)
@@ -911,9 +938,10 @@ export const serializeAws_json1_1GetProjectCommand = async (
   input: GetProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.GetProject";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.GetProject"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetProjectRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -923,9 +951,10 @@ export const serializeAws_json1_1GetRemoteAccessSessionCommand = async (
   input: GetRemoteAccessSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.GetRemoteAccessSession";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.GetRemoteAccessSession"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetRemoteAccessSessionRequest(input, context)
@@ -937,9 +966,10 @@ export const serializeAws_json1_1GetRunCommand = async (
   input: GetRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.GetRun";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.GetRun"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetRunRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -949,9 +979,10 @@ export const serializeAws_json1_1GetSuiteCommand = async (
   input: GetSuiteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.GetSuite";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.GetSuite"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetSuiteRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -961,9 +992,10 @@ export const serializeAws_json1_1GetTestCommand = async (
   input: GetTestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.GetTest";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.GetTest"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetTestRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -973,9 +1005,10 @@ export const serializeAws_json1_1GetTestGridProjectCommand = async (
   input: GetTestGridProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.GetTestGridProject";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.GetTestGridProject"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetTestGridProjectRequest(input, context)
@@ -987,9 +1020,10 @@ export const serializeAws_json1_1GetTestGridSessionCommand = async (
   input: GetTestGridSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.GetTestGridSession";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.GetTestGridSession"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetTestGridSessionRequest(input, context)
@@ -1001,9 +1035,10 @@ export const serializeAws_json1_1GetUploadCommand = async (
   input: GetUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.GetUpload";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.GetUpload"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetUploadRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1013,9 +1048,10 @@ export const serializeAws_json1_1GetVPCEConfigurationCommand = async (
   input: GetVPCEConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.GetVPCEConfiguration";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.GetVPCEConfiguration"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetVPCEConfigurationRequest(input, context)
@@ -1027,9 +1063,10 @@ export const serializeAws_json1_1InstallToRemoteAccessSessionCommand = async (
   input: InstallToRemoteAccessSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.InstallToRemoteAccessSession";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.InstallToRemoteAccessSession"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1InstallToRemoteAccessSessionRequest(input, context)
@@ -1041,9 +1078,10 @@ export const serializeAws_json1_1ListArtifactsCommand = async (
   input: ListArtifactsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.ListArtifacts";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.ListArtifacts"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListArtifactsRequest(input, context)
@@ -1055,9 +1093,10 @@ export const serializeAws_json1_1ListDeviceInstancesCommand = async (
   input: ListDeviceInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.ListDeviceInstances";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.ListDeviceInstances"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListDeviceInstancesRequest(input, context)
@@ -1069,9 +1108,10 @@ export const serializeAws_json1_1ListDevicePoolsCommand = async (
   input: ListDevicePoolsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.ListDevicePools";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.ListDevicePools"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListDevicePoolsRequest(input, context)
@@ -1083,9 +1123,10 @@ export const serializeAws_json1_1ListDevicesCommand = async (
   input: ListDevicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.ListDevices";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.ListDevices"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListDevicesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1095,9 +1136,10 @@ export const serializeAws_json1_1ListInstanceProfilesCommand = async (
   input: ListInstanceProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.ListInstanceProfiles";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.ListInstanceProfiles"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListInstanceProfilesRequest(input, context)
@@ -1109,9 +1151,10 @@ export const serializeAws_json1_1ListJobsCommand = async (
   input: ListJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.ListJobs";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.ListJobs"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1121,9 +1164,10 @@ export const serializeAws_json1_1ListNetworkProfilesCommand = async (
   input: ListNetworkProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.ListNetworkProfiles";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.ListNetworkProfiles"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListNetworkProfilesRequest(input, context)
@@ -1135,9 +1179,10 @@ export const serializeAws_json1_1ListOfferingPromotionsCommand = async (
   input: ListOfferingPromotionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.ListOfferingPromotions";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.ListOfferingPromotions"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListOfferingPromotionsRequest(input, context)
@@ -1149,9 +1194,10 @@ export const serializeAws_json1_1ListOfferingTransactionsCommand = async (
   input: ListOfferingTransactionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.ListOfferingTransactions";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.ListOfferingTransactions"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListOfferingTransactionsRequest(input, context)
@@ -1163,9 +1209,10 @@ export const serializeAws_json1_1ListOfferingsCommand = async (
   input: ListOfferingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.ListOfferings";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.ListOfferings"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListOfferingsRequest(input, context)
@@ -1177,9 +1224,10 @@ export const serializeAws_json1_1ListProjectsCommand = async (
   input: ListProjectsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.ListProjects";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.ListProjects"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListProjectsRequest(input, context)
@@ -1191,9 +1239,10 @@ export const serializeAws_json1_1ListRemoteAccessSessionsCommand = async (
   input: ListRemoteAccessSessionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.ListRemoteAccessSessions";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.ListRemoteAccessSessions"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListRemoteAccessSessionsRequest(input, context)
@@ -1205,9 +1254,10 @@ export const serializeAws_json1_1ListRunsCommand = async (
   input: ListRunsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.ListRuns";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.ListRuns"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListRunsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1217,9 +1267,10 @@ export const serializeAws_json1_1ListSamplesCommand = async (
   input: ListSamplesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.ListSamples";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.ListSamples"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListSamplesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1229,9 +1280,10 @@ export const serializeAws_json1_1ListSuitesCommand = async (
   input: ListSuitesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.ListSuites";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.ListSuites"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListSuitesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1241,9 +1293,10 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.ListTagsForResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.ListTagsForResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTagsForResourceRequest(input, context)
@@ -1255,9 +1308,10 @@ export const serializeAws_json1_1ListTestGridProjectsCommand = async (
   input: ListTestGridProjectsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.ListTestGridProjects";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.ListTestGridProjects"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTestGridProjectsRequest(input, context)
@@ -1269,9 +1323,10 @@ export const serializeAws_json1_1ListTestGridSessionActionsCommand = async (
   input: ListTestGridSessionActionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.ListTestGridSessionActions";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.ListTestGridSessionActions"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTestGridSessionActionsRequest(input, context)
@@ -1283,9 +1338,10 @@ export const serializeAws_json1_1ListTestGridSessionArtifactsCommand = async (
   input: ListTestGridSessionArtifactsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.ListTestGridSessionArtifacts";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.ListTestGridSessionArtifacts"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTestGridSessionArtifactsRequest(input, context)
@@ -1297,9 +1353,10 @@ export const serializeAws_json1_1ListTestGridSessionsCommand = async (
   input: ListTestGridSessionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.ListTestGridSessions";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.ListTestGridSessions"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTestGridSessionsRequest(input, context)
@@ -1311,9 +1368,10 @@ export const serializeAws_json1_1ListTestsCommand = async (
   input: ListTestsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.ListTests";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.ListTests"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTestsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1323,9 +1381,10 @@ export const serializeAws_json1_1ListUniqueProblemsCommand = async (
   input: ListUniqueProblemsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.ListUniqueProblems";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.ListUniqueProblems"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListUniqueProblemsRequest(input, context)
@@ -1337,9 +1396,10 @@ export const serializeAws_json1_1ListUploadsCommand = async (
   input: ListUploadsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.ListUploads";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.ListUploads"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListUploadsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1349,9 +1409,10 @@ export const serializeAws_json1_1ListVPCEConfigurationsCommand = async (
   input: ListVPCEConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.ListVPCEConfigurations";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.ListVPCEConfigurations"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListVPCEConfigurationsRequest(input, context)
@@ -1363,9 +1424,10 @@ export const serializeAws_json1_1PurchaseOfferingCommand = async (
   input: PurchaseOfferingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.PurchaseOffering";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.PurchaseOffering"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PurchaseOfferingRequest(input, context)
@@ -1377,9 +1439,10 @@ export const serializeAws_json1_1RenewOfferingCommand = async (
   input: RenewOfferingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.RenewOffering";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.RenewOffering"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RenewOfferingRequest(input, context)
@@ -1391,9 +1454,10 @@ export const serializeAws_json1_1ScheduleRunCommand = async (
   input: ScheduleRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.ScheduleRun";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.ScheduleRun"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ScheduleRunRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1403,9 +1467,10 @@ export const serializeAws_json1_1StopJobCommand = async (
   input: StopJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.StopJob";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.StopJob"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StopJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1415,9 +1480,10 @@ export const serializeAws_json1_1StopRemoteAccessSessionCommand = async (
   input: StopRemoteAccessSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.StopRemoteAccessSession";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.StopRemoteAccessSession"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StopRemoteAccessSessionRequest(input, context)
@@ -1429,9 +1495,10 @@ export const serializeAws_json1_1StopRunCommand = async (
   input: StopRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.StopRun";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.StopRun"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StopRunRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1441,9 +1508,10 @@ export const serializeAws_json1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.TagResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.TagResource"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1453,9 +1521,10 @@ export const serializeAws_json1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.UntagResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.UntagResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UntagResourceRequest(input, context)
@@ -1467,9 +1536,10 @@ export const serializeAws_json1_1UpdateDeviceInstanceCommand = async (
   input: UpdateDeviceInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.UpdateDeviceInstance";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.UpdateDeviceInstance"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateDeviceInstanceRequest(input, context)
@@ -1481,9 +1551,10 @@ export const serializeAws_json1_1UpdateDevicePoolCommand = async (
   input: UpdateDevicePoolCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.UpdateDevicePool";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.UpdateDevicePool"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateDevicePoolRequest(input, context)
@@ -1495,9 +1566,10 @@ export const serializeAws_json1_1UpdateInstanceProfileCommand = async (
   input: UpdateInstanceProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.UpdateInstanceProfile";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.UpdateInstanceProfile"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateInstanceProfileRequest(input, context)
@@ -1509,9 +1581,10 @@ export const serializeAws_json1_1UpdateNetworkProfileCommand = async (
   input: UpdateNetworkProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.UpdateNetworkProfile";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.UpdateNetworkProfile"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateNetworkProfileRequest(input, context)
@@ -1523,9 +1596,10 @@ export const serializeAws_json1_1UpdateProjectCommand = async (
   input: UpdateProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.UpdateProject";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.UpdateProject"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateProjectRequest(input, context)
@@ -1537,9 +1611,10 @@ export const serializeAws_json1_1UpdateTestGridProjectCommand = async (
   input: UpdateTestGridProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.UpdateTestGridProject";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.UpdateTestGridProject"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateTestGridProjectRequest(input, context)
@@ -1551,9 +1626,10 @@ export const serializeAws_json1_1UpdateUploadCommand = async (
   input: UpdateUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.UpdateUpload";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.UpdateUpload"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateUploadRequest(input, context)
@@ -1565,9 +1641,10 @@ export const serializeAws_json1_1UpdateVPCEConfigurationCommand = async (
   input: UpdateVPCEConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "DeviceFarm_20150623.UpdateVPCEConfiguration";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "DeviceFarm_20150623.UpdateVPCEConfiguration"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateVPCEConfigurationRequest(input, context)

@@ -2830,8 +2830,9 @@ export const serializeAws_ec2AcceptReservedInstancesExchangeQuoteCommand = async
   input: AcceptReservedInstancesExchangeQuoteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2AcceptReservedInstancesExchangeQuoteRequest(
     input,
@@ -2849,8 +2850,9 @@ export const serializeAws_ec2AcceptTransitGatewayPeeringAttachmentCommand = asyn
   input: AcceptTransitGatewayPeeringAttachmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2AcceptTransitGatewayPeeringAttachmentRequest(
     input,
@@ -2868,8 +2870,9 @@ export const serializeAws_ec2AcceptTransitGatewayVpcAttachmentCommand = async (
   input: AcceptTransitGatewayVpcAttachmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2AcceptTransitGatewayVpcAttachmentRequest(
     input,
@@ -2887,8 +2890,9 @@ export const serializeAws_ec2AcceptVpcEndpointConnectionsCommand = async (
   input: AcceptVpcEndpointConnectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2AcceptVpcEndpointConnectionsRequest(
     input,
@@ -2906,8 +2910,9 @@ export const serializeAws_ec2AcceptVpcPeeringConnectionCommand = async (
   input: AcceptVpcPeeringConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2AcceptVpcPeeringConnectionRequest(
     input,
@@ -2925,8 +2930,9 @@ export const serializeAws_ec2AdvertiseByoipCidrCommand = async (
   input: AdvertiseByoipCidrCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2AdvertiseByoipCidrRequest(input, context);
   body = buildFormUrlencodedString({
@@ -2941,8 +2947,9 @@ export const serializeAws_ec2AllocateAddressCommand = async (
   input: AllocateAddressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2AllocateAddressRequest(input, context);
   body = buildFormUrlencodedString({
@@ -2957,8 +2964,9 @@ export const serializeAws_ec2AllocateHostsCommand = async (
   input: AllocateHostsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2AllocateHostsRequest(input, context);
   body = buildFormUrlencodedString({
@@ -2973,8 +2981,9 @@ export const serializeAws_ec2ApplySecurityGroupsToClientVpnTargetNetworkCommand 
   input: ApplySecurityGroupsToClientVpnTargetNetworkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ApplySecurityGroupsToClientVpnTargetNetworkRequest(
     input,
@@ -2992,8 +3001,9 @@ export const serializeAws_ec2AssignIpv6AddressesCommand = async (
   input: AssignIpv6AddressesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2AssignIpv6AddressesRequest(input, context);
   body = buildFormUrlencodedString({
@@ -3008,8 +3018,9 @@ export const serializeAws_ec2AssignPrivateIpAddressesCommand = async (
   input: AssignPrivateIpAddressesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2AssignPrivateIpAddressesRequest(
     input,
@@ -3027,8 +3038,9 @@ export const serializeAws_ec2AssociateAddressCommand = async (
   input: AssociateAddressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2AssociateAddressRequest(input, context);
   body = buildFormUrlencodedString({
@@ -3043,8 +3055,9 @@ export const serializeAws_ec2AssociateClientVpnTargetNetworkCommand = async (
   input: AssociateClientVpnTargetNetworkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2AssociateClientVpnTargetNetworkRequest(
     input,
@@ -3062,8 +3075,9 @@ export const serializeAws_ec2AssociateDhcpOptionsCommand = async (
   input: AssociateDhcpOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2AssociateDhcpOptionsRequest(input, context);
   body = buildFormUrlencodedString({
@@ -3078,8 +3092,9 @@ export const serializeAws_ec2AssociateIamInstanceProfileCommand = async (
   input: AssociateIamInstanceProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2AssociateIamInstanceProfileRequest(
     input,
@@ -3097,8 +3112,9 @@ export const serializeAws_ec2AssociateRouteTableCommand = async (
   input: AssociateRouteTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2AssociateRouteTableRequest(input, context);
   body = buildFormUrlencodedString({
@@ -3113,8 +3129,9 @@ export const serializeAws_ec2AssociateSubnetCidrBlockCommand = async (
   input: AssociateSubnetCidrBlockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2AssociateSubnetCidrBlockRequest(
     input,
@@ -3132,8 +3149,9 @@ export const serializeAws_ec2AssociateTransitGatewayMulticastDomainCommand = asy
   input: AssociateTransitGatewayMulticastDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2AssociateTransitGatewayMulticastDomainRequest(
     input,
@@ -3151,8 +3169,9 @@ export const serializeAws_ec2AssociateTransitGatewayRouteTableCommand = async (
   input: AssociateTransitGatewayRouteTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2AssociateTransitGatewayRouteTableRequest(
     input,
@@ -3170,8 +3189,9 @@ export const serializeAws_ec2AssociateVpcCidrBlockCommand = async (
   input: AssociateVpcCidrBlockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2AssociateVpcCidrBlockRequest(input, context);
   body = buildFormUrlencodedString({
@@ -3186,8 +3206,9 @@ export const serializeAws_ec2AttachClassicLinkVpcCommand = async (
   input: AttachClassicLinkVpcCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2AttachClassicLinkVpcRequest(input, context);
   body = buildFormUrlencodedString({
@@ -3202,8 +3223,9 @@ export const serializeAws_ec2AttachInternetGatewayCommand = async (
   input: AttachInternetGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2AttachInternetGatewayRequest(input, context);
   body = buildFormUrlencodedString({
@@ -3218,8 +3240,9 @@ export const serializeAws_ec2AttachNetworkInterfaceCommand = async (
   input: AttachNetworkInterfaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2AttachNetworkInterfaceRequest(input, context);
   body = buildFormUrlencodedString({
@@ -3234,8 +3257,9 @@ export const serializeAws_ec2AttachVolumeCommand = async (
   input: AttachVolumeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2AttachVolumeRequest(input, context);
   body = buildFormUrlencodedString({
@@ -3250,8 +3274,9 @@ export const serializeAws_ec2AttachVpnGatewayCommand = async (
   input: AttachVpnGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2AttachVpnGatewayRequest(input, context);
   body = buildFormUrlencodedString({
@@ -3266,8 +3291,9 @@ export const serializeAws_ec2AuthorizeClientVpnIngressCommand = async (
   input: AuthorizeClientVpnIngressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2AuthorizeClientVpnIngressRequest(
     input,
@@ -3285,8 +3311,9 @@ export const serializeAws_ec2AuthorizeSecurityGroupEgressCommand = async (
   input: AuthorizeSecurityGroupEgressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2AuthorizeSecurityGroupEgressRequest(
     input,
@@ -3304,8 +3331,9 @@ export const serializeAws_ec2AuthorizeSecurityGroupIngressCommand = async (
   input: AuthorizeSecurityGroupIngressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2AuthorizeSecurityGroupIngressRequest(
     input,
@@ -3323,8 +3351,9 @@ export const serializeAws_ec2BundleInstanceCommand = async (
   input: BundleInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2BundleInstanceRequest(input, context);
   body = buildFormUrlencodedString({
@@ -3339,8 +3368,9 @@ export const serializeAws_ec2CancelBundleTaskCommand = async (
   input: CancelBundleTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CancelBundleTaskRequest(input, context);
   body = buildFormUrlencodedString({
@@ -3355,8 +3385,9 @@ export const serializeAws_ec2CancelCapacityReservationCommand = async (
   input: CancelCapacityReservationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CancelCapacityReservationRequest(
     input,
@@ -3374,8 +3405,9 @@ export const serializeAws_ec2CancelConversionTaskCommand = async (
   input: CancelConversionTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CancelConversionRequest(input, context);
   body = buildFormUrlencodedString({
@@ -3390,8 +3422,9 @@ export const serializeAws_ec2CancelExportTaskCommand = async (
   input: CancelExportTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CancelExportTaskRequest(input, context);
   body = buildFormUrlencodedString({
@@ -3406,8 +3439,9 @@ export const serializeAws_ec2CancelImportTaskCommand = async (
   input: CancelImportTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CancelImportTaskRequest(input, context);
   body = buildFormUrlencodedString({
@@ -3422,8 +3456,9 @@ export const serializeAws_ec2CancelReservedInstancesListingCommand = async (
   input: CancelReservedInstancesListingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CancelReservedInstancesListingRequest(
     input,
@@ -3441,8 +3476,9 @@ export const serializeAws_ec2CancelSpotFleetRequestsCommand = async (
   input: CancelSpotFleetRequestsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CancelSpotFleetRequestsRequest(
     input,
@@ -3460,8 +3496,9 @@ export const serializeAws_ec2CancelSpotInstanceRequestsCommand = async (
   input: CancelSpotInstanceRequestsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CancelSpotInstanceRequestsRequest(
     input,
@@ -3479,8 +3516,9 @@ export const serializeAws_ec2ConfirmProductInstanceCommand = async (
   input: ConfirmProductInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ConfirmProductInstanceRequest(input, context);
   body = buildFormUrlencodedString({
@@ -3495,8 +3533,9 @@ export const serializeAws_ec2CopyFpgaImageCommand = async (
   input: CopyFpgaImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CopyFpgaImageRequest(input, context);
   body = buildFormUrlencodedString({
@@ -3511,8 +3550,9 @@ export const serializeAws_ec2CopyImageCommand = async (
   input: CopyImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CopyImageRequest(input, context);
   body = buildFormUrlencodedString({
@@ -3527,8 +3567,9 @@ export const serializeAws_ec2CopySnapshotCommand = async (
   input: CopySnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CopySnapshotRequest(input, context);
   body = buildFormUrlencodedString({
@@ -3543,8 +3584,9 @@ export const serializeAws_ec2CreateCapacityReservationCommand = async (
   input: CreateCapacityReservationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreateCapacityReservationRequest(
     input,
@@ -3562,8 +3604,9 @@ export const serializeAws_ec2CreateClientVpnEndpointCommand = async (
   input: CreateClientVpnEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreateClientVpnEndpointRequest(
     input,
@@ -3581,8 +3624,9 @@ export const serializeAws_ec2CreateClientVpnRouteCommand = async (
   input: CreateClientVpnRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreateClientVpnRouteRequest(input, context);
   body = buildFormUrlencodedString({
@@ -3597,8 +3641,9 @@ export const serializeAws_ec2CreateCustomerGatewayCommand = async (
   input: CreateCustomerGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreateCustomerGatewayRequest(input, context);
   body = buildFormUrlencodedString({
@@ -3613,8 +3658,9 @@ export const serializeAws_ec2CreateDefaultSubnetCommand = async (
   input: CreateDefaultSubnetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreateDefaultSubnetRequest(input, context);
   body = buildFormUrlencodedString({
@@ -3629,8 +3675,9 @@ export const serializeAws_ec2CreateDefaultVpcCommand = async (
   input: CreateDefaultVpcCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreateDefaultVpcRequest(input, context);
   body = buildFormUrlencodedString({
@@ -3645,8 +3692,9 @@ export const serializeAws_ec2CreateDhcpOptionsCommand = async (
   input: CreateDhcpOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreateDhcpOptionsRequest(input, context);
   body = buildFormUrlencodedString({
@@ -3661,8 +3709,9 @@ export const serializeAws_ec2CreateEgressOnlyInternetGatewayCommand = async (
   input: CreateEgressOnlyInternetGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreateEgressOnlyInternetGatewayRequest(
     input,
@@ -3680,8 +3729,9 @@ export const serializeAws_ec2CreateFleetCommand = async (
   input: CreateFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreateFleetRequest(input, context);
   body = buildFormUrlencodedString({
@@ -3696,8 +3746,9 @@ export const serializeAws_ec2CreateFlowLogsCommand = async (
   input: CreateFlowLogsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreateFlowLogsRequest(input, context);
   body = buildFormUrlencodedString({
@@ -3712,8 +3763,9 @@ export const serializeAws_ec2CreateFpgaImageCommand = async (
   input: CreateFpgaImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreateFpgaImageRequest(input, context);
   body = buildFormUrlencodedString({
@@ -3728,8 +3780,9 @@ export const serializeAws_ec2CreateImageCommand = async (
   input: CreateImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreateImageRequest(input, context);
   body = buildFormUrlencodedString({
@@ -3744,8 +3797,9 @@ export const serializeAws_ec2CreateInstanceExportTaskCommand = async (
   input: CreateInstanceExportTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreateInstanceExportTaskRequest(
     input,
@@ -3763,8 +3817,9 @@ export const serializeAws_ec2CreateInternetGatewayCommand = async (
   input: CreateInternetGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreateInternetGatewayRequest(input, context);
   body = buildFormUrlencodedString({
@@ -3779,8 +3834,9 @@ export const serializeAws_ec2CreateKeyPairCommand = async (
   input: CreateKeyPairCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreateKeyPairRequest(input, context);
   body = buildFormUrlencodedString({
@@ -3795,8 +3851,9 @@ export const serializeAws_ec2CreateLaunchTemplateCommand = async (
   input: CreateLaunchTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreateLaunchTemplateRequest(input, context);
   body = buildFormUrlencodedString({
@@ -3811,8 +3868,9 @@ export const serializeAws_ec2CreateLaunchTemplateVersionCommand = async (
   input: CreateLaunchTemplateVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreateLaunchTemplateVersionRequest(
     input,
@@ -3830,8 +3888,9 @@ export const serializeAws_ec2CreateLocalGatewayRouteCommand = async (
   input: CreateLocalGatewayRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreateLocalGatewayRouteRequest(
     input,
@@ -3849,8 +3908,9 @@ export const serializeAws_ec2CreateLocalGatewayRouteTableVpcAssociationCommand =
   input: CreateLocalGatewayRouteTableVpcAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreateLocalGatewayRouteTableVpcAssociationRequest(
     input,
@@ -3868,8 +3928,9 @@ export const serializeAws_ec2CreateNatGatewayCommand = async (
   input: CreateNatGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreateNatGatewayRequest(input, context);
   body = buildFormUrlencodedString({
@@ -3884,8 +3945,9 @@ export const serializeAws_ec2CreateNetworkAclCommand = async (
   input: CreateNetworkAclCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreateNetworkAclRequest(input, context);
   body = buildFormUrlencodedString({
@@ -3900,8 +3962,9 @@ export const serializeAws_ec2CreateNetworkAclEntryCommand = async (
   input: CreateNetworkAclEntryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreateNetworkAclEntryRequest(input, context);
   body = buildFormUrlencodedString({
@@ -3916,8 +3979,9 @@ export const serializeAws_ec2CreateNetworkInterfaceCommand = async (
   input: CreateNetworkInterfaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreateNetworkInterfaceRequest(input, context);
   body = buildFormUrlencodedString({
@@ -3932,8 +3996,9 @@ export const serializeAws_ec2CreateNetworkInterfacePermissionCommand = async (
   input: CreateNetworkInterfacePermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreateNetworkInterfacePermissionRequest(
     input,
@@ -3951,8 +4016,9 @@ export const serializeAws_ec2CreatePlacementGroupCommand = async (
   input: CreatePlacementGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreatePlacementGroupRequest(input, context);
   body = buildFormUrlencodedString({
@@ -3967,8 +4033,9 @@ export const serializeAws_ec2CreateReservedInstancesListingCommand = async (
   input: CreateReservedInstancesListingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreateReservedInstancesListingRequest(
     input,
@@ -3986,8 +4053,9 @@ export const serializeAws_ec2CreateRouteCommand = async (
   input: CreateRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreateRouteRequest(input, context);
   body = buildFormUrlencodedString({
@@ -4002,8 +4070,9 @@ export const serializeAws_ec2CreateRouteTableCommand = async (
   input: CreateRouteTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreateRouteTableRequest(input, context);
   body = buildFormUrlencodedString({
@@ -4018,8 +4087,9 @@ export const serializeAws_ec2CreateSecurityGroupCommand = async (
   input: CreateSecurityGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreateSecurityGroupRequest(input, context);
   body = buildFormUrlencodedString({
@@ -4034,8 +4104,9 @@ export const serializeAws_ec2CreateSnapshotCommand = async (
   input: CreateSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreateSnapshotRequest(input, context);
   body = buildFormUrlencodedString({
@@ -4050,8 +4121,9 @@ export const serializeAws_ec2CreateSnapshotsCommand = async (
   input: CreateSnapshotsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreateSnapshotsRequest(input, context);
   body = buildFormUrlencodedString({
@@ -4066,8 +4138,9 @@ export const serializeAws_ec2CreateSpotDatafeedSubscriptionCommand = async (
   input: CreateSpotDatafeedSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreateSpotDatafeedSubscriptionRequest(
     input,
@@ -4085,8 +4158,9 @@ export const serializeAws_ec2CreateSubnetCommand = async (
   input: CreateSubnetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreateSubnetRequest(input, context);
   body = buildFormUrlencodedString({
@@ -4101,8 +4175,9 @@ export const serializeAws_ec2CreateTagsCommand = async (
   input: CreateTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreateTagsRequest(input, context);
   body = buildFormUrlencodedString({
@@ -4117,8 +4192,9 @@ export const serializeAws_ec2CreateTrafficMirrorFilterCommand = async (
   input: CreateTrafficMirrorFilterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreateTrafficMirrorFilterRequest(
     input,
@@ -4136,8 +4212,9 @@ export const serializeAws_ec2CreateTrafficMirrorFilterRuleCommand = async (
   input: CreateTrafficMirrorFilterRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreateTrafficMirrorFilterRuleRequest(
     input,
@@ -4155,8 +4232,9 @@ export const serializeAws_ec2CreateTrafficMirrorSessionCommand = async (
   input: CreateTrafficMirrorSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreateTrafficMirrorSessionRequest(
     input,
@@ -4174,8 +4252,9 @@ export const serializeAws_ec2CreateTrafficMirrorTargetCommand = async (
   input: CreateTrafficMirrorTargetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreateTrafficMirrorTargetRequest(
     input,
@@ -4193,8 +4272,9 @@ export const serializeAws_ec2CreateTransitGatewayCommand = async (
   input: CreateTransitGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreateTransitGatewayRequest(input, context);
   body = buildFormUrlencodedString({
@@ -4209,8 +4289,9 @@ export const serializeAws_ec2CreateTransitGatewayMulticastDomainCommand = async 
   input: CreateTransitGatewayMulticastDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreateTransitGatewayMulticastDomainRequest(
     input,
@@ -4228,8 +4309,9 @@ export const serializeAws_ec2CreateTransitGatewayPeeringAttachmentCommand = asyn
   input: CreateTransitGatewayPeeringAttachmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreateTransitGatewayPeeringAttachmentRequest(
     input,
@@ -4247,8 +4329,9 @@ export const serializeAws_ec2CreateTransitGatewayRouteCommand = async (
   input: CreateTransitGatewayRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreateTransitGatewayRouteRequest(
     input,
@@ -4266,8 +4349,9 @@ export const serializeAws_ec2CreateTransitGatewayRouteTableCommand = async (
   input: CreateTransitGatewayRouteTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreateTransitGatewayRouteTableRequest(
     input,
@@ -4285,8 +4369,9 @@ export const serializeAws_ec2CreateTransitGatewayVpcAttachmentCommand = async (
   input: CreateTransitGatewayVpcAttachmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreateTransitGatewayVpcAttachmentRequest(
     input,
@@ -4304,8 +4389,9 @@ export const serializeAws_ec2CreateVolumeCommand = async (
   input: CreateVolumeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreateVolumeRequest(input, context);
   body = buildFormUrlencodedString({
@@ -4320,8 +4406,9 @@ export const serializeAws_ec2CreateVpcCommand = async (
   input: CreateVpcCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreateVpcRequest(input, context);
   body = buildFormUrlencodedString({
@@ -4336,8 +4423,9 @@ export const serializeAws_ec2CreateVpcEndpointCommand = async (
   input: CreateVpcEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreateVpcEndpointRequest(input, context);
   body = buildFormUrlencodedString({
@@ -4352,8 +4440,9 @@ export const serializeAws_ec2CreateVpcEndpointConnectionNotificationCommand = as
   input: CreateVpcEndpointConnectionNotificationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreateVpcEndpointConnectionNotificationRequest(
     input,
@@ -4371,8 +4460,9 @@ export const serializeAws_ec2CreateVpcEndpointServiceConfigurationCommand = asyn
   input: CreateVpcEndpointServiceConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreateVpcEndpointServiceConfigurationRequest(
     input,
@@ -4390,8 +4480,9 @@ export const serializeAws_ec2CreateVpcPeeringConnectionCommand = async (
   input: CreateVpcPeeringConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreateVpcPeeringConnectionRequest(
     input,
@@ -4409,8 +4500,9 @@ export const serializeAws_ec2CreateVpnConnectionCommand = async (
   input: CreateVpnConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreateVpnConnectionRequest(input, context);
   body = buildFormUrlencodedString({
@@ -4425,8 +4517,9 @@ export const serializeAws_ec2CreateVpnConnectionRouteCommand = async (
   input: CreateVpnConnectionRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreateVpnConnectionRouteRequest(
     input,
@@ -4444,8 +4537,9 @@ export const serializeAws_ec2CreateVpnGatewayCommand = async (
   input: CreateVpnGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2CreateVpnGatewayRequest(input, context);
   body = buildFormUrlencodedString({
@@ -4460,8 +4554,9 @@ export const serializeAws_ec2DeleteClientVpnEndpointCommand = async (
   input: DeleteClientVpnEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DeleteClientVpnEndpointRequest(
     input,
@@ -4479,8 +4574,9 @@ export const serializeAws_ec2DeleteClientVpnRouteCommand = async (
   input: DeleteClientVpnRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DeleteClientVpnRouteRequest(input, context);
   body = buildFormUrlencodedString({
@@ -4495,8 +4591,9 @@ export const serializeAws_ec2DeleteCustomerGatewayCommand = async (
   input: DeleteCustomerGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DeleteCustomerGatewayRequest(input, context);
   body = buildFormUrlencodedString({
@@ -4511,8 +4608,9 @@ export const serializeAws_ec2DeleteDhcpOptionsCommand = async (
   input: DeleteDhcpOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DeleteDhcpOptionsRequest(input, context);
   body = buildFormUrlencodedString({
@@ -4527,8 +4625,9 @@ export const serializeAws_ec2DeleteEgressOnlyInternetGatewayCommand = async (
   input: DeleteEgressOnlyInternetGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DeleteEgressOnlyInternetGatewayRequest(
     input,
@@ -4546,8 +4645,9 @@ export const serializeAws_ec2DeleteFleetsCommand = async (
   input: DeleteFleetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DeleteFleetsRequest(input, context);
   body = buildFormUrlencodedString({
@@ -4562,8 +4662,9 @@ export const serializeAws_ec2DeleteFlowLogsCommand = async (
   input: DeleteFlowLogsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DeleteFlowLogsRequest(input, context);
   body = buildFormUrlencodedString({
@@ -4578,8 +4679,9 @@ export const serializeAws_ec2DeleteFpgaImageCommand = async (
   input: DeleteFpgaImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DeleteFpgaImageRequest(input, context);
   body = buildFormUrlencodedString({
@@ -4594,8 +4696,9 @@ export const serializeAws_ec2DeleteInternetGatewayCommand = async (
   input: DeleteInternetGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DeleteInternetGatewayRequest(input, context);
   body = buildFormUrlencodedString({
@@ -4610,8 +4713,9 @@ export const serializeAws_ec2DeleteKeyPairCommand = async (
   input: DeleteKeyPairCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DeleteKeyPairRequest(input, context);
   body = buildFormUrlencodedString({
@@ -4626,8 +4730,9 @@ export const serializeAws_ec2DeleteLaunchTemplateCommand = async (
   input: DeleteLaunchTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DeleteLaunchTemplateRequest(input, context);
   body = buildFormUrlencodedString({
@@ -4642,8 +4747,9 @@ export const serializeAws_ec2DeleteLaunchTemplateVersionsCommand = async (
   input: DeleteLaunchTemplateVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DeleteLaunchTemplateVersionsRequest(
     input,
@@ -4661,8 +4767,9 @@ export const serializeAws_ec2DeleteLocalGatewayRouteCommand = async (
   input: DeleteLocalGatewayRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DeleteLocalGatewayRouteRequest(
     input,
@@ -4680,8 +4787,9 @@ export const serializeAws_ec2DeleteLocalGatewayRouteTableVpcAssociationCommand =
   input: DeleteLocalGatewayRouteTableVpcAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DeleteLocalGatewayRouteTableVpcAssociationRequest(
     input,
@@ -4699,8 +4807,9 @@ export const serializeAws_ec2DeleteNatGatewayCommand = async (
   input: DeleteNatGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DeleteNatGatewayRequest(input, context);
   body = buildFormUrlencodedString({
@@ -4715,8 +4824,9 @@ export const serializeAws_ec2DeleteNetworkAclCommand = async (
   input: DeleteNetworkAclCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DeleteNetworkAclRequest(input, context);
   body = buildFormUrlencodedString({
@@ -4731,8 +4841,9 @@ export const serializeAws_ec2DeleteNetworkAclEntryCommand = async (
   input: DeleteNetworkAclEntryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DeleteNetworkAclEntryRequest(input, context);
   body = buildFormUrlencodedString({
@@ -4747,8 +4858,9 @@ export const serializeAws_ec2DeleteNetworkInterfaceCommand = async (
   input: DeleteNetworkInterfaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DeleteNetworkInterfaceRequest(input, context);
   body = buildFormUrlencodedString({
@@ -4763,8 +4875,9 @@ export const serializeAws_ec2DeleteNetworkInterfacePermissionCommand = async (
   input: DeleteNetworkInterfacePermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DeleteNetworkInterfacePermissionRequest(
     input,
@@ -4782,8 +4895,9 @@ export const serializeAws_ec2DeletePlacementGroupCommand = async (
   input: DeletePlacementGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DeletePlacementGroupRequest(input, context);
   body = buildFormUrlencodedString({
@@ -4798,8 +4912,9 @@ export const serializeAws_ec2DeleteQueuedReservedInstancesCommand = async (
   input: DeleteQueuedReservedInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DeleteQueuedReservedInstancesRequest(
     input,
@@ -4817,8 +4932,9 @@ export const serializeAws_ec2DeleteRouteCommand = async (
   input: DeleteRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DeleteRouteRequest(input, context);
   body = buildFormUrlencodedString({
@@ -4833,8 +4949,9 @@ export const serializeAws_ec2DeleteRouteTableCommand = async (
   input: DeleteRouteTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DeleteRouteTableRequest(input, context);
   body = buildFormUrlencodedString({
@@ -4849,8 +4966,9 @@ export const serializeAws_ec2DeleteSecurityGroupCommand = async (
   input: DeleteSecurityGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DeleteSecurityGroupRequest(input, context);
   body = buildFormUrlencodedString({
@@ -4865,8 +4983,9 @@ export const serializeAws_ec2DeleteSnapshotCommand = async (
   input: DeleteSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DeleteSnapshotRequest(input, context);
   body = buildFormUrlencodedString({
@@ -4881,8 +5000,9 @@ export const serializeAws_ec2DeleteSpotDatafeedSubscriptionCommand = async (
   input: DeleteSpotDatafeedSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DeleteSpotDatafeedSubscriptionRequest(
     input,
@@ -4900,8 +5020,9 @@ export const serializeAws_ec2DeleteSubnetCommand = async (
   input: DeleteSubnetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DeleteSubnetRequest(input, context);
   body = buildFormUrlencodedString({
@@ -4916,8 +5037,9 @@ export const serializeAws_ec2DeleteTagsCommand = async (
   input: DeleteTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DeleteTagsRequest(input, context);
   body = buildFormUrlencodedString({
@@ -4932,8 +5054,9 @@ export const serializeAws_ec2DeleteTrafficMirrorFilterCommand = async (
   input: DeleteTrafficMirrorFilterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DeleteTrafficMirrorFilterRequest(
     input,
@@ -4951,8 +5074,9 @@ export const serializeAws_ec2DeleteTrafficMirrorFilterRuleCommand = async (
   input: DeleteTrafficMirrorFilterRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DeleteTrafficMirrorFilterRuleRequest(
     input,
@@ -4970,8 +5094,9 @@ export const serializeAws_ec2DeleteTrafficMirrorSessionCommand = async (
   input: DeleteTrafficMirrorSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DeleteTrafficMirrorSessionRequest(
     input,
@@ -4989,8 +5114,9 @@ export const serializeAws_ec2DeleteTrafficMirrorTargetCommand = async (
   input: DeleteTrafficMirrorTargetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DeleteTrafficMirrorTargetRequest(
     input,
@@ -5008,8 +5134,9 @@ export const serializeAws_ec2DeleteTransitGatewayCommand = async (
   input: DeleteTransitGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DeleteTransitGatewayRequest(input, context);
   body = buildFormUrlencodedString({
@@ -5024,8 +5151,9 @@ export const serializeAws_ec2DeleteTransitGatewayMulticastDomainCommand = async 
   input: DeleteTransitGatewayMulticastDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DeleteTransitGatewayMulticastDomainRequest(
     input,
@@ -5043,8 +5171,9 @@ export const serializeAws_ec2DeleteTransitGatewayPeeringAttachmentCommand = asyn
   input: DeleteTransitGatewayPeeringAttachmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DeleteTransitGatewayPeeringAttachmentRequest(
     input,
@@ -5062,8 +5191,9 @@ export const serializeAws_ec2DeleteTransitGatewayRouteCommand = async (
   input: DeleteTransitGatewayRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DeleteTransitGatewayRouteRequest(
     input,
@@ -5081,8 +5211,9 @@ export const serializeAws_ec2DeleteTransitGatewayRouteTableCommand = async (
   input: DeleteTransitGatewayRouteTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DeleteTransitGatewayRouteTableRequest(
     input,
@@ -5100,8 +5231,9 @@ export const serializeAws_ec2DeleteTransitGatewayVpcAttachmentCommand = async (
   input: DeleteTransitGatewayVpcAttachmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DeleteTransitGatewayVpcAttachmentRequest(
     input,
@@ -5119,8 +5251,9 @@ export const serializeAws_ec2DeleteVolumeCommand = async (
   input: DeleteVolumeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DeleteVolumeRequest(input, context);
   body = buildFormUrlencodedString({
@@ -5135,8 +5268,9 @@ export const serializeAws_ec2DeleteVpcCommand = async (
   input: DeleteVpcCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DeleteVpcRequest(input, context);
   body = buildFormUrlencodedString({
@@ -5151,8 +5285,9 @@ export const serializeAws_ec2DeleteVpcEndpointConnectionNotificationsCommand = a
   input: DeleteVpcEndpointConnectionNotificationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DeleteVpcEndpointConnectionNotificationsRequest(
     input,
@@ -5170,8 +5305,9 @@ export const serializeAws_ec2DeleteVpcEndpointServiceConfigurationsCommand = asy
   input: DeleteVpcEndpointServiceConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DeleteVpcEndpointServiceConfigurationsRequest(
     input,
@@ -5189,8 +5325,9 @@ export const serializeAws_ec2DeleteVpcEndpointsCommand = async (
   input: DeleteVpcEndpointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DeleteVpcEndpointsRequest(input, context);
   body = buildFormUrlencodedString({
@@ -5205,8 +5342,9 @@ export const serializeAws_ec2DeleteVpcPeeringConnectionCommand = async (
   input: DeleteVpcPeeringConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DeleteVpcPeeringConnectionRequest(
     input,
@@ -5224,8 +5362,9 @@ export const serializeAws_ec2DeleteVpnConnectionCommand = async (
   input: DeleteVpnConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DeleteVpnConnectionRequest(input, context);
   body = buildFormUrlencodedString({
@@ -5240,8 +5379,9 @@ export const serializeAws_ec2DeleteVpnConnectionRouteCommand = async (
   input: DeleteVpnConnectionRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DeleteVpnConnectionRouteRequest(
     input,
@@ -5259,8 +5399,9 @@ export const serializeAws_ec2DeleteVpnGatewayCommand = async (
   input: DeleteVpnGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DeleteVpnGatewayRequest(input, context);
   body = buildFormUrlencodedString({
@@ -5275,8 +5416,9 @@ export const serializeAws_ec2DeprovisionByoipCidrCommand = async (
   input: DeprovisionByoipCidrCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DeprovisionByoipCidrRequest(input, context);
   body = buildFormUrlencodedString({
@@ -5291,8 +5433,9 @@ export const serializeAws_ec2DeregisterImageCommand = async (
   input: DeregisterImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DeregisterImageRequest(input, context);
   body = buildFormUrlencodedString({
@@ -5307,8 +5450,9 @@ export const serializeAws_ec2DeregisterTransitGatewayMulticastGroupMembersComman
   input: DeregisterTransitGatewayMulticastGroupMembersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DeregisterTransitGatewayMulticastGroupMembersRequest(
     input,
@@ -5326,8 +5470,9 @@ export const serializeAws_ec2DeregisterTransitGatewayMulticastGroupSourcesComman
   input: DeregisterTransitGatewayMulticastGroupSourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DeregisterTransitGatewayMulticastGroupSourcesRequest(
     input,
@@ -5345,8 +5490,9 @@ export const serializeAws_ec2DescribeAccountAttributesCommand = async (
   input: DescribeAccountAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeAccountAttributesRequest(
     input,
@@ -5364,8 +5510,9 @@ export const serializeAws_ec2DescribeAddressesCommand = async (
   input: DescribeAddressesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeAddressesRequest(input, context);
   body = buildFormUrlencodedString({
@@ -5380,8 +5527,9 @@ export const serializeAws_ec2DescribeAggregateIdFormatCommand = async (
   input: DescribeAggregateIdFormatCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeAggregateIdFormatRequest(
     input,
@@ -5399,8 +5547,9 @@ export const serializeAws_ec2DescribeAvailabilityZonesCommand = async (
   input: DescribeAvailabilityZonesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeAvailabilityZonesRequest(
     input,
@@ -5418,8 +5567,9 @@ export const serializeAws_ec2DescribeBundleTasksCommand = async (
   input: DescribeBundleTasksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeBundleTasksRequest(input, context);
   body = buildFormUrlencodedString({
@@ -5434,8 +5584,9 @@ export const serializeAws_ec2DescribeByoipCidrsCommand = async (
   input: DescribeByoipCidrsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeByoipCidrsRequest(input, context);
   body = buildFormUrlencodedString({
@@ -5450,8 +5601,9 @@ export const serializeAws_ec2DescribeCapacityReservationsCommand = async (
   input: DescribeCapacityReservationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeCapacityReservationsRequest(
     input,
@@ -5469,8 +5621,9 @@ export const serializeAws_ec2DescribeClassicLinkInstancesCommand = async (
   input: DescribeClassicLinkInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeClassicLinkInstancesRequest(
     input,
@@ -5488,8 +5641,9 @@ export const serializeAws_ec2DescribeClientVpnAuthorizationRulesCommand = async 
   input: DescribeClientVpnAuthorizationRulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeClientVpnAuthorizationRulesRequest(
     input,
@@ -5507,8 +5661,9 @@ export const serializeAws_ec2DescribeClientVpnConnectionsCommand = async (
   input: DescribeClientVpnConnectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeClientVpnConnectionsRequest(
     input,
@@ -5526,8 +5681,9 @@ export const serializeAws_ec2DescribeClientVpnEndpointsCommand = async (
   input: DescribeClientVpnEndpointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeClientVpnEndpointsRequest(
     input,
@@ -5545,8 +5701,9 @@ export const serializeAws_ec2DescribeClientVpnRoutesCommand = async (
   input: DescribeClientVpnRoutesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeClientVpnRoutesRequest(
     input,
@@ -5564,8 +5721,9 @@ export const serializeAws_ec2DescribeClientVpnTargetNetworksCommand = async (
   input: DescribeClientVpnTargetNetworksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeClientVpnTargetNetworksRequest(
     input,
@@ -5583,8 +5741,9 @@ export const serializeAws_ec2DescribeCoipPoolsCommand = async (
   input: DescribeCoipPoolsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeCoipPoolsRequest(input, context);
   body = buildFormUrlencodedString({
@@ -5599,8 +5758,9 @@ export const serializeAws_ec2DescribeConversionTasksCommand = async (
   input: DescribeConversionTasksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeConversionTasksRequest(
     input,
@@ -5618,8 +5778,9 @@ export const serializeAws_ec2DescribeCustomerGatewaysCommand = async (
   input: DescribeCustomerGatewaysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeCustomerGatewaysRequest(
     input,
@@ -5637,8 +5798,9 @@ export const serializeAws_ec2DescribeDhcpOptionsCommand = async (
   input: DescribeDhcpOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeDhcpOptionsRequest(input, context);
   body = buildFormUrlencodedString({
@@ -5653,8 +5815,9 @@ export const serializeAws_ec2DescribeEgressOnlyInternetGatewaysCommand = async (
   input: DescribeEgressOnlyInternetGatewaysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeEgressOnlyInternetGatewaysRequest(
     input,
@@ -5672,8 +5835,9 @@ export const serializeAws_ec2DescribeElasticGpusCommand = async (
   input: DescribeElasticGpusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeElasticGpusRequest(input, context);
   body = buildFormUrlencodedString({
@@ -5688,8 +5852,9 @@ export const serializeAws_ec2DescribeExportImageTasksCommand = async (
   input: DescribeExportImageTasksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeExportImageTasksRequest(
     input,
@@ -5707,8 +5872,9 @@ export const serializeAws_ec2DescribeExportTasksCommand = async (
   input: DescribeExportTasksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeExportTasksRequest(input, context);
   body = buildFormUrlencodedString({
@@ -5723,8 +5889,9 @@ export const serializeAws_ec2DescribeFastSnapshotRestoresCommand = async (
   input: DescribeFastSnapshotRestoresCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeFastSnapshotRestoresRequest(
     input,
@@ -5742,8 +5909,9 @@ export const serializeAws_ec2DescribeFleetHistoryCommand = async (
   input: DescribeFleetHistoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeFleetHistoryRequest(input, context);
   body = buildFormUrlencodedString({
@@ -5758,8 +5926,9 @@ export const serializeAws_ec2DescribeFleetInstancesCommand = async (
   input: DescribeFleetInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeFleetInstancesRequest(input, context);
   body = buildFormUrlencodedString({
@@ -5774,8 +5943,9 @@ export const serializeAws_ec2DescribeFleetsCommand = async (
   input: DescribeFleetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeFleetsRequest(input, context);
   body = buildFormUrlencodedString({
@@ -5790,8 +5960,9 @@ export const serializeAws_ec2DescribeFlowLogsCommand = async (
   input: DescribeFlowLogsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeFlowLogsRequest(input, context);
   body = buildFormUrlencodedString({
@@ -5806,8 +5977,9 @@ export const serializeAws_ec2DescribeFpgaImageAttributeCommand = async (
   input: DescribeFpgaImageAttributeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeFpgaImageAttributeRequest(
     input,
@@ -5825,8 +5997,9 @@ export const serializeAws_ec2DescribeFpgaImagesCommand = async (
   input: DescribeFpgaImagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeFpgaImagesRequest(input, context);
   body = buildFormUrlencodedString({
@@ -5841,8 +6014,9 @@ export const serializeAws_ec2DescribeHostReservationOfferingsCommand = async (
   input: DescribeHostReservationOfferingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeHostReservationOfferingsRequest(
     input,
@@ -5860,8 +6034,9 @@ export const serializeAws_ec2DescribeHostReservationsCommand = async (
   input: DescribeHostReservationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeHostReservationsRequest(
     input,
@@ -5879,8 +6054,9 @@ export const serializeAws_ec2DescribeHostsCommand = async (
   input: DescribeHostsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeHostsRequest(input, context);
   body = buildFormUrlencodedString({
@@ -5895,8 +6071,9 @@ export const serializeAws_ec2DescribeIamInstanceProfileAssociationsCommand = asy
   input: DescribeIamInstanceProfileAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeIamInstanceProfileAssociationsRequest(
     input,
@@ -5914,8 +6091,9 @@ export const serializeAws_ec2DescribeIdFormatCommand = async (
   input: DescribeIdFormatCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeIdFormatRequest(input, context);
   body = buildFormUrlencodedString({
@@ -5930,8 +6108,9 @@ export const serializeAws_ec2DescribeIdentityIdFormatCommand = async (
   input: DescribeIdentityIdFormatCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeIdentityIdFormatRequest(
     input,
@@ -5949,8 +6128,9 @@ export const serializeAws_ec2DescribeImageAttributeCommand = async (
   input: DescribeImageAttributeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeImageAttributeRequest(input, context);
   body = buildFormUrlencodedString({
@@ -5965,8 +6145,9 @@ export const serializeAws_ec2DescribeImagesCommand = async (
   input: DescribeImagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeImagesRequest(input, context);
   body = buildFormUrlencodedString({
@@ -5981,8 +6162,9 @@ export const serializeAws_ec2DescribeImportImageTasksCommand = async (
   input: DescribeImportImageTasksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeImportImageTasksRequest(
     input,
@@ -6000,8 +6182,9 @@ export const serializeAws_ec2DescribeImportSnapshotTasksCommand = async (
   input: DescribeImportSnapshotTasksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeImportSnapshotTasksRequest(
     input,
@@ -6019,8 +6202,9 @@ export const serializeAws_ec2DescribeInstanceAttributeCommand = async (
   input: DescribeInstanceAttributeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeInstanceAttributeRequest(
     input,
@@ -6038,8 +6222,9 @@ export const serializeAws_ec2DescribeInstanceCreditSpecificationsCommand = async
   input: DescribeInstanceCreditSpecificationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeInstanceCreditSpecificationsRequest(
     input,
@@ -6057,8 +6242,9 @@ export const serializeAws_ec2DescribeInstanceStatusCommand = async (
   input: DescribeInstanceStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeInstanceStatusRequest(input, context);
   body = buildFormUrlencodedString({
@@ -6073,8 +6259,9 @@ export const serializeAws_ec2DescribeInstanceTypeOfferingsCommand = async (
   input: DescribeInstanceTypeOfferingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeInstanceTypeOfferingsRequest(
     input,
@@ -6092,8 +6279,9 @@ export const serializeAws_ec2DescribeInstanceTypesCommand = async (
   input: DescribeInstanceTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeInstanceTypesRequest(input, context);
   body = buildFormUrlencodedString({
@@ -6108,8 +6296,9 @@ export const serializeAws_ec2DescribeInstancesCommand = async (
   input: DescribeInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeInstancesRequest(input, context);
   body = buildFormUrlencodedString({
@@ -6124,8 +6313,9 @@ export const serializeAws_ec2DescribeInternetGatewaysCommand = async (
   input: DescribeInternetGatewaysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeInternetGatewaysRequest(
     input,
@@ -6143,8 +6333,9 @@ export const serializeAws_ec2DescribeIpv6PoolsCommand = async (
   input: DescribeIpv6PoolsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeIpv6PoolsRequest(input, context);
   body = buildFormUrlencodedString({
@@ -6159,8 +6350,9 @@ export const serializeAws_ec2DescribeKeyPairsCommand = async (
   input: DescribeKeyPairsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeKeyPairsRequest(input, context);
   body = buildFormUrlencodedString({
@@ -6175,8 +6367,9 @@ export const serializeAws_ec2DescribeLaunchTemplateVersionsCommand = async (
   input: DescribeLaunchTemplateVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeLaunchTemplateVersionsRequest(
     input,
@@ -6194,8 +6387,9 @@ export const serializeAws_ec2DescribeLaunchTemplatesCommand = async (
   input: DescribeLaunchTemplatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeLaunchTemplatesRequest(
     input,
@@ -6213,8 +6407,9 @@ export const serializeAws_ec2DescribeLocalGatewayRouteTableVirtualInterfaceGroup
   input: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest(
     input,
@@ -6232,8 +6427,9 @@ export const serializeAws_ec2DescribeLocalGatewayRouteTableVpcAssociationsComman
   input: DescribeLocalGatewayRouteTableVpcAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeLocalGatewayRouteTableVpcAssociationsRequest(
     input,
@@ -6251,8 +6447,9 @@ export const serializeAws_ec2DescribeLocalGatewayRouteTablesCommand = async (
   input: DescribeLocalGatewayRouteTablesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeLocalGatewayRouteTablesRequest(
     input,
@@ -6270,8 +6467,9 @@ export const serializeAws_ec2DescribeLocalGatewayVirtualInterfaceGroupsCommand =
   input: DescribeLocalGatewayVirtualInterfaceGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeLocalGatewayVirtualInterfaceGroupsRequest(
     input,
@@ -6289,8 +6487,9 @@ export const serializeAws_ec2DescribeLocalGatewayVirtualInterfacesCommand = asyn
   input: DescribeLocalGatewayVirtualInterfacesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeLocalGatewayVirtualInterfacesRequest(
     input,
@@ -6308,8 +6507,9 @@ export const serializeAws_ec2DescribeLocalGatewaysCommand = async (
   input: DescribeLocalGatewaysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeLocalGatewaysRequest(input, context);
   body = buildFormUrlencodedString({
@@ -6324,8 +6524,9 @@ export const serializeAws_ec2DescribeMovingAddressesCommand = async (
   input: DescribeMovingAddressesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeMovingAddressesRequest(
     input,
@@ -6343,8 +6544,9 @@ export const serializeAws_ec2DescribeNatGatewaysCommand = async (
   input: DescribeNatGatewaysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeNatGatewaysRequest(input, context);
   body = buildFormUrlencodedString({
@@ -6359,8 +6561,9 @@ export const serializeAws_ec2DescribeNetworkAclsCommand = async (
   input: DescribeNetworkAclsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeNetworkAclsRequest(input, context);
   body = buildFormUrlencodedString({
@@ -6375,8 +6578,9 @@ export const serializeAws_ec2DescribeNetworkInterfaceAttributeCommand = async (
   input: DescribeNetworkInterfaceAttributeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeNetworkInterfaceAttributeRequest(
     input,
@@ -6394,8 +6598,9 @@ export const serializeAws_ec2DescribeNetworkInterfacePermissionsCommand = async 
   input: DescribeNetworkInterfacePermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeNetworkInterfacePermissionsRequest(
     input,
@@ -6413,8 +6618,9 @@ export const serializeAws_ec2DescribeNetworkInterfacesCommand = async (
   input: DescribeNetworkInterfacesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeNetworkInterfacesRequest(
     input,
@@ -6432,8 +6638,9 @@ export const serializeAws_ec2DescribePlacementGroupsCommand = async (
   input: DescribePlacementGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribePlacementGroupsRequest(
     input,
@@ -6451,8 +6658,9 @@ export const serializeAws_ec2DescribePrefixListsCommand = async (
   input: DescribePrefixListsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribePrefixListsRequest(input, context);
   body = buildFormUrlencodedString({
@@ -6467,8 +6675,9 @@ export const serializeAws_ec2DescribePrincipalIdFormatCommand = async (
   input: DescribePrincipalIdFormatCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribePrincipalIdFormatRequest(
     input,
@@ -6486,8 +6695,9 @@ export const serializeAws_ec2DescribePublicIpv4PoolsCommand = async (
   input: DescribePublicIpv4PoolsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribePublicIpv4PoolsRequest(
     input,
@@ -6505,8 +6715,9 @@ export const serializeAws_ec2DescribeRegionsCommand = async (
   input: DescribeRegionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeRegionsRequest(input, context);
   body = buildFormUrlencodedString({
@@ -6521,8 +6732,9 @@ export const serializeAws_ec2DescribeReservedInstancesCommand = async (
   input: DescribeReservedInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeReservedInstancesRequest(
     input,
@@ -6540,8 +6752,9 @@ export const serializeAws_ec2DescribeReservedInstancesListingsCommand = async (
   input: DescribeReservedInstancesListingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeReservedInstancesListingsRequest(
     input,
@@ -6559,8 +6772,9 @@ export const serializeAws_ec2DescribeReservedInstancesModificationsCommand = asy
   input: DescribeReservedInstancesModificationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeReservedInstancesModificationsRequest(
     input,
@@ -6578,8 +6792,9 @@ export const serializeAws_ec2DescribeReservedInstancesOfferingsCommand = async (
   input: DescribeReservedInstancesOfferingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeReservedInstancesOfferingsRequest(
     input,
@@ -6597,8 +6812,9 @@ export const serializeAws_ec2DescribeRouteTablesCommand = async (
   input: DescribeRouteTablesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeRouteTablesRequest(input, context);
   body = buildFormUrlencodedString({
@@ -6613,8 +6829,9 @@ export const serializeAws_ec2DescribeScheduledInstanceAvailabilityCommand = asyn
   input: DescribeScheduledInstanceAvailabilityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeScheduledInstanceAvailabilityRequest(
     input,
@@ -6632,8 +6849,9 @@ export const serializeAws_ec2DescribeScheduledInstancesCommand = async (
   input: DescribeScheduledInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeScheduledInstancesRequest(
     input,
@@ -6651,8 +6869,9 @@ export const serializeAws_ec2DescribeSecurityGroupReferencesCommand = async (
   input: DescribeSecurityGroupReferencesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeSecurityGroupReferencesRequest(
     input,
@@ -6670,8 +6889,9 @@ export const serializeAws_ec2DescribeSecurityGroupsCommand = async (
   input: DescribeSecurityGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeSecurityGroupsRequest(input, context);
   body = buildFormUrlencodedString({
@@ -6686,8 +6906,9 @@ export const serializeAws_ec2DescribeSnapshotAttributeCommand = async (
   input: DescribeSnapshotAttributeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeSnapshotAttributeRequest(
     input,
@@ -6705,8 +6926,9 @@ export const serializeAws_ec2DescribeSnapshotsCommand = async (
   input: DescribeSnapshotsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeSnapshotsRequest(input, context);
   body = buildFormUrlencodedString({
@@ -6721,8 +6943,9 @@ export const serializeAws_ec2DescribeSpotDatafeedSubscriptionCommand = async (
   input: DescribeSpotDatafeedSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeSpotDatafeedSubscriptionRequest(
     input,
@@ -6740,8 +6963,9 @@ export const serializeAws_ec2DescribeSpotFleetInstancesCommand = async (
   input: DescribeSpotFleetInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeSpotFleetInstancesRequest(
     input,
@@ -6759,8 +6983,9 @@ export const serializeAws_ec2DescribeSpotFleetRequestHistoryCommand = async (
   input: DescribeSpotFleetRequestHistoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeSpotFleetRequestHistoryRequest(
     input,
@@ -6778,8 +7003,9 @@ export const serializeAws_ec2DescribeSpotFleetRequestsCommand = async (
   input: DescribeSpotFleetRequestsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeSpotFleetRequestsRequest(
     input,
@@ -6797,8 +7023,9 @@ export const serializeAws_ec2DescribeSpotInstanceRequestsCommand = async (
   input: DescribeSpotInstanceRequestsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeSpotInstanceRequestsRequest(
     input,
@@ -6816,8 +7043,9 @@ export const serializeAws_ec2DescribeSpotPriceHistoryCommand = async (
   input: DescribeSpotPriceHistoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeSpotPriceHistoryRequest(
     input,
@@ -6835,8 +7063,9 @@ export const serializeAws_ec2DescribeStaleSecurityGroupsCommand = async (
   input: DescribeStaleSecurityGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeStaleSecurityGroupsRequest(
     input,
@@ -6854,8 +7083,9 @@ export const serializeAws_ec2DescribeSubnetsCommand = async (
   input: DescribeSubnetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeSubnetsRequest(input, context);
   body = buildFormUrlencodedString({
@@ -6870,8 +7100,9 @@ export const serializeAws_ec2DescribeTagsCommand = async (
   input: DescribeTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeTagsRequest(input, context);
   body = buildFormUrlencodedString({
@@ -6886,8 +7117,9 @@ export const serializeAws_ec2DescribeTrafficMirrorFiltersCommand = async (
   input: DescribeTrafficMirrorFiltersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeTrafficMirrorFiltersRequest(
     input,
@@ -6905,8 +7137,9 @@ export const serializeAws_ec2DescribeTrafficMirrorSessionsCommand = async (
   input: DescribeTrafficMirrorSessionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeTrafficMirrorSessionsRequest(
     input,
@@ -6924,8 +7157,9 @@ export const serializeAws_ec2DescribeTrafficMirrorTargetsCommand = async (
   input: DescribeTrafficMirrorTargetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeTrafficMirrorTargetsRequest(
     input,
@@ -6943,8 +7177,9 @@ export const serializeAws_ec2DescribeTransitGatewayAttachmentsCommand = async (
   input: DescribeTransitGatewayAttachmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeTransitGatewayAttachmentsRequest(
     input,
@@ -6962,8 +7197,9 @@ export const serializeAws_ec2DescribeTransitGatewayMulticastDomainsCommand = asy
   input: DescribeTransitGatewayMulticastDomainsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeTransitGatewayMulticastDomainsRequest(
     input,
@@ -6981,8 +7217,9 @@ export const serializeAws_ec2DescribeTransitGatewayPeeringAttachmentsCommand = a
   input: DescribeTransitGatewayPeeringAttachmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeTransitGatewayPeeringAttachmentsRequest(
     input,
@@ -7000,8 +7237,9 @@ export const serializeAws_ec2DescribeTransitGatewayRouteTablesCommand = async (
   input: DescribeTransitGatewayRouteTablesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeTransitGatewayRouteTablesRequest(
     input,
@@ -7019,8 +7257,9 @@ export const serializeAws_ec2DescribeTransitGatewayVpcAttachmentsCommand = async
   input: DescribeTransitGatewayVpcAttachmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeTransitGatewayVpcAttachmentsRequest(
     input,
@@ -7038,8 +7277,9 @@ export const serializeAws_ec2DescribeTransitGatewaysCommand = async (
   input: DescribeTransitGatewaysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeTransitGatewaysRequest(
     input,
@@ -7057,8 +7297,9 @@ export const serializeAws_ec2DescribeVolumeAttributeCommand = async (
   input: DescribeVolumeAttributeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeVolumeAttributeRequest(
     input,
@@ -7076,8 +7317,9 @@ export const serializeAws_ec2DescribeVolumeStatusCommand = async (
   input: DescribeVolumeStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeVolumeStatusRequest(input, context);
   body = buildFormUrlencodedString({
@@ -7092,8 +7334,9 @@ export const serializeAws_ec2DescribeVolumesCommand = async (
   input: DescribeVolumesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeVolumesRequest(input, context);
   body = buildFormUrlencodedString({
@@ -7108,8 +7351,9 @@ export const serializeAws_ec2DescribeVolumesModificationsCommand = async (
   input: DescribeVolumesModificationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeVolumesModificationsRequest(
     input,
@@ -7127,8 +7371,9 @@ export const serializeAws_ec2DescribeVpcAttributeCommand = async (
   input: DescribeVpcAttributeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeVpcAttributeRequest(input, context);
   body = buildFormUrlencodedString({
@@ -7143,8 +7388,9 @@ export const serializeAws_ec2DescribeVpcClassicLinkCommand = async (
   input: DescribeVpcClassicLinkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeVpcClassicLinkRequest(input, context);
   body = buildFormUrlencodedString({
@@ -7159,8 +7405,9 @@ export const serializeAws_ec2DescribeVpcClassicLinkDnsSupportCommand = async (
   input: DescribeVpcClassicLinkDnsSupportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeVpcClassicLinkDnsSupportRequest(
     input,
@@ -7178,8 +7425,9 @@ export const serializeAws_ec2DescribeVpcEndpointConnectionNotificationsCommand =
   input: DescribeVpcEndpointConnectionNotificationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeVpcEndpointConnectionNotificationsRequest(
     input,
@@ -7197,8 +7445,9 @@ export const serializeAws_ec2DescribeVpcEndpointConnectionsCommand = async (
   input: DescribeVpcEndpointConnectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeVpcEndpointConnectionsRequest(
     input,
@@ -7216,8 +7465,9 @@ export const serializeAws_ec2DescribeVpcEndpointServiceConfigurationsCommand = a
   input: DescribeVpcEndpointServiceConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeVpcEndpointServiceConfigurationsRequest(
     input,
@@ -7235,8 +7485,9 @@ export const serializeAws_ec2DescribeVpcEndpointServicePermissionsCommand = asyn
   input: DescribeVpcEndpointServicePermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeVpcEndpointServicePermissionsRequest(
     input,
@@ -7254,8 +7505,9 @@ export const serializeAws_ec2DescribeVpcEndpointServicesCommand = async (
   input: DescribeVpcEndpointServicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeVpcEndpointServicesRequest(
     input,
@@ -7273,8 +7525,9 @@ export const serializeAws_ec2DescribeVpcEndpointsCommand = async (
   input: DescribeVpcEndpointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeVpcEndpointsRequest(input, context);
   body = buildFormUrlencodedString({
@@ -7289,8 +7542,9 @@ export const serializeAws_ec2DescribeVpcPeeringConnectionsCommand = async (
   input: DescribeVpcPeeringConnectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeVpcPeeringConnectionsRequest(
     input,
@@ -7308,8 +7562,9 @@ export const serializeAws_ec2DescribeVpcsCommand = async (
   input: DescribeVpcsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeVpcsRequest(input, context);
   body = buildFormUrlencodedString({
@@ -7324,8 +7579,9 @@ export const serializeAws_ec2DescribeVpnConnectionsCommand = async (
   input: DescribeVpnConnectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeVpnConnectionsRequest(input, context);
   body = buildFormUrlencodedString({
@@ -7340,8 +7596,9 @@ export const serializeAws_ec2DescribeVpnGatewaysCommand = async (
   input: DescribeVpnGatewaysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DescribeVpnGatewaysRequest(input, context);
   body = buildFormUrlencodedString({
@@ -7356,8 +7613,9 @@ export const serializeAws_ec2DetachClassicLinkVpcCommand = async (
   input: DetachClassicLinkVpcCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DetachClassicLinkVpcRequest(input, context);
   body = buildFormUrlencodedString({
@@ -7372,8 +7630,9 @@ export const serializeAws_ec2DetachInternetGatewayCommand = async (
   input: DetachInternetGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DetachInternetGatewayRequest(input, context);
   body = buildFormUrlencodedString({
@@ -7388,8 +7647,9 @@ export const serializeAws_ec2DetachNetworkInterfaceCommand = async (
   input: DetachNetworkInterfaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DetachNetworkInterfaceRequest(input, context);
   body = buildFormUrlencodedString({
@@ -7404,8 +7664,9 @@ export const serializeAws_ec2DetachVolumeCommand = async (
   input: DetachVolumeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DetachVolumeRequest(input, context);
   body = buildFormUrlencodedString({
@@ -7420,8 +7681,9 @@ export const serializeAws_ec2DetachVpnGatewayCommand = async (
   input: DetachVpnGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DetachVpnGatewayRequest(input, context);
   body = buildFormUrlencodedString({
@@ -7436,8 +7698,9 @@ export const serializeAws_ec2DisableEbsEncryptionByDefaultCommand = async (
   input: DisableEbsEncryptionByDefaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DisableEbsEncryptionByDefaultRequest(
     input,
@@ -7455,8 +7718,9 @@ export const serializeAws_ec2DisableFastSnapshotRestoresCommand = async (
   input: DisableFastSnapshotRestoresCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DisableFastSnapshotRestoresRequest(
     input,
@@ -7474,8 +7738,9 @@ export const serializeAws_ec2DisableTransitGatewayRouteTablePropagationCommand =
   input: DisableTransitGatewayRouteTablePropagationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DisableTransitGatewayRouteTablePropagationRequest(
     input,
@@ -7493,8 +7758,9 @@ export const serializeAws_ec2DisableVgwRoutePropagationCommand = async (
   input: DisableVgwRoutePropagationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DisableVgwRoutePropagationRequest(
     input,
@@ -7512,8 +7778,9 @@ export const serializeAws_ec2DisableVpcClassicLinkCommand = async (
   input: DisableVpcClassicLinkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DisableVpcClassicLinkRequest(input, context);
   body = buildFormUrlencodedString({
@@ -7528,8 +7795,9 @@ export const serializeAws_ec2DisableVpcClassicLinkDnsSupportCommand = async (
   input: DisableVpcClassicLinkDnsSupportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DisableVpcClassicLinkDnsSupportRequest(
     input,
@@ -7547,8 +7815,9 @@ export const serializeAws_ec2DisassociateAddressCommand = async (
   input: DisassociateAddressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DisassociateAddressRequest(input, context);
   body = buildFormUrlencodedString({
@@ -7563,8 +7832,9 @@ export const serializeAws_ec2DisassociateClientVpnTargetNetworkCommand = async (
   input: DisassociateClientVpnTargetNetworkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DisassociateClientVpnTargetNetworkRequest(
     input,
@@ -7582,8 +7852,9 @@ export const serializeAws_ec2DisassociateIamInstanceProfileCommand = async (
   input: DisassociateIamInstanceProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DisassociateIamInstanceProfileRequest(
     input,
@@ -7601,8 +7872,9 @@ export const serializeAws_ec2DisassociateRouteTableCommand = async (
   input: DisassociateRouteTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DisassociateRouteTableRequest(input, context);
   body = buildFormUrlencodedString({
@@ -7617,8 +7889,9 @@ export const serializeAws_ec2DisassociateSubnetCidrBlockCommand = async (
   input: DisassociateSubnetCidrBlockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DisassociateSubnetCidrBlockRequest(
     input,
@@ -7636,8 +7909,9 @@ export const serializeAws_ec2DisassociateTransitGatewayMulticastDomainCommand = 
   input: DisassociateTransitGatewayMulticastDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DisassociateTransitGatewayMulticastDomainRequest(
     input,
@@ -7655,8 +7929,9 @@ export const serializeAws_ec2DisassociateTransitGatewayRouteTableCommand = async
   input: DisassociateTransitGatewayRouteTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DisassociateTransitGatewayRouteTableRequest(
     input,
@@ -7674,8 +7949,9 @@ export const serializeAws_ec2DisassociateVpcCidrBlockCommand = async (
   input: DisassociateVpcCidrBlockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2DisassociateVpcCidrBlockRequest(
     input,
@@ -7693,8 +7969,9 @@ export const serializeAws_ec2EnableEbsEncryptionByDefaultCommand = async (
   input: EnableEbsEncryptionByDefaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2EnableEbsEncryptionByDefaultRequest(
     input,
@@ -7712,8 +7989,9 @@ export const serializeAws_ec2EnableFastSnapshotRestoresCommand = async (
   input: EnableFastSnapshotRestoresCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2EnableFastSnapshotRestoresRequest(
     input,
@@ -7731,8 +8009,9 @@ export const serializeAws_ec2EnableTransitGatewayRouteTablePropagationCommand = 
   input: EnableTransitGatewayRouteTablePropagationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2EnableTransitGatewayRouteTablePropagationRequest(
     input,
@@ -7750,8 +8029,9 @@ export const serializeAws_ec2EnableVgwRoutePropagationCommand = async (
   input: EnableVgwRoutePropagationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2EnableVgwRoutePropagationRequest(
     input,
@@ -7769,8 +8049,9 @@ export const serializeAws_ec2EnableVolumeIOCommand = async (
   input: EnableVolumeIOCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2EnableVolumeIORequest(input, context);
   body = buildFormUrlencodedString({
@@ -7785,8 +8066,9 @@ export const serializeAws_ec2EnableVpcClassicLinkCommand = async (
   input: EnableVpcClassicLinkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2EnableVpcClassicLinkRequest(input, context);
   body = buildFormUrlencodedString({
@@ -7801,8 +8083,9 @@ export const serializeAws_ec2EnableVpcClassicLinkDnsSupportCommand = async (
   input: EnableVpcClassicLinkDnsSupportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2EnableVpcClassicLinkDnsSupportRequest(
     input,
@@ -7820,8 +8103,9 @@ export const serializeAws_ec2ExportClientVpnClientCertificateRevocationListComma
   input: ExportClientVpnClientCertificateRevocationListCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ExportClientVpnClientCertificateRevocationListRequest(
     input,
@@ -7839,8 +8123,9 @@ export const serializeAws_ec2ExportClientVpnClientConfigurationCommand = async (
   input: ExportClientVpnClientConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ExportClientVpnClientConfigurationRequest(
     input,
@@ -7858,8 +8143,9 @@ export const serializeAws_ec2ExportImageCommand = async (
   input: ExportImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ExportImageRequest(input, context);
   body = buildFormUrlencodedString({
@@ -7874,8 +8160,9 @@ export const serializeAws_ec2ExportTransitGatewayRoutesCommand = async (
   input: ExportTransitGatewayRoutesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ExportTransitGatewayRoutesRequest(
     input,
@@ -7893,8 +8180,9 @@ export const serializeAws_ec2GetAssociatedIpv6PoolCidrsCommand = async (
   input: GetAssociatedIpv6PoolCidrsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2GetAssociatedIpv6PoolCidrsRequest(
     input,
@@ -7912,8 +8200,9 @@ export const serializeAws_ec2GetCapacityReservationUsageCommand = async (
   input: GetCapacityReservationUsageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2GetCapacityReservationUsageRequest(
     input,
@@ -7931,8 +8220,9 @@ export const serializeAws_ec2GetCoipPoolUsageCommand = async (
   input: GetCoipPoolUsageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2GetCoipPoolUsageRequest(input, context);
   body = buildFormUrlencodedString({
@@ -7947,8 +8237,9 @@ export const serializeAws_ec2GetConsoleOutputCommand = async (
   input: GetConsoleOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2GetConsoleOutputRequest(input, context);
   body = buildFormUrlencodedString({
@@ -7963,8 +8254,9 @@ export const serializeAws_ec2GetConsoleScreenshotCommand = async (
   input: GetConsoleScreenshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2GetConsoleScreenshotRequest(input, context);
   body = buildFormUrlencodedString({
@@ -7979,8 +8271,9 @@ export const serializeAws_ec2GetDefaultCreditSpecificationCommand = async (
   input: GetDefaultCreditSpecificationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2GetDefaultCreditSpecificationRequest(
     input,
@@ -7998,8 +8291,9 @@ export const serializeAws_ec2GetEbsDefaultKmsKeyIdCommand = async (
   input: GetEbsDefaultKmsKeyIdCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2GetEbsDefaultKmsKeyIdRequest(input, context);
   body = buildFormUrlencodedString({
@@ -8014,8 +8308,9 @@ export const serializeAws_ec2GetEbsEncryptionByDefaultCommand = async (
   input: GetEbsEncryptionByDefaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2GetEbsEncryptionByDefaultRequest(
     input,
@@ -8033,8 +8328,9 @@ export const serializeAws_ec2GetHostReservationPurchasePreviewCommand = async (
   input: GetHostReservationPurchasePreviewCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2GetHostReservationPurchasePreviewRequest(
     input,
@@ -8052,8 +8348,9 @@ export const serializeAws_ec2GetLaunchTemplateDataCommand = async (
   input: GetLaunchTemplateDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2GetLaunchTemplateDataRequest(input, context);
   body = buildFormUrlencodedString({
@@ -8068,8 +8365,9 @@ export const serializeAws_ec2GetPasswordDataCommand = async (
   input: GetPasswordDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2GetPasswordDataRequest(input, context);
   body = buildFormUrlencodedString({
@@ -8084,8 +8382,9 @@ export const serializeAws_ec2GetReservedInstancesExchangeQuoteCommand = async (
   input: GetReservedInstancesExchangeQuoteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2GetReservedInstancesExchangeQuoteRequest(
     input,
@@ -8103,8 +8402,9 @@ export const serializeAws_ec2GetTransitGatewayAttachmentPropagationsCommand = as
   input: GetTransitGatewayAttachmentPropagationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2GetTransitGatewayAttachmentPropagationsRequest(
     input,
@@ -8122,8 +8422,9 @@ export const serializeAws_ec2GetTransitGatewayMulticastDomainAssociationsCommand
   input: GetTransitGatewayMulticastDomainAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2GetTransitGatewayMulticastDomainAssociationsRequest(
     input,
@@ -8141,8 +8442,9 @@ export const serializeAws_ec2GetTransitGatewayRouteTableAssociationsCommand = as
   input: GetTransitGatewayRouteTableAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2GetTransitGatewayRouteTableAssociationsRequest(
     input,
@@ -8160,8 +8462,9 @@ export const serializeAws_ec2GetTransitGatewayRouteTablePropagationsCommand = as
   input: GetTransitGatewayRouteTablePropagationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2GetTransitGatewayRouteTablePropagationsRequest(
     input,
@@ -8179,8 +8482,9 @@ export const serializeAws_ec2ImportClientVpnClientCertificateRevocationListComma
   input: ImportClientVpnClientCertificateRevocationListCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ImportClientVpnClientCertificateRevocationListRequest(
     input,
@@ -8198,8 +8502,9 @@ export const serializeAws_ec2ImportImageCommand = async (
   input: ImportImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ImportImageRequest(input, context);
   body = buildFormUrlencodedString({
@@ -8214,8 +8519,9 @@ export const serializeAws_ec2ImportInstanceCommand = async (
   input: ImportInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ImportInstanceRequest(input, context);
   body = buildFormUrlencodedString({
@@ -8230,8 +8536,9 @@ export const serializeAws_ec2ImportKeyPairCommand = async (
   input: ImportKeyPairCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ImportKeyPairRequest(input, context);
   body = buildFormUrlencodedString({
@@ -8246,8 +8553,9 @@ export const serializeAws_ec2ImportSnapshotCommand = async (
   input: ImportSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ImportSnapshotRequest(input, context);
   body = buildFormUrlencodedString({
@@ -8262,8 +8570,9 @@ export const serializeAws_ec2ImportVolumeCommand = async (
   input: ImportVolumeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ImportVolumeRequest(input, context);
   body = buildFormUrlencodedString({
@@ -8278,8 +8587,9 @@ export const serializeAws_ec2ModifyCapacityReservationCommand = async (
   input: ModifyCapacityReservationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ModifyCapacityReservationRequest(
     input,
@@ -8297,8 +8607,9 @@ export const serializeAws_ec2ModifyClientVpnEndpointCommand = async (
   input: ModifyClientVpnEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ModifyClientVpnEndpointRequest(
     input,
@@ -8316,8 +8627,9 @@ export const serializeAws_ec2ModifyDefaultCreditSpecificationCommand = async (
   input: ModifyDefaultCreditSpecificationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ModifyDefaultCreditSpecificationRequest(
     input,
@@ -8335,8 +8647,9 @@ export const serializeAws_ec2ModifyEbsDefaultKmsKeyIdCommand = async (
   input: ModifyEbsDefaultKmsKeyIdCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ModifyEbsDefaultKmsKeyIdRequest(
     input,
@@ -8354,8 +8667,9 @@ export const serializeAws_ec2ModifyFleetCommand = async (
   input: ModifyFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ModifyFleetRequest(input, context);
   body = buildFormUrlencodedString({
@@ -8370,8 +8684,9 @@ export const serializeAws_ec2ModifyFpgaImageAttributeCommand = async (
   input: ModifyFpgaImageAttributeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ModifyFpgaImageAttributeRequest(
     input,
@@ -8389,8 +8704,9 @@ export const serializeAws_ec2ModifyHostsCommand = async (
   input: ModifyHostsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ModifyHostsRequest(input, context);
   body = buildFormUrlencodedString({
@@ -8405,8 +8721,9 @@ export const serializeAws_ec2ModifyIdFormatCommand = async (
   input: ModifyIdFormatCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ModifyIdFormatRequest(input, context);
   body = buildFormUrlencodedString({
@@ -8421,8 +8738,9 @@ export const serializeAws_ec2ModifyIdentityIdFormatCommand = async (
   input: ModifyIdentityIdFormatCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ModifyIdentityIdFormatRequest(input, context);
   body = buildFormUrlencodedString({
@@ -8437,8 +8755,9 @@ export const serializeAws_ec2ModifyImageAttributeCommand = async (
   input: ModifyImageAttributeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ModifyImageAttributeRequest(input, context);
   body = buildFormUrlencodedString({
@@ -8453,8 +8772,9 @@ export const serializeAws_ec2ModifyInstanceAttributeCommand = async (
   input: ModifyInstanceAttributeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ModifyInstanceAttributeRequest(
     input,
@@ -8472,8 +8792,9 @@ export const serializeAws_ec2ModifyInstanceCapacityReservationAttributesCommand 
   input: ModifyInstanceCapacityReservationAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ModifyInstanceCapacityReservationAttributesRequest(
     input,
@@ -8491,8 +8812,9 @@ export const serializeAws_ec2ModifyInstanceCreditSpecificationCommand = async (
   input: ModifyInstanceCreditSpecificationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ModifyInstanceCreditSpecificationRequest(
     input,
@@ -8510,8 +8832,9 @@ export const serializeAws_ec2ModifyInstanceEventStartTimeCommand = async (
   input: ModifyInstanceEventStartTimeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ModifyInstanceEventStartTimeRequest(
     input,
@@ -8529,8 +8852,9 @@ export const serializeAws_ec2ModifyInstanceMetadataOptionsCommand = async (
   input: ModifyInstanceMetadataOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ModifyInstanceMetadataOptionsRequest(
     input,
@@ -8548,8 +8872,9 @@ export const serializeAws_ec2ModifyInstancePlacementCommand = async (
   input: ModifyInstancePlacementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ModifyInstancePlacementRequest(
     input,
@@ -8567,8 +8892,9 @@ export const serializeAws_ec2ModifyLaunchTemplateCommand = async (
   input: ModifyLaunchTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ModifyLaunchTemplateRequest(input, context);
   body = buildFormUrlencodedString({
@@ -8583,8 +8909,9 @@ export const serializeAws_ec2ModifyNetworkInterfaceAttributeCommand = async (
   input: ModifyNetworkInterfaceAttributeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ModifyNetworkInterfaceAttributeRequest(
     input,
@@ -8602,8 +8929,9 @@ export const serializeAws_ec2ModifyReservedInstancesCommand = async (
   input: ModifyReservedInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ModifyReservedInstancesRequest(
     input,
@@ -8621,8 +8949,9 @@ export const serializeAws_ec2ModifySnapshotAttributeCommand = async (
   input: ModifySnapshotAttributeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ModifySnapshotAttributeRequest(
     input,
@@ -8640,8 +8969,9 @@ export const serializeAws_ec2ModifySpotFleetRequestCommand = async (
   input: ModifySpotFleetRequestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ModifySpotFleetRequestRequest(input, context);
   body = buildFormUrlencodedString({
@@ -8656,8 +8986,9 @@ export const serializeAws_ec2ModifySubnetAttributeCommand = async (
   input: ModifySubnetAttributeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ModifySubnetAttributeRequest(input, context);
   body = buildFormUrlencodedString({
@@ -8672,8 +9003,9 @@ export const serializeAws_ec2ModifyTrafficMirrorFilterNetworkServicesCommand = a
   input: ModifyTrafficMirrorFilterNetworkServicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ModifyTrafficMirrorFilterNetworkServicesRequest(
     input,
@@ -8691,8 +9023,9 @@ export const serializeAws_ec2ModifyTrafficMirrorFilterRuleCommand = async (
   input: ModifyTrafficMirrorFilterRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ModifyTrafficMirrorFilterRuleRequest(
     input,
@@ -8710,8 +9043,9 @@ export const serializeAws_ec2ModifyTrafficMirrorSessionCommand = async (
   input: ModifyTrafficMirrorSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ModifyTrafficMirrorSessionRequest(
     input,
@@ -8729,8 +9063,9 @@ export const serializeAws_ec2ModifyTransitGatewayVpcAttachmentCommand = async (
   input: ModifyTransitGatewayVpcAttachmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ModifyTransitGatewayVpcAttachmentRequest(
     input,
@@ -8748,8 +9083,9 @@ export const serializeAws_ec2ModifyVolumeCommand = async (
   input: ModifyVolumeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ModifyVolumeRequest(input, context);
   body = buildFormUrlencodedString({
@@ -8764,8 +9100,9 @@ export const serializeAws_ec2ModifyVolumeAttributeCommand = async (
   input: ModifyVolumeAttributeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ModifyVolumeAttributeRequest(input, context);
   body = buildFormUrlencodedString({
@@ -8780,8 +9117,9 @@ export const serializeAws_ec2ModifyVpcAttributeCommand = async (
   input: ModifyVpcAttributeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ModifyVpcAttributeRequest(input, context);
   body = buildFormUrlencodedString({
@@ -8796,8 +9134,9 @@ export const serializeAws_ec2ModifyVpcEndpointCommand = async (
   input: ModifyVpcEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ModifyVpcEndpointRequest(input, context);
   body = buildFormUrlencodedString({
@@ -8812,8 +9151,9 @@ export const serializeAws_ec2ModifyVpcEndpointConnectionNotificationCommand = as
   input: ModifyVpcEndpointConnectionNotificationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ModifyVpcEndpointConnectionNotificationRequest(
     input,
@@ -8831,8 +9171,9 @@ export const serializeAws_ec2ModifyVpcEndpointServiceConfigurationCommand = asyn
   input: ModifyVpcEndpointServiceConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ModifyVpcEndpointServiceConfigurationRequest(
     input,
@@ -8850,8 +9191,9 @@ export const serializeAws_ec2ModifyVpcEndpointServicePermissionsCommand = async 
   input: ModifyVpcEndpointServicePermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ModifyVpcEndpointServicePermissionsRequest(
     input,
@@ -8869,8 +9211,9 @@ export const serializeAws_ec2ModifyVpcPeeringConnectionOptionsCommand = async (
   input: ModifyVpcPeeringConnectionOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ModifyVpcPeeringConnectionOptionsRequest(
     input,
@@ -8888,8 +9231,9 @@ export const serializeAws_ec2ModifyVpcTenancyCommand = async (
   input: ModifyVpcTenancyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ModifyVpcTenancyRequest(input, context);
   body = buildFormUrlencodedString({
@@ -8904,8 +9248,9 @@ export const serializeAws_ec2ModifyVpnConnectionCommand = async (
   input: ModifyVpnConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ModifyVpnConnectionRequest(input, context);
   body = buildFormUrlencodedString({
@@ -8920,8 +9265,9 @@ export const serializeAws_ec2ModifyVpnTunnelCertificateCommand = async (
   input: ModifyVpnTunnelCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ModifyVpnTunnelCertificateRequest(
     input,
@@ -8939,8 +9285,9 @@ export const serializeAws_ec2ModifyVpnTunnelOptionsCommand = async (
   input: ModifyVpnTunnelOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ModifyVpnTunnelOptionsRequest(input, context);
   body = buildFormUrlencodedString({
@@ -8955,8 +9302,9 @@ export const serializeAws_ec2MonitorInstancesCommand = async (
   input: MonitorInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2MonitorInstancesRequest(input, context);
   body = buildFormUrlencodedString({
@@ -8971,8 +9319,9 @@ export const serializeAws_ec2MoveAddressToVpcCommand = async (
   input: MoveAddressToVpcCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2MoveAddressToVpcRequest(input, context);
   body = buildFormUrlencodedString({
@@ -8987,8 +9336,9 @@ export const serializeAws_ec2ProvisionByoipCidrCommand = async (
   input: ProvisionByoipCidrCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ProvisionByoipCidrRequest(input, context);
   body = buildFormUrlencodedString({
@@ -9003,8 +9353,9 @@ export const serializeAws_ec2PurchaseHostReservationCommand = async (
   input: PurchaseHostReservationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2PurchaseHostReservationRequest(
     input,
@@ -9022,8 +9373,9 @@ export const serializeAws_ec2PurchaseReservedInstancesOfferingCommand = async (
   input: PurchaseReservedInstancesOfferingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2PurchaseReservedInstancesOfferingRequest(
     input,
@@ -9041,8 +9393,9 @@ export const serializeAws_ec2PurchaseScheduledInstancesCommand = async (
   input: PurchaseScheduledInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2PurchaseScheduledInstancesRequest(
     input,
@@ -9060,8 +9413,9 @@ export const serializeAws_ec2RebootInstancesCommand = async (
   input: RebootInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2RebootInstancesRequest(input, context);
   body = buildFormUrlencodedString({
@@ -9076,8 +9430,9 @@ export const serializeAws_ec2RegisterImageCommand = async (
   input: RegisterImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2RegisterImageRequest(input, context);
   body = buildFormUrlencodedString({
@@ -9092,8 +9447,9 @@ export const serializeAws_ec2RegisterTransitGatewayMulticastGroupMembersCommand 
   input: RegisterTransitGatewayMulticastGroupMembersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2RegisterTransitGatewayMulticastGroupMembersRequest(
     input,
@@ -9111,8 +9467,9 @@ export const serializeAws_ec2RegisterTransitGatewayMulticastGroupSourcesCommand 
   input: RegisterTransitGatewayMulticastGroupSourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2RegisterTransitGatewayMulticastGroupSourcesRequest(
     input,
@@ -9130,8 +9487,9 @@ export const serializeAws_ec2RejectTransitGatewayPeeringAttachmentCommand = asyn
   input: RejectTransitGatewayPeeringAttachmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2RejectTransitGatewayPeeringAttachmentRequest(
     input,
@@ -9149,8 +9507,9 @@ export const serializeAws_ec2RejectTransitGatewayVpcAttachmentCommand = async (
   input: RejectTransitGatewayVpcAttachmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2RejectTransitGatewayVpcAttachmentRequest(
     input,
@@ -9168,8 +9527,9 @@ export const serializeAws_ec2RejectVpcEndpointConnectionsCommand = async (
   input: RejectVpcEndpointConnectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2RejectVpcEndpointConnectionsRequest(
     input,
@@ -9187,8 +9547,9 @@ export const serializeAws_ec2RejectVpcPeeringConnectionCommand = async (
   input: RejectVpcPeeringConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2RejectVpcPeeringConnectionRequest(
     input,
@@ -9206,8 +9567,9 @@ export const serializeAws_ec2ReleaseAddressCommand = async (
   input: ReleaseAddressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ReleaseAddressRequest(input, context);
   body = buildFormUrlencodedString({
@@ -9222,8 +9584,9 @@ export const serializeAws_ec2ReleaseHostsCommand = async (
   input: ReleaseHostsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ReleaseHostsRequest(input, context);
   body = buildFormUrlencodedString({
@@ -9238,8 +9601,9 @@ export const serializeAws_ec2ReplaceIamInstanceProfileAssociationCommand = async
   input: ReplaceIamInstanceProfileAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ReplaceIamInstanceProfileAssociationRequest(
     input,
@@ -9257,8 +9621,9 @@ export const serializeAws_ec2ReplaceNetworkAclAssociationCommand = async (
   input: ReplaceNetworkAclAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ReplaceNetworkAclAssociationRequest(
     input,
@@ -9276,8 +9641,9 @@ export const serializeAws_ec2ReplaceNetworkAclEntryCommand = async (
   input: ReplaceNetworkAclEntryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ReplaceNetworkAclEntryRequest(input, context);
   body = buildFormUrlencodedString({
@@ -9292,8 +9658,9 @@ export const serializeAws_ec2ReplaceRouteCommand = async (
   input: ReplaceRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ReplaceRouteRequest(input, context);
   body = buildFormUrlencodedString({
@@ -9308,8 +9675,9 @@ export const serializeAws_ec2ReplaceRouteTableAssociationCommand = async (
   input: ReplaceRouteTableAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ReplaceRouteTableAssociationRequest(
     input,
@@ -9327,8 +9695,9 @@ export const serializeAws_ec2ReplaceTransitGatewayRouteCommand = async (
   input: ReplaceTransitGatewayRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ReplaceTransitGatewayRouteRequest(
     input,
@@ -9346,8 +9715,9 @@ export const serializeAws_ec2ReportInstanceStatusCommand = async (
   input: ReportInstanceStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ReportInstanceStatusRequest(input, context);
   body = buildFormUrlencodedString({
@@ -9362,8 +9732,9 @@ export const serializeAws_ec2RequestSpotFleetCommand = async (
   input: RequestSpotFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2RequestSpotFleetRequest(input, context);
   body = buildFormUrlencodedString({
@@ -9378,8 +9749,9 @@ export const serializeAws_ec2RequestSpotInstancesCommand = async (
   input: RequestSpotInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2RequestSpotInstancesRequest(input, context);
   body = buildFormUrlencodedString({
@@ -9394,8 +9766,9 @@ export const serializeAws_ec2ResetEbsDefaultKmsKeyIdCommand = async (
   input: ResetEbsDefaultKmsKeyIdCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ResetEbsDefaultKmsKeyIdRequest(
     input,
@@ -9413,8 +9786,9 @@ export const serializeAws_ec2ResetFpgaImageAttributeCommand = async (
   input: ResetFpgaImageAttributeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ResetFpgaImageAttributeRequest(
     input,
@@ -9432,8 +9806,9 @@ export const serializeAws_ec2ResetImageAttributeCommand = async (
   input: ResetImageAttributeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ResetImageAttributeRequest(input, context);
   body = buildFormUrlencodedString({
@@ -9448,8 +9823,9 @@ export const serializeAws_ec2ResetInstanceAttributeCommand = async (
   input: ResetInstanceAttributeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ResetInstanceAttributeRequest(input, context);
   body = buildFormUrlencodedString({
@@ -9464,8 +9840,9 @@ export const serializeAws_ec2ResetNetworkInterfaceAttributeCommand = async (
   input: ResetNetworkInterfaceAttributeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ResetNetworkInterfaceAttributeRequest(
     input,
@@ -9483,8 +9860,9 @@ export const serializeAws_ec2ResetSnapshotAttributeCommand = async (
   input: ResetSnapshotAttributeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2ResetSnapshotAttributeRequest(input, context);
   body = buildFormUrlencodedString({
@@ -9499,8 +9877,9 @@ export const serializeAws_ec2RestoreAddressToClassicCommand = async (
   input: RestoreAddressToClassicCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2RestoreAddressToClassicRequest(
     input,
@@ -9518,8 +9897,9 @@ export const serializeAws_ec2RevokeClientVpnIngressCommand = async (
   input: RevokeClientVpnIngressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2RevokeClientVpnIngressRequest(input, context);
   body = buildFormUrlencodedString({
@@ -9534,8 +9914,9 @@ export const serializeAws_ec2RevokeSecurityGroupEgressCommand = async (
   input: RevokeSecurityGroupEgressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2RevokeSecurityGroupEgressRequest(
     input,
@@ -9553,8 +9934,9 @@ export const serializeAws_ec2RevokeSecurityGroupIngressCommand = async (
   input: RevokeSecurityGroupIngressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2RevokeSecurityGroupIngressRequest(
     input,
@@ -9572,8 +9954,9 @@ export const serializeAws_ec2RunInstancesCommand = async (
   input: RunInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2RunInstancesRequest(input, context);
   body = buildFormUrlencodedString({
@@ -9588,8 +9971,9 @@ export const serializeAws_ec2RunScheduledInstancesCommand = async (
   input: RunScheduledInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2RunScheduledInstancesRequest(input, context);
   body = buildFormUrlencodedString({
@@ -9604,8 +9988,9 @@ export const serializeAws_ec2SearchLocalGatewayRoutesCommand = async (
   input: SearchLocalGatewayRoutesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2SearchLocalGatewayRoutesRequest(
     input,
@@ -9623,8 +10008,9 @@ export const serializeAws_ec2SearchTransitGatewayMulticastGroupsCommand = async 
   input: SearchTransitGatewayMulticastGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2SearchTransitGatewayMulticastGroupsRequest(
     input,
@@ -9642,8 +10028,9 @@ export const serializeAws_ec2SearchTransitGatewayRoutesCommand = async (
   input: SearchTransitGatewayRoutesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2SearchTransitGatewayRoutesRequest(
     input,
@@ -9661,8 +10048,9 @@ export const serializeAws_ec2SendDiagnosticInterruptCommand = async (
   input: SendDiagnosticInterruptCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2SendDiagnosticInterruptRequest(
     input,
@@ -9680,8 +10068,9 @@ export const serializeAws_ec2StartInstancesCommand = async (
   input: StartInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2StartInstancesRequest(input, context);
   body = buildFormUrlencodedString({
@@ -9696,8 +10085,9 @@ export const serializeAws_ec2StartVpcEndpointServicePrivateDnsVerificationComman
   input: StartVpcEndpointServicePrivateDnsVerificationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2StartVpcEndpointServicePrivateDnsVerificationRequest(
     input,
@@ -9715,8 +10105,9 @@ export const serializeAws_ec2StopInstancesCommand = async (
   input: StopInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2StopInstancesRequest(input, context);
   body = buildFormUrlencodedString({
@@ -9731,8 +10122,9 @@ export const serializeAws_ec2TerminateClientVpnConnectionsCommand = async (
   input: TerminateClientVpnConnectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2TerminateClientVpnConnectionsRequest(
     input,
@@ -9750,8 +10142,9 @@ export const serializeAws_ec2TerminateInstancesCommand = async (
   input: TerminateInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2TerminateInstancesRequest(input, context);
   body = buildFormUrlencodedString({
@@ -9766,8 +10159,9 @@ export const serializeAws_ec2UnassignIpv6AddressesCommand = async (
   input: UnassignIpv6AddressesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2UnassignIpv6AddressesRequest(input, context);
   body = buildFormUrlencodedString({
@@ -9782,8 +10176,9 @@ export const serializeAws_ec2UnassignPrivateIpAddressesCommand = async (
   input: UnassignPrivateIpAddressesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2UnassignPrivateIpAddressesRequest(
     input,
@@ -9801,8 +10196,9 @@ export const serializeAws_ec2UnmonitorInstancesCommand = async (
   input: UnmonitorInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2UnmonitorInstancesRequest(input, context);
   body = buildFormUrlencodedString({
@@ -9817,8 +10213,9 @@ export const serializeAws_ec2UpdateSecurityGroupRuleDescriptionsEgressCommand = 
   input: UpdateSecurityGroupRuleDescriptionsEgressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2UpdateSecurityGroupRuleDescriptionsEgressRequest(
     input,
@@ -9836,8 +10233,9 @@ export const serializeAws_ec2UpdateSecurityGroupRuleDescriptionsIngressCommand =
   input: UpdateSecurityGroupRuleDescriptionsIngressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2UpdateSecurityGroupRuleDescriptionsIngressRequest(
     input,
@@ -9855,8 +10253,9 @@ export const serializeAws_ec2WithdrawByoipCidrCommand = async (
   input: WithdrawByoipCidrCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2WithdrawByoipCidrRequest(input, context);
   body = buildFormUrlencodedString({

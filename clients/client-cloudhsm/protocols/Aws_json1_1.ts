@@ -141,9 +141,10 @@ export const serializeAws_json1_1AddTagsToResourceCommand = async (
   input: AddTagsToResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.AddTagsToResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudHsmFrontendService.AddTagsToResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AddTagsToResourceRequest(input, context)
@@ -155,9 +156,10 @@ export const serializeAws_json1_1CreateHapgCommand = async (
   input: CreateHapgCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.CreateHapg";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudHsmFrontendService.CreateHapg"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateHapgRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -167,9 +169,10 @@ export const serializeAws_json1_1CreateHsmCommand = async (
   input: CreateHsmCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.CreateHsm";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudHsmFrontendService.CreateHsm"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateHsmRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -179,9 +182,10 @@ export const serializeAws_json1_1CreateLunaClientCommand = async (
   input: CreateLunaClientCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.CreateLunaClient";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudHsmFrontendService.CreateLunaClient"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateLunaClientRequest(input, context)
@@ -193,9 +197,10 @@ export const serializeAws_json1_1DeleteHapgCommand = async (
   input: DeleteHapgCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.DeleteHapg";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudHsmFrontendService.DeleteHapg"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteHapgRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -205,9 +210,10 @@ export const serializeAws_json1_1DeleteHsmCommand = async (
   input: DeleteHsmCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.DeleteHsm";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudHsmFrontendService.DeleteHsm"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteHsmRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -217,9 +223,10 @@ export const serializeAws_json1_1DeleteLunaClientCommand = async (
   input: DeleteLunaClientCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.DeleteLunaClient";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudHsmFrontendService.DeleteLunaClient"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteLunaClientRequest(input, context)
@@ -231,9 +238,10 @@ export const serializeAws_json1_1DescribeHapgCommand = async (
   input: DescribeHapgCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.DescribeHapg";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudHsmFrontendService.DescribeHapg"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeHapgRequest(input, context)
@@ -245,9 +253,10 @@ export const serializeAws_json1_1DescribeHsmCommand = async (
   input: DescribeHsmCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.DescribeHsm";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudHsmFrontendService.DescribeHsm"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeHsmRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -257,9 +266,10 @@ export const serializeAws_json1_1DescribeLunaClientCommand = async (
   input: DescribeLunaClientCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.DescribeLunaClient";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudHsmFrontendService.DescribeLunaClient"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeLunaClientRequest(input, context)
@@ -271,9 +281,10 @@ export const serializeAws_json1_1GetConfigCommand = async (
   input: GetConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.GetConfig";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudHsmFrontendService.GetConfig"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -283,9 +294,10 @@ export const serializeAws_json1_1ListAvailableZonesCommand = async (
   input: ListAvailableZonesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.ListAvailableZones";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudHsmFrontendService.ListAvailableZones"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListAvailableZonesRequest(input, context)
@@ -297,9 +309,10 @@ export const serializeAws_json1_1ListHapgsCommand = async (
   input: ListHapgsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.ListHapgs";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudHsmFrontendService.ListHapgs"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListHapgsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -309,9 +322,10 @@ export const serializeAws_json1_1ListHsmsCommand = async (
   input: ListHsmsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.ListHsms";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudHsmFrontendService.ListHsms"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListHsmsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -321,9 +335,10 @@ export const serializeAws_json1_1ListLunaClientsCommand = async (
   input: ListLunaClientsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.ListLunaClients";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudHsmFrontendService.ListLunaClients"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListLunaClientsRequest(input, context)
@@ -335,9 +350,10 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.ListTagsForResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudHsmFrontendService.ListTagsForResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTagsForResourceRequest(input, context)
@@ -349,9 +365,10 @@ export const serializeAws_json1_1ModifyHapgCommand = async (
   input: ModifyHapgCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.ModifyHapg";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudHsmFrontendService.ModifyHapg"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ModifyHapgRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -361,9 +378,10 @@ export const serializeAws_json1_1ModifyHsmCommand = async (
   input: ModifyHsmCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.ModifyHsm";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudHsmFrontendService.ModifyHsm"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ModifyHsmRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -373,9 +391,10 @@ export const serializeAws_json1_1ModifyLunaClientCommand = async (
   input: ModifyLunaClientCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.ModifyLunaClient";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudHsmFrontendService.ModifyLunaClient"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ModifyLunaClientRequest(input, context)
@@ -387,9 +406,10 @@ export const serializeAws_json1_1RemoveTagsFromResourceCommand = async (
   input: RemoveTagsFromResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.RemoveTagsFromResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudHsmFrontendService.RemoveTagsFromResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RemoveTagsFromResourceRequest(input, context)

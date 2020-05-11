@@ -389,9 +389,10 @@ export const serializeAws_json1_1BatchDetectDominantLanguageCommand = async (
   input: BatchDetectDominantLanguageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.BatchDetectDominantLanguage";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.BatchDetectDominantLanguage"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchDetectDominantLanguageRequest(input, context)
@@ -403,9 +404,10 @@ export const serializeAws_json1_1BatchDetectEntitiesCommand = async (
   input: BatchDetectEntitiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.BatchDetectEntities";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.BatchDetectEntities"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchDetectEntitiesRequest(input, context)
@@ -417,9 +419,10 @@ export const serializeAws_json1_1BatchDetectKeyPhrasesCommand = async (
   input: BatchDetectKeyPhrasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.BatchDetectKeyPhrases";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.BatchDetectKeyPhrases"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchDetectKeyPhrasesRequest(input, context)
@@ -431,9 +434,10 @@ export const serializeAws_json1_1BatchDetectSentimentCommand = async (
   input: BatchDetectSentimentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.BatchDetectSentiment";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.BatchDetectSentiment"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchDetectSentimentRequest(input, context)
@@ -445,9 +449,10 @@ export const serializeAws_json1_1BatchDetectSyntaxCommand = async (
   input: BatchDetectSyntaxCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.BatchDetectSyntax";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.BatchDetectSyntax"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchDetectSyntaxRequest(input, context)
@@ -459,9 +464,10 @@ export const serializeAws_json1_1ClassifyDocumentCommand = async (
   input: ClassifyDocumentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.ClassifyDocument";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.ClassifyDocument"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ClassifyDocumentRequest(input, context)
@@ -473,9 +479,10 @@ export const serializeAws_json1_1CreateDocumentClassifierCommand = async (
   input: CreateDocumentClassifierCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.CreateDocumentClassifier";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.CreateDocumentClassifier"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateDocumentClassifierRequest(input, context)
@@ -487,9 +494,10 @@ export const serializeAws_json1_1CreateEndpointCommand = async (
   input: CreateEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.CreateEndpoint";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.CreateEndpoint"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateEndpointRequest(input, context)
@@ -501,9 +509,10 @@ export const serializeAws_json1_1CreateEntityRecognizerCommand = async (
   input: CreateEntityRecognizerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.CreateEntityRecognizer";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.CreateEntityRecognizer"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateEntityRecognizerRequest(input, context)
@@ -515,9 +524,10 @@ export const serializeAws_json1_1DeleteDocumentClassifierCommand = async (
   input: DeleteDocumentClassifierCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.DeleteDocumentClassifier";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.DeleteDocumentClassifier"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteDocumentClassifierRequest(input, context)
@@ -529,9 +539,10 @@ export const serializeAws_json1_1DeleteEndpointCommand = async (
   input: DeleteEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.DeleteEndpoint";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.DeleteEndpoint"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteEndpointRequest(input, context)
@@ -543,9 +554,10 @@ export const serializeAws_json1_1DeleteEntityRecognizerCommand = async (
   input: DeleteEntityRecognizerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.DeleteEntityRecognizer";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.DeleteEntityRecognizer"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteEntityRecognizerRequest(input, context)
@@ -557,10 +569,10 @@ export const serializeAws_json1_1DescribeDocumentClassificationJobCommand = asyn
   input: DescribeDocumentClassificationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "Comprehend_20171127.DescribeDocumentClassificationJob";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.DescribeDocumentClassificationJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeDocumentClassificationJobRequest(input, context)
@@ -572,9 +584,10 @@ export const serializeAws_json1_1DescribeDocumentClassifierCommand = async (
   input: DescribeDocumentClassifierCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.DescribeDocumentClassifier";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.DescribeDocumentClassifier"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeDocumentClassifierRequest(input, context)
@@ -586,10 +599,10 @@ export const serializeAws_json1_1DescribeDominantLanguageDetectionJobCommand = a
   input: DescribeDominantLanguageDetectionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "Comprehend_20171127.DescribeDominantLanguageDetectionJob";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.DescribeDominantLanguageDetectionJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeDominantLanguageDetectionJobRequest(
@@ -604,9 +617,10 @@ export const serializeAws_json1_1DescribeEndpointCommand = async (
   input: DescribeEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.DescribeEndpoint";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.DescribeEndpoint"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEndpointRequest(input, context)
@@ -618,9 +632,10 @@ export const serializeAws_json1_1DescribeEntitiesDetectionJobCommand = async (
   input: DescribeEntitiesDetectionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.DescribeEntitiesDetectionJob";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.DescribeEntitiesDetectionJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEntitiesDetectionJobRequest(input, context)
@@ -632,9 +647,10 @@ export const serializeAws_json1_1DescribeEntityRecognizerCommand = async (
   input: DescribeEntityRecognizerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.DescribeEntityRecognizer";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.DescribeEntityRecognizer"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEntityRecognizerRequest(input, context)
@@ -646,10 +662,10 @@ export const serializeAws_json1_1DescribeKeyPhrasesDetectionJobCommand = async (
   input: DescribeKeyPhrasesDetectionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "Comprehend_20171127.DescribeKeyPhrasesDetectionJob";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.DescribeKeyPhrasesDetectionJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeKeyPhrasesDetectionJobRequest(input, context)
@@ -661,9 +677,10 @@ export const serializeAws_json1_1DescribeSentimentDetectionJobCommand = async (
   input: DescribeSentimentDetectionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.DescribeSentimentDetectionJob";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.DescribeSentimentDetectionJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeSentimentDetectionJobRequest(input, context)
@@ -675,9 +692,10 @@ export const serializeAws_json1_1DescribeTopicsDetectionJobCommand = async (
   input: DescribeTopicsDetectionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.DescribeTopicsDetectionJob";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.DescribeTopicsDetectionJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeTopicsDetectionJobRequest(input, context)
@@ -689,9 +707,10 @@ export const serializeAws_json1_1DetectDominantLanguageCommand = async (
   input: DetectDominantLanguageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.DetectDominantLanguage";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.DetectDominantLanguage"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DetectDominantLanguageRequest(input, context)
@@ -703,9 +722,10 @@ export const serializeAws_json1_1DetectEntitiesCommand = async (
   input: DetectEntitiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.DetectEntities";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.DetectEntities"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DetectEntitiesRequest(input, context)
@@ -717,9 +737,10 @@ export const serializeAws_json1_1DetectKeyPhrasesCommand = async (
   input: DetectKeyPhrasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.DetectKeyPhrases";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.DetectKeyPhrases"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DetectKeyPhrasesRequest(input, context)
@@ -731,9 +752,10 @@ export const serializeAws_json1_1DetectSentimentCommand = async (
   input: DetectSentimentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.DetectSentiment";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.DetectSentiment"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DetectSentimentRequest(input, context)
@@ -745,9 +767,10 @@ export const serializeAws_json1_1DetectSyntaxCommand = async (
   input: DetectSyntaxCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.DetectSyntax";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.DetectSyntax"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DetectSyntaxRequest(input, context)
@@ -759,10 +782,10 @@ export const serializeAws_json1_1ListDocumentClassificationJobsCommand = async (
   input: ListDocumentClassificationJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "Comprehend_20171127.ListDocumentClassificationJobs";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.ListDocumentClassificationJobs"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListDocumentClassificationJobsRequest(input, context)
@@ -774,9 +797,10 @@ export const serializeAws_json1_1ListDocumentClassifiersCommand = async (
   input: ListDocumentClassifiersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.ListDocumentClassifiers";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.ListDocumentClassifiers"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListDocumentClassifiersRequest(input, context)
@@ -788,10 +812,10 @@ export const serializeAws_json1_1ListDominantLanguageDetectionJobsCommand = asyn
   input: ListDominantLanguageDetectionJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "Comprehend_20171127.ListDominantLanguageDetectionJobs";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.ListDominantLanguageDetectionJobs"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListDominantLanguageDetectionJobsRequest(input, context)
@@ -803,9 +827,10 @@ export const serializeAws_json1_1ListEndpointsCommand = async (
   input: ListEndpointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.ListEndpoints";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.ListEndpoints"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListEndpointsRequest(input, context)
@@ -817,9 +842,10 @@ export const serializeAws_json1_1ListEntitiesDetectionJobsCommand = async (
   input: ListEntitiesDetectionJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.ListEntitiesDetectionJobs";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.ListEntitiesDetectionJobs"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListEntitiesDetectionJobsRequest(input, context)
@@ -831,9 +857,10 @@ export const serializeAws_json1_1ListEntityRecognizersCommand = async (
   input: ListEntityRecognizersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.ListEntityRecognizers";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.ListEntityRecognizers"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListEntityRecognizersRequest(input, context)
@@ -845,9 +872,10 @@ export const serializeAws_json1_1ListKeyPhrasesDetectionJobsCommand = async (
   input: ListKeyPhrasesDetectionJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.ListKeyPhrasesDetectionJobs";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.ListKeyPhrasesDetectionJobs"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListKeyPhrasesDetectionJobsRequest(input, context)
@@ -859,9 +887,10 @@ export const serializeAws_json1_1ListSentimentDetectionJobsCommand = async (
   input: ListSentimentDetectionJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.ListSentimentDetectionJobs";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.ListSentimentDetectionJobs"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListSentimentDetectionJobsRequest(input, context)
@@ -873,9 +902,10 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.ListTagsForResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.ListTagsForResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTagsForResourceRequest(input, context)
@@ -887,9 +917,10 @@ export const serializeAws_json1_1ListTopicsDetectionJobsCommand = async (
   input: ListTopicsDetectionJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.ListTopicsDetectionJobs";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.ListTopicsDetectionJobs"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTopicsDetectionJobsRequest(input, context)
@@ -901,10 +932,10 @@ export const serializeAws_json1_1StartDocumentClassificationJobCommand = async (
   input: StartDocumentClassificationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "Comprehend_20171127.StartDocumentClassificationJob";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.StartDocumentClassificationJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartDocumentClassificationJobRequest(input, context)
@@ -916,10 +947,10 @@ export const serializeAws_json1_1StartDominantLanguageDetectionJobCommand = asyn
   input: StartDominantLanguageDetectionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "Comprehend_20171127.StartDominantLanguageDetectionJob";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.StartDominantLanguageDetectionJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartDominantLanguageDetectionJobRequest(input, context)
@@ -931,9 +962,10 @@ export const serializeAws_json1_1StartEntitiesDetectionJobCommand = async (
   input: StartEntitiesDetectionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.StartEntitiesDetectionJob";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.StartEntitiesDetectionJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartEntitiesDetectionJobRequest(input, context)
@@ -945,9 +977,10 @@ export const serializeAws_json1_1StartKeyPhrasesDetectionJobCommand = async (
   input: StartKeyPhrasesDetectionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.StartKeyPhrasesDetectionJob";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.StartKeyPhrasesDetectionJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartKeyPhrasesDetectionJobRequest(input, context)
@@ -959,9 +992,10 @@ export const serializeAws_json1_1StartSentimentDetectionJobCommand = async (
   input: StartSentimentDetectionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.StartSentimentDetectionJob";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.StartSentimentDetectionJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartSentimentDetectionJobRequest(input, context)
@@ -973,9 +1007,10 @@ export const serializeAws_json1_1StartTopicsDetectionJobCommand = async (
   input: StartTopicsDetectionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.StartTopicsDetectionJob";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.StartTopicsDetectionJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartTopicsDetectionJobRequest(input, context)
@@ -987,10 +1022,10 @@ export const serializeAws_json1_1StopDominantLanguageDetectionJobCommand = async
   input: StopDominantLanguageDetectionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "Comprehend_20171127.StopDominantLanguageDetectionJob";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.StopDominantLanguageDetectionJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StopDominantLanguageDetectionJobRequest(input, context)
@@ -1002,9 +1037,10 @@ export const serializeAws_json1_1StopEntitiesDetectionJobCommand = async (
   input: StopEntitiesDetectionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.StopEntitiesDetectionJob";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.StopEntitiesDetectionJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StopEntitiesDetectionJobRequest(input, context)
@@ -1016,9 +1052,10 @@ export const serializeAws_json1_1StopKeyPhrasesDetectionJobCommand = async (
   input: StopKeyPhrasesDetectionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.StopKeyPhrasesDetectionJob";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.StopKeyPhrasesDetectionJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StopKeyPhrasesDetectionJobRequest(input, context)
@@ -1030,9 +1067,10 @@ export const serializeAws_json1_1StopSentimentDetectionJobCommand = async (
   input: StopSentimentDetectionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.StopSentimentDetectionJob";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.StopSentimentDetectionJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StopSentimentDetectionJobRequest(input, context)
@@ -1044,10 +1082,10 @@ export const serializeAws_json1_1StopTrainingDocumentClassifierCommand = async (
   input: StopTrainingDocumentClassifierCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "Comprehend_20171127.StopTrainingDocumentClassifier";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.StopTrainingDocumentClassifier"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StopTrainingDocumentClassifierRequest(input, context)
@@ -1059,9 +1097,10 @@ export const serializeAws_json1_1StopTrainingEntityRecognizerCommand = async (
   input: StopTrainingEntityRecognizerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.StopTrainingEntityRecognizer";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.StopTrainingEntityRecognizer"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StopTrainingEntityRecognizerRequest(input, context)
@@ -1073,9 +1112,10 @@ export const serializeAws_json1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.TagResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.TagResource"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1085,9 +1125,10 @@ export const serializeAws_json1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.UntagResource";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.UntagResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UntagResourceRequest(input, context)
@@ -1099,9 +1140,10 @@ export const serializeAws_json1_1UpdateEndpointCommand = async (
   input: UpdateEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.UpdateEndpoint";
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.UpdateEndpoint"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateEndpointRequest(input, context)

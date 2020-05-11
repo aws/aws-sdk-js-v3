@@ -119,8 +119,9 @@ export const serializeAws_restJson1_1CancelJobCommand = async (
   input: CancelJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/canceljob";
   let body: any;
   const bodyParams: any = {};
@@ -147,8 +148,9 @@ export const serializeAws_restJson1_1CreateComputeEnvironmentCommand = async (
   input: CreateComputeEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/createcomputeenvironment";
   let body: any;
   const bodyParams: any = {};
@@ -187,8 +189,9 @@ export const serializeAws_restJson1_1CreateJobQueueCommand = async (
   input: CreateJobQueueCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/createjobqueue";
   let body: any;
   const bodyParams: any = {};
@@ -226,8 +229,9 @@ export const serializeAws_restJson1_1DeleteComputeEnvironmentCommand = async (
   input: DeleteComputeEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/deletecomputeenvironment";
   let body: any;
   const bodyParams: any = {};
@@ -251,8 +255,9 @@ export const serializeAws_restJson1_1DeleteJobQueueCommand = async (
   input: DeleteJobQueueCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/deletejobqueue";
   let body: any;
   const bodyParams: any = {};
@@ -276,8 +281,9 @@ export const serializeAws_restJson1_1DeregisterJobDefinitionCommand = async (
   input: DeregisterJobDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/deregisterjobdefinition";
   let body: any;
   const bodyParams: any = {};
@@ -301,8 +307,9 @@ export const serializeAws_restJson1_1DescribeComputeEnvironmentsCommand = async 
   input: DescribeComputeEnvironmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/describecomputeenvironments";
   let body: any;
   const bodyParams: any = {};
@@ -335,8 +342,9 @@ export const serializeAws_restJson1_1DescribeJobDefinitionsCommand = async (
   input: DescribeJobDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/describejobdefinitions";
   let body: any;
   const bodyParams: any = {};
@@ -375,8 +383,9 @@ export const serializeAws_restJson1_1DescribeJobQueuesCommand = async (
   input: DescribeJobQueuesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/describejobqueues";
   let body: any;
   const bodyParams: any = {};
@@ -409,8 +418,9 @@ export const serializeAws_restJson1_1DescribeJobsCommand = async (
   input: DescribeJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/describejobs";
   let body: any;
   const bodyParams: any = {};
@@ -437,8 +447,9 @@ export const serializeAws_restJson1_1ListJobsCommand = async (
   input: ListJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/listjobs";
   let body: any;
   const bodyParams: any = {};
@@ -477,8 +488,9 @@ export const serializeAws_restJson1_1RegisterJobDefinitionCommand = async (
   input: RegisterJobDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/registerjobdefinition";
   let body: any;
   const bodyParams: any = {};
@@ -537,8 +549,9 @@ export const serializeAws_restJson1_1SubmitJobCommand = async (
   input: SubmitJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/submitjob";
   let body: any;
   const bodyParams: any = {};
@@ -612,8 +625,9 @@ export const serializeAws_restJson1_1TerminateJobCommand = async (
   input: TerminateJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/terminatejob";
   let body: any;
   const bodyParams: any = {};
@@ -640,8 +654,9 @@ export const serializeAws_restJson1_1UpdateComputeEnvironmentCommand = async (
   input: UpdateComputeEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/updatecomputeenvironment";
   let body: any;
   const bodyParams: any = {};
@@ -679,8 +694,9 @@ export const serializeAws_restJson1_1UpdateJobQueueCommand = async (
   input: UpdateJobQueueCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/updatejobqueue";
   let body: any;
   const bodyParams: any = {};
