@@ -8,6 +8,9 @@ export interface EventSigningStreamOptions extends TransformOptions {
   eventMarshaller: EventMarshaller;
 }
 
+/**
+ * A transform stream that signs the eventstream
+ */
 export class EventSigningStream extends Transform {
   private priorSignature: string;
   private eventSigner: EventSigner;

@@ -21,6 +21,13 @@ export interface EventStreamPayloadHandlerOptions {
   utf8Decoder: Decoder;
 }
 
+/**
+ * A handler that control the eventstream payload flow:
+ * 1. Pause stream for initial attempt.
+ * 2. Close the stream is attempt fails.
+ * 3. Start piping payload when connection is established.
+ * 4. Sign the payload after payload stream starting to flow.
+ */
 export class EventStreamPayloadHandler implements IEventStreamPayloadHandler {
   private readonly eventSigner: Provider<EventSigner>;
   private readonly eventMarshaller: EventMarshaller;
@@ -50,12 +57,16 @@ export class EventStreamPayloadHandler implements IEventStreamPayloadHandler {
     try {
       result = await next(args);
     } catch (e) {
+      // Close the payload stream otherwise the retry would hang
+      // because of the previous connection.
       request.body.end();
       throw e;
     }
+    // If response is successful, start piping the payload stream
     const match = (request.headers["authorization"] || "").match(
       /Signature=([\w]+)$/
     );
+    // Sign the eventstream based on the signature from initial request.
     const priorSignature = (match || [])[1];
     const signingStream = new EventSigningStream({
       priorSignature,
