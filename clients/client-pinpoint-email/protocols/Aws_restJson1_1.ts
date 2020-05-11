@@ -608,12 +608,11 @@ export const serializeAws_restJson1_1GetBlacklistReportsCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/email/deliverability-dashboard/blacklist-report";
-  const query: any = {};
-  if (input.BlacklistItemNames !== undefined) {
-    query["BlacklistItemNames"] = (input.BlacklistItemNames || []).map(
-      _entry => _entry
-    );
-  }
+  const query: any = {
+    ...(input.BlacklistItemNames !== undefined && {
+      BlacklistItemNames: (input.BlacklistItemNames || []).map(_entry => _entry)
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -740,16 +739,13 @@ export const serializeAws_restJson1_1GetDedicatedIpsCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/email/dedicated-ips";
-  const query: any = {};
-  if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken;
-  }
-  if (input.PageSize !== undefined) {
-    query["PageSize"] = input.PageSize.toString();
-  }
-  if (input.PoolName !== undefined) {
-    query["PoolName"] = input.PoolName;
-  }
+  const query: any = {
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.PageSize !== undefined && {
+      PageSize: input.PageSize.toString()
+    }),
+    ...(input.PoolName !== undefined && { PoolName: input.PoolName })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -871,17 +867,14 @@ export const serializeAws_restJson1_1GetDomainStatisticsReportCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: Domain.");
   }
-  const query: any = {};
-  if (input.EndDate !== undefined) {
-    query["EndDate"] = (
-      input.EndDate.toISOString().split(".")[0] + "Z"
-    ).toString();
-  }
-  if (input.StartDate !== undefined) {
-    query["StartDate"] = (
-      input.StartDate.toISOString().split(".")[0] + "Z"
-    ).toString();
-  }
+  const query: any = {
+    ...(input.EndDate !== undefined && {
+      EndDate: (input.EndDate.toISOString().split(".")[0] + "Z").toString()
+    }),
+    ...(input.StartDate !== undefined && {
+      StartDate: (input.StartDate.toISOString().split(".")[0] + "Z").toString()
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -937,13 +930,10 @@ export const serializeAws_restJson1_1ListConfigurationSetsCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/email/configuration-sets";
-  const query: any = {};
-  if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken;
-  }
-  if (input.PageSize !== undefined) {
-    query["PageSize"] = input.PageSize.toString();
-  }
+  const query: any = {
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.PageSize !== undefined && { PageSize: input.PageSize.toString() })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -965,13 +955,10 @@ export const serializeAws_restJson1_1ListDedicatedIpPoolsCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/email/dedicated-ip-pools";
-  const query: any = {};
-  if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken;
-  }
-  if (input.PageSize !== undefined) {
-    query["PageSize"] = input.PageSize.toString();
-  }
+  const query: any = {
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.PageSize !== undefined && { PageSize: input.PageSize.toString() })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -993,13 +980,10 @@ export const serializeAws_restJson1_1ListDeliverabilityTestReportsCommand = asyn
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/email/deliverability-dashboard/test-reports";
-  const query: any = {};
-  if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken;
-  }
-  if (input.PageSize !== undefined) {
-    query["PageSize"] = input.PageSize.toString();
-  }
+  const query: any = {
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.PageSize !== undefined && { PageSize: input.PageSize.toString() })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1038,23 +1022,18 @@ export const serializeAws_restJson1_1ListDomainDeliverabilityCampaignsCommand = 
       "No value provided for input HTTP label: SubscribedDomain."
     );
   }
-  const query: any = {};
-  if (input.EndDate !== undefined) {
-    query["EndDate"] = (
-      input.EndDate.toISOString().split(".")[0] + "Z"
-    ).toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken;
-  }
-  if (input.PageSize !== undefined) {
-    query["PageSize"] = input.PageSize.toString();
-  }
-  if (input.StartDate !== undefined) {
-    query["StartDate"] = (
-      input.StartDate.toISOString().split(".")[0] + "Z"
-    ).toString();
-  }
+  const query: any = {
+    ...(input.EndDate !== undefined && {
+      EndDate: (input.EndDate.toISOString().split(".")[0] + "Z").toString()
+    }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.PageSize !== undefined && {
+      PageSize: input.PageSize.toString()
+    }),
+    ...(input.StartDate !== undefined && {
+      StartDate: (input.StartDate.toISOString().split(".")[0] + "Z").toString()
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1076,13 +1055,10 @@ export const serializeAws_restJson1_1ListEmailIdentitiesCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/email/identities";
-  const query: any = {};
-  if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken;
-  }
-  if (input.PageSize !== undefined) {
-    query["PageSize"] = input.PageSize.toString();
-  }
+  const query: any = {
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.PageSize !== undefined && { PageSize: input.PageSize.toString() })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1104,10 +1080,9 @@ export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/email/tags";
-  const query: any = {};
-  if (input.ResourceArn !== undefined) {
-    query["ResourceArn"] = input.ResourceArn;
-  }
+  const query: any = {
+    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1661,13 +1636,12 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/email/tags";
-  const query: any = {};
-  if (input.ResourceArn !== undefined) {
-    query["ResourceArn"] = input.ResourceArn;
-  }
-  if (input.TagKeys !== undefined) {
-    query["TagKeys"] = (input.TagKeys || []).map(_entry => _entry);
-  }
+  const query: any = {
+    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
+    ...(input.TagKeys !== undefined && {
+      TagKeys: (input.TagKeys || []).map(_entry => _entry)
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({

@@ -142,22 +142,21 @@ export const serializeAws_restJson1_1GetLifecyclePoliciesCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/policies";
-  const query: any = {};
-  if (input.PolicyIds !== undefined) {
-    query["policyIds"] = (input.PolicyIds || []).map(_entry => _entry);
-  }
-  if (input.ResourceTypes !== undefined) {
-    query["resourceTypes"] = (input.ResourceTypes || []).map(_entry => _entry);
-  }
-  if (input.State !== undefined) {
-    query["state"] = input.State;
-  }
-  if (input.TagsToAdd !== undefined) {
-    query["tagsToAdd"] = (input.TagsToAdd || []).map(_entry => _entry);
-  }
-  if (input.TargetTags !== undefined) {
-    query["targetTags"] = (input.TargetTags || []).map(_entry => _entry);
-  }
+  const query: any = {
+    ...(input.PolicyIds !== undefined && {
+      policyIds: (input.PolicyIds || []).map(_entry => _entry)
+    }),
+    ...(input.ResourceTypes !== undefined && {
+      resourceTypes: (input.ResourceTypes || []).map(_entry => _entry)
+    }),
+    ...(input.State !== undefined && { state: input.State }),
+    ...(input.TagsToAdd !== undefined && {
+      tagsToAdd: (input.TagsToAdd || []).map(_entry => _entry)
+    }),
+    ...(input.TargetTags !== undefined && {
+      targetTags: (input.TargetTags || []).map(_entry => _entry)
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -298,10 +297,11 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
-  const query: any = {};
-  if (input.TagKeys !== undefined) {
-    query["tagKeys"] = (input.TagKeys || []).map(_entry => _entry);
-  }
+  const query: any = {
+    ...(input.TagKeys !== undefined && {
+      tagKeys: (input.TagKeys || []).map(_entry => _entry)
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({

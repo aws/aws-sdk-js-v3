@@ -399,16 +399,15 @@ export const serializeAws_restJson1_1ListAssetsCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/assets";
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
-  if (input.PackagingGroupId !== undefined) {
-    query["packagingGroupId"] = input.PackagingGroupId;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.PackagingGroupId !== undefined && {
+      packagingGroupId: input.PackagingGroupId
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -430,16 +429,15 @@ export const serializeAws_restJson1_1ListPackagingConfigurationsCommand = async 
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/packaging_configurations";
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
-  if (input.PackagingGroupId !== undefined) {
-    query["packagingGroupId"] = input.PackagingGroupId;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.PackagingGroupId !== undefined && {
+      packagingGroupId: input.PackagingGroupId
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -461,13 +459,12 @@ export const serializeAws_restJson1_1ListPackagingGroupsCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/packaging_groups";
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({

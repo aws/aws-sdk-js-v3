@@ -561,13 +561,12 @@ export const serializeAws_restJson1_1ListConfigsCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/config";
-  const query: any = {};
-  if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
-  }
-  if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken;
-  }
+  const query: any = {
+    ...(input.maxResults !== undefined && {
+      maxResults: input.maxResults.toString()
+    }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -638,13 +637,12 @@ export const serializeAws_restJson1_1ListDataflowEndpointGroupsCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/dataflowEndpointGroup";
-  const query: any = {};
-  if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
-  }
-  if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken;
-  }
+  const query: any = {
+    ...(input.maxResults !== undefined && {
+      maxResults: input.maxResults.toString()
+    }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -666,13 +664,12 @@ export const serializeAws_restJson1_1ListMissionProfilesCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/missionprofile";
-  const query: any = {};
-  if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
-  }
-  if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken;
-  }
+  const query: any = {
+    ...(input.maxResults !== undefined && {
+      maxResults: input.maxResults.toString()
+    }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -913,13 +910,12 @@ export const serializeAws_restJson1_1ListGroundStationsCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/groundstation";
-  const query: any = {};
-  if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
-  }
-  if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken;
-  }
+  const query: any = {
+    ...(input.maxResults !== undefined && {
+      maxResults: input.maxResults.toString()
+    }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -941,13 +937,12 @@ export const serializeAws_restJson1_1ListSatellitesCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/satellite";
-  const query: any = {};
-  if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
-  }
-  if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken;
-  }
+  const query: any = {
+    ...(input.maxResults !== undefined && {
+      maxResults: input.maxResults.toString()
+    }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1056,10 +1051,11 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
-  const query: any = {};
-  if (input.tagKeys !== undefined) {
-    query["tagKeys"] = (input.tagKeys || []).map(_entry => _entry);
-  }
+  const query: any = {
+    ...(input.tagKeys !== undefined && {
+      tagKeys: (input.tagKeys || []).map(_entry => _entry)
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({

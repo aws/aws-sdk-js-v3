@@ -119,21 +119,16 @@ export const serializeAws_restJson1_1DescribeVoicesCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/voices";
-  const query: any = {};
-  if (input.Engine !== undefined) {
-    query["Engine"] = input.Engine;
-  }
-  if (input.IncludeAdditionalLanguageCodes !== undefined) {
-    query[
-      "IncludeAdditionalLanguageCodes"
-    ] = input.IncludeAdditionalLanguageCodes.toString();
-  }
-  if (input.LanguageCode !== undefined) {
-    query["LanguageCode"] = input.LanguageCode;
-  }
-  if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.Engine !== undefined && { Engine: input.Engine }),
+    ...(input.IncludeAdditionalLanguageCodes !== undefined && {
+      IncludeAdditionalLanguageCodes: input.IncludeAdditionalLanguageCodes.toString()
+    }),
+    ...(input.LanguageCode !== undefined && {
+      LanguageCode: input.LanguageCode
+    }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -219,10 +214,9 @@ export const serializeAws_restJson1_1ListLexiconsCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/lexicons";
-  const query: any = {};
-  if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -244,16 +238,13 @@ export const serializeAws_restJson1_1ListSpeechSynthesisTasksCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/synthesisTasks";
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken;
-  }
-  if (input.Status !== undefined) {
-    query["Status"] = input.Status;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && {
+      MaxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Status !== undefined && { Status: input.Status })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({

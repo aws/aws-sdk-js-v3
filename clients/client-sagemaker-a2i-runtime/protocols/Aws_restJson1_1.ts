@@ -122,26 +122,23 @@ export const serializeAws_restJson1_1ListHumanLoopsCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/human-loops";
-  const query: any = {};
-  if (input.CreationTimeAfter !== undefined) {
-    query["CreationTimeAfter"] = (
-      input.CreationTimeAfter.toISOString().split(".")[0] + "Z"
-    ).toString();
-  }
-  if (input.CreationTimeBefore !== undefined) {
-    query["CreationTimeBefore"] = (
-      input.CreationTimeBefore.toISOString().split(".")[0] + "Z"
-    ).toString();
-  }
-  if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken;
-  }
-  if (input.SortOrder !== undefined) {
-    query["SortOrder"] = input.SortOrder;
-  }
+  const query: any = {
+    ...(input.CreationTimeAfter !== undefined && {
+      CreationTimeAfter: (
+        input.CreationTimeAfter.toISOString().split(".")[0] + "Z"
+      ).toString()
+    }),
+    ...(input.CreationTimeBefore !== undefined && {
+      CreationTimeBefore: (
+        input.CreationTimeBefore.toISOString().split(".")[0] + "Z"
+      ).toString()
+    }),
+    ...(input.MaxResults !== undefined && {
+      MaxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.SortOrder !== undefined && { SortOrder: input.SortOrder })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({

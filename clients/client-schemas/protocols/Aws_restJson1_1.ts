@@ -503,10 +503,11 @@ export const serializeAws_restJson1_1DescribeCodeBindingCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: SchemaName.");
   }
-  const query: any = {};
-  if (input.SchemaVersion !== undefined) {
-    query["schemaVersion"] = input.SchemaVersion;
-  }
+  const query: any = {
+    ...(input.SchemaVersion !== undefined && {
+      schemaVersion: input.SchemaVersion
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -623,10 +624,11 @@ export const serializeAws_restJson1_1DescribeSchemaCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: SchemaName.");
   }
-  const query: any = {};
-  if (input.SchemaVersion !== undefined) {
-    query["schemaVersion"] = input.SchemaVersion;
-  }
+  const query: any = {
+    ...(input.SchemaVersion !== undefined && {
+      schemaVersion: input.SchemaVersion
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -687,10 +689,11 @@ export const serializeAws_restJson1_1GetCodeBindingSourceCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: SchemaName.");
   }
-  const query: any = {};
-  if (input.SchemaVersion !== undefined) {
-    query["schemaVersion"] = input.SchemaVersion;
-  }
+  const query: any = {
+    ...(input.SchemaVersion !== undefined && {
+      schemaVersion: input.SchemaVersion
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -745,19 +748,16 @@ export const serializeAws_restJson1_1ListDiscoverersCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/discoverers";
-  const query: any = {};
-  if (input.DiscovererIdPrefix !== undefined) {
-    query["discovererIdPrefix"] = input.DiscovererIdPrefix;
-  }
-  if (input.Limit !== undefined) {
-    query["limit"] = input.Limit.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
-  if (input.SourceArnPrefix !== undefined) {
-    query["sourceArnPrefix"] = input.SourceArnPrefix;
-  }
+  const query: any = {
+    ...(input.DiscovererIdPrefix !== undefined && {
+      discovererIdPrefix: input.DiscovererIdPrefix
+    }),
+    ...(input.Limit !== undefined && { limit: input.Limit.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.SourceArnPrefix !== undefined && {
+      sourceArnPrefix: input.SourceArnPrefix
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -779,19 +779,14 @@ export const serializeAws_restJson1_1ListRegistriesCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/registries";
-  const query: any = {};
-  if (input.Limit !== undefined) {
-    query["limit"] = input.Limit.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
-  if (input.RegistryNamePrefix !== undefined) {
-    query["registryNamePrefix"] = input.RegistryNamePrefix;
-  }
-  if (input.Scope !== undefined) {
-    query["scope"] = input.Scope;
-  }
+  const query: any = {
+    ...(input.Limit !== undefined && { limit: input.Limit.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.RegistryNamePrefix !== undefined && {
+      registryNamePrefix: input.RegistryNamePrefix
+    }),
+    ...(input.Scope !== undefined && { scope: input.Scope })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -840,13 +835,10 @@ export const serializeAws_restJson1_1ListSchemaVersionsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: SchemaName.");
   }
-  const query: any = {};
-  if (input.Limit !== undefined) {
-    query["limit"] = input.Limit.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.Limit !== undefined && { limit: input.Limit.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -882,16 +874,13 @@ export const serializeAws_restJson1_1ListSchemasCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
   }
-  const query: any = {};
-  if (input.Limit !== undefined) {
-    query["limit"] = input.Limit.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
-  if (input.SchemaNamePrefix !== undefined) {
-    query["schemaNamePrefix"] = input.SchemaNamePrefix;
-  }
+  const query: any = {
+    ...(input.Limit !== undefined && { limit: input.Limit.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.SchemaNamePrefix !== undefined && {
+      schemaNamePrefix: input.SchemaNamePrefix
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1014,10 +1003,11 @@ export const serializeAws_restJson1_1PutCodeBindingCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: SchemaName.");
   }
-  const query: any = {};
-  if (input.SchemaVersion !== undefined) {
-    query["schemaVersion"] = input.SchemaVersion;
-  }
+  const query: any = {
+    ...(input.SchemaVersion !== undefined && {
+      schemaVersion: input.SchemaVersion
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1053,16 +1043,11 @@ export const serializeAws_restJson1_1SearchSchemasCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
   }
-  const query: any = {};
-  if (input.Keywords !== undefined) {
-    query["keywords"] = input.Keywords;
-  }
-  if (input.Limit !== undefined) {
-    query["limit"] = input.Limit.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.Keywords !== undefined && { keywords: input.Keywords }),
+    ...(input.Limit !== undefined && { limit: input.Limit.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1230,10 +1215,11 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
-  const query: any = {};
-  if (input.TagKeys !== undefined) {
-    query["tagKeys"] = (input.TagKeys || []).map(_entry => _entry);
-  }
+  const query: any = {
+    ...(input.TagKeys !== undefined && {
+      tagKeys: (input.TagKeys || []).map(_entry => _entry)
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({

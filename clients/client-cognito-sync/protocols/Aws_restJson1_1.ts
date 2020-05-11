@@ -476,13 +476,10 @@ export const serializeAws_restJson1_1ListDatasetsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
   }
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -504,13 +501,12 @@ export const serializeAws_restJson1_1ListIdentityPoolUsageCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/identitypools";
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -573,19 +569,18 @@ export const serializeAws_restJson1_1ListRecordsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
   }
-  const query: any = {};
-  if (input.LastSyncCount !== undefined) {
-    query["lastSyncCount"] = input.LastSyncCount.toString();
-  }
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
-  if (input.SyncSessionToken !== undefined) {
-    query["syncSessionToken"] = input.SyncSessionToken;
-  }
+  const query: any = {
+    ...(input.LastSyncCount !== undefined && {
+      lastSyncCount: input.LastSyncCount.toString()
+    }),
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.SyncSessionToken !== undefined && {
+      syncSessionToken: input.SyncSessionToken
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({

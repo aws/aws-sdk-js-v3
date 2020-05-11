@@ -220,10 +220,9 @@ export const serializeAws_restJson1_1DeleteAnalyzerCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: analyzerName.");
   }
-  const query: any = {};
-  if (input.clientToken !== undefined) {
-    query["clientToken"] = input.clientToken;
-  }
+  const query: any = {
+    ...(input.clientToken !== undefined && { clientToken: input.clientToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -271,10 +270,9 @@ export const serializeAws_restJson1_1DeleteArchiveRuleCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: ruleName.");
   }
-  const query: any = {};
-  if (input.clientToken !== undefined) {
-    query["clientToken"] = input.clientToken;
-  }
+  const query: any = {
+    ...(input.clientToken !== undefined && { clientToken: input.clientToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -296,13 +294,10 @@ export const serializeAws_restJson1_1GetAnalyzedResourceCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/analyzed-resource";
-  const query: any = {};
-  if (input.analyzerArn !== undefined) {
-    query["analyzerArn"] = input.analyzerArn;
-  }
-  if (input.resourceArn !== undefined) {
-    query["resourceArn"] = input.resourceArn;
-  }
+  const query: any = {
+    ...(input.analyzerArn !== undefined && { analyzerArn: input.analyzerArn }),
+    ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -416,10 +411,9 @@ export const serializeAws_restJson1_1GetFindingCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: id.");
   }
-  const query: any = {};
-  if (input.analyzerArn !== undefined) {
-    query["analyzerArn"] = input.analyzerArn;
-  }
+  const query: any = {
+    ...(input.analyzerArn !== undefined && { analyzerArn: input.analyzerArn })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -475,16 +469,13 @@ export const serializeAws_restJson1_1ListAnalyzersCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/analyzer";
-  const query: any = {};
-  if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
-  }
-  if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken;
-  }
-  if (input.type !== undefined) {
-    query["type"] = input.type;
-  }
+  const query: any = {
+    ...(input.maxResults !== undefined && {
+      maxResults: input.maxResults.toString()
+    }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.type !== undefined && { type: input.type })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -520,13 +511,12 @@ export const serializeAws_restJson1_1ListArchiveRulesCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: analyzerName.");
   }
-  const query: any = {};
-  if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
-  }
-  if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken;
-  }
+  const query: any = {
+    ...(input.maxResults !== undefined && {
+      maxResults: input.maxResults.toString()
+    }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -706,10 +696,11 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
-  const query: any = {};
-  if (input.tagKeys !== undefined) {
-    query["tagKeys"] = (input.tagKeys || []).map(_entry => _entry);
-  }
+  const query: any = {
+    ...(input.tagKeys !== undefined && {
+      tagKeys: (input.tagKeys || []).map(_entry => _entry)
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({

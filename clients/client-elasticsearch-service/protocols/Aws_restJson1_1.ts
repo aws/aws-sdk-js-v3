@@ -497,10 +497,9 @@ export const serializeAws_restJson1_1DescribeElasticsearchInstanceTypeLimitsComm
   } else {
     throw new Error("No value provided for input HTTP label: InstanceType.");
   }
-  const query: any = {};
-  if (input.DomainName !== undefined) {
-    query["domainName"] = input.DomainName;
-  }
+  const query: any = {
+    ...(input.DomainName !== undefined && { domainName: input.DomainName })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -522,16 +521,15 @@ export const serializeAws_restJson1_1DescribeReservedElasticsearchInstanceOfferi
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2015-01-01/es/reservedInstanceOfferings";
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
-  if (input.ReservedElasticsearchInstanceOfferingId !== undefined) {
-    query["offeringId"] = input.ReservedElasticsearchInstanceOfferingId;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.ReservedElasticsearchInstanceOfferingId !== undefined && {
+      offeringId: input.ReservedElasticsearchInstanceOfferingId
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -553,16 +551,15 @@ export const serializeAws_restJson1_1DescribeReservedElasticsearchInstancesComma
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2015-01-01/es/reservedInstances";
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
-  if (input.ReservedElasticsearchInstanceId !== undefined) {
-    query["reservationId"] = input.ReservedElasticsearchInstanceId;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.ReservedElasticsearchInstanceId !== undefined && {
+      reservationId: input.ReservedElasticsearchInstanceId
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -584,10 +581,9 @@ export const serializeAws_restJson1_1GetCompatibleElasticsearchVersionsCommand =
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2015-01-01/es/compatibleVersions";
-  const query: any = {};
-  if (input.DomainName !== undefined) {
-    query["domainName"] = input.DomainName;
-  }
+  const query: any = {
+    ...(input.DomainName !== undefined && { domainName: input.DomainName })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -621,13 +617,12 @@ export const serializeAws_restJson1_1GetUpgradeHistoryCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: DomainName.");
   }
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -718,16 +713,13 @@ export const serializeAws_restJson1_1ListElasticsearchInstanceTypesCommand = asy
       "No value provided for input HTTP label: ElasticsearchVersion."
     );
   }
-  const query: any = {};
-  if (input.DomainName !== undefined) {
-    query["domainName"] = input.DomainName;
-  }
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.DomainName !== undefined && { domainName: input.DomainName }),
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -749,13 +741,12 @@ export const serializeAws_restJson1_1ListElasticsearchVersionsCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2015-01-01/es/versions";
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -777,10 +768,9 @@ export const serializeAws_restJson1_1ListTagsCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2015-01-01/tags";
-  const query: any = {};
-  if (input.ARN !== undefined) {
-    query["arn"] = input.ARN;
-  }
+  const query: any = {
+    ...(input.ARN !== undefined && { arn: input.ARN })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({

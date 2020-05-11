@@ -660,18 +660,15 @@ export const serializeAws_restJson1_1DescribeGlobalNetworksCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/global-networks";
-  const query: any = {};
-  if (input.GlobalNetworkIds !== undefined) {
-    query["globalNetworkIds"] = (input.GlobalNetworkIds || []).map(
-      _entry => _entry
-    );
-  }
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.GlobalNetworkIds !== undefined && {
+      globalNetworkIds: (input.GlobalNetworkIds || []).map(_entry => _entry)
+    }),
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -758,13 +755,10 @@ export const serializeAws_restJson1_1DisassociateLinkCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
   }
-  const query: any = {};
-  if (input.DeviceId !== undefined) {
-    query["deviceId"] = input.DeviceId;
-  }
-  if (input.LinkId !== undefined) {
-    query["linkId"] = input.LinkId;
-  }
+  const query: any = {
+    ...(input.DeviceId !== undefined && { deviceId: input.DeviceId }),
+    ...(input.LinkId !== undefined && { linkId: input.LinkId })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -801,18 +795,17 @@ export const serializeAws_restJson1_1GetCustomerGatewayAssociationsCommand = asy
   } else {
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
   }
-  const query: any = {};
-  if (input.CustomerGatewayArns !== undefined) {
-    query["customerGatewayArns"] = (input.CustomerGatewayArns || []).map(
-      _entry => _entry
-    );
-  }
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.CustomerGatewayArns !== undefined && {
+      customerGatewayArns: (input.CustomerGatewayArns || []).map(
+        _entry => _entry
+      )
+    }),
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -848,19 +841,16 @@ export const serializeAws_restJson1_1GetDevicesCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
   }
-  const query: any = {};
-  if (input.DeviceIds !== undefined) {
-    query["deviceIds"] = (input.DeviceIds || []).map(_entry => _entry);
-  }
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
-  if (input.SiteId !== undefined) {
-    query["siteId"] = input.SiteId;
-  }
+  const query: any = {
+    ...(input.DeviceIds !== undefined && {
+      deviceIds: (input.DeviceIds || []).map(_entry => _entry)
+    }),
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.SiteId !== undefined && { siteId: input.SiteId })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -896,19 +886,14 @@ export const serializeAws_restJson1_1GetLinkAssociationsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
   }
-  const query: any = {};
-  if (input.DeviceId !== undefined) {
-    query["deviceId"] = input.DeviceId;
-  }
-  if (input.LinkId !== undefined) {
-    query["linkId"] = input.LinkId;
-  }
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.DeviceId !== undefined && { deviceId: input.DeviceId }),
+    ...(input.LinkId !== undefined && { linkId: input.LinkId }),
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -944,25 +929,18 @@ export const serializeAws_restJson1_1GetLinksCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
   }
-  const query: any = {};
-  if (input.LinkIds !== undefined) {
-    query["linkIds"] = (input.LinkIds || []).map(_entry => _entry);
-  }
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
-  if (input.Provider !== undefined) {
-    query["provider"] = input.Provider;
-  }
-  if (input.SiteId !== undefined) {
-    query["siteId"] = input.SiteId;
-  }
-  if (input.Type !== undefined) {
-    query["type"] = input.Type;
-  }
+  const query: any = {
+    ...(input.LinkIds !== undefined && {
+      linkIds: (input.LinkIds || []).map(_entry => _entry)
+    }),
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.Provider !== undefined && { provider: input.Provider }),
+    ...(input.SiteId !== undefined && { siteId: input.SiteId }),
+    ...(input.Type !== undefined && { type: input.Type })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -998,16 +976,15 @@ export const serializeAws_restJson1_1GetSitesCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
   }
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
-  if (input.SiteIds !== undefined) {
-    query["siteIds"] = (input.SiteIds || []).map(_entry => _entry);
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.SiteIds !== undefined && {
+      siteIds: (input.SiteIds || []).map(_entry => _entry)
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1044,18 +1021,15 @@ export const serializeAws_restJson1_1GetTransitGatewayRegistrationsCommand = asy
   } else {
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
   }
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
-  if (input.TransitGatewayArns !== undefined) {
-    query["transitGatewayArns"] = (input.TransitGatewayArns || []).map(
-      _entry => _entry
-    );
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.TransitGatewayArns !== undefined && {
+      transitGatewayArns: (input.TransitGatewayArns || []).map(_entry => _entry)
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1204,10 +1178,11 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
-  const query: any = {};
-  if (input.TagKeys !== undefined) {
-    query["tagKeys"] = (input.TagKeys || []).map(_entry => _entry);
-  }
+  const query: any = {
+    ...(input.TagKeys !== undefined && {
+      tagKeys: (input.TagKeys || []).map(_entry => _entry)
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({

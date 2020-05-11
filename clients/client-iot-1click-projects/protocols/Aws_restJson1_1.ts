@@ -541,13 +541,12 @@ export const serializeAws_restJson1_1ListPlacementsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: projectName.");
   }
-  const query: any = {};
-  if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
-  }
-  if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken;
-  }
+  const query: any = {
+    ...(input.maxResults !== undefined && {
+      maxResults: input.maxResults.toString()
+    }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -569,13 +568,12 @@ export const serializeAws_restJson1_1ListProjectsCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/projects";
-  const query: any = {};
-  if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
-  }
-  if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken;
-  }
+  const query: any = {
+    ...(input.maxResults !== undefined && {
+      maxResults: input.maxResults.toString()
+    }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -684,10 +682,11 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
-  const query: any = {};
-  if (input.tagKeys !== undefined) {
-    query["tagKeys"] = (input.tagKeys || []).map(_entry => _entry);
-  }
+  const query: any = {
+    ...(input.tagKeys !== undefined && {
+      tagKeys: (input.tagKeys || []).map(_entry => _entry)
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({

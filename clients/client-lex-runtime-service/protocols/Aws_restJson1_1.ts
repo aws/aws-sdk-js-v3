@@ -152,10 +152,11 @@ export const serializeAws_restJson1_1GetSessionCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: userId.");
   }
-  const query: any = {};
-  if (input.checkpointLabelFilter !== undefined) {
-    query["checkpointLabelFilter"] = input.checkpointLabelFilter;
-  }
+  const query: any = {
+    ...(input.checkpointLabelFilter !== undefined && {
+      checkpointLabelFilter: input.checkpointLabelFilter
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({

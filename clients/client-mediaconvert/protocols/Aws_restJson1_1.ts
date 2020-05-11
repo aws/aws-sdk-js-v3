@@ -829,22 +829,15 @@ export const serializeAws_restJson1_1ListJobTemplatesCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2017-08-29/jobTemplates";
-  const query: any = {};
-  if (input.Category !== undefined) {
-    query["category"] = input.Category;
-  }
-  if (input.ListBy !== undefined) {
-    query["listBy"] = input.ListBy;
-  }
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
-  if (input.Order !== undefined) {
-    query["order"] = input.Order;
-  }
+  const query: any = {
+    ...(input.Category !== undefined && { category: input.Category }),
+    ...(input.ListBy !== undefined && { listBy: input.ListBy }),
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.Order !== undefined && { order: input.Order })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -866,22 +859,15 @@ export const serializeAws_restJson1_1ListJobsCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2017-08-29/jobs";
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
-  if (input.Order !== undefined) {
-    query["order"] = input.Order;
-  }
-  if (input.Queue !== undefined) {
-    query["queue"] = input.Queue;
-  }
-  if (input.Status !== undefined) {
-    query["status"] = input.Status;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.Order !== undefined && { order: input.Order }),
+    ...(input.Queue !== undefined && { queue: input.Queue }),
+    ...(input.Status !== undefined && { status: input.Status })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -903,22 +889,15 @@ export const serializeAws_restJson1_1ListPresetsCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2017-08-29/presets";
-  const query: any = {};
-  if (input.Category !== undefined) {
-    query["category"] = input.Category;
-  }
-  if (input.ListBy !== undefined) {
-    query["listBy"] = input.ListBy;
-  }
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
-  if (input.Order !== undefined) {
-    query["order"] = input.Order;
-  }
+  const query: any = {
+    ...(input.Category !== undefined && { category: input.Category }),
+    ...(input.ListBy !== undefined && { listBy: input.ListBy }),
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.Order !== undefined && { order: input.Order })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -940,19 +919,14 @@ export const serializeAws_restJson1_1ListQueuesCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2017-08-29/queues";
-  const query: any = {};
-  if (input.ListBy !== undefined) {
-    query["listBy"] = input.ListBy;
-  }
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
-  if (input.Order !== undefined) {
-    query["order"] = input.Order;
-  }
+  const query: any = {
+    ...(input.ListBy !== undefined && { listBy: input.ListBy }),
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.Order !== undefined && { order: input.Order })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({

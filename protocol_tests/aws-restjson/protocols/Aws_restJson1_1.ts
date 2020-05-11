@@ -147,81 +147,74 @@ export const serializeAws_restJson1_1AllQueryStringTypesCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/AllQueryStringTypesInput";
-  const query: any = {};
-  if (input.queryBoolean !== undefined) {
-    query["Boolean"] = input.queryBoolean.toString();
-  }
-  if (input.queryBooleanList !== undefined) {
-    query["BooleanList"] = (input.queryBooleanList || []).map(_entry =>
-      _entry.toString()
-    );
-  }
-  if (input.queryByte !== undefined) {
-    query["Byte"] = input.queryByte.toString();
-  }
-  if (input.queryDouble !== undefined) {
-    query["Double"] =
-      input.queryDouble % 1 == 0
-        ? input.queryDouble + ".0"
-        : input.queryDouble.toString();
-  }
-  if (input.queryDoubleList !== undefined) {
-    query["DoubleList"] = (input.queryDoubleList || []).map(_entry =>
-      _entry % 1 == 0 ? _entry + ".0" : _entry.toString()
-    );
-  }
-  if (input.queryEnum !== undefined) {
-    query["Enum"] = input.queryEnum;
-  }
-  if (input.queryEnumList !== undefined) {
-    query["EnumList"] = (input.queryEnumList || []).map(_entry => _entry);
-  }
-  if (input.queryFloat !== undefined) {
-    query["Float"] =
-      input.queryFloat % 1 == 0
-        ? input.queryFloat + ".0"
-        : input.queryFloat.toString();
-  }
-  if (input.queryInteger !== undefined) {
-    query["Integer"] = input.queryInteger.toString();
-  }
-  if (input.queryIntegerList !== undefined) {
-    query["IntegerList"] = (input.queryIntegerList || []).map(_entry =>
-      _entry.toString()
-    );
-  }
-  if (input.queryIntegerSet !== undefined) {
-    query["IntegerSet"] = (
-      Array.from(input.queryIntegerSet.values()) || []
-    ).map(_entry => _entry.toString());
-  }
-  if (input.queryLong !== undefined) {
-    query["Long"] = input.queryLong.toString();
-  }
-  if (input.queryShort !== undefined) {
-    query["Short"] = input.queryShort.toString();
-  }
-  if (input.queryString !== undefined) {
-    query["String"] = input.queryString;
-  }
-  if (input.queryStringList !== undefined) {
-    query["StringList"] = (input.queryStringList || []).map(_entry => _entry);
-  }
-  if (input.queryStringSet !== undefined) {
-    query["StringSet"] = (Array.from(input.queryStringSet.values()) || []).map(
-      _entry => _entry
-    );
-  }
-  if (input.queryTimestamp !== undefined) {
-    query["Timestamp"] = (
-      input.queryTimestamp.toISOString().split(".")[0] + "Z"
-    ).toString();
-  }
-  if (input.queryTimestampList !== undefined) {
-    query["TimestampList"] = (input.queryTimestampList || []).map(_entry =>
-      (_entry.toISOString().split(".")[0] + "Z").toString()
-    );
-  }
+  const query: any = {
+    ...(input.queryBoolean !== undefined && {
+      Boolean: input.queryBoolean.toString()
+    }),
+    ...(input.queryBooleanList !== undefined && {
+      BooleanList: (input.queryBooleanList || []).map(_entry =>
+        _entry.toString()
+      )
+    }),
+    ...(input.queryByte !== undefined && { Byte: input.queryByte.toString() }),
+    ...(input.queryDouble !== undefined && {
+      Double:
+        input.queryDouble % 1 == 0
+          ? input.queryDouble + ".0"
+          : input.queryDouble.toString()
+    }),
+    ...(input.queryDoubleList !== undefined && {
+      DoubleList: (input.queryDoubleList || []).map(_entry =>
+        _entry % 1 == 0 ? _entry + ".0" : _entry.toString()
+      )
+    }),
+    ...(input.queryEnum !== undefined && { Enum: input.queryEnum }),
+    ...(input.queryEnumList !== undefined && {
+      EnumList: (input.queryEnumList || []).map(_entry => _entry)
+    }),
+    ...(input.queryFloat !== undefined && {
+      Float:
+        input.queryFloat % 1 == 0
+          ? input.queryFloat + ".0"
+          : input.queryFloat.toString()
+    }),
+    ...(input.queryInteger !== undefined && {
+      Integer: input.queryInteger.toString()
+    }),
+    ...(input.queryIntegerList !== undefined && {
+      IntegerList: (input.queryIntegerList || []).map(_entry =>
+        _entry.toString()
+      )
+    }),
+    ...(input.queryIntegerSet !== undefined && {
+      IntegerSet: (
+        Array.from(input.queryIntegerSet.values()) || []
+      ).map(_entry => _entry.toString())
+    }),
+    ...(input.queryLong !== undefined && { Long: input.queryLong.toString() }),
+    ...(input.queryShort !== undefined && {
+      Short: input.queryShort.toString()
+    }),
+    ...(input.queryString !== undefined && { String: input.queryString }),
+    ...(input.queryStringList !== undefined && {
+      StringList: (input.queryStringList || []).map(_entry => _entry)
+    }),
+    ...(input.queryStringSet !== undefined && {
+      StringSet: (Array.from(input.queryStringSet.values()) || []).map(
+        _entry => _entry
+      )
+    }),
+    ...(input.queryTimestamp !== undefined && {
+      Timestamp: (
+        input.queryTimestamp.toISOString().split(".")[0] + "Z"
+      ).toString()
+    }),
+    ...(input.queryTimestampList !== undefined && {
+      TimestampList: (input.queryTimestampList || []).map(_entry =>
+        (_entry.toISOString().split(".")[0] + "Z").toString()
+      )
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -244,14 +237,10 @@ export const serializeAws_restJson1_1ConstantAndVariableQueryStringCommand = asy
   headers["Content-Type"] = "";
   let resolvedPath = "/ConstantAndVariableQueryString";
   const query: any = {
-    foo: "bar"
+    foo: "bar",
+    ...(input.baz !== undefined && { baz: input.baz }),
+    ...(input.maybeSet !== undefined && { maybeSet: input.maybeSet })
   };
-  if (input.baz !== undefined) {
-    query["baz"] = input.baz;
-  }
-  if (input.maybeSet !== undefined) {
-    query["maybeSet"] = input.maybeSet;
-  }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1179,13 +1168,10 @@ export const serializeAws_restJson1_1OmitsNullSerializesEmptyStringCommand = asy
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/OmitsNullSerializesEmptyString";
-  const query: any = {};
-  if (input.emptyString !== undefined) {
-    query["Empty"] = input.emptyString;
-  }
-  if (input.nullValue !== undefined) {
-    query["Null"] = input.nullValue;
-  }
+  const query: any = {
+    ...(input.emptyString !== undefined && { Empty: input.emptyString }),
+    ...(input.nullValue !== undefined && { Null: input.nullValue })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1207,10 +1193,9 @@ export const serializeAws_restJson1_1QueryIdempotencyTokenAutoFillCommand = asyn
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/QueryIdempotencyTokenAutoFill";
-  const query: any = {};
-  if (input.token !== undefined) {
-    query["token"] = input.token;
-  }
+  const query: any = {
+    ...(input.token !== undefined && { token: input.token })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({

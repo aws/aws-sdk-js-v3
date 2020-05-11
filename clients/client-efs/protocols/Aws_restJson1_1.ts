@@ -497,19 +497,18 @@ export const serializeAws_restJson1_1DescribeAccessPointsCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2015-02-01/access-points";
-  const query: any = {};
-  if (input.AccessPointId !== undefined) {
-    query["AccessPointId"] = input.AccessPointId;
-  }
-  if (input.FileSystemId !== undefined) {
-    query["FileSystemId"] = input.FileSystemId;
-  }
-  if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.AccessPointId !== undefined && {
+      AccessPointId: input.AccessPointId
+    }),
+    ...(input.FileSystemId !== undefined && {
+      FileSystemId: input.FileSystemId
+    }),
+    ...(input.MaxResults !== undefined && {
+      MaxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -565,19 +564,16 @@ export const serializeAws_restJson1_1DescribeFileSystemsCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2015-02-01/file-systems";
-  const query: any = {};
-  if (input.CreationToken !== undefined) {
-    query["CreationToken"] = input.CreationToken;
-  }
-  if (input.FileSystemId !== undefined) {
-    query["FileSystemId"] = input.FileSystemId;
-  }
-  if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker;
-  }
-  if (input.MaxItems !== undefined) {
-    query["MaxItems"] = input.MaxItems.toString();
-  }
+  const query: any = {
+    ...(input.CreationToken !== undefined && {
+      CreationToken: input.CreationToken
+    }),
+    ...(input.FileSystemId !== undefined && {
+      FileSystemId: input.FileSystemId
+    }),
+    ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -669,22 +665,21 @@ export const serializeAws_restJson1_1DescribeMountTargetsCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2015-02-01/mount-targets";
-  const query: any = {};
-  if (input.AccessPointId !== undefined) {
-    query["AccessPointId"] = input.AccessPointId;
-  }
-  if (input.FileSystemId !== undefined) {
-    query["FileSystemId"] = input.FileSystemId;
-  }
-  if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker;
-  }
-  if (input.MaxItems !== undefined) {
-    query["MaxItems"] = input.MaxItems.toString();
-  }
-  if (input.MountTargetId !== undefined) {
-    query["MountTargetId"] = input.MountTargetId;
-  }
+  const query: any = {
+    ...(input.AccessPointId !== undefined && {
+      AccessPointId: input.AccessPointId
+    }),
+    ...(input.FileSystemId !== undefined && {
+      FileSystemId: input.FileSystemId
+    }),
+    ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.MaxItems !== undefined && {
+      MaxItems: input.MaxItems.toString()
+    }),
+    ...(input.MountTargetId !== undefined && {
+      MountTargetId: input.MountTargetId
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -720,13 +715,10 @@ export const serializeAws_restJson1_1DescribeTagsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: FileSystemId.");
   }
-  const query: any = {};
-  if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker;
-  }
-  if (input.MaxItems !== undefined) {
-    query["MaxItems"] = input.MaxItems.toString();
-  }
+  const query: any = {
+    ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -760,13 +752,12 @@ export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: ResourceId.");
   }
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && {
+      MaxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({

@@ -446,10 +446,9 @@ export const serializeAws_restJson1_1CreateCustomMetadataCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: ResourceId.");
   }
-  const query: any = {};
-  if (input.VersionId !== undefined) {
-    query["versionid"] = input.VersionId;
-  }
+  const query: any = {
+    ...(input.VersionId !== undefined && { versionid: input.VersionId })
+  };
   let body: any;
   const bodyParams: any = {};
   if (input.CustomMetadata !== undefined) {
@@ -760,16 +759,15 @@ export const serializeAws_restJson1_1DeleteCustomMetadataCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: ResourceId.");
   }
-  const query: any = {};
-  if (input.DeleteAll !== undefined) {
-    query["deleteAll"] = input.DeleteAll.toString();
-  }
-  if (input.Keys !== undefined) {
-    query["keys"] = (input.Keys || []).map(_entry => _entry);
-  }
-  if (input.VersionId !== undefined) {
-    query["versionId"] = input.VersionId;
-  }
+  const query: any = {
+    ...(input.DeleteAll !== undefined && {
+      deleteAll: input.DeleteAll.toString()
+    }),
+    ...(input.Keys !== undefined && {
+      keys: (input.Keys || []).map(_entry => _entry)
+    }),
+    ...(input.VersionId !== undefined && { versionId: input.VersionId })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -911,13 +909,14 @@ export const serializeAws_restJson1_1DeleteLabelsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: ResourceId.");
   }
-  const query: any = {};
-  if (input.DeleteAll !== undefined) {
-    query["deleteAll"] = input.DeleteAll.toString();
-  }
-  if (input.Labels !== undefined) {
-    query["labels"] = (input.Labels || []).map(_entry => _entry);
-  }
+  const query: any = {
+    ...(input.DeleteAll !== undefined && {
+      deleteAll: input.DeleteAll.toString()
+    }),
+    ...(input.Labels !== undefined && {
+      labels: (input.Labels || []).map(_entry => _entry)
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1026,40 +1025,27 @@ export const serializeAws_restJson1_1DescribeActivitiesCommand = async (
     headers["Authentication"] = input.AuthenticationToken!;
   }
   let resolvedPath = "/api/v1/activities";
-  const query: any = {};
-  if (input.ActivityTypes !== undefined) {
-    query["activityTypes"] = input.ActivityTypes;
-  }
-  if (input.EndTime !== undefined) {
-    query["endTime"] = (
-      input.EndTime.toISOString().split(".")[0] + "Z"
-    ).toString();
-  }
-  if (input.IncludeIndirectActivities !== undefined) {
-    query[
-      "includeIndirectActivities"
-    ] = input.IncludeIndirectActivities.toString();
-  }
-  if (input.Limit !== undefined) {
-    query["limit"] = input.Limit.toString();
-  }
-  if (input.Marker !== undefined) {
-    query["marker"] = input.Marker;
-  }
-  if (input.OrganizationId !== undefined) {
-    query["organizationId"] = input.OrganizationId;
-  }
-  if (input.ResourceId !== undefined) {
-    query["resourceId"] = input.ResourceId;
-  }
-  if (input.StartTime !== undefined) {
-    query["startTime"] = (
-      input.StartTime.toISOString().split(".")[0] + "Z"
-    ).toString();
-  }
-  if (input.UserId !== undefined) {
-    query["userId"] = input.UserId;
-  }
+  const query: any = {
+    ...(input.ActivityTypes !== undefined && {
+      activityTypes: input.ActivityTypes
+    }),
+    ...(input.EndTime !== undefined && {
+      endTime: (input.EndTime.toISOString().split(".")[0] + "Z").toString()
+    }),
+    ...(input.IncludeIndirectActivities !== undefined && {
+      includeIndirectActivities: input.IncludeIndirectActivities.toString()
+    }),
+    ...(input.Limit !== undefined && { limit: input.Limit.toString() }),
+    ...(input.Marker !== undefined && { marker: input.Marker }),
+    ...(input.OrganizationId !== undefined && {
+      organizationId: input.OrganizationId
+    }),
+    ...(input.ResourceId !== undefined && { resourceId: input.ResourceId }),
+    ...(input.StartTime !== undefined && {
+      startTime: (input.StartTime.toISOString().split(".")[0] + "Z").toString()
+    }),
+    ...(input.UserId !== undefined && { userId: input.UserId })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1109,13 +1095,10 @@ export const serializeAws_restJson1_1DescribeCommentsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: VersionId.");
   }
-  const query: any = {};
-  if (input.Limit !== undefined) {
-    query["limit"] = input.Limit.toString();
-  }
-  if (input.Marker !== undefined) {
-    query["marker"] = input.Marker;
-  }
+  const query: any = {
+    ...(input.Limit !== undefined && { limit: input.Limit.toString() }),
+    ...(input.Marker !== undefined && { marker: input.Marker })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1152,19 +1135,12 @@ export const serializeAws_restJson1_1DescribeDocumentVersionsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: DocumentId.");
   }
-  const query: any = {};
-  if (input.Fields !== undefined) {
-    query["fields"] = input.Fields;
-  }
-  if (input.Include !== undefined) {
-    query["include"] = input.Include;
-  }
-  if (input.Limit !== undefined) {
-    query["limit"] = input.Limit.toString();
-  }
-  if (input.Marker !== undefined) {
-    query["marker"] = input.Marker;
-  }
+  const query: any = {
+    ...(input.Fields !== undefined && { fields: input.Fields }),
+    ...(input.Include !== undefined && { include: input.Include }),
+    ...(input.Limit !== undefined && { limit: input.Limit.toString() }),
+    ...(input.Marker !== undefined && { marker: input.Marker })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1201,25 +1177,14 @@ export const serializeAws_restJson1_1DescribeFolderContentsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: FolderId.");
   }
-  const query: any = {};
-  if (input.Include !== undefined) {
-    query["include"] = input.Include;
-  }
-  if (input.Limit !== undefined) {
-    query["limit"] = input.Limit.toString();
-  }
-  if (input.Marker !== undefined) {
-    query["marker"] = input.Marker;
-  }
-  if (input.Order !== undefined) {
-    query["order"] = input.Order;
-  }
-  if (input.Sort !== undefined) {
-    query["sort"] = input.Sort;
-  }
-  if (input.Type !== undefined) {
-    query["type"] = input.Type;
-  }
+  const query: any = {
+    ...(input.Include !== undefined && { include: input.Include }),
+    ...(input.Limit !== undefined && { limit: input.Limit.toString() }),
+    ...(input.Marker !== undefined && { marker: input.Marker }),
+    ...(input.Order !== undefined && { order: input.Order }),
+    ...(input.Sort !== undefined && { sort: input.Sort }),
+    ...(input.Type !== undefined && { type: input.Type })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1244,19 +1209,14 @@ export const serializeAws_restJson1_1DescribeGroupsCommand = async (
     headers["Authentication"] = input.AuthenticationToken!;
   }
   let resolvedPath = "/api/v1/groups";
-  const query: any = {};
-  if (input.Limit !== undefined) {
-    query["limit"] = input.Limit.toString();
-  }
-  if (input.Marker !== undefined) {
-    query["marker"] = input.Marker;
-  }
-  if (input.OrganizationId !== undefined) {
-    query["organizationId"] = input.OrganizationId;
-  }
-  if (input.SearchQuery !== undefined) {
-    query["searchQuery"] = input.SearchQuery;
-  }
+  const query: any = {
+    ...(input.Limit !== undefined && { limit: input.Limit.toString() }),
+    ...(input.Marker !== undefined && { marker: input.Marker }),
+    ...(input.OrganizationId !== undefined && {
+      organizationId: input.OrganizationId
+    }),
+    ...(input.SearchQuery !== undefined && { searchQuery: input.SearchQuery })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1292,13 +1252,10 @@ export const serializeAws_restJson1_1DescribeNotificationSubscriptionsCommand = 
   } else {
     throw new Error("No value provided for input HTTP label: OrganizationId.");
   }
-  const query: any = {};
-  if (input.Limit !== undefined) {
-    query["limit"] = input.Limit.toString();
-  }
-  if (input.Marker !== undefined) {
-    query["marker"] = input.Marker;
-  }
+  const query: any = {
+    ...(input.Limit !== undefined && { limit: input.Limit.toString() }),
+    ...(input.Marker !== undefined && { marker: input.Marker })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1335,16 +1292,11 @@ export const serializeAws_restJson1_1DescribeResourcePermissionsCommand = async 
   } else {
     throw new Error("No value provided for input HTTP label: ResourceId.");
   }
-  const query: any = {};
-  if (input.Limit !== undefined) {
-    query["limit"] = input.Limit.toString();
-  }
-  if (input.Marker !== undefined) {
-    query["marker"] = input.Marker;
-  }
-  if (input.PrincipalId !== undefined) {
-    query["principalId"] = input.PrincipalId;
-  }
+  const query: any = {
+    ...(input.Limit !== undefined && { limit: input.Limit.toString() }),
+    ...(input.Marker !== undefined && { marker: input.Marker }),
+    ...(input.PrincipalId !== undefined && { principalId: input.PrincipalId })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1369,13 +1321,10 @@ export const serializeAws_restJson1_1DescribeRootFoldersCommand = async (
     headers["Authentication"] = input.AuthenticationToken!;
   }
   let resolvedPath = "/api/v1/me/root";
-  const query: any = {};
-  if (input.Limit !== undefined) {
-    query["limit"] = input.Limit.toString();
-  }
-  if (input.Marker !== undefined) {
-    query["marker"] = input.Marker;
-  }
+  const query: any = {
+    ...(input.Limit !== undefined && { limit: input.Limit.toString() }),
+    ...(input.Marker !== undefined && { marker: input.Marker })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1400,34 +1349,19 @@ export const serializeAws_restJson1_1DescribeUsersCommand = async (
     headers["Authentication"] = input.AuthenticationToken!;
   }
   let resolvedPath = "/api/v1/users";
-  const query: any = {};
-  if (input.Fields !== undefined) {
-    query["fields"] = input.Fields;
-  }
-  if (input.Include !== undefined) {
-    query["include"] = input.Include;
-  }
-  if (input.Limit !== undefined) {
-    query["limit"] = input.Limit.toString();
-  }
-  if (input.Marker !== undefined) {
-    query["marker"] = input.Marker;
-  }
-  if (input.Order !== undefined) {
-    query["order"] = input.Order;
-  }
-  if (input.OrganizationId !== undefined) {
-    query["organizationId"] = input.OrganizationId;
-  }
-  if (input.Query !== undefined) {
-    query["query"] = input.Query;
-  }
-  if (input.Sort !== undefined) {
-    query["sort"] = input.Sort;
-  }
-  if (input.UserIds !== undefined) {
-    query["userIds"] = input.UserIds;
-  }
+  const query: any = {
+    ...(input.Fields !== undefined && { fields: input.Fields }),
+    ...(input.Include !== undefined && { include: input.Include }),
+    ...(input.Limit !== undefined && { limit: input.Limit.toString() }),
+    ...(input.Marker !== undefined && { marker: input.Marker }),
+    ...(input.Order !== undefined && { order: input.Order }),
+    ...(input.OrganizationId !== undefined && {
+      organizationId: input.OrganizationId
+    }),
+    ...(input.Query !== undefined && { query: input.Query }),
+    ...(input.Sort !== undefined && { sort: input.Sort }),
+    ...(input.UserIds !== undefined && { userIds: input.UserIds })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1487,10 +1421,11 @@ export const serializeAws_restJson1_1GetDocumentCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: DocumentId.");
   }
-  const query: any = {};
-  if (input.IncludeCustomMetadata !== undefined) {
-    query["includeCustomMetadata"] = input.IncludeCustomMetadata.toString();
-  }
+  const query: any = {
+    ...(input.IncludeCustomMetadata !== undefined && {
+      includeCustomMetadata: input.IncludeCustomMetadata.toString()
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1527,16 +1462,11 @@ export const serializeAws_restJson1_1GetDocumentPathCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: DocumentId.");
   }
-  const query: any = {};
-  if (input.Fields !== undefined) {
-    query["fields"] = input.Fields;
-  }
-  if (input.Limit !== undefined) {
-    query["limit"] = input.Limit.toString();
-  }
-  if (input.Marker !== undefined) {
-    query["marker"] = input.Marker;
-  }
+  const query: any = {
+    ...(input.Fields !== undefined && { fields: input.Fields }),
+    ...(input.Limit !== undefined && { limit: input.Limit.toString() }),
+    ...(input.Marker !== undefined && { marker: input.Marker })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1585,13 +1515,12 @@ export const serializeAws_restJson1_1GetDocumentVersionCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: VersionId.");
   }
-  const query: any = {};
-  if (input.Fields !== undefined) {
-    query["fields"] = input.Fields;
-  }
-  if (input.IncludeCustomMetadata !== undefined) {
-    query["includeCustomMetadata"] = input.IncludeCustomMetadata.toString();
-  }
+  const query: any = {
+    ...(input.Fields !== undefined && { fields: input.Fields }),
+    ...(input.IncludeCustomMetadata !== undefined && {
+      includeCustomMetadata: input.IncludeCustomMetadata.toString()
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1628,10 +1557,11 @@ export const serializeAws_restJson1_1GetFolderCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: FolderId.");
   }
-  const query: any = {};
-  if (input.IncludeCustomMetadata !== undefined) {
-    query["includeCustomMetadata"] = input.IncludeCustomMetadata.toString();
-  }
+  const query: any = {
+    ...(input.IncludeCustomMetadata !== undefined && {
+      includeCustomMetadata: input.IncludeCustomMetadata.toString()
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1668,16 +1598,11 @@ export const serializeAws_restJson1_1GetFolderPathCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: FolderId.");
   }
-  const query: any = {};
-  if (input.Fields !== undefined) {
-    query["fields"] = input.Fields;
-  }
-  if (input.Limit !== undefined) {
-    query["limit"] = input.Limit.toString();
-  }
-  if (input.Marker !== undefined) {
-    query["marker"] = input.Marker;
-  }
+  const query: any = {
+    ...(input.Fields !== undefined && { fields: input.Fields }),
+    ...(input.Limit !== undefined && { limit: input.Limit.toString() }),
+    ...(input.Marker !== undefined && { marker: input.Marker })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1702,19 +1627,14 @@ export const serializeAws_restJson1_1GetResourcesCommand = async (
     headers["Authentication"] = input.AuthenticationToken!;
   }
   let resolvedPath = "/api/v1/resources";
-  const query: any = {};
-  if (input.CollectionType !== undefined) {
-    query["collectionType"] = input.CollectionType;
-  }
-  if (input.Limit !== undefined) {
-    query["limit"] = input.Limit.toString();
-  }
-  if (input.Marker !== undefined) {
-    query["marker"] = input.Marker;
-  }
-  if (input.UserId !== undefined) {
-    query["userId"] = input.UserId;
-  }
+  const query: any = {
+    ...(input.CollectionType !== undefined && {
+      collectionType: input.CollectionType
+    }),
+    ...(input.Limit !== undefined && { limit: input.Limit.toString() }),
+    ...(input.Marker !== undefined && { marker: input.Marker }),
+    ...(input.UserId !== undefined && { userId: input.UserId })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1850,10 +1770,9 @@ export const serializeAws_restJson1_1RemoveResourcePermissionCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: ResourceId.");
   }
-  const query: any = {};
-  if (input.PrincipalType !== undefined) {
-    query["type"] = input.PrincipalType;
-  }
+  const query: any = {
+    ...(input.PrincipalType !== undefined && { type: input.PrincipalType })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({

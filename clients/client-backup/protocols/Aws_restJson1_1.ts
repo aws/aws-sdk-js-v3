@@ -868,10 +868,9 @@ export const serializeAws_restJson1_1GetBackupPlanCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
   }
-  const query: any = {};
-  if (input.VersionId !== undefined) {
-    query["versionId"] = input.VersionId;
-  }
+  const query: any = {
+    ...(input.VersionId !== undefined && { versionId: input.VersionId })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1143,35 +1142,32 @@ export const serializeAws_restJson1_1ListBackupJobsCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/backup-jobs";
-  const query: any = {};
-  if (input.ByBackupVaultName !== undefined) {
-    query["backupVaultName"] = input.ByBackupVaultName;
-  }
-  if (input.ByCreatedAfter !== undefined) {
-    query["createdAfter"] = (
-      input.ByCreatedAfter.toISOString().split(".")[0] + "Z"
-    ).toString();
-  }
-  if (input.ByCreatedBefore !== undefined) {
-    query["createdBefore"] = (
-      input.ByCreatedBefore.toISOString().split(".")[0] + "Z"
-    ).toString();
-  }
-  if (input.ByResourceArn !== undefined) {
-    query["resourceArn"] = input.ByResourceArn;
-  }
-  if (input.ByResourceType !== undefined) {
-    query["resourceType"] = input.ByResourceType;
-  }
-  if (input.ByState !== undefined) {
-    query["state"] = input.ByState;
-  }
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.ByBackupVaultName !== undefined && {
+      backupVaultName: input.ByBackupVaultName
+    }),
+    ...(input.ByCreatedAfter !== undefined && {
+      createdAfter: (
+        input.ByCreatedAfter.toISOString().split(".")[0] + "Z"
+      ).toString()
+    }),
+    ...(input.ByCreatedBefore !== undefined && {
+      createdBefore: (
+        input.ByCreatedBefore.toISOString().split(".")[0] + "Z"
+      ).toString()
+    }),
+    ...(input.ByResourceArn !== undefined && {
+      resourceArn: input.ByResourceArn
+    }),
+    ...(input.ByResourceType !== undefined && {
+      resourceType: input.ByResourceType
+    }),
+    ...(input.ByState !== undefined && { state: input.ByState }),
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1193,13 +1189,12 @@ export const serializeAws_restJson1_1ListBackupPlanTemplatesCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/backup/template/plans";
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1235,13 +1230,12 @@ export const serializeAws_restJson1_1ListBackupPlanVersionsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
   }
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1263,16 +1257,15 @@ export const serializeAws_restJson1_1ListBackupPlansCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/backup/plans";
-  const query: any = {};
-  if (input.IncludeDeleted !== undefined) {
-    query["includeDeleted"] = input.IncludeDeleted.toString();
-  }
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.IncludeDeleted !== undefined && {
+      includeDeleted: input.IncludeDeleted.toString()
+    }),
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1308,13 +1301,12 @@ export const serializeAws_restJson1_1ListBackupSelectionsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
   }
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1336,13 +1328,12 @@ export const serializeAws_restJson1_1ListBackupVaultsCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/backup-vaults";
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1364,35 +1355,32 @@ export const serializeAws_restJson1_1ListCopyJobsCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/copy-jobs";
-  const query: any = {};
-  if (input.ByCreatedAfter !== undefined) {
-    query["createdAfter"] = (
-      input.ByCreatedAfter.toISOString().split(".")[0] + "Z"
-    ).toString();
-  }
-  if (input.ByCreatedBefore !== undefined) {
-    query["createdBefore"] = (
-      input.ByCreatedBefore.toISOString().split(".")[0] + "Z"
-    ).toString();
-  }
-  if (input.ByDestinationVaultArn !== undefined) {
-    query["destinationVaultArn"] = input.ByDestinationVaultArn;
-  }
-  if (input.ByResourceArn !== undefined) {
-    query["resourceArn"] = input.ByResourceArn;
-  }
-  if (input.ByResourceType !== undefined) {
-    query["resourceType"] = input.ByResourceType;
-  }
-  if (input.ByState !== undefined) {
-    query["state"] = input.ByState;
-  }
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.ByCreatedAfter !== undefined && {
+      createdAfter: (
+        input.ByCreatedAfter.toISOString().split(".")[0] + "Z"
+      ).toString()
+    }),
+    ...(input.ByCreatedBefore !== undefined && {
+      createdBefore: (
+        input.ByCreatedBefore.toISOString().split(".")[0] + "Z"
+      ).toString()
+    }),
+    ...(input.ByDestinationVaultArn !== undefined && {
+      destinationVaultArn: input.ByDestinationVaultArn
+    }),
+    ...(input.ByResourceArn !== undefined && {
+      resourceArn: input.ByResourceArn
+    }),
+    ...(input.ByResourceType !== undefined && {
+      resourceType: input.ByResourceType
+    }),
+    ...(input.ByState !== undefined && { state: input.ByState }),
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1414,13 +1402,12 @@ export const serializeAws_restJson1_1ListProtectedResourcesCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/resources";
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1456,32 +1443,31 @@ export const serializeAws_restJson1_1ListRecoveryPointsByBackupVaultCommand = as
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
   }
-  const query: any = {};
-  if (input.ByBackupPlanId !== undefined) {
-    query["backupPlanId"] = input.ByBackupPlanId;
-  }
-  if (input.ByCreatedAfter !== undefined) {
-    query["createdAfter"] = (
-      input.ByCreatedAfter.toISOString().split(".")[0] + "Z"
-    ).toString();
-  }
-  if (input.ByCreatedBefore !== undefined) {
-    query["createdBefore"] = (
-      input.ByCreatedBefore.toISOString().split(".")[0] + "Z"
-    ).toString();
-  }
-  if (input.ByResourceArn !== undefined) {
-    query["resourceArn"] = input.ByResourceArn;
-  }
-  if (input.ByResourceType !== undefined) {
-    query["resourceType"] = input.ByResourceType;
-  }
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.ByBackupPlanId !== undefined && {
+      backupPlanId: input.ByBackupPlanId
+    }),
+    ...(input.ByCreatedAfter !== undefined && {
+      createdAfter: (
+        input.ByCreatedAfter.toISOString().split(".")[0] + "Z"
+      ).toString()
+    }),
+    ...(input.ByCreatedBefore !== undefined && {
+      createdBefore: (
+        input.ByCreatedBefore.toISOString().split(".")[0] + "Z"
+      ).toString()
+    }),
+    ...(input.ByResourceArn !== undefined && {
+      resourceArn: input.ByResourceArn
+    }),
+    ...(input.ByResourceType !== undefined && {
+      resourceType: input.ByResourceType
+    }),
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1517,13 +1503,12 @@ export const serializeAws_restJson1_1ListRecoveryPointsByResourceCommand = async
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1545,13 +1530,12 @@ export const serializeAws_restJson1_1ListRestoreJobsCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/restore-jobs";
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1587,13 +1571,12 @@ export const serializeAws_restJson1_1ListTagsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({

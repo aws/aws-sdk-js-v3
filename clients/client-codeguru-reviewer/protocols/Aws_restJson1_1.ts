@@ -151,25 +151,24 @@ export const serializeAws_restJson1_1ListRepositoryAssociationsCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/associations";
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults.toString();
-  }
-  if (input.Names !== undefined) {
-    query["Name"] = (input.Names || []).map(_entry => _entry);
-  }
-  if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken;
-  }
-  if (input.Owners !== undefined) {
-    query["Owner"] = (input.Owners || []).map(_entry => _entry);
-  }
-  if (input.ProviderTypes !== undefined) {
-    query["ProviderType"] = (input.ProviderTypes || []).map(_entry => _entry);
-  }
-  if (input.States !== undefined) {
-    query["State"] = (input.States || []).map(_entry => _entry);
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && {
+      MaxResults: input.MaxResults.toString()
+    }),
+    ...(input.Names !== undefined && {
+      Name: (input.Names || []).map(_entry => _entry)
+    }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Owners !== undefined && {
+      Owner: (input.Owners || []).map(_entry => _entry)
+    }),
+    ...(input.ProviderTypes !== undefined && {
+      ProviderType: (input.ProviderTypes || []).map(_entry => _entry)
+    }),
+    ...(input.States !== undefined && {
+      State: (input.States || []).map(_entry => _entry)
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({

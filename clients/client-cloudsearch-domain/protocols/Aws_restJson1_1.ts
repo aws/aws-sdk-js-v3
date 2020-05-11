@@ -48,50 +48,24 @@ export const serializeAws_restJson1_1SearchCommand = async (
   let resolvedPath = "/2013-01-01/search";
   const query: any = {
     format: "sdk",
-    pretty: "true"
+    pretty: "true",
+    ...(input.cursor !== undefined && { cursor: input.cursor }),
+    ...(input.expr !== undefined && { expr: input.expr }),
+    ...(input.facet !== undefined && { facet: input.facet }),
+    ...(input.filterQuery !== undefined && { fq: input.filterQuery }),
+    ...(input.highlight !== undefined && { highlight: input.highlight }),
+    ...(input.partial !== undefined && { partial: input.partial.toString() }),
+    ...(input.query !== undefined && { q: input.query }),
+    ...(input.queryOptions !== undefined && {
+      "q.options": input.queryOptions
+    }),
+    ...(input.queryParser !== undefined && { "q.parser": input.queryParser }),
+    ...(input.return !== undefined && { return: input.return }),
+    ...(input.size !== undefined && { size: input.size.toString() }),
+    ...(input.sort !== undefined && { sort: input.sort }),
+    ...(input.start !== undefined && { start: input.start.toString() }),
+    ...(input.stats !== undefined && { stats: input.stats })
   };
-  if (input.cursor !== undefined) {
-    query["cursor"] = input.cursor;
-  }
-  if (input.expr !== undefined) {
-    query["expr"] = input.expr;
-  }
-  if (input.facet !== undefined) {
-    query["facet"] = input.facet;
-  }
-  if (input.filterQuery !== undefined) {
-    query["fq"] = input.filterQuery;
-  }
-  if (input.highlight !== undefined) {
-    query["highlight"] = input.highlight;
-  }
-  if (input.partial !== undefined) {
-    query["partial"] = input.partial.toString();
-  }
-  if (input.query !== undefined) {
-    query["q"] = input.query;
-  }
-  if (input.queryOptions !== undefined) {
-    query["q.options"] = input.queryOptions;
-  }
-  if (input.queryParser !== undefined) {
-    query["q.parser"] = input.queryParser;
-  }
-  if (input.return !== undefined) {
-    query["return"] = input.return;
-  }
-  if (input.size !== undefined) {
-    query["size"] = input.size.toString();
-  }
-  if (input.sort !== undefined) {
-    query["sort"] = input.sort;
-  }
-  if (input.start !== undefined) {
-    query["start"] = input.start.toString();
-  }
-  if (input.stats !== undefined) {
-    query["stats"] = input.stats;
-  }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -115,17 +89,11 @@ export const serializeAws_restJson1_1SuggestCommand = async (
   let resolvedPath = "/2013-01-01/suggest";
   const query: any = {
     format: "sdk",
-    pretty: "true"
+    pretty: "true",
+    ...(input.query !== undefined && { q: input.query }),
+    ...(input.size !== undefined && { size: input.size.toString() }),
+    ...(input.suggester !== undefined && { suggester: input.suggester })
   };
-  if (input.query !== undefined) {
-    query["q"] = input.query;
-  }
-  if (input.size !== undefined) {
-    query["size"] = input.size.toString();
-  }
-  if (input.suggester !== undefined) {
-    query["suggester"] = input.suggester;
-  }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({

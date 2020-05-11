@@ -1836,10 +1836,9 @@ export const serializeAws_restJson1_1GetConnectorDefinitionVersionCommand = asyn
       "No value provided for input HTTP label: ConnectorDefinitionVersionId."
     );
   }
-  const query: any = {};
-  if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2066,10 +2065,9 @@ export const serializeAws_restJson1_1GetDeviceDefinitionVersionCommand = async (
       "No value provided for input HTTP label: DeviceDefinitionVersionId."
     );
   }
-  const query: any = {};
-  if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2160,10 +2158,9 @@ export const serializeAws_restJson1_1GetFunctionDefinitionVersionCommand = async
       "No value provided for input HTTP label: FunctionDefinitionVersionId."
     );
   }
-  const query: any = {};
-  if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2414,10 +2411,9 @@ export const serializeAws_restJson1_1GetLoggerDefinitionVersionCommand = async (
       "No value provided for input HTTP label: LoggerDefinitionVersionId."
     );
   }
-  const query: any = {};
-  if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2619,10 +2615,9 @@ export const serializeAws_restJson1_1GetSubscriptionDefinitionVersionCommand = a
       "No value provided for input HTTP label: SubscriptionDefinitionVersionId."
     );
   }
-  const query: any = {};
-  if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2661,13 +2656,10 @@ export const serializeAws_restJson1_1ListBulkDeploymentDetailedReportsCommand = 
       "No value provided for input HTTP label: BulkDeploymentId."
     );
   }
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2689,13 +2681,10 @@ export const serializeAws_restJson1_1ListBulkDeploymentsCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/greengrass/bulk/deployments";
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2734,13 +2723,10 @@ export const serializeAws_restJson1_1ListConnectorDefinitionVersionsCommand = as
       "No value provided for input HTTP label: ConnectorDefinitionId."
     );
   }
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2762,13 +2748,10 @@ export const serializeAws_restJson1_1ListConnectorDefinitionsCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/greengrass/definition/connectors";
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2806,13 +2789,10 @@ export const serializeAws_restJson1_1ListCoreDefinitionVersionsCommand = async (
       "No value provided for input HTTP label: CoreDefinitionId."
     );
   }
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2834,13 +2814,10 @@ export const serializeAws_restJson1_1ListCoreDefinitionsCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/greengrass/definition/cores";
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2874,13 +2851,10 @@ export const serializeAws_restJson1_1ListDeploymentsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2919,13 +2893,10 @@ export const serializeAws_restJson1_1ListDeviceDefinitionVersionsCommand = async
       "No value provided for input HTTP label: DeviceDefinitionId."
     );
   }
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2947,13 +2918,10 @@ export const serializeAws_restJson1_1ListDeviceDefinitionsCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/greengrass/definition/devices";
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2992,13 +2960,10 @@ export const serializeAws_restJson1_1ListFunctionDefinitionVersionsCommand = asy
       "No value provided for input HTTP label: FunctionDefinitionId."
     );
   }
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -3020,13 +2985,10 @@ export const serializeAws_restJson1_1ListFunctionDefinitionsCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/greengrass/definition/functions";
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -3092,13 +3054,10 @@ export const serializeAws_restJson1_1ListGroupVersionsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -3120,13 +3079,10 @@ export const serializeAws_restJson1_1ListGroupsCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/greengrass/groups";
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -3165,13 +3121,10 @@ export const serializeAws_restJson1_1ListLoggerDefinitionVersionsCommand = async
       "No value provided for input HTTP label: LoggerDefinitionId."
     );
   }
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -3193,13 +3146,10 @@ export const serializeAws_restJson1_1ListLoggerDefinitionsCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/greengrass/definition/loggers";
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -3238,13 +3188,10 @@ export const serializeAws_restJson1_1ListResourceDefinitionVersionsCommand = asy
       "No value provided for input HTTP label: ResourceDefinitionId."
     );
   }
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -3266,13 +3213,10 @@ export const serializeAws_restJson1_1ListResourceDefinitionsCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/greengrass/definition/resources";
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -3311,13 +3255,10 @@ export const serializeAws_restJson1_1ListSubscriptionDefinitionVersionsCommand =
       "No value provided for input HTTP label: SubscriptionDefinitionId."
     );
   }
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -3339,13 +3280,10 @@ export const serializeAws_restJson1_1ListSubscriptionDefinitionsCommand = async 
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/greengrass/definition/subscriptions";
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -3564,10 +3502,11 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
-  const query: any = {};
-  if (input.TagKeys !== undefined) {
-    query["tagKeys"] = (input.TagKeys || []).map(_entry => _entry);
-  }
+  const query: any = {
+    ...(input.TagKeys !== undefined && {
+      tagKeys: (input.TagKeys || []).map(_entry => _entry)
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({

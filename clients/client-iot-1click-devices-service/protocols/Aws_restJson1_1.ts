@@ -309,23 +309,22 @@ export const serializeAws_restJson1_1ListDeviceEventsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: DeviceId.");
   }
-  const query: any = {};
-  if (input.FromTimeStamp !== undefined) {
-    query["fromTimeStamp"] = (
-      input.FromTimeStamp.toISOString().split(".")[0] + "Z"
-    ).toString();
-  }
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
-  if (input.ToTimeStamp !== undefined) {
-    query["toTimeStamp"] = (
-      input.ToTimeStamp.toISOString().split(".")[0] + "Z"
-    ).toString();
-  }
+  const query: any = {
+    ...(input.FromTimeStamp !== undefined && {
+      fromTimeStamp: (
+        input.FromTimeStamp.toISOString().split(".")[0] + "Z"
+      ).toString()
+    }),
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.ToTimeStamp !== undefined && {
+      toTimeStamp: (
+        input.ToTimeStamp.toISOString().split(".")[0] + "Z"
+      ).toString()
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -347,16 +346,13 @@ export const serializeAws_restJson1_1ListDevicesCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/devices";
-  const query: any = {};
-  if (input.DeviceType !== undefined) {
-    query["deviceType"] = input.DeviceType;
-  }
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.DeviceType !== undefined && { deviceType: input.DeviceType }),
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -500,10 +496,11 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
-  const query: any = {};
-  if (input.TagKeys !== undefined) {
-    query["tagKeys"] = (input.TagKeys || []).map(_entry => _entry);
-  }
+  const query: any = {
+    ...(input.TagKeys !== undefined && {
+      tagKeys: (input.TagKeys || []).map(_entry => _entry)
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({

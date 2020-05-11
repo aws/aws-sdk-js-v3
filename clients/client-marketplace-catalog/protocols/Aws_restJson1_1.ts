@@ -62,13 +62,10 @@ export const serializeAws_restJson1_1CancelChangeSetCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/CancelChangeSet";
-  const query: any = {};
-  if (input.Catalog !== undefined) {
-    query["catalog"] = input.Catalog;
-  }
-  if (input.ChangeSetId !== undefined) {
-    query["changeSetId"] = input.ChangeSetId;
-  }
+  const query: any = {
+    ...(input.Catalog !== undefined && { catalog: input.Catalog }),
+    ...(input.ChangeSetId !== undefined && { changeSetId: input.ChangeSetId })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -90,13 +87,10 @@ export const serializeAws_restJson1_1DescribeChangeSetCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/DescribeChangeSet";
-  const query: any = {};
-  if (input.Catalog !== undefined) {
-    query["catalog"] = input.Catalog;
-  }
-  if (input.ChangeSetId !== undefined) {
-    query["changeSetId"] = input.ChangeSetId;
-  }
+  const query: any = {
+    ...(input.Catalog !== undefined && { catalog: input.Catalog }),
+    ...(input.ChangeSetId !== undefined && { changeSetId: input.ChangeSetId })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -118,13 +112,10 @@ export const serializeAws_restJson1_1DescribeEntityCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/DescribeEntity";
-  const query: any = {};
-  if (input.Catalog !== undefined) {
-    query["catalog"] = input.Catalog;
-  }
-  if (input.EntityId !== undefined) {
-    query["entityId"] = input.EntityId;
-  }
+  const query: any = {
+    ...(input.Catalog !== undefined && { catalog: input.Catalog }),
+    ...(input.EntityId !== undefined && { entityId: input.EntityId })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({

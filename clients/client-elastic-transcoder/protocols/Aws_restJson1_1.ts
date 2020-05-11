@@ -406,13 +406,10 @@ export const serializeAws_restJson1_1ListJobsByPipelineCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: PipelineId.");
   }
-  const query: any = {};
-  if (input.Ascending !== undefined) {
-    query["Ascending"] = input.Ascending;
-  }
-  if (input.PageToken !== undefined) {
-    query["PageToken"] = input.PageToken;
-  }
+  const query: any = {
+    ...(input.Ascending !== undefined && { Ascending: input.Ascending }),
+    ...(input.PageToken !== undefined && { PageToken: input.PageToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -446,13 +443,10 @@ export const serializeAws_restJson1_1ListJobsByStatusCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: Status.");
   }
-  const query: any = {};
-  if (input.Ascending !== undefined) {
-    query["Ascending"] = input.Ascending;
-  }
-  if (input.PageToken !== undefined) {
-    query["PageToken"] = input.PageToken;
-  }
+  const query: any = {
+    ...(input.Ascending !== undefined && { Ascending: input.Ascending }),
+    ...(input.PageToken !== undefined && { PageToken: input.PageToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -474,13 +468,10 @@ export const serializeAws_restJson1_1ListPipelinesCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2012-09-25/pipelines";
-  const query: any = {};
-  if (input.Ascending !== undefined) {
-    query["Ascending"] = input.Ascending;
-  }
-  if (input.PageToken !== undefined) {
-    query["PageToken"] = input.PageToken;
-  }
+  const query: any = {
+    ...(input.Ascending !== undefined && { Ascending: input.Ascending }),
+    ...(input.PageToken !== undefined && { PageToken: input.PageToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -502,13 +493,10 @@ export const serializeAws_restJson1_1ListPresetsCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2012-09-25/presets";
-  const query: any = {};
-  if (input.Ascending !== undefined) {
-    query["Ascending"] = input.Ascending;
-  }
-  if (input.PageToken !== undefined) {
-    query["PageToken"] = input.PageToken;
-  }
+  const query: any = {
+    ...(input.Ascending !== undefined && { Ascending: input.Ascending }),
+    ...(input.PageToken !== undefined && { PageToken: input.PageToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({

@@ -259,13 +259,12 @@ export const serializeAws_restJson1_1ListGroupResourcesCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: GroupName.");
   }
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const bodyParams: any = {};
   if (input.Filters !== undefined) {
@@ -295,13 +294,12 @@ export const serializeAws_restJson1_1ListGroupsCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/groups-list";
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const bodyParams: any = {};
   if (input.Filters !== undefined) {

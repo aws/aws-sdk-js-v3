@@ -1335,13 +1335,10 @@ export const serializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommand = a
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2019-03-26/origin-access-identity/cloudfront";
-  const query: any = {};
-  if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker;
-  }
-  if (input.MaxItems !== undefined) {
-    query["MaxItems"] = input.MaxItems;
-  }
+  const query: any = {
+    ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1363,13 +1360,10 @@ export const serializeAws_restXmlListDistributionsCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2019-03-26/distribution";
-  const query: any = {};
-  if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker;
-  }
-  if (input.MaxItems !== undefined) {
-    query["MaxItems"] = input.MaxItems;
-  }
+  const query: any = {
+    ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1403,13 +1397,10 @@ export const serializeAws_restXmlListDistributionsByWebACLIdCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: WebACLId.");
   }
-  const query: any = {};
-  if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker;
-  }
-  if (input.MaxItems !== undefined) {
-    query["MaxItems"] = input.MaxItems;
-  }
+  const query: any = {
+    ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1431,13 +1422,10 @@ export const serializeAws_restXmlListFieldLevelEncryptionConfigsCommand = async 
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2019-03-26/field-level-encryption";
-  const query: any = {};
-  if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker;
-  }
-  if (input.MaxItems !== undefined) {
-    query["MaxItems"] = input.MaxItems;
-  }
+  const query: any = {
+    ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1459,13 +1447,10 @@ export const serializeAws_restXmlListFieldLevelEncryptionProfilesCommand = async
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2019-03-26/field-level-encryption-profile";
-  const query: any = {};
-  if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker;
-  }
-  if (input.MaxItems !== undefined) {
-    query["MaxItems"] = input.MaxItems;
-  }
+  const query: any = {
+    ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1501,13 +1486,10 @@ export const serializeAws_restXmlListInvalidationsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: DistributionId.");
   }
-  const query: any = {};
-  if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker;
-  }
-  if (input.MaxItems !== undefined) {
-    query["MaxItems"] = input.MaxItems;
-  }
+  const query: any = {
+    ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1529,13 +1511,10 @@ export const serializeAws_restXmlListPublicKeysCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2019-03-26/public-key";
-  const query: any = {};
-  if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker;
-  }
-  if (input.MaxItems !== undefined) {
-    query["MaxItems"] = input.MaxItems;
-  }
+  const query: any = {
+    ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1557,13 +1536,10 @@ export const serializeAws_restXmlListStreamingDistributionsCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2019-03-26/streaming-distribution";
-  const query: any = {};
-  if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker;
-  }
-  if (input.MaxItems !== undefined) {
-    query["MaxItems"] = input.MaxItems;
-  }
+  const query: any = {
+    ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1585,10 +1561,9 @@ export const serializeAws_restXmlListTagsForResourceCommand = async (
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2019-03-26/tagging";
-  const query: any = {};
-  if (input.Resource !== undefined) {
-    query["Resource"] = input.Resource;
-  }
+  const query: any = {
+    ...(input.Resource !== undefined && { Resource: input.Resource })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1611,11 +1586,9 @@ export const serializeAws_restXmlTagResourceCommand = async (
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2019-03-26/tagging";
   const query: any = {
-    Operation: "Tag"
+    Operation: "Tag",
+    ...(input.Resource !== undefined && { Resource: input.Resource })
   };
-  if (input.Resource !== undefined) {
-    query["Resource"] = input.Resource;
-  }
   let body: any;
   let contents: any;
   if (input.Tags !== undefined) {
@@ -1648,11 +1621,9 @@ export const serializeAws_restXmlUntagResourceCommand = async (
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2019-03-26/tagging";
   const query: any = {
-    Operation: "Untag"
+    Operation: "Untag",
+    ...(input.Resource !== undefined && { Resource: input.Resource })
   };
-  if (input.Resource !== undefined) {
-    query["Resource"] = input.Resource;
-  }
   let body: any;
   let contents: any;
   if (input.TagKeys !== undefined) {
