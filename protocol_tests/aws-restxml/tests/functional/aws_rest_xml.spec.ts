@@ -201,7 +201,7 @@ it("AllQueryStringTypes:Request", async () => {
 
     queryStringList: ["a", "b", "c"],
 
-    queryStringSet: new Set(["a", "b", "c"]),
+    queryStringSet: ["a", "b", "c"],
 
     queryByte: 1,
 
@@ -211,7 +211,7 @@ it("AllQueryStringTypes:Request", async () => {
 
     queryIntegerList: [1, 2, 3],
 
-    queryIntegerSet: new Set([1, 2, 3]),
+    queryIntegerSet: [1, 2, 3],
 
     queryLong: 4,
 
@@ -1664,7 +1664,7 @@ it("InputAndOutputWithStringHeaders:Request", async () => {
 
     headerStringList: ["a", "b", "c"],
 
-    headerStringSet: new Set(["a", "b", "c"])
+    headerStringSet: ["a", "b", "c"]
   } as any);
   try {
     await client.send(command);
@@ -2950,7 +2950,7 @@ it("XmlEnums:Request", async () => {
 
     fooEnumList: ["Foo", "0"],
 
-    fooEnumSet: new Set(["Foo", "0"]),
+    fooEnumSet: ["Foo", "0"],
 
     fooEnumMap: {
       hi: "Foo",
@@ -3092,7 +3092,7 @@ it("XmlLists:Request", async () => {
   const command = new XmlListsCommand({
     stringList: ["foo", "bar"],
 
-    stringSet: new Set(["foo", "bar"]),
+    stringSet: ["foo", "bar"],
 
     integerList: [1, 2],
 

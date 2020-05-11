@@ -191,7 +191,7 @@ it("RestJsonAllQueryStringTypes:Request", async () => {
 
     queryStringList: ["a", "b", "c"],
 
-    queryStringSet: new Set(["a", "b", "c"]),
+    queryStringSet: ["a", "b", "c"],
 
     queryByte: 1,
 
@@ -201,7 +201,7 @@ it("RestJsonAllQueryStringTypes:Request", async () => {
 
     queryIntegerList: [1, 2, 3],
 
-    queryIntegerSet: new Set([1, 2, 3]),
+    queryIntegerSet: [1, 2, 3],
 
     queryLong: 4,
 
@@ -1533,7 +1533,7 @@ it("RestJsonInputAndOutputWithStringHeaders:Request", async () => {
 
     headerStringList: ["a", "b", "c"],
 
-    headerStringSet: new Set(["a", "b", "c"])
+    headerStringSet: ["a", "b", "c"]
   } as any);
   try {
     await client.send(command);
@@ -2035,7 +2035,7 @@ it("RestJsonJsonEnums:Request", async () => {
 
     fooEnumList: ["Foo", "0"],
 
-    fooEnumSet: new Set(["Foo", "0"]),
+    fooEnumSet: ["Foo", "0"],
 
     fooEnumMap: {
       hi: "Foo",
@@ -2163,7 +2163,7 @@ it("RestJsonLists:Request", async () => {
   const command = new JsonListsCommand({
     stringList: ["foo", "bar"],
 
-    stringSet: new Set(["foo", "bar"]),
+    stringSet: ["foo", "bar"],
 
     integerList: [1, 2],
 
