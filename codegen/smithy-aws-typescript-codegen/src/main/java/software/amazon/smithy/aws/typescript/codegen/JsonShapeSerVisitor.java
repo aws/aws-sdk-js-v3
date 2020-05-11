@@ -90,9 +90,16 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
     public void serializeStructure(GenerationContext context, StructureShape shape) {
         TypeScriptWriter writer = context.getWriter();
 
-        writer.write("const bodyParams: any = {};");
         // Use a TreeMap to sort the members.
         Map<String, MemberShape> members = new TreeMap<>(shape.getAllMembers());
+
+        members.forEach((memberName, memberShape) -> {
+            String inputLocation = "input." + memberName;
+            // Handle if the member is an idempotency token that should be auto-filled.
+            AwsProtocolUtils.writeIdempotencyAutofill(context, memberShape, inputLocation);
+        });
+
+        writer.write("const bodyParams: any = {};");
         members.forEach((memberName, memberShape) -> {
             // Use the jsonName trait value if present, otherwise use the member name.
             String locationName = memberShape.getTrait(JsonNameTrait.class)
@@ -100,9 +107,6 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
                     .orElse(memberName);
             Shape target = context.getModel().expectShape(memberShape.getTarget());
             String inputLocation = "input." + memberName;
-
-            // Handle if the member is an idempotency token that should be auto-filled.
-            AwsProtocolUtils.writeIdempotencyAutofill(context, memberShape, inputLocation);
 
             // Generate an if statement to set the bodyParam if the member is set.
             writer.openBlock("if ($L !== undefined) {", "}", inputLocation, () -> {

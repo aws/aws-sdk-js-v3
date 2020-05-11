@@ -102,6 +102,16 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
 
         SymbolProvider symbolProvider = context.getSymbolProvider();
 
+        for (HttpBinding binding : documentBindings) {
+            MemberShape memberShape = binding.getMember();
+            // The name of the member to get from the input shape.
+            String memberName = symbolProvider.toMemberName(memberShape);
+            String inputLocation = "input." + memberName;
+
+            // Handle if the member is an idempotency token that should be auto-filled.
+            AwsProtocolUtils.writeIdempotencyAutofill(context, memberShape, inputLocation);
+        }
+
         writer.write("const bodyParams: any = {};");
         for (HttpBinding binding : documentBindings) {
             MemberShape memberShape = binding.getMember();
@@ -113,9 +123,6 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
                     .map(JsonNameTrait::getValue)
                     .orElseGet(binding::getLocationName);
             Shape target = context.getModel().expectShape(memberShape.getTarget());
-
-            // Handle if the member is an idempotency token that should be auto-filled.
-            AwsProtocolUtils.writeIdempotencyAutofill(context, memberShape, inputLocation);
 
             // Generate an if statement to set the bodyParam if the member is set.
             writer.openBlock("if ($L !== undefined) {", "}", inputLocation, () -> {

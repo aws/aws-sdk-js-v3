@@ -150,6 +150,17 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
         }
 
         SymbolProvider symbolProvider = context.getSymbolProvider();
+
+        for (HttpBinding binding : documentBindings) {
+            MemberShape memberShape = binding.getMember();
+            // The name of the member to get from the input shape.
+            String memberName = symbolProvider.toMemberName(memberShape);
+            String inputLocation = "input." + memberName;
+
+            // Handle if the member is an idempotency token that should be auto-filled.
+            AwsProtocolUtils.writeIdempotencyAutofill(context, memberShape, inputLocation);
+        }
+
         ShapeId inputShapeId = documentBindings.get(0).getMember().getContainer();
 
         // Start with the XML declaration.
@@ -173,9 +184,6 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
             // The name of the member to get from the input shape.
             String memberName = symbolProvider.toMemberName(memberShape);
             String inputLocation = "input." + memberName;
-
-            // Handle if the member is an idempotency token that should be auto-filled.
-            AwsProtocolUtils.writeIdempotencyAutofill(context, memberShape, inputLocation);
 
             writer.openBlock("if ($L !== undefined) {", "}", inputLocation, () -> {
                 shapeSerVisitor.serializeNamedMember(context, memberName, memberShape, () -> inputLocation);

@@ -143,16 +143,18 @@ class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
     protected void serializeStructure(GenerationContext context, StructureShape shape) {
         TypeScriptWriter writer = context.getWriter();
 
+        shape.getAllMembers().forEach((memberName, memberShape) -> {
+            String inputLocation = "input." + memberName;
+            // Handle if the member is an idempotency token that should be auto-filled.
+            AwsProtocolUtils.writeIdempotencyAutofill(context, memberShape, inputLocation);
+        });
+
         // Set up a location to store all of the entry pairs.
         writer.write("const entries: any = {};");
 
         // Serialize every member of the structure if present.
         shape.getAllMembers().forEach((memberName, memberShape) -> {
             String inputLocation = "input." + memberName;
-
-            // Handle if the member is an idempotency token that should be auto-filled.
-            AwsProtocolUtils.writeIdempotencyAutofill(context, memberShape, inputLocation);
-
             writer.openBlock("if ($L !== undefined) {", "}", inputLocation,
                     () -> serializeNamedMember(context, memberName, memberShape, inputLocation));
         });

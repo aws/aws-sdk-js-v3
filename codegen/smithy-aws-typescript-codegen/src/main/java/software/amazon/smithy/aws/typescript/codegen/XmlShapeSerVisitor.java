@@ -168,22 +168,23 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
                 .map(XmlNameTrait::getValue)
                 .orElse(shape.getId().getName());
 
-        // Create the structure's node.
-        writer.write("const bodyNode = new __XmlNode($S);", nodeName);
-
         // Serialize every member of the structure if present.
         Map<String, MemberShape> members = shape.getAllMembers();
+
         members.forEach((memberName, memberShape) -> {
             String inputLocation = "input." + memberName;
-
             // Handle if the member is an idempotency token that should be auto-filled.
             AwsProtocolUtils.writeIdempotencyAutofill(context, memberShape, inputLocation);
+        });
 
+        // Create the structure's node.
+        writer.write("const bodyNode = new __XmlNode($S);", nodeName);
+        members.forEach((memberName, memberShape) -> {
+            String inputLocation = "input." + memberName;
             writer.openBlock("if ($L !== undefined) {", "}", inputLocation, () -> {
                 serializeNamedMember(context, memberName, memberShape, () -> inputLocation);
             });
         });
-
         writer.write("return bodyNode;");
     }
 
