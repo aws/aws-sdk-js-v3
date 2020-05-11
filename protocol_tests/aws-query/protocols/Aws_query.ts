@@ -2285,7 +2285,7 @@ const deserializeAws_queryXmlEnumsOutput = (
     );
   }
   if (output.fooEnumSet === "") {
-    contents.fooEnumSet = new Set([]);
+    contents.fooEnumSet = [];
   }
   if (
     output["fooEnumSet"] !== undefined &&
@@ -2408,7 +2408,7 @@ const deserializeAws_queryXmlListsOutput = (
     );
   }
   if (output.stringSet === "") {
-    contents.stringSet = new Set([]);
+    contents.stringSet = [];
   }
   if (
     output["stringSet"] !== undefined &&
@@ -2616,7 +2616,7 @@ const deserializeAws_queryFooEnumMap = (
 const deserializeAws_queryFooEnumSet = (
   output: any,
   context: __SerdeContext
-): Set<FooEnum | string> => {
+): (FooEnum | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -2663,7 +2663,7 @@ const deserializeAws_queryStringList = (
 const deserializeAws_queryStringSet = (
   output: any,
   context: __SerdeContext
-): Set<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 

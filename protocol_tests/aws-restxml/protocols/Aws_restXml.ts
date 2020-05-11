@@ -2835,11 +2835,9 @@ export const deserializeAws_restXmlInputAndOutputWithHeadersCommand = async (
       .map(_entry => _entry.trim());
   }
   if (output.headers["x-stringset"] !== undefined) {
-    contents.headerStringSet = new Set(
-      (output.headers["x-stringset"] || "")
-        .split(",")
-        .map(_entry => _entry.trim())
-    );
+    contents.headerStringSet = (output.headers["x-stringset"] || "")
+      .split(",")
+      .map(_entry => _entry.trim());
   }
   if (output.headers["x-timestamplist"] !== undefined) {
     contents.headerTimestampList = __splitEvery(
@@ -3622,7 +3620,7 @@ export const deserializeAws_restXmlXmlEnumsCommand = async (
     );
   }
   if (data.fooEnumSet === "") {
-    contents.fooEnumSet = new Set([]);
+    contents.fooEnumSet = [];
   }
   if (
     data["fooEnumSet"] !== undefined &&
@@ -3777,7 +3775,7 @@ export const deserializeAws_restXmlXmlListsCommand = async (
     );
   }
   if (data.stringSet === "") {
-    contents.stringSet = new Set([]);
+    contents.stringSet = [];
   }
   if (
     data["stringSet"] !== undefined &&
@@ -4418,7 +4416,7 @@ const serializeAws_restXmlFooEnumMap = (
 };
 
 const serializeAws_restXmlFooEnumSet = (
-  input: Set<FooEnum | string>,
+  input: (FooEnum | string)[],
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
@@ -4487,7 +4485,7 @@ const serializeAws_restXmlStringList = (
 };
 
 const serializeAws_restXmlStringSet = (
-  input: Set<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
@@ -4777,7 +4775,7 @@ const deserializeAws_restXmlFooEnumMap = (
 const deserializeAws_restXmlFooEnumSet = (
   output: any,
   context: __SerdeContext
-): Set<FooEnum | string> => {
+): (FooEnum | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -4824,7 +4822,7 @@ const deserializeAws_restXmlStringList = (
 const deserializeAws_restXmlStringSet = (
   output: any,
   context: __SerdeContext
-): Set<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 

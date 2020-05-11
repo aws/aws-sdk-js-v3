@@ -2113,11 +2113,9 @@ export const deserializeAws_restJson1_1InputAndOutputWithHeadersCommand = async 
       .map(_entry => _entry.trim());
   }
   if (output.headers["x-stringset"] !== undefined) {
-    contents.headerStringSet = new Set(
-      (output.headers["x-stringset"] || "")
-        .split(",")
-        .map(_entry => _entry.trim())
-    );
+    contents.headerStringSet = (output.headers["x-stringset"] || "")
+      .split(",")
+      .map(_entry => _entry.trim());
   }
   if (output.headers["x-timestamplist"] !== undefined) {
     contents.headerTimestampList = __splitEvery(
@@ -3206,7 +3204,7 @@ const serializeAws_restJson1_1FooEnumMap = (
 };
 
 const serializeAws_restJson1_1FooEnumSet = (
-  input: Set<FooEnum | string>,
+  input: (FooEnum | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3261,7 +3259,7 @@ const serializeAws_restJson1_1StringList = (
 };
 
 const serializeAws_restJson1_1StringSet = (
-  input: Set<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3420,7 +3418,7 @@ const deserializeAws_restJson1_1FooEnumMap = (
 const deserializeAws_restJson1_1FooEnumSet = (
   output: any,
   context: __SerdeContext
-): Set<FooEnum | string> => {
+): (FooEnum | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -3464,7 +3462,7 @@ const deserializeAws_restJson1_1StringList = (
 const deserializeAws_restJson1_1StringSet = (
   output: any,
   context: __SerdeContext
-): Set<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 

@@ -277,7 +277,7 @@ export interface XmlEnumsOutput {
   fooEnum3?: FooEnum | string;
   fooEnumList?: (FooEnum | string)[];
   fooEnumMap?: { [key: string]: FooEnum | string };
-  fooEnumSet?: Set<FooEnum | string>;
+  fooEnumSet?: (FooEnum | string)[];
 }
 
 export namespace XmlEnumsOutput {
@@ -299,7 +299,7 @@ export interface XmlListsOutput {
 
   renamedListMembers?: string[];
   stringList?: string[];
-  stringSet?: Set<string>;
+  stringSet?: string[];
   structureList?: StructureListMember[];
   timestampList?: Date[];
 }
