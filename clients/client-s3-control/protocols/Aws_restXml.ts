@@ -2020,14 +2020,12 @@ const serializeAws_restXmlJobManifestFieldList = (
   input: (JobManifestFieldName | string)[],
   context: __SerdeContext
 ): any => {
-  const collectedNodes: any = [];
-  for (let entry of input) {
+  return input.map(entry => {
     const node = new __XmlNode("JobManifestFieldName").addChildNode(
       new __XmlText(entry)
     );
-    collectedNodes.push(node.withName("member"));
-  }
-  return collectedNodes;
+    return node.withName("member");
+  });
 };
 
 const serializeAws_restXmlJobManifestLocation = (
@@ -2400,12 +2398,10 @@ const serializeAws_restXmlS3GrantList = (
   input: S3Grant[],
   context: __SerdeContext
 ): any => {
-  const collectedNodes: any = [];
-  for (let entry of input) {
+  return input.map(entry => {
     const node = serializeAws_restXmlS3Grant(entry, context);
-    collectedNodes.push(node.withName("member"));
-  }
-  return collectedNodes;
+    return node.withName("member");
+  });
 };
 
 const serializeAws_restXmlS3Grantee = (
@@ -2610,12 +2606,10 @@ const serializeAws_restXmlS3TagSet = (
   input: S3Tag[],
   context: __SerdeContext
 ): any => {
-  const collectedNodes: any = [];
-  for (let entry of input) {
+  return input.map(entry => {
     const node = serializeAws_restXmlS3Tag(entry, context);
-    collectedNodes.push(node.withName("member"));
-  }
-  return collectedNodes;
+    return node.withName("member");
+  });
 };
 
 const serializeAws_restXmlS3UserMetadata = (
