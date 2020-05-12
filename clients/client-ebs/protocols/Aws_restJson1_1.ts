@@ -31,12 +31,13 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_restJson1_1GetSnapshotBlockCommand(
+export const serializeAws_restJson1_1GetSnapshotBlockCommand = async (
   input: GetSnapshotBlockCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/snapshots/{SnapshotId}/blocks/{BlockIndex}";
   if (input.BlockIndex !== undefined) {
     const labelValue: string = input.BlockIndex.toString();
@@ -62,10 +63,9 @@ export async function serializeAws_restJson1_1GetSnapshotBlockCommand(
   } else {
     throw new Error("No value provided for input HTTP label: SnapshotId.");
   }
-  const query: any = {};
-  if (input.BlockToken !== undefined) {
-    query["blockToken"] = input.BlockToken;
-  }
+  const query: any = {
+    ...(input.BlockToken !== undefined && { blockToken: input.BlockToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -78,14 +78,15 @@ export async function serializeAws_restJson1_1GetSnapshotBlockCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListChangedBlocksCommand(
+export const serializeAws_restJson1_1ListChangedBlocksCommand = async (
   input: ListChangedBlocksCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/snapshots/{SecondSnapshotId}/changedblocks";
   if (input.SecondSnapshotId !== undefined) {
     const labelValue: string = input.SecondSnapshotId;
@@ -103,19 +104,18 @@ export async function serializeAws_restJson1_1ListChangedBlocksCommand(
       "No value provided for input HTTP label: SecondSnapshotId."
     );
   }
-  const query: any = {};
-  if (input.FirstSnapshotId !== undefined) {
-    query["firstSnapshotId"] = input.FirstSnapshotId;
-  }
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["pageToken"] = input.NextToken;
-  }
-  if (input.StartingBlockIndex !== undefined) {
-    query["startingBlockIndex"] = input.StartingBlockIndex.toString();
-  }
+  const query: any = {
+    ...(input.FirstSnapshotId !== undefined && {
+      firstSnapshotId: input.FirstSnapshotId
+    }),
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { pageToken: input.NextToken }),
+    ...(input.StartingBlockIndex !== undefined && {
+      startingBlockIndex: input.StartingBlockIndex.toString()
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -128,14 +128,15 @@ export async function serializeAws_restJson1_1ListChangedBlocksCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListSnapshotBlocksCommand(
+export const serializeAws_restJson1_1ListSnapshotBlocksCommand = async (
   input: ListSnapshotBlocksCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/snapshots/{SnapshotId}/blocks";
   if (input.SnapshotId !== undefined) {
     const labelValue: string = input.SnapshotId;
@@ -149,16 +150,15 @@ export async function serializeAws_restJson1_1ListSnapshotBlocksCommand(
   } else {
     throw new Error("No value provided for input HTTP label: SnapshotId.");
   }
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["pageToken"] = input.NextToken;
-  }
-  if (input.StartingBlockIndex !== undefined) {
-    query["startingBlockIndex"] = input.StartingBlockIndex.toString();
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { pageToken: input.NextToken }),
+    ...(input.StartingBlockIndex !== undefined && {
+      startingBlockIndex: input.StartingBlockIndex.toString()
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -171,12 +171,12 @@ export async function serializeAws_restJson1_1ListSnapshotBlocksCommand(
     query,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1GetSnapshotBlockCommand(
+export const deserializeAws_restJson1_1GetSnapshotBlockCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetSnapshotBlockCommandOutput> {
+): Promise<GetSnapshotBlockCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetSnapshotBlockCommandError(
       output,
@@ -203,12 +203,12 @@ export async function deserializeAws_restJson1_1GetSnapshotBlockCommand(
   const data: any = output.body;
   contents.BlockData = data;
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetSnapshotBlockCommandError(
+const deserializeAws_restJson1_1GetSnapshotBlockCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetSnapshotBlockCommandOutput> {
+): Promise<GetSnapshotBlockCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -254,12 +254,12 @@ async function deserializeAws_restJson1_1GetSnapshotBlockCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListChangedBlocksCommand(
+export const deserializeAws_restJson1_1ListChangedBlocksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListChangedBlocksCommandOutput> {
+): Promise<ListChangedBlocksCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListChangedBlocksCommandError(
       output,
@@ -295,12 +295,12 @@ export async function deserializeAws_restJson1_1ListChangedBlocksCommand(
     contents.VolumeSize = data.VolumeSize;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListChangedBlocksCommandError(
+const deserializeAws_restJson1_1ListChangedBlocksCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListChangedBlocksCommandOutput> {
+): Promise<ListChangedBlocksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -346,12 +346,12 @@ async function deserializeAws_restJson1_1ListChangedBlocksCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListSnapshotBlocksCommand(
+export const deserializeAws_restJson1_1ListSnapshotBlocksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListSnapshotBlocksCommandOutput> {
+): Promise<ListSnapshotBlocksCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListSnapshotBlocksCommandError(
       output,
@@ -384,12 +384,12 @@ export async function deserializeAws_restJson1_1ListSnapshotBlocksCommand(
     contents.VolumeSize = data.VolumeSize;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListSnapshotBlocksCommandError(
+const deserializeAws_restJson1_1ListSnapshotBlocksCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListSnapshotBlocksCommandOutput> {
+): Promise<ListSnapshotBlocksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -435,7 +435,7 @@ async function deserializeAws_restJson1_1ListSnapshotBlocksCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
   parsedOutput: any,
@@ -496,7 +496,7 @@ const deserializeAws_restJson1_1Block = (
 const deserializeAws_restJson1_1Blocks = (
   output: any,
   context: __SerdeContext
-): Array<Block> => {
+): Block[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Block(entry, context)
   );
@@ -530,7 +530,7 @@ const deserializeAws_restJson1_1ChangedBlock = (
 const deserializeAws_restJson1_1ChangedBlocks = (
   output: any,
   context: __SerdeContext
-): Array<ChangedBlock> => {
+): ChangedBlock[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ChangedBlock(entry, context)
   );
@@ -544,7 +544,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -559,30 +559,23 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
-function isSerializableHeaderValue(value: any): boolean {
-  return (
-    value !== undefined &&
-    value !== "" &&
-    (!Object.getOwnPropertyNames(value).includes("length") ||
-      value.length != 0) &&
-    (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0)
-  );
-}
+const isSerializableHeaderValue = (value: any): boolean =>
+  value !== undefined &&
+  value !== "" &&
+  (!Object.getOwnPropertyNames(value).includes("length") ||
+    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};
 
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.

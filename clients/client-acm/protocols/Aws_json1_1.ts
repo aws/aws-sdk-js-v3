@@ -112,192 +112,205 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_json1_1AddTagsToCertificateCommand(
+export const serializeAws_json1_1AddTagsToCertificateCommand = async (
   input: AddTagsToCertificateCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CertificateManager.AddTagsToCertificate";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CertificateManager.AddTagsToCertificate"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AddTagsToCertificateRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteCertificateCommand(
+export const serializeAws_json1_1DeleteCertificateCommand = async (
   input: DeleteCertificateCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CertificateManager.DeleteCertificate";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CertificateManager.DeleteCertificate"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteCertificateRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeCertificateCommand(
+export const serializeAws_json1_1DescribeCertificateCommand = async (
   input: DescribeCertificateCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CertificateManager.DescribeCertificate";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CertificateManager.DescribeCertificate"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeCertificateRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ExportCertificateCommand(
+export const serializeAws_json1_1ExportCertificateCommand = async (
   input: ExportCertificateCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CertificateManager.ExportCertificate";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CertificateManager.ExportCertificate"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ExportCertificateRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetCertificateCommand(
+export const serializeAws_json1_1GetCertificateCommand = async (
   input: GetCertificateCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CertificateManager.GetCertificate";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CertificateManager.GetCertificate"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetCertificateRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ImportCertificateCommand(
+export const serializeAws_json1_1ImportCertificateCommand = async (
   input: ImportCertificateCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CertificateManager.ImportCertificate";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CertificateManager.ImportCertificate"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ImportCertificateRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListCertificatesCommand(
+export const serializeAws_json1_1ListCertificatesCommand = async (
   input: ListCertificatesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CertificateManager.ListCertificates";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CertificateManager.ListCertificates"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListCertificatesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListTagsForCertificateCommand(
+export const serializeAws_json1_1ListTagsForCertificateCommand = async (
   input: ListTagsForCertificateCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CertificateManager.ListTagsForCertificate";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CertificateManager.ListTagsForCertificate"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTagsForCertificateRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1RemoveTagsFromCertificateCommand(
+export const serializeAws_json1_1RemoveTagsFromCertificateCommand = async (
   input: RemoveTagsFromCertificateCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CertificateManager.RemoveTagsFromCertificate";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CertificateManager.RemoveTagsFromCertificate"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RemoveTagsFromCertificateRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1RenewCertificateCommand(
+export const serializeAws_json1_1RenewCertificateCommand = async (
   input: RenewCertificateCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CertificateManager.RenewCertificate";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CertificateManager.RenewCertificate"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RenewCertificateRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1RequestCertificateCommand(
+export const serializeAws_json1_1RequestCertificateCommand = async (
   input: RequestCertificateCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CertificateManager.RequestCertificate";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CertificateManager.RequestCertificate"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RequestCertificateRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ResendValidationEmailCommand(
+export const serializeAws_json1_1ResendValidationEmailCommand = async (
   input: ResendValidationEmailCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CertificateManager.ResendValidationEmail";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CertificateManager.ResendValidationEmail"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ResendValidationEmailRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateCertificateOptionsCommand(
+export const serializeAws_json1_1UpdateCertificateOptionsCommand = async (
   input: UpdateCertificateOptionsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CertificateManager.UpdateCertificateOptions";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CertificateManager.UpdateCertificateOptions"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateCertificateOptionsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_1AddTagsToCertificateCommand(
+export const deserializeAws_json1_1AddTagsToCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AddTagsToCertificateCommandOutput> {
+): Promise<AddTagsToCertificateCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1AddTagsToCertificateCommandError(
       output,
@@ -309,12 +322,12 @@ export async function deserializeAws_json1_1AddTagsToCertificateCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1AddTagsToCertificateCommandError(
+const deserializeAws_json1_1AddTagsToCertificateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AddTagsToCertificateCommandOutput> {
+): Promise<AddTagsToCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -406,12 +419,12 @@ async function deserializeAws_json1_1AddTagsToCertificateCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteCertificateCommand(
+export const deserializeAws_json1_1DeleteCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteCertificateCommandOutput> {
+): Promise<DeleteCertificateCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteCertificateCommandError(output, context);
   }
@@ -420,12 +433,12 @@ export async function deserializeAws_json1_1DeleteCertificateCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteCertificateCommandError(
+const deserializeAws_json1_1DeleteCertificateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteCertificateCommandOutput> {
+): Promise<DeleteCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -484,12 +497,12 @@ async function deserializeAws_json1_1DeleteCertificateCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeCertificateCommand(
+export const deserializeAws_json1_1DescribeCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeCertificateCommandOutput> {
+): Promise<DescribeCertificateCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeCertificateCommandError(
       output,
@@ -505,12 +518,12 @@ export async function deserializeAws_json1_1DescribeCertificateCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeCertificateCommandError(
+const deserializeAws_json1_1DescribeCertificateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeCertificateCommandOutput> {
+): Promise<DescribeCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -558,12 +571,12 @@ async function deserializeAws_json1_1DescribeCertificateCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ExportCertificateCommand(
+export const deserializeAws_json1_1ExportCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ExportCertificateCommandOutput> {
+): Promise<ExportCertificateCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ExportCertificateCommandError(output, context);
   }
@@ -576,12 +589,12 @@ export async function deserializeAws_json1_1ExportCertificateCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ExportCertificateCommandError(
+const deserializeAws_json1_1ExportCertificateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ExportCertificateCommandOutput> {
+): Promise<ExportCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -640,12 +653,12 @@ async function deserializeAws_json1_1ExportCertificateCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetCertificateCommand(
+export const deserializeAws_json1_1GetCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetCertificateCommandOutput> {
+): Promise<GetCertificateCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetCertificateCommandError(output, context);
   }
@@ -658,12 +671,12 @@ export async function deserializeAws_json1_1GetCertificateCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetCertificateCommandError(
+const deserializeAws_json1_1GetCertificateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetCertificateCommandOutput> {
+): Promise<GetCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -722,12 +735,12 @@ async function deserializeAws_json1_1GetCertificateCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ImportCertificateCommand(
+export const deserializeAws_json1_1ImportCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ImportCertificateCommandOutput> {
+): Promise<ImportCertificateCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ImportCertificateCommandError(output, context);
   }
@@ -740,12 +753,12 @@ export async function deserializeAws_json1_1ImportCertificateCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ImportCertificateCommandError(
+const deserializeAws_json1_1ImportCertificateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ImportCertificateCommandOutput> {
+): Promise<ImportCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -837,12 +850,12 @@ async function deserializeAws_json1_1ImportCertificateCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListCertificatesCommand(
+export const deserializeAws_json1_1ListCertificatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListCertificatesCommandOutput> {
+): Promise<ListCertificatesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListCertificatesCommandError(output, context);
   }
@@ -855,12 +868,12 @@ export async function deserializeAws_json1_1ListCertificatesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListCertificatesCommandError(
+const deserializeAws_json1_1ListCertificatesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListCertificatesCommandOutput> {
+): Promise<ListCertificatesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -897,12 +910,12 @@ async function deserializeAws_json1_1ListCertificatesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListTagsForCertificateCommand(
+export const deserializeAws_json1_1ListTagsForCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForCertificateCommandOutput> {
+): Promise<ListTagsForCertificateCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListTagsForCertificateCommandError(
       output,
@@ -921,12 +934,12 @@ export async function deserializeAws_json1_1ListTagsForCertificateCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListTagsForCertificateCommandError(
+const deserializeAws_json1_1ListTagsForCertificateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForCertificateCommandOutput> {
+): Promise<ListTagsForCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -974,12 +987,12 @@ async function deserializeAws_json1_1ListTagsForCertificateCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1RemoveTagsFromCertificateCommand(
+export const deserializeAws_json1_1RemoveTagsFromCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RemoveTagsFromCertificateCommandOutput> {
+): Promise<RemoveTagsFromCertificateCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1RemoveTagsFromCertificateCommandError(
       output,
@@ -991,12 +1004,12 @@ export async function deserializeAws_json1_1RemoveTagsFromCertificateCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1RemoveTagsFromCertificateCommandError(
+const deserializeAws_json1_1RemoveTagsFromCertificateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RemoveTagsFromCertificateCommandOutput> {
+): Promise<RemoveTagsFromCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1077,12 +1090,12 @@ async function deserializeAws_json1_1RemoveTagsFromCertificateCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1RenewCertificateCommand(
+export const deserializeAws_json1_1RenewCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RenewCertificateCommandOutput> {
+): Promise<RenewCertificateCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1RenewCertificateCommandError(output, context);
   }
@@ -1091,12 +1104,12 @@ export async function deserializeAws_json1_1RenewCertificateCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1RenewCertificateCommandError(
+const deserializeAws_json1_1RenewCertificateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RenewCertificateCommandOutput> {
+): Promise<RenewCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1144,12 +1157,12 @@ async function deserializeAws_json1_1RenewCertificateCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1RequestCertificateCommand(
+export const deserializeAws_json1_1RequestCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RequestCertificateCommandOutput> {
+): Promise<RequestCertificateCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1RequestCertificateCommandError(
       output,
@@ -1165,12 +1178,12 @@ export async function deserializeAws_json1_1RequestCertificateCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1RequestCertificateCommandError(
+const deserializeAws_json1_1RequestCertificateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RequestCertificateCommandOutput> {
+): Promise<RequestCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1273,12 +1286,12 @@ async function deserializeAws_json1_1RequestCertificateCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ResendValidationEmailCommand(
+export const deserializeAws_json1_1ResendValidationEmailCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ResendValidationEmailCommandOutput> {
+): Promise<ResendValidationEmailCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ResendValidationEmailCommandError(
       output,
@@ -1290,12 +1303,12 @@ export async function deserializeAws_json1_1ResendValidationEmailCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ResendValidationEmailCommandError(
+const deserializeAws_json1_1ResendValidationEmailCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ResendValidationEmailCommandOutput> {
+): Promise<ResendValidationEmailCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1365,12 +1378,12 @@ async function deserializeAws_json1_1ResendValidationEmailCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateCertificateOptionsCommand(
+export const deserializeAws_json1_1UpdateCertificateOptionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateCertificateOptionsCommandOutput> {
+): Promise<UpdateCertificateOptionsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateCertificateOptionsCommandError(
       output,
@@ -1382,12 +1395,12 @@ export async function deserializeAws_json1_1UpdateCertificateOptionsCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateCertificateOptionsCommandError(
+const deserializeAws_json1_1UpdateCertificateOptionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateCertificateOptionsCommandOutput> {
+): Promise<UpdateCertificateOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1457,7 +1470,7 @@ async function deserializeAws_json1_1UpdateCertificateOptionsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_1InvalidArgsExceptionResponse = async (
   parsedOutput: any,
@@ -1702,14 +1715,10 @@ const serializeAws_json1_1CertificateOptions = (
 };
 
 const serializeAws_json1_1CertificateStatuses = (
-  input: Array<CertificateStatus | string>,
+  input: (CertificateStatus | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1DeleteCertificateRequest = (
@@ -1735,14 +1744,10 @@ const serializeAws_json1_1DescribeCertificateRequest = (
 };
 
 const serializeAws_json1_1DomainList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1DomainValidationOption = (
@@ -1760,14 +1765,12 @@ const serializeAws_json1_1DomainValidationOption = (
 };
 
 const serializeAws_json1_1DomainValidationOptionList = (
-  input: Array<DomainValidationOption>,
+  input: DomainValidationOption[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1DomainValidationOption(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1DomainValidationOption(entry, context)
+  );
 };
 
 const serializeAws_json1_1ExportCertificateRequest = (
@@ -1785,14 +1788,10 @@ const serializeAws_json1_1ExportCertificateRequest = (
 };
 
 const serializeAws_json1_1ExtendedKeyUsageFilterList = (
-  input: Array<ExtendedKeyUsageName | string>,
+  input: (ExtendedKeyUsageName | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1Filters = (
@@ -1860,25 +1859,17 @@ const serializeAws_json1_1ImportCertificateRequest = (
 };
 
 const serializeAws_json1_1KeyAlgorithmList = (
-  input: Array<KeyAlgorithm | string>,
+  input: (KeyAlgorithm | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1KeyUsageFilterList = (
-  input: Array<KeyUsageName | string>,
+  input: (KeyUsageName | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1ListCertificatesRequest = (
@@ -2015,14 +2006,10 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_json1_1TagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1Tag(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1Tag(entry, context));
 };
 
 const serializeAws_json1_1UpdateCertificateOptionsRequest = (
@@ -2234,7 +2221,7 @@ const deserializeAws_json1_1CertificateSummary = (
 const deserializeAws_json1_1CertificateSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<CertificateSummary> => {
+): CertificateSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1CertificateSummary(entry, context)
   );
@@ -2260,7 +2247,7 @@ const deserializeAws_json1_1DescribeCertificateResponse = (
 const deserializeAws_json1_1DomainList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -2319,7 +2306,7 @@ const deserializeAws_json1_1DomainValidation = (
 const deserializeAws_json1_1DomainValidationList = (
   output: any,
   context: __SerdeContext
-): Array<DomainValidation> => {
+): DomainValidation[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DomainValidation(entry, context)
   );
@@ -2371,7 +2358,7 @@ const deserializeAws_json1_1ExtendedKeyUsage = (
 const deserializeAws_json1_1ExtendedKeyUsageList = (
   output: any,
   context: __SerdeContext
-): Array<ExtendedKeyUsage> => {
+): ExtendedKeyUsage[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ExtendedKeyUsage(entry, context)
   );
@@ -2415,7 +2402,7 @@ const deserializeAws_json1_1ImportCertificateResponse = (
 const deserializeAws_json1_1InUseList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -2520,7 +2507,7 @@ const deserializeAws_json1_1KeyUsage = (
 const deserializeAws_json1_1KeyUsageList = (
   output: any,
   context: __SerdeContext
-): Array<KeyUsage> => {
+): KeyUsage[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1KeyUsage(entry, context)
   );
@@ -2712,7 +2699,7 @@ const deserializeAws_json1_1Tag = (
 const deserializeAws_json1_1TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );
@@ -2749,7 +2736,7 @@ const deserializeAws_json1_1TooManyTagsException = (
 const deserializeAws_json1_1ValidationEmailList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -2761,7 +2748,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -2776,11 +2763,8 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
@@ -2807,11 +2791,10 @@ const buildHttpRpcRequest = async (
   return new __HttpRequest(contents);
 };
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};

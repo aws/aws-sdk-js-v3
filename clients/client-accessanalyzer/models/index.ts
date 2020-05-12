@@ -29,7 +29,7 @@ export interface AnalyzedResource {
    * <p>The actions that an external principal is granted permission to use by the policy that
    *          generated the finding.</p>
    */
-  actions?: Array<string>;
+  actions?: string[];
 
   /**
    * <p>The time at which the resource was analyzed.</p>
@@ -65,7 +65,7 @@ export interface AnalyzedResource {
   /**
    * <p>Indicates how the access that generated the finding is granted.</p>
    */
-  sharedVia?: Array<string>;
+  sharedVia?: string[];
 
   /**
    * <p>The current status of the finding generated from the analyzed resource.</p>
@@ -218,7 +218,7 @@ export interface CreateAnalyzerRequest {
   /**
    * <p>Specifies the archive rules to add for the analyzer. Archive rules automatically archive findings that meet the criteria you define for the rule.</p>
    */
-  archiveRules?: Array<InlineArchiveRule>;
+  archiveRules?: InlineArchiveRule[];
 
   /**
    * <p>A client token.</p>
@@ -297,12 +297,12 @@ export interface Criterion {
   /**
    * <p>A "contains" operator to match for the filter used to create the rule.</p>
    */
-  contains?: Array<string>;
+  contains?: string[];
 
   /**
    * <p>An "equals" operator to match for the filter used to create the rule.</p>
    */
-  eq?: Array<string>;
+  eq?: string[];
 
   /**
    * <p>An "exists" operator to match for the filter used to create the rule. </p>
@@ -312,7 +312,7 @@ export interface Criterion {
   /**
    * <p>A "not equals" operator to match for the filter used to create the rule.</p>
    */
-  neq?: Array<string>;
+  neq?: string[];
 }
 
 export namespace Criterion {
@@ -375,7 +375,7 @@ export interface Finding {
    * <p>The action in the analyzed policy statement that an external principal has permission to
    *          use.</p>
    */
-  action?: Array<string>;
+  action?: string[];
 
   /**
    * <p>The time at which the resource was analyzed.</p>
@@ -451,7 +451,7 @@ export interface FindingSummary {
    * <p>The action in the analyzed policy statement that an external principal has permission to
    *          use.</p>
    */
-  action?: Array<string>;
+  action?: string[];
 
   /**
    * <p>The time at which the resource-based policy that generated the finding was
@@ -742,7 +742,7 @@ export interface ListAnalyzedResourcesResponse {
   /**
    * <p>A list of resources that were analyzed.</p>
    */
-  analyzedResources: Array<AnalyzedResourceSummary> | undefined;
+  analyzedResources: AnalyzedResourceSummary[] | undefined;
 
   /**
    * <p>A token used for pagination of results returned.</p>
@@ -789,7 +789,7 @@ export interface ListAnalyzersResponse {
   /**
    * <p>The analyzers retrieved.</p>
    */
-  analyzers: Array<AnalyzerSummary> | undefined;
+  analyzers: AnalyzerSummary[] | undefined;
 
   /**
    * <p>A token used for pagination of results returned.</p>
@@ -836,7 +836,7 @@ export interface ListArchiveRulesResponse {
   /**
    * <p>A list of archive rules created for the specified analyzer.</p>
    */
-  archiveRules: Array<ArchiveRuleSummary> | undefined;
+  archiveRules: ArchiveRuleSummary[] | undefined;
 
   /**
    * <p>A token used for pagination of results returned.</p>
@@ -894,7 +894,7 @@ export interface ListFindingsResponse {
    * <p>A list of findings retrieved from the analyzer that match the filter criteria specified,
    *          if any.</p>
    */
-  findings: Array<FindingSummary> | undefined;
+  findings: FindingSummary[] | undefined;
 
   /**
    * <p>A token used for pagination of results returned.</p>
@@ -1109,7 +1109,7 @@ export interface UntagResourceRequest {
   /**
    * <p>The key for the tag to add.</p>
    */
-  tagKeys: Array<string> | undefined;
+  tagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -1179,7 +1179,7 @@ export interface UpdateFindingsRequest {
   /**
    * <p>The IDs of the findings to update.</p>
    */
-  ids?: Array<string>;
+  ids?: string[];
 
   /**
    * <p>The ARN of the resource identified in the finding.</p>
@@ -1210,7 +1210,7 @@ export interface ValidationException
   /**
    * <p>A list of fields that didn't validate.</p>
    */
-  fieldList?: Array<ValidationExceptionField>;
+  fieldList?: ValidationExceptionField[];
 
   message: string | undefined;
   /**

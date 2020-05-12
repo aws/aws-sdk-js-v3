@@ -362,12 +362,12 @@ export interface ListProfilingGroupsResponse {
   /**
    * List of profiling group names.
    */
-  profilingGroupNames: Array<string> | undefined;
+  profilingGroupNames: string[] | undefined;
 
   /**
    * List of profiling group descriptions.
    */
-  profilingGroups?: Array<ProfilingGroupDescription>;
+  profilingGroups?: ProfilingGroupDescription[];
 }
 
 export namespace ListProfilingGroupsResponse {
@@ -611,7 +611,7 @@ export interface ListProfileTimesResponse {
   /**
    * List of start times of the available profiles for the aggregation period in the specified time range.
    */
-  profileTimes: Array<ProfileTime> | undefined;
+  profileTimes: ProfileTime[] | undefined;
 }
 
 export namespace ListProfileTimesResponse {

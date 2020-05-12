@@ -67,12 +67,13 @@ import {
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
-export async function serializeAws_restJson1_1DescribeSavingsPlansOfferingRatesCommand(
+export const serializeAws_restJson1_1DescribeSavingsPlansOfferingRatesCommand = async (
   input: DescribeSavingsPlansOfferingRatesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/DescribeSavingsPlansOfferingRates";
   let body: any;
   const bodyParams: any = {};
@@ -153,14 +154,15 @@ export async function serializeAws_restJson1_1DescribeSavingsPlansOfferingRatesC
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribeSavingsPlansOfferingsCommand(
+export const serializeAws_restJson1_1DescribeSavingsPlansOfferingsCommand = async (
   input: DescribeSavingsPlansOfferingsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/DescribeSavingsPlansOfferings";
   let body: any;
   const bodyParams: any = {};
@@ -252,14 +254,15 @@ export async function serializeAws_restJson1_1DescribeSavingsPlansOfferingsComma
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1CreateSavingsPlanCommand(
+export const serializeAws_restJson1_1CreateSavingsPlanCommand = async (
   input: CreateSavingsPlanCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/CreateSavingsPlan";
   let body: any;
   const bodyParams: any = {};
@@ -292,14 +295,15 @@ export async function serializeAws_restJson1_1CreateSavingsPlanCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribeSavingsPlanRatesCommand(
+export const serializeAws_restJson1_1DescribeSavingsPlanRatesCommand = async (
   input: DescribeSavingsPlanRatesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/DescribeSavingsPlanRates";
   let body: any;
   const bodyParams: any = {};
@@ -329,14 +333,15 @@ export async function serializeAws_restJson1_1DescribeSavingsPlanRatesCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribeSavingsPlansCommand(
+export const serializeAws_restJson1_1DescribeSavingsPlansCommand = async (
   input: DescribeSavingsPlansCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/DescribeSavingsPlans";
   let body: any;
   const bodyParams: any = {};
@@ -381,14 +386,15 @@ export async function serializeAws_restJson1_1DescribeSavingsPlansCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListTagsForResourceCommand(
+export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/ListTagsForResource";
   let body: any;
   const bodyParams: any = {};
@@ -406,14 +412,15 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1TagResourceCommand(
+export const serializeAws_restJson1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/TagResource";
   let body: any;
   const bodyParams: any = {};
@@ -434,14 +441,15 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UntagResourceCommand(
+export const serializeAws_restJson1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/UntagResource";
   let body: any;
   const bodyParams: any = {};
@@ -465,12 +473,12 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeSavingsPlansOfferingRatesCommand(
+export const deserializeAws_restJson1_1DescribeSavingsPlansOfferingRatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeSavingsPlansOfferingRatesCommandOutput> {
+): Promise<DescribeSavingsPlansOfferingRatesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeSavingsPlansOfferingRatesCommandError(
       output,
@@ -494,12 +502,12 @@ export async function deserializeAws_restJson1_1DescribeSavingsPlansOfferingRate
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeSavingsPlansOfferingRatesCommandError(
+const deserializeAws_restJson1_1DescribeSavingsPlansOfferingRatesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeSavingsPlansOfferingRatesCommandOutput> {
+): Promise<DescribeSavingsPlansOfferingRatesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -545,12 +553,12 @@ async function deserializeAws_restJson1_1DescribeSavingsPlansOfferingRatesComman
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeSavingsPlansOfferingsCommand(
+export const deserializeAws_restJson1_1DescribeSavingsPlansOfferingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeSavingsPlansOfferingsCommandOutput> {
+): Promise<DescribeSavingsPlansOfferingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeSavingsPlansOfferingsCommandError(
       output,
@@ -574,12 +582,12 @@ export async function deserializeAws_restJson1_1DescribeSavingsPlansOfferingsCom
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeSavingsPlansOfferingsCommandError(
+const deserializeAws_restJson1_1DescribeSavingsPlansOfferingsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeSavingsPlansOfferingsCommandOutput> {
+): Promise<DescribeSavingsPlansOfferingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -625,12 +633,12 @@ async function deserializeAws_restJson1_1DescribeSavingsPlansOfferingsCommandErr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1CreateSavingsPlanCommand(
+export const deserializeAws_restJson1_1CreateSavingsPlanCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateSavingsPlanCommandOutput> {
+): Promise<CreateSavingsPlanCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateSavingsPlanCommandError(
       output,
@@ -647,12 +655,12 @@ export async function deserializeAws_restJson1_1CreateSavingsPlanCommand(
     contents.savingsPlanId = data.savingsPlanId;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreateSavingsPlanCommandError(
+const deserializeAws_restJson1_1CreateSavingsPlanCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateSavingsPlanCommandOutput> {
+): Promise<CreateSavingsPlanCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -720,12 +728,12 @@ async function deserializeAws_restJson1_1CreateSavingsPlanCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeSavingsPlanRatesCommand(
+export const deserializeAws_restJson1_1DescribeSavingsPlanRatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeSavingsPlanRatesCommandOutput> {
+): Promise<DescribeSavingsPlanRatesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeSavingsPlanRatesCommandError(
       output,
@@ -753,12 +761,12 @@ export async function deserializeAws_restJson1_1DescribeSavingsPlanRatesCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeSavingsPlanRatesCommandError(
+const deserializeAws_restJson1_1DescribeSavingsPlanRatesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeSavingsPlanRatesCommandOutput> {
+): Promise<DescribeSavingsPlanRatesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -804,12 +812,12 @@ async function deserializeAws_restJson1_1DescribeSavingsPlanRatesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeSavingsPlansCommand(
+export const deserializeAws_restJson1_1DescribeSavingsPlansCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeSavingsPlansCommandOutput> {
+): Promise<DescribeSavingsPlansCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeSavingsPlansCommandError(
       output,
@@ -833,12 +841,12 @@ export async function deserializeAws_restJson1_1DescribeSavingsPlansCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeSavingsPlansCommandError(
+const deserializeAws_restJson1_1DescribeSavingsPlansCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeSavingsPlansCommandOutput> {
+): Promise<DescribeSavingsPlansCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -884,12 +892,12 @@ async function deserializeAws_restJson1_1DescribeSavingsPlansCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
+export const deserializeAws_restJson1_1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListTagsForResourceCommandError(
       output,
@@ -906,12 +914,12 @@ export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
     contents.tags = deserializeAws_restJson1_1TagMap(data.tags, context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
+const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -968,12 +976,12 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1TagResourceCommand(
+export const deserializeAws_restJson1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1TagResourceCommandError(output, context);
   }
@@ -983,12 +991,12 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1TagResourceCommandError(
+const deserializeAws_restJson1_1TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1056,12 +1064,12 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UntagResourceCommand(
+export const deserializeAws_restJson1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UntagResourceCommandError(output, context);
   }
@@ -1071,12 +1079,12 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UntagResourceCommandError(
+const deserializeAws_restJson1_1UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1133,7 +1141,7 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1InternalServerExceptionResponse = async (
   parsedOutput: any,
@@ -1204,47 +1212,31 @@ const deserializeAws_restJson1_1ValidationExceptionResponse = async (
 };
 
 const serializeAws_restJson1_1CurrencyList = (
-  input: Array<CurrencyCode | string>,
+  input: (CurrencyCode | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1DurationsList = (
-  input: Array<number>,
+  input: number[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1FilterValuesList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1SavingsPlanDescriptionsList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1SavingsPlanOfferingFilterElement = (
@@ -1265,16 +1257,12 @@ const serializeAws_restJson1_1SavingsPlanOfferingFilterElement = (
 };
 
 const serializeAws_restJson1_1SavingsPlanOfferingFiltersList = (
-  input: Array<SavingsPlanOfferingFilterElement>,
+  input: SavingsPlanOfferingFilterElement[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_restJson1_1SavingsPlanOfferingFilterElement(entry, context)
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1SavingsPlanOfferingFilterElement(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1SavingsPlanOfferingRateFilterElement = (
@@ -1295,151 +1283,96 @@ const serializeAws_restJson1_1SavingsPlanOfferingRateFilterElement = (
 };
 
 const serializeAws_restJson1_1SavingsPlanOfferingRateFiltersList = (
-  input: Array<SavingsPlanOfferingRateFilterElement>,
+  input: SavingsPlanOfferingRateFilterElement[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_restJson1_1SavingsPlanOfferingRateFilterElement(
-        entry,
-        context
-      )
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1SavingsPlanOfferingRateFilterElement(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1UUIDs = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1SavingsPlanOperationList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1SavingsPlanPaymentOptionList = (
-  input: Array<SavingsPlanPaymentOption | string>,
+  input: (SavingsPlanPaymentOption | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1SavingsPlanProductTypeList = (
-  input: Array<SavingsPlanProductType | string>,
+  input: (SavingsPlanProductType | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1SavingsPlanRateOperationList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1SavingsPlanRateServiceCodeList = (
-  input: Array<SavingsPlanRateServiceCode | string>,
+  input: (SavingsPlanRateServiceCode | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1SavingsPlanRateUsageTypeList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1SavingsPlanServiceCodeList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1SavingsPlanTypeList = (
-  input: Array<SavingsPlanType | string>,
+  input: (SavingsPlanType | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1SavingsPlanUsageTypeList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1ListOfStrings = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1SavingsPlanArnList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1SavingsPlanFilter = (
@@ -1460,25 +1393,19 @@ const serializeAws_restJson1_1SavingsPlanFilter = (
 };
 
 const serializeAws_restJson1_1SavingsPlanFilterList = (
-  input: Array<SavingsPlanFilter>,
+  input: SavingsPlanFilter[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1SavingsPlanFilter(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1SavingsPlanFilter(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1SavingsPlanIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1SavingsPlanRateFilter = (
@@ -1499,49 +1426,36 @@ const serializeAws_restJson1_1SavingsPlanRateFilter = (
 };
 
 const serializeAws_restJson1_1SavingsPlanRateFilterList = (
-  input: Array<SavingsPlanRateFilter>,
+  input: SavingsPlanRateFilter[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_restJson1_1SavingsPlanRateFilter(entry, context)
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1SavingsPlanRateFilter(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1SavingsPlanStateList = (
-  input: Array<SavingsPlanState | string>,
+  input: (SavingsPlanState | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1TagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1TagMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = input[key];
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = input[key];
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1_1ParentSavingsPlanOffering = (
@@ -1659,7 +1573,7 @@ const deserializeAws_restJson1_1SavingsPlanOfferingProperty = (
 const deserializeAws_restJson1_1SavingsPlanOfferingPropertyList = (
   output: any,
   context: __SerdeContext
-): Array<SavingsPlanOfferingProperty> => {
+): SavingsPlanOfferingProperty[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SavingsPlanOfferingProperty(entry, context)
   );
@@ -1737,7 +1651,7 @@ const deserializeAws_restJson1_1SavingsPlanOfferingRateProperty = (
 const deserializeAws_restJson1_1SavingsPlanOfferingRatePropertyList = (
   output: any,
   context: __SerdeContext
-): Array<SavingsPlanOfferingRateProperty> => {
+): SavingsPlanOfferingRateProperty[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SavingsPlanOfferingRateProperty(entry, context)
   );
@@ -1746,7 +1660,7 @@ const deserializeAws_restJson1_1SavingsPlanOfferingRatePropertyList = (
 const deserializeAws_restJson1_1SavingsPlanOfferingRatesList = (
   output: any,
   context: __SerdeContext
-): Array<SavingsPlanOfferingRate> => {
+): SavingsPlanOfferingRate[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SavingsPlanOfferingRate(entry, context)
   );
@@ -1755,7 +1669,7 @@ const deserializeAws_restJson1_1SavingsPlanOfferingRatesList = (
 const deserializeAws_restJson1_1SavingsPlanOfferingsList = (
   output: any,
   context: __SerdeContext
-): Array<SavingsPlanOffering> => {
+): SavingsPlanOffering[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SavingsPlanOffering(entry, context)
   );
@@ -1764,7 +1678,7 @@ const deserializeAws_restJson1_1SavingsPlanOfferingsList = (
 const deserializeAws_restJson1_1SavingsPlanProductTypeList = (
   output: any,
   context: __SerdeContext
-): Array<SavingsPlanProductType | string> => {
+): (SavingsPlanProductType | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -1789,7 +1703,7 @@ const deserializeAws_restJson1_1SavingsPlanRateProperty = (
 const deserializeAws_restJson1_1SavingsPlanRatePropertyList = (
   output: any,
   context: __SerdeContext
-): Array<SavingsPlanRateProperty> => {
+): SavingsPlanRateProperty[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SavingsPlanRateProperty(entry, context)
   );
@@ -1895,7 +1809,7 @@ const deserializeAws_restJson1_1SavingsPlan = (
 const deserializeAws_restJson1_1SavingsPlanList = (
   output: any,
   context: __SerdeContext
-): Array<SavingsPlan> => {
+): SavingsPlan[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SavingsPlan(entry, context)
   );
@@ -1949,7 +1863,7 @@ const deserializeAws_restJson1_1SavingsPlanRate = (
 const deserializeAws_restJson1_1SavingsPlanRateList = (
   output: any,
   context: __SerdeContext
-): Array<SavingsPlanRate> => {
+): SavingsPlanRate[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SavingsPlanRate(entry, context)
   );
@@ -1959,11 +1873,10 @@ const deserializeAws_restJson1_1TagMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = output[key];
+    return acc;
+  }, {});
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -1974,7 +1887,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -1989,30 +1902,23 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
-function isSerializableHeaderValue(value: any): boolean {
-  return (
-    value !== undefined &&
-    value !== "" &&
-    (!Object.getOwnPropertyNames(value).includes("length") ||
-      value.length != 0) &&
-    (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0)
-  );
-}
+const isSerializableHeaderValue = (value: any): boolean =>
+  value !== undefined &&
+  value !== "" &&
+  (!Object.getOwnPropertyNames(value).includes("length") ||
+    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};
 
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.

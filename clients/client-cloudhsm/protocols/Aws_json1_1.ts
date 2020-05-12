@@ -137,270 +137,290 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_json1_1AddTagsToResourceCommand(
+export const serializeAws_json1_1AddTagsToResourceCommand = async (
   input: AddTagsToResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.AddTagsToResource";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudHsmFrontendService.AddTagsToResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AddTagsToResourceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreateHapgCommand(
+export const serializeAws_json1_1CreateHapgCommand = async (
   input: CreateHapgCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.CreateHapg";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudHsmFrontendService.CreateHapg"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateHapgRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreateHsmCommand(
+export const serializeAws_json1_1CreateHsmCommand = async (
   input: CreateHsmCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.CreateHsm";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudHsmFrontendService.CreateHsm"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateHsmRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreateLunaClientCommand(
+export const serializeAws_json1_1CreateLunaClientCommand = async (
   input: CreateLunaClientCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.CreateLunaClient";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudHsmFrontendService.CreateLunaClient"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateLunaClientRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteHapgCommand(
+export const serializeAws_json1_1DeleteHapgCommand = async (
   input: DeleteHapgCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.DeleteHapg";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudHsmFrontendService.DeleteHapg"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteHapgRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteHsmCommand(
+export const serializeAws_json1_1DeleteHsmCommand = async (
   input: DeleteHsmCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.DeleteHsm";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudHsmFrontendService.DeleteHsm"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteHsmRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteLunaClientCommand(
+export const serializeAws_json1_1DeleteLunaClientCommand = async (
   input: DeleteLunaClientCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.DeleteLunaClient";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudHsmFrontendService.DeleteLunaClient"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteLunaClientRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeHapgCommand(
+export const serializeAws_json1_1DescribeHapgCommand = async (
   input: DescribeHapgCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.DescribeHapg";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudHsmFrontendService.DescribeHapg"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeHapgRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeHsmCommand(
+export const serializeAws_json1_1DescribeHsmCommand = async (
   input: DescribeHsmCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.DescribeHsm";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudHsmFrontendService.DescribeHsm"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeHsmRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeLunaClientCommand(
+export const serializeAws_json1_1DescribeLunaClientCommand = async (
   input: DescribeLunaClientCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.DescribeLunaClient";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudHsmFrontendService.DescribeLunaClient"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeLunaClientRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetConfigCommand(
+export const serializeAws_json1_1GetConfigCommand = async (
   input: GetConfigCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.GetConfig";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudHsmFrontendService.GetConfig"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListAvailableZonesCommand(
+export const serializeAws_json1_1ListAvailableZonesCommand = async (
   input: ListAvailableZonesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.ListAvailableZones";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudHsmFrontendService.ListAvailableZones"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListAvailableZonesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListHapgsCommand(
+export const serializeAws_json1_1ListHapgsCommand = async (
   input: ListHapgsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.ListHapgs";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudHsmFrontendService.ListHapgs"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListHapgsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListHsmsCommand(
+export const serializeAws_json1_1ListHsmsCommand = async (
   input: ListHsmsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.ListHsms";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudHsmFrontendService.ListHsms"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListHsmsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListLunaClientsCommand(
+export const serializeAws_json1_1ListLunaClientsCommand = async (
   input: ListLunaClientsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.ListLunaClients";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudHsmFrontendService.ListLunaClients"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListLunaClientsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListTagsForResourceCommand(
+export const serializeAws_json1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.ListTagsForResource";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudHsmFrontendService.ListTagsForResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTagsForResourceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ModifyHapgCommand(
+export const serializeAws_json1_1ModifyHapgCommand = async (
   input: ModifyHapgCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.ModifyHapg";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudHsmFrontendService.ModifyHapg"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ModifyHapgRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ModifyHsmCommand(
+export const serializeAws_json1_1ModifyHsmCommand = async (
   input: ModifyHsmCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.ModifyHsm";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudHsmFrontendService.ModifyHsm"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ModifyHsmRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ModifyLunaClientCommand(
+export const serializeAws_json1_1ModifyLunaClientCommand = async (
   input: ModifyLunaClientCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.ModifyLunaClient";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudHsmFrontendService.ModifyLunaClient"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ModifyLunaClientRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1RemoveTagsFromResourceCommand(
+export const serializeAws_json1_1RemoveTagsFromResourceCommand = async (
   input: RemoveTagsFromResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.RemoveTagsFromResource";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CloudHsmFrontendService.RemoveTagsFromResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RemoveTagsFromResourceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_1AddTagsToResourceCommand(
+export const deserializeAws_json1_1AddTagsToResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AddTagsToResourceCommandOutput> {
+): Promise<AddTagsToResourceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1AddTagsToResourceCommandError(output, context);
   }
@@ -413,12 +433,12 @@ export async function deserializeAws_json1_1AddTagsToResourceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1AddTagsToResourceCommandError(
+const deserializeAws_json1_1AddTagsToResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AddTagsToResourceCommandOutput> {
+): Promise<AddTagsToResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -477,12 +497,12 @@ async function deserializeAws_json1_1AddTagsToResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreateHapgCommand(
+export const deserializeAws_json1_1CreateHapgCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateHapgCommandOutput> {
+): Promise<CreateHapgCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateHapgCommandError(output, context);
   }
@@ -495,12 +515,12 @@ export async function deserializeAws_json1_1CreateHapgCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateHapgCommandError(
+const deserializeAws_json1_1CreateHapgCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateHapgCommandOutput> {
+): Promise<CreateHapgCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -559,12 +579,12 @@ async function deserializeAws_json1_1CreateHapgCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreateHsmCommand(
+export const deserializeAws_json1_1CreateHsmCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateHsmCommandOutput> {
+): Promise<CreateHsmCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateHsmCommandError(output, context);
   }
@@ -577,12 +597,12 @@ export async function deserializeAws_json1_1CreateHsmCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateHsmCommandError(
+const deserializeAws_json1_1CreateHsmCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateHsmCommandOutput> {
+): Promise<CreateHsmCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -641,12 +661,12 @@ async function deserializeAws_json1_1CreateHsmCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreateLunaClientCommand(
+export const deserializeAws_json1_1CreateLunaClientCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateLunaClientCommandOutput> {
+): Promise<CreateLunaClientCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateLunaClientCommandError(output, context);
   }
@@ -659,12 +679,12 @@ export async function deserializeAws_json1_1CreateLunaClientCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateLunaClientCommandError(
+const deserializeAws_json1_1CreateLunaClientCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateLunaClientCommandOutput> {
+): Promise<CreateLunaClientCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -723,12 +743,12 @@ async function deserializeAws_json1_1CreateLunaClientCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteHapgCommand(
+export const deserializeAws_json1_1DeleteHapgCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteHapgCommandOutput> {
+): Promise<DeleteHapgCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteHapgCommandError(output, context);
   }
@@ -741,12 +761,12 @@ export async function deserializeAws_json1_1DeleteHapgCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteHapgCommandError(
+const deserializeAws_json1_1DeleteHapgCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteHapgCommandOutput> {
+): Promise<DeleteHapgCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -805,12 +825,12 @@ async function deserializeAws_json1_1DeleteHapgCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteHsmCommand(
+export const deserializeAws_json1_1DeleteHsmCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteHsmCommandOutput> {
+): Promise<DeleteHsmCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteHsmCommandError(output, context);
   }
@@ -823,12 +843,12 @@ export async function deserializeAws_json1_1DeleteHsmCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteHsmCommandError(
+const deserializeAws_json1_1DeleteHsmCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteHsmCommandOutput> {
+): Promise<DeleteHsmCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -887,12 +907,12 @@ async function deserializeAws_json1_1DeleteHsmCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteLunaClientCommand(
+export const deserializeAws_json1_1DeleteLunaClientCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteLunaClientCommandOutput> {
+): Promise<DeleteLunaClientCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteLunaClientCommandError(output, context);
   }
@@ -905,12 +925,12 @@ export async function deserializeAws_json1_1DeleteLunaClientCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteLunaClientCommandError(
+const deserializeAws_json1_1DeleteLunaClientCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteLunaClientCommandOutput> {
+): Promise<DeleteLunaClientCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -969,12 +989,12 @@ async function deserializeAws_json1_1DeleteLunaClientCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeHapgCommand(
+export const deserializeAws_json1_1DescribeHapgCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeHapgCommandOutput> {
+): Promise<DescribeHapgCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeHapgCommandError(output, context);
   }
@@ -987,12 +1007,12 @@ export async function deserializeAws_json1_1DescribeHapgCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeHapgCommandError(
+const deserializeAws_json1_1DescribeHapgCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeHapgCommandOutput> {
+): Promise<DescribeHapgCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1051,12 +1071,12 @@ async function deserializeAws_json1_1DescribeHapgCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeHsmCommand(
+export const deserializeAws_json1_1DescribeHsmCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeHsmCommandOutput> {
+): Promise<DescribeHsmCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeHsmCommandError(output, context);
   }
@@ -1069,12 +1089,12 @@ export async function deserializeAws_json1_1DescribeHsmCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeHsmCommandError(
+const deserializeAws_json1_1DescribeHsmCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeHsmCommandOutput> {
+): Promise<DescribeHsmCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1133,12 +1153,12 @@ async function deserializeAws_json1_1DescribeHsmCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeLunaClientCommand(
+export const deserializeAws_json1_1DescribeLunaClientCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeLunaClientCommandOutput> {
+): Promise<DescribeLunaClientCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeLunaClientCommandError(
       output,
@@ -1154,12 +1174,12 @@ export async function deserializeAws_json1_1DescribeLunaClientCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeLunaClientCommandError(
+const deserializeAws_json1_1DescribeLunaClientCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeLunaClientCommandOutput> {
+): Promise<DescribeLunaClientCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1218,12 +1238,12 @@ async function deserializeAws_json1_1DescribeLunaClientCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetConfigCommand(
+export const deserializeAws_json1_1GetConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetConfigCommandOutput> {
+): Promise<GetConfigCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetConfigCommandError(output, context);
   }
@@ -1236,12 +1256,12 @@ export async function deserializeAws_json1_1GetConfigCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetConfigCommandError(
+const deserializeAws_json1_1GetConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetConfigCommandOutput> {
+): Promise<GetConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1300,12 +1320,12 @@ async function deserializeAws_json1_1GetConfigCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListAvailableZonesCommand(
+export const deserializeAws_json1_1ListAvailableZonesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListAvailableZonesCommandOutput> {
+): Promise<ListAvailableZonesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListAvailableZonesCommandError(
       output,
@@ -1321,12 +1341,12 @@ export async function deserializeAws_json1_1ListAvailableZonesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListAvailableZonesCommandError(
+const deserializeAws_json1_1ListAvailableZonesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListAvailableZonesCommandOutput> {
+): Promise<ListAvailableZonesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1385,12 +1405,12 @@ async function deserializeAws_json1_1ListAvailableZonesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListHapgsCommand(
+export const deserializeAws_json1_1ListHapgsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListHapgsCommandOutput> {
+): Promise<ListHapgsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListHapgsCommandError(output, context);
   }
@@ -1403,12 +1423,12 @@ export async function deserializeAws_json1_1ListHapgsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListHapgsCommandError(
+const deserializeAws_json1_1ListHapgsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListHapgsCommandOutput> {
+): Promise<ListHapgsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1467,12 +1487,12 @@ async function deserializeAws_json1_1ListHapgsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListHsmsCommand(
+export const deserializeAws_json1_1ListHsmsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListHsmsCommandOutput> {
+): Promise<ListHsmsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListHsmsCommandError(output, context);
   }
@@ -1485,12 +1505,12 @@ export async function deserializeAws_json1_1ListHsmsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListHsmsCommandError(
+const deserializeAws_json1_1ListHsmsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListHsmsCommandOutput> {
+): Promise<ListHsmsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1549,12 +1569,12 @@ async function deserializeAws_json1_1ListHsmsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListLunaClientsCommand(
+export const deserializeAws_json1_1ListLunaClientsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListLunaClientsCommandOutput> {
+): Promise<ListLunaClientsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListLunaClientsCommandError(output, context);
   }
@@ -1567,12 +1587,12 @@ export async function deserializeAws_json1_1ListLunaClientsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListLunaClientsCommandError(
+const deserializeAws_json1_1ListLunaClientsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListLunaClientsCommandOutput> {
+): Promise<ListLunaClientsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1631,12 +1651,12 @@ async function deserializeAws_json1_1ListLunaClientsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListTagsForResourceCommand(
+export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListTagsForResourceCommandError(
       output,
@@ -1652,12 +1672,12 @@ export async function deserializeAws_json1_1ListTagsForResourceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListTagsForResourceCommandError(
+const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1716,12 +1736,12 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ModifyHapgCommand(
+export const deserializeAws_json1_1ModifyHapgCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ModifyHapgCommandOutput> {
+): Promise<ModifyHapgCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ModifyHapgCommandError(output, context);
   }
@@ -1734,12 +1754,12 @@ export async function deserializeAws_json1_1ModifyHapgCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ModifyHapgCommandError(
+const deserializeAws_json1_1ModifyHapgCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ModifyHapgCommandOutput> {
+): Promise<ModifyHapgCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1798,12 +1818,12 @@ async function deserializeAws_json1_1ModifyHapgCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ModifyHsmCommand(
+export const deserializeAws_json1_1ModifyHsmCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ModifyHsmCommandOutput> {
+): Promise<ModifyHsmCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ModifyHsmCommandError(output, context);
   }
@@ -1816,12 +1836,12 @@ export async function deserializeAws_json1_1ModifyHsmCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ModifyHsmCommandError(
+const deserializeAws_json1_1ModifyHsmCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ModifyHsmCommandOutput> {
+): Promise<ModifyHsmCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1880,12 +1900,12 @@ async function deserializeAws_json1_1ModifyHsmCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ModifyLunaClientCommand(
+export const deserializeAws_json1_1ModifyLunaClientCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ModifyLunaClientCommandOutput> {
+): Promise<ModifyLunaClientCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ModifyLunaClientCommandError(output, context);
   }
@@ -1898,12 +1918,12 @@ export async function deserializeAws_json1_1ModifyLunaClientCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ModifyLunaClientCommandError(
+const deserializeAws_json1_1ModifyLunaClientCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ModifyLunaClientCommandOutput> {
+): Promise<ModifyLunaClientCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1940,12 +1960,12 @@ async function deserializeAws_json1_1ModifyLunaClientCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1RemoveTagsFromResourceCommand(
+export const deserializeAws_json1_1RemoveTagsFromResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RemoveTagsFromResourceCommandOutput> {
+): Promise<RemoveTagsFromResourceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1RemoveTagsFromResourceCommandError(
       output,
@@ -1964,12 +1984,12 @@ export async function deserializeAws_json1_1RemoveTagsFromResourceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1RemoveTagsFromResourceCommandError(
+const deserializeAws_json1_1RemoveTagsFromResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RemoveTagsFromResourceCommandOutput> {
+): Promise<RemoveTagsFromResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2028,7 +2048,7 @@ async function deserializeAws_json1_1RemoveTagsFromResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_1CloudHsmInternalExceptionResponse = async (
   parsedOutput: any,
@@ -2248,14 +2268,10 @@ const serializeAws_json1_1GetConfigRequest = (
 };
 
 const serializeAws_json1_1HapgList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1ListAvailableZonesRequest = (
@@ -2371,14 +2387,10 @@ const serializeAws_json1_1ModifyLunaClientRequest = (
 };
 
 const serializeAws_json1_1PartitionSerialList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1RemoveTagsFromResourceRequest = (
@@ -2410,31 +2422,23 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_json1_1TagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1TagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1Tag(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1Tag(entry, context));
 };
 
 const deserializeAws_json1_1AZList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -2455,7 +2459,7 @@ const deserializeAws_json1_1AddTagsToResourceResponse = (
 const deserializeAws_json1_1ClientList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -2828,14 +2832,14 @@ const deserializeAws_json1_1GetConfigResponse = (
 const deserializeAws_json1_1HapgList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1HsmList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -2990,14 +2994,14 @@ const deserializeAws_json1_1ModifyLunaClientResponse = (
 const deserializeAws_json1_1PartitionList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1PartitionSerialList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -3036,7 +3040,7 @@ const deserializeAws_json1_1Tag = (
 const deserializeAws_json1_1TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );
@@ -3050,7 +3054,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -3065,11 +3069,8 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
@@ -3096,11 +3097,10 @@ const buildHttpRpcRequest = async (
   return new __HttpRequest(contents);
 };
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};

@@ -745,13 +745,13 @@ export interface Captions {
   /**
    * <p>The array of file formats for the output captions. If you leave this value blank, Elastic Transcoder returns an error.</p>
    */
-  CaptionFormats?: Array<CaptionFormat>;
+  CaptionFormats?: CaptionFormat[];
 
   /**
    * <p>Source files for the input sidecar captions used during the transcoding
    *          process. To omit all sidecar captions, leave <code>CaptionSources</code> blank.</p>
    */
-  CaptionSources?: Array<CaptionSource>;
+  CaptionSources?: CaptionSource[];
 
   /**
    * <p>A policy that determines how Elastic Transcoder handles the existence of multiple captions.</p>
@@ -863,7 +863,7 @@ export interface CreateJobOutput {
    *             for the clips that make up an output file. For the current release, you can only specify settings for a
    *             single clip per output file. The Composition object cannot be null.</p>
    */
-  Composition?: Array<Clip>;
+  Composition?: Clip[];
 
   /**
    * <p>You can specify encryption settings for any output files that you want to use for a
@@ -971,7 +971,7 @@ export interface CreateJobOutput {
    *     You can specify up to four watermarks for each output. Settings for each watermark must be defined
    *     in the preset for the current output.</p>
    */
-  Watermarks?: Array<JobWatermark>;
+  Watermarks?: JobWatermark[];
 }
 
 export namespace CreateJobOutput {
@@ -1053,7 +1053,7 @@ export interface CreateJobPlaylist {
    *             <code>Video:Profile</code>, and <code>Video:FrameRate</code> to
    *             <code>Video:KeyframesMaxDist</code> ratio must be the same for all outputs.</p>
    */
-  OutputKeys?: Array<string>;
+  OutputKeys?: string[];
 
   /**
    * <p>The DRM settings, if any, that you want Elastic Transcoder to apply to the output files associated with this playlist.</p>
@@ -1081,7 +1081,7 @@ export interface CreateJobRequest {
    * <p>A section of the request body that provides information about the files that are being
    *             transcoded.</p>
    */
-  Inputs?: Array<JobInput>;
+  Inputs?: JobInput[];
 
   /**
    * <p> A section of the request body that provides information about the transcoded (target)
@@ -1101,7 +1101,7 @@ export interface CreateJobRequest {
    *             files. We recommend that you use the <code>Outputs</code> syntax instead of the
    *                 <code>Output</code> syntax. </p>
    */
-  Outputs?: Array<CreateJobOutput>;
+  Outputs?: CreateJobOutput[];
 
   /**
    * <p>The <code>Id</code> of the pipeline that you want Elastic Transcoder to use for
@@ -1117,7 +1117,7 @@ export interface CreateJobRequest {
    *                 information about the master playlists that you want Elastic Transcoder to create.</p>
    *         <p>The maximum number of master playlists in a job is 30.</p>
    */
-  Playlists?: Array<CreateJobPlaylist>;
+  Playlists?: CreateJobPlaylist[];
 
   /**
    * <p>User-defined metadata that you want to associate with an Elastic Transcoder job. You specify metadata in
@@ -1475,7 +1475,7 @@ export interface CreatePipelineResponse {
    *         <p>Using resources in the same region, such as your Amazon S3 buckets, Amazon SNS notification topics, and
    *             AWS KMS key, reduces processing time and prevents cross-regional charges.</p>
    */
-  Warnings?: Array<Warning>;
+  Warnings?: Warning[];
 }
 
 export namespace CreatePipelineResponse {
@@ -1809,7 +1809,7 @@ export interface InputCaptions {
    * <p>Source files for the input sidecar captions used during the transcoding
    *             process. To omit all sidecar captions, leave <code>CaptionSources</code> blank.</p>
    */
-  CaptionSources?: Array<CaptionSource>;
+  CaptionSources?: CaptionSource[];
 
   /**
    * <p>A policy that determines how Elastic Transcoder handles the existence of multiple captions.</p>
@@ -1869,7 +1869,7 @@ export interface Job {
    * <p>Information about the files that you're transcoding. If you specified multiple files for this
    *             job, Elastic Transcoder stitches the files together to make one output.</p>
    */
-  Inputs?: Array<JobInput>;
+  Inputs?: JobInput[];
 
   /**
    * <p>If you specified one output for a job, information about that output. If you
@@ -1898,7 +1898,7 @@ export interface Job {
    *         <p>If you specify more than one output for a job, Elastic Transcoder creates the files for each output
    *             in the order in which you specify them in the job.</p>
    */
-  Outputs?: Array<JobOutput>;
+  Outputs?: JobOutput[];
 
   /**
    * <p> The <code>Id</code> of the pipeline that you want Elastic Transcoder to use for transcoding. The
@@ -1917,7 +1917,7 @@ export interface Job {
    *             Elastic Transcoder to create.</p>
    *         <p>The maximum number of master playlists in a job is 30.</p>
    */
-  Playlists?: Array<Playlist>;
+  Playlists?: Playlist[];
 
   /**
    * <p> The status of the job: <code>Submitted</code>, <code>Progressing</code>, <code>Complete</code>,
@@ -1975,7 +1975,7 @@ export interface JobAlbumArt {
    *             to a maximum of 20. Valid formats are <code>.jpg</code> and <code>.png</code>
    *          </p>
    */
-  Artwork?: Array<Artwork>;
+  Artwork?: Artwork[];
 
   /**
    * <p>A policy that determines how Elastic Transcoder handles the existence of multiple album artwork files.</p>
@@ -2218,7 +2218,7 @@ export interface JobOutput {
    *             for the clips that make up an output file. For the current release, you can only specify settings for a
    *             single clip per output file. The Composition object cannot be null.</p>
    */
-  Composition?: Array<Clip>;
+  Composition?: Clip[];
 
   /**
    * <p>Duration of the output file, in seconds.</p>
@@ -2408,7 +2408,7 @@ export interface JobOutput {
    *             that you add covers the first one, the third one covers the second, and the
    *             fourth one covers the third.</p>
    */
-  Watermarks?: Array<JobWatermark>;
+  Watermarks?: JobWatermark[];
 
   /**
    * <p>Specifies the width of the output file in pixels.</p>
@@ -2491,7 +2491,7 @@ export interface ListJobsByPipelineResponse {
   /**
    * <p>An array of <code>Job</code> objects that are in the specified pipeline.</p>
    */
-  Jobs?: Array<Job>;
+  Jobs?: Job[];
 
   /**
    * <p> A value that you use to access the second and subsequent pages of results, if any. When
@@ -2548,7 +2548,7 @@ export interface ListJobsByStatusResponse {
   /**
    * <p>An array of <code>Job</code> objects that have the specified status.</p>
    */
-  Jobs?: Array<Job>;
+  Jobs?: Job[];
 
   /**
    * <p> A value that you use to access the second and subsequent pages of results, if any. When
@@ -2602,7 +2602,7 @@ export interface ListPipelinesResponse {
   /**
    * <p>An array of <code>Pipeline</code> objects.</p>
    */
-  Pipelines?: Array<Pipeline>;
+  Pipelines?: Pipeline[];
 }
 
 export namespace ListPipelinesResponse {
@@ -2649,7 +2649,7 @@ export interface ListPresetsResponse {
   /**
    * <p>An array of <code>Preset</code> objects.</p>
    */
-  Presets?: Array<Preset>;
+  Presets?: Preset[];
 }
 
 export namespace ListPresetsResponse {
@@ -2722,7 +2722,7 @@ export interface Permission {
    *             </li>
    *          </ul>
    */
-  Access?: Array<string>;
+  Access?: string[];
 
   /**
    * <p>The AWS user or group that you want to have access to transcoded files and playlists. To
@@ -3084,7 +3084,7 @@ export interface PipelineOutputConfig {
    *             and playlists to the owner of the role specified by <code>Role</code>, and grants no
    *             other permissions to any other user or group.</p>
    */
-  Permissions?: Array<Permission>;
+  Permissions?: Permission[];
 
   /**
    * <p> The Amazon S3 storage class, <code>Standard</code> or <code>ReducedRedundancy</code>,
@@ -3233,7 +3233,7 @@ export interface Playlist {
    *     <code>Video:Profile</code>, and <code>Video:FrameRate</code> to
    *     <code>Video:KeyframesMaxDist</code> ratio must be the same for all outputs.</p>
    */
-  OutputKeys?: Array<string>;
+  OutputKeys?: string[];
 
   /**
    * <p>The DRM settings, if any, that you want Elastic Transcoder to apply to the output files associated with this playlist.</p>
@@ -3615,7 +3615,7 @@ export interface ReadPipelineResponse {
    *         <p>Using resources in the same region, such as your Amazon S3 buckets, Amazon SNS notification topics,
    *             and AWS KMS key, reduces processing time and prevents cross-regional charges.</p>
    */
-  Warnings?: Array<Warning>;
+  Warnings?: Warning[];
 }
 
 export namespace ReadPipelineResponse {
@@ -3678,7 +3678,7 @@ export interface TestRoleRequest {
   /**
    * <p>The ARNs of one or more Amazon Simple Notification Service (Amazon SNS) topics that you want the action to send a test notification to.</p>
    */
-  Topics: Array<string> | undefined;
+  Topics: string[] | undefined;
 }
 
 export namespace TestRoleRequest {
@@ -3695,7 +3695,7 @@ export interface TestRoleResponse {
    * <p>If the <code>Success</code> element contains <code>false</code>, this value is an array
    *             of one or more error messages that were generated during the test process.</p>
    */
-  Messages?: Array<string>;
+  Messages?: string[];
 
   /**
    * <p>If the operation is successful, this value is <code>true</code>; otherwise, the value is
@@ -4252,7 +4252,7 @@ export interface UpdatePipelineResponse {
    *         <p>Using resources in the same region, such as your Amazon S3 buckets, Amazon SNS notification topics, and
    *             AWS KMS key, reduces processing time and prevents cross-regional charges.</p>
    */
-  Warnings?: Array<Warning>;
+  Warnings?: Warning[];
 }
 
 export namespace UpdatePipelineResponse {
@@ -4880,7 +4880,7 @@ export interface VideoParameters {
    *             than you specify watermark settings in the preset, which allows you to use the same preset
    *             for up to four watermarks that have different dimensions.</p>
    */
-  Watermarks?: Array<PresetWatermark>;
+  Watermarks?: PresetWatermark[];
 }
 
 export namespace VideoParameters {

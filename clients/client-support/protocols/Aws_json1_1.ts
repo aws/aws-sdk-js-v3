@@ -122,136 +122,146 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_json1_1AddAttachmentsToSetCommand(
+export const serializeAws_json1_1AddAttachmentsToSetCommand = async (
   input: AddAttachmentsToSetCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSSupport_20130415.AddAttachmentsToSet";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSSupport_20130415.AddAttachmentsToSet"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AddAttachmentsToSetRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1AddCommunicationToCaseCommand(
+export const serializeAws_json1_1AddCommunicationToCaseCommand = async (
   input: AddCommunicationToCaseCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSSupport_20130415.AddCommunicationToCase";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSSupport_20130415.AddCommunicationToCase"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AddCommunicationToCaseRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreateCaseCommand(
+export const serializeAws_json1_1CreateCaseCommand = async (
   input: CreateCaseCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSSupport_20130415.CreateCase";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSSupport_20130415.CreateCase"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateCaseRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeAttachmentCommand(
+export const serializeAws_json1_1DescribeAttachmentCommand = async (
   input: DescribeAttachmentCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSSupport_20130415.DescribeAttachment";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSSupport_20130415.DescribeAttachment"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeAttachmentRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeCasesCommand(
+export const serializeAws_json1_1DescribeCasesCommand = async (
   input: DescribeCasesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSSupport_20130415.DescribeCases";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSSupport_20130415.DescribeCases"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeCasesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeCommunicationsCommand(
+export const serializeAws_json1_1DescribeCommunicationsCommand = async (
   input: DescribeCommunicationsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSSupport_20130415.DescribeCommunications";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSSupport_20130415.DescribeCommunications"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeCommunicationsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeServicesCommand(
+export const serializeAws_json1_1DescribeServicesCommand = async (
   input: DescribeServicesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSSupport_20130415.DescribeServices";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSSupport_20130415.DescribeServices"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeServicesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeSeverityLevelsCommand(
+export const serializeAws_json1_1DescribeSeverityLevelsCommand = async (
   input: DescribeSeverityLevelsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSSupport_20130415.DescribeSeverityLevels";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSSupport_20130415.DescribeSeverityLevels"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeSeverityLevelsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ResolveCaseCommand(
+export const serializeAws_json1_1ResolveCaseCommand = async (
   input: ResolveCaseCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSSupport_20130415.ResolveCase";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSSupport_20130415.ResolveCase"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ResolveCaseRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesCommand(
+export const serializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesCommand = async (
   input: DescribeTrustedAdvisorCheckRefreshStatusesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSSupport_20130415.DescribeTrustedAdvisorCheckRefreshStatuses";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "AWSSupport_20130415.DescribeTrustedAdvisorCheckRefreshStatuses"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesRequest(
@@ -260,31 +270,31 @@ export async function serializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStat
     )
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeTrustedAdvisorCheckResultCommand(
+export const serializeAws_json1_1DescribeTrustedAdvisorCheckResultCommand = async (
   input: DescribeTrustedAdvisorCheckResultCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSSupport_20130415.DescribeTrustedAdvisorCheckResult";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSSupport_20130415.DescribeTrustedAdvisorCheckResult"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeTrustedAdvisorCheckResultRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCommand(
+export const serializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCommand = async (
   input: DescribeTrustedAdvisorCheckSummariesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSSupport_20130415.DescribeTrustedAdvisorCheckSummaries";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSSupport_20130415.DescribeTrustedAdvisorCheckSummaries"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeTrustedAdvisorCheckSummariesRequest(
@@ -293,40 +303,42 @@ export async function serializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCo
     )
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeTrustedAdvisorChecksCommand(
+export const serializeAws_json1_1DescribeTrustedAdvisorChecksCommand = async (
   input: DescribeTrustedAdvisorChecksCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSSupport_20130415.DescribeTrustedAdvisorChecks";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSSupport_20130415.DescribeTrustedAdvisorChecks"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeTrustedAdvisorChecksRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1RefreshTrustedAdvisorCheckCommand(
+export const serializeAws_json1_1RefreshTrustedAdvisorCheckCommand = async (
   input: RefreshTrustedAdvisorCheckCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSSupport_20130415.RefreshTrustedAdvisorCheck";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSSupport_20130415.RefreshTrustedAdvisorCheck"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RefreshTrustedAdvisorCheckRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_1AddAttachmentsToSetCommand(
+export const deserializeAws_json1_1AddAttachmentsToSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AddAttachmentsToSetCommandOutput> {
+): Promise<AddAttachmentsToSetCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1AddAttachmentsToSetCommandError(
       output,
@@ -342,12 +354,12 @@ export async function deserializeAws_json1_1AddAttachmentsToSetCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1AddAttachmentsToSetCommandError(
+const deserializeAws_json1_1AddAttachmentsToSetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AddAttachmentsToSetCommandOutput> {
+): Promise<AddAttachmentsToSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -428,12 +440,12 @@ async function deserializeAws_json1_1AddAttachmentsToSetCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1AddCommunicationToCaseCommand(
+export const deserializeAws_json1_1AddCommunicationToCaseCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AddCommunicationToCaseCommandOutput> {
+): Promise<AddCommunicationToCaseCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1AddCommunicationToCaseCommandError(
       output,
@@ -452,12 +464,12 @@ export async function deserializeAws_json1_1AddCommunicationToCaseCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1AddCommunicationToCaseCommandError(
+const deserializeAws_json1_1AddCommunicationToCaseCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AddCommunicationToCaseCommandOutput> {
+): Promise<AddCommunicationToCaseCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -527,12 +539,12 @@ async function deserializeAws_json1_1AddCommunicationToCaseCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreateCaseCommand(
+export const deserializeAws_json1_1CreateCaseCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateCaseCommandOutput> {
+): Promise<CreateCaseCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateCaseCommandError(output, context);
   }
@@ -545,12 +557,12 @@ export async function deserializeAws_json1_1CreateCaseCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateCaseCommandError(
+const deserializeAws_json1_1CreateCaseCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateCaseCommandOutput> {
+): Promise<CreateCaseCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -620,12 +632,12 @@ async function deserializeAws_json1_1CreateCaseCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeAttachmentCommand(
+export const deserializeAws_json1_1DescribeAttachmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeAttachmentCommandOutput> {
+): Promise<DescribeAttachmentCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeAttachmentCommandError(
       output,
@@ -641,12 +653,12 @@ export async function deserializeAws_json1_1DescribeAttachmentCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeAttachmentCommandError(
+const deserializeAws_json1_1DescribeAttachmentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeAttachmentCommandOutput> {
+): Promise<DescribeAttachmentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -705,12 +717,12 @@ async function deserializeAws_json1_1DescribeAttachmentCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeCasesCommand(
+export const deserializeAws_json1_1DescribeCasesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeCasesCommandOutput> {
+): Promise<DescribeCasesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeCasesCommandError(output, context);
   }
@@ -723,12 +735,12 @@ export async function deserializeAws_json1_1DescribeCasesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeCasesCommandError(
+const deserializeAws_json1_1DescribeCasesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeCasesCommandOutput> {
+): Promise<DescribeCasesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -776,12 +788,12 @@ async function deserializeAws_json1_1DescribeCasesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeCommunicationsCommand(
+export const deserializeAws_json1_1DescribeCommunicationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeCommunicationsCommandOutput> {
+): Promise<DescribeCommunicationsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeCommunicationsCommandError(
       output,
@@ -800,12 +812,12 @@ export async function deserializeAws_json1_1DescribeCommunicationsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeCommunicationsCommandError(
+const deserializeAws_json1_1DescribeCommunicationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeCommunicationsCommandOutput> {
+): Promise<DescribeCommunicationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -853,12 +865,12 @@ async function deserializeAws_json1_1DescribeCommunicationsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeServicesCommand(
+export const deserializeAws_json1_1DescribeServicesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeServicesCommandOutput> {
+): Promise<DescribeServicesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeServicesCommandError(output, context);
   }
@@ -871,12 +883,12 @@ export async function deserializeAws_json1_1DescribeServicesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeServicesCommandError(
+const deserializeAws_json1_1DescribeServicesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeServicesCommandOutput> {
+): Promise<DescribeServicesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -913,12 +925,12 @@ async function deserializeAws_json1_1DescribeServicesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeSeverityLevelsCommand(
+export const deserializeAws_json1_1DescribeSeverityLevelsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeSeverityLevelsCommandOutput> {
+): Promise<DescribeSeverityLevelsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeSeverityLevelsCommandError(
       output,
@@ -937,12 +949,12 @@ export async function deserializeAws_json1_1DescribeSeverityLevelsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeSeverityLevelsCommandError(
+const deserializeAws_json1_1DescribeSeverityLevelsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeSeverityLevelsCommandOutput> {
+): Promise<DescribeSeverityLevelsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -979,12 +991,12 @@ async function deserializeAws_json1_1DescribeSeverityLevelsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ResolveCaseCommand(
+export const deserializeAws_json1_1ResolveCaseCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ResolveCaseCommandOutput> {
+): Promise<ResolveCaseCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ResolveCaseCommandError(output, context);
   }
@@ -997,12 +1009,12 @@ export async function deserializeAws_json1_1ResolveCaseCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ResolveCaseCommandError(
+const deserializeAws_json1_1ResolveCaseCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ResolveCaseCommandOutput> {
+): Promise<ResolveCaseCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1050,12 +1062,12 @@ async function deserializeAws_json1_1ResolveCaseCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesCommand(
+export const deserializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput> {
+): Promise<DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesCommandError(
       output,
@@ -1074,12 +1086,12 @@ export async function deserializeAws_json1_1DescribeTrustedAdvisorCheckRefreshSt
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesCommandError(
+const deserializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput> {
+): Promise<DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1116,12 +1128,12 @@ async function deserializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesC
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeTrustedAdvisorCheckResultCommand(
+export const deserializeAws_json1_1DescribeTrustedAdvisorCheckResultCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeTrustedAdvisorCheckResultCommandOutput> {
+): Promise<DescribeTrustedAdvisorCheckResultCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeTrustedAdvisorCheckResultCommandError(
       output,
@@ -1140,12 +1152,12 @@ export async function deserializeAws_json1_1DescribeTrustedAdvisorCheckResultCom
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeTrustedAdvisorCheckResultCommandError(
+const deserializeAws_json1_1DescribeTrustedAdvisorCheckResultCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeTrustedAdvisorCheckResultCommandOutput> {
+): Promise<DescribeTrustedAdvisorCheckResultCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1182,12 +1194,12 @@ async function deserializeAws_json1_1DescribeTrustedAdvisorCheckResultCommandErr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCommand(
+export const deserializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeTrustedAdvisorCheckSummariesCommandOutput> {
+): Promise<DescribeTrustedAdvisorCheckSummariesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCommandError(
       output,
@@ -1206,12 +1218,12 @@ export async function deserializeAws_json1_1DescribeTrustedAdvisorCheckSummaries
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCommandError(
+const deserializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeTrustedAdvisorCheckSummariesCommandOutput> {
+): Promise<DescribeTrustedAdvisorCheckSummariesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1248,12 +1260,12 @@ async function deserializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCommand
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeTrustedAdvisorChecksCommand(
+export const deserializeAws_json1_1DescribeTrustedAdvisorChecksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeTrustedAdvisorChecksCommandOutput> {
+): Promise<DescribeTrustedAdvisorChecksCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeTrustedAdvisorChecksCommandError(
       output,
@@ -1272,12 +1284,12 @@ export async function deserializeAws_json1_1DescribeTrustedAdvisorChecksCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeTrustedAdvisorChecksCommandError(
+const deserializeAws_json1_1DescribeTrustedAdvisorChecksCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeTrustedAdvisorChecksCommandOutput> {
+): Promise<DescribeTrustedAdvisorChecksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1314,12 +1326,12 @@ async function deserializeAws_json1_1DescribeTrustedAdvisorChecksCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1RefreshTrustedAdvisorCheckCommand(
+export const deserializeAws_json1_1RefreshTrustedAdvisorCheckCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RefreshTrustedAdvisorCheckCommandOutput> {
+): Promise<RefreshTrustedAdvisorCheckCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1RefreshTrustedAdvisorCheckCommandError(
       output,
@@ -1338,12 +1350,12 @@ export async function deserializeAws_json1_1RefreshTrustedAdvisorCheckCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1RefreshTrustedAdvisorCheckCommandError(
+const deserializeAws_json1_1RefreshTrustedAdvisorCheckCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RefreshTrustedAdvisorCheckCommandOutput> {
+): Promise<RefreshTrustedAdvisorCheckCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1380,7 +1392,7 @@ async function deserializeAws_json1_1RefreshTrustedAdvisorCheckCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_1AttachmentIdNotFoundResponse = async (
   parsedOutput: any,
@@ -1556,14 +1568,10 @@ const serializeAws_json1_1Attachment = (
 };
 
 const serializeAws_json1_1Attachments = (
-  input: Array<Attachment>,
+  input: Attachment[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1Attachment(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1Attachment(entry, context));
 };
 
 const serializeAws_json1_1AddAttachmentsToSetRequest = (
@@ -1607,25 +1615,17 @@ const serializeAws_json1_1AddCommunicationToCaseRequest = (
 };
 
 const serializeAws_json1_1CaseIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1CcEmailAddressList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1CreateCaseRequest = (
@@ -1778,14 +1778,10 @@ const serializeAws_json1_1ResolveCaseRequest = (
 };
 
 const serializeAws_json1_1ServiceCodeList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesRequest = (
@@ -1853,14 +1849,10 @@ const serializeAws_json1_1RefreshTrustedAdvisorCheckRequest = (
 };
 
 const serializeAws_json1_1StringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const deserializeAws_json1_1Attachment = (
@@ -1902,7 +1894,7 @@ const deserializeAws_json1_1AttachmentDetails = (
 const deserializeAws_json1_1AttachmentSet = (
   output: any,
   context: __SerdeContext
-): Array<AttachmentDetails> => {
+): AttachmentDetails[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AttachmentDetails(entry, context)
   );
@@ -1999,7 +1991,7 @@ const deserializeAws_json1_1Category = (
 const deserializeAws_json1_1CategoryList = (
   output: any,
   context: __SerdeContext
-): Array<Category> => {
+): Category[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Category(entry, context)
   );
@@ -2008,7 +2000,7 @@ const deserializeAws_json1_1CategoryList = (
 const deserializeAws_json1_1CcEmailAddressList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -2252,7 +2244,7 @@ const deserializeAws_json1_1AddCommunicationToCaseResponse = (
 const deserializeAws_json1_1CaseList = (
   output: any,
   context: __SerdeContext
-): Array<CaseDetails> => {
+): CaseDetails[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1CaseDetails(entry, context)
   );
@@ -2261,7 +2253,7 @@ const deserializeAws_json1_1CaseList = (
 const deserializeAws_json1_1CommunicationList = (
   output: any,
   context: __SerdeContext
-): Array<Communication> => {
+): Communication[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Communication(entry, context)
   );
@@ -2395,7 +2387,7 @@ const deserializeAws_json1_1ResolveCaseResponse = (
 const deserializeAws_json1_1ServiceList = (
   output: any,
   context: __SerdeContext
-): Array<Service> => {
+): Service[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Service(entry, context)
   );
@@ -2422,7 +2414,7 @@ const deserializeAws_json1_1SeverityLevel = (
 const deserializeAws_json1_1SeverityLevelsList = (
   output: any,
   context: __SerdeContext
-): Array<SeverityLevel> => {
+): SeverityLevel[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SeverityLevel(entry, context)
   );
@@ -2516,7 +2508,7 @@ const deserializeAws_json1_1RefreshTrustedAdvisorCheckResponse = (
 const deserializeAws_json1_1StringList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -2573,7 +2565,7 @@ const deserializeAws_json1_1TrustedAdvisorCheckDescription = (
 const deserializeAws_json1_1TrustedAdvisorCheckList = (
   output: any,
   context: __SerdeContext
-): Array<TrustedAdvisorCheckDescription> => {
+): TrustedAdvisorCheckDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1TrustedAdvisorCheckDescription(entry, context)
   );
@@ -2607,7 +2599,7 @@ const deserializeAws_json1_1TrustedAdvisorCheckRefreshStatus = (
 const deserializeAws_json1_1TrustedAdvisorCheckRefreshStatusList = (
   output: any,
   context: __SerdeContext
-): Array<TrustedAdvisorCheckRefreshStatus> => {
+): TrustedAdvisorCheckRefreshStatus[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1TrustedAdvisorCheckRefreshStatus(entry, context)
   );
@@ -2717,7 +2709,7 @@ const deserializeAws_json1_1TrustedAdvisorCheckSummary = (
 const deserializeAws_json1_1TrustedAdvisorCheckSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<TrustedAdvisorCheckSummary> => {
+): TrustedAdvisorCheckSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1TrustedAdvisorCheckSummary(entry, context)
   );
@@ -2784,7 +2776,7 @@ const deserializeAws_json1_1TrustedAdvisorResourceDetail = (
 const deserializeAws_json1_1TrustedAdvisorResourceDetailList = (
   output: any,
   context: __SerdeContext
-): Array<TrustedAdvisorResourceDetail> => {
+): TrustedAdvisorResourceDetail[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1TrustedAdvisorResourceDetail(entry, context)
   );
@@ -2836,7 +2828,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -2851,11 +2843,8 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
@@ -2882,11 +2871,10 @@ const buildHttpRpcRequest = async (
   return new __HttpRequest(contents);
 };
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};

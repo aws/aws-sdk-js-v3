@@ -34,12 +34,12 @@ export interface ApplicationPolicyStatement {
    * <p>For the list of actions supported for this operation, see <a href="https://docs.aws.amazon.com/serverlessrepo/latest/devguide/access-control-resource-based.html#application-permissions">Application
    *  Permissions</a>.</p>
    */
-  Actions: Array<string> | undefined;
+  Actions: string[] | undefined;
 
   /**
    * <p>An array of AWS account IDs, or * to make the application public.</p>
    */
-  Principals: Array<string> | undefined;
+  Principals: string[] | undefined;
 
   /**
    * <p>A unique ID for the statement.</p>
@@ -85,7 +85,7 @@ export interface ApplicationSummary {
   /**
    * <p>Labels to improve discovery of apps in search results.</p><p>Minimum length=1. Maximum length=127. Maximum number of labels: 10</p><p>Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";</p>
    */
-  Labels?: Array<string>;
+  Labels?: string[];
 
   /**
    * <p>The name of the application.</p><p>Minimum length=1. Maximum length=140</p><p>Pattern: "[a-zA-Z0-9\\-]+";</p>
@@ -176,7 +176,7 @@ export interface CreateApplicationRequest {
   /**
    * <p>Labels to improve discovery of apps in search results.</p><p>Minimum length=1. Maximum length=127. Maximum number of labels: 10</p><p>Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";</p>
    */
-  Labels?: Array<string>;
+  Labels?: string[];
 
   /**
    * <p>A local text file that contains the license of the app that matches the spdxLicenseID value of your application.
@@ -279,7 +279,7 @@ export interface CreateApplicationResponse {
   /**
    * <p>Labels to improve discovery of apps in search results.</p><p>Minimum length=1. Maximum length=127. Maximum number of labels: 10</p><p>Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";</p>
    */
-  Labels?: Array<string>;
+  Labels?: string[];
 
   /**
    * <p>A link to a license file of the app that matches the spdxLicenseID value of your application.</p><p>Maximum size 5 MB</p>
@@ -370,7 +370,7 @@ export interface CreateApplicationVersionResponse {
   /**
    * <p>An array of parameter types supported by the application.</p>
    */
-  ParameterDefinitions?: Array<ParameterDefinition>;
+  ParameterDefinitions?: ParameterDefinition[];
 
   /**
    * <p>A list of values that you must specify before you can deploy certain applications.
@@ -397,7 +397,7 @@ export interface CreateApplicationVersionResponse {
    *  all permissions associated with the application before deploying. If you don't specify
    *  this parameter for an application that requires capabilities, the call will fail.</p>
    */
-  RequiredCapabilities?: Array<Capability | string>;
+  RequiredCapabilities?: (Capability | string)[];
 
   /**
    * <p>Whether all of the AWS resources contained in this application are supported in the region
@@ -465,7 +465,7 @@ export interface CreateCloudFormationChangeSetRequest {
    *  all permissions associated with the application before deploying. If you don't specify
    *  this parameter for an application that requires capabilities, the call will fail.</p>
    */
-  Capabilities?: Array<string>;
+  Capabilities?: string[];
 
   /**
    * <p>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a>
@@ -489,18 +489,18 @@ export interface CreateCloudFormationChangeSetRequest {
    * <p>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a>
    *  </i> API.</p>
    */
-  NotificationArns?: Array<string>;
+  NotificationArns?: string[];
 
   /**
    * <p>A list of parameter values for the parameters of the application.</p>
    */
-  ParameterOverrides?: Array<ParameterValue>;
+  ParameterOverrides?: ParameterValue[];
 
   /**
    * <p>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a>
    *  </i> API.</p>
    */
-  ResourceTypes?: Array<string>;
+  ResourceTypes?: string[];
 
   /**
    * <p>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a>
@@ -525,7 +525,7 @@ export interface CreateCloudFormationChangeSetRequest {
    * <p>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a>
    *  </i> API.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The UUID returned by CreateCloudFormationTemplate.</p><p>Pattern: [0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}</p>
@@ -689,7 +689,7 @@ export interface GetApplicationPolicyResponse {
   /**
    * <p>An array of policy statements applied to the application.</p>
    */
-  Statements?: Array<ApplicationPolicyStatement>;
+  Statements?: ApplicationPolicyStatement[];
 }
 
 export namespace GetApplicationPolicyResponse {
@@ -750,7 +750,7 @@ export interface GetApplicationResponse {
   /**
    * <p>Labels to improve discovery of apps in search results.</p><p>Minimum length=1. Maximum length=127. Maximum number of labels: 10</p><p>Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";</p>
    */
-  Labels?: Array<string>;
+  Labels?: string[];
 
   /**
    * <p>A link to a license file of the app that matches the spdxLicenseID value of your application.</p><p>Maximum size 5 MB</p>
@@ -911,7 +911,7 @@ export interface ListApplicationDependenciesResponse {
   /**
    * <p>An array of application summaries nested in the application.</p>
    */
-  Dependencies?: Array<ApplicationDependencySummary>;
+  Dependencies?: ApplicationDependencySummary[];
 
   /**
    * <p>The token to request the next page of results.</p>
@@ -957,7 +957,7 @@ export interface ListApplicationVersionsResponse {
   /**
    * <p>An array of version summaries for the application.</p>
    */
-  Versions?: Array<VersionSummary>;
+  Versions?: VersionSummary[];
 }
 
 export namespace ListApplicationVersionsResponse {
@@ -988,7 +988,7 @@ export interface ListApplicationsResponse {
   /**
    * <p>An array of application summaries.</p>
    */
-  Applications?: Array<ApplicationSummary>;
+  Applications?: ApplicationSummary[];
 
   /**
    * <p>The token to request the next page of results.</p>
@@ -1036,7 +1036,7 @@ export interface ParameterDefinition {
   /**
    * <p>An array containing the list of values allowed for the parameter.</p>
    */
-  AllowedValues?: Array<string>;
+  AllowedValues?: string[];
 
   /**
    * <p>A string that explains a constraint when the constraint is violated. For example, without a constraint description,
@@ -1095,7 +1095,7 @@ export interface ParameterDefinition {
   /**
    * <p>A list of AWS SAM resources that use this parameter.</p>
    */
-  ReferencedByResources: Array<string> | undefined;
+  ReferencedByResources: string[] | undefined;
 
   /**
    * <p>The type of the parameter.</p><p>Valid values: String | Number | List&lt;Number> | CommaDelimitedList
@@ -1148,7 +1148,7 @@ export interface PutApplicationPolicyRequest {
   /**
    * <p>An array of policy statements applied to the application.</p>
    */
-  Statements: Array<ApplicationPolicyStatement> | undefined;
+  Statements: ApplicationPolicyStatement[] | undefined;
 }
 
 export namespace PutApplicationPolicyRequest {
@@ -1161,7 +1161,7 @@ export interface PutApplicationPolicyResponse {
   /**
    * <p>An array of policy statements applied to the application.</p>
    */
-  Statements?: Array<ApplicationPolicyStatement>;
+  Statements?: ApplicationPolicyStatement[];
 }
 
 export namespace PutApplicationPolicyResponse {
@@ -1185,7 +1185,7 @@ export interface RollbackConfiguration {
    * <p>This property corresponds to the content of the same name for the <i>AWS CloudFormation <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/RollbackConfiguration">RollbackConfiguration</a>
    *  </i> Data Type.</p>
    */
-  RollbackTriggers?: Array<RollbackTrigger>;
+  RollbackTriggers?: RollbackTrigger[];
 }
 
 export namespace RollbackConfiguration {
@@ -1297,7 +1297,7 @@ export interface UpdateApplicationRequest {
   /**
    * <p>Labels to improve discovery of apps in search results.</p><p>Minimum length=1. Maximum length=127. Maximum number of labels: 10</p><p>Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";</p>
    */
-  Labels?: Array<string>;
+  Labels?: string[];
 
   /**
    * <p>A text readme file in Markdown language that contains a more detailed description of the application and how it works.</p><p>Maximum size 5 MB</p>
@@ -1350,7 +1350,7 @@ export interface UpdateApplicationResponse {
   /**
    * <p>Labels to improve discovery of apps in search results.</p><p>Minimum length=1. Maximum length=127. Maximum number of labels: 10</p><p>Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";</p>
    */
-  Labels?: Array<string>;
+  Labels?: string[];
 
   /**
    * <p>A link to a license file of the app that matches the spdxLicenseID value of your application.</p><p>Maximum size 5 MB</p>
@@ -1406,7 +1406,7 @@ export interface Version {
   /**
    * <p>An array of parameter types supported by the application.</p>
    */
-  ParameterDefinitions: Array<ParameterDefinition> | undefined;
+  ParameterDefinitions: ParameterDefinition[] | undefined;
 
   /**
    * <p>A list of values that you must specify before you can deploy certain applications.
@@ -1433,7 +1433,7 @@ export interface Version {
    *  all permissions associated with the application before deploying. If you don't specify
    *  this parameter for an application that requires capabilities, the call will fail.</p>
    */
-  RequiredCapabilities: Array<Capability | string> | undefined;
+  RequiredCapabilities: (Capability | string)[] | undefined;
 
   /**
    * <p>Whether all of the AWS resources contained in this application are supported in the region

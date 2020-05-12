@@ -59,7 +59,7 @@ final class AwsProtocolUtils {
         operation.getTrait(UnsignedPayloadTrait.class)
                 .filter(trait -> trait.getValues().contains("aws.v4"))
                 .ifPresent(trait -> {
-                    writer.write("headers['x-amz-content-sha256'] = 'UNSIGNED_PAYLOAD';");
+                    writer.write("'x-amz-content-sha256': 'UNSIGNED_PAYLOAD',");
                 });
     }
 
@@ -98,14 +98,15 @@ final class AwsProtocolUtils {
 
         // Include a JSON body parser used to deserialize documents from HTTP responses.
         writer.addImport("SerdeContext", "__SerdeContext", "@aws-sdk/types");
-        writer.openBlock("const parseBody = (streamBody: any, context: __SerdeContext): any => {", "};", () -> {
-            writer.openBlock("return collectBodyString(streamBody, context).then(encoded => {", "});", () -> {
+        writer.openBlock("const parseBody = (streamBody: any, context: __SerdeContext): any => collectBodyString(streamBody, context).then(encoded => {",
+            "});",
+            () -> {
                 writer.openBlock("if (encoded.length) {", "}", () -> {
                     writer.write("return JSON.parse(encoded);");
                 });
                 writer.write("return {};");
-            });
-        });
+            }
+        );
 
         writer.write("");
     }
@@ -124,10 +125,12 @@ final class AwsProtocolUtils {
 
         // Include an XML body parser used to deserialize documents from HTTP responses.
         writer.addImport("SerdeContext", "__SerdeContext", "@aws-sdk/types");
+        writer.addImport("getValueFromTextNode", "__getValueFromTextNode", "@aws-sdk/smithy-client");
         writer.addDependency(AwsDependency.XML_PARSER);
         writer.addImport("parse", "xmlParse", "fast-xml-parser");
-        writer.openBlock("const parseBody = (streamBody: any, context: __SerdeContext): any => {", "};", () -> {
-            writer.openBlock("return collectBodyString(streamBody, context).then(encoded => {", "});", () -> {
+        writer.openBlock("const parseBody = (streamBody: any, context: __SerdeContext): any => collectBodyString(streamBody, context).then(encoded => {",
+            "});",
+            () -> {
                 writer.openBlock("if (encoded.length) {", "}", () -> {
                     writer.write("const parsedObj = xmlParse(encoded, { attributeNamePrefix: '', "
                             + "ignoreAttributes: false, parseNodeValue: false, tagValueProcessor: (val, tagName) "
@@ -139,11 +142,11 @@ final class AwsProtocolUtils {
                         writer.write("parsedObjToReturn[key] = parsedObjToReturn[textNodeName];");
                         writer.write("delete parsedObjToReturn[textNodeName];");
                     });
-                    writer.write("return parsedObjToReturn;");
+                    writer.write("return __getValueFromTextNode(parsedObjToReturn);");
                 });
                 writer.write("return {};");
-            });
-        });
+            }
+        );
         writer.write("");
     }
 
@@ -159,11 +162,12 @@ final class AwsProtocolUtils {
 
         // Write a single function to handle combining a map in to a valid query string.
         writer.addImport("extendedEncodeURIComponent", "__extendedEncodeURIComponent", "@aws-sdk/smithy-client");
-        writer.openBlock("const buildFormUrlencodedString = (entries: any): string => {", "}", () -> {
-            writer.openBlock("return Object.keys(entries).map(", ").join(\"&\");", () ->
-                    writer.write("key => __extendedEncodeURIComponent(key) + '=' + "
-                            + "__extendedEncodeURIComponent(entries[key])"));
-        });
+        writer.openBlock("const buildFormUrlencodedString = (entries: any): string => Object.keys(entries).map(",
+            ").join(\"&\");",
+            () -> 
+                writer.write("key => __extendedEncodeURIComponent(key) + '=' + "
+                    + "__extendedEncodeURIComponent(entries[key])")
+        );
         writer.write("");
     }
 

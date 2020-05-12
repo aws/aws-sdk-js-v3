@@ -334,7 +334,7 @@ export interface DiscoverInstancesResponse {
   /**
    * <p>A complex type that contains one <code>HttpInstanceSummary</code> for each registered instance.</p>
    */
-  Instances?: Array<HttpInstanceSummary>;
+  Instances?: HttpInstanceSummary[];
 }
 
 export namespace DiscoverInstancesResponse {
@@ -351,7 +351,7 @@ export interface DnsConfig {
    * <p>An array that contains one <code>DnsRecord</code> object for each Route 53 DNS record that you want AWS Cloud Map to create
    * 			when you register an instance.</p>
    */
-  DnsRecords: Array<DnsRecord> | undefined;
+  DnsRecords: DnsRecord[] | undefined;
 
   /**
    * <p>The ID of the namespace to use for DNS configuration.</p>
@@ -412,7 +412,7 @@ export interface DnsConfigChange {
    * <p>An array that contains one <code>DnsRecord</code> object for each Route 53 record that you want AWS Cloud Map to create
    * 			when you register an instance.</p>
    */
-  DnsRecords: Array<DnsRecord> | undefined;
+  DnsRecords: DnsRecord[] | undefined;
 }
 
 export namespace DnsConfigChange {
@@ -622,7 +622,7 @@ export interface GetInstancesHealthStatusRequest {
    * 			<a>ListInstances</a> request.</p>
    *          </note>
    */
-  Instances?: Array<string>;
+  Instances?: string[];
 
   /**
    * <p>The maximum number of instances that you want AWS Cloud Map to return in the response to a <code>GetInstancesHealthStatus</code> request.
@@ -1259,7 +1259,7 @@ export interface ListInstancesResponse {
   /**
    * <p>Summary information about the instances that are associated with the specified service.</p>
    */
-  Instances?: Array<InstanceSummary>;
+  Instances?: InstanceSummary[];
 
   /**
    * <p>If more than <code>MaxResults</code> instances match the specified criteria, you can submit another <code>ListInstances</code> request
@@ -1279,7 +1279,7 @@ export interface ListNamespacesRequest {
    * <p>A complex type that contains specifications for the namespaces that you want to list.</p>
    * 		       <p>If you specify more than one filter, a namespace must match all filters to be returned by <code>ListNamespaces</code>.</p>
    */
-  Filters?: Array<NamespaceFilter>;
+  Filters?: NamespaceFilter[];
 
   /**
    * <p>The maximum number of namespaces that you want AWS Cloud Map to return in the response to a <code>ListNamespaces</code> request.
@@ -1310,7 +1310,7 @@ export interface ListNamespacesResponse {
   /**
    * <p>An array that contains one <code>NamespaceSummary</code> object for each namespace that matches the specified filter criteria.</p>
    */
-  Namespaces?: Array<NamespaceSummary>;
+  Namespaces?: NamespaceSummary[];
 
   /**
    * <p>If the response contains <code>NextToken</code>, submit another <code>ListNamespaces</code> request to get the next group of results.
@@ -1336,7 +1336,7 @@ export interface ListOperationsRequest {
    * 			between a specified start date and end date.</p>
    * 		       <p>If you specify more than one filter, an operation must match all filters to be returned by <code>ListOperations</code>.</p>
    */
-  Filters?: Array<OperationFilter>;
+  Filters?: OperationFilter[];
 
   /**
    * <p>The maximum number of items that you want AWS Cloud Map to return in the response to a <code>ListOperations</code> request.
@@ -1378,7 +1378,7 @@ export interface ListOperationsResponse {
   /**
    * <p>Summary information about the operations that match the specified criteria.</p>
    */
-  Operations?: Array<OperationSummary>;
+  Operations?: OperationSummary[];
 }
 
 export namespace ListOperationsResponse {
@@ -1392,7 +1392,7 @@ export interface ListServicesRequest {
    * <p>A complex type that contains specifications for the namespaces that you want to list services for. </p>
    * 		       <p>If you specify more than one filter, an operation must match all filters to be returned by <code>ListServices</code>.</p>
    */
-  Filters?: Array<ServiceFilter>;
+  Filters?: ServiceFilter[];
 
   /**
    * <p>The maximum number of services that you want AWS Cloud Map to return in the response to a <code>ListServices</code> request.
@@ -1434,7 +1434,7 @@ export interface ListServicesResponse {
   /**
    * <p>An array that contains one <code>ServiceSummary</code> object for each service that matches the specified filter criteria.</p>
    */
-  Services?: Array<ServiceSummary>;
+  Services?: ServiceSummary[];
 }
 
 export namespace ListServicesResponse {
@@ -1560,7 +1560,7 @@ export interface NamespaceFilter {
    * 		       <p>If you specify <code>IN</code> for <code>Condition</code>, you can specify <code>DNS_PUBLIC</code>, <code>DNS_PRIVATE</code>,
    * 			or both.</p>
    */
-  Values: Array<string> | undefined;
+  Values: string[] | undefined;
 }
 
 export namespace NamespaceFilter {
@@ -1874,7 +1874,7 @@ export interface OperationFilter {
    *             </li>
    *          </ul>
    */
-  Values: Array<string> | undefined;
+  Values: string[] | undefined;
 }
 
 export namespace OperationFilter {
@@ -2385,7 +2385,7 @@ export interface ServiceFilter {
   /**
    * <p>The values that are applicable to the value that you specify for <code>Condition</code> to filter the list of services.</p>
    */
-  Values: Array<string> | undefined;
+  Values: string[] | undefined;
 }
 
 export namespace ServiceFilter {

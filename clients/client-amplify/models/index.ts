@@ -37,7 +37,7 @@ export interface App {
    *             Automated branch creation glob patterns for the Amplify App.
    *         </p>
    */
-  autoBranchCreationPatterns?: Array<string>;
+  autoBranchCreationPatterns?: string[];
 
   /**
    * <p>
@@ -65,7 +65,7 @@ export interface App {
    *             Custom redirect / rewrite rules for the Amplify App.
    *         </p>
    */
-  customRules?: Array<CustomRule>;
+  customRules?: CustomRule[];
 
   /**
    * <p>
@@ -357,7 +357,7 @@ export interface Branch {
    *             List of custom resources that are linked to this branch.
    *         </p>
    */
-  associatedResources?: Array<string>;
+  associatedResources?: string[];
 
   /**
    * <p>
@@ -406,7 +406,7 @@ export interface Branch {
    *             Custom domains for a branch, part of an Amplify App.
    *         </p>
    */
-  customDomains: Array<string> | undefined;
+  customDomains: string[] | undefined;
 
   /**
    * <p>
@@ -559,7 +559,7 @@ export interface CreateAppRequest {
    *             Automated branch creation glob patterns for the Amplify App.
    *         </p>
    */
-  autoBranchCreationPatterns?: Array<string>;
+  autoBranchCreationPatterns?: string[];
 
   /**
    * <p>
@@ -580,7 +580,7 @@ export interface CreateAppRequest {
    *             Custom rewrite / redirect rules for an Amplify App.
    *         </p>
    */
-  customRules?: Array<CustomRule>;
+  customRules?: CustomRule[];
 
   /**
    * <p>
@@ -998,7 +998,7 @@ export interface CreateDomainAssociationRequest {
    *             Setting structure for the Subdomain.
    *         </p>
    */
-  subDomainSettings: Array<SubDomainSetting> | undefined;
+  subDomainSettings: SubDomainSetting[] | undefined;
 }
 
 export namespace CreateDomainAssociationRequest {
@@ -1462,7 +1462,7 @@ export interface DomainAssociation {
    *             Subdomains for the Domain Association.
    *         </p>
    */
-  subDomains: Array<SubDomain> | undefined;
+  subDomains: SubDomain[] | undefined;
 }
 
 export namespace DomainAssociation {
@@ -1875,7 +1875,7 @@ export interface Job {
    *             Execution steps for an execution job, for an Amplify App.
    *         </p>
    */
-  steps: Array<Step> | undefined;
+  steps: Step[] | undefined;
 
   /**
    * <p>
@@ -2042,7 +2042,7 @@ export interface ListAppsResult {
    *             List of Amplify Apps.
    *         </p>
    */
-  apps: Array<App> | undefined;
+  apps: App[] | undefined;
 
   /**
    * <p>
@@ -2121,7 +2121,7 @@ export interface ListArtifactsResult {
    *             List of artifacts.
    *         </p>
    */
-  artifacts: Array<Artifact> | undefined;
+  artifacts: Artifact[] | undefined;
 
   /**
    * <p>
@@ -2192,7 +2192,7 @@ export interface ListBackendEnvironmentsResult {
    *             List of backend environments for an Amplify App.
    *         </p>
    */
-  backendEnvironments: Array<BackendEnvironment> | undefined;
+  backendEnvironments: BackendEnvironment[] | undefined;
 
   /**
    * <p>
@@ -2256,7 +2256,7 @@ export interface ListBranchesResult {
    *             List of branches for an Amplify App.
    *         </p>
    */
-  branches: Array<Branch> | undefined;
+  branches: Branch[] | undefined;
 
   /**
    * <p>
@@ -2320,7 +2320,7 @@ export interface ListDomainAssociationsResult {
    *             List of Domain Associations.
    *         </p>
    */
-  domainAssociations: Array<DomainAssociation> | undefined;
+  domainAssociations: DomainAssociation[] | undefined;
 
   /**
    * <p>
@@ -2391,7 +2391,7 @@ export interface ListJobsResult {
    *             Result structure for list job result request.
    *         </p>
    */
-  jobSummaries: Array<JobSummary> | undefined;
+  jobSummaries: JobSummary[] | undefined;
 
   /**
    * <p>
@@ -2503,7 +2503,7 @@ export interface ListWebhooksResult {
    *             List of webhooks.
    *         </p>
    */
-  webhooks: Array<Webhook> | undefined;
+  webhooks: Webhook[] | undefined;
 }
 
 export namespace ListWebhooksResult {
@@ -3032,7 +3032,7 @@ export interface UntagResourceRequest {
    *             Tag keys used to untag resource.
    *         </p>
    */
-  tagKeys: Array<string> | undefined;
+  tagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -3088,7 +3088,7 @@ export interface UpdateAppRequest {
    *             Automated branch creation glob patterns for the Amplify App.
    *         </p>
    */
-  autoBranchCreationPatterns?: Array<string>;
+  autoBranchCreationPatterns?: string[];
 
   /**
    * <p>
@@ -3109,7 +3109,7 @@ export interface UpdateAppRequest {
    *             Custom redirect / rewrite rules for an Amplify App.
    *         </p>
    */
-  customRules?: Array<CustomRule>;
+  customRules?: CustomRule[];
 
   /**
    * <p>
@@ -3386,7 +3386,7 @@ export interface UpdateDomainAssociationRequest {
    *             Setting structure for the Subdomain.
    *         </p>
    */
-  subDomainSettings: Array<SubDomainSetting> | undefined;
+  subDomainSettings: SubDomainSetting[] | undefined;
 }
 
 export namespace UpdateDomainAssociationRequest {

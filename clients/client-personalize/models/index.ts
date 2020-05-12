@@ -103,7 +103,7 @@ export interface AutoMLConfig {
   /**
    * <p>The list of candidate recipes.</p>
    */
-  recipeList?: Array<string>;
+  recipeList?: string[];
 }
 
 export namespace AutoMLConfig {
@@ -481,7 +481,7 @@ export interface CategoricalHyperParameterRange {
   /**
    * <p>A list of the categories for the hyperparameter.</p>
    */
-  values?: Array<string>;
+  values?: string[];
 }
 
 export namespace CategoricalHyperParameterRange {
@@ -1393,7 +1393,7 @@ export interface DefaultCategoricalHyperParameterRange {
   /**
    * <p>A list of the categories for the hyperparameter.</p>
    */
-  values?: Array<string>;
+  values?: string[];
 }
 
 export namespace DefaultCategoricalHyperParameterRange {
@@ -1443,19 +1443,17 @@ export interface DefaultHyperParameterRanges {
   /**
    * <p>The categorical hyperparameters and their default ranges.</p>
    */
-  categoricalHyperParameterRanges?: Array<
-    DefaultCategoricalHyperParameterRange
-  >;
+  categoricalHyperParameterRanges?: DefaultCategoricalHyperParameterRange[];
 
   /**
    * <p>The continuous hyperparameters and their default ranges.</p>
    */
-  continuousHyperParameterRanges?: Array<DefaultContinuousHyperParameterRange>;
+  continuousHyperParameterRanges?: DefaultContinuousHyperParameterRange[];
 
   /**
    * <p>The integer-valued hyperparameters and their default ranges.</p>
    */
-  integerHyperParameterRanges?: Array<DefaultIntegerHyperParameterRange>;
+  integerHyperParameterRanges?: DefaultIntegerHyperParameterRange[];
 }
 
 export namespace DefaultHyperParameterRanges {
@@ -2177,17 +2175,17 @@ export interface HyperParameterRanges {
   /**
    * <p>The categorical hyperparameters and their ranges.</p>
    */
-  categoricalHyperParameterRanges?: Array<CategoricalHyperParameterRange>;
+  categoricalHyperParameterRanges?: CategoricalHyperParameterRange[];
 
   /**
    * <p>The continuous hyperparameters and their ranges.</p>
    */
-  continuousHyperParameterRanges?: Array<ContinuousHyperParameterRange>;
+  continuousHyperParameterRanges?: ContinuousHyperParameterRange[];
 
   /**
    * <p>The integer-valued hyperparameters and their ranges.</p>
    */
-  integerHyperParameterRanges?: Array<IntegerHyperParameterRange>;
+  integerHyperParameterRanges?: IntegerHyperParameterRange[];
 }
 
 export namespace HyperParameterRanges {
@@ -2251,7 +2249,7 @@ export interface ListBatchInferenceJobsResponse {
   /**
    * <p>A list containing information on each job that is returned.</p>
    */
-  batchInferenceJobs?: Array<BatchInferenceJobSummary>;
+  batchInferenceJobs?: BatchInferenceJobSummary[];
 
   /**
    * <p>The token to use to retreive the next page of results. The value is <code>null</code> when
@@ -2295,7 +2293,7 @@ export interface ListCampaignsResponse {
   /**
    * <p>A list of the campaigns.</p>
    */
-  campaigns?: Array<CampaignSummary>;
+  campaigns?: CampaignSummary[];
 
   /**
    * <p>A token for getting the next set of campaigns (if they exist).</p>
@@ -2332,7 +2330,7 @@ export interface ListDatasetGroupsResponse {
   /**
    * <p>The list of your dataset groups.</p>
    */
-  datasetGroups?: Array<DatasetGroupSummary>;
+  datasetGroups?: DatasetGroupSummary[];
 
   /**
    * <p>A token for getting the next set of dataset groups (if they exist).</p>
@@ -2374,7 +2372,7 @@ export interface ListDatasetImportJobsResponse {
   /**
    * <p>The list of dataset import jobs.</p>
    */
-  datasetImportJobs?: Array<DatasetImportJobSummary>;
+  datasetImportJobs?: DatasetImportJobSummary[];
 
   /**
    * <p>A token for getting the next set of dataset import jobs (if they exist).</p>
@@ -2417,7 +2415,7 @@ export interface ListDatasetsResponse {
   /**
    * <p>An array of <code>Dataset</code> objects. Each object provides metadata information.</p>
    */
-  datasets?: Array<DatasetSummary>;
+  datasets?: DatasetSummary[];
 
   /**
    * <p>A token for getting the next set of datasets (if they exist).</p>
@@ -2459,7 +2457,7 @@ export interface ListEventTrackersResponse {
   /**
    * <p>A list of event trackers.</p>
    */
-  eventTrackers?: Array<EventTrackerSummary>;
+  eventTrackers?: EventTrackerSummary[];
 
   /**
    * <p>A token for getting the next set of event trackers (if they exist).</p>
@@ -2506,7 +2504,7 @@ export interface ListRecipesResponse {
   /**
    * <p>The list of available recipes.</p>
    */
-  recipes?: Array<RecipeSummary>;
+  recipes?: RecipeSummary[];
 }
 
 export namespace ListRecipesResponse {
@@ -2543,7 +2541,7 @@ export interface ListSchemasResponse {
   /**
    * <p>A list of schemas.</p>
    */
-  schemas?: Array<DatasetSchemaSummary>;
+  schemas?: DatasetSchemaSummary[];
 }
 
 export namespace ListSchemasResponse {
@@ -2585,7 +2583,7 @@ export interface ListSolutionVersionsResponse {
   /**
    * <p>A list of solution versions describing the version properties.</p>
    */
-  solutionVersions?: Array<SolutionVersionSummary>;
+  solutionVersions?: SolutionVersionSummary[];
 }
 
 export namespace ListSolutionVersionsResponse {
@@ -2627,7 +2625,7 @@ export interface ListSolutionsResponse {
   /**
    * <p>A list of the current solutions.</p>
    */
-  solutions?: Array<SolutionSummary>;
+  solutions?: SolutionSummary[];
 }
 
 export namespace ListSolutionsResponse {

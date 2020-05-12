@@ -72,7 +72,7 @@ export interface BadRequestException
   /**
    * Details about the error.
    */
-  ErrorDetails?: Array<ErrorDetail>;
+  ErrorDetails?: ErrorDetail[];
 
   /**
    * A message containing information about the error.
@@ -170,7 +170,7 @@ export interface BulkDeploymentResult {
   /**
    * Details about the error.
    */
-  ErrorDetails?: Array<ErrorDetail>;
+  ErrorDetails?: ErrorDetail[];
 
   /**
    * The error message for a failed deployment
@@ -261,7 +261,7 @@ export interface ConnectorDefinitionVersion {
   /**
    * A list of references to connectors in this version, with their corresponding configuration settings.
    */
-  Connectors?: Array<Connector>;
+  Connectors?: Connector[];
 }
 
 export namespace ConnectorDefinitionVersion {
@@ -307,7 +307,7 @@ export interface CoreDefinitionVersion {
   /**
    * A list of cores in the core definition version.
    */
-  Cores?: Array<Core>;
+  Cores?: Core[];
 }
 
 export namespace CoreDefinitionVersion {
@@ -401,7 +401,7 @@ export interface CreateConnectorDefinitionVersionRequest {
   /**
    * A list of references to connectors in this version, with their corresponding configuration settings.
    */
-  Connectors?: Array<Connector>;
+  Connectors?: Connector[];
 }
 
 export namespace CreateConnectorDefinitionVersionRequest {
@@ -526,7 +526,7 @@ export interface CreateCoreDefinitionVersionRequest {
   /**
    * A list of cores in the core definition version.
    */
-  Cores?: Array<Core>;
+  Cores?: Core[];
 }
 
 export namespace CreateCoreDefinitionVersionRequest {
@@ -699,7 +699,7 @@ export interface CreateDeviceDefinitionVersionRequest {
   /**
    * A list of devices in the definition version.
    */
-  Devices?: Array<Device>;
+  Devices?: Device[];
 }
 
 export namespace CreateDeviceDefinitionVersionRequest {
@@ -829,7 +829,7 @@ export interface CreateFunctionDefinitionVersionRequest {
   /**
    * A list of Lambda functions in this function definition version.
    */
-  Functions?: Array<Function>;
+  Functions?: Function[];
 }
 
 export namespace CreateFunctionDefinitionVersionRequest {
@@ -1134,7 +1134,7 @@ export interface CreateLoggerDefinitionVersionRequest {
   /**
    * A list of loggers.
    */
-  Loggers?: Array<Logger>;
+  Loggers?: Logger[];
 }
 
 export namespace CreateLoggerDefinitionVersionRequest {
@@ -1256,7 +1256,7 @@ export interface CreateResourceDefinitionVersionRequest {
   /**
    * A list of resources.
    */
-  Resources?: Array<Resource>;
+  Resources?: Resource[];
 }
 
 export namespace CreateResourceDefinitionVersionRequest {
@@ -1317,7 +1317,7 @@ export interface CreateSoftwareUpdateJobRequest {
   /**
    * The ARNs of the targets (IoT things or IoT thing groups) that this update will be applied to.
    */
-  UpdateTargets: Array<string> | undefined;
+  UpdateTargets: string[] | undefined;
 
   /**
    * The architecture of the cores which are the targets of an update.
@@ -1447,7 +1447,7 @@ export interface CreateSubscriptionDefinitionVersionRequest {
   /**
    * A list of subscriptions.
    */
-  Subscriptions?: Array<Subscription>;
+  Subscriptions?: Subscription[];
 }
 
 export namespace CreateSubscriptionDefinitionVersionRequest {
@@ -1794,7 +1794,7 @@ export interface DeviceDefinitionVersion {
   /**
    * A list of devices in the definition version.
    */
-  Devices?: Array<Device>;
+  Devices?: Device[];
 }
 
 export namespace DeviceDefinitionVersion {
@@ -1966,7 +1966,7 @@ export interface FunctionConfigurationEnvironment {
   /**
    * A list of the resources, with their permissions, to which the Lambda function will be granted access. A Lambda function can have at most 10 resources. ResourceAccessPolicies apply only when you run the Lambda function in a Greengrass container.
    */
-  ResourceAccessPolicies?: Array<ResourceAccessPolicy>;
+  ResourceAccessPolicies?: ResourceAccessPolicy[];
 
   /**
    * Environment variables for the Lambda function's configuration.
@@ -2029,7 +2029,7 @@ export interface FunctionDefinitionVersion {
   /**
    * A list of Lambda functions in this function definition version.
    */
-  Functions?: Array<Function>;
+  Functions?: Function[];
 }
 
 export namespace FunctionDefinitionVersion {
@@ -2148,7 +2148,7 @@ export interface GetBulkDeploymentStatusResponse {
   /**
    * Error details
    */
-  ErrorDetails?: Array<ErrorDetail>;
+  ErrorDetails?: ErrorDetail[];
 
   /**
    * Error message
@@ -2184,7 +2184,7 @@ export interface GetConnectivityInfoResponse {
   /**
    * Connectivity info list.
    */
-  ConnectivityInfo?: Array<ConnectivityInfo>;
+  ConnectivityInfo?: ConnectivityInfo[];
 
   /**
    * A message about the connectivity info request.
@@ -2469,7 +2469,7 @@ export interface GetDeploymentStatusResponse {
   /**
    * Error details
    */
-  ErrorDetails?: Array<ErrorDetail>;
+  ErrorDetails?: ErrorDetail[];
 
   /**
    * Error message
@@ -3442,7 +3442,7 @@ export interface InternalServerErrorException
   /**
    * Details about the error.
    */
-  ErrorDetails?: Array<ErrorDetail>;
+  ErrorDetails?: ErrorDetail[];
 
   /**
    * A message containing information about the error.
@@ -3483,7 +3483,7 @@ export interface ListBulkDeploymentDetailedReportsResponse {
   /**
    * A list of the individual group deployments in the bulk deployment operation.
    */
-  Deployments?: Array<BulkDeploymentResult>;
+  Deployments?: BulkDeploymentResult[];
 
   /**
    * The token for the next set of results, or ''null'' if there are no additional results.
@@ -3519,7 +3519,7 @@ export interface ListBulkDeploymentsResponse {
   /**
    * A list of bulk deployments.
    */
-  BulkDeployments?: Array<BulkDeployment>;
+  BulkDeployments?: BulkDeployment[];
 
   /**
    * The token for the next set of results, or ''null'' if there are no additional results.
@@ -3565,7 +3565,7 @@ export interface ListConnectorDefinitionVersionsResponse {
   /**
    * Information about a version.
    */
-  Versions?: Array<VersionInformation>;
+  Versions?: VersionInformation[];
 }
 
 export namespace ListConnectorDefinitionVersionsResponse {
@@ -3596,7 +3596,7 @@ export interface ListConnectorDefinitionsResponse {
   /**
    * Information about a definition.
    */
-  Definitions?: Array<DefinitionInformation>;
+  Definitions?: DefinitionInformation[];
 
   /**
    * The token for the next set of results, or ''null'' if there are no additional results.
@@ -3642,7 +3642,7 @@ export interface ListCoreDefinitionVersionsResponse {
   /**
    * Information about a version.
    */
-  Versions?: Array<VersionInformation>;
+  Versions?: VersionInformation[];
 }
 
 export namespace ListCoreDefinitionVersionsResponse {
@@ -3673,7 +3673,7 @@ export interface ListCoreDefinitionsResponse {
   /**
    * Information about a definition.
    */
-  Definitions?: Array<DefinitionInformation>;
+  Definitions?: DefinitionInformation[];
 
   /**
    * The token for the next set of results, or ''null'' if there are no additional results.
@@ -3714,7 +3714,7 @@ export interface ListDeploymentsResponse {
   /**
    * A list of deployments for the requested groups.
    */
-  Deployments?: Array<Deployment>;
+  Deployments?: Deployment[];
 
   /**
    * The token for the next set of results, or ''null'' if there are no additional results.
@@ -3760,7 +3760,7 @@ export interface ListDeviceDefinitionVersionsResponse {
   /**
    * Information about a version.
    */
-  Versions?: Array<VersionInformation>;
+  Versions?: VersionInformation[];
 }
 
 export namespace ListDeviceDefinitionVersionsResponse {
@@ -3791,7 +3791,7 @@ export interface ListDeviceDefinitionsResponse {
   /**
    * Information about a definition.
    */
-  Definitions?: Array<DefinitionInformation>;
+  Definitions?: DefinitionInformation[];
 
   /**
    * The token for the next set of results, or ''null'' if there are no additional results.
@@ -3837,7 +3837,7 @@ export interface ListFunctionDefinitionVersionsResponse {
   /**
    * Information about a version.
    */
-  Versions?: Array<VersionInformation>;
+  Versions?: VersionInformation[];
 }
 
 export namespace ListFunctionDefinitionVersionsResponse {
@@ -3868,7 +3868,7 @@ export interface ListFunctionDefinitionsResponse {
   /**
    * Information about a definition.
    */
-  Definitions?: Array<DefinitionInformation>;
+  Definitions?: DefinitionInformation[];
 
   /**
    * The token for the next set of results, or ''null'' if there are no additional results.
@@ -3899,7 +3899,7 @@ export interface ListGroupCertificateAuthoritiesResponse {
   /**
    * A list of certificate authorities associated with the group.
    */
-  GroupCertificateAuthorities?: Array<GroupCertificateAuthorityProperties>;
+  GroupCertificateAuthorities?: GroupCertificateAuthorityProperties[];
 }
 
 export namespace ListGroupCertificateAuthoritiesResponse {
@@ -3940,7 +3940,7 @@ export interface ListGroupVersionsResponse {
   /**
    * Information about a version.
    */
-  Versions?: Array<VersionInformation>;
+  Versions?: VersionInformation[];
 }
 
 export namespace ListGroupVersionsResponse {
@@ -3971,7 +3971,7 @@ export interface ListGroupsResponse {
   /**
    * Information about a group.
    */
-  Groups?: Array<GroupInformation>;
+  Groups?: GroupInformation[];
 
   /**
    * The token for the next set of results, or ''null'' if there are no additional results.
@@ -4017,7 +4017,7 @@ export interface ListLoggerDefinitionVersionsResponse {
   /**
    * Information about a version.
    */
-  Versions?: Array<VersionInformation>;
+  Versions?: VersionInformation[];
 }
 
 export namespace ListLoggerDefinitionVersionsResponse {
@@ -4048,7 +4048,7 @@ export interface ListLoggerDefinitionsResponse {
   /**
    * Information about a definition.
    */
-  Definitions?: Array<DefinitionInformation>;
+  Definitions?: DefinitionInformation[];
 
   /**
    * The token for the next set of results, or ''null'' if there are no additional results.
@@ -4094,7 +4094,7 @@ export interface ListResourceDefinitionVersionsResponse {
   /**
    * Information about a version.
    */
-  Versions?: Array<VersionInformation>;
+  Versions?: VersionInformation[];
 }
 
 export namespace ListResourceDefinitionVersionsResponse {
@@ -4125,7 +4125,7 @@ export interface ListResourceDefinitionsResponse {
   /**
    * Information about a definition.
    */
-  Definitions?: Array<DefinitionInformation>;
+  Definitions?: DefinitionInformation[];
 
   /**
    * The token for the next set of results, or ''null'' if there are no additional results.
@@ -4171,7 +4171,7 @@ export interface ListSubscriptionDefinitionVersionsResponse {
   /**
    * Information about a version.
    */
-  Versions?: Array<VersionInformation>;
+  Versions?: VersionInformation[];
 }
 
 export namespace ListSubscriptionDefinitionVersionsResponse {
@@ -4204,7 +4204,7 @@ export interface ListSubscriptionDefinitionsResponse {
   /**
    * Information about a definition.
    */
-  Definitions?: Array<DefinitionInformation>;
+  Definitions?: DefinitionInformation[];
 
   /**
    * The token for the next set of results, or ''null'' if there are no additional results.
@@ -4338,7 +4338,7 @@ export interface LoggerDefinitionVersion {
   /**
    * A list of loggers.
    */
-  Loggers?: Array<Logger>;
+  Loggers?: Logger[];
 }
 
 export namespace LoggerDefinitionVersion {
@@ -4498,7 +4498,7 @@ export interface ResourceDefinitionVersion {
   /**
    * A list of resources.
    */
-  Resources?: Array<Resource>;
+  Resources?: Resource[];
 }
 
 export namespace ResourceDefinitionVersion {
@@ -4592,7 +4592,7 @@ export interface SecretsManagerSecretResourceData {
   /**
    * Optional. The staging labels whose values you want to make available on the core, in addition to ''AWSCURRENT''.
    */
-  AdditionalStagingLabelsToDownload?: Array<string>;
+  AdditionalStagingLabelsToDownload?: string[];
 }
 
 export namespace SecretsManagerSecretResourceData {
@@ -4711,7 +4711,7 @@ export interface SubscriptionDefinitionVersion {
   /**
    * A list of subscriptions.
    */
-  Subscriptions?: Array<Subscription>;
+  Subscriptions?: Subscription[];
 }
 
 export namespace SubscriptionDefinitionVersion {
@@ -4750,7 +4750,7 @@ export interface UntagResourceRequest {
   /**
    * An array of tag keys to delete
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -4777,7 +4777,7 @@ export interface UpdateConnectivityInfoRequest {
   /**
    * A list of connectivity info.
    */
-  ConnectivityInfo?: Array<ConnectivityInfo>;
+  ConnectivityInfo?: ConnectivityInfo[];
 
   /**
    * The thing name.

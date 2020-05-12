@@ -38,23 +38,21 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_restJson1_1GetRoleCredentialsCommand(
+export const serializeAws_restJson1_1GetRoleCredentialsCommand = async (
   input: GetRoleCredentialsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.accessToken)) {
-    headers["x-amz-sso_bearer_token"] = input.accessToken!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.accessToken) && {
+      "x-amz-sso_bearer_token": input.accessToken!
+    })
+  };
   let resolvedPath = "/federation/credentials";
-  const query: any = {};
-  if (input.accountId !== undefined) {
-    query["account_id"] = input.accountId;
-  }
-  if (input.roleName !== undefined) {
-    query["role_name"] = input.roleName;
-  }
+  const query: any = {
+    ...(input.accountId !== undefined && { account_id: input.accountId }),
+    ...(input.roleName !== undefined && { role_name: input.roleName })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -67,28 +65,26 @@ export async function serializeAws_restJson1_1GetRoleCredentialsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListAccountRolesCommand(
+export const serializeAws_restJson1_1ListAccountRolesCommand = async (
   input: ListAccountRolesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.accessToken)) {
-    headers["x-amz-sso_bearer_token"] = input.accessToken!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.accessToken) && {
+      "x-amz-sso_bearer_token": input.accessToken!
+    })
+  };
   let resolvedPath = "/assignment/roles";
-  const query: any = {};
-  if (input.accountId !== undefined) {
-    query["account_id"] = input.accountId;
-  }
-  if (input.maxResults !== undefined) {
-    query["max_result"] = input.maxResults.toString();
-  }
-  if (input.nextToken !== undefined) {
-    query["next_token"] = input.nextToken;
-  }
+  const query: any = {
+    ...(input.accountId !== undefined && { account_id: input.accountId }),
+    ...(input.maxResults !== undefined && {
+      max_result: input.maxResults.toString()
+    }),
+    ...(input.nextToken !== undefined && { next_token: input.nextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -101,25 +97,25 @@ export async function serializeAws_restJson1_1ListAccountRolesCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListAccountsCommand(
+export const serializeAws_restJson1_1ListAccountsCommand = async (
   input: ListAccountsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.accessToken)) {
-    headers["x-amz-sso_bearer_token"] = input.accessToken!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.accessToken) && {
+      "x-amz-sso_bearer_token": input.accessToken!
+    })
+  };
   let resolvedPath = "/assignment/accounts";
-  const query: any = {};
-  if (input.maxResults !== undefined) {
-    query["max_result"] = input.maxResults.toString();
-  }
-  if (input.nextToken !== undefined) {
-    query["next_token"] = input.nextToken;
-  }
+  const query: any = {
+    ...(input.maxResults !== undefined && {
+      max_result: input.maxResults.toString()
+    }),
+    ...(input.nextToken !== undefined && { next_token: input.nextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -132,17 +128,18 @@ export async function serializeAws_restJson1_1ListAccountsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1LogoutCommand(
+export const serializeAws_restJson1_1LogoutCommand = async (
   input: LogoutCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.accessToken)) {
-    headers["x-amz-sso_bearer_token"] = input.accessToken!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.accessToken) && {
+      "x-amz-sso_bearer_token": input.accessToken!
+    })
+  };
   let resolvedPath = "/logout";
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -155,12 +152,12 @@ export async function serializeAws_restJson1_1LogoutCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1GetRoleCredentialsCommand(
+export const deserializeAws_restJson1_1GetRoleCredentialsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetRoleCredentialsCommandOutput> {
+): Promise<GetRoleCredentialsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetRoleCredentialsCommandError(
       output,
@@ -180,12 +177,12 @@ export async function deserializeAws_restJson1_1GetRoleCredentialsCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetRoleCredentialsCommandError(
+const deserializeAws_restJson1_1GetRoleCredentialsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetRoleCredentialsCommandOutput> {
+): Promise<GetRoleCredentialsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -253,12 +250,12 @@ async function deserializeAws_restJson1_1GetRoleCredentialsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListAccountRolesCommand(
+export const deserializeAws_restJson1_1ListAccountRolesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListAccountRolesCommandOutput> {
+): Promise<ListAccountRolesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListAccountRolesCommandError(
       output,
@@ -282,12 +279,12 @@ export async function deserializeAws_restJson1_1ListAccountRolesCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListAccountRolesCommandError(
+const deserializeAws_restJson1_1ListAccountRolesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListAccountRolesCommandOutput> {
+): Promise<ListAccountRolesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -355,12 +352,12 @@ async function deserializeAws_restJson1_1ListAccountRolesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListAccountsCommand(
+export const deserializeAws_restJson1_1ListAccountsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListAccountsCommandOutput> {
+): Promise<ListAccountsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListAccountsCommandError(output, context);
   }
@@ -381,12 +378,12 @@ export async function deserializeAws_restJson1_1ListAccountsCommand(
     contents.nextToken = data.nextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListAccountsCommandError(
+const deserializeAws_restJson1_1ListAccountsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListAccountsCommandOutput> {
+): Promise<ListAccountsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -454,12 +451,12 @@ async function deserializeAws_restJson1_1ListAccountsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1LogoutCommand(
+export const deserializeAws_restJson1_1LogoutCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<LogoutCommandOutput> {
+): Promise<LogoutCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1LogoutCommandError(output, context);
   }
@@ -468,12 +465,12 @@ export async function deserializeAws_restJson1_1LogoutCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1LogoutCommandError(
+const deserializeAws_restJson1_1LogoutCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<LogoutCommandOutput> {
+): Promise<LogoutCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -530,7 +527,7 @@ async function deserializeAws_restJson1_1LogoutCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
   parsedOutput: any,
@@ -625,7 +622,7 @@ const deserializeAws_restJson1_1AccountInfo = (
 const deserializeAws_restJson1_1AccountListType = (
   output: any,
   context: __SerdeContext
-): Array<AccountInfo> => {
+): AccountInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1AccountInfo(entry, context)
   );
@@ -678,7 +675,7 @@ const deserializeAws_restJson1_1RoleInfo = (
 const deserializeAws_restJson1_1RoleListType = (
   output: any,
   context: __SerdeContext
-): Array<RoleInfo> => {
+): RoleInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1RoleInfo(entry, context)
   );
@@ -692,7 +689,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -707,30 +704,23 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
-function isSerializableHeaderValue(value: any): boolean {
-  return (
-    value !== undefined &&
-    value !== "" &&
-    (!Object.getOwnPropertyNames(value).includes("length") ||
-      value.length != 0) &&
-    (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0)
-  );
-}
+const isSerializableHeaderValue = (value: any): boolean =>
+  value !== undefined &&
+  value !== "" &&
+  (!Object.getOwnPropertyNames(value).includes("length") ||
+    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};
 
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.

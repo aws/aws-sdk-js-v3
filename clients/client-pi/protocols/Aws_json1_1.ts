@@ -35,39 +35,40 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_json1_1DescribeDimensionKeysCommand(
+export const serializeAws_json1_1DescribeDimensionKeysCommand = async (
   input: DescribeDimensionKeysCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "PerformanceInsightsv20180227.DescribeDimensionKeys";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "PerformanceInsightsv20180227.DescribeDimensionKeys"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeDimensionKeysRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetResourceMetricsCommand(
+export const serializeAws_json1_1GetResourceMetricsCommand = async (
   input: GetResourceMetricsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "PerformanceInsightsv20180227.GetResourceMetrics";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "PerformanceInsightsv20180227.GetResourceMetrics"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetResourceMetricsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_1DescribeDimensionKeysCommand(
+export const deserializeAws_json1_1DescribeDimensionKeysCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeDimensionKeysCommandOutput> {
+): Promise<DescribeDimensionKeysCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeDimensionKeysCommandError(
       output,
@@ -83,12 +84,12 @@ export async function deserializeAws_json1_1DescribeDimensionKeysCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeDimensionKeysCommandError(
+const deserializeAws_json1_1DescribeDimensionKeysCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeDimensionKeysCommandOutput> {
+): Promise<DescribeDimensionKeysCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -147,12 +148,12 @@ async function deserializeAws_json1_1DescribeDimensionKeysCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetResourceMetricsCommand(
+export const deserializeAws_json1_1GetResourceMetricsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetResourceMetricsCommandOutput> {
+): Promise<GetResourceMetricsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetResourceMetricsCommandError(
       output,
@@ -168,12 +169,12 @@ export async function deserializeAws_json1_1GetResourceMetricsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetResourceMetricsCommandError(
+const deserializeAws_json1_1GetResourceMetricsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetResourceMetricsCommandOutput> {
+): Promise<GetResourceMetricsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -232,7 +233,7 @@ async function deserializeAws_json1_1GetResourceMetricsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_1InternalServiceErrorResponse = async (
   parsedOutput: any,
@@ -420,33 +421,24 @@ const serializeAws_json1_1MetricQueryFilterMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = input[key];
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = input[key];
+    return acc;
+  }, {});
 };
 
 const serializeAws_json1_1MetricQueryList = (
-  input: Array<MetricQuery>,
+  input: MetricQuery[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1MetricQuery(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1MetricQuery(entry, context));
 };
 
 const serializeAws_json1_1StringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const deserializeAws_json1_1InternalServiceError = (
@@ -512,7 +504,7 @@ const deserializeAws_json1_1DataPoint = (
 const deserializeAws_json1_1DataPointsList = (
   output: any,
   context: __SerdeContext
-): Array<DataPoint> => {
+): DataPoint[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DataPoint(entry, context)
   );
@@ -592,7 +584,7 @@ const deserializeAws_json1_1DimensionKeyDescription = (
 const deserializeAws_json1_1DimensionKeyDescriptionList = (
   output: any,
   context: __SerdeContext
-): Array<DimensionKeyDescription> => {
+): DimensionKeyDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DimensionKeyDescription(entry, context)
   );
@@ -602,11 +594,10 @@ const deserializeAws_json1_1DimensionMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = output[key];
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_1GetResourceMetricsResponse = (
@@ -676,7 +667,7 @@ const deserializeAws_json1_1MetricKeyDataPoints = (
 const deserializeAws_json1_1MetricKeyDataPointsList = (
   output: any,
   context: __SerdeContext
-): Array<MetricKeyDataPoints> => {
+): MetricKeyDataPoints[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1MetricKeyDataPoints(entry, context)
   );
@@ -685,7 +676,7 @@ const deserializeAws_json1_1MetricKeyDataPointsList = (
 const deserializeAws_json1_1MetricValuesList = (
   output: any,
   context: __SerdeContext
-): Array<number> => {
+): number[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -709,7 +700,7 @@ const deserializeAws_json1_1ResponsePartitionKey = (
 const deserializeAws_json1_1ResponsePartitionKeyList = (
   output: any,
   context: __SerdeContext
-): Array<ResponsePartitionKey> => {
+): ResponsePartitionKey[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ResponsePartitionKey(entry, context)
   );
@@ -744,7 +735,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -759,11 +750,8 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
@@ -790,11 +778,10 @@ const buildHttpRpcRequest = async (
   return new __HttpRequest(contents);
 };
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};

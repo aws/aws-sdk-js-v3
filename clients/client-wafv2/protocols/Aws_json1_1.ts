@@ -294,498 +294,534 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_json1_1AssociateWebACLCommand(
+export const serializeAws_json1_1AssociateWebACLCommand = async (
   input: AssociateWebACLCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.AssociateWebACL";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.AssociateWebACL"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AssociateWebACLRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CheckCapacityCommand(
+export const serializeAws_json1_1CheckCapacityCommand = async (
   input: CheckCapacityCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.CheckCapacity";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.CheckCapacity"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CheckCapacityRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreateIPSetCommand(
+export const serializeAws_json1_1CreateIPSetCommand = async (
   input: CreateIPSetCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.CreateIPSet";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.CreateIPSet"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateIPSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreateRegexPatternSetCommand(
+export const serializeAws_json1_1CreateRegexPatternSetCommand = async (
   input: CreateRegexPatternSetCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.CreateRegexPatternSet";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.CreateRegexPatternSet"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateRegexPatternSetRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreateRuleGroupCommand(
+export const serializeAws_json1_1CreateRuleGroupCommand = async (
   input: CreateRuleGroupCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.CreateRuleGroup";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.CreateRuleGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateRuleGroupRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreateWebACLCommand(
+export const serializeAws_json1_1CreateWebACLCommand = async (
   input: CreateWebACLCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.CreateWebACL";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.CreateWebACL"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateWebACLRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteIPSetCommand(
+export const serializeAws_json1_1DeleteIPSetCommand = async (
   input: DeleteIPSetCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.DeleteIPSet";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.DeleteIPSet"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteIPSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteLoggingConfigurationCommand(
+export const serializeAws_json1_1DeleteLoggingConfigurationCommand = async (
   input: DeleteLoggingConfigurationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.DeleteLoggingConfiguration";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.DeleteLoggingConfiguration"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteLoggingConfigurationRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteRegexPatternSetCommand(
+export const serializeAws_json1_1DeleteRegexPatternSetCommand = async (
   input: DeleteRegexPatternSetCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.DeleteRegexPatternSet";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.DeleteRegexPatternSet"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteRegexPatternSetRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteRuleGroupCommand(
+export const serializeAws_json1_1DeleteRuleGroupCommand = async (
   input: DeleteRuleGroupCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.DeleteRuleGroup";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.DeleteRuleGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteRuleGroupRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteWebACLCommand(
+export const serializeAws_json1_1DeleteWebACLCommand = async (
   input: DeleteWebACLCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.DeleteWebACL";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.DeleteWebACL"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteWebACLRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeManagedRuleGroupCommand(
+export const serializeAws_json1_1DescribeManagedRuleGroupCommand = async (
   input: DescribeManagedRuleGroupCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.DescribeManagedRuleGroup";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.DescribeManagedRuleGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeManagedRuleGroupRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DisassociateWebACLCommand(
+export const serializeAws_json1_1DisassociateWebACLCommand = async (
   input: DisassociateWebACLCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.DisassociateWebACL";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.DisassociateWebACL"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DisassociateWebACLRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetIPSetCommand(
+export const serializeAws_json1_1GetIPSetCommand = async (
   input: GetIPSetCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.GetIPSet";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.GetIPSet"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetIPSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetLoggingConfigurationCommand(
+export const serializeAws_json1_1GetLoggingConfigurationCommand = async (
   input: GetLoggingConfigurationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.GetLoggingConfiguration";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.GetLoggingConfiguration"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetLoggingConfigurationRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetRateBasedStatementManagedKeysCommand(
+export const serializeAws_json1_1GetRateBasedStatementManagedKeysCommand = async (
   input: GetRateBasedStatementManagedKeysCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.GetRateBasedStatementManagedKeys";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.GetRateBasedStatementManagedKeys"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetRateBasedStatementManagedKeysRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetRegexPatternSetCommand(
+export const serializeAws_json1_1GetRegexPatternSetCommand = async (
   input: GetRegexPatternSetCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.GetRegexPatternSet";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.GetRegexPatternSet"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetRegexPatternSetRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetRuleGroupCommand(
+export const serializeAws_json1_1GetRuleGroupCommand = async (
   input: GetRuleGroupCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.GetRuleGroup";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.GetRuleGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetRuleGroupRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetSampledRequestsCommand(
+export const serializeAws_json1_1GetSampledRequestsCommand = async (
   input: GetSampledRequestsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.GetSampledRequests";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.GetSampledRequests"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetSampledRequestsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetWebACLCommand(
+export const serializeAws_json1_1GetWebACLCommand = async (
   input: GetWebACLCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.GetWebACL";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.GetWebACL"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetWebACLRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetWebACLForResourceCommand(
+export const serializeAws_json1_1GetWebACLForResourceCommand = async (
   input: GetWebACLForResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.GetWebACLForResource";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.GetWebACLForResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetWebACLForResourceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListAvailableManagedRuleGroupsCommand(
+export const serializeAws_json1_1ListAvailableManagedRuleGroupsCommand = async (
   input: ListAvailableManagedRuleGroupsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.ListAvailableManagedRuleGroups";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.ListAvailableManagedRuleGroups"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListAvailableManagedRuleGroupsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListIPSetsCommand(
+export const serializeAws_json1_1ListIPSetsCommand = async (
   input: ListIPSetsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.ListIPSets";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.ListIPSets"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListIPSetsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListLoggingConfigurationsCommand(
+export const serializeAws_json1_1ListLoggingConfigurationsCommand = async (
   input: ListLoggingConfigurationsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.ListLoggingConfigurations";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.ListLoggingConfigurations"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListLoggingConfigurationsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListRegexPatternSetsCommand(
+export const serializeAws_json1_1ListRegexPatternSetsCommand = async (
   input: ListRegexPatternSetsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.ListRegexPatternSets";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.ListRegexPatternSets"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListRegexPatternSetsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListResourcesForWebACLCommand(
+export const serializeAws_json1_1ListResourcesForWebACLCommand = async (
   input: ListResourcesForWebACLCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.ListResourcesForWebACL";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.ListResourcesForWebACL"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListResourcesForWebACLRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListRuleGroupsCommand(
+export const serializeAws_json1_1ListRuleGroupsCommand = async (
   input: ListRuleGroupsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.ListRuleGroups";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.ListRuleGroups"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListRuleGroupsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListTagsForResourceCommand(
+export const serializeAws_json1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.ListTagsForResource";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.ListTagsForResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTagsForResourceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListWebACLsCommand(
+export const serializeAws_json1_1ListWebACLsCommand = async (
   input: ListWebACLsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.ListWebACLs";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.ListWebACLs"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListWebACLsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1PutLoggingConfigurationCommand(
+export const serializeAws_json1_1PutLoggingConfigurationCommand = async (
   input: PutLoggingConfigurationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.PutLoggingConfiguration";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.PutLoggingConfiguration"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutLoggingConfigurationRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1TagResourceCommand(
+export const serializeAws_json1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.TagResource";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.TagResource"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UntagResourceCommand(
+export const serializeAws_json1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.UntagResource";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.UntagResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UntagResourceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateIPSetCommand(
+export const serializeAws_json1_1UpdateIPSetCommand = async (
   input: UpdateIPSetCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.UpdateIPSet";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.UpdateIPSet"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateIPSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateRegexPatternSetCommand(
+export const serializeAws_json1_1UpdateRegexPatternSetCommand = async (
   input: UpdateRegexPatternSetCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.UpdateRegexPatternSet";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.UpdateRegexPatternSet"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateRegexPatternSetRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateRuleGroupCommand(
+export const serializeAws_json1_1UpdateRuleGroupCommand = async (
   input: UpdateRuleGroupCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.UpdateRuleGroup";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.UpdateRuleGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateRuleGroupRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateWebACLCommand(
+export const serializeAws_json1_1UpdateWebACLCommand = async (
   input: UpdateWebACLCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSWAF_20190729.UpdateWebACL";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSWAF_20190729.UpdateWebACL"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateWebACLRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_1AssociateWebACLCommand(
+export const deserializeAws_json1_1AssociateWebACLCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AssociateWebACLCommandOutput> {
+): Promise<AssociateWebACLCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1AssociateWebACLCommandError(output, context);
   }
@@ -798,12 +834,12 @@ export async function deserializeAws_json1_1AssociateWebACLCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1AssociateWebACLCommandError(
+const deserializeAws_json1_1AssociateWebACLCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AssociateWebACLCommandOutput> {
+): Promise<AssociateWebACLCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -873,12 +909,12 @@ async function deserializeAws_json1_1AssociateWebACLCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CheckCapacityCommand(
+export const deserializeAws_json1_1CheckCapacityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CheckCapacityCommandOutput> {
+): Promise<CheckCapacityCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CheckCapacityCommandError(output, context);
   }
@@ -891,12 +927,12 @@ export async function deserializeAws_json1_1CheckCapacityCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CheckCapacityCommandError(
+const deserializeAws_json1_1CheckCapacityCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CheckCapacityCommandOutput> {
+): Promise<CheckCapacityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -988,12 +1024,12 @@ async function deserializeAws_json1_1CheckCapacityCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreateIPSetCommand(
+export const deserializeAws_json1_1CreateIPSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateIPSetCommandOutput> {
+): Promise<CreateIPSetCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateIPSetCommandError(output, context);
   }
@@ -1006,12 +1042,12 @@ export async function deserializeAws_json1_1CreateIPSetCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateIPSetCommandError(
+const deserializeAws_json1_1CreateIPSetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateIPSetCommandOutput> {
+): Promise<CreateIPSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1114,12 +1150,12 @@ async function deserializeAws_json1_1CreateIPSetCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreateRegexPatternSetCommand(
+export const deserializeAws_json1_1CreateRegexPatternSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateRegexPatternSetCommandOutput> {
+): Promise<CreateRegexPatternSetCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateRegexPatternSetCommandError(
       output,
@@ -1135,12 +1171,12 @@ export async function deserializeAws_json1_1CreateRegexPatternSetCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateRegexPatternSetCommandError(
+const deserializeAws_json1_1CreateRegexPatternSetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateRegexPatternSetCommandOutput> {
+): Promise<CreateRegexPatternSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1243,12 +1279,12 @@ async function deserializeAws_json1_1CreateRegexPatternSetCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreateRuleGroupCommand(
+export const deserializeAws_json1_1CreateRuleGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateRuleGroupCommandOutput> {
+): Promise<CreateRuleGroupCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateRuleGroupCommandError(output, context);
   }
@@ -1261,12 +1297,12 @@ export async function deserializeAws_json1_1CreateRuleGroupCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateRuleGroupCommandError(
+const deserializeAws_json1_1CreateRuleGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateRuleGroupCommandOutput> {
+): Promise<CreateRuleGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1380,12 +1416,12 @@ async function deserializeAws_json1_1CreateRuleGroupCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreateWebACLCommand(
+export const deserializeAws_json1_1CreateWebACLCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateWebACLCommandOutput> {
+): Promise<CreateWebACLCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateWebACLCommandError(output, context);
   }
@@ -1398,12 +1434,12 @@ export async function deserializeAws_json1_1CreateWebACLCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateWebACLCommandError(
+const deserializeAws_json1_1CreateWebACLCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateWebACLCommandOutput> {
+): Promise<CreateWebACLCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1539,12 +1575,12 @@ async function deserializeAws_json1_1CreateWebACLCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteIPSetCommand(
+export const deserializeAws_json1_1DeleteIPSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteIPSetCommandOutput> {
+): Promise<DeleteIPSetCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteIPSetCommandError(output, context);
   }
@@ -1557,12 +1593,12 @@ export async function deserializeAws_json1_1DeleteIPSetCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteIPSetCommandError(
+const deserializeAws_json1_1DeleteIPSetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteIPSetCommandOutput> {
+): Promise<DeleteIPSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1654,12 +1690,12 @@ async function deserializeAws_json1_1DeleteIPSetCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteLoggingConfigurationCommand(
+export const deserializeAws_json1_1DeleteLoggingConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteLoggingConfigurationCommandOutput> {
+): Promise<DeleteLoggingConfigurationCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteLoggingConfigurationCommandError(
       output,
@@ -1678,12 +1714,12 @@ export async function deserializeAws_json1_1DeleteLoggingConfigurationCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteLoggingConfigurationCommandError(
+const deserializeAws_json1_1DeleteLoggingConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteLoggingConfigurationCommandOutput> {
+): Promise<DeleteLoggingConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1742,12 +1778,12 @@ async function deserializeAws_json1_1DeleteLoggingConfigurationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteRegexPatternSetCommand(
+export const deserializeAws_json1_1DeleteRegexPatternSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteRegexPatternSetCommandOutput> {
+): Promise<DeleteRegexPatternSetCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteRegexPatternSetCommandError(
       output,
@@ -1763,12 +1799,12 @@ export async function deserializeAws_json1_1DeleteRegexPatternSetCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteRegexPatternSetCommandError(
+const deserializeAws_json1_1DeleteRegexPatternSetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteRegexPatternSetCommandOutput> {
+): Promise<DeleteRegexPatternSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1860,12 +1896,12 @@ async function deserializeAws_json1_1DeleteRegexPatternSetCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteRuleGroupCommand(
+export const deserializeAws_json1_1DeleteRuleGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteRuleGroupCommandOutput> {
+): Promise<DeleteRuleGroupCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteRuleGroupCommandError(output, context);
   }
@@ -1878,12 +1914,12 @@ export async function deserializeAws_json1_1DeleteRuleGroupCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteRuleGroupCommandError(
+const deserializeAws_json1_1DeleteRuleGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteRuleGroupCommandOutput> {
+): Promise<DeleteRuleGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1975,12 +2011,12 @@ async function deserializeAws_json1_1DeleteRuleGroupCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteWebACLCommand(
+export const deserializeAws_json1_1DeleteWebACLCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteWebACLCommandOutput> {
+): Promise<DeleteWebACLCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteWebACLCommandError(output, context);
   }
@@ -1993,12 +2029,12 @@ export async function deserializeAws_json1_1DeleteWebACLCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteWebACLCommandError(
+const deserializeAws_json1_1DeleteWebACLCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteWebACLCommandOutput> {
+): Promise<DeleteWebACLCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2101,12 +2137,12 @@ async function deserializeAws_json1_1DeleteWebACLCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeManagedRuleGroupCommand(
+export const deserializeAws_json1_1DescribeManagedRuleGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeManagedRuleGroupCommandOutput> {
+): Promise<DescribeManagedRuleGroupCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeManagedRuleGroupCommandError(
       output,
@@ -2125,12 +2161,12 @@ export async function deserializeAws_json1_1DescribeManagedRuleGroupCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeManagedRuleGroupCommandError(
+const deserializeAws_json1_1DescribeManagedRuleGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeManagedRuleGroupCommandOutput> {
+): Promise<DescribeManagedRuleGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2200,12 +2236,12 @@ async function deserializeAws_json1_1DescribeManagedRuleGroupCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DisassociateWebACLCommand(
+export const deserializeAws_json1_1DisassociateWebACLCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisassociateWebACLCommandOutput> {
+): Promise<DisassociateWebACLCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DisassociateWebACLCommandError(
       output,
@@ -2221,12 +2257,12 @@ export async function deserializeAws_json1_1DisassociateWebACLCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DisassociateWebACLCommandError(
+const deserializeAws_json1_1DisassociateWebACLCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisassociateWebACLCommandOutput> {
+): Promise<DisassociateWebACLCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2285,12 +2321,12 @@ async function deserializeAws_json1_1DisassociateWebACLCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetIPSetCommand(
+export const deserializeAws_json1_1GetIPSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetIPSetCommandOutput> {
+): Promise<GetIPSetCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetIPSetCommandError(output, context);
   }
@@ -2303,12 +2339,12 @@ export async function deserializeAws_json1_1GetIPSetCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetIPSetCommandError(
+const deserializeAws_json1_1GetIPSetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetIPSetCommandOutput> {
+): Promise<GetIPSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2367,12 +2403,12 @@ async function deserializeAws_json1_1GetIPSetCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetLoggingConfigurationCommand(
+export const deserializeAws_json1_1GetLoggingConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetLoggingConfigurationCommandOutput> {
+): Promise<GetLoggingConfigurationCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetLoggingConfigurationCommandError(
       output,
@@ -2391,12 +2427,12 @@ export async function deserializeAws_json1_1GetLoggingConfigurationCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetLoggingConfigurationCommandError(
+const deserializeAws_json1_1GetLoggingConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetLoggingConfigurationCommandOutput> {
+): Promise<GetLoggingConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2444,12 +2480,12 @@ async function deserializeAws_json1_1GetLoggingConfigurationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetRateBasedStatementManagedKeysCommand(
+export const deserializeAws_json1_1GetRateBasedStatementManagedKeysCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetRateBasedStatementManagedKeysCommandOutput> {
+): Promise<GetRateBasedStatementManagedKeysCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetRateBasedStatementManagedKeysCommandError(
       output,
@@ -2468,12 +2504,12 @@ export async function deserializeAws_json1_1GetRateBasedStatementManagedKeysComm
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetRateBasedStatementManagedKeysCommandError(
+const deserializeAws_json1_1GetRateBasedStatementManagedKeysCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetRateBasedStatementManagedKeysCommandOutput> {
+): Promise<GetRateBasedStatementManagedKeysCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2532,12 +2568,12 @@ async function deserializeAws_json1_1GetRateBasedStatementManagedKeysCommandErro
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetRegexPatternSetCommand(
+export const deserializeAws_json1_1GetRegexPatternSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetRegexPatternSetCommandOutput> {
+): Promise<GetRegexPatternSetCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetRegexPatternSetCommandError(
       output,
@@ -2553,12 +2589,12 @@ export async function deserializeAws_json1_1GetRegexPatternSetCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetRegexPatternSetCommandError(
+const deserializeAws_json1_1GetRegexPatternSetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetRegexPatternSetCommandOutput> {
+): Promise<GetRegexPatternSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2617,12 +2653,12 @@ async function deserializeAws_json1_1GetRegexPatternSetCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetRuleGroupCommand(
+export const deserializeAws_json1_1GetRuleGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetRuleGroupCommandOutput> {
+): Promise<GetRuleGroupCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetRuleGroupCommandError(output, context);
   }
@@ -2635,12 +2671,12 @@ export async function deserializeAws_json1_1GetRuleGroupCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetRuleGroupCommandError(
+const deserializeAws_json1_1GetRuleGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetRuleGroupCommandOutput> {
+): Promise<GetRuleGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2699,12 +2735,12 @@ async function deserializeAws_json1_1GetRuleGroupCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetSampledRequestsCommand(
+export const deserializeAws_json1_1GetSampledRequestsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetSampledRequestsCommandOutput> {
+): Promise<GetSampledRequestsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetSampledRequestsCommandError(
       output,
@@ -2720,12 +2756,12 @@ export async function deserializeAws_json1_1GetSampledRequestsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetSampledRequestsCommandError(
+const deserializeAws_json1_1GetSampledRequestsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetSampledRequestsCommandOutput> {
+): Promise<GetSampledRequestsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2784,12 +2820,12 @@ async function deserializeAws_json1_1GetSampledRequestsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetWebACLCommand(
+export const deserializeAws_json1_1GetWebACLCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetWebACLCommandOutput> {
+): Promise<GetWebACLCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetWebACLCommandError(output, context);
   }
@@ -2802,12 +2838,12 @@ export async function deserializeAws_json1_1GetWebACLCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetWebACLCommandError(
+const deserializeAws_json1_1GetWebACLCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetWebACLCommandOutput> {
+): Promise<GetWebACLCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2866,12 +2902,12 @@ async function deserializeAws_json1_1GetWebACLCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetWebACLForResourceCommand(
+export const deserializeAws_json1_1GetWebACLForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetWebACLForResourceCommandOutput> {
+): Promise<GetWebACLForResourceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetWebACLForResourceCommandError(
       output,
@@ -2887,12 +2923,12 @@ export async function deserializeAws_json1_1GetWebACLForResourceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetWebACLForResourceCommandError(
+const deserializeAws_json1_1GetWebACLForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetWebACLForResourceCommandOutput> {
+): Promise<GetWebACLForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2962,12 +2998,12 @@ async function deserializeAws_json1_1GetWebACLForResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListAvailableManagedRuleGroupsCommand(
+export const deserializeAws_json1_1ListAvailableManagedRuleGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListAvailableManagedRuleGroupsCommandOutput> {
+): Promise<ListAvailableManagedRuleGroupsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListAvailableManagedRuleGroupsCommandError(
       output,
@@ -2986,12 +3022,12 @@ export async function deserializeAws_json1_1ListAvailableManagedRuleGroupsComman
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListAvailableManagedRuleGroupsCommandError(
+const deserializeAws_json1_1ListAvailableManagedRuleGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListAvailableManagedRuleGroupsCommandOutput> {
+): Promise<ListAvailableManagedRuleGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3039,12 +3075,12 @@ async function deserializeAws_json1_1ListAvailableManagedRuleGroupsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListIPSetsCommand(
+export const deserializeAws_json1_1ListIPSetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListIPSetsCommandOutput> {
+): Promise<ListIPSetsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListIPSetsCommandError(output, context);
   }
@@ -3057,12 +3093,12 @@ export async function deserializeAws_json1_1ListIPSetsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListIPSetsCommandError(
+const deserializeAws_json1_1ListIPSetsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListIPSetsCommandOutput> {
+): Promise<ListIPSetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3110,12 +3146,12 @@ async function deserializeAws_json1_1ListIPSetsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListLoggingConfigurationsCommand(
+export const deserializeAws_json1_1ListLoggingConfigurationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListLoggingConfigurationsCommandOutput> {
+): Promise<ListLoggingConfigurationsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListLoggingConfigurationsCommandError(
       output,
@@ -3134,12 +3170,12 @@ export async function deserializeAws_json1_1ListLoggingConfigurationsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListLoggingConfigurationsCommandError(
+const deserializeAws_json1_1ListLoggingConfigurationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListLoggingConfigurationsCommandOutput> {
+): Promise<ListLoggingConfigurationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3187,12 +3223,12 @@ async function deserializeAws_json1_1ListLoggingConfigurationsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListRegexPatternSetsCommand(
+export const deserializeAws_json1_1ListRegexPatternSetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListRegexPatternSetsCommandOutput> {
+): Promise<ListRegexPatternSetsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListRegexPatternSetsCommandError(
       output,
@@ -3208,12 +3244,12 @@ export async function deserializeAws_json1_1ListRegexPatternSetsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListRegexPatternSetsCommandError(
+const deserializeAws_json1_1ListRegexPatternSetsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListRegexPatternSetsCommandOutput> {
+): Promise<ListRegexPatternSetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3261,12 +3297,12 @@ async function deserializeAws_json1_1ListRegexPatternSetsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListResourcesForWebACLCommand(
+export const deserializeAws_json1_1ListResourcesForWebACLCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListResourcesForWebACLCommandOutput> {
+): Promise<ListResourcesForWebACLCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListResourcesForWebACLCommandError(
       output,
@@ -3285,12 +3321,12 @@ export async function deserializeAws_json1_1ListResourcesForWebACLCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListResourcesForWebACLCommandError(
+const deserializeAws_json1_1ListResourcesForWebACLCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListResourcesForWebACLCommandOutput> {
+): Promise<ListResourcesForWebACLCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3349,12 +3385,12 @@ async function deserializeAws_json1_1ListResourcesForWebACLCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListRuleGroupsCommand(
+export const deserializeAws_json1_1ListRuleGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListRuleGroupsCommandOutput> {
+): Promise<ListRuleGroupsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListRuleGroupsCommandError(output, context);
   }
@@ -3367,12 +3403,12 @@ export async function deserializeAws_json1_1ListRuleGroupsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListRuleGroupsCommandError(
+const deserializeAws_json1_1ListRuleGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListRuleGroupsCommandOutput> {
+): Promise<ListRuleGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3420,12 +3456,12 @@ async function deserializeAws_json1_1ListRuleGroupsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListTagsForResourceCommand(
+export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListTagsForResourceCommandError(
       output,
@@ -3441,12 +3477,12 @@ export async function deserializeAws_json1_1ListTagsForResourceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListTagsForResourceCommandError(
+const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3527,12 +3563,12 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListWebACLsCommand(
+export const deserializeAws_json1_1ListWebACLsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListWebACLsCommandOutput> {
+): Promise<ListWebACLsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListWebACLsCommandError(output, context);
   }
@@ -3545,12 +3581,12 @@ export async function deserializeAws_json1_1ListWebACLsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListWebACLsCommandError(
+const deserializeAws_json1_1ListWebACLsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListWebACLsCommandOutput> {
+): Promise<ListWebACLsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3598,12 +3634,12 @@ async function deserializeAws_json1_1ListWebACLsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1PutLoggingConfigurationCommand(
+export const deserializeAws_json1_1PutLoggingConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutLoggingConfigurationCommandOutput> {
+): Promise<PutLoggingConfigurationCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1PutLoggingConfigurationCommandError(
       output,
@@ -3622,12 +3658,12 @@ export async function deserializeAws_json1_1PutLoggingConfigurationCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1PutLoggingConfigurationCommandError(
+const deserializeAws_json1_1PutLoggingConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutLoggingConfigurationCommandOutput> {
+): Promise<PutLoggingConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3708,12 +3744,12 @@ async function deserializeAws_json1_1PutLoggingConfigurationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1TagResourceCommand(
+export const deserializeAws_json1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1TagResourceCommandError(output, context);
   }
@@ -3726,12 +3762,12 @@ export async function deserializeAws_json1_1TagResourceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1TagResourceCommandError(
+const deserializeAws_json1_1TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3823,12 +3859,12 @@ async function deserializeAws_json1_1TagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UntagResourceCommand(
+export const deserializeAws_json1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UntagResourceCommandError(output, context);
   }
@@ -3841,12 +3877,12 @@ export async function deserializeAws_json1_1UntagResourceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UntagResourceCommandError(
+const deserializeAws_json1_1UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3927,12 +3963,12 @@ async function deserializeAws_json1_1UntagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateIPSetCommand(
+export const deserializeAws_json1_1UpdateIPSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateIPSetCommandOutput> {
+): Promise<UpdateIPSetCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateIPSetCommandError(output, context);
   }
@@ -3945,12 +3981,12 @@ export async function deserializeAws_json1_1UpdateIPSetCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateIPSetCommandError(
+const deserializeAws_json1_1UpdateIPSetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateIPSetCommandOutput> {
+): Promise<UpdateIPSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4042,12 +4078,12 @@ async function deserializeAws_json1_1UpdateIPSetCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateRegexPatternSetCommand(
+export const deserializeAws_json1_1UpdateRegexPatternSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateRegexPatternSetCommandOutput> {
+): Promise<UpdateRegexPatternSetCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateRegexPatternSetCommandError(
       output,
@@ -4063,12 +4099,12 @@ export async function deserializeAws_json1_1UpdateRegexPatternSetCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateRegexPatternSetCommandError(
+const deserializeAws_json1_1UpdateRegexPatternSetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateRegexPatternSetCommandOutput> {
+): Promise<UpdateRegexPatternSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4160,12 +4196,12 @@ async function deserializeAws_json1_1UpdateRegexPatternSetCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateRuleGroupCommand(
+export const deserializeAws_json1_1UpdateRuleGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateRuleGroupCommandOutput> {
+): Promise<UpdateRuleGroupCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateRuleGroupCommandError(output, context);
   }
@@ -4178,12 +4214,12 @@ export async function deserializeAws_json1_1UpdateRuleGroupCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateRuleGroupCommandError(
+const deserializeAws_json1_1UpdateRuleGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateRuleGroupCommandOutput> {
+): Promise<UpdateRuleGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4286,12 +4322,12 @@ async function deserializeAws_json1_1UpdateRuleGroupCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateWebACLCommand(
+export const deserializeAws_json1_1UpdateWebACLCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateWebACLCommandOutput> {
+): Promise<UpdateWebACLCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateWebACLCommandError(output, context);
   }
@@ -4304,12 +4340,12 @@ export async function deserializeAws_json1_1UpdateWebACLCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateWebACLCommandError(
+const deserializeAws_json1_1UpdateWebACLCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateWebACLCommandOutput> {
+): Promise<UpdateWebACLCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4423,7 +4459,7 @@ async function deserializeAws_json1_1UpdateWebACLCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_1WAFAssociatedItemExceptionResponse = async (
   parsedOutput: any,
@@ -4750,14 +4786,10 @@ const serializeAws_json1_1CountAction = (
 };
 
 const serializeAws_json1_1CountryCodes = (
-  input: Array<CountryCode | string>,
+  input: (CountryCode | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1CreateIPSetRequest = (
@@ -5029,14 +5061,10 @@ const serializeAws_json1_1ExcludedRule = (
 };
 
 const serializeAws_json1_1ExcludedRules = (
-  input: Array<ExcludedRule>,
+  input: ExcludedRule[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1ExcludedRule(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1ExcludedRule(entry, context));
 };
 
 const serializeAws_json1_1FieldToMatch = (
@@ -5231,14 +5259,10 @@ const serializeAws_json1_1GetWebACLRequest = (
 };
 
 const serializeAws_json1_1IPAddresses = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1IPSetReferenceStatement = (
@@ -5386,14 +5410,10 @@ const serializeAws_json1_1ListWebACLsRequest = (
 };
 
 const serializeAws_json1_1LogDestinationConfigs = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1LoggingConfiguration = (
@@ -5544,14 +5564,10 @@ const serializeAws_json1_1RateBasedStatement = (
 };
 
 const serializeAws_json1_1RedactedFields = (
-  input: Array<FieldToMatch>,
+  input: FieldToMatch[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1FieldToMatch(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1FieldToMatch(entry, context));
 };
 
 const serializeAws_json1_1Regex = (
@@ -5589,14 +5605,10 @@ const serializeAws_json1_1RegexPatternSetReferenceStatement = (
 };
 
 const serializeAws_json1_1RegularExpressionList = (
-  input: Array<Regex>,
+  input: Regex[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1Regex(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1Regex(entry, context));
 };
 
 const serializeAws_json1_1Rule = (
@@ -5672,14 +5684,10 @@ const serializeAws_json1_1RuleGroupReferenceStatement = (
 };
 
 const serializeAws_json1_1Rules = (
-  input: Array<Rule>,
+  input: Rule[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1Rule(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1Rule(entry, context));
 };
 
 const serializeAws_json1_1SingleHeader = (
@@ -5847,14 +5855,10 @@ const serializeAws_json1_1Statement = (
 };
 
 const serializeAws_json1_1Statements = (
-  input: Array<Statement>,
+  input: Statement[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1Statement(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1Statement(entry, context));
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
@@ -5869,25 +5873,17 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_json1_1TagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1TagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1Tag(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1Tag(entry, context));
 };
 
 const serializeAws_json1_1TagResourceRequest = (
@@ -5919,14 +5915,12 @@ const serializeAws_json1_1TextTransformation = (
 };
 
 const serializeAws_json1_1TextTransformations = (
-  input: Array<TextTransformation>,
+  input: TextTransformation[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1TextTransformation(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1TextTransformation(entry, context)
+  );
 };
 
 const serializeAws_json1_1TimeWindow = (
@@ -6267,7 +6261,7 @@ const deserializeAws_json1_1CountAction = (
 const deserializeAws_json1_1CountryCodes = (
   output: any,
   context: __SerdeContext
-): Array<CountryCode | string> => {
+): (CountryCode | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -6452,7 +6446,7 @@ const deserializeAws_json1_1ExcludedRule = (
 const deserializeAws_json1_1ExcludedRules = (
   output: any,
   context: __SerdeContext
-): Array<ExcludedRule> => {
+): ExcludedRule[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ExcludedRule(entry, context)
   );
@@ -6716,7 +6710,7 @@ const deserializeAws_json1_1HTTPHeader = (
 const deserializeAws_json1_1HTTPHeaders = (
   output: any,
   context: __SerdeContext
-): Array<HTTPHeader> => {
+): HTTPHeader[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1HTTPHeader(entry, context)
   );
@@ -6762,7 +6756,7 @@ const deserializeAws_json1_1HTTPRequest = (
 const deserializeAws_json1_1IPAddresses = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -6823,7 +6817,7 @@ const deserializeAws_json1_1IPSetReferenceStatement = (
 const deserializeAws_json1_1IPSetSummaries = (
   output: any,
   context: __SerdeContext
-): Array<IPSetSummary> => {
+): IPSetSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1IPSetSummary(entry, context)
   );
@@ -7038,7 +7032,7 @@ const deserializeAws_json1_1ListWebACLsResponse = (
 const deserializeAws_json1_1LogDestinationConfigs = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -7076,7 +7070,7 @@ const deserializeAws_json1_1LoggingConfiguration = (
 const deserializeAws_json1_1LoggingConfigurations = (
   output: any,
   context: __SerdeContext
-): Array<LoggingConfiguration> => {
+): LoggingConfiguration[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1LoggingConfiguration(entry, context)
   );
@@ -7110,7 +7104,7 @@ const deserializeAws_json1_1ManagedRuleGroupStatement = (
 const deserializeAws_json1_1ManagedRuleGroupSummaries = (
   output: any,
   context: __SerdeContext
-): Array<ManagedRuleGroupSummary> => {
+): ManagedRuleGroupSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ManagedRuleGroupSummary(entry, context)
   );
@@ -7298,7 +7292,7 @@ const deserializeAws_json1_1RateBasedStatementManagedKeysIPSet = (
 const deserializeAws_json1_1RedactedFields = (
   output: any,
   context: __SerdeContext
-): Array<FieldToMatch> => {
+): FieldToMatch[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1FieldToMatch(entry, context)
   );
@@ -7388,7 +7382,7 @@ const deserializeAws_json1_1RegexPatternSetReferenceStatement = (
 const deserializeAws_json1_1RegexPatternSetSummaries = (
   output: any,
   context: __SerdeContext
-): Array<RegexPatternSetSummary> => {
+): RegexPatternSetSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RegexPatternSetSummary(entry, context)
   );
@@ -7427,7 +7421,7 @@ const deserializeAws_json1_1RegexPatternSetSummary = (
 const deserializeAws_json1_1RegularExpressionList = (
   output: any,
   context: __SerdeContext
-): Array<Regex> => {
+): Regex[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Regex(entry, context)
   );
@@ -7436,7 +7430,7 @@ const deserializeAws_json1_1RegularExpressionList = (
 const deserializeAws_json1_1ResourceArns = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -7576,7 +7570,7 @@ const deserializeAws_json1_1RuleGroupReferenceStatement = (
 const deserializeAws_json1_1RuleGroupSummaries = (
   output: any,
   context: __SerdeContext
-): Array<RuleGroupSummary> => {
+): RuleGroupSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RuleGroupSummary(entry, context)
   );
@@ -7615,7 +7609,7 @@ const deserializeAws_json1_1RuleGroupSummary = (
 const deserializeAws_json1_1RuleSummaries = (
   output: any,
   context: __SerdeContext
-): Array<RuleSummary> => {
+): RuleSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RuleSummary(entry, context)
   );
@@ -7642,7 +7636,7 @@ const deserializeAws_json1_1RuleSummary = (
 const deserializeAws_json1_1Rules = (
   output: any,
   context: __SerdeContext
-): Array<Rule> => {
+): Rule[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Rule(entry, context)
   );
@@ -7687,7 +7681,7 @@ const deserializeAws_json1_1SampledHTTPRequest = (
 const deserializeAws_json1_1SampledHTTPRequests = (
   output: any,
   context: __SerdeContext
-): Array<SampledHTTPRequest> => {
+): SampledHTTPRequest[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SampledHTTPRequest(entry, context)
   );
@@ -7920,7 +7914,7 @@ const deserializeAws_json1_1Statement = (
 const deserializeAws_json1_1Statements = (
   output: any,
   context: __SerdeContext
-): Array<Statement> => {
+): Statement[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Statement(entry, context)
   );
@@ -7965,7 +7959,7 @@ const deserializeAws_json1_1TagInfoForResource = (
 const deserializeAws_json1_1TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );
@@ -8002,7 +7996,7 @@ const deserializeAws_json1_1TextTransformation = (
 const deserializeAws_json1_1TextTransformations = (
   output: any,
   context: __SerdeContext
-): Array<TextTransformation> => {
+): TextTransformation[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1TextTransformation(entry, context)
   );
@@ -8364,7 +8358,7 @@ const deserializeAws_json1_1WebACL = (
 const deserializeAws_json1_1WebACLSummaries = (
   output: any,
   context: __SerdeContext
-): Array<WebACLSummary> => {
+): WebACLSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1WebACLSummary(entry, context)
   );
@@ -8435,7 +8429,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -8450,11 +8444,8 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
@@ -8481,11 +8472,10 @@ const buildHttpRpcRequest = async (
   return new __HttpRequest(contents);
 };
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};

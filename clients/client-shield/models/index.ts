@@ -89,7 +89,7 @@ export interface AttackDetail {
   /**
    * <p>List of counters that describe the attack for the specified time period.</p>
    */
-  AttackCounters?: Array<SummarizedCounter>;
+  AttackCounters?: SummarizedCounter[];
 
   /**
    * <p>The unique identifier (ID) of the attack.</p>
@@ -99,7 +99,7 @@ export interface AttackDetail {
   /**
    * <p>The array of <a>AttackProperty</a> objects.</p>
    */
-  AttackProperties?: Array<AttackProperty>;
+  AttackProperties?: AttackProperty[];
 
   /**
    * <p>The time the attack ended, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
@@ -109,7 +109,7 @@ export interface AttackDetail {
   /**
    * <p>List of mitigation actions taken for the attack.</p>
    */
-  Mitigations?: Array<Mitigation>;
+  Mitigations?: Mitigation[];
 
   /**
    * <p>The ARN (Amazon Resource Name) of the resource that was attacked.</p>
@@ -125,7 +125,7 @@ export interface AttackDetail {
    * <p>If applicable, additional detail about the resource being attacked, for example, IP
    *          address or URL.</p>
    */
-  SubResources?: Array<SubResourceSummary>;
+  SubResources?: SubResourceSummary[];
 }
 
 export namespace AttackDetail {
@@ -159,7 +159,7 @@ export interface AttackProperty {
   /**
    * <p>The array of <a>Contributor</a> objects that includes the top five contributors to an attack. </p>
    */
-  TopContributors?: Array<Contributor>;
+  TopContributors?: Contributor[];
 
   /**
    * <p>The total contributions made to this attack by all contributors, not just the five listed in the <code>TopContributors</code> list.</p>
@@ -201,7 +201,7 @@ export interface AttackSummary {
   /**
    * <p>The list of attacks for a specified time period.</p>
    */
-  AttackVectors?: Array<AttackVectorDescription>;
+  AttackVectors?: AttackVectorDescription[];
 
   /**
    * <p>The end time of the attack, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
@@ -484,7 +484,7 @@ export interface DescribeDRTAccessResponse {
   /**
    * <p>The list of Amazon S3 buckets accessed by the DRT.</p>
    */
-  LogBucketList?: Array<string>;
+  LogBucketList?: string[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the role the DRT used to access your AWS account.</p>
@@ -511,7 +511,7 @@ export interface DescribeEmergencyContactSettingsResponse {
   /**
    * <p>A list of email addresses that the DRT can use to contact you during a suspected attack.</p>
    */
-  EmergencyContactList?: Array<EmergencyContact>;
+  EmergencyContactList?: EmergencyContact[];
 }
 
 export namespace DescribeEmergencyContactSettingsResponse {
@@ -797,7 +797,7 @@ export interface ListAttacksRequest {
    * <p>The ARN (Amazon Resource Name) of the resource that was attacked. If this is left
    *          blank, all applicable resources for this account will be included.</p>
    */
-  ResourceArns?: Array<string>;
+  ResourceArns?: string[];
 
   /**
    * <p>The start of the time period for the attacks. This is a <code>timestamp</code> type. The sample request above indicates a <code>number</code> type because the default used by WAF is Unix time in seconds. However any valid <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp format</a>  is allowed.  </p>
@@ -815,7 +815,7 @@ export interface ListAttacksResponse {
   /**
    * <p>The attack information for the specified time range.</p>
    */
-  AttackSummaries?: Array<AttackSummary>;
+  AttackSummaries?: AttackSummary[];
 
   /**
    * <p>The token returned by a previous call to indicate that there is more data available.
@@ -863,7 +863,7 @@ export interface ListProtectionsResponse {
   /**
    * <p>The array of enabled <a>Protection</a> objects.</p>
    */
-  Protections?: Array<Protection>;
+  Protections?: Protection[];
 }
 
 export namespace ListProtectionsResponse {
@@ -1000,12 +1000,12 @@ export interface SubResourceSummary {
   /**
    * <p>The list of attack types and associated counters.</p>
    */
-  AttackVectors?: Array<SummarizedAttackVector>;
+  AttackVectors?: SummarizedAttackVector[];
 
   /**
    * <p>The counters that describe the details of the attack.</p>
    */
-  Counters?: Array<SummarizedCounter>;
+  Counters?: SummarizedCounter[];
 
   /**
    * <p>The unique identifier (ID) of the <code>SubResource</code>.</p>
@@ -1047,7 +1047,7 @@ export interface Subscription {
   /**
    * <p>Specifies how many protections of a given type you can create.</p>
    */
-  Limits?: Array<Limit>;
+  Limits?: Limit[];
 
   /**
    * <p>The start time of the subscription, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
@@ -1077,7 +1077,7 @@ export interface SummarizedAttackVector {
   /**
    * <p>The list of counters that describe the details of the attack.</p>
    */
-  VectorCounters?: Array<SummarizedCounter>;
+  VectorCounters?: SummarizedCounter[];
 
   /**
    * <p>The attack type, for example, SNMP reflection or SYN flood.</p>
@@ -1163,7 +1163,7 @@ export interface UpdateEmergencyContactSettingsRequest {
   /**
    * <p>A list of email addresses that the DRT can use to contact you during a suspected attack.</p>
    */
-  EmergencyContactList?: Array<EmergencyContact>;
+  EmergencyContactList?: EmergencyContact[];
 }
 
 export namespace UpdateEmergencyContactSettingsRequest {

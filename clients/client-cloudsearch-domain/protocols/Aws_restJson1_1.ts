@@ -39,59 +39,34 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_restJson1_1SearchCommand(
+export const serializeAws_restJson1_1SearchCommand = async (
   input: SearchCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2013-01-01/search";
   const query: any = {
     format: "sdk",
-    pretty: "true"
+    pretty: "true",
+    ...(input.cursor !== undefined && { cursor: input.cursor }),
+    ...(input.expr !== undefined && { expr: input.expr }),
+    ...(input.facet !== undefined && { facet: input.facet }),
+    ...(input.filterQuery !== undefined && { fq: input.filterQuery }),
+    ...(input.highlight !== undefined && { highlight: input.highlight }),
+    ...(input.partial !== undefined && { partial: input.partial.toString() }),
+    ...(input.query !== undefined && { q: input.query }),
+    ...(input.queryOptions !== undefined && {
+      "q.options": input.queryOptions
+    }),
+    ...(input.queryParser !== undefined && { "q.parser": input.queryParser }),
+    ...(input.return !== undefined && { return: input.return }),
+    ...(input.size !== undefined && { size: input.size.toString() }),
+    ...(input.sort !== undefined && { sort: input.sort }),
+    ...(input.start !== undefined && { start: input.start.toString() }),
+    ...(input.stats !== undefined && { stats: input.stats })
   };
-  if (input.cursor !== undefined) {
-    query["cursor"] = input.cursor;
-  }
-  if (input.expr !== undefined) {
-    query["expr"] = input.expr;
-  }
-  if (input.facet !== undefined) {
-    query["facet"] = input.facet;
-  }
-  if (input.filterQuery !== undefined) {
-    query["fq"] = input.filterQuery;
-  }
-  if (input.highlight !== undefined) {
-    query["highlight"] = input.highlight;
-  }
-  if (input.partial !== undefined) {
-    query["partial"] = input.partial.toString();
-  }
-  if (input.query !== undefined) {
-    query["q"] = input.query;
-  }
-  if (input.queryOptions !== undefined) {
-    query["q.options"] = input.queryOptions;
-  }
-  if (input.queryParser !== undefined) {
-    query["q.parser"] = input.queryParser;
-  }
-  if (input.return !== undefined) {
-    query["return"] = input.return;
-  }
-  if (input.size !== undefined) {
-    query["size"] = input.size.toString();
-  }
-  if (input.sort !== undefined) {
-    query["sort"] = input.sort;
-  }
-  if (input.start !== undefined) {
-    query["start"] = input.start.toString();
-  }
-  if (input.stats !== undefined) {
-    query["stats"] = input.stats;
-  }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -104,28 +79,23 @@ export async function serializeAws_restJson1_1SearchCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1SuggestCommand(
+export const serializeAws_restJson1_1SuggestCommand = async (
   input: SuggestCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2013-01-01/suggest";
   const query: any = {
     format: "sdk",
-    pretty: "true"
+    pretty: "true",
+    ...(input.query !== undefined && { q: input.query }),
+    ...(input.size !== undefined && { size: input.size.toString() }),
+    ...(input.suggester !== undefined && { suggester: input.suggester })
   };
-  if (input.query !== undefined) {
-    query["q"] = input.query;
-  }
-  if (input.size !== undefined) {
-    query["size"] = input.size.toString();
-  }
-  if (input.suggester !== undefined) {
-    query["suggester"] = input.suggester;
-  }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -138,17 +108,18 @@ export async function serializeAws_restJson1_1SuggestCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UploadDocumentsCommand(
+export const serializeAws_restJson1_1UploadDocumentsCommand = async (
   input: UploadDocumentsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/octet-stream";
-  if (isSerializableHeaderValue(input.contentType)) {
-    headers["Content-Type"] = input.contentType!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/octet-stream",
+    ...(isSerializableHeaderValue(input.contentType) && {
+      "Content-Type": input.contentType!
+    })
+  };
   let resolvedPath = "/2013-01-01/documents/batch";
   const query: any = {
     format: "sdk"
@@ -168,12 +139,12 @@ export async function serializeAws_restJson1_1UploadDocumentsCommand(
     query,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1SearchCommand(
+export const deserializeAws_restJson1_1SearchCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SearchCommandOutput> {
+): Promise<SearchCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1SearchCommandError(output, context);
   }
@@ -202,12 +173,12 @@ export async function deserializeAws_restJson1_1SearchCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1SearchCommandError(
+const deserializeAws_restJson1_1SearchCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SearchCommandOutput> {
+): Promise<SearchCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -242,12 +213,12 @@ async function deserializeAws_restJson1_1SearchCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1SuggestCommand(
+export const deserializeAws_restJson1_1SuggestCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SuggestCommandOutput> {
+): Promise<SuggestCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1SuggestCommandError(output, context);
   }
@@ -271,12 +242,12 @@ export async function deserializeAws_restJson1_1SuggestCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1SuggestCommandError(
+const deserializeAws_restJson1_1SuggestCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SuggestCommandOutput> {
+): Promise<SuggestCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -311,12 +282,12 @@ async function deserializeAws_restJson1_1SuggestCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UploadDocumentsCommand(
+export const deserializeAws_restJson1_1UploadDocumentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UploadDocumentsCommandOutput> {
+): Promise<UploadDocumentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UploadDocumentsCommandError(
       output,
@@ -348,12 +319,12 @@ export async function deserializeAws_restJson1_1UploadDocumentsCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UploadDocumentsCommandError(
+const deserializeAws_restJson1_1UploadDocumentsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UploadDocumentsCommandOutput> {
+): Promise<UploadDocumentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -388,7 +359,7 @@ async function deserializeAws_restJson1_1UploadDocumentsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1DocumentServiceExceptionResponse = async (
   parsedOutput: any,
@@ -466,7 +437,7 @@ const deserializeAws_restJson1_1BucketInfo = (
 const deserializeAws_restJson1_1BucketList = (
   output: any,
   context: __SerdeContext
-): Array<Bucket> => {
+): Bucket[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Bucket(entry, context)
   );
@@ -489,7 +460,7 @@ const deserializeAws_restJson1_1DocumentServiceWarning = (
 const deserializeAws_restJson1_1DocumentServiceWarnings = (
   output: any,
   context: __SerdeContext
-): Array<DocumentServiceWarning> => {
+): DocumentServiceWarning[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DocumentServiceWarning(entry, context)
   );
@@ -499,22 +470,20 @@ const deserializeAws_restJson1_1Exprs = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = output[key];
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1_1Facets = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: BucketInfo } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_restJson1_1BucketInfo(output[key], context);
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = deserializeAws_restJson1_1BucketInfo(output[key], context);
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1_1FieldStats = (
@@ -562,30 +531,28 @@ const deserializeAws_restJson1_1FieldStats = (
 const deserializeAws_restJson1_1FieldValue = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1Fields = (
   output: any,
   context: __SerdeContext
-): { [key: string]: Array<string> } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_restJson1_1FieldValue(output[key], context);
-  });
-  return mapParams;
+): { [key: string]: string[] } => {
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = deserializeAws_restJson1_1FieldValue(output[key], context);
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1_1Highlights = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = output[key];
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1_1Hit = (
@@ -620,7 +587,7 @@ const deserializeAws_restJson1_1Hit = (
 const deserializeAws_restJson1_1HitList = (
   output: any,
   context: __SerdeContext
-): Array<Hit> => {
+): Hit[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Hit(entry, context)
   );
@@ -674,11 +641,10 @@ const deserializeAws_restJson1_1Stats = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: FieldStats } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_restJson1_1FieldStats(output[key], context);
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = deserializeAws_restJson1_1FieldStats(output[key], context);
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1_1SuggestModel = (
@@ -749,7 +715,7 @@ const deserializeAws_restJson1_1SuggestionMatch = (
 const deserializeAws_restJson1_1Suggestions = (
   output: any,
   context: __SerdeContext
-): Array<SuggestionMatch> => {
+): SuggestionMatch[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SuggestionMatch(entry, context)
   );
@@ -763,7 +729,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -778,30 +744,23 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
-function isSerializableHeaderValue(value: any): boolean {
-  return (
-    value !== undefined &&
-    value !== "" &&
-    (!Object.getOwnPropertyNames(value).includes("length") ||
-      value.length != 0) &&
-    (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0)
-  );
-}
+const isSerializableHeaderValue = (value: any): boolean =>
+  value !== undefined &&
+  value !== "" &&
+  (!Object.getOwnPropertyNames(value).includes("length") ||
+    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};
 
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.

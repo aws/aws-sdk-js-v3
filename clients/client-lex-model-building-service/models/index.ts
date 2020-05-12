@@ -288,7 +288,7 @@ export interface BuiltinIntentMetadata {
   /**
    * <p>A list of identifiers for the locales that the intent supports.</p>
    */
-  supportedLocales?: Array<Locale | string>;
+  supportedLocales?: (Locale | string)[];
 }
 
 export namespace BuiltinIntentMetadata {
@@ -326,7 +326,7 @@ export interface BuiltinSlotTypeMetadata {
   /**
    * <p>A list of target locales for the slot. </p>
    */
-  supportedLocales?: Array<Locale | string>;
+  supportedLocales?: (Locale | string)[];
 }
 
 export namespace BuiltinSlotTypeMetadata {
@@ -393,7 +393,7 @@ export interface ConversationLogsRequest {
    * <p>The settings for your conversation logs. You can log the conversation text, conversation
    *       audio, or both.</p>
    */
-  logSettings: Array<LogSettingsRequest> | undefined;
+  logSettings: LogSettingsRequest[] | undefined;
 }
 
 export namespace ConversationLogsRequest {
@@ -415,7 +415,7 @@ export interface ConversationLogsResponse {
   /**
    * <p>The settings for your conversation logs. You can log text, audio, or both.</p>
    */
-  logSettings?: Array<LogSettingsResponse>;
+  logSettings?: LogSettingsResponse[];
 }
 
 export namespace ConversationLogsResponse {
@@ -519,7 +519,7 @@ export interface CreateBotVersionResponse {
   /**
    * <p>An array of <code>Intent</code> objects. For more information, see <a>PutBot</a>.</p>
    */
-  intents?: Array<Intent>;
+  intents?: Intent[];
 
   /**
    * <p>The date when the <code>$LATEST</code> version of this bot was updated. </p>
@@ -654,13 +654,13 @@ export interface CreateIntentVersionResponse {
   /**
    * <p>An array of sample utterances configured for the intent. </p>
    */
-  sampleUtterances?: Array<string>;
+  sampleUtterances?: string[];
 
   /**
    * <p>An array of slot types that defines the information required to fulfill the
    *       intent.</p>
    */
-  slots?: Array<Slot>;
+  slots?: Slot[];
 
   /**
    * <p>The version number assigned to the new version of the intent.</p>
@@ -717,7 +717,7 @@ export interface CreateSlotTypeVersionResponse {
    * <p>A list of <code>EnumerationValue</code> objects that defines the values that the slot
    *       type can take.</p>
    */
-  enumerationValues?: Array<EnumerationValue>;
+  enumerationValues?: EnumerationValue[];
 
   /**
    * <p>The date that the slot type was updated. When you create a resource, the creation date
@@ -933,7 +933,7 @@ export interface EnumerationValue {
   /**
    * <p>Additional values related to the slot type value.</p>
    */
-  synonyms?: Array<string>;
+  synonyms?: string[];
 
   /**
    * <p>The value of the slot type.</p>
@@ -1132,7 +1132,7 @@ export interface GetBotAliasesResponse {
    * <p>An array of <code>BotAliasMetadata</code> objects, each describing a bot
    *       alias.</p>
    */
-  BotAliases?: Array<BotAliasMetadata>;
+  BotAliases?: BotAliasMetadata[];
 
   /**
    * <p>A pagination token for fetching next page of aliases. If the response to this call is
@@ -1289,7 +1289,7 @@ export interface GetBotChannelAssociationsResponse {
    * <p>An array of objects, one for each association, that provides information about the
    *       Amazon Lex bot and its association with the channel. </p>
    */
-  botChannelAssociations?: Array<BotChannelAssociation>;
+  botChannelAssociations?: BotChannelAssociation[];
 
   /**
    * <p>A pagination token that fetches the next page of associations. If the response to this
@@ -1396,7 +1396,7 @@ export interface GetBotResponse {
   /**
    * <p>An array of <code>intent</code> objects. For more information, see <a>PutBot</a>.</p>
    */
-  intents?: Array<Intent>;
+  intents?: Intent[];
 
   /**
    * <p>The date that the bot was updated. When you create a resource, the creation date and
@@ -1477,7 +1477,7 @@ export interface GetBotVersionsResponse {
    * <p>An array of <code>BotMetadata</code> objects, one for each numbered version of the bot
    *       plus one for the <code>$LATEST</code> version.</p>
    */
-  bots?: Array<BotMetadata>;
+  bots?: BotMetadata[];
 
   /**
    * <p>A pagination token for fetching the next page of bot versions. If the response to this
@@ -1524,7 +1524,7 @@ export interface GetBotsResponse {
   /**
    * <p>An array of <code>botMetadata</code> objects, with one entry for each bot. </p>
    */
-  bots?: Array<BotMetadata>;
+  bots?: BotMetadata[];
 
   /**
    * <p>If the response is truncated, it includes a pagination token that you can specify in
@@ -1563,12 +1563,12 @@ export interface GetBuiltinIntentResponse {
    * <p>An array of <code>BuiltinIntentSlot</code> objects, one entry for each slot type in the
    *       intent.</p>
    */
-  slots?: Array<BuiltinIntentSlot>;
+  slots?: BuiltinIntentSlot[];
 
   /**
    * <p>A list of locales that the intent supports.</p>
    */
-  supportedLocales?: Array<Locale | string>;
+  supportedLocales?: (Locale | string)[];
 }
 
 export namespace GetBuiltinIntentResponse {
@@ -1614,7 +1614,7 @@ export interface GetBuiltinIntentsResponse {
    * <p>An array of <code>builtinIntentMetadata</code> objects, one for each intent in the
    *       response.</p>
    */
-  intents?: Array<BuiltinIntentMetadata>;
+  intents?: BuiltinIntentMetadata[];
 
   /**
    * <p>A pagination token that fetches the next page of intents. If the response to this API
@@ -1674,7 +1674,7 @@ export interface GetBuiltinSlotTypesResponse {
    * <p>An array of <code>BuiltInSlotTypeMetadata</code> objects, one entry for each slot type
    *       returned.</p>
    */
-  slotTypes?: Array<BuiltinSlotTypeMetadata>;
+  slotTypes?: BuiltinSlotTypeMetadata[];
 }
 
 export namespace GetBuiltinSlotTypesResponse {
@@ -1793,7 +1793,7 @@ export interface GetImportResponse {
   /**
    * <p>A string that describes why an import job failed to complete.</p>
    */
-  failureReason?: Array<string>;
+  failureReason?: string[];
 
   /**
    * <p>The identifier for the specific import job.</p>
@@ -1917,12 +1917,12 @@ export interface GetIntentResponse {
   /**
    * <p>An array of sample utterances configured for the intent.</p>
    */
-  sampleUtterances?: Array<string>;
+  sampleUtterances?: string[];
 
   /**
    * <p>An array of intent slots configured for the intent.</p>
    */
-  slots?: Array<Slot>;
+  slots?: Slot[];
 
   /**
    * <p>The version of the intent.</p>
@@ -1967,7 +1967,7 @@ export interface GetIntentVersionsResponse {
    * <p>An array of <code>IntentMetadata</code> objects, one for each numbered version of the
    *       intent plus one for the <code>$LATEST</code> version.</p>
    */
-  intents?: Array<IntentMetadata>;
+  intents?: IntentMetadata[];
 
   /**
    * <p>A pagination token for fetching the next page of intent versions. If the response to
@@ -2013,7 +2013,7 @@ export interface GetIntentsResponse {
   /**
    * <p>An array of <code>Intent</code> objects. For more information, see <a>PutBot</a>.</p>
    */
-  intents?: Array<IntentMetadata>;
+  intents?: IntentMetadata[];
 
   /**
    * <p>If the response is truncated, the response includes a pagination token that you can
@@ -2066,7 +2066,7 @@ export interface GetSlotTypeResponse {
    * <p>A list of <code>EnumerationValue</code> objects that defines the values that the slot
    *       type can take.</p>
    */
-  enumerationValues?: Array<EnumerationValue>;
+  enumerationValues?: EnumerationValue[];
 
   /**
    * <p>The date that the slot type was updated. When you create a resource, the creation date
@@ -2135,7 +2135,7 @@ export interface GetSlotTypeVersionsResponse {
    * <p>An array of <code>SlotTypeMetadata</code> objects, one for each numbered version of the
    *       slot type plus one for the <code>$LATEST</code> version.</p>
    */
-  slotTypes?: Array<SlotTypeMetadata>;
+  slotTypes?: SlotTypeMetadata[];
 }
 
 export namespace GetSlotTypeVersionsResponse {
@@ -2182,7 +2182,7 @@ export interface GetSlotTypesResponse {
    * <p>An array of objects, one for each slot type, that provides information such as the name
    *       of the slot type, the version, and a description.</p>
    */
-  slotTypes?: Array<SlotTypeMetadata>;
+  slotTypes?: SlotTypeMetadata[];
 }
 
 export namespace GetSlotTypesResponse {
@@ -2201,7 +2201,7 @@ export interface GetUtterancesViewRequest {
    * <p>An array of bot versions for which utterance information should be returned. The limit
    *       is 5 versions per request.</p>
    */
-  botVersions: Array<string> | undefined;
+  botVersions: string[] | undefined;
 
   /**
    * <p>To return utterances that were recognized and handled, use <code>Detected</code>. To
@@ -2227,7 +2227,7 @@ export interface GetUtterancesViewResponse {
    *       The response contains a maximum of 100 <code>UtteranceData</code> objects for each version.
    *       Amazon Lex returns the most frequent utterances received by the bot in the last 15 days.</p>
    */
-  utterances?: Array<UtteranceList>;
+  utterances?: UtteranceList[];
 }
 
 export namespace GetUtterancesViewResponse {
@@ -2444,7 +2444,7 @@ export interface Prompt {
    *       specify the message string in plain text or in Speech Synthesis Markup Language
    *       (SSML).</p>
    */
-  messages: Array<Message> | undefined;
+  messages: Message[] | undefined;
 
   /**
    * <p>A response card. Amazon Lex uses this prompt at runtime, in the <code>PostText</code> API
@@ -2682,7 +2682,7 @@ export interface PutBotRequest {
    *       can express. For example, a pizza ordering bot might support an OrderPizza intent. For more
    *       information, see <a>how-it-works</a>.</p>
    */
-  intents?: Array<Intent>;
+  intents?: Intent[];
 
   /**
    * <p> Specifies the target locale for the bot. Any intent used in the bot must be compatible
@@ -2801,7 +2801,7 @@ export interface PutBotResponse {
   /**
    * <p>An array of <code>Intent</code> objects. For more information, see <a>PutBot</a>.</p>
    */
-  intents?: Array<Intent>;
+  intents?: Intent[];
 
   /**
    * <p>The date that the bot was updated. When you create a resource, the creation date and
@@ -2988,14 +2988,14 @@ export interface PutIntentRequest {
    *
    *          <p>In each utterance, a slot name is enclosed in curly braces. </p>
    */
-  sampleUtterances?: Array<string>;
+  sampleUtterances?: string[];
 
   /**
    * <p>An array of intent slots. At runtime, Amazon Lex elicits required slot values from the user
    *       using prompts defined in the slots. For more information, see <a>how-it-works</a>.
    *     </p>
    */
-  slots?: Array<Slot>;
+  slots?: Slot[];
 }
 
 export namespace PutIntentRequest {
@@ -3083,12 +3083,12 @@ export interface PutIntentResponse {
   /**
    * <p> An array of sample utterances that are configured for the intent. </p>
    */
-  sampleUtterances?: Array<string>;
+  sampleUtterances?: string[];
 
   /**
    * <p>An array of intent slots that are configured for the intent.</p>
    */
-  slots?: Array<Slot>;
+  slots?: Slot[];
 
   /**
    * <p>The version of the intent. For a new intent, the version is always
@@ -3138,7 +3138,7 @@ export interface PutSlotTypeRequest {
    *       value that the user entered or the first value in the resolution list as the slot value. The
    *         <code>valueSelectionStrategy</code> field indicates the option to use. </p>
    */
-  enumerationValues?: Array<EnumerationValue>;
+  enumerationValues?: EnumerationValue[];
 
   /**
    * <p>The name of the slot type. The name is <i>not</i> case sensitive. </p>
@@ -3206,7 +3206,7 @@ export interface PutSlotTypeResponse {
    * <p>A list of <code>EnumerationValue</code> objects that defines the values that the slot
    *       type can take.</p>
    */
-  enumerationValues?: Array<EnumerationValue>;
+  enumerationValues?: EnumerationValue[];
 
   /**
    * <p>The date that the slot type was updated. When you create a slot type, the creation date
@@ -3354,7 +3354,7 @@ export interface Slot {
    *       a slot value, you can provide those utterances to improve accuracy. This is optional. In most
    *       cases, Amazon Lex is capable of understanding user utterances. </p>
    */
-  sampleUtterances?: Array<string>;
+  sampleUtterances?: string[];
 
   /**
    * <p>Specifies whether the slot is required or optional. </p>
@@ -3523,7 +3523,7 @@ export interface Statement {
   /**
    * <p>A collection of message objects.</p>
    */
-  messages: Array<Message> | undefined;
+  messages: Message[] | undefined;
 
   /**
    * <p> At runtime, if the client is using the <a href="http://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostText.html">PostText</a>
@@ -3601,7 +3601,7 @@ export interface UtteranceList {
    * <p>One or more <a>UtteranceData</a> objects that contain information about the
    *       utterances that have been made to a bot. The maximum number of object is 100.</p>
    */
-  utterances?: Array<UtteranceData>;
+  utterances?: UtteranceData[];
 }
 
 export namespace UtteranceList {

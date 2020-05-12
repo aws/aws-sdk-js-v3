@@ -12,7 +12,7 @@ export interface Alternative {
   /**
    * <p>One or more alternative interpretations of the input audio. </p>
    */
-  Items?: Array<Item>;
+  Items?: Item[];
 
   /**
    * <p>The text that was transcribed from the audio.</p>
@@ -66,11 +66,11 @@ export namespace AudioStream {
     AudioEvent: (value: AudioEvent) => T;
     _: (name: string, value: any) => T;
   }
-  export function visit<T>(value: AudioStream, visitor: Visitor<T>): T {
+  export const visit = <T>(value: AudioStream, visitor: Visitor<T>): T => {
     if (value.AudioEvent !== undefined)
       return visitor.AudioEvent(value.AudioEvent);
     return visitor._(value.$unknown[0], value.$unknown[1]);
-  }
+  };
 }
 
 /**
@@ -200,7 +200,7 @@ export interface Result {
    * <p>A list of possible transcriptions for the audio. Each alternative typically contains one
    *         <code>item</code> that contains the result of the transcription.</p>
    */
-  Alternatives?: Array<Alternative>;
+  Alternatives?: Alternative[];
 
   /**
    * <p>The offset in seconds from the beginning of the audio stream to the end of the
@@ -329,7 +329,7 @@ export interface Transcript {
    *             <a>Result</a> objects that contain the results of transcribing a portion of the
    *       input audio stream. The array can be empty.</p>
    */
-  Results?: Array<Result>;
+  Results?: Result[];
 }
 
 export namespace Transcript {
@@ -446,10 +446,10 @@ export namespace TranscriptResultStream {
     TranscriptEvent: (value: TranscriptEvent) => T;
     _: (name: string, value: any) => T;
   }
-  export function visit<T>(
+  export const visit = <T>(
     value: TranscriptResultStream,
     visitor: Visitor<T>
-  ): T {
+  ): T => {
     if (value.BadRequestException !== undefined)
       return visitor.BadRequestException(value.BadRequestException);
     if (value.ConflictException !== undefined)
@@ -461,7 +461,7 @@ export namespace TranscriptResultStream {
     if (value.TranscriptEvent !== undefined)
       return visitor.TranscriptEvent(value.TranscriptEvent);
     return visitor._(value.$unknown[0], value.$unknown[1]);
-  }
+  };
 }
 
 export enum MediaEncoding {

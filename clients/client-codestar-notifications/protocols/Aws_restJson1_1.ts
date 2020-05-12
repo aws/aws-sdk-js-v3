@@ -80,12 +80,13 @@ import {
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
-export async function serializeAws_restJson1_1CreateNotificationRuleCommand(
+export const serializeAws_restJson1_1CreateNotificationRuleCommand = async (
   input: CreateNotificationRuleCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/createNotificationRule";
   let body: any;
   const bodyParams: any = {};
@@ -133,14 +134,15 @@ export async function serializeAws_restJson1_1CreateNotificationRuleCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeleteNotificationRuleCommand(
+export const serializeAws_restJson1_1DeleteNotificationRuleCommand = async (
   input: DeleteNotificationRuleCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/deleteNotificationRule";
   let body: any;
   const bodyParams: any = {};
@@ -158,14 +160,15 @@ export async function serializeAws_restJson1_1DeleteNotificationRuleCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeleteTargetCommand(
+export const serializeAws_restJson1_1DeleteTargetCommand = async (
   input: DeleteTargetCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/deleteTarget";
   let body: any;
   const bodyParams: any = {};
@@ -186,14 +189,15 @@ export async function serializeAws_restJson1_1DeleteTargetCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribeNotificationRuleCommand(
+export const serializeAws_restJson1_1DescribeNotificationRuleCommand = async (
   input: DescribeNotificationRuleCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/describeNotificationRule";
   let body: any;
   const bodyParams: any = {};
@@ -211,14 +215,15 @@ export async function serializeAws_restJson1_1DescribeNotificationRuleCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListEventTypesCommand(
+export const serializeAws_restJson1_1ListEventTypesCommand = async (
   input: ListEventTypesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/listEventTypes";
   let body: any;
   const bodyParams: any = {};
@@ -245,14 +250,15 @@ export async function serializeAws_restJson1_1ListEventTypesCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListNotificationRulesCommand(
+export const serializeAws_restJson1_1ListNotificationRulesCommand = async (
   input: ListNotificationRulesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/listNotificationRules";
   let body: any;
   const bodyParams: any = {};
@@ -281,14 +287,15 @@ export async function serializeAws_restJson1_1ListNotificationRulesCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListTagsForResourceCommand(
+export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/listTagsForResource";
   let body: any;
   const bodyParams: any = {};
@@ -306,14 +313,15 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListTargetsCommand(
+export const serializeAws_restJson1_1ListTargetsCommand = async (
   input: ListTargetsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/listTargets";
   let body: any;
   const bodyParams: any = {};
@@ -340,14 +348,15 @@ export async function serializeAws_restJson1_1ListTargetsCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1SubscribeCommand(
+export const serializeAws_restJson1_1SubscribeCommand = async (
   input: SubscribeCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/subscribe";
   let body: any;
   const bodyParams: any = {};
@@ -374,14 +383,15 @@ export async function serializeAws_restJson1_1SubscribeCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1TagResourceCommand(
+export const serializeAws_restJson1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/tagResource";
   let body: any;
   const bodyParams: any = {};
@@ -402,14 +412,15 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UnsubscribeCommand(
+export const serializeAws_restJson1_1UnsubscribeCommand = async (
   input: UnsubscribeCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/unsubscribe";
   let body: any;
   const bodyParams: any = {};
@@ -430,14 +441,15 @@ export async function serializeAws_restJson1_1UnsubscribeCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UntagResourceCommand(
+export const serializeAws_restJson1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/untagResource";
   let body: any;
   const bodyParams: any = {};
@@ -461,14 +473,15 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UpdateNotificationRuleCommand(
+export const serializeAws_restJson1_1UpdateNotificationRuleCommand = async (
   input: UpdateNotificationRuleCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/updateNotificationRule";
   let body: any;
   const bodyParams: any = {};
@@ -507,12 +520,12 @@ export async function serializeAws_restJson1_1UpdateNotificationRuleCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1CreateNotificationRuleCommand(
+export const deserializeAws_restJson1_1CreateNotificationRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateNotificationRuleCommandOutput> {
+): Promise<CreateNotificationRuleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateNotificationRuleCommandError(
       output,
@@ -529,12 +542,12 @@ export async function deserializeAws_restJson1_1CreateNotificationRuleCommand(
     contents.Arn = data.Arn;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreateNotificationRuleCommandError(
+const deserializeAws_restJson1_1CreateNotificationRuleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateNotificationRuleCommandOutput> {
+): Promise<CreateNotificationRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -624,12 +637,12 @@ async function deserializeAws_restJson1_1CreateNotificationRuleCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteNotificationRuleCommand(
+export const deserializeAws_restJson1_1DeleteNotificationRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteNotificationRuleCommandOutput> {
+): Promise<DeleteNotificationRuleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteNotificationRuleCommandError(
       output,
@@ -646,12 +659,12 @@ export async function deserializeAws_restJson1_1DeleteNotificationRuleCommand(
     contents.Arn = data.Arn;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteNotificationRuleCommandError(
+const deserializeAws_restJson1_1DeleteNotificationRuleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteNotificationRuleCommandOutput> {
+): Promise<DeleteNotificationRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -708,12 +721,12 @@ async function deserializeAws_restJson1_1DeleteNotificationRuleCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteTargetCommand(
+export const deserializeAws_restJson1_1DeleteTargetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteTargetCommandOutput> {
+): Promise<DeleteTargetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteTargetCommandError(output, context);
   }
@@ -723,12 +736,12 @@ export async function deserializeAws_restJson1_1DeleteTargetCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteTargetCommandError(
+const deserializeAws_restJson1_1DeleteTargetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteTargetCommandOutput> {
+): Promise<DeleteTargetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -763,12 +776,12 @@ async function deserializeAws_restJson1_1DeleteTargetCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeNotificationRuleCommand(
+export const deserializeAws_restJson1_1DescribeNotificationRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeNotificationRuleCommandOutput> {
+): Promise<DescribeNotificationRuleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeNotificationRuleCommandError(
       output,
@@ -838,12 +851,12 @@ export async function deserializeAws_restJson1_1DescribeNotificationRuleCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeNotificationRuleCommandError(
+const deserializeAws_restJson1_1DescribeNotificationRuleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeNotificationRuleCommandOutput> {
+): Promise<DescribeNotificationRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -889,12 +902,12 @@ async function deserializeAws_restJson1_1DescribeNotificationRuleCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListEventTypesCommand(
+export const deserializeAws_restJson1_1ListEventTypesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListEventTypesCommandOutput> {
+): Promise<ListEventTypesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListEventTypesCommandError(
       output,
@@ -918,12 +931,12 @@ export async function deserializeAws_restJson1_1ListEventTypesCommand(
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListEventTypesCommandError(
+const deserializeAws_restJson1_1ListEventTypesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListEventTypesCommandOutput> {
+): Promise<ListEventTypesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -969,12 +982,12 @@ async function deserializeAws_restJson1_1ListEventTypesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListNotificationRulesCommand(
+export const deserializeAws_restJson1_1ListNotificationRulesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListNotificationRulesCommandOutput> {
+): Promise<ListNotificationRulesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListNotificationRulesCommandError(
       output,
@@ -998,12 +1011,12 @@ export async function deserializeAws_restJson1_1ListNotificationRulesCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListNotificationRulesCommandError(
+const deserializeAws_restJson1_1ListNotificationRulesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListNotificationRulesCommandOutput> {
+): Promise<ListNotificationRulesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1049,12 +1062,12 @@ async function deserializeAws_restJson1_1ListNotificationRulesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
+export const deserializeAws_restJson1_1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListTagsForResourceCommandError(
       output,
@@ -1071,12 +1084,12 @@ export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
     contents.Tags = deserializeAws_restJson1_1Tags(data.Tags, context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
+const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1122,12 +1135,12 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListTargetsCommand(
+export const deserializeAws_restJson1_1ListTargetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTargetsCommandOutput> {
+): Promise<ListTargetsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListTargetsCommandError(output, context);
   }
@@ -1148,12 +1161,12 @@ export async function deserializeAws_restJson1_1ListTargetsCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListTargetsCommandError(
+const deserializeAws_restJson1_1ListTargetsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTargetsCommandOutput> {
+): Promise<ListTargetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1199,12 +1212,12 @@ async function deserializeAws_restJson1_1ListTargetsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1SubscribeCommand(
+export const deserializeAws_restJson1_1SubscribeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SubscribeCommandOutput> {
+): Promise<SubscribeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1SubscribeCommandError(output, context);
   }
@@ -1218,12 +1231,12 @@ export async function deserializeAws_restJson1_1SubscribeCommand(
     contents.Arn = data.Arn;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1SubscribeCommandError(
+const deserializeAws_restJson1_1SubscribeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SubscribeCommandOutput> {
+): Promise<SubscribeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1269,12 +1282,12 @@ async function deserializeAws_restJson1_1SubscribeCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1TagResourceCommand(
+export const deserializeAws_restJson1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1TagResourceCommandError(output, context);
   }
@@ -1288,12 +1301,12 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
     contents.Tags = deserializeAws_restJson1_1Tags(data.Tags, context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1TagResourceCommandError(
+const deserializeAws_restJson1_1TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1350,12 +1363,12 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UnsubscribeCommand(
+export const deserializeAws_restJson1_1UnsubscribeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UnsubscribeCommandOutput> {
+): Promise<UnsubscribeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UnsubscribeCommandError(output, context);
   }
@@ -1369,12 +1382,12 @@ export async function deserializeAws_restJson1_1UnsubscribeCommand(
     contents.Arn = data.Arn;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UnsubscribeCommandError(
+const deserializeAws_restJson1_1UnsubscribeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UnsubscribeCommandOutput> {
+): Promise<UnsubscribeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1409,12 +1422,12 @@ async function deserializeAws_restJson1_1UnsubscribeCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UntagResourceCommand(
+export const deserializeAws_restJson1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UntagResourceCommandError(output, context);
   }
@@ -1424,12 +1437,12 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UntagResourceCommandError(
+const deserializeAws_restJson1_1UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1486,12 +1499,12 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UpdateNotificationRuleCommand(
+export const deserializeAws_restJson1_1UpdateNotificationRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateNotificationRuleCommandOutput> {
+): Promise<UpdateNotificationRuleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateNotificationRuleCommandError(
       output,
@@ -1504,12 +1517,12 @@ export async function deserializeAws_restJson1_1UpdateNotificationRuleCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UpdateNotificationRuleCommandError(
+const deserializeAws_restJson1_1UpdateNotificationRuleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateNotificationRuleCommandOutput> {
+): Promise<UpdateNotificationRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1555,7 +1568,7 @@ async function deserializeAws_restJson1_1UpdateNotificationRuleCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
   parsedOutput: any,
@@ -1694,14 +1707,10 @@ const deserializeAws_restJson1_1ValidationExceptionResponse = async (
 };
 
 const serializeAws_restJson1_1EventTypeIds = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1ListEventTypesFilter = (
@@ -1719,14 +1728,12 @@ const serializeAws_restJson1_1ListEventTypesFilter = (
 };
 
 const serializeAws_restJson1_1ListEventTypesFilters = (
-  input: Array<ListEventTypesFilter>,
+  input: ListEventTypesFilter[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1ListEventTypesFilter(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1ListEventTypesFilter(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1ListNotificationRulesFilter = (
@@ -1744,16 +1751,12 @@ const serializeAws_restJson1_1ListNotificationRulesFilter = (
 };
 
 const serializeAws_restJson1_1ListNotificationRulesFilters = (
-  input: Array<ListNotificationRulesFilter>,
+  input: ListNotificationRulesFilter[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_restJson1_1ListNotificationRulesFilter(entry, context)
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1ListNotificationRulesFilter(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1ListTargetsFilter = (
@@ -1771,36 +1774,29 @@ const serializeAws_restJson1_1ListTargetsFilter = (
 };
 
 const serializeAws_restJson1_1ListTargetsFilters = (
-  input: Array<ListTargetsFilter>,
+  input: ListTargetsFilter[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1ListTargetsFilter(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1ListTargetsFilter(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1TagKeys = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1Tags = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = input[key];
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = input[key];
+    return acc;
+  }, {});
 };
 
 const serializeAws_restJson1_1Target = (
@@ -1818,20 +1814,16 @@ const serializeAws_restJson1_1Target = (
 };
 
 const serializeAws_restJson1_1Targets = (
-  input: Array<Target>,
+  input: Target[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1Target(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_restJson1_1Target(entry, context));
 };
 
 const deserializeAws_restJson1_1EventTypeBatch = (
   output: any,
   context: __SerdeContext
-): Array<EventTypeSummary> => {
+): EventTypeSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1EventTypeSummary(entry, context)
   );
@@ -1866,7 +1858,7 @@ const deserializeAws_restJson1_1EventTypeSummary = (
 const deserializeAws_restJson1_1NotificationRuleBatch = (
   output: any,
   context: __SerdeContext
-): Array<NotificationRuleSummary> => {
+): NotificationRuleSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1NotificationRuleSummary(entry, context)
   );
@@ -1894,11 +1886,10 @@ const deserializeAws_restJson1_1Tags = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = output[key];
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1_1TargetSummary = (
@@ -1926,7 +1917,7 @@ const deserializeAws_restJson1_1TargetSummary = (
 const deserializeAws_restJson1_1TargetsBatch = (
   output: any,
   context: __SerdeContext
-): Array<TargetSummary> => {
+): TargetSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1TargetSummary(entry, context)
   );
@@ -1940,7 +1931,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -1955,30 +1946,23 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
-function isSerializableHeaderValue(value: any): boolean {
-  return (
-    value !== undefined &&
-    value !== "" &&
-    (!Object.getOwnPropertyNames(value).includes("length") ||
-      value.length != 0) &&
-    (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0)
-  );
-}
+const isSerializableHeaderValue = (value: any): boolean =>
+  value !== undefined &&
+  value !== "" &&
+  (!Object.getOwnPropertyNames(value).includes("length") ||
+    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};
 
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.

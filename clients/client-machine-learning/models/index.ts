@@ -19,7 +19,7 @@ export interface AddTagsInput {
   /**
    * <p>The key-value pairs to use to create tags. If you specify a key without specifying a value, Amazon ML creates a tag with the specified key and a value of null.</p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace AddTagsInput {
@@ -1031,7 +1031,7 @@ export interface DeleteTagsInput {
   /**
    * <p>One or more tags to delete.</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace DeleteTagsInput {
@@ -1201,7 +1201,7 @@ export interface DescribeBatchPredictionsOutput {
    * <p>A list of <code>BatchPrediction</code> objects that meet the search criteria.
    *         </p>
    */
-  Results?: Array<BatchPrediction>;
+  Results?: BatchPrediction[];
 }
 
 export namespace DescribeBatchPredictionsOutput {
@@ -1341,7 +1341,7 @@ export interface DescribeDataSourcesOutput {
    * <p>A list of <code>DataSource</code> that meet the search criteria.
    *          </p>
    */
-  Results?: Array<DataSource>;
+  Results?: DataSource[];
 }
 
 export namespace DescribeDataSourcesOutput {
@@ -1490,7 +1490,7 @@ export interface DescribeEvaluationsOutput {
    * <p>A list of <code>Evaluation</code> that meet the search criteria.
    *         </p>
    */
-  Results?: Array<Evaluation>;
+  Results?: Evaluation[];
 }
 
 export namespace DescribeEvaluationsOutput {
@@ -1646,7 +1646,7 @@ export interface DescribeMLModelsOutput {
   /**
    * <p>A list of <code>MLModel</code> that meet the search criteria.</p>
    */
-  Results?: Array<MLModel>;
+  Results?: MLModel[];
 }
 
 export namespace DescribeMLModelsOutput {
@@ -1690,7 +1690,7 @@ export interface DescribeTagsOutput {
   /**
    * <p>A list of tags associated with the ML object.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace DescribeTagsOutput {
@@ -3110,7 +3110,7 @@ export interface RDSDataSpec {
   /**
    * <p>The security group IDs to be used to access a VPC-based RDS DB instance. Ensure that there are appropriate ingress rules set up to allow access to the RDS DB instance. This attribute is used by Data Pipeline to carry out the copy operation from Amazon RDS to an Amazon S3 task.</p>
    */
-  SecurityGroupIds: Array<string> | undefined;
+  SecurityGroupIds: string[] | undefined;
 
   /**
    * <p>The query that is used to retrieve the observation data for the <code>DataSource</code>.</p>

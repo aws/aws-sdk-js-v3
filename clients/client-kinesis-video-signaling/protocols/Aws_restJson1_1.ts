@@ -27,12 +27,13 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_restJson1_1GetIceServerConfigCommand(
+export const serializeAws_restJson1_1GetIceServerConfigCommand = async (
   input: GetIceServerConfigCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/get-ice-server-config";
   let body: any;
   const bodyParams: any = {};
@@ -59,14 +60,15 @@ export async function serializeAws_restJson1_1GetIceServerConfigCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1SendAlexaOfferToMasterCommand(
+export const serializeAws_restJson1_1SendAlexaOfferToMasterCommand = async (
   input: SendAlexaOfferToMasterCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/send-alexa-offer-to-master";
   let body: any;
   const bodyParams: any = {};
@@ -90,12 +92,12 @@ export async function serializeAws_restJson1_1SendAlexaOfferToMasterCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1GetIceServerConfigCommand(
+export const deserializeAws_restJson1_1GetIceServerConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetIceServerConfigCommandOutput> {
+): Promise<GetIceServerConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetIceServerConfigCommandError(
       output,
@@ -115,12 +117,12 @@ export async function deserializeAws_restJson1_1GetIceServerConfigCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetIceServerConfigCommandError(
+const deserializeAws_restJson1_1GetIceServerConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetIceServerConfigCommandOutput> {
+): Promise<GetIceServerConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -210,12 +212,12 @@ async function deserializeAws_restJson1_1GetIceServerConfigCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1SendAlexaOfferToMasterCommand(
+export const deserializeAws_restJson1_1SendAlexaOfferToMasterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SendAlexaOfferToMasterCommandOutput> {
+): Promise<SendAlexaOfferToMasterCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1SendAlexaOfferToMasterCommandError(
       output,
@@ -232,12 +234,12 @@ export async function deserializeAws_restJson1_1SendAlexaOfferToMasterCommand(
     contents.Answer = data.Answer;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1SendAlexaOfferToMasterCommandError(
+const deserializeAws_restJson1_1SendAlexaOfferToMasterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SendAlexaOfferToMasterCommandOutput> {
+): Promise<SendAlexaOfferToMasterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -305,7 +307,7 @@ async function deserializeAws_restJson1_1SendAlexaOfferToMasterCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1ClientLimitExceededExceptionResponse = async (
   parsedOutput: any,
@@ -438,7 +440,7 @@ const deserializeAws_restJson1_1IceServer = (
 const deserializeAws_restJson1_1IceServerList = (
   output: any,
   context: __SerdeContext
-): Array<IceServer> => {
+): IceServer[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1IceServer(entry, context)
   );
@@ -447,7 +449,7 @@ const deserializeAws_restJson1_1IceServerList = (
 const deserializeAws_restJson1_1Uris = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -459,7 +461,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -474,30 +476,23 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
-function isSerializableHeaderValue(value: any): boolean {
-  return (
-    value !== undefined &&
-    value !== "" &&
-    (!Object.getOwnPropertyNames(value).includes("length") ||
-      value.length != 0) &&
-    (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0)
-  );
-}
+const isSerializableHeaderValue = (value: any): boolean =>
+  value !== undefined &&
+  value !== "" &&
+  (!Object.getOwnPropertyNames(value).includes("length") ||
+    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};
 
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.

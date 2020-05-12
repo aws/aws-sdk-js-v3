@@ -32,12 +32,13 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_restJson1_1DeleteConnectionCommand(
+export const serializeAws_restJson1_1DeleteConnectionCommand = async (
   input: DeleteConnectionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/@connections/{ConnectionId}";
   if (input.ConnectionId !== undefined) {
     const labelValue: string = input.ConnectionId;
@@ -64,14 +65,15 @@ export async function serializeAws_restJson1_1DeleteConnectionCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetConnectionCommand(
+export const serializeAws_restJson1_1GetConnectionCommand = async (
   input: GetConnectionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/@connections/{ConnectionId}";
   if (input.ConnectionId !== undefined) {
     const labelValue: string = input.ConnectionId;
@@ -98,14 +100,15 @@ export async function serializeAws_restJson1_1GetConnectionCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1PostToConnectionCommand(
+export const serializeAws_restJson1_1PostToConnectionCommand = async (
   input: PostToConnectionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/octet-stream";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/octet-stream"
+  };
   let resolvedPath = "/@connections/{ConnectionId}";
   if (input.ConnectionId !== undefined) {
     const labelValue: string = input.ConnectionId;
@@ -135,12 +138,12 @@ export async function serializeAws_restJson1_1PostToConnectionCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteConnectionCommand(
+export const deserializeAws_restJson1_1DeleteConnectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteConnectionCommandOutput> {
+): Promise<DeleteConnectionCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteConnectionCommandError(
       output,
@@ -152,12 +155,12 @@ export async function deserializeAws_restJson1_1DeleteConnectionCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteConnectionCommandError(
+const deserializeAws_restJson1_1DeleteConnectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteConnectionCommandOutput> {
+): Promise<DeleteConnectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -214,12 +217,12 @@ async function deserializeAws_restJson1_1DeleteConnectionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetConnectionCommand(
+export const deserializeAws_restJson1_1GetConnectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetConnectionCommandOutput> {
+): Promise<GetConnectionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetConnectionCommandError(output, context);
   }
@@ -244,12 +247,12 @@ export async function deserializeAws_restJson1_1GetConnectionCommand(
     contents.LastActiveAt = new Date(data.lastActiveAt);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetConnectionCommandError(
+const deserializeAws_restJson1_1GetConnectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetConnectionCommandOutput> {
+): Promise<GetConnectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -306,12 +309,12 @@ async function deserializeAws_restJson1_1GetConnectionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1PostToConnectionCommand(
+export const deserializeAws_restJson1_1PostToConnectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PostToConnectionCommandOutput> {
+): Promise<PostToConnectionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1PostToConnectionCommandError(
       output,
@@ -323,12 +326,12 @@ export async function deserializeAws_restJson1_1PostToConnectionCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1PostToConnectionCommandError(
+const deserializeAws_restJson1_1PostToConnectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PostToConnectionCommandOutput> {
+): Promise<PostToConnectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -396,7 +399,7 @@ async function deserializeAws_restJson1_1PostToConnectionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1ForbiddenExceptionResponse = async (
   parsedOutput: any,
@@ -480,7 +483,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -495,30 +498,23 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
-function isSerializableHeaderValue(value: any): boolean {
-  return (
-    value !== undefined &&
-    value !== "" &&
-    (!Object.getOwnPropertyNames(value).includes("length") ||
-      value.length != 0) &&
-    (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0)
-  );
-}
+const isSerializableHeaderValue = (value: any): boolean =>
+  value !== undefined &&
+  value !== "" &&
+  (!Object.getOwnPropertyNames(value).includes("length") ||
+    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};
 
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.

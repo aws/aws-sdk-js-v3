@@ -42,12 +42,13 @@ import {
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
-export async function serializeAws_restJson1_1AssociateRepositoryCommand(
+export const serializeAws_restJson1_1AssociateRepositoryCommand = async (
   input: AssociateRepositoryCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/associations";
   let body: any;
   const bodyParams: any = {};
@@ -74,14 +75,15 @@ export async function serializeAws_restJson1_1AssociateRepositoryCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribeRepositoryAssociationCommand(
+export const serializeAws_restJson1_1DescribeRepositoryAssociationCommand = async (
   input: DescribeRepositoryAssociationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/associations/{AssociationArn}";
   if (input.AssociationArn !== undefined) {
     const labelValue: string = input.AssociationArn;
@@ -108,14 +110,15 @@ export async function serializeAws_restJson1_1DescribeRepositoryAssociationComma
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DisassociateRepositoryCommand(
+export const serializeAws_restJson1_1DisassociateRepositoryCommand = async (
   input: DisassociateRepositoryCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/associations/{AssociationArn}";
   if (input.AssociationArn !== undefined) {
     const labelValue: string = input.AssociationArn;
@@ -142,34 +145,34 @@ export async function serializeAws_restJson1_1DisassociateRepositoryCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListRepositoryAssociationsCommand(
+export const serializeAws_restJson1_1ListRepositoryAssociationsCommand = async (
   input: ListRepositoryAssociationsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/associations";
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults.toString();
-  }
-  if (input.Names !== undefined) {
-    query["Name"] = (input.Names || []).map(_entry => _entry);
-  }
-  if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken;
-  }
-  if (input.Owners !== undefined) {
-    query["Owner"] = (input.Owners || []).map(_entry => _entry);
-  }
-  if (input.ProviderTypes !== undefined) {
-    query["ProviderType"] = (input.ProviderTypes || []).map(_entry => _entry);
-  }
-  if (input.States !== undefined) {
-    query["State"] = (input.States || []).map(_entry => _entry);
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && {
+      MaxResults: input.MaxResults.toString()
+    }),
+    ...(input.Names !== undefined && {
+      Name: (input.Names || []).map(_entry => _entry)
+    }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Owners !== undefined && {
+      Owner: (input.Owners || []).map(_entry => _entry)
+    }),
+    ...(input.ProviderTypes !== undefined && {
+      ProviderType: (input.ProviderTypes || []).map(_entry => _entry)
+    }),
+    ...(input.States !== undefined && {
+      State: (input.States || []).map(_entry => _entry)
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -182,12 +185,12 @@ export async function serializeAws_restJson1_1ListRepositoryAssociationsCommand(
     query,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1AssociateRepositoryCommand(
+export const deserializeAws_restJson1_1AssociateRepositoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AssociateRepositoryCommandOutput> {
+): Promise<AssociateRepositoryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1AssociateRepositoryCommandError(
       output,
@@ -210,12 +213,12 @@ export async function deserializeAws_restJson1_1AssociateRepositoryCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1AssociateRepositoryCommandError(
+const deserializeAws_restJson1_1AssociateRepositoryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AssociateRepositoryCommandOutput> {
+): Promise<AssociateRepositoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -294,12 +297,12 @@ async function deserializeAws_restJson1_1AssociateRepositoryCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeRepositoryAssociationCommand(
+export const deserializeAws_restJson1_1DescribeRepositoryAssociationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeRepositoryAssociationCommandOutput> {
+): Promise<DescribeRepositoryAssociationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeRepositoryAssociationCommandError(
       output,
@@ -322,12 +325,12 @@ export async function deserializeAws_restJson1_1DescribeRepositoryAssociationCom
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeRepositoryAssociationCommandError(
+const deserializeAws_restJson1_1DescribeRepositoryAssociationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeRepositoryAssociationCommandOutput> {
+): Promise<DescribeRepositoryAssociationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -406,12 +409,12 @@ async function deserializeAws_restJson1_1DescribeRepositoryAssociationCommandErr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DisassociateRepositoryCommand(
+export const deserializeAws_restJson1_1DisassociateRepositoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisassociateRepositoryCommandOutput> {
+): Promise<DisassociateRepositoryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DisassociateRepositoryCommandError(
       output,
@@ -434,12 +437,12 @@ export async function deserializeAws_restJson1_1DisassociateRepositoryCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DisassociateRepositoryCommandError(
+const deserializeAws_restJson1_1DisassociateRepositoryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisassociateRepositoryCommandOutput> {
+): Promise<DisassociateRepositoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -529,12 +532,12 @@ async function deserializeAws_restJson1_1DisassociateRepositoryCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListRepositoryAssociationsCommand(
+export const deserializeAws_restJson1_1ListRepositoryAssociationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListRepositoryAssociationsCommandOutput> {
+): Promise<ListRepositoryAssociationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListRepositoryAssociationsCommandError(
       output,
@@ -561,12 +564,12 @@ export async function deserializeAws_restJson1_1ListRepositoryAssociationsComman
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListRepositoryAssociationsCommandError(
+const deserializeAws_restJson1_1ListRepositoryAssociationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListRepositoryAssociationsCommandOutput> {
+): Promise<ListRepositoryAssociationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -623,7 +626,7 @@ async function deserializeAws_restJson1_1ListRepositoryAssociationsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
   parsedOutput: any,
@@ -811,7 +814,7 @@ const deserializeAws_restJson1_1RepositoryAssociation = (
 const deserializeAws_restJson1_1RepositoryAssociationSummaries = (
   output: any,
   context: __SerdeContext
-): Array<RepositoryAssociationSummary> => {
+): RepositoryAssociationSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1RepositoryAssociationSummary(entry, context)
   );
@@ -868,7 +871,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -883,30 +886,23 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
-function isSerializableHeaderValue(value: any): boolean {
-  return (
-    value !== undefined &&
-    value !== "" &&
-    (!Object.getOwnPropertyNames(value).includes("length") ||
-      value.length != 0) &&
-    (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0)
-  );
-}
+const isSerializableHeaderValue = (value: any): boolean =>
+  value !== undefined &&
+  value !== "" &&
+  (!Object.getOwnPropertyNames(value).includes("length") ||
+    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};
 
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.

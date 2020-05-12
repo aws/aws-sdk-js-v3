@@ -42,50 +42,53 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_json1_1DescribeServicesCommand(
+export const serializeAws_json1_1DescribeServicesCommand = async (
   input: DescribeServicesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSPriceListService.DescribeServices";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSPriceListService.DescribeServices"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeServicesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetAttributeValuesCommand(
+export const serializeAws_json1_1GetAttributeValuesCommand = async (
   input: GetAttributeValuesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSPriceListService.GetAttributeValues";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSPriceListService.GetAttributeValues"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetAttributeValuesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetProductsCommand(
+export const serializeAws_json1_1GetProductsCommand = async (
   input: GetProductsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSPriceListService.GetProducts";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSPriceListService.GetProducts"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetProductsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_1DescribeServicesCommand(
+export const deserializeAws_json1_1DescribeServicesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeServicesCommandOutput> {
+): Promise<DescribeServicesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeServicesCommandError(output, context);
   }
@@ -98,12 +101,12 @@ export async function deserializeAws_json1_1DescribeServicesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeServicesCommandError(
+const deserializeAws_json1_1DescribeServicesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeServicesCommandOutput> {
+): Promise<DescribeServicesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -184,12 +187,12 @@ async function deserializeAws_json1_1DescribeServicesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetAttributeValuesCommand(
+export const deserializeAws_json1_1GetAttributeValuesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetAttributeValuesCommandOutput> {
+): Promise<GetAttributeValuesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetAttributeValuesCommandError(
       output,
@@ -205,12 +208,12 @@ export async function deserializeAws_json1_1GetAttributeValuesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetAttributeValuesCommandError(
+const deserializeAws_json1_1GetAttributeValuesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetAttributeValuesCommandOutput> {
+): Promise<GetAttributeValuesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -291,12 +294,12 @@ async function deserializeAws_json1_1GetAttributeValuesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetProductsCommand(
+export const deserializeAws_json1_1GetProductsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetProductsCommandOutput> {
+): Promise<GetProductsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetProductsCommandError(output, context);
   }
@@ -309,12 +312,12 @@ export async function deserializeAws_json1_1GetProductsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetProductsCommandError(
+const deserializeAws_json1_1GetProductsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetProductsCommandOutput> {
+): Promise<GetProductsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -395,7 +398,7 @@ async function deserializeAws_json1_1GetProductsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_1ExpiredNextTokenExceptionResponse = async (
   parsedOutput: any,
@@ -525,14 +528,10 @@ const serializeAws_json1_1Filter = (
 };
 
 const serializeAws_json1_1Filters = (
-  input: Array<Filter>,
+  input: Filter[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1Filter(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1Filter(entry, context));
 };
 
 const serializeAws_json1_1GetAttributeValuesRequest = (
@@ -581,7 +580,7 @@ const serializeAws_json1_1GetProductsRequest = (
 const deserializeAws_json1_1AttributeNameList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -602,7 +601,7 @@ const deserializeAws_json1_1AttributeValue = (
 const deserializeAws_json1_1AttributeValueList = (
   output: any,
   context: __SerdeContext
-): Array<AttributeValue> => {
+): AttributeValue[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AttributeValue(entry, context)
   );
@@ -752,7 +751,7 @@ const deserializeAws_json1_1NotFoundException = (
 const deserializeAws_json1_1PriceList = (
   output: any,
   context: __SerdeContext
-): Array<__LazyJsonString | string> => {
+): (__LazyJsonString | string)[] => {
   return (output || []).map((entry: any) => new __LazyJsonString(entry));
 };
 
@@ -780,7 +779,7 @@ const deserializeAws_json1_1Service = (
 const deserializeAws_json1_1ServiceList = (
   output: any,
   context: __SerdeContext
-): Array<Service> => {
+): Service[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Service(entry, context)
   );
@@ -794,7 +793,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -809,11 +808,8 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
@@ -840,11 +836,10 @@ const buildHttpRpcRequest = async (
   return new __HttpRequest(contents);
 };
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};

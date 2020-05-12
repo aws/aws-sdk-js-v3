@@ -7,7 +7,6 @@ const {
   existsSync,
   writeFileSync
 } = require("fs");
-const { CODE_GEN_OUTPUT_DIR } = require("./code-gen-dir");
 
 const getOverwritablePredicate = packageName => pathName => {
   const overwritablePathnames = [
@@ -63,14 +62,10 @@ const mergeManifest = (fromContent, toContent) => {
   return merged;
 };
 
-async function copyToClients(clientsDir) {
-  for (const modelName of readdirSync(CODE_GEN_OUTPUT_DIR)) {
+const copyToClients = async (sourceDir, destinationDir) => {
+  for (const modelName of readdirSync(sourceDir)) {
     if (modelName === "source") continue;
-    const artifactPath = join(
-      CODE_GEN_OUTPUT_DIR,
-      modelName,
-      "typescript-codegen"
-    );
+    const artifactPath = join(sourceDir, modelName, "typescript-codegen");
     const packageManifestPath = join(artifactPath, "package.json");
     if (!existsSync(packageManifestPath)) {
       console.error(`${modelName} generates empty client, skip.`);
@@ -81,8 +76,10 @@ async function copyToClients(clientsDir) {
       readFileSync(packageManifestPath).toString()
     );
     const packageName = packageManifest.name;
-    console.log(`copying ${packageName} from ${artifactPath} to ${clientsDir}`);
-    const destPath = join(clientsDir, packageName.replace("@aws-sdk/", ""));
+    console.log(
+      `copying ${packageName} from ${artifactPath} to ${destinationDir}`
+    );
+    const destPath = join(destinationDir, packageName.replace("@aws-sdk/", ""));
     const overwritablePredicate = getOverwritablePredicate(packageName);
     for (const packageSub of readdirSync(artifactPath)) {
       const packageSubPath = join(artifactPath, packageSub);
@@ -109,7 +106,7 @@ async function copyToClients(clientsDir) {
       }
     }
   }
-}
+};
 
 module.exports = {
   copyToClients

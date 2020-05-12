@@ -44,70 +44,70 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_json1_1DeleteReportDefinitionCommand(
+export const serializeAws_json1_1DeleteReportDefinitionCommand = async (
   input: DeleteReportDefinitionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSOrigamiServiceGatewayService.DeleteReportDefinition";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrigamiServiceGatewayService.DeleteReportDefinition"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteReportDefinitionRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeReportDefinitionsCommand(
+export const serializeAws_json1_1DescribeReportDefinitionsCommand = async (
   input: DescribeReportDefinitionsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSOrigamiServiceGatewayService.DescribeReportDefinitions";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrigamiServiceGatewayService.DescribeReportDefinitions"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeReportDefinitionsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ModifyReportDefinitionCommand(
+export const serializeAws_json1_1ModifyReportDefinitionCommand = async (
   input: ModifyReportDefinitionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSOrigamiServiceGatewayService.ModifyReportDefinition";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrigamiServiceGatewayService.ModifyReportDefinition"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ModifyReportDefinitionRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1PutReportDefinitionCommand(
+export const serializeAws_json1_1PutReportDefinitionCommand = async (
   input: PutReportDefinitionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSOrigamiServiceGatewayService.PutReportDefinition";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSOrigamiServiceGatewayService.PutReportDefinition"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutReportDefinitionRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_1DeleteReportDefinitionCommand(
+export const deserializeAws_json1_1DeleteReportDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteReportDefinitionCommandOutput> {
+): Promise<DeleteReportDefinitionCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteReportDefinitionCommandError(
       output,
@@ -126,12 +126,12 @@ export async function deserializeAws_json1_1DeleteReportDefinitionCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteReportDefinitionCommandError(
+const deserializeAws_json1_1DeleteReportDefinitionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteReportDefinitionCommandOutput> {
+): Promise<DeleteReportDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -179,12 +179,12 @@ async function deserializeAws_json1_1DeleteReportDefinitionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeReportDefinitionsCommand(
+export const deserializeAws_json1_1DescribeReportDefinitionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeReportDefinitionsCommandOutput> {
+): Promise<DescribeReportDefinitionsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeReportDefinitionsCommandError(
       output,
@@ -203,12 +203,12 @@ export async function deserializeAws_json1_1DescribeReportDefinitionsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeReportDefinitionsCommandError(
+const deserializeAws_json1_1DescribeReportDefinitionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeReportDefinitionsCommandOutput> {
+): Promise<DescribeReportDefinitionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -245,12 +245,12 @@ async function deserializeAws_json1_1DescribeReportDefinitionsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ModifyReportDefinitionCommand(
+export const deserializeAws_json1_1ModifyReportDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ModifyReportDefinitionCommandOutput> {
+): Promise<ModifyReportDefinitionCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ModifyReportDefinitionCommandError(
       output,
@@ -269,12 +269,12 @@ export async function deserializeAws_json1_1ModifyReportDefinitionCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ModifyReportDefinitionCommandError(
+const deserializeAws_json1_1ModifyReportDefinitionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ModifyReportDefinitionCommandOutput> {
+): Promise<ModifyReportDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -322,12 +322,12 @@ async function deserializeAws_json1_1ModifyReportDefinitionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1PutReportDefinitionCommand(
+export const deserializeAws_json1_1PutReportDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutReportDefinitionCommandOutput> {
+): Promise<PutReportDefinitionCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1PutReportDefinitionCommandError(
       output,
@@ -343,12 +343,12 @@ export async function deserializeAws_json1_1PutReportDefinitionCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1PutReportDefinitionCommandError(
+const deserializeAws_json1_1PutReportDefinitionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutReportDefinitionCommandOutput> {
+): Promise<PutReportDefinitionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -418,7 +418,7 @@ async function deserializeAws_json1_1PutReportDefinitionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_1DuplicateReportNameExceptionResponse = async (
   parsedOutput: any,
@@ -493,14 +493,10 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
 };
 
 const serializeAws_json1_1AdditionalArtifactList = (
-  input: Array<AdditionalArtifact | string>,
+  input: (AdditionalArtifact | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1DeleteReportDefinitionRequest = (
@@ -611,20 +607,16 @@ const serializeAws_json1_1ReportDefinition = (
 };
 
 const serializeAws_json1_1SchemaElementList = (
-  input: Array<SchemaElement | string>,
+  input: (SchemaElement | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const deserializeAws_json1_1AdditionalArtifactList = (
   output: any,
   context: __SerdeContext
-): Array<AdditionalArtifact | string> => {
+): (AdditionalArtifact | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -789,7 +781,7 @@ const deserializeAws_json1_1ReportDefinition = (
 const deserializeAws_json1_1ReportDefinitionList = (
   output: any,
   context: __SerdeContext
-): Array<ReportDefinition> => {
+): ReportDefinition[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ReportDefinition(entry, context)
   );
@@ -812,7 +804,7 @@ const deserializeAws_json1_1ReportLimitReachedException = (
 const deserializeAws_json1_1SchemaElementList = (
   output: any,
   context: __SerdeContext
-): Array<SchemaElement | string> => {
+): (SchemaElement | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -838,7 +830,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -853,11 +845,8 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
@@ -884,11 +873,10 @@ const buildHttpRpcRequest = async (
   return new __HttpRequest(contents);
 };
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};

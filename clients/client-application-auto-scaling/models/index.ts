@@ -74,7 +74,7 @@ export interface CustomizedMetricSpecification {
    *          <p>Conditional: If you published your metric with dimensions, you must specify the same
    *          dimensions in your scaling policy.</p>
    */
-  Dimensions?: Array<MetricDimension>;
+  Dimensions?: MetricDimension[];
 
   /**
    * <p>The name of the metric. </p>
@@ -586,7 +586,7 @@ export interface DescribeScalableTargetsRequest {
    *            </li>
    *          </ul>
    */
-  ResourceIds?: Array<string>;
+  ResourceIds?: string[];
 
   /**
    * <p>The scalable dimension associated with the scalable target.
@@ -672,7 +672,7 @@ export interface DescribeScalableTargetsResponse {
   /**
    * <p>The scalable targets that match the request parameters.</p>
    */
-  ScalableTargets?: Array<ScalableTarget>;
+  ScalableTargets?: ScalableTarget[];
 }
 
 export namespace DescribeScalableTargetsResponse {
@@ -834,7 +834,7 @@ export interface DescribeScalingActivitiesResponse {
   /**
    * <p>A list of scaling activity objects.</p>
    */
-  ScalingActivities?: Array<ScalingActivity>;
+  ScalingActivities?: ScalingActivity[];
 }
 
 export namespace DescribeScalingActivitiesResponse {
@@ -863,7 +863,7 @@ export interface DescribeScalingPoliciesRequest {
   /**
    * <p>The names of the scaling policies to describe.</p>
    */
-  PolicyNames?: Array<string>;
+  PolicyNames?: string[];
 
   /**
    * <p>The identifier of the resource associated with the scaling policy.
@@ -1001,7 +1001,7 @@ export interface DescribeScalingPoliciesResponse {
   /**
    * <p>Information about the scaling policies.</p>
    */
-  ScalingPolicies?: Array<ScalingPolicy>;
+  ScalingPolicies?: ScalingPolicy[];
 }
 
 export namespace DescribeScalingPoliciesResponse {
@@ -1142,7 +1142,7 @@ export interface DescribeScheduledActionsRequest {
   /**
    * <p>The names of the scheduled actions to describe.</p>
    */
-  ScheduledActionNames?: Array<string>;
+  ScheduledActionNames?: string[];
 
   /**
    * <p>The namespace of the AWS service that provides the resource or
@@ -1168,7 +1168,7 @@ export interface DescribeScheduledActionsResponse {
   /**
    * <p>Information about the scheduled actions.</p>
    */
-  ScheduledActions?: Array<ScheduledAction>;
+  ScheduledActions?: ScheduledAction[];
 }
 
 export namespace DescribeScheduledActionsResponse {
@@ -1521,7 +1521,7 @@ export interface PutScalingPolicyResponse {
   /**
    * <p>The CloudWatch alarms created for the target tracking scaling policy.</p>
    */
-  Alarms?: Array<Alarm>;
+  Alarms?: Alarm[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the resulting scaling policy.</p>
@@ -2278,7 +2278,7 @@ export interface ScalingPolicy {
   /**
    * <p>The CloudWatch alarms associated with the scaling policy.</p>
    */
-  Alarms?: Array<Alarm>;
+  Alarms?: Alarm[];
 
   /**
    * <p>The Unix timestamp for when the scaling policy was created.</p>
@@ -2753,7 +2753,7 @@ export interface StepScalingPolicyConfiguration {
    * <p>A set of adjustments that enable you to scale based on the size of the alarm
    *          breach.</p>
    */
-  StepAdjustments?: Array<StepAdjustment>;
+  StepAdjustments?: StepAdjustment[];
 }
 
 export namespace StepScalingPolicyConfiguration {

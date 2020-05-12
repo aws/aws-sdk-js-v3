@@ -98,7 +98,7 @@ export interface AssumeRoleRequest {
    *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session
    *             Policies</a> in the <i>IAM User Guide</i>.</p>
    */
-  PolicyArns?: Array<PolicyDescriptorType>;
+  PolicyArns?: PolicyDescriptorType[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the role to assume.</p>
@@ -164,7 +164,7 @@ export interface AssumeRoleRequest {
    *          inherited tags for a session, see the AWS CloudTrail logs. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/session-tags.html#id_session-tags_ctlogs">Viewing Session Tags in CloudTrail</a> in the
    *          <i>IAM User Guide</i>.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The value provided by the MFA device, if the trust policy of the role being assumed
@@ -186,7 +186,7 @@ export interface AssumeRoleRequest {
    *          <p>If you choose not to specify a transitive tag key, then no tags are passed from this
    *          session to any subsequent sessions.</p>
    */
-  TransitiveTagKeys?: Array<string>;
+  TransitiveTagKeys?: string[];
 }
 
 export namespace AssumeRoleRequest {
@@ -310,7 +310,7 @@ export interface AssumeRoleWithSAMLRequest {
    *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session
    *             Policies</a> in the <i>IAM User Guide</i>.</p>
    */
-  PolicyArns?: Array<PolicyDescriptorType>;
+  PolicyArns?: PolicyDescriptorType[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the SAML provider in IAM that describes the
@@ -487,7 +487,7 @@ export interface AssumeRoleWithWebIdentityRequest {
    *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session
    *             Policies</a> in the <i>IAM User Guide</i>.</p>
    */
-  PolicyArns?: Array<PolicyDescriptorType>;
+  PolicyArns?: PolicyDescriptorType[];
 
   /**
    * <p>The fully qualified host component of the domain name of the identity provider.</p>
@@ -877,7 +877,7 @@ export interface GetFederationTokenRequest {
    *             </p>
    *          </note>
    */
-  PolicyArns?: Array<PolicyDescriptorType>;
+  PolicyArns?: PolicyDescriptorType[];
 
   /**
    * <p>A list of session tags. Each session tag consists of a key name and an associated value.
@@ -906,7 +906,7 @@ export interface GetFederationTokenRequest {
    *          and <code>department</code> are not saved as separate tags, and the session tag passed in
    *          the request takes precedence over the role tag.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace GetFederationTokenRequest {

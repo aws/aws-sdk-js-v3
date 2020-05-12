@@ -18,12 +18,13 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_restJson1_1GetRawMessageContentCommand(
+export const serializeAws_restJson1_1GetRawMessageContentCommand = async (
   input: GetRawMessageContentCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/messages/{messageId}";
   if (input.messageId !== undefined) {
     const labelValue: string = input.messageId;
@@ -48,12 +49,12 @@ export async function serializeAws_restJson1_1GetRawMessageContentCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1GetRawMessageContentCommand(
+export const deserializeAws_restJson1_1GetRawMessageContentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetRawMessageContentCommandOutput> {
+): Promise<GetRawMessageContentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetRawMessageContentCommandError(
       output,
@@ -68,12 +69,12 @@ export async function deserializeAws_restJson1_1GetRawMessageContentCommand(
   const data: any = output.body;
   contents.messageContent = data;
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetRawMessageContentCommandError(
+const deserializeAws_restJson1_1GetRawMessageContentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetRawMessageContentCommandOutput> {
+): Promise<GetRawMessageContentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -108,7 +109,7 @@ async function deserializeAws_restJson1_1GetRawMessageContentCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
   parsedOutput: any,
@@ -135,7 +136,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -150,30 +151,23 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
-function isSerializableHeaderValue(value: any): boolean {
-  return (
-    value !== undefined &&
-    value !== "" &&
-    (!Object.getOwnPropertyNames(value).includes("length") ||
-      value.length != 0) &&
-    (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0)
-  );
-}
+const isSerializableHeaderValue = (value: any): boolean =>
+  value !== undefined &&
+  value !== "" &&
+  (!Object.getOwnPropertyNames(value).includes("length") ||
+    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};
 
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.

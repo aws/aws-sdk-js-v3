@@ -114,192 +114,205 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_json1_1BatchGrantPermissionsCommand(
+export const serializeAws_json1_1BatchGrantPermissionsCommand = async (
   input: BatchGrantPermissionsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSLakeFormation.BatchGrantPermissions";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLakeFormation.BatchGrantPermissions"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchGrantPermissionsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1BatchRevokePermissionsCommand(
+export const serializeAws_json1_1BatchRevokePermissionsCommand = async (
   input: BatchRevokePermissionsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSLakeFormation.BatchRevokePermissions";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLakeFormation.BatchRevokePermissions"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchRevokePermissionsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeregisterResourceCommand(
+export const serializeAws_json1_1DeregisterResourceCommand = async (
   input: DeregisterResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSLakeFormation.DeregisterResource";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLakeFormation.DeregisterResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeregisterResourceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeResourceCommand(
+export const serializeAws_json1_1DescribeResourceCommand = async (
   input: DescribeResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSLakeFormation.DescribeResource";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLakeFormation.DescribeResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeResourceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetDataLakeSettingsCommand(
+export const serializeAws_json1_1GetDataLakeSettingsCommand = async (
   input: GetDataLakeSettingsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSLakeFormation.GetDataLakeSettings";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLakeFormation.GetDataLakeSettings"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetDataLakeSettingsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetEffectivePermissionsForPathCommand(
+export const serializeAws_json1_1GetEffectivePermissionsForPathCommand = async (
   input: GetEffectivePermissionsForPathCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSLakeFormation.GetEffectivePermissionsForPath";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLakeFormation.GetEffectivePermissionsForPath"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetEffectivePermissionsForPathRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GrantPermissionsCommand(
+export const serializeAws_json1_1GrantPermissionsCommand = async (
   input: GrantPermissionsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSLakeFormation.GrantPermissions";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLakeFormation.GrantPermissions"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GrantPermissionsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListPermissionsCommand(
+export const serializeAws_json1_1ListPermissionsCommand = async (
   input: ListPermissionsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSLakeFormation.ListPermissions";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLakeFormation.ListPermissions"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListPermissionsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListResourcesCommand(
+export const serializeAws_json1_1ListResourcesCommand = async (
   input: ListResourcesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSLakeFormation.ListResources";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLakeFormation.ListResources"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListResourcesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1PutDataLakeSettingsCommand(
+export const serializeAws_json1_1PutDataLakeSettingsCommand = async (
   input: PutDataLakeSettingsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSLakeFormation.PutDataLakeSettings";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLakeFormation.PutDataLakeSettings"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutDataLakeSettingsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1RegisterResourceCommand(
+export const serializeAws_json1_1RegisterResourceCommand = async (
   input: RegisterResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSLakeFormation.RegisterResource";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLakeFormation.RegisterResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RegisterResourceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1RevokePermissionsCommand(
+export const serializeAws_json1_1RevokePermissionsCommand = async (
   input: RevokePermissionsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSLakeFormation.RevokePermissions";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLakeFormation.RevokePermissions"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RevokePermissionsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateResourceCommand(
+export const serializeAws_json1_1UpdateResourceCommand = async (
   input: UpdateResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSLakeFormation.UpdateResource";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLakeFormation.UpdateResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateResourceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_1BatchGrantPermissionsCommand(
+export const deserializeAws_json1_1BatchGrantPermissionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchGrantPermissionsCommandOutput> {
+): Promise<BatchGrantPermissionsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1BatchGrantPermissionsCommandError(
       output,
@@ -315,12 +328,12 @@ export async function deserializeAws_json1_1BatchGrantPermissionsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1BatchGrantPermissionsCommandError(
+const deserializeAws_json1_1BatchGrantPermissionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchGrantPermissionsCommandOutput> {
+): Promise<BatchGrantPermissionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -368,12 +381,12 @@ async function deserializeAws_json1_1BatchGrantPermissionsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1BatchRevokePermissionsCommand(
+export const deserializeAws_json1_1BatchRevokePermissionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchRevokePermissionsCommandOutput> {
+): Promise<BatchRevokePermissionsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1BatchRevokePermissionsCommandError(
       output,
@@ -392,12 +405,12 @@ export async function deserializeAws_json1_1BatchRevokePermissionsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1BatchRevokePermissionsCommandError(
+const deserializeAws_json1_1BatchRevokePermissionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchRevokePermissionsCommandOutput> {
+): Promise<BatchRevokePermissionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -445,12 +458,12 @@ async function deserializeAws_json1_1BatchRevokePermissionsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeregisterResourceCommand(
+export const deserializeAws_json1_1DeregisterResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeregisterResourceCommandOutput> {
+): Promise<DeregisterResourceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeregisterResourceCommandError(
       output,
@@ -466,12 +479,12 @@ export async function deserializeAws_json1_1DeregisterResourceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeregisterResourceCommandError(
+const deserializeAws_json1_1DeregisterResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeregisterResourceCommandOutput> {
+): Promise<DeregisterResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -541,12 +554,12 @@ async function deserializeAws_json1_1DeregisterResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeResourceCommand(
+export const deserializeAws_json1_1DescribeResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeResourceCommandOutput> {
+): Promise<DescribeResourceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeResourceCommandError(output, context);
   }
@@ -559,12 +572,12 @@ export async function deserializeAws_json1_1DescribeResourceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeResourceCommandError(
+const deserializeAws_json1_1DescribeResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeResourceCommandOutput> {
+): Promise<DescribeResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -634,12 +647,12 @@ async function deserializeAws_json1_1DescribeResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetDataLakeSettingsCommand(
+export const deserializeAws_json1_1GetDataLakeSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetDataLakeSettingsCommandOutput> {
+): Promise<GetDataLakeSettingsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetDataLakeSettingsCommandError(
       output,
@@ -655,12 +668,12 @@ export async function deserializeAws_json1_1GetDataLakeSettingsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetDataLakeSettingsCommandError(
+const deserializeAws_json1_1GetDataLakeSettingsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetDataLakeSettingsCommandOutput> {
+): Promise<GetDataLakeSettingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -719,12 +732,12 @@ async function deserializeAws_json1_1GetDataLakeSettingsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetEffectivePermissionsForPathCommand(
+export const deserializeAws_json1_1GetEffectivePermissionsForPathCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetEffectivePermissionsForPathCommandOutput> {
+): Promise<GetEffectivePermissionsForPathCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetEffectivePermissionsForPathCommandError(
       output,
@@ -743,12 +756,12 @@ export async function deserializeAws_json1_1GetEffectivePermissionsForPathComman
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetEffectivePermissionsForPathCommandError(
+const deserializeAws_json1_1GetEffectivePermissionsForPathCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetEffectivePermissionsForPathCommandOutput> {
+): Promise<GetEffectivePermissionsForPathCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -818,12 +831,12 @@ async function deserializeAws_json1_1GetEffectivePermissionsForPathCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GrantPermissionsCommand(
+export const deserializeAws_json1_1GrantPermissionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GrantPermissionsCommandOutput> {
+): Promise<GrantPermissionsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GrantPermissionsCommandError(output, context);
   }
@@ -836,12 +849,12 @@ export async function deserializeAws_json1_1GrantPermissionsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GrantPermissionsCommandError(
+const deserializeAws_json1_1GrantPermissionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GrantPermissionsCommandOutput> {
+): Promise<GrantPermissionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -900,12 +913,12 @@ async function deserializeAws_json1_1GrantPermissionsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListPermissionsCommand(
+export const deserializeAws_json1_1ListPermissionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListPermissionsCommandOutput> {
+): Promise<ListPermissionsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListPermissionsCommandError(output, context);
   }
@@ -918,12 +931,12 @@ export async function deserializeAws_json1_1ListPermissionsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListPermissionsCommandError(
+const deserializeAws_json1_1ListPermissionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListPermissionsCommandOutput> {
+): Promise<ListPermissionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -982,12 +995,12 @@ async function deserializeAws_json1_1ListPermissionsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListResourcesCommand(
+export const deserializeAws_json1_1ListResourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListResourcesCommandOutput> {
+): Promise<ListResourcesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListResourcesCommandError(output, context);
   }
@@ -1000,12 +1013,12 @@ export async function deserializeAws_json1_1ListResourcesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListResourcesCommandError(
+const deserializeAws_json1_1ListResourcesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListResourcesCommandOutput> {
+): Promise<ListResourcesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1064,12 +1077,12 @@ async function deserializeAws_json1_1ListResourcesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1PutDataLakeSettingsCommand(
+export const deserializeAws_json1_1PutDataLakeSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutDataLakeSettingsCommandOutput> {
+): Promise<PutDataLakeSettingsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1PutDataLakeSettingsCommandError(
       output,
@@ -1085,12 +1098,12 @@ export async function deserializeAws_json1_1PutDataLakeSettingsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1PutDataLakeSettingsCommandError(
+const deserializeAws_json1_1PutDataLakeSettingsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutDataLakeSettingsCommandOutput> {
+): Promise<PutDataLakeSettingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1138,12 +1151,12 @@ async function deserializeAws_json1_1PutDataLakeSettingsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1RegisterResourceCommand(
+export const deserializeAws_json1_1RegisterResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RegisterResourceCommandOutput> {
+): Promise<RegisterResourceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1RegisterResourceCommandError(output, context);
   }
@@ -1156,12 +1169,12 @@ export async function deserializeAws_json1_1RegisterResourceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1RegisterResourceCommandError(
+const deserializeAws_json1_1RegisterResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RegisterResourceCommandOutput> {
+): Promise<RegisterResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1231,12 +1244,12 @@ async function deserializeAws_json1_1RegisterResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1RevokePermissionsCommand(
+export const deserializeAws_json1_1RevokePermissionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RevokePermissionsCommandOutput> {
+): Promise<RevokePermissionsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1RevokePermissionsCommandError(output, context);
   }
@@ -1249,12 +1262,12 @@ export async function deserializeAws_json1_1RevokePermissionsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1RevokePermissionsCommandError(
+const deserializeAws_json1_1RevokePermissionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RevokePermissionsCommandOutput> {
+): Promise<RevokePermissionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1313,12 +1326,12 @@ async function deserializeAws_json1_1RevokePermissionsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateResourceCommand(
+export const deserializeAws_json1_1UpdateResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateResourceCommandOutput> {
+): Promise<UpdateResourceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateResourceCommandError(output, context);
   }
@@ -1331,12 +1344,12 @@ export async function deserializeAws_json1_1UpdateResourceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateResourceCommandError(
+const deserializeAws_json1_1UpdateResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateResourceCommandOutput> {
+): Promise<UpdateResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1406,7 +1419,7 @@ async function deserializeAws_json1_1UpdateResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_1AlreadyExistsExceptionResponse = async (
   parsedOutput: any,
@@ -1573,16 +1586,12 @@ const serializeAws_json1_1BatchPermissionsRequestEntry = (
 };
 
 const serializeAws_json1_1BatchPermissionsRequestEntryList = (
-  input: Array<BatchPermissionsRequestEntry>,
+  input: BatchPermissionsRequestEntry[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_json1_1BatchPermissionsRequestEntry(entry, context)
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1BatchPermissionsRequestEntry(entry, context)
+  );
 };
 
 const serializeAws_json1_1BatchRevokePermissionsRequest = (
@@ -1613,14 +1622,10 @@ const serializeAws_json1_1CatalogResource = (
 };
 
 const serializeAws_json1_1ColumnNames = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1ColumnWildcard = (
@@ -1650,14 +1655,12 @@ const serializeAws_json1_1DataLakePrincipal = (
 };
 
 const serializeAws_json1_1DataLakePrincipalList = (
-  input: Array<DataLakePrincipal>,
+  input: DataLakePrincipal[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1DataLakePrincipal(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1DataLakePrincipal(entry, context)
+  );
 };
 
 const serializeAws_json1_1DataLakeSettings = (
@@ -1855,14 +1858,10 @@ const serializeAws_json1_1ListResourcesRequest = (
 };
 
 const serializeAws_json1_1PermissionList = (
-  input: Array<Permission | string>,
+  input: (Permission | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1PrincipalPermissions = (
@@ -1886,14 +1885,12 @@ const serializeAws_json1_1PrincipalPermissions = (
 };
 
 const serializeAws_json1_1PrincipalPermissionsList = (
-  input: Array<PrincipalPermissions>,
+  input: PrincipalPermissions[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1PrincipalPermissions(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1PrincipalPermissions(entry, context)
+  );
 };
 
 const serializeAws_json1_1PutDataLakeSettingsRequest = (
@@ -2082,25 +2079,19 @@ const serializeAws_json1_1FilterCondition = (
 };
 
 const serializeAws_json1_1FilterConditionList = (
-  input: Array<FilterCondition>,
+  input: FilterCondition[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1FilterCondition(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1FilterCondition(entry, context)
+  );
 };
 
 const serializeAws_json1_1StringValueList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const deserializeAws_json1_1BatchGrantPermissionsResponse = (
@@ -2144,7 +2135,7 @@ const deserializeAws_json1_1BatchPermissionsFailureEntry = (
 const deserializeAws_json1_1BatchPermissionsFailureList = (
   output: any,
   context: __SerdeContext
-): Array<BatchPermissionsFailureEntry> => {
+): BatchPermissionsFailureEntry[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1BatchPermissionsFailureEntry(entry, context)
   );
@@ -2225,7 +2216,7 @@ const deserializeAws_json1_1CatalogResource = (
 const deserializeAws_json1_1ColumnNames = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -2269,7 +2260,7 @@ const deserializeAws_json1_1DataLakePrincipal = (
 const deserializeAws_json1_1DataLakePrincipalList = (
   output: any,
   context: __SerdeContext
-): Array<DataLakePrincipal> => {
+): DataLakePrincipal[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DataLakePrincipal(entry, context)
   );
@@ -2469,7 +2460,7 @@ const deserializeAws_json1_1ListResourcesResponse = (
 const deserializeAws_json1_1PermissionList = (
   output: any,
   context: __SerdeContext
-): Array<Permission | string> => {
+): (Permission | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -2500,7 +2491,7 @@ const deserializeAws_json1_1PrincipalPermissions = (
 const deserializeAws_json1_1PrincipalPermissionsList = (
   output: any,
   context: __SerdeContext
-): Array<PrincipalPermissions> => {
+): PrincipalPermissions[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PrincipalPermissions(entry, context)
   );
@@ -2550,7 +2541,7 @@ const deserializeAws_json1_1PrincipalResourcePermissions = (
 const deserializeAws_json1_1PrincipalResourcePermissionsList = (
   output: any,
   context: __SerdeContext
-): Array<PrincipalResourcePermissions> => {
+): PrincipalResourcePermissions[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PrincipalResourcePermissions(entry, context)
   );
@@ -2818,7 +2809,7 @@ const deserializeAws_json1_1ResourceInfo = (
 const deserializeAws_json1_1ResourceInfoList = (
   output: any,
   context: __SerdeContext
-): Array<ResourceInfo> => {
+): ResourceInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ResourceInfo(entry, context)
   );
@@ -2832,7 +2823,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -2847,11 +2838,8 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
@@ -2878,11 +2866,10 @@ const buildHttpRpcRequest = async (
   return new __HttpRequest(contents);
 };
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};

@@ -46,7 +46,7 @@ export interface AddWorkingStorageInput {
    *          Each string have a minimum length of 1 and maximum length of 300. You can get the disk IDs
    *          from the <a>ListLocalDisks</a> API.</p>
    */
-  DiskIds: Array<string> | undefined;
+  DiskIds: string[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -147,7 +147,7 @@ export interface CreateSnapshotInput {
    *             256.</p>
    *          </note>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the volume. Use the <a>ListVolumes</a>
@@ -274,7 +274,7 @@ export interface CreateStorediSCSIVolumeInput {
    *             256.</p>
    *          </note>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The name of the iSCSI target used by an initiator to connect to a volume and used as
@@ -565,7 +565,7 @@ export interface DescribeChapCredentialsOutput {
    *             </li>
    *          </ul>
    */
-  ChapCredentials?: Array<ChapInfo>;
+  ChapCredentials?: ChapInfo[];
 }
 
 export namespace DescribeChapCredentialsOutput {
@@ -633,7 +633,7 @@ export interface DescribeStorediSCSIVolumesInput {
    * <p>An array of strings where each string represents the Amazon Resource Name (ARN) of a
    *          stored volume. All of the specified stored volumes must from the same gateway. Use <a>ListVolumes</a> to get volume ARNs for a gateway.</p>
    */
-  VolumeARNs: Array<string> | undefined;
+  VolumeARNs: string[] | undefined;
 }
 
 export namespace DescribeStorediSCSIVolumesInput {
@@ -669,7 +669,7 @@ export interface DescribeWorkingStorageOutput {
    *          no local disks are configured as working storage, then the DiskIds array is
    *          empty.</p>
    */
-  DiskIds?: Array<string>;
+  DiskIds?: string[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -1392,7 +1392,7 @@ export interface UpdateSnapshotScheduleInput {
    *             256.</p>
    *          </note>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the volume. Use the <a>ListVolumes</a>
@@ -1466,7 +1466,7 @@ export interface AddCacheInput {
    *          Each string have a minimum length of 1 and maximum length of 300. You can get the disk IDs
    *          from the <a>ListLocalDisks</a> API.</p>
    */
-  DiskIds: Array<string> | undefined;
+  DiskIds: string[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -1500,7 +1500,7 @@ export interface AddUploadBufferInput {
    *          Each string have a minimum length of 1 and maximum length of 300. You can get the disk IDs
    *          from the <a>ListLocalDisks</a> API.</p>
    */
-  DiskIds: Array<string> | undefined;
+  DiskIds: string[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -1588,7 +1588,7 @@ export interface CreateCachediSCSIVolumeInput {
    *             tag's value is 256 characters.</p>
    *          </note>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The name of the iSCSI target used by an initiator to connect to a volume and used as
@@ -1733,7 +1733,7 @@ export interface DescribeCacheOutput {
    *          Each string have a minimum length of 1 and maximum length of 300. You can get the disk IDs
    *          from the <a>ListLocalDisks</a> API.</p>
    */
-  DiskIds?: Array<string>;
+  DiskIds?: string[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -1753,7 +1753,7 @@ export interface DescribeCachediSCSIVolumesInput {
    * <p>An array of strings where each string represents the Amazon Resource Name (ARN) of a
    *          cached volume. All of the specified cached volumes must from the same gateway. Use <a>ListVolumes</a> to get volume ARNs for a gateway.</p>
    */
-  VolumeARNs: Array<string> | undefined;
+  VolumeARNs: string[] | undefined;
 }
 
 export namespace DescribeCachediSCSIVolumesInput {
@@ -1783,7 +1783,7 @@ export interface DescribeUploadBufferOutput {
    *          no local disks are configured as working storage, then the DiskIds array is
    *          empty.</p>
    */
-  DiskIds?: Array<string>;
+  DiskIds?: string[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -1832,7 +1832,7 @@ export interface ListVolumeRecoveryPointsOutput {
   /**
    * <p>An array of <a>VolumeRecoveryPointInfo</a> objects.</p>
    */
-  VolumeRecoveryPointInfos?: Array<VolumeRecoveryPointInfo>;
+  VolumeRecoveryPointInfos?: VolumeRecoveryPointInfo[];
 }
 
 export namespace ListVolumeRecoveryPointsOutput {
@@ -1984,7 +1984,7 @@ export interface ActivateGatewayInput {
    *             tag's value is 256 characters.</p>
    *          </note>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The value that indicates the type of tape drive to use for tape gateway. This field
@@ -2028,7 +2028,7 @@ export interface AddTagsToResourceInput {
    *             256.</p>
    *          </note>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace AddTagsToResourceInput {
@@ -2351,7 +2351,7 @@ export interface CreateNFSFileShareInput {
    * <p>The list of clients that are allowed to access the file gateway. The list must
    *          contain either valid IP addresses or valid CIDR blocks. </p>
    */
-  ClientList?: Array<string>;
+  ClientList?: string[];
 
   /**
    * <p>A unique string value that you supply that is used by file gateway to ensure
@@ -2460,7 +2460,7 @@ export interface CreateNFSFileShareInput {
    *             256.</p>
    *          </note>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateNFSFileShareInput {
@@ -2498,7 +2498,7 @@ export interface CreateSMBFileShareInput {
    *          anything they like on the file share, regardless of file permissions.</p>
    *          </important>
    */
-  AdminUserList?: Array<string>;
+  AdminUserList?: string[];
 
   /**
    * <p>The authentication method that users use to access the file share.</p>
@@ -2540,7 +2540,7 @@ export interface CreateSMBFileShareInput {
    *          <code>@group1</code>. Can only be set if Authentication is set to
    *             <code>ActiveDirectory</code>.</p>
    */
-  InvalidUserList?: Array<string>;
+  InvalidUserList?: string[];
 
   /**
    * <p>True to use Amazon S3 server side encryption with your own AWS KMS key, or false to
@@ -2608,14 +2608,14 @@ export interface CreateSMBFileShareInput {
    *             256.</p>
    *          </note>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>A list of users or groups in the Active Directory that are allowed to access the file
    *          share. A group must be prefixed with the @ character. For example <code>@group1</code>. Can
    *          only be set if Authentication is set to <code>ActiveDirectory</code>.</p>
    */
-  ValidUserList?: Array<string>;
+  ValidUserList?: string[];
 }
 
 export namespace CreateSMBFileShareInput {
@@ -2658,7 +2658,7 @@ export interface CreateSnapshotFromVolumeRecoveryPointInput {
    *             256.</p>
    *          </note>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the iSCSI volume target. Use the <a>DescribeStorediSCSIVolumes</a> operation to return to retrieve the TargetARN for
@@ -2715,7 +2715,7 @@ export interface CreateTapeWithBarcodeInput {
    *             256.</p>
    *          </note>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The barcode that you want to assign to the tape.</p>
@@ -2813,7 +2813,7 @@ export interface CreateTapesInput {
    *             256.</p>
    *          </note>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>A prefix that you append to the barcode of the virtual tape you are creating. This
@@ -2848,7 +2848,7 @@ export interface CreateTapesOutput {
    * <p>A list of unique Amazon Resource Names (ARNs) that represents the virtual tapes that
    *          were created.</p>
    */
-  TapeARNs?: Array<string>;
+  TapeARNs?: string[];
 }
 
 export namespace CreateTapesOutput {
@@ -3049,7 +3049,7 @@ export interface DescribeCachediSCSIVolumesOutput {
    * <p>An array of objects where each object contains metadata about one cached
    *          volume.</p>
    */
-  CachediSCSIVolumes?: Array<CachediSCSIVolume>;
+  CachediSCSIVolumes?: CachediSCSIVolume[];
 }
 
 export namespace DescribeCachediSCSIVolumesOutput {
@@ -3099,7 +3099,7 @@ export interface DescribeGatewayInformationOutput {
    * <p>A <a>NetworkInterface</a> array that contains descriptions of the gateway
    *          network interfaces.</p>
    */
-  GatewayNetworkInterfaces?: Array<NetworkInterface>;
+  GatewayNetworkInterfaces?: NetworkInterface[];
 
   /**
    * <p>A value that indicates the operating state of the gateway.</p>
@@ -3140,7 +3140,7 @@ export interface DescribeGatewayInformationOutput {
    *          tags assigned, you can view all tags using the <code>ListTagsForResource</code>
    *          API operation.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The configuration settings for the virtual private cloud (VPC) endpoint for your gateway. </p>
@@ -3243,7 +3243,7 @@ export interface DescribeNFSFileSharesInput {
    * <p>An array containing the Amazon Resource Name (ARN) of each file share to be
    *          described. </p>
    */
-  FileShareARNList: Array<string> | undefined;
+  FileShareARNList: string[] | undefined;
 }
 
 export namespace DescribeNFSFileSharesInput {
@@ -3259,7 +3259,7 @@ export interface DescribeNFSFileSharesOutput {
   /**
    * <p>An array containing a description for each requested file share. </p>
    */
-  NFSFileShareInfoList?: Array<NFSFileShareInfo>;
+  NFSFileShareInfoList?: NFSFileShareInfo[];
 }
 
 export namespace DescribeNFSFileSharesOutput {
@@ -3276,7 +3276,7 @@ export interface DescribeSMBFileSharesInput {
    * <p>An array containing the Amazon Resource Name (ARN) of each file share to be
    *          described. </p>
    */
-  FileShareARNList: Array<string> | undefined;
+  FileShareARNList: string[] | undefined;
 }
 
 export namespace DescribeSMBFileSharesInput {
@@ -3292,7 +3292,7 @@ export interface DescribeSMBFileSharesOutput {
   /**
    * <p>An array containing a description for each requested file share. </p>
    */
-  SMBFileShareInfoList?: Array<SMBFileShareInfo>;
+  SMBFileShareInfoList?: SMBFileShareInfo[];
 }
 
 export namespace DescribeSMBFileSharesOutput {
@@ -3412,7 +3412,7 @@ export interface DescribeSnapshotScheduleOutput {
    *          tags assigned, you can view all tags using the <code>ListTagsForResource</code>
    *          API operation.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>A value that indicates the time zone of the gateway.</p>
@@ -3536,7 +3536,7 @@ export interface DescribeStorediSCSIVolumesOutput {
    *             </li>
    *          </ul>
    */
-  StorediSCSIVolumes?: Array<StorediSCSIVolume>;
+  StorediSCSIVolumes?: StorediSCSIVolume[];
 }
 
 export namespace DescribeStorediSCSIVolumesOutput {
@@ -3565,7 +3565,7 @@ export interface DescribeTapeArchivesInput {
    * <p>Specifies one or more unique Amazon Resource Names (ARNs) that represent the virtual
    *          tapes you want to describe.</p>
    */
-  TapeARNs?: Array<string>;
+  TapeARNs?: string[];
 }
 
 export namespace DescribeTapeArchivesInput {
@@ -3592,7 +3592,7 @@ export interface DescribeTapeArchivesOutput {
    *          includes the Amazon Resource Names (ARNs) of the tapes, size of the tapes, status of the
    *          tapes, progress of the description and tape barcode.</p>
    */
-  TapeArchives?: Array<TapeArchive>;
+  TapeArchives?: TapeArchive[];
 }
 
 export namespace DescribeTapeArchivesOutput {
@@ -3653,7 +3653,7 @@ export interface DescribeTapeRecoveryPointsOutput {
    * <p>An array of TapeRecoveryPointInfos that are available for the specified
    *          gateway.</p>
    */
-  TapeRecoveryPointInfos?: Array<TapeRecoveryPointInfo>;
+  TapeRecoveryPointInfos?: TapeRecoveryPointInfo[];
 }
 
 export namespace DescribeTapeRecoveryPointsOutput {
@@ -3693,7 +3693,7 @@ export interface DescribeTapesInput {
    *          tapes you want to describe. If this parameter is not specified, Tape gateway returns a
    *          description of all virtual tapes associated with the specified gateway.</p>
    */
-  TapeARNs?: Array<string>;
+  TapeARNs?: string[];
 }
 
 export namespace DescribeTapesInput {
@@ -3717,7 +3717,7 @@ export interface DescribeTapesOutput {
   /**
    * <p>An array of virtual tape descriptions.</p>
    */
-  Tapes?: Array<Tape>;
+  Tapes?: Tape[];
 }
 
 export namespace DescribeTapesOutput {
@@ -3756,7 +3756,7 @@ export interface DescribeVTLDevicesInput {
    *             are specified, the result will contain all devices on the specified gateway.</p>
    *          </note>
    */
-  VTLDeviceARNs?: Array<string>;
+  VTLDeviceARNs?: string[];
 }
 
 export namespace DescribeVTLDevicesInput {
@@ -3787,7 +3787,7 @@ export interface DescribeVTLDevicesOutput {
    * <p>An array of VTL device objects composed of the Amazon Resource Name(ARN) of the VTL
    *          devices.</p>
    */
-  VTLDevices?: Array<VTLDevice>;
+  VTLDevices?: VTLDevice[];
 }
 
 export namespace DescribeVTLDevicesOutput {
@@ -3923,7 +3923,7 @@ export interface Disk {
   /**
    * <p>A list of values that represents attributes of a local disk.</p>
    */
-  DiskAttributeList?: Array<string>;
+  DiskAttributeList?: string[];
 
   /**
    * <p>The unique device ID or other distinguishing data that identifies a local
@@ -4057,7 +4057,7 @@ export interface JoinDomainInput {
    *          need to specify the port number include it after the colon (“:”). For example,
    *             <code>mydc.mydomain.com:389</code>.</p>
    */
-  DomainControllers?: Array<string>;
+  DomainControllers?: string[];
 
   /**
    * <p>The name of the domain that you want the gateway to join.</p>
@@ -4189,7 +4189,7 @@ export interface ListFileSharesOutput {
   /**
    * <p>An array of information about the file gateway's file shares. </p>
    */
-  FileShareInfoList?: Array<FileShareInfo>;
+  FileShareInfoList?: FileShareInfo[];
 
   /**
    * <p>If the request includes <code>Marker</code>, the response returns that value in this
@@ -4215,7 +4215,7 @@ export interface ListGatewaysOutput {
   /**
    * <p>An array of <a>GatewayInfo</a> objects.</p>
    */
-  Gateways?: Array<GatewayInfo>;
+  Gateways?: GatewayInfo[];
 
   /**
    * <p>Use the marker in your next request to fetch the next set of gateways in the list. If
@@ -4241,7 +4241,7 @@ export interface ListLocalDisksOutput {
    *             </li>
    *          </ul>
    */
-  Disks?: Array<Disk>;
+  Disks?: Disk[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -4304,7 +4304,7 @@ export interface ListTagsForResourceOutput {
   /**
    * <p>An array that contains the tags for the specified resource.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace ListTagsForResourceOutput {
@@ -4349,7 +4349,7 @@ export interface ListTapesInput {
    * <p>The Amazon Resource Name (ARN) of each of the tapes you want to list. If you don't
    *          specify a tape ARN, the response lists all tapes in both your VTL and VTS.</p>
    */
-  TapeARNs?: Array<string>;
+  TapeARNs?: string[];
 }
 
 export namespace ListTapesInput {
@@ -4386,7 +4386,7 @@ export interface ListTapesOutput {
    *          single tape. If there not tapes in the tape library or VTS, then the <code>TapeInfos</code>
    *          is an empty array.</p>
    */
-  TapeInfos?: Array<TapeInfo>;
+  TapeInfos?: TapeInfo[];
 }
 
 export namespace ListTapesOutput {
@@ -4420,7 +4420,7 @@ export interface ListVolumeInitiatorsOutput {
    * <p>The host names and port numbers of all iSCSI initiators that are connected to the
    *          gateway.</p>
    */
-  Initiators?: Array<string>;
+  Initiators?: string[];
 }
 
 export namespace ListVolumeInitiatorsOutput {
@@ -4462,7 +4462,7 @@ export interface ListVolumesOutput {
    *          iSCSI volume. If no volumes are defined for the gateway, then <code>VolumeInfos</code> is
    *          an empty array "[]".</p>
    */
-  VolumeInfos?: Array<VolumeInfo>;
+  VolumeInfos?: VolumeInfo[];
 }
 
 export namespace ListVolumesOutput {
@@ -4521,7 +4521,7 @@ export interface NFSFileShareInfo {
    * <p>The list of clients that are allowed to access the file gateway. The list must
    *          contain either valid IP addresses or valid CIDR blocks. </p>
    */
-  ClientList?: Array<string>;
+  ClientList?: string[];
 
   /**
    * <p>The default storage class for objects put into an Amazon S3 bucket by the file
@@ -4646,7 +4646,7 @@ export interface NFSFileShareInfo {
    *          tags assigned, you can view all tags using the <code>ListTagsForResource</code>
    *          API operation.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace NFSFileShareInfo {
@@ -4711,7 +4711,7 @@ export interface RefreshCacheInput {
    *          S3 bucket. If <code>Recursive</code> is set to "true", the entire S3 bucket that the file
    *          share has access to is refreshed.</p>
    */
-  FolderList?: Array<string>;
+  FolderList?: string[];
 
   /**
    * <p>A value that specifies whether to recursively refresh folders in the cache. The
@@ -4767,7 +4767,7 @@ export interface RemoveTagsFromResourceInput {
    * <p>The keys of the tags you want to remove from the specified resource. A tag is
    *          composed of a key/value pair.</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace RemoveTagsFromResourceInput {
@@ -4915,7 +4915,7 @@ export interface SMBFileShareInfo {
    *          <code>@group1</code>. Can only be set if Authentication is set to
    *          <code>ActiveDirectory</code>.</p>
    */
-  AdminUserList?: Array<string>;
+  AdminUserList?: string[];
 
   /**
    * <p>The authentication method of the file share.</p>
@@ -4967,7 +4967,7 @@ export interface SMBFileShareInfo {
    *          <code>@group1</code>. Can only be set if Authentication is set to
    *             <code>ActiveDirectory</code>.</p>
    */
-  InvalidUserList?: Array<string>;
+  InvalidUserList?: string[];
 
   /**
    * <p>True to use Amazon S3 server-side encryption with your own AWS KMS key, or false to
@@ -5037,14 +5037,14 @@ export interface SMBFileShareInfo {
    *          tags assigned, you can view all tags using the <code>ListTagsForResource</code>
    *          API operation.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>A list of users or groups in the Active Directory that are allowed to access the file
    *          share. A group must be prefixed with the @ character. For example <code>@group1</code>. Can
    *          only be set if Authentication is set to <code>ActiveDirectory</code>.</p>
    */
-  ValidUserList?: Array<string>;
+  ValidUserList?: string[];
 }
 
 export namespace SMBFileShareInfo {
@@ -5545,7 +5545,7 @@ export interface UpdateNFSFileShareInput {
    * <p>The list of clients that are allowed to access the file gateway. The list must
    *          contain either valid IP addresses or valid CIDR blocks.</p>
    */
-  ClientList?: Array<string>;
+  ClientList?: string[];
 
   /**
    * <p>The default storage class for objects put into an Amazon S3 bucket by the file
@@ -5660,7 +5660,7 @@ export interface UpdateSMBFileShareInput {
    *          <code>@group1</code>. Can only be set if Authentication is set to
    *          <code>ActiveDirectory</code>.</p>
    */
-  AdminUserList?: Array<string>;
+  AdminUserList?: string[];
 
   /**
    * <p>The default storage class for objects put into an Amazon S3 bucket by the file
@@ -5689,7 +5689,7 @@ export interface UpdateSMBFileShareInput {
    *          <code>@group1</code>. Can only be set if Authentication is set to
    *             <code>ActiveDirectory</code>.</p>
    */
-  InvalidUserList?: Array<string>;
+  InvalidUserList?: string[];
 
   /**
    * <p>True to use Amazon S3 server side encryption with your own AWS KMS key, or false to
@@ -5742,7 +5742,7 @@ export interface UpdateSMBFileShareInput {
    *          share. A group must be prefixed with the @ character. For example <code>@group1</code>. Can
    *          only be set if Authentication is set to <code>ActiveDirectory</code>.</p>
    */
-  ValidUserList?: Array<string>;
+  ValidUserList?: string[];
 }
 
 export namespace UpdateSMBFileShareInput {

@@ -132,248 +132,265 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_json1_1AssociateCreatedArtifactCommand(
+export const serializeAws_json1_1AssociateCreatedArtifactCommand = async (
   input: AssociateCreatedArtifactCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSMigrationHub.AssociateCreatedArtifact";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSMigrationHub.AssociateCreatedArtifact"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AssociateCreatedArtifactRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1AssociateDiscoveredResourceCommand(
+export const serializeAws_json1_1AssociateDiscoveredResourceCommand = async (
   input: AssociateDiscoveredResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSMigrationHub.AssociateDiscoveredResource";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSMigrationHub.AssociateDiscoveredResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AssociateDiscoveredResourceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreateProgressUpdateStreamCommand(
+export const serializeAws_json1_1CreateProgressUpdateStreamCommand = async (
   input: CreateProgressUpdateStreamCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSMigrationHub.CreateProgressUpdateStream";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSMigrationHub.CreateProgressUpdateStream"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateProgressUpdateStreamRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteProgressUpdateStreamCommand(
+export const serializeAws_json1_1DeleteProgressUpdateStreamCommand = async (
   input: DeleteProgressUpdateStreamCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSMigrationHub.DeleteProgressUpdateStream";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSMigrationHub.DeleteProgressUpdateStream"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteProgressUpdateStreamRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeApplicationStateCommand(
+export const serializeAws_json1_1DescribeApplicationStateCommand = async (
   input: DescribeApplicationStateCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSMigrationHub.DescribeApplicationState";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSMigrationHub.DescribeApplicationState"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeApplicationStateRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeMigrationTaskCommand(
+export const serializeAws_json1_1DescribeMigrationTaskCommand = async (
   input: DescribeMigrationTaskCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSMigrationHub.DescribeMigrationTask";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSMigrationHub.DescribeMigrationTask"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeMigrationTaskRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DisassociateCreatedArtifactCommand(
+export const serializeAws_json1_1DisassociateCreatedArtifactCommand = async (
   input: DisassociateCreatedArtifactCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSMigrationHub.DisassociateCreatedArtifact";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSMigrationHub.DisassociateCreatedArtifact"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DisassociateCreatedArtifactRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DisassociateDiscoveredResourceCommand(
+export const serializeAws_json1_1DisassociateDiscoveredResourceCommand = async (
   input: DisassociateDiscoveredResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSMigrationHub.DisassociateDiscoveredResource";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSMigrationHub.DisassociateDiscoveredResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DisassociateDiscoveredResourceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ImportMigrationTaskCommand(
+export const serializeAws_json1_1ImportMigrationTaskCommand = async (
   input: ImportMigrationTaskCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSMigrationHub.ImportMigrationTask";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSMigrationHub.ImportMigrationTask"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ImportMigrationTaskRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListApplicationStatesCommand(
+export const serializeAws_json1_1ListApplicationStatesCommand = async (
   input: ListApplicationStatesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSMigrationHub.ListApplicationStates";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSMigrationHub.ListApplicationStates"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListApplicationStatesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListCreatedArtifactsCommand(
+export const serializeAws_json1_1ListCreatedArtifactsCommand = async (
   input: ListCreatedArtifactsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSMigrationHub.ListCreatedArtifacts";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSMigrationHub.ListCreatedArtifacts"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListCreatedArtifactsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListDiscoveredResourcesCommand(
+export const serializeAws_json1_1ListDiscoveredResourcesCommand = async (
   input: ListDiscoveredResourcesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSMigrationHub.ListDiscoveredResources";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSMigrationHub.ListDiscoveredResources"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListDiscoveredResourcesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListMigrationTasksCommand(
+export const serializeAws_json1_1ListMigrationTasksCommand = async (
   input: ListMigrationTasksCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSMigrationHub.ListMigrationTasks";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSMigrationHub.ListMigrationTasks"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListMigrationTasksRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListProgressUpdateStreamsCommand(
+export const serializeAws_json1_1ListProgressUpdateStreamsCommand = async (
   input: ListProgressUpdateStreamsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSMigrationHub.ListProgressUpdateStreams";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSMigrationHub.ListProgressUpdateStreams"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListProgressUpdateStreamsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1NotifyApplicationStateCommand(
+export const serializeAws_json1_1NotifyApplicationStateCommand = async (
   input: NotifyApplicationStateCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSMigrationHub.NotifyApplicationState";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSMigrationHub.NotifyApplicationState"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1NotifyApplicationStateRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1NotifyMigrationTaskStateCommand(
+export const serializeAws_json1_1NotifyMigrationTaskStateCommand = async (
   input: NotifyMigrationTaskStateCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSMigrationHub.NotifyMigrationTaskState";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSMigrationHub.NotifyMigrationTaskState"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1NotifyMigrationTaskStateRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1PutResourceAttributesCommand(
+export const serializeAws_json1_1PutResourceAttributesCommand = async (
   input: PutResourceAttributesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSMigrationHub.PutResourceAttributes";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSMigrationHub.PutResourceAttributes"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutResourceAttributesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_1AssociateCreatedArtifactCommand(
+export const deserializeAws_json1_1AssociateCreatedArtifactCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AssociateCreatedArtifactCommandOutput> {
+): Promise<AssociateCreatedArtifactCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1AssociateCreatedArtifactCommandError(
       output,
@@ -392,12 +409,12 @@ export async function deserializeAws_json1_1AssociateCreatedArtifactCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1AssociateCreatedArtifactCommandError(
+const deserializeAws_json1_1AssociateCreatedArtifactCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AssociateCreatedArtifactCommandOutput> {
+): Promise<AssociateCreatedArtifactCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -511,12 +528,12 @@ async function deserializeAws_json1_1AssociateCreatedArtifactCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1AssociateDiscoveredResourceCommand(
+export const deserializeAws_json1_1AssociateDiscoveredResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AssociateDiscoveredResourceCommandOutput> {
+): Promise<AssociateDiscoveredResourceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1AssociateDiscoveredResourceCommandError(
       output,
@@ -535,12 +552,12 @@ export async function deserializeAws_json1_1AssociateDiscoveredResourceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1AssociateDiscoveredResourceCommandError(
+const deserializeAws_json1_1AssociateDiscoveredResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AssociateDiscoveredResourceCommandOutput> {
+): Promise<AssociateDiscoveredResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -665,12 +682,12 @@ async function deserializeAws_json1_1AssociateDiscoveredResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreateProgressUpdateStreamCommand(
+export const deserializeAws_json1_1CreateProgressUpdateStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateProgressUpdateStreamCommandOutput> {
+): Promise<CreateProgressUpdateStreamCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateProgressUpdateStreamCommandError(
       output,
@@ -689,12 +706,12 @@ export async function deserializeAws_json1_1CreateProgressUpdateStreamCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateProgressUpdateStreamCommandError(
+const deserializeAws_json1_1CreateProgressUpdateStreamCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateProgressUpdateStreamCommandOutput> {
+): Promise<CreateProgressUpdateStreamCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -797,12 +814,12 @@ async function deserializeAws_json1_1CreateProgressUpdateStreamCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteProgressUpdateStreamCommand(
+export const deserializeAws_json1_1DeleteProgressUpdateStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteProgressUpdateStreamCommandOutput> {
+): Promise<DeleteProgressUpdateStreamCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteProgressUpdateStreamCommandError(
       output,
@@ -821,12 +838,12 @@ export async function deserializeAws_json1_1DeleteProgressUpdateStreamCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteProgressUpdateStreamCommandError(
+const deserializeAws_json1_1DeleteProgressUpdateStreamCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteProgressUpdateStreamCommandOutput> {
+): Promise<DeleteProgressUpdateStreamCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -940,12 +957,12 @@ async function deserializeAws_json1_1DeleteProgressUpdateStreamCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeApplicationStateCommand(
+export const deserializeAws_json1_1DescribeApplicationStateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeApplicationStateCommandOutput> {
+): Promise<DescribeApplicationStateCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeApplicationStateCommandError(
       output,
@@ -964,12 +981,12 @@ export async function deserializeAws_json1_1DescribeApplicationStateCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeApplicationStateCommandError(
+const deserializeAws_json1_1DescribeApplicationStateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeApplicationStateCommandOutput> {
+): Promise<DescribeApplicationStateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1072,12 +1089,12 @@ async function deserializeAws_json1_1DescribeApplicationStateCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeMigrationTaskCommand(
+export const deserializeAws_json1_1DescribeMigrationTaskCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeMigrationTaskCommandOutput> {
+): Promise<DescribeMigrationTaskCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeMigrationTaskCommandError(
       output,
@@ -1093,12 +1110,12 @@ export async function deserializeAws_json1_1DescribeMigrationTaskCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeMigrationTaskCommandError(
+const deserializeAws_json1_1DescribeMigrationTaskCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeMigrationTaskCommandOutput> {
+): Promise<DescribeMigrationTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1190,12 +1207,12 @@ async function deserializeAws_json1_1DescribeMigrationTaskCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DisassociateCreatedArtifactCommand(
+export const deserializeAws_json1_1DisassociateCreatedArtifactCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisassociateCreatedArtifactCommandOutput> {
+): Promise<DisassociateCreatedArtifactCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DisassociateCreatedArtifactCommandError(
       output,
@@ -1214,12 +1231,12 @@ export async function deserializeAws_json1_1DisassociateCreatedArtifactCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DisassociateCreatedArtifactCommandError(
+const deserializeAws_json1_1DisassociateCreatedArtifactCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisassociateCreatedArtifactCommandOutput> {
+): Promise<DisassociateCreatedArtifactCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1333,12 +1350,12 @@ async function deserializeAws_json1_1DisassociateCreatedArtifactCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DisassociateDiscoveredResourceCommand(
+export const deserializeAws_json1_1DisassociateDiscoveredResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisassociateDiscoveredResourceCommandOutput> {
+): Promise<DisassociateDiscoveredResourceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DisassociateDiscoveredResourceCommandError(
       output,
@@ -1357,12 +1374,12 @@ export async function deserializeAws_json1_1DisassociateDiscoveredResourceComman
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DisassociateDiscoveredResourceCommandError(
+const deserializeAws_json1_1DisassociateDiscoveredResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisassociateDiscoveredResourceCommandOutput> {
+): Promise<DisassociateDiscoveredResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1476,12 +1493,12 @@ async function deserializeAws_json1_1DisassociateDiscoveredResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ImportMigrationTaskCommand(
+export const deserializeAws_json1_1ImportMigrationTaskCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ImportMigrationTaskCommandOutput> {
+): Promise<ImportMigrationTaskCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ImportMigrationTaskCommandError(
       output,
@@ -1497,12 +1514,12 @@ export async function deserializeAws_json1_1ImportMigrationTaskCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ImportMigrationTaskCommandError(
+const deserializeAws_json1_1ImportMigrationTaskCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ImportMigrationTaskCommandOutput> {
+): Promise<ImportMigrationTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1616,12 +1633,12 @@ async function deserializeAws_json1_1ImportMigrationTaskCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListApplicationStatesCommand(
+export const deserializeAws_json1_1ListApplicationStatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListApplicationStatesCommandOutput> {
+): Promise<ListApplicationStatesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListApplicationStatesCommandError(
       output,
@@ -1637,12 +1654,12 @@ export async function deserializeAws_json1_1ListApplicationStatesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListApplicationStatesCommandError(
+const deserializeAws_json1_1ListApplicationStatesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListApplicationStatesCommandOutput> {
+): Promise<ListApplicationStatesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1723,12 +1740,12 @@ async function deserializeAws_json1_1ListApplicationStatesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListCreatedArtifactsCommand(
+export const deserializeAws_json1_1ListCreatedArtifactsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListCreatedArtifactsCommandOutput> {
+): Promise<ListCreatedArtifactsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListCreatedArtifactsCommandError(
       output,
@@ -1744,12 +1761,12 @@ export async function deserializeAws_json1_1ListCreatedArtifactsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListCreatedArtifactsCommandError(
+const deserializeAws_json1_1ListCreatedArtifactsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListCreatedArtifactsCommandOutput> {
+): Promise<ListCreatedArtifactsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1841,12 +1858,12 @@ async function deserializeAws_json1_1ListCreatedArtifactsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListDiscoveredResourcesCommand(
+export const deserializeAws_json1_1ListDiscoveredResourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListDiscoveredResourcesCommandOutput> {
+): Promise<ListDiscoveredResourcesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListDiscoveredResourcesCommandError(
       output,
@@ -1862,12 +1879,12 @@ export async function deserializeAws_json1_1ListDiscoveredResourcesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListDiscoveredResourcesCommandError(
+const deserializeAws_json1_1ListDiscoveredResourcesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListDiscoveredResourcesCommandOutput> {
+): Promise<ListDiscoveredResourcesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1959,12 +1976,12 @@ async function deserializeAws_json1_1ListDiscoveredResourcesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListMigrationTasksCommand(
+export const deserializeAws_json1_1ListMigrationTasksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListMigrationTasksCommandOutput> {
+): Promise<ListMigrationTasksCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListMigrationTasksCommandError(
       output,
@@ -1980,12 +1997,12 @@ export async function deserializeAws_json1_1ListMigrationTasksCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListMigrationTasksCommandError(
+const deserializeAws_json1_1ListMigrationTasksCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListMigrationTasksCommandOutput> {
+): Promise<ListMigrationTasksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2088,12 +2105,12 @@ async function deserializeAws_json1_1ListMigrationTasksCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListProgressUpdateStreamsCommand(
+export const deserializeAws_json1_1ListProgressUpdateStreamsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListProgressUpdateStreamsCommandOutput> {
+): Promise<ListProgressUpdateStreamsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListProgressUpdateStreamsCommandError(
       output,
@@ -2112,12 +2129,12 @@ export async function deserializeAws_json1_1ListProgressUpdateStreamsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListProgressUpdateStreamsCommandError(
+const deserializeAws_json1_1ListProgressUpdateStreamsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListProgressUpdateStreamsCommandOutput> {
+): Promise<ListProgressUpdateStreamsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2198,12 +2215,12 @@ async function deserializeAws_json1_1ListProgressUpdateStreamsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1NotifyApplicationStateCommand(
+export const deserializeAws_json1_1NotifyApplicationStateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<NotifyApplicationStateCommandOutput> {
+): Promise<NotifyApplicationStateCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1NotifyApplicationStateCommandError(
       output,
@@ -2219,12 +2236,12 @@ export async function deserializeAws_json1_1NotifyApplicationStateCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1NotifyApplicationStateCommandError(
+const deserializeAws_json1_1NotifyApplicationStateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<NotifyApplicationStateCommandOutput> {
+): Promise<NotifyApplicationStateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2349,12 +2366,12 @@ async function deserializeAws_json1_1NotifyApplicationStateCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1NotifyMigrationTaskStateCommand(
+export const deserializeAws_json1_1NotifyMigrationTaskStateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<NotifyMigrationTaskStateCommandOutput> {
+): Promise<NotifyMigrationTaskStateCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1NotifyMigrationTaskStateCommandError(
       output,
@@ -2373,12 +2390,12 @@ export async function deserializeAws_json1_1NotifyMigrationTaskStateCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1NotifyMigrationTaskStateCommandError(
+const deserializeAws_json1_1NotifyMigrationTaskStateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<NotifyMigrationTaskStateCommandOutput> {
+): Promise<NotifyMigrationTaskStateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2492,12 +2509,12 @@ async function deserializeAws_json1_1NotifyMigrationTaskStateCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1PutResourceAttributesCommand(
+export const deserializeAws_json1_1PutResourceAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutResourceAttributesCommandOutput> {
+): Promise<PutResourceAttributesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1PutResourceAttributesCommandError(
       output,
@@ -2513,12 +2530,12 @@ export async function deserializeAws_json1_1PutResourceAttributesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1PutResourceAttributesCommandError(
+const deserializeAws_json1_1PutResourceAttributesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutResourceAttributesCommandOutput> {
+): Promise<PutResourceAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2632,7 +2649,7 @@ async function deserializeAws_json1_1PutResourceAttributesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
   parsedOutput: any,
@@ -2797,14 +2814,10 @@ const deserializeAws_json1_1UnauthorizedOperationResponse = async (
 };
 
 const serializeAws_json1_1ApplicationIds = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1AssociateCreatedArtifactRequest = (
@@ -3172,14 +3185,12 @@ const serializeAws_json1_1ResourceAttribute = (
 };
 
 const serializeAws_json1_1ResourceAttributeList = (
-  input: Array<ResourceAttribute>,
+  input: ResourceAttribute[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1ResourceAttribute(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1ResourceAttribute(entry, context)
+  );
 };
 
 const serializeAws_json1_1Task = (
@@ -3243,7 +3254,7 @@ const deserializeAws_json1_1ApplicationState = (
 const deserializeAws_json1_1ApplicationStateList = (
   output: any,
   context: __SerdeContext
-): Array<ApplicationState> => {
+): ApplicationState[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ApplicationState(entry, context)
   );
@@ -3300,7 +3311,7 @@ const deserializeAws_json1_1CreatedArtifact = (
 const deserializeAws_json1_1CreatedArtifactList = (
   output: any,
   context: __SerdeContext
-): Array<CreatedArtifact> => {
+): CreatedArtifact[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1CreatedArtifact(entry, context)
   );
@@ -3397,7 +3408,7 @@ const deserializeAws_json1_1DiscoveredResource = (
 const deserializeAws_json1_1DiscoveredResourceList = (
   output: any,
   context: __SerdeContext
-): Array<DiscoveredResource> => {
+): DiscoveredResource[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DiscoveredResource(entry, context)
   );
@@ -3472,7 +3483,7 @@ const deserializeAws_json1_1InvalidInputException = (
 const deserializeAws_json1_1LatestResourceAttributeList = (
   output: any,
   context: __SerdeContext
-): Array<ResourceAttribute> => {
+): ResourceAttribute[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ResourceAttribute(entry, context)
   );
@@ -3687,7 +3698,7 @@ const deserializeAws_json1_1MigrationTaskSummary = (
 const deserializeAws_json1_1MigrationTaskSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<MigrationTaskSummary> => {
+): MigrationTaskSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1MigrationTaskSummary(entry, context)
   );
@@ -3747,7 +3758,7 @@ const deserializeAws_json1_1ProgressUpdateStreamSummary = (
 const deserializeAws_json1_1ProgressUpdateStreamSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<ProgressUpdateStreamSummary> => {
+): ProgressUpdateStreamSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ProgressUpdateStreamSummary(entry, context)
   );
@@ -3853,7 +3864,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -3868,11 +3879,8 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
@@ -3899,11 +3907,10 @@ const buildHttpRpcRequest = async (
   return new __HttpRequest(contents);
 };
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};

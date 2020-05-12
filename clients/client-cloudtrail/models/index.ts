@@ -20,7 +20,7 @@ export interface AddTagsRequest {
   /**
    * <p>Contains a list of CloudTrail tags, up to a limit of 50</p>
    */
-  TagsList?: Array<Tag>;
+  TagsList?: Tag[];
 }
 
 export namespace AddTagsRequest {
@@ -210,7 +210,7 @@ export interface CreateTrailRequest {
   /**
    * <p>A list of tags.</p>
    */
-  TagsList?: Array<Tag>;
+  TagsList?: Tag[];
 }
 
 export namespace CreateTrailRequest {
@@ -403,7 +403,7 @@ export interface DataResource {
    *             </li>
    *          </ul>
    */
-  Values?: Array<string>;
+  Values?: string[];
 }
 
 export namespace DataResource {
@@ -473,7 +473,7 @@ export interface DescribeTrailsRequest {
    *             <p>If one or more trail names are specified, information is returned only if the names match the names of trails belonging only to the current region. To return information about a trail in another region, you must specify its trail ARN.</p>
    *          </note>
    */
-  trailNameList?: Array<string>;
+  trailNameList?: string[];
 }
 
 export namespace DescribeTrailsRequest {
@@ -491,7 +491,7 @@ export interface DescribeTrailsResponse {
    *          For example, <code>SNSTopicName</code> and <code>SNSTopicARN</code> are only returned in results if a trail is configured to send SNS notifications. Similarly,
    *       <code>KMSKeyId</code> only appears in results if a trail's log files are encrypted with AWS KMS-managed keys.</p>
    */
-  trailList?: Array<Trail>;
+  trailList?: Trail[];
 }
 
 export namespace DescribeTrailsResponse {
@@ -543,7 +543,7 @@ export interface Event {
   /**
    * <p>A list of resources referenced by the event returned.</p>
    */
-  Resources?: Array<Resource>;
+  Resources?: Resource[];
 
   /**
    * <p>A user name or role name of the requester that called the API in the event returned.</p>
@@ -577,13 +577,13 @@ export interface EventSelector {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html#logging-data-events">Data Events</a> and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html">Limits in AWS CloudTrail</a>
    *          in the <i>AWS CloudTrail User Guide</i>.</p>
    */
-  DataResources?: Array<DataResource>;
+  DataResources?: DataResource[];
 
   /**
    * <p>An optional list of service event sources from which you do not want management events to be logged on your trail. In this release, the list can be empty (disables the filter), or it can filter out AWS Key Management Service events by
    *          containing <code>"kms.amazonaws.com"</code>. By default, <code>ExcludeManagementEventSources</code> is empty, and AWS KMS events are included in events that are logged to your trail. </p>
    */
-  ExcludeManagementEventSources?: Array<string>;
+  ExcludeManagementEventSources?: string[];
 
   /**
    * <p>Specify if you want your event selector to include management events for your trail.</p>
@@ -648,7 +648,7 @@ export interface GetEventSelectorsResponse {
   /**
    * <p>The event selectors that are configured for the trail.</p>
    */
-  EventSelectors?: Array<EventSelector>;
+  EventSelectors?: EventSelector[];
 
   /**
    * <p>The specified trail ARN that has the event selectors.</p>
@@ -702,7 +702,7 @@ export interface GetInsightSelectorsResponse {
   /**
    * <p>A JSON string that contains the insight types you want to log on a trail. In this release, only <code>ApiCallRateInsight</code> is supported as an insight type.</p>
    */
-  InsightSelectors?: Array<InsightSelector>;
+  InsightSelectors?: InsightSelector[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of a trail for which you want to get Insights selectors.</p>
@@ -1469,7 +1469,7 @@ export interface ListPublicKeysResponse {
    *             <p>The returned public keys may have validity time ranges that overlap.</p>
    *          </note>
    */
-  PublicKeyList?: Array<PublicKey>;
+  PublicKeyList?: PublicKey[];
 }
 
 export namespace ListPublicKeysResponse {
@@ -1493,7 +1493,7 @@ export interface ListTagsRequest {
    *             <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
    *          </p>
    */
-  ResourceIdList: Array<string> | undefined;
+  ResourceIdList: string[] | undefined;
 }
 
 export namespace ListTagsRequest {
@@ -1514,7 +1514,7 @@ export interface ListTagsResponse {
   /**
    * <p>A list of resource tags.</p>
    */
-  ResourceTagList?: Array<ResourceTag>;
+  ResourceTagList?: ResourceTag[];
 }
 
 export namespace ListTagsResponse {
@@ -1551,7 +1551,7 @@ export interface ListTrailsResponse {
   /**
    * <p>Returns the name, ARN, and home region of trails in the current account.</p>
    */
-  Trails?: Array<TrailInfo>;
+  Trails?: TrailInfo[];
 }
 
 export namespace ListTrailsResponse {
@@ -1610,7 +1610,7 @@ export interface LookupEventsRequest {
   /**
    * <p>Contains a list of lookup attributes. Currently the list can contain only one item.</p>
    */
-  LookupAttributes?: Array<LookupAttribute>;
+  LookupAttributes?: LookupAttribute[];
 
   /**
    * <p>The number of events to return. Possible values are 1 through 50. The default is 50.</p>
@@ -1642,7 +1642,7 @@ export interface LookupEventsResponse {
   /**
    * <p>A list of events returned based on the lookup attributes specified and the CloudTrail event. The events list is sorted by time. The most recent event is listed first.</p>
    */
-  Events?: Array<Event>;
+  Events?: Event[];
 
   /**
    * <p>The token to use to get the next page of results after a previous API call. If the token does not appear,
@@ -1793,7 +1793,7 @@ export interface PutEventSelectorsRequest {
   /**
    * <p>Specifies the settings for your event selectors. You can configure up to five event selectors for a trail.</p>
    */
-  EventSelectors: Array<EventSelector> | undefined;
+  EventSelectors: EventSelector[] | undefined;
 
   /**
    * <p>Specifies the name of the trail or trail ARN. If you specify a trail name, the
@@ -1834,7 +1834,7 @@ export interface PutEventSelectorsResponse {
   /**
    * <p>Specifies the event selectors configured for your trail.</p>
    */
-  EventSelectors?: Array<EventSelector>;
+  EventSelectors?: EventSelector[];
 
   /**
    * <p>Specifies the ARN of the trail that was updated with event selectors. The format of a trail ARN
@@ -1856,7 +1856,7 @@ export interface PutInsightSelectorsRequest {
   /**
    * <p>A JSON string that contains the insight types you want to log on a trail. In this release, only <code>ApiCallRateInsight</code> is supported as an insight type.</p>
    */
-  InsightSelectors: Array<InsightSelector> | undefined;
+  InsightSelectors: InsightSelector[] | undefined;
 
   /**
    * <p>The name of the CloudTrail trail for which you want to change or add Insights selectors.</p>
@@ -1874,7 +1874,7 @@ export interface PutInsightSelectorsResponse {
   /**
    * <p>A JSON string that contains the insight types you want to log on a trail. In this release, only <code>ApiCallRateInsight</code> is supported as an insight type.</p>
    */
-  InsightSelectors?: Array<InsightSelector>;
+  InsightSelectors?: InsightSelector[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of a trail for which you want to change or add Insights selectors.</p>
@@ -1909,7 +1909,7 @@ export interface RemoveTagsRequest {
   /**
    * <p>Specifies a list of tags to be removed.</p>
    */
-  TagsList?: Array<Tag>;
+  TagsList?: Tag[];
 }
 
 export namespace RemoveTagsRequest {
@@ -1984,7 +1984,7 @@ export interface ResourceTag {
   /**
    * <p>A list of tags.</p>
    */
-  TagsList?: Array<Tag>;
+  TagsList?: Tag[];
 }
 
 export namespace ResourceTag {

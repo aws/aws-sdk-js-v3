@@ -30,29 +30,28 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_restJson1_1StartStreamTranscriptionCommand(
+export const serializeAws_restJson1_1StartStreamTranscriptionCommand = async (
   input: StartStreamTranscriptionCommandInput,
   context: __SerdeContext & __EventStreamSerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.LanguageCode)) {
-    headers["x-amzn-transcribe-language-code"] = input.LanguageCode!;
-  }
-  if (isSerializableHeaderValue(input.MediaEncoding)) {
-    headers["x-amzn-transcribe-media-encoding"] = input.MediaEncoding!;
-  }
-  if (isSerializableHeaderValue(input.MediaSampleRateHertz)) {
-    headers[
-      "x-amzn-transcribe-sample-rate"
-    ] = input.MediaSampleRateHertz!.toString();
-  }
-  if (isSerializableHeaderValue(input.SessionId)) {
-    headers["x-amzn-transcribe-session-id"] = input.SessionId!;
-  }
-  if (isSerializableHeaderValue(input.VocabularyName)) {
-    headers["x-amzn-transcribe-vocabulary-name"] = input.VocabularyName!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.LanguageCode) && {
+      "x-amzn-transcribe-language-code": input.LanguageCode!
+    }),
+    ...(isSerializableHeaderValue(input.MediaEncoding) && {
+      "x-amzn-transcribe-media-encoding": input.MediaEncoding!
+    }),
+    ...(isSerializableHeaderValue(input.MediaSampleRateHertz) && {
+      "x-amzn-transcribe-sample-rate": input.MediaSampleRateHertz!.toString()
+    }),
+    ...(isSerializableHeaderValue(input.SessionId) && {
+      "x-amzn-transcribe-session-id": input.SessionId!
+    }),
+    ...(isSerializableHeaderValue(input.VocabularyName) && {
+      "x-amzn-transcribe-vocabulary-name": input.VocabularyName!
+    })
+  };
   let resolvedPath = "/stream-transcription";
   let body: any;
   if (input.AudioStream !== undefined) {
@@ -74,12 +73,12 @@ export async function serializeAws_restJson1_1StartStreamTranscriptionCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1StartStreamTranscriptionCommand(
+export const deserializeAws_restJson1_1StartStreamTranscriptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext & __EventStreamSerdeContext
-): Promise<StartStreamTranscriptionCommandOutput> {
+): Promise<StartStreamTranscriptionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1StartStreamTranscriptionCommandError(
       output,
@@ -145,12 +144,12 @@ export async function deserializeAws_restJson1_1StartStreamTranscriptionCommand(
   );
   contents.TranscriptResultStream = data;
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1StartStreamTranscriptionCommandError(
+const deserializeAws_restJson1_1StartStreamTranscriptionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartStreamTranscriptionCommandOutput> {
+): Promise<StartStreamTranscriptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -218,7 +217,7 @@ async function deserializeAws_restJson1_1StartStreamTranscriptionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const serializeAws_restJson1_1AudioStream_event = (
   input: any,
@@ -466,7 +465,7 @@ const deserializeAws_restJson1_1Alternative = (
 const deserializeAws_restJson1_1AlternativeList = (
   output: any,
   context: __SerdeContext
-): Array<Alternative> => {
+): Alternative[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Alternative(entry, context)
   );
@@ -501,7 +500,7 @@ const deserializeAws_restJson1_1Item = (
 const deserializeAws_restJson1_1ItemList = (
   output: any,
   context: __SerdeContext
-): Array<Item> => {
+): Item[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Item(entry, context)
   );
@@ -543,7 +542,7 @@ const deserializeAws_restJson1_1Result = (
 const deserializeAws_restJson1_1ResultList = (
   output: any,
   context: __SerdeContext
-): Array<Result> => {
+): Result[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Result(entry, context)
   );
@@ -591,7 +590,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -606,30 +605,23 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
-function isSerializableHeaderValue(value: any): boolean {
-  return (
-    value !== undefined &&
-    value !== "" &&
-    (!Object.getOwnPropertyNames(value).includes("length") ||
-      value.length != 0) &&
-    (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0)
-  );
-}
+const isSerializableHeaderValue = (value: any): boolean =>
+  value !== undefined &&
+  value !== "" &&
+  (!Object.getOwnPropertyNames(value).includes("length") ||
+    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};
 
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.

@@ -36,44 +36,47 @@ import {
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
-export async function serializeAws_json1_1EmptyOperationCommand(
+export const serializeAws_json1_1EmptyOperationCommand = async (
   input: EmptyOperationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "JsonProtocol.EmptyOperation";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "JsonProtocol.EmptyOperation"
+  };
   return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
-}
+};
 
-export async function serializeAws_json1_1KitchenSinkOperationCommand(
+export const serializeAws_json1_1KitchenSinkOperationCommand = async (
   input: KitchenSinkOperationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "JsonProtocol.KitchenSinkOperation";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "JsonProtocol.KitchenSinkOperation"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1KitchenSink(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1OperationWithOptionalInputOutputCommand(
+export const serializeAws_json1_1OperationWithOptionalInputOutputCommand = async (
   input: OperationWithOptionalInputOutputCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "JsonProtocol.OperationWithOptionalInputOutput";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "JsonProtocol.OperationWithOptionalInputOutput"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1SimpleStruct(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_1EmptyOperationCommand(
+export const deserializeAws_json1_1EmptyOperationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<EmptyOperationCommandOutput> {
+): Promise<EmptyOperationCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1EmptyOperationCommandError(output, context);
   }
@@ -82,12 +85,12 @@ export async function deserializeAws_json1_1EmptyOperationCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1EmptyOperationCommandError(
+const deserializeAws_json1_1EmptyOperationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<EmptyOperationCommandOutput> {
+): Promise<EmptyOperationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -113,12 +116,12 @@ async function deserializeAws_json1_1EmptyOperationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1KitchenSinkOperationCommand(
+export const deserializeAws_json1_1KitchenSinkOperationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<KitchenSinkOperationCommandOutput> {
+): Promise<KitchenSinkOperationCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1KitchenSinkOperationCommandError(
       output,
@@ -134,12 +137,12 @@ export async function deserializeAws_json1_1KitchenSinkOperationCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1KitchenSinkOperationCommandError(
+const deserializeAws_json1_1KitchenSinkOperationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<KitchenSinkOperationCommandOutput> {
+): Promise<KitchenSinkOperationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -187,12 +190,12 @@ async function deserializeAws_json1_1KitchenSinkOperationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1OperationWithOptionalInputOutputCommand(
+export const deserializeAws_json1_1OperationWithOptionalInputOutputCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<OperationWithOptionalInputOutputCommandOutput> {
+): Promise<OperationWithOptionalInputOutputCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1OperationWithOptionalInputOutputCommandError(
       output,
@@ -208,12 +211,12 @@ export async function deserializeAws_json1_1OperationWithOptionalInputOutputComm
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1OperationWithOptionalInputOutputCommandError(
+const deserializeAws_json1_1OperationWithOptionalInputOutputCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<OperationWithOptionalInputOutputCommandOutput> {
+): Promise<OperationWithOptionalInputOutputCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -239,7 +242,7 @@ async function deserializeAws_json1_1OperationWithOptionalInputOutputCommandErro
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_1ErrorWithMembersResponse = async (
   parsedOutput: any,
@@ -421,113 +424,88 @@ const serializeAws_json1_1KitchenSink = (
 };
 
 const serializeAws_json1_1ListOfKitchenSinks = (
-  input: Array<KitchenSink>,
+  input: KitchenSink[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1KitchenSink(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1KitchenSink(entry, context));
 };
 
 const serializeAws_json1_1ListOfListOfStrings = (
-  input: Array<Array<string>>,
+  input: string[][],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1ListOfStrings(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1ListOfStrings(entry, context));
 };
 
 const serializeAws_json1_1ListOfMapsOfStrings = (
-  input: Array<{ [key: string]: string }>,
+  input: { [key: string]: string }[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1MapOfStrings(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1MapOfStrings(entry, context));
 };
 
 const serializeAws_json1_1ListOfStrings = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1ListOfStructs = (
-  input: Array<SimpleStruct>,
+  input: SimpleStruct[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1SimpleStruct(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1SimpleStruct(entry, context));
 };
 
 const serializeAws_json1_1MapOfKitchenSinks = (
   input: { [key: string]: KitchenSink },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = serializeAws_json1_1KitchenSink(input[key], context);
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = serializeAws_json1_1KitchenSink(input[key], context);
+    return acc;
+  }, {});
 };
 
 const serializeAws_json1_1MapOfListsOfStrings = (
-  input: { [key: string]: Array<string> },
+  input: { [key: string]: string[] },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = serializeAws_json1_1ListOfStrings(input[key], context);
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = serializeAws_json1_1ListOfStrings(input[key], context);
+    return acc;
+  }, {});
 };
 
 const serializeAws_json1_1MapOfMapOfStrings = (
   input: { [key: string]: { [key: string]: string } },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = serializeAws_json1_1MapOfStrings(input[key], context);
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = serializeAws_json1_1MapOfStrings(input[key], context);
+    return acc;
+  }, {});
 };
 
 const serializeAws_json1_1MapOfStrings = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = input[key];
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = input[key];
+    return acc;
+  }, {});
 };
 
 const serializeAws_json1_1MapOfStructs = (
   input: { [key: string]: SimpleStruct },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = serializeAws_json1_1SimpleStruct(input[key], context);
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = serializeAws_json1_1SimpleStruct(input[key], context);
+    return acc;
+  }, {});
 };
 
 const serializeAws_json1_1SimpleStruct = (
@@ -797,7 +775,7 @@ const deserializeAws_json1_1KitchenSink = (
 const deserializeAws_json1_1ListOfKitchenSinks = (
   output: any,
   context: __SerdeContext
-): Array<KitchenSink> => {
+): KitchenSink[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1KitchenSink(entry, context)
   );
@@ -806,7 +784,7 @@ const deserializeAws_json1_1ListOfKitchenSinks = (
 const deserializeAws_json1_1ListOfListOfStrings = (
   output: any,
   context: __SerdeContext
-): Array<Array<string>> => {
+): string[][] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ListOfStrings(entry, context)
   );
@@ -815,7 +793,7 @@ const deserializeAws_json1_1ListOfListOfStrings = (
 const deserializeAws_json1_1ListOfMapsOfStrings = (
   output: any,
   context: __SerdeContext
-): Array<{ [key: string]: string }> => {
+): { [key: string]: string }[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1MapOfStrings(entry, context)
   );
@@ -824,14 +802,14 @@ const deserializeAws_json1_1ListOfMapsOfStrings = (
 const deserializeAws_json1_1ListOfStrings = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1ListOfStructs = (
   output: any,
   context: __SerdeContext
-): Array<SimpleStruct> => {
+): SimpleStruct[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SimpleStruct(entry, context)
   );
@@ -841,55 +819,50 @@ const deserializeAws_json1_1MapOfKitchenSinks = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: KitchenSink } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_json1_1KitchenSink(output[key], context);
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = deserializeAws_json1_1KitchenSink(output[key], context);
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_1MapOfListsOfStrings = (
   output: any,
   context: __SerdeContext
-): { [key: string]: Array<string> } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_json1_1ListOfStrings(output[key], context);
-  });
-  return mapParams;
+): { [key: string]: string[] } => {
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = deserializeAws_json1_1ListOfStrings(output[key], context);
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_1MapOfMapOfStrings = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: { [key: string]: string } } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_json1_1MapOfStrings(output[key], context);
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = deserializeAws_json1_1MapOfStrings(output[key], context);
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_1MapOfStrings = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = output[key];
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_1MapOfStructs = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: SimpleStruct } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_json1_1SimpleStruct(output[key], context);
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = deserializeAws_json1_1SimpleStruct(output[key], context);
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_1SimpleStruct = (
@@ -928,7 +901,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -943,25 +916,24 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
-const buildHttpRpcRequest = (
+const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,
   path: string,
   resolvedHostname: string | undefined,
   body: any
-): __HttpRequest => {
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port } = await context.endpoint();
   const contents: any = {
-    ...context.endpoint,
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    path: path,
-    headers: headers
+    path,
+    headers
   };
   if (resolvedHostname !== undefined) {
     contents.hostname = resolvedHostname;
@@ -972,11 +944,10 @@ const buildHttpRpcRequest = (
   return new __HttpRequest(contents);
 };
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};

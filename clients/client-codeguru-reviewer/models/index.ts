@@ -185,7 +185,7 @@ export interface ListRepositoryAssociationsRequest {
   /**
    * <p>List of names to use as a filter.</p>
    */
-  Names?: Array<string>;
+  Names?: string[];
 
   /**
    * <p>The <code>nextToken</code> value returned from a previous paginated
@@ -204,17 +204,17 @@ export interface ListRepositoryAssociationsRequest {
    * <p>List of owners to use as a filter. For AWS CodeCommit, the owner is the AWS
    *         account id. For GitHub, it is the GitHub account name.</p>
    */
-  Owners?: Array<string>;
+  Owners?: string[];
 
   /**
    * <p>List of provider types to use as a filter.</p>
    */
-  ProviderTypes?: Array<ProviderType | string>;
+  ProviderTypes?: (ProviderType | string)[];
 
   /**
    * <p>List of states to use as a filter.</p>
    */
-  States?: Array<RepositoryAssociationState | string>;
+  States?: (RepositoryAssociationState | string)[];
 }
 
 export namespace ListRepositoryAssociationsRequest {
@@ -235,7 +235,7 @@ export interface ListRepositoryAssociationsResponse {
   /**
    * <p>A list of repository associations that meet the criteria of the request.</p>
    */
-  RepositoryAssociationSummaries?: Array<RepositoryAssociationSummary>;
+  RepositoryAssociationSummaries?: RepositoryAssociationSummary[];
 }
 
 export namespace ListRepositoryAssociationsResponse {

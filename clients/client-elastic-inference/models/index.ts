@@ -115,7 +115,7 @@ export interface UntagResourceRequest {
   /**
    * The list of tags to remove from the Elastic Inference Accelerator.
    */
-  tagKeys: Array<string> | undefined;
+  tagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {

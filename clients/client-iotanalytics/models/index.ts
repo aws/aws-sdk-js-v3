@@ -398,7 +398,7 @@ export interface ContainerDatasetAction {
    *           name and a value given by one of "stringValue", "datasetContentVersionValue",
    *           or "outputFileUriValue".</p>
    */
-  variables?: Array<Variable>;
+  variables?: Variable[];
 }
 
 export namespace ContainerDatasetAction {
@@ -429,7 +429,7 @@ export interface CreateChannelRequest {
   /**
    * <p>Metadata which can be used to manage the channel.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace CreateChannelRequest {
@@ -491,12 +491,12 @@ export interface CreateDatasetRequest {
   /**
    * <p>A list of actions that create the data set contents.</p>
    */
-  actions: Array<DatasetAction> | undefined;
+  actions: DatasetAction[] | undefined;
 
   /**
    * <p>When data set contents are created they are delivered to destinations specified here.</p>
    */
-  contentDeliveryRules?: Array<DatasetContentDeliveryRule>;
+  contentDeliveryRules?: DatasetContentDeliveryRule[];
 
   /**
    * <p>The name of the data set.</p>
@@ -515,14 +515,14 @@ export interface CreateDatasetRequest {
   /**
    * <p>Metadata which can be used to manage the data set.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 
   /**
    * <p>A list of triggers. A trigger causes data set contents to be populated at a specified
    *           time interval or when another data set's contents are created. The list of triggers can
    *           be empty or contain up to five <b>DataSetTrigger</b> objects.</p>
    */
-  triggers?: Array<DatasetTrigger>;
+  triggers?: DatasetTrigger[];
 
   /**
    * <p>[Optional] How many versions of data set contents are kept. If not specified or set to null, only the
@@ -584,7 +584,7 @@ export interface CreateDatastoreRequest {
   /**
    * <p>Metadata which can be used to manage the data store.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace CreateDatastoreRequest {
@@ -637,7 +637,7 @@ export interface CreatePipelineRequest {
    * ]</code>
    *          </p>
    */
-  pipelineActivities: Array<PipelineActivity> | undefined;
+  pipelineActivities: PipelineActivity[] | undefined;
 
   /**
    * <p>The name of the pipeline.</p>
@@ -647,7 +647,7 @@ export interface CreatePipelineRequest {
   /**
    * <p>Metadata which can be used to manage the pipeline.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace CreatePipelineRequest {
@@ -798,7 +798,7 @@ export interface Dataset {
   /**
    * <p>The "DatasetAction" objects that automatically create the data set contents.</p>
    */
-  actions?: Array<DatasetAction>;
+  actions?: DatasetAction[];
 
   /**
    * <p>The ARN of the data set.</p>
@@ -808,7 +808,7 @@ export interface Dataset {
   /**
    * <p>When data set contents are created they are delivered to destinations specified here.</p>
    */
-  contentDeliveryRules?: Array<DatasetContentDeliveryRule>;
+  contentDeliveryRules?: DatasetContentDeliveryRule[];
 
   /**
    * <p>When the data set was created.</p>
@@ -839,7 +839,7 @@ export interface Dataset {
    * <p>The "DatasetTrigger" objects
    *      that specify when the data set is automatically updated.</p>
    */
-  triggers?: Array<DatasetTrigger>;
+  triggers?: DatasetTrigger[];
 
   /**
    * <p>[Optional] How many versions of data set contents are kept. If not specified or set to null, only the
@@ -1065,7 +1065,7 @@ export interface DatasetSummary {
   /**
    * <p>A list of "DataActionSummary" objects.</p>
    */
-  actions?: Array<DatasetActionSummary>;
+  actions?: DatasetActionSummary[];
 
   /**
    * <p>The time the data set was created.</p>
@@ -1092,7 +1092,7 @@ export interface DatasetSummary {
    *        interval or when another data set is populated. The list of triggers can be empty or contain up
    *        to five DataSetTrigger objects</p>
    */
-  triggers?: Array<DatasetTrigger>;
+  triggers?: DatasetTrigger[];
 }
 
 export namespace DatasetSummary {
@@ -1708,7 +1708,7 @@ export interface GetDatasetContentResponse {
   /**
    * <p>A list of "DatasetEntry" objects.</p>
    */
-  entries?: Array<DatasetEntry>;
+  entries?: DatasetEntry[];
 
   /**
    * <p>The status of the data set content.</p>
@@ -1830,7 +1830,7 @@ export interface ListChannelsResponse {
   /**
    * <p>A list of "ChannelSummary" objects.</p>
    */
-  channelSummaries?: Array<ChannelSummary>;
+  channelSummaries?: ChannelSummary[];
 
   /**
    * <p>The token to retrieve the next set of results, or <code>null</code> if there are no
@@ -1885,7 +1885,7 @@ export interface ListDatasetContentsResponse {
   /**
    * <p>Summary information about data set contents that have been created.</p>
    */
-  datasetContentSummaries?: Array<DatasetContentSummary>;
+  datasetContentSummaries?: DatasetContentSummary[];
 
   /**
    * <p>The token to retrieve the next set of results, or <code>null</code> if there are no
@@ -1923,7 +1923,7 @@ export interface ListDatasetsResponse {
   /**
    * <p>A list of "DatasetSummary" objects.</p>
    */
-  datasetSummaries?: Array<DatasetSummary>;
+  datasetSummaries?: DatasetSummary[];
 
   /**
    * <p>The token to retrieve the next set of results, or <code>null</code> if there are no
@@ -1961,7 +1961,7 @@ export interface ListDatastoresResponse {
   /**
    * <p>A list of "DatastoreSummary" objects.</p>
    */
-  datastoreSummaries?: Array<DatastoreSummary>;
+  datastoreSummaries?: DatastoreSummary[];
 
   /**
    * <p>The token to retrieve the next set of results, or <code>null</code> if there are no
@@ -2005,7 +2005,7 @@ export interface ListPipelinesResponse {
   /**
    * <p>A list of "PipelineSummary" objects.</p>
    */
-  pipelineSummaries?: Array<PipelineSummary>;
+  pipelineSummaries?: PipelineSummary[];
 }
 
 export namespace ListPipelinesResponse {
@@ -2031,7 +2031,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>The tags (metadata) which you have assigned to the resource.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace ListTagsForResourceResponse {
@@ -2125,7 +2125,7 @@ export interface Pipeline {
   /**
    * <p>The activities that perform transformations on the messages.</p>
    */
-  activities?: Array<PipelineActivity>;
+  activities?: PipelineActivity[];
 
   /**
    * <p>The ARN of the pipeline.</p>
@@ -2150,7 +2150,7 @@ export interface Pipeline {
   /**
    * <p>A summary of information about the pipeline reprocessing.</p>
    */
-  reprocessingSummaries?: Array<ReprocessingSummary>;
+  reprocessingSummaries?: ReprocessingSummary[];
 }
 
 export namespace Pipeline {
@@ -2243,7 +2243,7 @@ export interface PipelineSummary {
   /**
    * <p>A summary of information about the pipeline reprocessing.</p>
    */
-  reprocessingSummaries?: Array<ReprocessingSummary>;
+  reprocessingSummaries?: ReprocessingSummary[];
 }
 
 export namespace PipelineSummary {
@@ -2288,7 +2288,7 @@ export interface RemoveAttributesActivity {
   /**
    * <p>A list of 1-50 attributes to remove from the message.</p>
    */
-  attributes: Array<string> | undefined;
+  attributes: string[] | undefined;
 
   /**
    * <p>The name of the 'removeAttributes' activity.</p>
@@ -2388,7 +2388,7 @@ export interface RunPipelineActivityRequest {
   /**
    * <p>The sample message payloads on which the pipeline activity is run.</p>
    */
-  payloads: Array<Uint8Array> | undefined;
+  payloads: Uint8Array[] | undefined;
 
   /**
    * <p>The pipeline activity that is run. This must not be a 'channel' activity or a
@@ -2417,7 +2417,7 @@ export interface RunPipelineActivityResponse {
    *           (The results of running the pipeline activity on each input sample message payload,
    *           encoded in base64.)</p>
    */
-  payloads?: Array<Uint8Array>;
+  payloads?: Uint8Array[];
 }
 
 export namespace RunPipelineActivityResponse {
@@ -2497,7 +2497,7 @@ export interface SampleChannelDataResponse {
    * <p>The list of message samples.  Each sample message is returned as a base64-encoded
    *           string.</p>
    */
-  payloads?: Array<Uint8Array>;
+  payloads?: Uint8Array[];
 }
 
 export namespace SampleChannelDataResponse {
@@ -2531,7 +2531,7 @@ export interface SelectAttributesActivity {
   /**
    * <p>A list of the attributes to select from the message.</p>
    */
-  attributes: Array<string> | undefined;
+  attributes: string[] | undefined;
 
   /**
    * <p>The name of the 'selectAttributes' activity.</p>
@@ -2609,7 +2609,7 @@ export interface SqlQueryDatasetAction {
   /**
    * <p>Pre-filters applied to message data.</p>
    */
-  filters?: Array<QueryFilter>;
+  filters?: QueryFilter[];
 
   /**
    * <p>A SQL query string.</p>
@@ -2688,7 +2688,7 @@ export interface TagResourceRequest {
   /**
    * <p>The new or modified tags for the resource.</p>
    */
-  tags: Array<Tag> | undefined;
+  tags: Tag[] | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -2733,7 +2733,7 @@ export interface UntagResourceRequest {
   /**
    * <p>The keys of those tags which you want to remove.</p>
    */
-  tagKeys: Array<string> | undefined;
+  tagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -2781,12 +2781,12 @@ export interface UpdateDatasetRequest {
   /**
    * <p>A list of "DatasetAction" objects.</p>
    */
-  actions: Array<DatasetAction> | undefined;
+  actions: DatasetAction[] | undefined;
 
   /**
    * <p>When data set contents are created they are delivered to destinations specified here.</p>
    */
-  contentDeliveryRules?: Array<DatasetContentDeliveryRule>;
+  contentDeliveryRules?: DatasetContentDeliveryRule[];
 
   /**
    * <p>The name of the data set to update.</p>
@@ -2802,7 +2802,7 @@ export interface UpdateDatasetRequest {
    * <p>A list of "DatasetTrigger" objects.  The list can be empty or can contain up
    *           to five <b>DataSetTrigger</b> objects.</p>
    */
-  triggers?: Array<DatasetTrigger>;
+  triggers?: DatasetTrigger[];
 
   /**
    * <p>[Optional] How many versions of data set contents are kept. If not specified or set to null, only the
@@ -2866,7 +2866,7 @@ export interface UpdatePipelineRequest {
    * ]</code>
    *          </p>
    */
-  pipelineActivities: Array<PipelineActivity> | undefined;
+  pipelineActivities: PipelineActivity[] | undefined;
 
   /**
    * <p>The name of the pipeline to update.</p>
@@ -3001,7 +3001,7 @@ export interface BatchPutMessageRequest {
    *          <p>For example, {"temp_01": 29} or {"_temp_01": 29} are valid, but {"temp-01": 29},
    *  {"01_temp": 29} or {"__temp_01": 29} are invalid in message payloads.  </p>
    */
-  messages: Array<Message> | undefined;
+  messages: Message[] | undefined;
 }
 
 export namespace BatchPutMessageRequest {
@@ -3014,7 +3014,7 @@ export interface BatchPutMessageResponse {
   /**
    * <p>A list of any errors encountered when sending the messages to the channel.</p>
    */
-  batchPutMessageErrorEntries?: Array<BatchPutMessageErrorEntry>;
+  batchPutMessageErrorEntries?: BatchPutMessageErrorEntry[];
 }
 
 export namespace BatchPutMessageResponse {

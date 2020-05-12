@@ -24,24 +24,25 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_json1_1SendSSHPublicKeyCommand(
+export const serializeAws_json1_1SendSSHPublicKeyCommand = async (
   input: SendSSHPublicKeyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSEC2InstanceConnectService.SendSSHPublicKey";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSEC2InstanceConnectService.SendSSHPublicKey"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1SendSSHPublicKeyRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_1SendSSHPublicKeyCommand(
+export const deserializeAws_json1_1SendSSHPublicKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SendSSHPublicKeyCommandOutput> {
+): Promise<SendSSHPublicKeyCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1SendSSHPublicKeyCommandError(output, context);
   }
@@ -54,12 +55,12 @@ export async function deserializeAws_json1_1SendSSHPublicKeyCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1SendSSHPublicKeyCommandError(
+const deserializeAws_json1_1SendSSHPublicKeyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SendSSHPublicKeyCommandOutput> {
+): Promise<SendSSHPublicKeyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -140,7 +141,7 @@ async function deserializeAws_json1_1SendSSHPublicKeyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_1AuthExceptionResponse = async (
   parsedOutput: any,
@@ -345,7 +346,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -360,11 +361,8 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
@@ -391,11 +389,10 @@ const buildHttpRpcRequest = async (
   return new __HttpRequest(contents);
 };
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};

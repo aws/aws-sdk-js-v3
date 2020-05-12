@@ -49,12 +49,12 @@ export interface AddAttributesToFindingsRequest {
   /**
    * <p>The array of attributes that you want to assign to specified findings.</p>
    */
-  attributes: Array<Attribute> | undefined;
+  attributes: Attribute[] | undefined;
 
   /**
    * <p>The ARNs that specify the findings that you want to assign attributes to.</p>
    */
-  findingArns: Array<string> | undefined;
+  findingArns: string[] | undefined;
 }
 
 export namespace AddAttributesToFindingsRequest {
@@ -109,12 +109,12 @@ export interface AgentFilter {
   /**
    * <p>The detailed health state of the agent. Values can be set to <b>IDLE</b>, <b>RUNNING</b>, <b>SHUTDOWN</b>, <b>UNHEALTHY</b>, <b>THROTTLED</b>, and <b>UNKNOWN</b>. </p>
    */
-  agentHealthCodes: Array<AgentHealthCode | string> | undefined;
+  agentHealthCodes: (AgentHealthCode | string)[] | undefined;
 
   /**
    * <p>The current health state of the agent. Values can be set to <b>HEALTHY</b> or <b>UNHEALTHY</b>.</p>
    */
-  agentHealths: Array<AgentHealth | string> | undefined;
+  agentHealths: (AgentHealth | string)[] | undefined;
 }
 
 export namespace AgentFilter {
@@ -202,7 +202,7 @@ export interface AgentsAlreadyRunningAssessmentException
   /**
    * <p></p>
    */
-  agents: Array<AgentAlreadyRunningAssessment> | undefined;
+  agents: AgentAlreadyRunningAssessment[] | undefined;
 
   /**
    * <p></p>
@@ -280,12 +280,12 @@ export interface AssessmentRun {
    * <p>A list of notifications for the event subscriptions. A notification about a
    *          particular generated finding is added to this list only once.</p>
    */
-  notifications: Array<AssessmentRunNotification> | undefined;
+  notifications: AssessmentRunNotification[] | undefined;
 
   /**
    * <p>The rules packages selected for the assessment run.</p>
    */
-  rulesPackageArns: Array<string> | undefined;
+  rulesPackageArns: string[] | undefined;
 
   /**
    * <p>The time when <a>StartAssessmentRun</a> was called.</p>
@@ -305,12 +305,12 @@ export interface AssessmentRun {
   /**
    * <p>A list of the assessment run state changes.</p>
    */
-  stateChanges: Array<AssessmentRunStateChange> | undefined;
+  stateChanges: AssessmentRunStateChange[] | undefined;
 
   /**
    * <p>The user-defined attributes that are assigned to every generated finding.</p>
    */
-  userAttributesForFindings: Array<Attribute> | undefined;
+  userAttributesForFindings: Attribute[] | undefined;
 }
 
 export namespace AssessmentRun {
@@ -358,7 +358,7 @@ export interface AssessmentRunAgent {
    * <p>The Amazon Inspector application data metrics that are collected by the
    *          agent.</p>
    */
-  telemetryMetadata: Array<TelemetryMetadata> | undefined;
+  telemetryMetadata: TelemetryMetadata[] | undefined;
 }
 
 export namespace AssessmentRunAgent {
@@ -398,7 +398,7 @@ export interface AssessmentRunFilter {
    *          property must be contained in the list of values of the <b>rulesPackages</b> property of the <a>AssessmentRun</a> data
    *          type.</p>
    */
-  rulesPackageArns?: Array<string>;
+  rulesPackageArns?: string[];
 
   /**
    * <p>For a record to match a filter, the value that is specified for this data type
@@ -419,7 +419,7 @@ export interface AssessmentRunFilter {
    *          property must be the exact match of the value of the <b>assessmentRunState</b> property of the <a>AssessmentRun</a> data
    *          type.</p>
    */
-  states?: Array<AssessmentRunState | string>;
+  states?: (AssessmentRunState | string)[];
 }
 
 export namespace AssessmentRunFilter {
@@ -439,7 +439,7 @@ export interface AssessmentRunInProgressException
   /**
    * <p>The ARNs of the assessment runs that are currently in progress.</p>
    */
-  assessmentRunArns: Array<string> | undefined;
+  assessmentRunArns: string[] | undefined;
 
   /**
    * <p>Boolean value that indicates whether the ARN list of the assessment runs is
@@ -658,13 +658,13 @@ export interface AssessmentTemplate {
   /**
    * <p>The rules packages that are specified for this assessment template.</p>
    */
-  rulesPackageArns: Array<string> | undefined;
+  rulesPackageArns: string[] | undefined;
 
   /**
    * <p>The user-defined attributes that are assigned to every generated finding from the
    *          assessment run that uses this assessment template.</p>
    */
-  userAttributesForFindings: Array<Attribute> | undefined;
+  userAttributesForFindings: Attribute[] | undefined;
 }
 
 export namespace AssessmentTemplate {
@@ -697,7 +697,7 @@ export interface AssessmentTemplateFilter {
    *          property must be contained in the list of values of the <b>rulesPackageArns</b> property of the <a>AssessmentTemplate</a> data
    *          type.</p>
    */
-  rulesPackageArns?: Array<string>;
+  rulesPackageArns?: string[];
 }
 
 export namespace AssessmentTemplateFilter {
@@ -736,13 +736,13 @@ export interface AssetAttributes {
    * <p>The list of IP v4 addresses of the EC2 instance where the finding is
    *          generated.</p>
    */
-  ipv4Addresses?: Array<string>;
+  ipv4Addresses?: string[];
 
   /**
    * <p>An array of the network interfaces interacting with the EC2 instance where the
    *          finding is generated.</p>
    */
-  networkInterfaces?: Array<NetworkInterface>;
+  networkInterfaces?: NetworkInterface[];
 
   /**
    * <p>The schema version of this data type.</p>
@@ -752,7 +752,7 @@ export interface AssetAttributes {
   /**
    * <p>The tags related to the EC2 instance where the finding is generated.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace AssetAttributes {
@@ -844,7 +844,7 @@ export interface CreateAssessmentTemplateRequest {
    * <p>The ARNs that specify the rules packages that you want to attach to the assessment
    *          template.</p>
    */
-  rulesPackageArns: Array<string> | undefined;
+  rulesPackageArns: string[] | undefined;
 
   /**
    * <p>The user-defined attributes that are assigned to every finding that is generated by
@@ -852,7 +852,7 @@ export interface CreateAssessmentTemplateRequest {
    *          (an <a>Attribute</a> object). Within an assessment template, each key must be
    *          unique.</p>
    */
-  userAttributesForFindings?: Array<Attribute>;
+  userAttributesForFindings?: Attribute[];
 }
 
 export namespace CreateAssessmentTemplateRequest {
@@ -909,7 +909,7 @@ export interface CreateResourceGroupRequest {
    *          '[{"key":"key1","values":["Value1","Value2"]},{"key":"Key2","values":["Value3"]}]'.</p>
    *          <p>For example,'[{"key":"Name","values":["TestEC2Instance"]}]'.</p>
    */
-  resourceGroupTags: Array<ResourceGroupTag> | undefined;
+  resourceGroupTags: ResourceGroupTag[] | undefined;
 }
 
 export namespace CreateResourceGroupRequest {
@@ -974,7 +974,7 @@ export interface DescribeAssessmentRunsRequest {
   /**
    * <p>The ARN that specifies the assessment run that you want to describe.</p>
    */
-  assessmentRunArns: Array<string> | undefined;
+  assessmentRunArns: string[] | undefined;
 }
 
 export namespace DescribeAssessmentRunsRequest {
@@ -987,7 +987,7 @@ export interface DescribeAssessmentRunsResponse {
   /**
    * <p>Information about the assessment run.</p>
    */
-  assessmentRuns: Array<AssessmentRun> | undefined;
+  assessmentRuns: AssessmentRun[] | undefined;
 
   /**
    * <p>Assessment run details that cannot be described. An error code is provided for each
@@ -1006,7 +1006,7 @@ export interface DescribeAssessmentTargetsRequest {
   /**
    * <p>The ARNs that specifies the assessment targets that you want to describe.</p>
    */
-  assessmentTargetArns: Array<string> | undefined;
+  assessmentTargetArns: string[] | undefined;
 }
 
 export namespace DescribeAssessmentTargetsRequest {
@@ -1019,7 +1019,7 @@ export interface DescribeAssessmentTargetsResponse {
   /**
    * <p>Information about the assessment targets.</p>
    */
-  assessmentTargets: Array<AssessmentTarget> | undefined;
+  assessmentTargets: AssessmentTarget[] | undefined;
 
   /**
    * <p>Assessment target details that cannot be described. An error code is provided for
@@ -1035,7 +1035,7 @@ export namespace DescribeAssessmentTargetsResponse {
 
 export interface DescribeAssessmentTemplatesRequest {
   __type?: "DescribeAssessmentTemplatesRequest";
-  assessmentTemplateArns: Array<string> | undefined;
+  assessmentTemplateArns: string[] | undefined;
 }
 
 export namespace DescribeAssessmentTemplatesRequest {
@@ -1048,7 +1048,7 @@ export interface DescribeAssessmentTemplatesResponse {
   /**
    * <p>Information about the assessment templates.</p>
    */
-  assessmentTemplates: Array<AssessmentTemplate> | undefined;
+  assessmentTemplates: AssessmentTemplate[] | undefined;
 
   /**
    * <p>Assessment template details that cannot be described. An error code is provided for
@@ -1092,7 +1092,7 @@ export interface DescribeExclusionsRequest {
   /**
    * <p>The list of ARNs that specify the exclusions that you want to describe.</p>
    */
-  exclusionArns: Array<string> | undefined;
+  exclusionArns: string[] | undefined;
 
   /**
    * <p>The locale into which you want to translate the exclusion's title, description, and
@@ -1130,7 +1130,7 @@ export interface DescribeFindingsRequest {
   /**
    * <p>The ARN that specifies the finding that you want to describe.</p>
    */
-  findingArns: Array<string> | undefined;
+  findingArns: string[] | undefined;
 
   /**
    * <p>The locale into which you want to translate a finding description, recommendation,
@@ -1155,7 +1155,7 @@ export interface DescribeFindingsResponse {
   /**
    * <p>Information about the finding.</p>
    */
-  findings: Array<Finding> | undefined;
+  findings: Finding[] | undefined;
 }
 
 export namespace DescribeFindingsResponse {
@@ -1168,7 +1168,7 @@ export interface DescribeResourceGroupsRequest {
   /**
    * <p>The ARN that specifies the resource group that you want to describe.</p>
    */
-  resourceGroupArns: Array<string> | undefined;
+  resourceGroupArns: string[] | undefined;
 }
 
 export namespace DescribeResourceGroupsRequest {
@@ -1187,7 +1187,7 @@ export interface DescribeResourceGroupsResponse {
   /**
    * <p>Information about a resource group.</p>
    */
-  resourceGroups: Array<ResourceGroup> | undefined;
+  resourceGroups: ResourceGroup[] | undefined;
 }
 
 export namespace DescribeResourceGroupsResponse {
@@ -1205,7 +1205,7 @@ export interface DescribeRulesPackagesRequest {
   /**
    * <p>The ARN that specifies the rules package that you want to describe.</p>
    */
-  rulesPackageArns: Array<string> | undefined;
+  rulesPackageArns: string[] | undefined;
 }
 
 export namespace DescribeRulesPackagesRequest {
@@ -1224,7 +1224,7 @@ export interface DescribeRulesPackagesResponse {
   /**
    * <p>Information about the rules package.</p>
    */
-  rulesPackages: Array<RulesPackage> | undefined;
+  rulesPackages: RulesPackage[] | undefined;
 }
 
 export namespace DescribeRulesPackagesResponse {
@@ -1289,7 +1289,7 @@ export interface Exclusion {
   /**
    * <p>The system-defined attributes for the exclusion.</p>
    */
-  attributes?: Array<Attribute>;
+  attributes?: Attribute[];
 
   /**
    * <p>The description of the exclusion.</p>
@@ -1304,7 +1304,7 @@ export interface Exclusion {
   /**
    * <p>The AWS resources for which the exclusion pertains.</p>
    */
-  scopes: Array<Scope> | undefined;
+  scopes: Scope[] | undefined;
 
   /**
    * <p>The name of the exclusion.</p>
@@ -1325,7 +1325,7 @@ export interface ExclusionPreview {
   /**
    * <p>The system-defined attributes for the exclusion preview.</p>
    */
-  attributes?: Array<Attribute>;
+  attributes?: Attribute[];
 
   /**
    * <p>The description of the exclusion preview.</p>
@@ -1340,7 +1340,7 @@ export interface ExclusionPreview {
   /**
    * <p>The AWS resources for which the exclusion preview pertains.</p>
    */
-  scopes: Array<Scope> | undefined;
+  scopes: Scope[] | undefined;
 
   /**
    * <p>The name of the exclusion preview.</p>
@@ -1408,7 +1408,7 @@ export interface Finding {
   /**
    * <p>The system-defined attributes for the finding.</p>
    */
-  attributes: Array<Attribute> | undefined;
+  attributes: Attribute[] | undefined;
 
   /**
    * <p>This data element is currently not used.</p>
@@ -1479,7 +1479,7 @@ export interface Finding {
   /**
    * <p>The user-defined attributes that are assigned to the finding.</p>
    */
-  userAttributes: Array<Attribute> | undefined;
+  userAttributes: Attribute[] | undefined;
 }
 
 export namespace Finding {
@@ -1496,20 +1496,20 @@ export interface FindingFilter {
    * <p>For a record to match a filter, one of the values that is specified for this data
    *          type property must be the exact match of the value of the <b>agentId</b> property of the <a>Finding</a> data type.</p>
    */
-  agentIds?: Array<string>;
+  agentIds?: string[];
 
   /**
    * <p>For a record to match a filter, the list of values that are specified for this data
    *          type property must be contained in the list of values of the <b>attributes</b> property of the <a>Finding</a> data type.</p>
    */
-  attributes?: Array<Attribute>;
+  attributes?: Attribute[];
 
   /**
    * <p>For a record to match a filter, one of the values that is specified for this data
    *          type property must be the exact match of the value of the <b>autoScalingGroup</b> property of the <a>Finding</a> data
    *          type.</p>
    */
-  autoScalingGroups?: Array<string>;
+  autoScalingGroups?: string[];
 
   /**
    * <p>The time range during which the finding is generated.</p>
@@ -1520,27 +1520,27 @@ export interface FindingFilter {
    * <p>For a record to match a filter, one of the values that is specified for this data
    *          type property must be the exact match of the value of the <b>ruleName</b> property of the <a>Finding</a> data type.</p>
    */
-  ruleNames?: Array<string>;
+  ruleNames?: string[];
 
   /**
    * <p>For a record to match a filter, one of the values that is specified for this data
    *          type property must be the exact match of the value of the <b>rulesPackageArn</b> property of the <a>Finding</a> data
    *          type.</p>
    */
-  rulesPackageArns?: Array<string>;
+  rulesPackageArns?: string[];
 
   /**
    * <p>For a record to match a filter, one of the values that is specified for this data
    *          type property must be the exact match of the value of the <b>severity</b> property of the <a>Finding</a> data type.</p>
    */
-  severities?: Array<Severity | string>;
+  severities?: (Severity | string)[];
 
   /**
    * <p>For a record to match a filter, the value that is specified for this data type
    *          property must be contained in the list of values of the <b>userAttributes</b> property of the <a>Finding</a> data
    *          type.</p>
    */
-  userAttributes?: Array<Attribute>;
+  userAttributes?: Attribute[];
 }
 
 export namespace FindingFilter {
@@ -1637,7 +1637,7 @@ export interface GetExclusionsPreviewResponse {
   /**
    * <p>Information about the exclusions included in the preview.</p>
    */
-  exclusionPreviews?: Array<ExclusionPreview>;
+  exclusionPreviews?: ExclusionPreview[];
 
   /**
    * <p>When a response is generated, if there is more data to be listed, this parameters is
@@ -1677,7 +1677,7 @@ export interface GetTelemetryMetadataResponse {
   /**
    * <p>Telemetry details.</p>
    */
-  telemetryMetadata: Array<TelemetryMetadata> | undefined;
+  telemetryMetadata: TelemetryMetadata[] | undefined;
 }
 
 export namespace GetTelemetryMetadataResponse {
@@ -1943,7 +1943,7 @@ export interface ListAssessmentRunAgentsResponse {
   /**
    * <p>A list of ARNs that specifies the agents returned by the action.</p>
    */
-  assessmentRunAgents: Array<AssessmentRunAgent> | undefined;
+  assessmentRunAgents: AssessmentRunAgent[] | undefined;
 
   /**
    * <p> When a response is generated, if there is more data to be listed, this parameter is
@@ -1964,7 +1964,7 @@ export interface ListAssessmentRunsRequest {
    * <p>The ARNs that specify the assessment templates whose assessment runs you want to
    *          list.</p>
    */
-  assessmentTemplateArns?: Array<string>;
+  assessmentTemplateArns?: string[];
 
   /**
    * <p>You can use this parameter to specify a subset of data to be included in the action's
@@ -2002,7 +2002,7 @@ export interface ListAssessmentRunsResponse {
    * <p>A list of ARNs that specifies the assessment runs that are returned by the
    *          action.</p>
    */
-  assessmentRunArns: Array<string> | undefined;
+  assessmentRunArns: string[] | undefined;
 
   /**
    * <p> When a response is generated, if there is more data to be listed, this parameter is
@@ -2055,7 +2055,7 @@ export interface ListAssessmentTargetsResponse {
    * <p>A list of ARNs that specifies the assessment targets that are returned by the
    *          action.</p>
    */
-  assessmentTargetArns: Array<string> | undefined;
+  assessmentTargetArns: string[] | undefined;
 
   /**
    * <p> When a response is generated, if there is more data to be listed, this parameter is
@@ -2076,7 +2076,7 @@ export interface ListAssessmentTemplatesRequest {
    * <p>A list of ARNs that specifies the assessment targets whose assessment templates you
    *          want to list.</p>
    */
-  assessmentTargetArns?: Array<string>;
+  assessmentTargetArns?: string[];
 
   /**
    * <p>You can use this parameter to specify a subset of data to be included in the action's
@@ -2114,7 +2114,7 @@ export interface ListAssessmentTemplatesResponse {
    * <p>A list of ARNs that specifies the assessment templates returned by the
    *          action.</p>
    */
-  assessmentTemplateArns: Array<string> | undefined;
+  assessmentTemplateArns: string[] | undefined;
 
   /**
    * <p> When a response is generated, if there is more data to be listed, this parameter is
@@ -2170,7 +2170,7 @@ export interface ListEventSubscriptionsResponse {
   /**
    * <p>Details of the returned event subscriptions.</p>
    */
-  subscriptions: Array<Subscription> | undefined;
+  subscriptions: Subscription[] | undefined;
 }
 
 export namespace ListEventSubscriptionsResponse {
@@ -2211,7 +2211,7 @@ export interface ListExclusionsResponse {
   /**
    * <p>A list of exclusions' ARNs returned by the action.</p>
    */
-  exclusionArns: Array<string> | undefined;
+  exclusionArns: string[] | undefined;
 
   /**
    * <p>When a response is generated, if there is more data to be listed, this parameters is
@@ -2233,7 +2233,7 @@ export interface ListFindingsRequest {
    * <p>The ARNs of the assessment runs that generate the findings that you want to
    *          list.</p>
    */
-  assessmentRunArns?: Array<string>;
+  assessmentRunArns?: string[];
 
   /**
    * <p>You can use this parameter to specify a subset of data to be included in the action's
@@ -2270,7 +2270,7 @@ export interface ListFindingsResponse {
   /**
    * <p>A list of ARNs that specifies the findings returned by the action.</p>
    */
-  findingArns: Array<string> | undefined;
+  findingArns: string[] | undefined;
 
   /**
    * <p> When a response is generated, if there is more data to be listed, this parameter is
@@ -2320,7 +2320,7 @@ export interface ListRulesPackagesResponse {
   /**
    * <p>The list of ARNs that specifies the rules packages returned by the action.</p>
    */
-  rulesPackageArns: Array<string> | undefined;
+  rulesPackageArns: string[] | undefined;
 }
 
 export namespace ListRulesPackagesResponse {
@@ -2346,7 +2346,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>A collection of key and value pairs.</p>
    */
-  tags: Array<Tag> | undefined;
+  tags: Tag[] | undefined;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -2368,7 +2368,7 @@ export interface NetworkInterface {
   /**
    * <p>The IP addresses associated with the network interface.</p>
    */
-  ipv6Addresses?: Array<string>;
+  ipv6Addresses?: string[];
 
   /**
    * <p>The ID of the network interface.</p>
@@ -2389,7 +2389,7 @@ export interface NetworkInterface {
    * <p>A list of the private IP addresses associated with the network interface. Includes
    *          the privateDnsName and privateIpAddress.</p>
    */
-  privateIpAddresses?: Array<PrivateIp>;
+  privateIpAddresses?: PrivateIp[];
 
   /**
    * <p>The name of a public DNS associated with the network interface.</p>
@@ -2405,7 +2405,7 @@ export interface NetworkInterface {
    * <p>A list of the security groups associated with the network interface. Includes the
    *          groupId and groupName.</p>
    */
-  securityGroups?: Array<SecurityGroup>;
+  securityGroups?: SecurityGroup[];
 
   /**
    * <p>The ID of a subnet associated with the network interface.</p>
@@ -2497,7 +2497,7 @@ export interface PreviewAgentsResponse {
   /**
    * <p>The resulting list of agents.</p>
    */
-  agentPreviews: Array<AgentPreview> | undefined;
+  agentPreviews: AgentPreview[] | undefined;
 
   /**
    * <p> When a response is generated, if there is more data to be listed, this parameter is
@@ -2576,12 +2576,12 @@ export interface RemoveAttributesFromFindingsRequest {
    * <p>The array of attribute keys that you want to remove from specified
    *          findings.</p>
    */
-  attributeKeys: Array<string> | undefined;
+  attributeKeys: string[] | undefined;
 
   /**
    * <p>The ARNs that specify the findings that you want to remove attributes from.</p>
    */
-  findingArns: Array<string> | undefined;
+  findingArns: string[] | undefined;
 }
 
 export namespace RemoveAttributesFromFindingsRequest {
@@ -2641,7 +2641,7 @@ export interface ResourceGroup {
    * <p>The tags (key and value pairs) of the resource group. This data type property is used
    *          in the <a>CreateResourceGroup</a> action.</p>
    */
-  tags: Array<ResourceGroupTag> | undefined;
+  tags: ResourceGroupTag[] | undefined;
 }
 
 export namespace ResourceGroup {
@@ -2789,7 +2789,7 @@ export interface SetTagsForResourceRequest {
    * <p>A collection of key and value pairs that you want to set to the assessment
    *          template.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace SetTagsForResourceRequest {
@@ -2896,7 +2896,7 @@ export interface Subscription {
   /**
    * <p>The list of existing event subscriptions.</p>
    */
-  eventSubscriptions: Array<EventSubscription> | undefined;
+  eventSubscriptions: EventSubscription[] | undefined;
 
   /**
    * <p>The ARN of the assessment template that is used during the event for which the SNS

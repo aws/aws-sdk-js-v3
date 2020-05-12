@@ -70,14 +70,14 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_json1_0GetAutoScalingGroupRecommendationsCommand(
+export const serializeAws_json1_0GetAutoScalingGroupRecommendationsCommand = async (
   input: GetAutoScalingGroupRecommendationsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] =
-    "ComputeOptimizerService.GetAutoScalingGroupRecommendations";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "ComputeOptimizerService.GetAutoScalingGroupRecommendations"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0GetAutoScalingGroupRecommendationsRequest(
@@ -86,31 +86,32 @@ export async function serializeAws_json1_0GetAutoScalingGroupRecommendationsComm
     )
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0GetEC2InstanceRecommendationsCommand(
+export const serializeAws_json1_0GetEC2InstanceRecommendationsCommand = async (
   input: GetEC2InstanceRecommendationsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] =
-    "ComputeOptimizerService.GetEC2InstanceRecommendations";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "ComputeOptimizerService.GetEC2InstanceRecommendations"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0GetEC2InstanceRecommendationsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0GetEC2RecommendationProjectedMetricsCommand(
+export const serializeAws_json1_0GetEC2RecommendationProjectedMetricsCommand = async (
   input: GetEC2RecommendationProjectedMetricsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] =
-    "ComputeOptimizerService.GetEC2RecommendationProjectedMetrics";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target":
+      "ComputeOptimizerService.GetEC2RecommendationProjectedMetrics"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0GetEC2RecommendationProjectedMetricsRequest(
@@ -119,55 +120,57 @@ export async function serializeAws_json1_0GetEC2RecommendationProjectedMetricsCo
     )
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0GetEnrollmentStatusCommand(
+export const serializeAws_json1_0GetEnrollmentStatusCommand = async (
   input: GetEnrollmentStatusCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "ComputeOptimizerService.GetEnrollmentStatus";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "ComputeOptimizerService.GetEnrollmentStatus"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0GetEnrollmentStatusRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0GetRecommendationSummariesCommand(
+export const serializeAws_json1_0GetRecommendationSummariesCommand = async (
   input: GetRecommendationSummariesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] =
-    "ComputeOptimizerService.GetRecommendationSummaries";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "ComputeOptimizerService.GetRecommendationSummaries"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0GetRecommendationSummariesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0UpdateEnrollmentStatusCommand(
+export const serializeAws_json1_0UpdateEnrollmentStatusCommand = async (
   input: UpdateEnrollmentStatusCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "ComputeOptimizerService.UpdateEnrollmentStatus";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "ComputeOptimizerService.UpdateEnrollmentStatus"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0UpdateEnrollmentStatusRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_0GetAutoScalingGroupRecommendationsCommand(
+export const deserializeAws_json1_0GetAutoScalingGroupRecommendationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetAutoScalingGroupRecommendationsCommandOutput> {
+): Promise<GetAutoScalingGroupRecommendationsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0GetAutoScalingGroupRecommendationsCommandError(
       output,
@@ -186,12 +189,12 @@ export async function deserializeAws_json1_0GetAutoScalingGroupRecommendationsCo
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0GetAutoScalingGroupRecommendationsCommandError(
+const deserializeAws_json1_0GetAutoScalingGroupRecommendationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetAutoScalingGroupRecommendationsCommandOutput> {
+): Promise<GetAutoScalingGroupRecommendationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -305,12 +308,12 @@ async function deserializeAws_json1_0GetAutoScalingGroupRecommendationsCommandEr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0GetEC2InstanceRecommendationsCommand(
+export const deserializeAws_json1_0GetEC2InstanceRecommendationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetEC2InstanceRecommendationsCommandOutput> {
+): Promise<GetEC2InstanceRecommendationsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0GetEC2InstanceRecommendationsCommandError(
       output,
@@ -329,12 +332,12 @@ export async function deserializeAws_json1_0GetEC2InstanceRecommendationsCommand
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0GetEC2InstanceRecommendationsCommandError(
+const deserializeAws_json1_0GetEC2InstanceRecommendationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetEC2InstanceRecommendationsCommandOutput> {
+): Promise<GetEC2InstanceRecommendationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -448,12 +451,12 @@ async function deserializeAws_json1_0GetEC2InstanceRecommendationsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0GetEC2RecommendationProjectedMetricsCommand(
+export const deserializeAws_json1_0GetEC2RecommendationProjectedMetricsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetEC2RecommendationProjectedMetricsCommandOutput> {
+): Promise<GetEC2RecommendationProjectedMetricsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0GetEC2RecommendationProjectedMetricsCommandError(
       output,
@@ -472,12 +475,12 @@ export async function deserializeAws_json1_0GetEC2RecommendationProjectedMetrics
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0GetEC2RecommendationProjectedMetricsCommandError(
+const deserializeAws_json1_0GetEC2RecommendationProjectedMetricsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetEC2RecommendationProjectedMetricsCommandOutput> {
+): Promise<GetEC2RecommendationProjectedMetricsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -591,12 +594,12 @@ async function deserializeAws_json1_0GetEC2RecommendationProjectedMetricsCommand
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0GetEnrollmentStatusCommand(
+export const deserializeAws_json1_0GetEnrollmentStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetEnrollmentStatusCommandOutput> {
+): Promise<GetEnrollmentStatusCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0GetEnrollmentStatusCommandError(
       output,
@@ -612,12 +615,12 @@ export async function deserializeAws_json1_0GetEnrollmentStatusCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0GetEnrollmentStatusCommandError(
+const deserializeAws_json1_0GetEnrollmentStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetEnrollmentStatusCommandOutput> {
+): Promise<GetEnrollmentStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -709,12 +712,12 @@ async function deserializeAws_json1_0GetEnrollmentStatusCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0GetRecommendationSummariesCommand(
+export const deserializeAws_json1_0GetRecommendationSummariesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetRecommendationSummariesCommandOutput> {
+): Promise<GetRecommendationSummariesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0GetRecommendationSummariesCommandError(
       output,
@@ -733,12 +736,12 @@ export async function deserializeAws_json1_0GetRecommendationSummariesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0GetRecommendationSummariesCommandError(
+const deserializeAws_json1_0GetRecommendationSummariesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetRecommendationSummariesCommandOutput> {
+): Promise<GetRecommendationSummariesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -841,12 +844,12 @@ async function deserializeAws_json1_0GetRecommendationSummariesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0UpdateEnrollmentStatusCommand(
+export const deserializeAws_json1_0UpdateEnrollmentStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateEnrollmentStatusCommandOutput> {
+): Promise<UpdateEnrollmentStatusCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0UpdateEnrollmentStatusCommandError(
       output,
@@ -865,12 +868,12 @@ export async function deserializeAws_json1_0UpdateEnrollmentStatusCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0UpdateEnrollmentStatusCommandError(
+const deserializeAws_json1_0UpdateEnrollmentStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateEnrollmentStatusCommandOutput> {
+): Promise<UpdateEnrollmentStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -962,7 +965,7 @@ async function deserializeAws_json1_0UpdateEnrollmentStatusCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_0AccessDeniedExceptionResponse = async (
   parsedOutput: any,
@@ -1109,25 +1112,17 @@ const deserializeAws_json1_0ThrottlingExceptionResponse = async (
 };
 
 const serializeAws_json1_0AccountIds = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_0AutoScalingGroupArns = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_0Filter = (
@@ -1148,25 +1143,17 @@ const serializeAws_json1_0Filter = (
 };
 
 const serializeAws_json1_0FilterValues = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_0Filters = (
-  input: Array<Filter>,
+  input: Filter[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_0Filter(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_0Filter(entry, context));
 };
 
 const serializeAws_json1_0GetAutoScalingGroupRecommendationsRequest = (
@@ -1281,14 +1268,10 @@ const serializeAws_json1_0GetRecommendationSummariesRequest = (
 };
 
 const serializeAws_json1_0InstanceArns = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_0UpdateEnrollmentStatusRequest = (
@@ -1461,7 +1444,7 @@ const deserializeAws_json1_0AutoScalingGroupRecommendationOption = (
 const deserializeAws_json1_0AutoScalingGroupRecommendationOptions = (
   output: any,
   context: __SerdeContext
-): Array<AutoScalingGroupRecommendationOption> => {
+): AutoScalingGroupRecommendationOption[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0AutoScalingGroupRecommendationOption(entry, context)
   );
@@ -1470,7 +1453,7 @@ const deserializeAws_json1_0AutoScalingGroupRecommendationOptions = (
 const deserializeAws_json1_0AutoScalingGroupRecommendations = (
   output: any,
   context: __SerdeContext
-): Array<AutoScalingGroupRecommendation> => {
+): AutoScalingGroupRecommendation[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0AutoScalingGroupRecommendation(entry, context)
   );
@@ -1608,7 +1591,7 @@ const deserializeAws_json1_0GetRecommendationError = (
 const deserializeAws_json1_0GetRecommendationErrors = (
   output: any,
   context: __SerdeContext
-): Array<GetRecommendationError> => {
+): GetRecommendationError[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0GetRecommendationError(entry, context)
   );
@@ -1752,7 +1735,7 @@ const deserializeAws_json1_0InstanceRecommendationOption = (
 const deserializeAws_json1_0InstanceRecommendations = (
   output: any,
   context: __SerdeContext
-): Array<InstanceRecommendation> => {
+): InstanceRecommendation[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0InstanceRecommendation(entry, context)
   );
@@ -1789,7 +1772,7 @@ const deserializeAws_json1_0InvalidParameterValueException = (
 const deserializeAws_json1_0MetricValues = (
   output: any,
   context: __SerdeContext
-): Array<number> => {
+): number[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -1852,7 +1835,7 @@ const deserializeAws_json1_0ProjectedMetric = (
 const deserializeAws_json1_0ProjectedMetrics = (
   output: any,
   context: __SerdeContext
-): Array<ProjectedMetric> => {
+): ProjectedMetric[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0ProjectedMetric(entry, context)
   );
@@ -1861,7 +1844,7 @@ const deserializeAws_json1_0ProjectedMetrics = (
 const deserializeAws_json1_0ProjectedUtilizationMetrics = (
   output: any,
   context: __SerdeContext
-): Array<UtilizationMetric> => {
+): UtilizationMetric[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0UtilizationMetric(entry, context)
   );
@@ -1870,7 +1853,7 @@ const deserializeAws_json1_0ProjectedUtilizationMetrics = (
 const deserializeAws_json1_0RecommendationOptions = (
   output: any,
   context: __SerdeContext
-): Array<InstanceRecommendationOption> => {
+): InstanceRecommendationOption[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0InstanceRecommendationOption(entry, context)
   );
@@ -1903,7 +1886,7 @@ const deserializeAws_json1_0RecommendationSource = (
 const deserializeAws_json1_0RecommendationSources = (
   output: any,
   context: __SerdeContext
-): Array<RecommendationSource> => {
+): RecommendationSource[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0RecommendationSource(entry, context)
   );
@@ -1912,7 +1895,7 @@ const deserializeAws_json1_0RecommendationSources = (
 const deserializeAws_json1_0RecommendationSummaries = (
   output: any,
   context: __SerdeContext
-): Array<RecommendationSummary> => {
+): RecommendationSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0RecommendationSummary(entry, context)
   );
@@ -1980,7 +1963,7 @@ const deserializeAws_json1_0RecommendedOptionProjectedMetric = (
 const deserializeAws_json1_0RecommendedOptionProjectedMetrics = (
   output: any,
   context: __SerdeContext
-): Array<RecommendedOptionProjectedMetric> => {
+): RecommendedOptionProjectedMetric[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0RecommendedOptionProjectedMetric(entry, context)
   );
@@ -2017,7 +2000,7 @@ const deserializeAws_json1_0ServiceUnavailableException = (
 const deserializeAws_json1_0Summaries = (
   output: any,
   context: __SerdeContext
-): Array<Summary> => {
+): Summary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0Summary(entry, context)
   );
@@ -2058,7 +2041,7 @@ const deserializeAws_json1_0ThrottlingException = (
 const deserializeAws_json1_0Timestamps = (
   output: any,
   context: __SerdeContext
-): Array<Date> => {
+): Date[] => {
   return (output || []).map((entry: any) => new Date(Math.round(entry * 1000)));
 };
 
@@ -2105,7 +2088,7 @@ const deserializeAws_json1_0UtilizationMetric = (
 const deserializeAws_json1_0UtilizationMetrics = (
   output: any,
   context: __SerdeContext
-): Array<UtilizationMetric> => {
+): UtilizationMetric[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0UtilizationMetric(entry, context)
   );
@@ -2119,7 +2102,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -2134,11 +2117,8 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
@@ -2165,11 +2145,10 @@ const buildHttpRpcRequest = async (
   return new __HttpRequest(contents);
 };
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};

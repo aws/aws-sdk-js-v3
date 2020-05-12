@@ -419,7 +419,7 @@ export interface GetSessionResponse {
    *          <p>If you set the <code>checkpointLabelFilter</code> parameter in the request, the array
    *       contains only the intents with the specified label.</p>
    */
-  recentIntentSummaryView?: Array<IntentSummary>;
+  recentIntentSummaryView?: IntentSummary[];
 
   /**
    * <p>Map of key/value pairs representing the session-specific context information. It contains
@@ -1219,7 +1219,7 @@ export interface PutSessionRequest {
    *       summary view and you call <code>PutSession</code> with one intent in the summary view, the
    *       next call to <code>GetSession</code> will only return one intent.</p>
    */
-  recentIntentSummaryView?: Array<IntentSummary>;
+  recentIntentSummaryView?: IntentSummary[];
 
   /**
    * <p>Map of key/value pairs representing the session-specific context information. It contains
@@ -1421,7 +1421,7 @@ export interface GenericAttachment {
   /**
    * <p>The list of options to show to the user.</p>
    */
-  buttons?: Array<Button>;
+  buttons?: Button[];
 
   /**
    * <p>The URL of an image that is displayed to the user.</p>
@@ -1460,7 +1460,7 @@ export interface ResponseCard {
   /**
    * <p>An array of attachment objects representing options.</p>
    */
-  genericAttachments?: Array<GenericAttachment>;
+  genericAttachments?: GenericAttachment[];
 
   /**
    * <p>The version of the response card format.</p>

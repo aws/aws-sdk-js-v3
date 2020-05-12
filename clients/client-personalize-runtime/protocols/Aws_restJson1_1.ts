@@ -23,12 +23,13 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_restJson1_1GetPersonalizedRankingCommand(
+export const serializeAws_restJson1_1GetPersonalizedRankingCommand = async (
   input: GetPersonalizedRankingCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/personalize-ranking";
   let body: any;
   const bodyParams: any = {};
@@ -61,14 +62,15 @@ export async function serializeAws_restJson1_1GetPersonalizedRankingCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetRecommendationsCommand(
+export const serializeAws_restJson1_1GetRecommendationsCommand = async (
   input: GetRecommendationsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/recommendations";
   let body: any;
   const bodyParams: any = {};
@@ -101,12 +103,12 @@ export async function serializeAws_restJson1_1GetRecommendationsCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1GetPersonalizedRankingCommand(
+export const deserializeAws_restJson1_1GetPersonalizedRankingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetPersonalizedRankingCommandOutput> {
+): Promise<GetPersonalizedRankingCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetPersonalizedRankingCommandError(
       output,
@@ -129,12 +131,12 @@ export async function deserializeAws_restJson1_1GetPersonalizedRankingCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetPersonalizedRankingCommandError(
+const deserializeAws_restJson1_1GetPersonalizedRankingCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetPersonalizedRankingCommandOutput> {
+): Promise<GetPersonalizedRankingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -180,12 +182,12 @@ async function deserializeAws_restJson1_1GetPersonalizedRankingCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetRecommendationsCommand(
+export const deserializeAws_restJson1_1GetRecommendationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetRecommendationsCommandOutput> {
+): Promise<GetRecommendationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetRecommendationsCommandError(
       output,
@@ -205,12 +207,12 @@ export async function deserializeAws_restJson1_1GetRecommendationsCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetRecommendationsCommandError(
+const deserializeAws_restJson1_1GetRecommendationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetRecommendationsCommandOutput> {
+): Promise<GetRecommendationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -256,7 +258,7 @@ async function deserializeAws_restJson1_1GetRecommendationsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1InvalidInputExceptionResponse = async (
   parsedOutput: any,
@@ -296,28 +298,23 @@ const serializeAws_restJson1_1Context = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = input[key];
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = input[key];
+    return acc;
+  }, {});
 };
 
 const serializeAws_restJson1_1InputList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const deserializeAws_restJson1_1ItemList = (
   output: any,
   context: __SerdeContext
-): Array<PredictedItem> => {
+): PredictedItem[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1PredictedItem(entry, context)
   );
@@ -345,7 +342,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -360,30 +357,23 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
-function isSerializableHeaderValue(value: any): boolean {
-  return (
-    value !== undefined &&
-    value !== "" &&
-    (!Object.getOwnPropertyNames(value).includes("length") ||
-      value.length != 0) &&
-    (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0)
-  );
-}
+const isSerializableHeaderValue = (value: any): boolean =>
+  value !== undefined &&
+  value !== "" &&
+  (!Object.getOwnPropertyNames(value).includes("length") ||
+    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};
 
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.

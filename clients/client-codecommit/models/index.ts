@@ -496,7 +496,7 @@ export interface BatchAssociateApprovalRuleTemplateWithRepositoriesInput {
    *             <p>The length constraint limit is for each string in the array. The array itself can be empty.</p>
    *          </note>
    */
-  repositoryNames: Array<string> | undefined;
+  repositoryNames: string[] | undefined;
 }
 
 export namespace BatchAssociateApprovalRuleTemplateWithRepositoriesInput {
@@ -511,14 +511,12 @@ export interface BatchAssociateApprovalRuleTemplateWithRepositoriesOutput {
   /**
    * <p>A list of names of the repositories that have been associated with the template.</p>
    */
-  associatedRepositoryNames: Array<string> | undefined;
+  associatedRepositoryNames: string[] | undefined;
 
   /**
    * <p>A list of any errors that might have occurred while attempting to create the association between the template and the repositories.</p>
    */
-  errors:
-    | Array<BatchAssociateApprovalRuleTemplateWithRepositoriesError>
-    | undefined;
+  errors: BatchAssociateApprovalRuleTemplateWithRepositoriesError[] | undefined;
 }
 
 export namespace BatchAssociateApprovalRuleTemplateWithRepositoriesOutput {
@@ -580,7 +578,7 @@ export interface BatchDescribeMergeConflictsInput {
   /**
    * <p>The path of the target files used to describe the conflicts. If not specified, the default is all conflict files.</p>
    */
-  filePaths?: Array<string>;
+  filePaths?: string[];
 
   /**
    * <p>The maximum number of files to include in the output.</p>
@@ -630,7 +628,7 @@ export interface BatchDescribeMergeConflictsOutput {
   /**
    * <p>A list of conflicts for each file, including the conflict metadata and the hunks of the differences between the files.</p>
    */
-  conflicts: Array<Conflict> | undefined;
+  conflicts: Conflict[] | undefined;
 
   /**
    * <p>The commit ID of the destination commit specifier that was used in the merge evaluation.</p>
@@ -640,7 +638,7 @@ export interface BatchDescribeMergeConflictsOutput {
   /**
    * <p>A list of any errors returned while describing the merge conflicts for each file.</p>
    */
-  errors?: Array<BatchDescribeMergeConflictsError>;
+  errors?: BatchDescribeMergeConflictsError[];
 
   /**
    * <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
@@ -701,7 +699,7 @@ export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesInput {
    *             <p>The length constraint limit is for each string in the array. The array itself can be empty.</p>
    *          </note>
    */
-  repositoryNames: Array<string> | undefined;
+  repositoryNames: string[] | undefined;
 }
 
 export namespace BatchDisassociateApprovalRuleTemplateFromRepositoriesInput {
@@ -717,13 +715,13 @@ export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput {
    * <p>A list of repository names that have had their association with the template
    *             removed.</p>
    */
-  disassociatedRepositoryNames: Array<string> | undefined;
+  disassociatedRepositoryNames: string[] | undefined;
 
   /**
    * <p>A list of any errors that might have occurred while attempting to remove the association between the template and the repositories.</p>
    */
   errors:
-    | Array<BatchDisassociateApprovalRuleTemplateFromRepositoriesError>
+    | BatchDisassociateApprovalRuleTemplateFromRepositoriesError[]
     | undefined;
 }
 
@@ -769,7 +767,7 @@ export interface BatchGetCommitsInput {
    *                 IDs.</p>
    *         </note>
    */
-  commitIds: Array<string> | undefined;
+  commitIds: string[] | undefined;
 
   /**
    * <p>The name of the repository that contains the commits.</p>
@@ -787,14 +785,14 @@ export interface BatchGetCommitsOutput {
   /**
    * <p>An array of commit data type objects, each of which contains information about a specified commit.</p>
    */
-  commits?: Array<Commit>;
+  commits?: Commit[];
 
   /**
    * <p>Returns any commit IDs for which information could not be found. For example, if one
    *             of the commit IDs was a shortened SHA ID or that commit was not found in the specified
    *             repository, the ID returns an error object with more information.</p>
    */
-  errors?: Array<BatchGetCommitsError>;
+  errors?: BatchGetCommitsError[];
 }
 
 export namespace BatchGetCommitsOutput {
@@ -813,7 +811,7 @@ export interface BatchGetRepositoriesInput {
    *             <p>The length constraint limit is for each string in the array. The array itself can be empty.</p>
    *          </note>
    */
-  repositoryNames: Array<string> | undefined;
+  repositoryNames: string[] | undefined;
 }
 
 export namespace BatchGetRepositoriesInput {
@@ -829,12 +827,12 @@ export interface BatchGetRepositoriesOutput {
   /**
    * <p>A list of repositories returned by the batch get repositories operation.</p>
    */
-  repositories?: Array<RepositoryMetadata>;
+  repositories?: RepositoryMetadata[];
 
   /**
    * <p>Returns a list of repository names for which information could not be found.</p>
    */
-  repositoriesNotFound?: Array<string>;
+  repositoriesNotFound?: string[];
 }
 
 export namespace BatchGetRepositoriesOutput {
@@ -1312,7 +1310,7 @@ export interface CommentsForComparedCommit {
    * <p>An array of comment objects. Each comment object contains information about a comment on the comparison
    *          between commits.</p>
    */
-  comments?: Array<Comment>;
+  comments?: Comment[];
 
   /**
    * <p>Location information about the comment on the comparison, including the file name,
@@ -1363,7 +1361,7 @@ export interface CommentsForPullRequest {
   /**
    * <p>An array of comment objects. Each comment object contains information about a comment on the pull request.</p>
    */
-  comments?: Array<Comment>;
+  comments?: Comment[];
 
   /**
    * <p>Location information about the comment on the pull request, including the file name,
@@ -1428,7 +1426,7 @@ export interface Commit {
   /**
    * <p>A list of parent commits for the specified commit. Each parent commit ID is the full commit ID.</p>
    */
-  parents?: Array<string>;
+  parents?: string[];
 
   /**
    * <p>Tree information for the specified commit.</p>
@@ -1605,7 +1603,7 @@ export interface Conflict {
   /**
    * <p>A list of hunks that contain the differences between files or lines causing the conflict.</p>
    */
-  mergeHunks?: Array<MergeHunk>;
+  mergeHunks?: MergeHunk[];
 }
 
 export namespace Conflict {
@@ -1687,17 +1685,17 @@ export interface ConflictResolution {
   /**
    * <p>Files to be deleted as part of the merge conflict resolution.</p>
    */
-  deleteFiles?: Array<DeleteFileEntry>;
+  deleteFiles?: DeleteFileEntry[];
 
   /**
    * <p>Files to have content replaced as part of the merge conflict resolution.</p>
    */
-  replaceContents?: Array<ReplaceContentEntry>;
+  replaceContents?: ReplaceContentEntry[];
 
   /**
    * <p>File modes that are set as part of the merge conflict resolution.</p>
    */
-  setFileModes?: Array<SetFileModeEntry>;
+  setFileModes?: SetFileModeEntry[];
 }
 
 export namespace ConflictResolution {
@@ -1843,7 +1841,7 @@ export interface CreateCommitInput {
   /**
    * <p>The files to delete in this commit. These files still exist in earlier commits.</p>
    */
-  deleteFiles?: Array<DeleteFileEntry>;
+  deleteFiles?: DeleteFileEntry[];
 
   /**
    * <p>The email address of the person who created the commit.</p>
@@ -1866,7 +1864,7 @@ export interface CreateCommitInput {
   /**
    * <p>The files to add or update in this commit.</p>
    */
-  putFiles?: Array<PutFileEntry>;
+  putFiles?: PutFileEntry[];
 
   /**
    * <p>The name of the repository where you create the commit.</p>
@@ -1876,7 +1874,7 @@ export interface CreateCommitInput {
   /**
    * <p>The file modes to update for files in this commit.</p>
    */
-  setFileModes?: Array<SetFileModeEntry>;
+  setFileModes?: SetFileModeEntry[];
 }
 
 export namespace CreateCommitInput {
@@ -1894,17 +1892,17 @@ export interface CreateCommitOutput {
   /**
    * <p>The files added as part of the committed file changes.</p>
    */
-  filesAdded?: Array<FileMetadata>;
+  filesAdded?: FileMetadata[];
 
   /**
    * <p>The files deleted as part of the committed file changes.</p>
    */
-  filesDeleted?: Array<FileMetadata>;
+  filesDeleted?: FileMetadata[];
 
   /**
    * <p>The files updated as part of the commited file changes.</p>
    */
-  filesUpdated?: Array<FileMetadata>;
+  filesUpdated?: FileMetadata[];
 
   /**
    * <p>The full SHA-1 pointer of the tree information for the commit that contains the commited file changes.</p>
@@ -2019,7 +2017,7 @@ export interface CreatePullRequestInput {
    *             source branch) and the destination where the creator of the pull request intends the
    *             code to be merged after the pull request is closed (the destination branch).</p>
    */
-  targets: Array<Target> | undefined;
+  targets: Target[] | undefined;
 
   /**
    * <p>The title of the pull request. This title is used to identify the pull request to
@@ -2556,7 +2554,7 @@ export interface DescribeMergeConflictsOutput {
   /**
    * <p>A list of merge hunks of the differences between the files or lines.</p>
    */
-  mergeHunks: Array<MergeHunk> | undefined;
+  mergeHunks: MergeHunk[] | undefined;
 
   /**
    * <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
@@ -2621,7 +2619,7 @@ export interface DescribePullRequestEventsOutput {
   /**
    * <p>Information about the pull request events.</p>
    */
-  pullRequestEvents: Array<PullRequestEvent> | undefined;
+  pullRequestEvents: PullRequestEvent[] | undefined;
 }
 
 export namespace DescribePullRequestEventsOutput {
@@ -2835,12 +2833,12 @@ export interface Evaluation {
   /**
    * <p>The names of the approval rules that have not had their conditions met.</p>
    */
-  approvalRulesNotSatisfied?: Array<string>;
+  approvalRulesNotSatisfied?: string[];
 
   /**
    * <p>The names of the approval rules that have had their conditions met.</p>
    */
-  approvalRulesSatisfied?: Array<string>;
+  approvalRulesSatisfied?: string[];
 
   /**
    * <p>Whether the state of the pull request is approved.</p>
@@ -3387,7 +3385,7 @@ export interface GetCommentsForComparedCommitOutput {
   /**
    * <p>A list of comment objects on the compared commit.</p>
    */
-  commentsForComparedCommitData?: Array<CommentsForComparedCommit>;
+  commentsForComparedCommitData?: CommentsForComparedCommit[];
 
   /**
    * <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
@@ -3445,7 +3443,7 @@ export interface GetCommentsForPullRequestOutput {
   /**
    * <p>An array of comment objects on the pull request.</p>
    */
-  commentsForPullRequestData?: Array<CommentsForPullRequest>;
+  commentsForPullRequestData?: CommentsForPullRequest[];
 
   /**
    * <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
@@ -3559,7 +3557,7 @@ export interface GetDifferencesOutput {
    * <p>A data type object that contains information about the differences, including whether
    *             the difference is added, modified, or deleted (A, D, M).</p>
    */
-  differences?: Array<Difference>;
+  differences?: Difference[];
 }
 
 export namespace GetDifferencesOutput {
@@ -3675,7 +3673,7 @@ export interface GetFolderOutput {
   /**
    * <p>The list of files in the specified folder, if any.</p>
    */
-  files?: Array<File>;
+  files?: File[];
 
   /**
    * <p>The fully qualified path of the folder whose contents are returned.</p>
@@ -3685,18 +3683,18 @@ export interface GetFolderOutput {
   /**
    * <p>The list of folders that exist under the specified folder, if any.</p>
    */
-  subFolders?: Array<Folder>;
+  subFolders?: Folder[];
 
   /**
    * <p>The list of submodules in the specified folder, if any.</p>
    */
-  subModules?: Array<SubModule>;
+  subModules?: SubModule[];
 
   /**
    * <p>The list of symbolic links to other files and folders in the specified folder, if
    *             any.</p>
    */
-  symbolicLinks?: Array<SymbolicLink>;
+  symbolicLinks?: SymbolicLink[];
 
   /**
    * <p>The full SHA-1 pointer of the tree information for the commit that contains the folder.</p>
@@ -3846,7 +3844,7 @@ export interface GetMergeConflictsOutput {
    * <p>A list of metadata for any conflicting files. If the specified merge strategy is
    *             FAST_FORWARD_MERGE, this list is always empty.</p>
    */
-  conflictMetadataList: Array<ConflictMetadata> | undefined;
+  conflictMetadataList: ConflictMetadata[] | undefined;
 
   /**
    * <p>The commit ID of the destination commit specifier that was used in the merge evaluation.</p>
@@ -3929,7 +3927,7 @@ export interface GetMergeOptionsOutput {
   /**
    * <p>The merge option or strategy used to merge the code.</p>
    */
-  mergeOptions: Array<MergeOptionTypeEnum | string> | undefined;
+  mergeOptions: (MergeOptionTypeEnum | string)[] | undefined;
 
   /**
    * <p>The commit ID of the source commit specifier that was used in the merge evaluation.</p>
@@ -3965,7 +3963,7 @@ export interface GetPullRequestApprovalStatesOutput {
   /**
    * <p>Information about users who have approved the pull request.</p>
    */
-  approvals?: Array<Approval>;
+  approvals?: Approval[];
 }
 
 export namespace GetPullRequestApprovalStatesOutput {
@@ -4098,7 +4096,7 @@ export interface GetRepositoryTriggersOutput {
   /**
    * <p>The JSON block of configuration information for each trigger.</p>
    */
-  triggers?: Array<RepositoryTrigger>;
+  triggers?: RepositoryTrigger[];
 }
 
 export namespace GetRepositoryTriggersOutput {
@@ -5372,7 +5370,7 @@ export interface ListApprovalRuleTemplatesOutput {
   /**
    * <p>The names of all the approval rule templates found in the AWS Region for your AWS account.</p>
    */
-  approvalRuleTemplateNames?: Array<string>;
+  approvalRuleTemplateNames?: string[];
 
   /**
    * <p>An enumeration token that allows the operation to batch the next results of the operation.</p>
@@ -5416,7 +5414,7 @@ export interface ListAssociatedApprovalRuleTemplatesForRepositoryOutput {
   /**
    * <p>The names of all approval rule templates associated with the repository.</p>
    */
-  approvalRuleTemplateNames?: Array<string>;
+  approvalRuleTemplateNames?: string[];
 
   /**
    * <p>An enumeration token that allows the operation to batch the next results of the operation.</p>
@@ -5460,7 +5458,7 @@ export interface ListBranchesOutput {
   /**
    * <p>The list of branch names.</p>
    */
-  branches?: Array<string>;
+  branches?: string[];
 
   /**
    * <p>An enumeration token that returns the batch of the results.</p>
@@ -5518,7 +5516,7 @@ export interface ListPullRequestsOutput {
   /**
    * <p>The system-generated IDs of the pull requests.</p>
    */
-  pullRequestIds: Array<string> | undefined;
+  pullRequestIds: string[] | undefined;
 }
 
 export namespace ListPullRequestsOutput {
@@ -5562,7 +5560,7 @@ export interface ListRepositoriesForApprovalRuleTemplateOutput {
   /**
    * <p>A list of repository names that are associated with the specified approval rule template.</p>
    */
-  repositoryNames?: Array<string>;
+  repositoryNames?: string[];
 }
 
 export namespace ListRepositoriesForApprovalRuleTemplateOutput {
@@ -5615,7 +5613,7 @@ export interface ListRepositoriesOutput {
   /**
    * <p>Lists the repositories called by the list repositories operation.</p>
    */
-  repositories?: Array<RepositoryNameIdPair>;
+  repositories?: RepositoryNameIdPair[];
 }
 
 export namespace ListRepositoriesOutput {
@@ -7052,7 +7050,7 @@ export interface PullRequest {
   /**
    * <p>The approval rules applied to the pull request.</p>
    */
-  approvalRules?: Array<ApprovalRule>;
+  approvalRules?: ApprovalRule[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the user who created the pull request.</p>
@@ -7095,7 +7093,7 @@ export interface PullRequest {
   /**
    * <p>The targets of the pull request, including the source branch and destination branch for the pull request.</p>
    */
-  pullRequestTargets?: Array<PullRequestTarget>;
+  pullRequestTargets?: PullRequestTarget[];
 
   /**
    * <p>The system-generated revision ID for the pull request.</p>
@@ -7624,7 +7622,7 @@ export interface PutRepositoryTriggersInput {
   /**
    * <p>The JSON block of configuration information for each trigger.</p>
    */
-  triggers: Array<RepositoryTrigger> | undefined;
+  triggers: RepositoryTrigger[] | undefined;
 }
 
 export namespace PutRepositoryTriggersInput {
@@ -7996,7 +7994,7 @@ export interface RepositoryTrigger {
    *             <p>Although no content is required in the array, you must include the array itself.</p>
    *         </note>
    */
-  branches?: Array<string>;
+  branches?: string[];
 
   /**
    * <p>Any custom data associated with the trigger to be included in the information sent to
@@ -8019,7 +8017,7 @@ export interface RepositoryTrigger {
    *             <p>The valid value "all" cannot be used with any other values.</p>
    *          </note>
    */
-  events: Array<RepositoryTriggerEventEnum | string> | undefined;
+  events: (RepositoryTriggerEventEnum | string)[] | undefined;
 
   /**
    * <p>The name of the trigger.</p>
@@ -8573,7 +8571,7 @@ export interface TestRepositoryTriggersInput {
   /**
    * <p>The list of triggers to test.</p>
    */
-  triggers: Array<RepositoryTrigger> | undefined;
+  triggers: RepositoryTrigger[] | undefined;
 }
 
 export namespace TestRepositoryTriggersInput {
@@ -8590,12 +8588,12 @@ export interface TestRepositoryTriggersOutput {
    * <p>The list of triggers that were not tested. This list provides the names of the
    *             triggers that could not be tested, separated by commas.</p>
    */
-  failedExecutions?: Array<RepositoryTriggerExecutionFailure>;
+  failedExecutions?: RepositoryTriggerExecutionFailure[];
 
   /**
    * <p>The list of triggers that were successfully tested. This list provides the names of the triggers that were successfully tested, separated by commas.</p>
    */
-  successfulExecutions?: Array<string>;
+  successfulExecutions?: string[];
 }
 
 export namespace TestRepositoryTriggersOutput {
@@ -8691,7 +8689,7 @@ export interface UntagResourceInput {
   /**
    * <p>The tag key for each tag that you want to remove from the resource.</p>
    */
-  tagKeys: Array<string> | undefined;
+  tagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceInput {

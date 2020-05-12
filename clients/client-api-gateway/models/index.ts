@@ -91,7 +91,7 @@ export interface Account {
   /**
    * <p>A list of features supported for the account. When usage plans are enabled, the features list will include an entry of <code>"UsagePlans"</code>.</p>
    */
-  features?: Array<string>;
+  features?: string[];
 
   /**
    * <p>Specifies the API request limits configured for the current <a>Account</a>.</p>
@@ -149,7 +149,7 @@ export interface ApiKey {
   /**
    * <p>A list of <a>Stage</a> resources that are associated with the <a>ApiKey</a> resource.</p>
    */
-  stageKeys?: Array<string>;
+  stageKeys?: string[];
 
   /**
    * <p>The collection of tags. Each tag element is associated with a given resource.</p>
@@ -174,12 +174,12 @@ export interface ApiKeyIds {
   /**
    * <p>A list of all the <a>ApiKey</a> identifiers.</p>
    */
-  ids?: Array<string>;
+  ids?: string[];
 
   /**
    * <p>A list of warning messages.</p>
    */
-  warnings?: Array<string>;
+  warnings?: string[];
 }
 
 export namespace ApiKeyIds {
@@ -202,7 +202,7 @@ export interface ApiKeys {
   /**
    * <p>The current page of elements from this collection.</p>
    */
-  items?: Array<ApiKey>;
+  items?: ApiKey[];
 
   /**
    * <p>The current pagination position in the paged result set.</p>
@@ -212,7 +212,7 @@ export interface ApiKeys {
   /**
    * <p>A list of warning messages logged during the import of API keys when the <code>failOnWarnings</code> option is set to true.</p>
    */
-  warnings?: Array<string>;
+  warnings?: string[];
 }
 
 export namespace ApiKeys {
@@ -300,7 +300,7 @@ export interface Authorizer {
   /**
    * <p>A list of the Amazon Cognito user pool ARNs for the <code>COGNITO_USER_POOLS</code> authorizer. Each element is of this format: <code>arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}</code>. For a <code>TOKEN</code> or <code>REQUEST</code> authorizer, this is not defined. </p>
    */
-  providerARNs?: Array<string>;
+  providerARNs?: string[];
 
   /**
    * <p>The authorizer type. Valid values are <code>TOKEN</code> for a Lambda function using a single authorization token submitted in a custom header, <code>REQUEST</code> for a Lambda function using incoming request parameters, and <code>COGNITO_USER_POOLS</code> for using an Amazon Cognito user pool.</p>
@@ -330,7 +330,7 @@ export interface Authorizers {
   /**
    * <p>The current page of elements from this collection.</p>
    */
-  items?: Array<Authorizer>;
+  items?: Authorizer[];
 
   /**
    * <p>The current pagination position in the paged result set.</p>
@@ -383,7 +383,7 @@ export interface BasePathMappings {
   /**
    * <p>The current page of elements from this collection.</p>
    */
-  items?: Array<BasePathMapping>;
+  items?: BasePathMapping[];
 
   /**
    * <p>The current pagination position in the paged result set.</p>
@@ -502,7 +502,7 @@ export interface ClientCertificates {
   /**
    * <p>The current page of elements from this collection.</p>
    */
-  items?: Array<ClientCertificate>;
+  items?: ClientCertificate[];
 
   /**
    * <p>The current pagination position in the paged result set.</p>
@@ -558,7 +558,7 @@ export interface CreateApiKeyRequest {
   /**
    * <p>DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API key.</p>
    */
-  stageKeys?: Array<StageKey>;
+  stageKeys?: StageKey[];
 
   /**
    * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
@@ -566,7 +566,7 @@ export interface CreateApiKeyRequest {
   tags?: { [key: string]: string };
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
   /**
    * <p>Specifies a value of the API key.</p> <!-- Why is this declared as the input to create an API key? As a form of copying an existing key value into a new API key? -->
@@ -622,7 +622,7 @@ export interface CreateAuthorizerRequest {
   /**
    * <p>A list of the Amazon Cognito user pool ARNs for the <code>COGNITO_USER_POOLS</code> authorizer. Each element is of this format: <code>arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}</code>. For a <code>TOKEN</code> or <code>REQUEST</code> authorizer, this is not defined. </p>
    */
-  providerARNs?: Array<string>;
+  providerARNs?: string[];
 
   /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
@@ -630,7 +630,7 @@ export interface CreateAuthorizerRequest {
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
   /**
    * <p>[Required] The authorizer type. Valid values are <code>TOKEN</code> for a Lambda function using a single authorization token submitted in a custom header, <code>REQUEST</code> for a Lambda function using incoming request parameters, and <code>COGNITO_USER_POOLS</code> for using an Amazon Cognito user pool.</p>
@@ -670,7 +670,7 @@ export interface CreateBasePathMappingRequest {
   stage?: string;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -721,7 +721,7 @@ export interface CreateDeploymentRequest {
   stageName?: string;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
   /**
    * <p>Specifies whether active tracing with X-ray is enabled for the <a>Stage</a>.</p>
@@ -763,7 +763,7 @@ export interface CreateDocumentationPartRequest {
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -799,7 +799,7 @@ export interface CreateDocumentationVersionRequest {
   stageName?: string;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -870,7 +870,7 @@ export interface CreateDomainNameRequest {
   tags?: { [key: string]: string };
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -910,7 +910,7 @@ export interface CreateModelRequest {
   schema?: string;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -935,7 +935,7 @@ export interface CreateRequestValidatorRequest {
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
   /**
    * <p>A Boolean flag to indicate whether to validate request body according to the configured model schema for the method (<code>true</code>) or not (<code>false</code>).</p>
@@ -975,7 +975,7 @@ export interface CreateResourceRequest {
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -997,7 +997,7 @@ export interface CreateRestApiRequest {
   /**
    * <p>The list of binary media types supported by the <a>RestApi</a>. By default, the <a>RestApi</a> supports only UTF-8-encoded text payloads.</p>
    */
-  binaryMediaTypes?: Array<string>;
+  binaryMediaTypes?: string[];
 
   /**
    * <p>The ID of the <a>RestApi</a> that you want to clone from.</p>
@@ -1035,7 +1035,7 @@ export interface CreateRestApiRequest {
   tags?: { [key: string]: string };
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
   /**
    * <p>A version identifier for the API.</p>
@@ -1100,7 +1100,7 @@ export interface CreateStageRequest {
   tags?: { [key: string]: string };
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
   /**
    * <p>Specifies whether active tracing with X-ray is enabled for the <a>Stage</a>.</p>
@@ -1137,7 +1137,7 @@ export interface CreateUsagePlanKeyRequest {
 
   name?: string;
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
   /**
    * <p>[Required] The Id of the <a>UsagePlan</a> resource representing the usage plan containing the to-be-created <a>UsagePlanKey</a> resource representing a plan customer.</p>
@@ -1158,7 +1158,7 @@ export interface CreateUsagePlanRequest {
   /**
    * <p>The associated API stages of the usage plan.</p>
    */
-  apiStages?: Array<ApiStage>;
+  apiStages?: ApiStage[];
 
   /**
    * <p>The description of the usage plan.</p>
@@ -1181,7 +1181,7 @@ export interface CreateUsagePlanRequest {
   tags?: { [key: string]: string };
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   /**
    * <p>The throttling limits of the usage plan.</p>
    */
@@ -1218,10 +1218,10 @@ export interface CreateVpcLinkRequest {
   /**
    * <p>[Required] The ARNs of network load balancers of the VPC targeted by the VPC link. The network load balancers must be owned by the same AWS account of the API owner.</p>
    */
-  targetArns: Array<string> | undefined;
+  targetArns: string[] | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -1242,7 +1242,7 @@ export interface DeleteApiKeyRequest {
 
   name?: string;
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -1268,7 +1268,7 @@ export interface DeleteAuthorizerRequest {
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -1295,7 +1295,7 @@ export interface DeleteBasePathMappingRequest {
 
   name?: string;
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -1316,7 +1316,7 @@ export interface DeleteClientCertificateRequest {
 
   name?: string;
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -1342,7 +1342,7 @@ export interface DeleteDeploymentRequest {
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -1368,7 +1368,7 @@ export interface DeleteDocumentationPartRequest {
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -1394,7 +1394,7 @@ export interface DeleteDocumentationVersionRequest {
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -1415,7 +1415,7 @@ export interface DeleteDomainNameRequest {
 
   name?: string;
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -1441,7 +1441,7 @@ export interface DeleteGatewayResponseRequest {
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -1472,7 +1472,7 @@ export interface DeleteIntegrationRequest {
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -1508,7 +1508,7 @@ export interface DeleteIntegrationResponseRequest {
   statusCode: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -1539,7 +1539,7 @@ export interface DeleteMethodRequest {
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -1575,7 +1575,7 @@ export interface DeleteMethodResponseRequest {
   statusCode: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -1601,7 +1601,7 @@ export interface DeleteModelRequest {
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -1627,7 +1627,7 @@ export interface DeleteRequestValidatorRequest {
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -1653,7 +1653,7 @@ export interface DeleteResourceRequest {
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -1674,7 +1674,7 @@ export interface DeleteRestApiRequest {
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -1700,7 +1700,7 @@ export interface DeleteStageRequest {
   stageName: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -1721,7 +1721,7 @@ export interface DeleteUsagePlanKeyRequest {
 
   name?: string;
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
   /**
    * <p>[Required] The Id of the <a>UsagePlan</a> resource representing the usage plan containing the to-be-deleted <a>UsagePlanKey</a> resource representing a plan customer.</p>
@@ -1741,7 +1741,7 @@ export interface DeleteUsagePlanRequest {
   __type?: "DeleteUsagePlanRequest";
   name?: string;
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
   /**
    * <p>[Required] The Id of the to-be-deleted usage plan.</p>
@@ -1761,7 +1761,7 @@ export interface DeleteVpcLinkRequest {
   __type?: "DeleteVpcLinkRequest";
   name?: string;
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
   /**
    * <p>[Required] The identifier of the  <a>VpcLink</a>. It is used in an <a>Integration</a> to reference this <a>VpcLink</a>.</p>
@@ -1851,7 +1851,7 @@ export interface Deployments {
   /**
    * <p>The current page of elements from this collection.</p>
    */
-  items?: Array<Deployment>;
+  items?: Deployment[];
 
   /**
    * <p>The current pagination position in the paged result set.</p>
@@ -1907,12 +1907,12 @@ export interface DocumentationPartIds {
   /**
    * <p>A list of the returned documentation part identifiers.</p>
    */
-  ids?: Array<string>;
+  ids?: string[];
 
   /**
    * <p>A list of warning messages reported during import of documentation parts.</p>
    */
-  warnings?: Array<string>;
+  warnings?: string[];
 }
 
 export namespace DocumentationPartIds {
@@ -1983,7 +1983,7 @@ export interface DocumentationParts {
   /**
    * <p>The current page of elements from this collection.</p>
    */
-  items?: Array<DocumentationPart>;
+  items?: DocumentationPart[];
 
   /**
    * <p>The current pagination position in the paged result set.</p>
@@ -2038,7 +2038,7 @@ export interface DocumentationVersions {
   /**
    * <p>The current page of elements from this collection.</p>
    */
-  items?: Array<DocumentationVersion>;
+  items?: DocumentationVersion[];
 
   /**
    * <p>The current pagination position in the paged result set.</p>
@@ -2160,7 +2160,7 @@ export interface DomainNames {
   /**
    * <p>The current page of elements from this collection.</p>
    */
-  items?: Array<DomainName>;
+  items?: DomainName[];
 
   /**
    * <p>The current pagination position in the paged result set.</p>
@@ -2180,12 +2180,12 @@ export interface EndpointConfiguration {
   /**
    * <p>A list of endpoint types of an API (<a>RestApi</a>) or its custom domain name (<a>DomainName</a>). For an edge-optimized API and its custom domain name, the endpoint type is <code>"EDGE"</code>. For a regional API and its custom domain name, the endpoint type is <code>REGIONAL</code>. For a private API, the endpoint type is <code>PRIVATE</code>.</p>
    */
-  types?: Array<EndpointType | string>;
+  types?: (EndpointType | string)[];
 
   /**
    * <p>A list of VpcEndpointIds of an API (<a>RestApi</a>) against which to create Route53 ALIASes. It is only supported for <code>PRIVATE</code> endpoint type.</p>
    */
-  vpcEndpointIds?: Array<string>;
+  vpcEndpointIds?: string[];
 }
 
 export namespace EndpointConfiguration {
@@ -2238,7 +2238,7 @@ export interface FlushStageAuthorizersCacheRequest {
   stageName: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -2264,7 +2264,7 @@ export interface FlushStageCacheRequest {
   stageName: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -2927,7 +2927,7 @@ export interface GatewayResponses {
   /**
    * <p>Returns the entire collection, because of no pagination support.</p>
    */
-  items?: Array<GatewayResponse>;
+  items?: GatewayResponse[];
 
   /**
    * <p>The current pagination position in the paged result set. The <a>GatewayResponse</a> collection does not support pagination and the position does not apply here.</p>
@@ -2957,7 +2957,7 @@ export interface GenerateClientCertificateRequest {
   tags?: { [key: string]: string };
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -2973,7 +2973,7 @@ export interface GetAccountRequest {
   __type?: "GetAccountRequest";
   name?: string;
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -2999,7 +2999,7 @@ export interface GetApiKeyRequest {
 
   name?: string;
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -3040,7 +3040,7 @@ export interface GetApiKeysRequest {
   position?: string;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -3066,7 +3066,7 @@ export interface GetAuthorizerRequest {
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -3097,7 +3097,7 @@ export interface GetAuthorizersRequest {
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -3123,7 +3123,7 @@ export interface GetBasePathMappingRequest {
 
   name?: string;
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -3154,7 +3154,7 @@ export interface GetBasePathMappingsRequest {
   position?: string;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -3175,7 +3175,7 @@ export interface GetClientCertificateRequest {
 
   name?: string;
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -3201,7 +3201,7 @@ export interface GetClientCertificatesRequest {
   position?: string;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -3223,7 +3223,7 @@ export interface GetDeploymentRequest {
   /**
    * <p>A query parameter to retrieve the specified embedded resources of the returned <a>Deployment</a> resource in the response. In a REST API call, this <code>embed</code> parameter value is a list of comma-separated strings, as in  <code>GET /restapis/{restapi_id}/deployments/{deployment_id}?embed=var1,var2</code>. The SDK and other platform-dependent libraries might use a different format for the list. Currently, this request supports only retrieval of the embedded API summary this way. Hence, the parameter value must be a single-valued list containing only the <code>"apisummary"</code> string.  For example, <code>GET /restapis/{restapi_id}/deployments/{deployment_id}?embed=apisummary</code>.</p>
    */
-  embed?: Array<string>;
+  embed?: string[];
 
   name?: string;
   /**
@@ -3232,7 +3232,7 @@ export interface GetDeploymentRequest {
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -3263,7 +3263,7 @@ export interface GetDeploymentsRequest {
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -3289,7 +3289,7 @@ export interface GetDocumentationPartRequest {
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -3335,7 +3335,7 @@ export interface GetDocumentationPartsRequest {
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
   /**
    * <p>The type of API entities of the to-be-retrieved documentation parts. </p>
@@ -3365,7 +3365,7 @@ export interface GetDocumentationVersionRequest {
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -3396,7 +3396,7 @@ export interface GetDocumentationVersionsRequest {
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -3417,7 +3417,7 @@ export interface GetDomainNameRequest {
 
   name?: string;
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -3443,7 +3443,7 @@ export interface GetDomainNamesRequest {
   position?: string;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -3505,7 +3505,7 @@ export interface GetGatewayResponseRequest {
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -3536,7 +3536,7 @@ export interface GetGatewayResponsesRequest {
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -3567,7 +3567,7 @@ export interface GetIntegrationRequest {
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -3603,7 +3603,7 @@ export interface GetIntegrationResponseRequest {
   statusCode: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -3634,7 +3634,7 @@ export interface GetMethodRequest {
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -3670,7 +3670,7 @@ export interface GetMethodResponseRequest {
   statusCode: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -3701,7 +3701,7 @@ export interface GetModelRequest {
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -3727,7 +3727,7 @@ export interface GetModelTemplateRequest {
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -3758,7 +3758,7 @@ export interface GetModelsRequest {
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -3784,7 +3784,7 @@ export interface GetRequestValidatorRequest {
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -3815,7 +3815,7 @@ export interface GetRequestValidatorsRequest {
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -3832,7 +3832,7 @@ export interface GetResourceRequest {
   /**
    * <p>A query parameter to retrieve the specified resources embedded in the returned <a>Resource</a> representation in the response. This <code>embed</code> parameter value is a list of comma-separated strings. Currently, the request supports only retrieval of the embedded <a>Method</a> resources this way. The query parameter value must be a single-valued list and contain the <code>"methods"</code> string. For example, <code>GET /restapis/{restapi_id}/resources/{resource_id}?embed=methods</code>.</p>
    */
-  embed?: Array<string>;
+  embed?: string[];
 
   name?: string;
   /**
@@ -3846,7 +3846,7 @@ export interface GetResourceRequest {
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -3863,7 +3863,7 @@ export interface GetResourcesRequest {
   /**
    * <p>A query parameter used to retrieve the specified resources embedded in the returned <a>Resources</a> resource in the response.  This <code>embed</code> parameter value is a list of comma-separated strings. Currently, the request supports only retrieval of the embedded <a>Method</a> resources this way. The query parameter value must be a single-valued list and contain the <code>"methods"</code> string. For example, <code>GET /restapis/{restapi_id}/resources?embed=methods</code>.</p>
    */
-  embed?: Array<string>;
+  embed?: string[];
 
   /**
    * <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
@@ -3882,7 +3882,7 @@ export interface GetResourcesRequest {
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -3903,7 +3903,7 @@ export interface GetRestApiRequest {
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -3929,7 +3929,7 @@ export interface GetRestApisRequest {
   position?: string;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -3980,7 +3980,7 @@ export interface GetSdkTypeRequest {
 
   name?: string;
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -4006,7 +4006,7 @@ export interface GetSdkTypesRequest {
   position?: string;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -4032,7 +4032,7 @@ export interface GetStageRequest {
   stageName: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -4058,7 +4058,7 @@ export interface GetStagesRequest {
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -4089,7 +4089,7 @@ export interface GetTagsRequest {
   resourceArn: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -4110,7 +4110,7 @@ export interface GetUsagePlanKeyRequest {
 
   name?: string;
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
   /**
    * <p>[Required] The Id of the <a>UsagePlan</a> resource representing the usage plan containing the to-be-retrieved <a>UsagePlanKey</a> resource representing a plan customer.</p>
@@ -4145,7 +4145,7 @@ export interface GetUsagePlanKeysRequest {
   position?: string;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
   /**
    * <p>[Required] The Id of the <a>UsagePlan</a> resource representing the usage plan containing the to-be-retrieved <a>UsagePlanKey</a> resource representing a plan customer.</p>
@@ -4165,7 +4165,7 @@ export interface GetUsagePlanRequest {
   __type?: "GetUsagePlanRequest";
   name?: string;
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
   /**
    * <p>[Required] The identifier of the <a>UsagePlan</a> resource to be retrieved.</p>
@@ -4200,7 +4200,7 @@ export interface GetUsagePlansRequest {
   position?: string;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -4241,7 +4241,7 @@ export interface GetUsageRequest {
   startDate: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
   /**
    * <p>[Required] The Id of the usage plan associated with the usage data.</p>
@@ -4261,7 +4261,7 @@ export interface GetVpcLinkRequest {
   __type?: "GetVpcLinkRequest";
   name?: string;
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
   /**
    * <p>[Required] The identifier of the  <a>VpcLink</a>. It is used in an <a>Integration</a> to reference this <a>VpcLink</a>.</p>
@@ -4291,7 +4291,7 @@ export interface GetVpcLinksRequest {
   position?: string;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -4317,7 +4317,7 @@ export interface ImportApiKeysRequest {
 
   name?: string;
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -4348,7 +4348,7 @@ export interface ImportDocumentationPartsRequest {
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -4382,7 +4382,7 @@ export interface ImportRestApiRequest {
   parameters?: { [key: string]: string };
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -4403,7 +4403,7 @@ export interface Integration {
   /**
    * <p>A list of request parameters whose values API Gateway caches. To be valid values for <code>cacheKeyParameters</code>, these parameters must also be specified for <a>Method</a> <code>requestParameters</code>.</p>
    */
-  cacheKeyParameters?: Array<string>;
+  cacheKeyParameters?: string[];
 
   /**
    * <p>An API-specific tag group of related cached parameters. To be valid values for <code>cacheKeyParameters</code>, these parameters must also be specified for <a>Method</a> <code>requestParameters</code>.</p>
@@ -4794,7 +4794,7 @@ export interface Method {
   /**
    * <p>A list of authorization scopes configured on the method. The scopes are used with a <code>COGNITO_USER_POOLS</code> authorizer to authorize the method invocation. The authorization works by matching the method scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any method scopes matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the method scope is configured, the client must provide an access token instead of an identity token for authorization purposes.</p>
    */
-  authorizationScopes?: Array<string>;
+  authorizationScopes?: string[];
 
   /**
    * <p>The method's authorization type. Valid values are <code>NONE</code> for open access, <code>AWS_IAM</code> for using AWS IAM permissions, <code>CUSTOM</code> for using a custom authorizer, or <code>COGNITO_USER_POOLS</code> for using a Cognito user pool.</p>
@@ -5187,7 +5187,7 @@ export interface Models {
   /**
    * <p>The current page of elements from this collection.</p>
    */
-  items?: Array<Model>;
+  items?: Model[];
 
   /**
    * <p>The current pagination position in the paged result set.</p>
@@ -5231,7 +5231,7 @@ export interface PutGatewayResponseRequest {
   statusCode?: string;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -5248,7 +5248,7 @@ export interface PutIntegrationRequest {
   /**
    * <p>An API-specific tag group of related cached parameters.</p>
    */
-  cacheKeyParameters?: Array<string>;
+  cacheKeyParameters?: string[];
 
   /**
    * <p>A list of request parameters whose values are to be cached.</p>
@@ -5323,7 +5323,7 @@ export interface PutIntegrationRequest {
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   /**
    * <p>Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.</p>
    */
@@ -5404,7 +5404,7 @@ export interface PutIntegrationResponseRequest {
   statusCode: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -5426,7 +5426,7 @@ export interface PutMethodRequest {
   /**
    * <p>A list of authorization scopes configured on the method. The scopes are used with a <code>COGNITO_USER_POOLS</code> authorizer to authorize the method invocation. The authorization works by matching the method scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any method scopes matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the method scope is configured, the client must provide an access token instead of an identity token for authorization purposes.</p>
    */
-  authorizationScopes?: Array<string>;
+  authorizationScopes?: string[];
 
   /**
    * <p>[Required] The method's authorization type. Valid values are <code>NONE</code> for open access, <code>AWS_IAM</code> for using AWS IAM permissions, <code>CUSTOM</code> for using a custom authorizer, or <code>COGNITO_USER_POOLS</code> for using a Cognito user pool.</p>
@@ -5475,7 +5475,7 @@ export interface PutMethodRequest {
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -5521,7 +5521,7 @@ export interface PutMethodResponseRequest {
   statusCode: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -5564,7 +5564,7 @@ export interface PutRestApiRequest {
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -5651,7 +5651,7 @@ export interface RequestValidators {
   /**
    * <p>The current page of elements from this collection.</p>
    */
-  items?: Array<RequestValidator>;
+  items?: RequestValidator[];
 
   /**
    * <p>The current pagination position in the paged result set.</p>
@@ -5865,7 +5865,7 @@ export interface Resources {
   /**
    * <p>The current page of elements from this collection.</p>
    */
-  items?: Array<Resource>;
+  items?: Resource[];
 
   /**
    * <p>The current pagination position in the paged result set.</p>
@@ -5893,7 +5893,7 @@ export interface RestApi {
   /**
    * <p>The list of binary media types supported by the <a>RestApi</a>. By default, the <a>RestApi</a> supports only UTF-8-encoded text payloads.</p>
    */
-  binaryMediaTypes?: Array<string>;
+  binaryMediaTypes?: string[];
 
   /**
    * <p>The timestamp when the API was created.</p>
@@ -5943,7 +5943,7 @@ export interface RestApi {
   /**
    * <p>The warning messages reported when <code>failonwarnings</code> is turned on during API import.</p>
    */
-  warnings?: Array<string>;
+  warnings?: string[];
 }
 
 export namespace RestApi {
@@ -5961,7 +5961,7 @@ export interface RestApis {
   /**
    * <p>The current page of elements from this collection.</p>
    */
-  items?: Array<RestApi>;
+  items?: RestApi[];
 
   /**
    * <p>The current pagination position in the paged result set.</p>
@@ -6042,7 +6042,7 @@ export interface SdkType {
   /**
    * <p>A list of configuration properties of an <a>SdkType</a>.</p>
    */
-  configurationProperties?: Array<SdkConfigurationProperty>;
+  configurationProperties?: SdkConfigurationProperty[];
 
   /**
    * <p>The description of an <a>SdkType</a>.</p>
@@ -6072,7 +6072,7 @@ export interface SdkTypes {
   /**
    * <p>The current page of elements from this collection.</p>
    */
-  items?: Array<SdkType>;
+  items?: SdkType[];
 }
 
 export namespace SdkTypes {
@@ -6209,7 +6209,7 @@ export interface Stages {
   /**
    * <p>The current page of elements from this collection.</p>
    */
-  item?: Array<Stage>;
+  item?: Stage[];
 }
 
 export namespace Stages {
@@ -6233,7 +6233,7 @@ export interface TagResourceRequest {
   tags: { [key: string]: string } | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -6303,7 +6303,7 @@ export interface TestInvokeAuthorizerRequest {
   /**
    * <p>[Optional] The headers as a map from string to list of values to simulate an incoming invocation request. This is where the incoming authorization token, or identity source, may be specified.</p>
    */
-  multiValueHeaders?: { [key: string]: Array<string> };
+  multiValueHeaders?: { [key: string]: string[] };
 
   /**
    * <p>[Optional] The URI path, including query string, of the simulated invocation request. Use this to specify path parameters and query string parameters.</p>
@@ -6331,7 +6331,7 @@ export namespace TestInvokeAuthorizerRequest {
  */
 export interface TestInvokeAuthorizerResponse {
   __type?: "TestInvokeAuthorizerResponse";
-  authorization?: { [key: string]: Array<string> };
+  authorization?: { [key: string]: string[] };
   /**
    * <p>The <a href="https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims">open identity claims</a>, with any supported custom attributes, returned from the Cognito Your User Pool configured for the API.</p>
    */
@@ -6396,7 +6396,7 @@ export interface TestInvokeMethodRequest {
   /**
    * <p>The headers as a map from string to list of values to simulate an incoming invocation request.</p>
    */
-  multiValueHeaders?: { [key: string]: Array<string> };
+  multiValueHeaders?: { [key: string]: string[] };
 
   /**
    * <p>The URI path, including query string, of the simulated invocation request. Use this to specify path parameters and query string parameters.</p>
@@ -6455,7 +6455,7 @@ export interface TestInvokeMethodResponse {
   /**
    * <p>The headers of the HTTP response as a map from string to list of values.</p>
    */
-  multiValueHeaders?: { [key: string]: Array<string> };
+  multiValueHeaders?: { [key: string]: string[] };
 
   /**
    * <p>The HTTP status code.</p>
@@ -6509,10 +6509,10 @@ export interface UntagResourceRequest {
   /**
    * <p>[Required] The Tag keys to delete.</p>
    */
-  tagKeys: Array<string> | undefined;
+  tagKeys: string[] | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -6530,10 +6530,10 @@ export interface UpdateAccountRequest {
   /**
    * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
    */
-  patchOperations?: Array<PatchOperation>;
+  patchOperations?: PatchOperation[];
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -6556,10 +6556,10 @@ export interface UpdateApiKeyRequest {
   /**
    * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
    */
-  patchOperations?: Array<PatchOperation>;
+  patchOperations?: PatchOperation[];
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -6582,7 +6582,7 @@ export interface UpdateAuthorizerRequest {
   /**
    * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
    */
-  patchOperations?: Array<PatchOperation>;
+  patchOperations?: PatchOperation[];
 
   /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
@@ -6590,7 +6590,7 @@ export interface UpdateAuthorizerRequest {
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -6619,10 +6619,10 @@ export interface UpdateBasePathMappingRequest {
   /**
    * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
    */
-  patchOperations?: Array<PatchOperation>;
+  patchOperations?: PatchOperation[];
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -6645,10 +6645,10 @@ export interface UpdateClientCertificateRequest {
   /**
    * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
    */
-  patchOperations?: Array<PatchOperation>;
+  patchOperations?: PatchOperation[];
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -6671,7 +6671,7 @@ export interface UpdateDeploymentRequest {
   /**
    * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
    */
-  patchOperations?: Array<PatchOperation>;
+  patchOperations?: PatchOperation[];
 
   /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
@@ -6679,7 +6679,7 @@ export interface UpdateDeploymentRequest {
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -6702,7 +6702,7 @@ export interface UpdateDocumentationPartRequest {
   /**
    * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
    */
-  patchOperations?: Array<PatchOperation>;
+  patchOperations?: PatchOperation[];
 
   /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
@@ -6710,7 +6710,7 @@ export interface UpdateDocumentationPartRequest {
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -6733,7 +6733,7 @@ export interface UpdateDocumentationVersionRequest {
   /**
    * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
    */
-  patchOperations?: Array<PatchOperation>;
+  patchOperations?: PatchOperation[];
 
   /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>..</p>
@@ -6741,7 +6741,7 @@ export interface UpdateDocumentationVersionRequest {
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -6764,10 +6764,10 @@ export interface UpdateDomainNameRequest {
   /**
    * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
    */
-  patchOperations?: Array<PatchOperation>;
+  patchOperations?: PatchOperation[];
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -6785,7 +6785,7 @@ export interface UpdateGatewayResponseRequest {
   /**
    * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
    */
-  patchOperations?: Array<PatchOperation>;
+  patchOperations?: PatchOperation[];
 
   /**
    * <p>[Required] <p>The response type of the associated <a>GatewayResponse</a>. Valid values are <ul><li>ACCESS_DENIED</li><li>API_CONFIGURATION_ERROR</li><li>AUTHORIZER_FAILURE</li><li> AUTHORIZER_CONFIGURATION_ERROR</li><li>BAD_REQUEST_PARAMETERS</li><li>BAD_REQUEST_BODY</li><li>DEFAULT_4XX</li><li>DEFAULT_5XX</li><li>EXPIRED_TOKEN</li><li>INVALID_SIGNATURE</li><li>INTEGRATION_FAILURE</li><li>INTEGRATION_TIMEOUT</li><li>INVALID_API_KEY</li><li>MISSING_AUTHENTICATION_TOKEN</li><li> QUOTA_EXCEEDED</li><li>REQUEST_TOO_LARGE</li><li>RESOURCE_NOT_FOUND</li><li>THROTTLED</li><li>UNAUTHORIZED</li><li>UNSUPPORTED_MEDIA_TYPE</li></ul> </p></p>
@@ -6798,7 +6798,7 @@ export interface UpdateGatewayResponseRequest {
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -6821,7 +6821,7 @@ export interface UpdateIntegrationRequest {
   /**
    * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
    */
-  patchOperations?: Array<PatchOperation>;
+  patchOperations?: PatchOperation[];
 
   /**
    * <p>[Required] Represents an update integration request's resource identifier.</p>
@@ -6834,7 +6834,7 @@ export interface UpdateIntegrationRequest {
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -6857,7 +6857,7 @@ export interface UpdateIntegrationResponseRequest {
   /**
    * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
    */
-  patchOperations?: Array<PatchOperation>;
+  patchOperations?: PatchOperation[];
 
   /**
    * <p>[Required] Specifies an update integration response request's resource identifier.</p>
@@ -6875,7 +6875,7 @@ export interface UpdateIntegrationResponseRequest {
   statusCode: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -6898,7 +6898,7 @@ export interface UpdateMethodRequest {
   /**
    * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
    */
-  patchOperations?: Array<PatchOperation>;
+  patchOperations?: PatchOperation[];
 
   /**
    * <p>[Required] The <a>Resource</a> identifier for the <a>Method</a> resource.</p>
@@ -6911,7 +6911,7 @@ export interface UpdateMethodRequest {
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -6934,7 +6934,7 @@ export interface UpdateMethodResponseRequest {
   /**
    * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
    */
-  patchOperations?: Array<PatchOperation>;
+  patchOperations?: PatchOperation[];
 
   /**
    * <p>[Required] The <a>Resource</a> identifier for the <a>MethodResponse</a> resource.</p>
@@ -6952,7 +6952,7 @@ export interface UpdateMethodResponseRequest {
   statusCode: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -6975,7 +6975,7 @@ export interface UpdateModelRequest {
   /**
    * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
    */
-  patchOperations?: Array<PatchOperation>;
+  patchOperations?: PatchOperation[];
 
   /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
@@ -6983,7 +6983,7 @@ export interface UpdateModelRequest {
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -7001,7 +7001,7 @@ export interface UpdateRequestValidatorRequest {
   /**
    * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
    */
-  patchOperations?: Array<PatchOperation>;
+  patchOperations?: PatchOperation[];
 
   /**
    * <p>[Required] The identifier of <a>RequestValidator</a> to be updated.</p>
@@ -7014,7 +7014,7 @@ export interface UpdateRequestValidatorRequest {
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -7032,7 +7032,7 @@ export interface UpdateResourceRequest {
   /**
    * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
    */
-  patchOperations?: Array<PatchOperation>;
+  patchOperations?: PatchOperation[];
 
   /**
    * <p>[Required] The identifier of the <a>Resource</a> resource.</p>
@@ -7045,7 +7045,7 @@ export interface UpdateResourceRequest {
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -7063,7 +7063,7 @@ export interface UpdateRestApiRequest {
   /**
    * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
    */
-  patchOperations?: Array<PatchOperation>;
+  patchOperations?: PatchOperation[];
 
   /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
@@ -7071,7 +7071,7 @@ export interface UpdateRestApiRequest {
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -7089,7 +7089,7 @@ export interface UpdateStageRequest {
   /**
    * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
    */
-  patchOperations?: Array<PatchOperation>;
+  patchOperations?: PatchOperation[];
 
   /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
@@ -7102,7 +7102,7 @@ export interface UpdateStageRequest {
   stageName: string | undefined;
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
 }
 
@@ -7120,10 +7120,10 @@ export interface UpdateUsagePlanRequest {
   /**
    * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
    */
-  patchOperations?: Array<PatchOperation>;
+  patchOperations?: PatchOperation[];
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
   /**
    * <p>[Required] The Id of the to-be-updated usage plan.</p>
@@ -7150,10 +7150,10 @@ export interface UpdateUsageRequest {
   /**
    * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
    */
-  patchOperations?: Array<PatchOperation>;
+  patchOperations?: PatchOperation[];
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
   /**
    * <p>[Required] The Id of the usage plan associated with the usage data.</p>
@@ -7175,10 +7175,10 @@ export interface UpdateVpcLinkRequest {
   /**
    * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
    */
-  patchOperations?: Array<PatchOperation>;
+  patchOperations?: PatchOperation[];
 
   template?: boolean;
-  templateSkipList?: Array<string>;
+  templateSkipList?: string[];
   title?: string;
   /**
    * <p>[Required] The identifier of the  <a>VpcLink</a>. It is used in an <a>Integration</a> to reference this <a>VpcLink</a>.</p>
@@ -7209,7 +7209,7 @@ export interface Usage {
   /**
    * <p>The usage data, as daily logs of used and remaining quotas, over the specified time interval indexed over the API keys in a usage plan. For example, <code>{..., "values" : { "{api_key}" : [ [0, 100], [10, 90], [100, 10]]}</code>, where <code>{api_key}</code> stands for an API key value and the daily log entry is of the format <code>[used quota, remaining quota]</code>.</p>
    */
-  items?: { [key: string]: Array<Array<number>> };
+  items?: { [key: string]: number[][] };
 
   /**
    * <p>The current pagination position in the paged result set.</p>
@@ -7245,7 +7245,7 @@ export interface UsagePlan {
   /**
    * <p>The associated API stages of a usage plan.</p>
    */
-  apiStages?: Array<ApiStage>;
+  apiStages?: ApiStage[];
 
   /**
    * <p>The description of a usage plan.</p>
@@ -7334,7 +7334,7 @@ export interface UsagePlanKeys {
   /**
    * <p>The current page of elements from this collection.</p>
    */
-  items?: Array<UsagePlanKey>;
+  items?: UsagePlanKey[];
 
   /**
    * <p>The current pagination position in the paged result set.</p>
@@ -7357,7 +7357,7 @@ export interface UsagePlans {
   /**
    * <p>The current page of elements from this collection.</p>
    */
-  items?: Array<UsagePlan>;
+  items?: UsagePlan[];
 
   /**
    * <p>The current pagination position in the paged result set.</p>
@@ -7412,7 +7412,7 @@ export interface VpcLink {
   /**
    * <p>The ARNs of network load balancers of the VPC targeted by the VPC link. The network load balancers must be owned by the same AWS account of the API owner.</p>
    */
-  targetArns?: Array<string>;
+  targetArns?: string[];
 }
 
 export namespace VpcLink {
@@ -7440,7 +7440,7 @@ export interface VpcLinks {
   /**
    * <p>The current page of elements from this collection.</p>
    */
-  items?: Array<VpcLink>;
+  items?: VpcLink[];
 
   /**
    * <p>The current pagination position in the paged result set.</p>

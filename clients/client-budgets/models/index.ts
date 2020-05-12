@@ -75,7 +75,7 @@ export interface Budget {
    * 			         </li>
    *          </ul>
    */
-  CostFilters?: { [key: string]: Array<string> };
+  CostFilters?: { [key: string]: string[] };
 
   /**
    * <p>The types of costs that are included in this <code>COST</code> budget.</p>
@@ -141,12 +141,12 @@ export interface BudgetPerformanceHistory {
   /**
    * <p>A list of amounts of cost or usage that you created budgets for, compared to your actual costs or usage.</p>
    */
-  BudgetedAndActualAmountsList?: Array<BudgetedAndActualAmounts>;
+  BudgetedAndActualAmountsList?: BudgetedAndActualAmounts[];
 
   /**
    * <p>The history of the cost filters for a budget during the specified time period.</p>
    */
-  CostFilters?: { [key: string]: Array<string> };
+  CostFilters?: { [key: string]: string[] };
 
   /**
    * <p>The history of the cost types for a budget during the specified time period.</p>
@@ -323,7 +323,7 @@ export interface CreateBudgetRequest {
   /**
    * <p>A notification that you want to associate with a budget. A budget can have up to five notifications, and each notification can have one SNS subscriber and up to 10 email subscribers. If you include notifications and subscribers in your <code>CreateBudget</code> call, AWS creates the notifications and subscribers for you.</p>
    */
-  NotificationsWithSubscribers?: Array<NotificationWithSubscribers>;
+  NotificationsWithSubscribers?: NotificationWithSubscribers[];
 }
 
 export namespace CreateBudgetRequest {
@@ -366,7 +366,7 @@ export interface CreateNotificationRequest {
   /**
    * <p>A list of subscribers that you want to associate with the notification. Each notification can have one SNS subscriber and up to 10 email subscribers.</p>
    */
-  Subscribers: Array<Subscriber> | undefined;
+  Subscribers: Subscriber[] | undefined;
 }
 
 export namespace CreateNotificationRequest {
@@ -685,7 +685,7 @@ export interface DescribeBudgetsResponse {
   /**
    * <p>A list of budgets.</p>
    */
-  Budgets?: Array<Budget>;
+  Budgets?: Budget[];
 
   /**
    * <p>The pagination token in the service response that indicates the next set of results that you can retrieve.</p>
@@ -742,7 +742,7 @@ export interface DescribeNotificationsForBudgetResponse {
   /**
    * <p>A list of notifications that are associated with a budget.</p>
    */
-  Notifications?: Array<Notification>;
+  Notifications?: Notification[];
 }
 
 export namespace DescribeNotificationsForBudgetResponse {
@@ -799,7 +799,7 @@ export interface DescribeSubscribersForNotificationResponse {
   /**
    * <p>A list of subscribers that are associated with a notification.</p>
    */
-  Subscribers?: Array<Subscriber>;
+  Subscribers?: Subscriber[];
 }
 
 export namespace DescribeSubscribersForNotificationResponse {
@@ -999,7 +999,7 @@ export interface NotificationWithSubscribers {
   /**
    * <p>A list of subscribers who are subscribed to this notification.</p>
    */
-  Subscribers: Array<Subscriber> | undefined;
+  Subscribers: Subscriber[] | undefined;
 }
 
 export namespace NotificationWithSubscribers {

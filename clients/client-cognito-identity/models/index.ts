@@ -81,7 +81,7 @@ export interface CreateIdentityPoolInput {
   /**
    * <p>An array of Amazon Cognito user pools and their client IDs.</p>
    */
-  CognitoIdentityProviders?: Array<CognitoIdentityProvider>;
+  CognitoIdentityProviders?: CognitoIdentityProvider[];
 
   /**
    * <p>The "domain" by which Cognito will refer to your users. This name acts as a
@@ -109,13 +109,13 @@ export interface CreateIdentityPoolInput {
   /**
    * <p>A list of OpendID Connect provider ARNs.</p>
    */
-  OpenIdConnectProviderARNs?: Array<string>;
+  OpenIdConnectProviderARNs?: string[];
 
   /**
    * <p>An array of Amazon Resource Names (ARNs) of the SAML provider for your identity
    *          pool.</p>
    */
-  SamlProviderARNs?: Array<string>;
+  SamlProviderARNs?: string[];
 
   /**
    * <p>Optional key:value pairs mapping provider names to provider app IDs.</p>
@@ -166,7 +166,7 @@ export interface DeleteIdentitiesInput {
   /**
    * <p>A list of 1-60 identities that you want to delete.</p>
    */
-  IdentityIdsToDelete: Array<string> | undefined;
+  IdentityIdsToDelete: string[] | undefined;
 }
 
 export namespace DeleteIdentitiesInput {
@@ -184,7 +184,7 @@ export interface DeleteIdentitiesResponse {
    * <p>An array of UnprocessedIdentityId objects, each of which contains an ErrorCode and
    *          IdentityId.</p>
    */
-  UnprocessedIdentityIds?: Array<UnprocessedIdentityId>;
+  UnprocessedIdentityIds?: UnprocessedIdentityId[];
 }
 
 export namespace DeleteIdentitiesResponse {
@@ -600,7 +600,7 @@ export interface IdentityDescription {
   /**
    * <p>The provider names.</p>
    */
-  Logins?: Array<string>;
+  Logins?: string[];
 }
 
 export namespace IdentityDescription {
@@ -627,7 +627,7 @@ export interface IdentityPool {
   /**
    * <p>A list representing an Amazon Cognito user pool and its client ID.</p>
    */
-  CognitoIdentityProviders?: Array<CognitoIdentityProvider>;
+  CognitoIdentityProviders?: CognitoIdentityProvider[];
 
   /**
    * <p>The "domain" by which Cognito will refer to your users.</p>
@@ -654,13 +654,13 @@ export interface IdentityPool {
   /**
    * <p>A list of OpendID Connect provider ARNs.</p>
    */
-  OpenIdConnectProviderARNs?: Array<string>;
+  OpenIdConnectProviderARNs?: string[];
 
   /**
    * <p>An array of Amazon Resource Names (ARNs) of the SAML provider for your identity
    *          pool.</p>
    */
-  SamlProviderARNs?: Array<string>;
+  SamlProviderARNs?: string[];
 
   /**
    * <p>Optional key:value pairs mapping provider names to provider app IDs.</p>
@@ -811,7 +811,7 @@ export interface ListIdentitiesResponse {
   /**
    * <p>An object containing a set of identities and associated mappings.</p>
    */
-  Identities?: Array<IdentityDescription>;
+  Identities?: IdentityDescription[];
 
   /**
    * <p>An identity pool ID in the format REGION:GUID.</p>
@@ -858,7 +858,7 @@ export interface ListIdentityPoolsResponse {
   /**
    * <p>The identity pools returned by the ListIdentityPools action.</p>
    */
-  IdentityPools?: Array<IdentityPoolShortDescription>;
+  IdentityPools?: IdentityPoolShortDescription[];
 
   /**
    * <p>A pagination token.</p>
@@ -952,7 +952,7 @@ export interface LookupDeveloperIdentityResponse {
    *          Cognito supports the association of multiple developer user identifiers with an identity
    *          ID.</p>
    */
-  DeveloperUserIdentifierList?: Array<string>;
+  DeveloperUserIdentifierList?: string[];
 
   /**
    * <p>A unique identifier in the format REGION:GUID.</p>
@@ -1177,7 +1177,7 @@ export interface RulesConfigurationType {
    * <p>An array of rules. You can specify up to 25 rules per identity provider.</p>
    *          <p>Rules are evaluated in order. The first one to match specifies the role.</p>
    */
-  Rules: Array<MappingRule> | undefined;
+  Rules: MappingRule[] | undefined;
 }
 
 export namespace RulesConfigurationType {
@@ -1312,7 +1312,7 @@ export interface UnlinkIdentityInput {
   /**
    * <p>Provider names to unlink from this identity.</p>
    */
-  LoginsToRemove: Array<string> | undefined;
+  LoginsToRemove: string[] | undefined;
 }
 
 export namespace UnlinkIdentityInput {
@@ -1353,7 +1353,7 @@ export interface UntagResourceInput {
   /**
    * <p>The keys of the tags to remove from the user pool.</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceInput {

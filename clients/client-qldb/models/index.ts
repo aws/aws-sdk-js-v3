@@ -568,7 +568,7 @@ export interface ListJournalS3ExportsForLedgerResponse {
    * <p>The array of journal export job descriptions that are associated with the specified
    *          ledger.</p>
    */
-  JournalS3Exports?: Array<JournalS3ExportDescription>;
+  JournalS3Exports?: JournalS3ExportDescription[];
 
   /**
    * <ul>
@@ -620,7 +620,7 @@ export interface ListJournalS3ExportsResponse {
    * <p>The array of journal export job descriptions for all ledgers that are associated with
    *          the current AWS account and Region.</p>
    */
-  JournalS3Exports?: Array<JournalS3ExportDescription>;
+  JournalS3Exports?: JournalS3ExportDescription[];
 
   /**
    * <ul>
@@ -671,7 +671,7 @@ export interface ListLedgersResponse {
    * <p>The array of ledger summaries that are associated with the current AWS account and
    *          Region.</p>
    */
-  Ledgers?: Array<LedgerSummary>;
+  Ledgers?: LedgerSummary[];
 
   /**
    * <p>A pagination token, indicating whether there are more results available:</p>
@@ -964,7 +964,7 @@ export interface UntagResourceRequest {
   /**
    * <p>The list of tag keys that you want to remove.</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {

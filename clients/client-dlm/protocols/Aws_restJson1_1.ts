@@ -63,12 +63,13 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_restJson1_1CreateLifecyclePolicyCommand(
+export const serializeAws_restJson1_1CreateLifecyclePolicyCommand = async (
   input: CreateLifecyclePolicyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/policies";
   let body: any;
   const bodyParams: any = {};
@@ -101,14 +102,15 @@ export async function serializeAws_restJson1_1CreateLifecyclePolicyCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeleteLifecyclePolicyCommand(
+export const serializeAws_restJson1_1DeleteLifecyclePolicyCommand = async (
   input: DeleteLifecyclePolicyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/policies/{PolicyId}";
   if (input.PolicyId !== undefined) {
     const labelValue: string = input.PolicyId;
@@ -133,31 +135,31 @@ export async function serializeAws_restJson1_1DeleteLifecyclePolicyCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetLifecyclePoliciesCommand(
+export const serializeAws_restJson1_1GetLifecyclePoliciesCommand = async (
   input: GetLifecyclePoliciesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/policies";
-  const query: any = {};
-  if (input.PolicyIds !== undefined) {
-    query["policyIds"] = (input.PolicyIds || []).map(_entry => _entry);
-  }
-  if (input.ResourceTypes !== undefined) {
-    query["resourceTypes"] = (input.ResourceTypes || []).map(_entry => _entry);
-  }
-  if (input.State !== undefined) {
-    query["state"] = input.State;
-  }
-  if (input.TagsToAdd !== undefined) {
-    query["tagsToAdd"] = (input.TagsToAdd || []).map(_entry => _entry);
-  }
-  if (input.TargetTags !== undefined) {
-    query["targetTags"] = (input.TargetTags || []).map(_entry => _entry);
-  }
+  const query: any = {
+    ...(input.PolicyIds !== undefined && {
+      policyIds: (input.PolicyIds || []).map(_entry => _entry)
+    }),
+    ...(input.ResourceTypes !== undefined && {
+      resourceTypes: (input.ResourceTypes || []).map(_entry => _entry)
+    }),
+    ...(input.State !== undefined && { state: input.State }),
+    ...(input.TagsToAdd !== undefined && {
+      tagsToAdd: (input.TagsToAdd || []).map(_entry => _entry)
+    }),
+    ...(input.TargetTags !== undefined && {
+      targetTags: (input.TargetTags || []).map(_entry => _entry)
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -170,14 +172,15 @@ export async function serializeAws_restJson1_1GetLifecyclePoliciesCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetLifecyclePolicyCommand(
+export const serializeAws_restJson1_1GetLifecyclePolicyCommand = async (
   input: GetLifecyclePolicyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/policies/{PolicyId}";
   if (input.PolicyId !== undefined) {
     const labelValue: string = input.PolicyId;
@@ -202,14 +205,15 @@ export async function serializeAws_restJson1_1GetLifecyclePolicyCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListTagsForResourceCommand(
+export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -236,14 +240,15 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1TagResourceCommand(
+export const serializeAws_restJson1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -275,14 +280,15 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UntagResourceCommand(
+export const serializeAws_restJson1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -298,10 +304,11 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
-  const query: any = {};
-  if (input.TagKeys !== undefined) {
-    query["tagKeys"] = (input.TagKeys || []).map(_entry => _entry);
-  }
+  const query: any = {
+    ...(input.TagKeys !== undefined && {
+      tagKeys: (input.TagKeys || []).map(_entry => _entry)
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -314,14 +321,15 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UpdateLifecyclePolicyCommand(
+export const serializeAws_restJson1_1UpdateLifecyclePolicyCommand = async (
   input: UpdateLifecyclePolicyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/policies/{PolicyId}";
   if (input.PolicyId !== undefined) {
     const labelValue: string = input.PolicyId;
@@ -363,12 +371,12 @@ export async function serializeAws_restJson1_1UpdateLifecyclePolicyCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1CreateLifecyclePolicyCommand(
+export const deserializeAws_restJson1_1CreateLifecyclePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateLifecyclePolicyCommandOutput> {
+): Promise<CreateLifecyclePolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateLifecyclePolicyCommandError(
       output,
@@ -385,12 +393,12 @@ export async function deserializeAws_restJson1_1CreateLifecyclePolicyCommand(
     contents.PolicyId = data.PolicyId;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreateLifecyclePolicyCommandError(
+const deserializeAws_restJson1_1CreateLifecyclePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateLifecyclePolicyCommandOutput> {
+): Promise<CreateLifecyclePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -447,12 +455,12 @@ async function deserializeAws_restJson1_1CreateLifecyclePolicyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteLifecyclePolicyCommand(
+export const deserializeAws_restJson1_1DeleteLifecyclePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteLifecyclePolicyCommandOutput> {
+): Promise<DeleteLifecyclePolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteLifecyclePolicyCommandError(
       output,
@@ -465,12 +473,12 @@ export async function deserializeAws_restJson1_1DeleteLifecyclePolicyCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteLifecyclePolicyCommandError(
+const deserializeAws_restJson1_1DeleteLifecyclePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteLifecyclePolicyCommandOutput> {
+): Promise<DeleteLifecyclePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -527,12 +535,12 @@ async function deserializeAws_restJson1_1DeleteLifecyclePolicyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetLifecyclePoliciesCommand(
+export const deserializeAws_restJson1_1GetLifecyclePoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetLifecyclePoliciesCommandOutput> {
+): Promise<GetLifecyclePoliciesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetLifecyclePoliciesCommandError(
       output,
@@ -552,12 +560,12 @@ export async function deserializeAws_restJson1_1GetLifecyclePoliciesCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetLifecyclePoliciesCommandError(
+const deserializeAws_restJson1_1GetLifecyclePoliciesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetLifecyclePoliciesCommandOutput> {
+): Promise<GetLifecyclePoliciesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -625,12 +633,12 @@ async function deserializeAws_restJson1_1GetLifecyclePoliciesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetLifecyclePolicyCommand(
+export const deserializeAws_restJson1_1GetLifecyclePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetLifecyclePolicyCommandOutput> {
+): Promise<GetLifecyclePolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetLifecyclePolicyCommandError(
       output,
@@ -650,12 +658,12 @@ export async function deserializeAws_restJson1_1GetLifecyclePolicyCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetLifecyclePolicyCommandError(
+const deserializeAws_restJson1_1GetLifecyclePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetLifecyclePolicyCommandOutput> {
+): Promise<GetLifecyclePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -712,12 +720,12 @@ async function deserializeAws_restJson1_1GetLifecyclePolicyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
+export const deserializeAws_restJson1_1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListTagsForResourceCommandError(
       output,
@@ -734,12 +742,12 @@ export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
     contents.Tags = deserializeAws_restJson1_1TagMap(data.Tags, context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
+const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -796,12 +804,12 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1TagResourceCommand(
+export const deserializeAws_restJson1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1TagResourceCommandError(output, context);
   }
@@ -811,12 +819,12 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1TagResourceCommandError(
+const deserializeAws_restJson1_1TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -873,12 +881,12 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UntagResourceCommand(
+export const deserializeAws_restJson1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UntagResourceCommandError(output, context);
   }
@@ -888,12 +896,12 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UntagResourceCommandError(
+const deserializeAws_restJson1_1UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -950,12 +958,12 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UpdateLifecyclePolicyCommand(
+export const deserializeAws_restJson1_1UpdateLifecyclePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateLifecyclePolicyCommandOutput> {
+): Promise<UpdateLifecyclePolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateLifecyclePolicyCommandError(
       output,
@@ -968,12 +976,12 @@ export async function deserializeAws_restJson1_1UpdateLifecyclePolicyCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UpdateLifecyclePolicyCommandError(
+const deserializeAws_restJson1_1UpdateLifecyclePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateLifecyclePolicyCommandOutput> {
+): Promise<UpdateLifecyclePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1041,7 +1049,7 @@ async function deserializeAws_restJson1_1UpdateLifecyclePolicyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1InternalServerExceptionResponse = async (
   parsedOutput: any,
@@ -1163,14 +1171,10 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
 };
 
 const serializeAws_restJson1_1AvailabilityZoneList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1CreateRule = (
@@ -1236,14 +1240,12 @@ const serializeAws_restJson1_1CrossRegionCopyRule = (
 };
 
 const serializeAws_restJson1_1CrossRegionCopyRules = (
-  input: Array<CrossRegionCopyRule>,
+  input: CrossRegionCopyRule[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1CrossRegionCopyRule(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1CrossRegionCopyRule(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1FastRestoreRule = (
@@ -1320,14 +1322,10 @@ const serializeAws_restJson1_1PolicyDetails = (
 };
 
 const serializeAws_restJson1_1ResourceTypeValuesList = (
-  input: Array<ResourceTypeValues | string>,
+  input: (ResourceTypeValues | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1RetainRule = (
@@ -1400,14 +1398,10 @@ const serializeAws_restJson1_1Schedule = (
 };
 
 const serializeAws_restJson1_1ScheduleList = (
-  input: Array<Schedule>,
+  input: Schedule[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1Schedule(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_restJson1_1Schedule(entry, context));
 };
 
 const serializeAws_restJson1_1Tag = (
@@ -1428,61 +1422,44 @@ const serializeAws_restJson1_1TagMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = input[key];
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = input[key];
+    return acc;
+  }, {});
 };
 
 const serializeAws_restJson1_1TagsToAddList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1Tag(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_restJson1_1Tag(entry, context));
 };
 
 const serializeAws_restJson1_1TargetTagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1Tag(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_restJson1_1Tag(entry, context));
 };
 
 const serializeAws_restJson1_1TimesList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1VariableTagsList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1Tag(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_restJson1_1Tag(entry, context));
 };
 
 const deserializeAws_restJson1_1AvailabilityZoneList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -1562,7 +1539,7 @@ const deserializeAws_restJson1_1CrossRegionCopyRule = (
 const deserializeAws_restJson1_1CrossRegionCopyRules = (
   output: any,
   context: __SerdeContext
-): Array<CrossRegionCopyRule> => {
+): CrossRegionCopyRule[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1CrossRegionCopyRule(entry, context)
   );
@@ -1685,7 +1662,7 @@ const deserializeAws_restJson1_1LifecyclePolicySummary = (
 const deserializeAws_restJson1_1LifecyclePolicySummaryList = (
   output: any,
   context: __SerdeContext
-): Array<LifecyclePolicySummary> => {
+): LifecyclePolicySummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1LifecyclePolicySummary(entry, context)
   );
@@ -1694,7 +1671,7 @@ const deserializeAws_restJson1_1LifecyclePolicySummaryList = (
 const deserializeAws_restJson1_1ParameterList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -1760,14 +1737,14 @@ const deserializeAws_restJson1_1PolicyDetails = (
 const deserializeAws_restJson1_1PolicyIdList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1ResourceTypeValuesList = (
   output: any,
   context: __SerdeContext
-): Array<ResourceTypeValues | string> => {
+): (ResourceTypeValues | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -1859,7 +1836,7 @@ const deserializeAws_restJson1_1Schedule = (
 const deserializeAws_restJson1_1ScheduleList = (
   output: any,
   context: __SerdeContext
-): Array<Schedule> => {
+): Schedule[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Schedule(entry, context)
   );
@@ -1887,17 +1864,16 @@ const deserializeAws_restJson1_1TagMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = output[key];
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1_1TagsToAddList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Tag(entry, context)
   );
@@ -1906,7 +1882,7 @@ const deserializeAws_restJson1_1TagsToAddList = (
 const deserializeAws_restJson1_1TargetTagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Tag(entry, context)
   );
@@ -1915,14 +1891,14 @@ const deserializeAws_restJson1_1TargetTagList = (
 const deserializeAws_restJson1_1TimesList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1VariableTagsList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Tag(entry, context)
   );
@@ -1936,7 +1912,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -1951,30 +1927,23 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
-function isSerializableHeaderValue(value: any): boolean {
-  return (
-    value !== undefined &&
-    value !== "" &&
-    (!Object.getOwnPropertyNames(value).includes("length") ||
-      value.length != 0) &&
-    (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0)
-  );
-}
+const isSerializableHeaderValue = (value: any): boolean =>
+  value !== undefined &&
+  value !== "" &&
+  (!Object.getOwnPropertyNames(value).includes("length") ||
+    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};
 
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.

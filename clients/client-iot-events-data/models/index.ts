@@ -133,7 +133,7 @@ export interface BatchPutMessageRequest {
    *           <code>'{ "messageId": "string", "inputName": "string", "payload": "string"}'</code>
    *          </p>
    */
-  messages: Array<Message> | undefined;
+  messages: Message[] | undefined;
 }
 
 export namespace BatchPutMessageRequest {
@@ -146,7 +146,7 @@ export interface BatchPutMessageResponse {
   /**
    * <p>A list of any errors encountered when sending the messages.</p>
    */
-  BatchPutMessageErrorEntries?: Array<BatchPutMessageErrorEntry>;
+  BatchPutMessageErrorEntries?: BatchPutMessageErrorEntry[];
 }
 
 export namespace BatchPutMessageResponse {
@@ -186,7 +186,7 @@ export interface BatchUpdateDetectorRequest {
   /**
    * <p>The list of detectors (instances) to update, along with the values to update.</p>
    */
-  detectors: Array<UpdateDetectorRequest> | undefined;
+  detectors: UpdateDetectorRequest[] | undefined;
 }
 
 export namespace BatchUpdateDetectorRequest {
@@ -200,7 +200,7 @@ export interface BatchUpdateDetectorResponse {
    * <p>A list of those detector updates that resulted in errors. (If an error is listed here, the
    *         specific update did not occur.)</p>
    */
-  batchUpdateDetectorErrorEntries?: Array<BatchUpdateDetectorErrorEntry>;
+  batchUpdateDetectorErrorEntries?: BatchUpdateDetectorErrorEntry[];
 }
 
 export namespace BatchUpdateDetectorResponse {
@@ -293,12 +293,12 @@ export interface DetectorState {
   /**
    * <p>The current state of the detector's timers.</p>
    */
-  timers: Array<Timer> | undefined;
+  timers: Timer[] | undefined;
 
   /**
    * <p>The current values of the detector's variables.</p>
    */
-  variables: Array<Variable> | undefined;
+  variables: Variable[] | undefined;
 }
 
 export namespace DetectorState {
@@ -319,12 +319,12 @@ export interface DetectorStateDefinition {
    * <p>The new values of the detector's timers. Any timer whose value isn't specified is
    *        cleared, and its timeout event won't occur.</p>
    */
-  timers: Array<TimerDefinition> | undefined;
+  timers: TimerDefinition[] | undefined;
 
   /**
    * <p>The new values of the detector's variables. Any variable whose value isn't specified is cleared.</p>
    */
-  variables: Array<VariableDefinition> | undefined;
+  variables: VariableDefinition[] | undefined;
 }
 
 export namespace DetectorStateDefinition {
@@ -431,7 +431,7 @@ export interface ListDetectorsResponse {
   /**
    * <p>A list of summary information about the detectors (instances).</p>
    */
-  detectorSummaries?: Array<DetectorSummary>;
+  detectorSummaries?: DetectorSummary[];
 
   /**
    * <p>A token to retrieve the next set of results, or <code>null</code> if there are no additional

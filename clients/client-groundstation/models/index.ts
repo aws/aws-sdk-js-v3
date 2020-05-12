@@ -251,7 +251,7 @@ export namespace ConfigTypeData {
     uplinkEchoConfig: (value: UplinkEchoConfig) => T;
     _: (name: string, value: any) => T;
   }
-  export function visit<T>(value: ConfigTypeData, visitor: Visitor<T>): T {
+  export const visit = <T>(value: ConfigTypeData, visitor: Visitor<T>): T => {
     if (value.antennaDownlinkConfig !== undefined)
       return visitor.antennaDownlinkConfig(value.antennaDownlinkConfig);
     if (value.antennaDownlinkDemodDecodeConfig !== undefined)
@@ -267,7 +267,7 @@ export namespace ConfigTypeData {
     if (value.uplinkEchoConfig !== undefined)
       return visitor.uplinkEchoConfig(value.uplinkEchoConfig);
     return visitor._(value.$unknown[0], value.$unknown[1]);
-  }
+  };
 }
 
 /**
@@ -390,7 +390,7 @@ export interface CreateDataflowEndpointGroupRequest {
   /**
    * <p>Endpoint details of each endpoint in the dataflow endpoint group.</p>
    */
-  endpointDetails: Array<EndpointDetails> | undefined;
+  endpointDetails: EndpointDetails[] | undefined;
 
   /**
    * <p>Tags of a dataflow endpoint group.</p>
@@ -422,7 +422,7 @@ export interface CreateMissionProfileRequest {
    * <p>A list of lists of ARNs. Each list of ARNs is an edge, with a from <code>Config</code> and a to
    *          <code>Config</code>.</p>
    */
-  dataflowEdges: Array<Array<string>> | undefined;
+  dataflowEdges: string[][] | undefined;
 
   /**
    * <p>Smallest amount of time in seconds that you’d like to see for an available contact. AWS Ground Station will not present you with contacts shorter than this duration.</p>
@@ -826,7 +826,7 @@ export interface GetDataflowEndpointGroupResponse {
   /**
    * <p>Details of a dataflow endpoint.</p>
    */
-  endpointsDetails?: Array<EndpointDetails>;
+  endpointsDetails?: EndpointDetails[];
 
   /**
    * <p>Tags assigned to a dataflow endpoint group.</p>
@@ -874,7 +874,7 @@ export interface GetMissionProfileResponse {
    * <p>A list of lists of ARNs. Each list of ARNs is an edge, with a from <code>Config</code> and a to
    *          <code>Config</code>.</p>
    */
-  dataflowEdges?: Array<Array<string>>;
+  dataflowEdges?: string[][];
 
   /**
    * <p>Smallest amount of time in seconds that you’d like to see for an available contact. AWS Ground Station will not present you with contacts shorter than this duration.</p>
@@ -946,7 +946,7 @@ export interface ListConfigsResponse {
   /**
    * <p>List of <code>Config</code> items.</p>
    */
-  configList?: Array<ConfigListItem>;
+  configList?: ConfigListItem[];
 
   /**
    * <p>Next token returned in the response of a previous <code>ListConfigs</code> call. Used to get the next page of results.</p>
@@ -1002,7 +1002,7 @@ export interface ListContactsRequest {
   /**
    * <p>Status of a contact reservation.</p>
    */
-  statusList: Array<ContactStatus | string> | undefined;
+  statusList: (ContactStatus | string)[] | undefined;
 }
 
 export namespace ListContactsRequest {
@@ -1018,7 +1018,7 @@ export interface ListContactsResponse {
   /**
    * <p>List of contacts.</p>
    */
-  contactList?: Array<ContactData>;
+  contactList?: ContactData[];
 
   /**
    * <p>Next token returned in the response of a previous <code>ListContacts</code> call. Used to get the next page of results.</p>
@@ -1060,7 +1060,7 @@ export interface ListDataflowEndpointGroupsResponse {
   /**
    * <p>A list of dataflow endpoint groups.</p>
    */
-  dataflowEndpointGroupList?: Array<DataflowEndpointListItem>;
+  dataflowEndpointGroupList?: DataflowEndpointListItem[];
 
   /**
    * <p>Next token returned in the response of a previous <code>ListDataflowEndpointGroups</code> call. Used to get the next page of results.</p>
@@ -1102,7 +1102,7 @@ export interface ListMissionProfilesResponse {
   /**
    * <p>List of mission profiles</p>
    */
-  missionProfileList?: Array<MissionProfileListItem>;
+  missionProfileList?: MissionProfileListItem[];
 
   /**
    * <p>Next token returned in the response of a previous <code>ListMissionProfiles</code> call. Used to get the next page of results.</p>
@@ -1270,7 +1270,7 @@ export interface UpdateMissionProfileRequest {
    * <p>A list of lists of ARNs. Each list of ARNs is an edge, with a from <code>Config</code> and a to
    *          <code>Config</code>.</p>
    */
-  dataflowEdges?: Array<Array<string>>;
+  dataflowEdges?: string[][];
 
   /**
    * <p>Smallest amount of time in seconds that you’d like to see for an available contact. AWS Ground Station will not present you with contacts shorter than this duration.</p>
@@ -1662,7 +1662,7 @@ export interface ListGroundStationsResponse {
   /**
    * <p>List of ground stations.</p>
    */
-  groundStationList?: Array<GroundStationData>;
+  groundStationList?: GroundStationData[];
 
   /**
    * <p>Next token that can be supplied in the next call to get the next page of ground stations.</p>
@@ -1709,7 +1709,7 @@ export interface ListSatellitesResponse {
   /**
    * <p>List of satellites.</p>
    */
-  satellites?: Array<SatelliteListItem>;
+  satellites?: SatelliteListItem[];
 }
 
 export namespace ListSatellitesResponse {
@@ -1810,12 +1810,12 @@ export interface SecurityDetails {
   /**
    * <p>The security groups to attach to the elastic network interfaces.</p>
    */
-  securityGroupIds: Array<string> | undefined;
+  securityGroupIds: string[] | undefined;
 
   /**
    * <p>A list of subnets where AWS Ground Station places elastic network interfaces to send streams to your instances.</p>
    */
-  subnetIds: Array<string> | undefined;
+  subnetIds: string[] | undefined;
 }
 
 export namespace SecurityDetails {
@@ -1915,7 +1915,7 @@ export interface UntagResourceRequest {
   /**
    * <p>Keys of a resource tag.</p>
    */
-  tagKeys: Array<string> | undefined;
+  tagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {

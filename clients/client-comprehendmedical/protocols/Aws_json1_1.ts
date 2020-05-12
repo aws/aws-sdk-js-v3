@@ -116,193 +116,201 @@ import {
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
-export async function serializeAws_json1_1DescribeEntitiesDetectionV2JobCommand(
+export const serializeAws_json1_1DescribeEntitiesDetectionV2JobCommand = async (
   input: DescribeEntitiesDetectionV2JobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "ComprehendMedical_20181030.DescribeEntitiesDetectionV2Job";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ComprehendMedical_20181030.DescribeEntitiesDetectionV2Job"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEntitiesDetectionV2JobRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribePHIDetectionJobCommand(
+export const serializeAws_json1_1DescribePHIDetectionJobCommand = async (
   input: DescribePHIDetectionJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "ComprehendMedical_20181030.DescribePHIDetectionJob";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ComprehendMedical_20181030.DescribePHIDetectionJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribePHIDetectionJobRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DetectEntitiesCommand(
+export const serializeAws_json1_1DetectEntitiesCommand = async (
   input: DetectEntitiesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "ComprehendMedical_20181030.DetectEntities";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ComprehendMedical_20181030.DetectEntities"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DetectEntitiesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DetectEntitiesV2Command(
+export const serializeAws_json1_1DetectEntitiesV2Command = async (
   input: DetectEntitiesV2CommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "ComprehendMedical_20181030.DetectEntitiesV2";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ComprehendMedical_20181030.DetectEntitiesV2"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DetectEntitiesV2Request(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DetectPHICommand(
+export const serializeAws_json1_1DetectPHICommand = async (
   input: DetectPHICommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "ComprehendMedical_20181030.DetectPHI";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ComprehendMedical_20181030.DetectPHI"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DetectPHIRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1InferICD10CMCommand(
+export const serializeAws_json1_1InferICD10CMCommand = async (
   input: InferICD10CMCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "ComprehendMedical_20181030.InferICD10CM";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ComprehendMedical_20181030.InferICD10CM"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1InferICD10CMRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1InferRxNormCommand(
+export const serializeAws_json1_1InferRxNormCommand = async (
   input: InferRxNormCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "ComprehendMedical_20181030.InferRxNorm";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ComprehendMedical_20181030.InferRxNorm"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1InferRxNormRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListEntitiesDetectionV2JobsCommand(
+export const serializeAws_json1_1ListEntitiesDetectionV2JobsCommand = async (
   input: ListEntitiesDetectionV2JobsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "ComprehendMedical_20181030.ListEntitiesDetectionV2Jobs";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ComprehendMedical_20181030.ListEntitiesDetectionV2Jobs"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListEntitiesDetectionV2JobsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListPHIDetectionJobsCommand(
+export const serializeAws_json1_1ListPHIDetectionJobsCommand = async (
   input: ListPHIDetectionJobsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "ComprehendMedical_20181030.ListPHIDetectionJobs";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ComprehendMedical_20181030.ListPHIDetectionJobs"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListPHIDetectionJobsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1StartEntitiesDetectionV2JobCommand(
+export const serializeAws_json1_1StartEntitiesDetectionV2JobCommand = async (
   input: StartEntitiesDetectionV2JobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "ComprehendMedical_20181030.StartEntitiesDetectionV2Job";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ComprehendMedical_20181030.StartEntitiesDetectionV2Job"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartEntitiesDetectionV2JobRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1StartPHIDetectionJobCommand(
+export const serializeAws_json1_1StartPHIDetectionJobCommand = async (
   input: StartPHIDetectionJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "ComprehendMedical_20181030.StartPHIDetectionJob";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ComprehendMedical_20181030.StartPHIDetectionJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartPHIDetectionJobRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1StopEntitiesDetectionV2JobCommand(
+export const serializeAws_json1_1StopEntitiesDetectionV2JobCommand = async (
   input: StopEntitiesDetectionV2JobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "ComprehendMedical_20181030.StopEntitiesDetectionV2Job";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ComprehendMedical_20181030.StopEntitiesDetectionV2Job"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StopEntitiesDetectionV2JobRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1StopPHIDetectionJobCommand(
+export const serializeAws_json1_1StopPHIDetectionJobCommand = async (
   input: StopPHIDetectionJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "ComprehendMedical_20181030.StopPHIDetectionJob";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ComprehendMedical_20181030.StopPHIDetectionJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StopPHIDetectionJobRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_1DescribeEntitiesDetectionV2JobCommand(
+export const deserializeAws_json1_1DescribeEntitiesDetectionV2JobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeEntitiesDetectionV2JobCommandOutput> {
+): Promise<DescribeEntitiesDetectionV2JobCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeEntitiesDetectionV2JobCommandError(
       output,
@@ -321,12 +329,12 @@ export async function deserializeAws_json1_1DescribeEntitiesDetectionV2JobComman
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeEntitiesDetectionV2JobCommandError(
+const deserializeAws_json1_1DescribeEntitiesDetectionV2JobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeEntitiesDetectionV2JobCommandOutput> {
+): Promise<DescribeEntitiesDetectionV2JobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -396,12 +404,12 @@ async function deserializeAws_json1_1DescribeEntitiesDetectionV2JobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribePHIDetectionJobCommand(
+export const deserializeAws_json1_1DescribePHIDetectionJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribePHIDetectionJobCommandOutput> {
+): Promise<DescribePHIDetectionJobCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribePHIDetectionJobCommandError(
       output,
@@ -420,12 +428,12 @@ export async function deserializeAws_json1_1DescribePHIDetectionJobCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribePHIDetectionJobCommandError(
+const deserializeAws_json1_1DescribePHIDetectionJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribePHIDetectionJobCommandOutput> {
+): Promise<DescribePHIDetectionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -495,12 +503,12 @@ async function deserializeAws_json1_1DescribePHIDetectionJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DetectEntitiesCommand(
+export const deserializeAws_json1_1DetectEntitiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DetectEntitiesCommandOutput> {
+): Promise<DetectEntitiesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DetectEntitiesCommandError(output, context);
   }
@@ -513,12 +521,12 @@ export async function deserializeAws_json1_1DetectEntitiesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DetectEntitiesCommandError(
+const deserializeAws_json1_1DetectEntitiesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DetectEntitiesCommandOutput> {
+): Promise<DetectEntitiesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -610,12 +618,12 @@ async function deserializeAws_json1_1DetectEntitiesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DetectEntitiesV2Command(
+export const deserializeAws_json1_1DetectEntitiesV2Command = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DetectEntitiesV2CommandOutput> {
+): Promise<DetectEntitiesV2CommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DetectEntitiesV2CommandError(output, context);
   }
@@ -628,12 +636,12 @@ export async function deserializeAws_json1_1DetectEntitiesV2Command(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DetectEntitiesV2CommandError(
+const deserializeAws_json1_1DetectEntitiesV2CommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DetectEntitiesV2CommandOutput> {
+): Promise<DetectEntitiesV2CommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -725,12 +733,12 @@ async function deserializeAws_json1_1DetectEntitiesV2CommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DetectPHICommand(
+export const deserializeAws_json1_1DetectPHICommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DetectPHICommandOutput> {
+): Promise<DetectPHICommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DetectPHICommandError(output, context);
   }
@@ -743,12 +751,12 @@ export async function deserializeAws_json1_1DetectPHICommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DetectPHICommandError(
+const deserializeAws_json1_1DetectPHICommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DetectPHICommandOutput> {
+): Promise<DetectPHICommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -840,12 +848,12 @@ async function deserializeAws_json1_1DetectPHICommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1InferICD10CMCommand(
+export const deserializeAws_json1_1InferICD10CMCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<InferICD10CMCommandOutput> {
+): Promise<InferICD10CMCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1InferICD10CMCommandError(output, context);
   }
@@ -858,12 +866,12 @@ export async function deserializeAws_json1_1InferICD10CMCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1InferICD10CMCommandError(
+const deserializeAws_json1_1InferICD10CMCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<InferICD10CMCommandOutput> {
+): Promise<InferICD10CMCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -955,12 +963,12 @@ async function deserializeAws_json1_1InferICD10CMCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1InferRxNormCommand(
+export const deserializeAws_json1_1InferRxNormCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<InferRxNormCommandOutput> {
+): Promise<InferRxNormCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1InferRxNormCommandError(output, context);
   }
@@ -973,12 +981,12 @@ export async function deserializeAws_json1_1InferRxNormCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1InferRxNormCommandError(
+const deserializeAws_json1_1InferRxNormCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<InferRxNormCommandOutput> {
+): Promise<InferRxNormCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1070,12 +1078,12 @@ async function deserializeAws_json1_1InferRxNormCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListEntitiesDetectionV2JobsCommand(
+export const deserializeAws_json1_1ListEntitiesDetectionV2JobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListEntitiesDetectionV2JobsCommandOutput> {
+): Promise<ListEntitiesDetectionV2JobsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListEntitiesDetectionV2JobsCommandError(
       output,
@@ -1094,12 +1102,12 @@ export async function deserializeAws_json1_1ListEntitiesDetectionV2JobsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListEntitiesDetectionV2JobsCommandError(
+const deserializeAws_json1_1ListEntitiesDetectionV2JobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListEntitiesDetectionV2JobsCommandOutput> {
+): Promise<ListEntitiesDetectionV2JobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1169,12 +1177,12 @@ async function deserializeAws_json1_1ListEntitiesDetectionV2JobsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListPHIDetectionJobsCommand(
+export const deserializeAws_json1_1ListPHIDetectionJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListPHIDetectionJobsCommandOutput> {
+): Promise<ListPHIDetectionJobsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListPHIDetectionJobsCommandError(
       output,
@@ -1190,12 +1198,12 @@ export async function deserializeAws_json1_1ListPHIDetectionJobsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListPHIDetectionJobsCommandError(
+const deserializeAws_json1_1ListPHIDetectionJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListPHIDetectionJobsCommandOutput> {
+): Promise<ListPHIDetectionJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1265,12 +1273,12 @@ async function deserializeAws_json1_1ListPHIDetectionJobsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1StartEntitiesDetectionV2JobCommand(
+export const deserializeAws_json1_1StartEntitiesDetectionV2JobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartEntitiesDetectionV2JobCommandOutput> {
+): Promise<StartEntitiesDetectionV2JobCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StartEntitiesDetectionV2JobCommandError(
       output,
@@ -1289,12 +1297,12 @@ export async function deserializeAws_json1_1StartEntitiesDetectionV2JobCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1StartEntitiesDetectionV2JobCommandError(
+const deserializeAws_json1_1StartEntitiesDetectionV2JobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartEntitiesDetectionV2JobCommandOutput> {
+): Promise<StartEntitiesDetectionV2JobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1364,12 +1372,12 @@ async function deserializeAws_json1_1StartEntitiesDetectionV2JobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1StartPHIDetectionJobCommand(
+export const deserializeAws_json1_1StartPHIDetectionJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartPHIDetectionJobCommandOutput> {
+): Promise<StartPHIDetectionJobCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StartPHIDetectionJobCommandError(
       output,
@@ -1385,12 +1393,12 @@ export async function deserializeAws_json1_1StartPHIDetectionJobCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1StartPHIDetectionJobCommandError(
+const deserializeAws_json1_1StartPHIDetectionJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartPHIDetectionJobCommandOutput> {
+): Promise<StartPHIDetectionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1460,12 +1468,12 @@ async function deserializeAws_json1_1StartPHIDetectionJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1StopEntitiesDetectionV2JobCommand(
+export const deserializeAws_json1_1StopEntitiesDetectionV2JobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StopEntitiesDetectionV2JobCommandOutput> {
+): Promise<StopEntitiesDetectionV2JobCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StopEntitiesDetectionV2JobCommandError(
       output,
@@ -1484,12 +1492,12 @@ export async function deserializeAws_json1_1StopEntitiesDetectionV2JobCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1StopEntitiesDetectionV2JobCommandError(
+const deserializeAws_json1_1StopEntitiesDetectionV2JobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StopEntitiesDetectionV2JobCommandOutput> {
+): Promise<StopEntitiesDetectionV2JobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1548,12 +1556,12 @@ async function deserializeAws_json1_1StopEntitiesDetectionV2JobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1StopPHIDetectionJobCommand(
+export const deserializeAws_json1_1StopPHIDetectionJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StopPHIDetectionJobCommandOutput> {
+): Promise<StopPHIDetectionJobCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StopPHIDetectionJobCommandError(
       output,
@@ -1569,12 +1577,12 @@ export async function deserializeAws_json1_1StopPHIDetectionJobCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1StopPHIDetectionJobCommandError(
+const deserializeAws_json1_1StopPHIDetectionJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StopPHIDetectionJobCommandOutput> {
+): Promise<StopPHIDetectionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1633,7 +1641,7 @@ async function deserializeAws_json1_1StopPHIDetectionJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_1InternalServerExceptionResponse = async (
   parsedOutput: any,
@@ -2094,7 +2102,7 @@ const deserializeAws_json1_1Attribute = (
 const deserializeAws_json1_1AttributeList = (
   output: any,
   context: __SerdeContext
-): Array<Attribute> => {
+): Attribute[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Attribute(entry, context)
   );
@@ -2186,7 +2194,7 @@ const deserializeAws_json1_1ComprehendMedicalAsyncJobProperties = (
 const deserializeAws_json1_1ComprehendMedicalAsyncJobPropertiesList = (
   output: any,
   context: __SerdeContext
-): Array<ComprehendMedicalAsyncJobProperties> => {
+): ComprehendMedicalAsyncJobProperties[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ComprehendMedicalAsyncJobProperties(entry, context)
   );
@@ -2379,7 +2387,7 @@ const deserializeAws_json1_1Entity = (
 const deserializeAws_json1_1EntityList = (
   output: any,
   context: __SerdeContext
-): Array<Entity> => {
+): Entity[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Entity(entry, context)
   );
@@ -2436,7 +2444,7 @@ const deserializeAws_json1_1ICD10CMAttribute = (
 const deserializeAws_json1_1ICD10CMAttributeList = (
   output: any,
   context: __SerdeContext
-): Array<ICD10CMAttribute> => {
+): ICD10CMAttribute[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ICD10CMAttribute(entry, context)
   );
@@ -2467,7 +2475,7 @@ const deserializeAws_json1_1ICD10CMConcept = (
 const deserializeAws_json1_1ICD10CMConceptList = (
   output: any,
   context: __SerdeContext
-): Array<ICD10CMConcept> => {
+): ICD10CMConcept[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ICD10CMConcept(entry, context)
   );
@@ -2535,7 +2543,7 @@ const deserializeAws_json1_1ICD10CMEntity = (
 const deserializeAws_json1_1ICD10CMEntityList = (
   output: any,
   context: __SerdeContext
-): Array<ICD10CMEntity> => {
+): ICD10CMEntity[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ICD10CMEntity(entry, context)
   );
@@ -2562,7 +2570,7 @@ const deserializeAws_json1_1ICD10CMTrait = (
 const deserializeAws_json1_1ICD10CMTraitList = (
   output: any,
   context: __SerdeContext
-): Array<ICD10CMTrait> => {
+): ICD10CMTrait[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ICD10CMTrait(entry, context)
   );
@@ -2809,7 +2817,7 @@ const deserializeAws_json1_1RxNormAttribute = (
 const deserializeAws_json1_1RxNormAttributeList = (
   output: any,
   context: __SerdeContext
-): Array<RxNormAttribute> => {
+): RxNormAttribute[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RxNormAttribute(entry, context)
   );
@@ -2840,7 +2848,7 @@ const deserializeAws_json1_1RxNormConcept = (
 const deserializeAws_json1_1RxNormConceptList = (
   output: any,
   context: __SerdeContext
-): Array<RxNormConcept> => {
+): RxNormConcept[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RxNormConcept(entry, context)
   );
@@ -2908,7 +2916,7 @@ const deserializeAws_json1_1RxNormEntity = (
 const deserializeAws_json1_1RxNormEntityList = (
   output: any,
   context: __SerdeContext
-): Array<RxNormEntity> => {
+): RxNormEntity[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RxNormEntity(entry, context)
   );
@@ -2935,7 +2943,7 @@ const deserializeAws_json1_1RxNormTrait = (
 const deserializeAws_json1_1RxNormTraitList = (
   output: any,
   context: __SerdeContext
-): Array<RxNormTrait> => {
+): RxNormTrait[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RxNormTrait(entry, context)
   );
@@ -3060,7 +3068,7 @@ const deserializeAws_json1_1Trait = (
 const deserializeAws_json1_1TraitList = (
   output: any,
   context: __SerdeContext
-): Array<Trait> => {
+): Trait[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Trait(entry, context)
   );
@@ -3090,7 +3098,7 @@ const deserializeAws_json1_1UnmappedAttribute = (
 const deserializeAws_json1_1UnmappedAttributeList = (
   output: any,
   context: __SerdeContext
-): Array<UnmappedAttribute> => {
+): UnmappedAttribute[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1UnmappedAttribute(entry, context)
   );
@@ -3118,7 +3126,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -3133,11 +3141,8 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
@@ -3164,11 +3169,10 @@ const buildHttpRpcRequest = async (
   return new __HttpRequest(contents);
 };
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};

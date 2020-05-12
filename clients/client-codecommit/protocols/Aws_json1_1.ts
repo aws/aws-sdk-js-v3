@@ -691,14 +691,15 @@ import {
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
-export async function serializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryCommand(
+export const serializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryCommand = async (
   input: AssociateApprovalRuleTemplateWithRepositoryCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "CodeCommit_20150413.AssociateApprovalRuleTemplateWithRepository";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "CodeCommit_20150413.AssociateApprovalRuleTemplateWithRepository"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryInput(
@@ -707,16 +708,17 @@ export async function serializeAws_json1_1AssociateApprovalRuleTemplateWithRepos
     )
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesCommand(
+export const serializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesCommand = async (
   input: BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "CodeCommit_20150413.BatchAssociateApprovalRuleTemplateWithRepositories";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "CodeCommit_20150413.BatchAssociateApprovalRuleTemplateWithRepositories"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesInput(
@@ -725,30 +727,32 @@ export async function serializeAws_json1_1BatchAssociateApprovalRuleTemplateWith
     )
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1BatchDescribeMergeConflictsCommand(
+export const serializeAws_json1_1BatchDescribeMergeConflictsCommand = async (
   input: BatchDescribeMergeConflictsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.BatchDescribeMergeConflicts";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.BatchDescribeMergeConflicts"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchDescribeMergeConflictsInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand(
+export const serializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand = async (
   input: BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "CodeCommit_20150413.BatchDisassociateApprovalRuleTemplateFromRepositories";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "CodeCommit_20150413.BatchDisassociateApprovalRuleTemplateFromRepositories"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesInput(
@@ -757,246 +761,264 @@ export async function serializeAws_json1_1BatchDisassociateApprovalRuleTemplateF
     )
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1BatchGetCommitsCommand(
+export const serializeAws_json1_1BatchGetCommitsCommand = async (
   input: BatchGetCommitsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.BatchGetCommits";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.BatchGetCommits"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchGetCommitsInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1BatchGetRepositoriesCommand(
+export const serializeAws_json1_1BatchGetRepositoriesCommand = async (
   input: BatchGetRepositoriesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.BatchGetRepositories";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.BatchGetRepositories"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchGetRepositoriesInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreateApprovalRuleTemplateCommand(
+export const serializeAws_json1_1CreateApprovalRuleTemplateCommand = async (
   input: CreateApprovalRuleTemplateCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.CreateApprovalRuleTemplate";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.CreateApprovalRuleTemplate"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateApprovalRuleTemplateInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreateBranchCommand(
+export const serializeAws_json1_1CreateBranchCommand = async (
   input: CreateBranchCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.CreateBranch";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.CreateBranch"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateBranchInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreateCommitCommand(
+export const serializeAws_json1_1CreateCommitCommand = async (
   input: CreateCommitCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.CreateCommit";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.CreateCommit"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateCommitInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreatePullRequestCommand(
+export const serializeAws_json1_1CreatePullRequestCommand = async (
   input: CreatePullRequestCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.CreatePullRequest";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.CreatePullRequest"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreatePullRequestInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreatePullRequestApprovalRuleCommand(
+export const serializeAws_json1_1CreatePullRequestApprovalRuleCommand = async (
   input: CreatePullRequestApprovalRuleCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.CreatePullRequestApprovalRule";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.CreatePullRequestApprovalRule"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreatePullRequestApprovalRuleInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreateRepositoryCommand(
+export const serializeAws_json1_1CreateRepositoryCommand = async (
   input: CreateRepositoryCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.CreateRepository";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.CreateRepository"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateRepositoryInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreateUnreferencedMergeCommitCommand(
+export const serializeAws_json1_1CreateUnreferencedMergeCommitCommand = async (
   input: CreateUnreferencedMergeCommitCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.CreateUnreferencedMergeCommit";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.CreateUnreferencedMergeCommit"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateUnreferencedMergeCommitInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteApprovalRuleTemplateCommand(
+export const serializeAws_json1_1DeleteApprovalRuleTemplateCommand = async (
   input: DeleteApprovalRuleTemplateCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.DeleteApprovalRuleTemplate";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.DeleteApprovalRuleTemplate"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteApprovalRuleTemplateInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteBranchCommand(
+export const serializeAws_json1_1DeleteBranchCommand = async (
   input: DeleteBranchCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.DeleteBranch";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.DeleteBranch"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteBranchInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteCommentContentCommand(
+export const serializeAws_json1_1DeleteCommentContentCommand = async (
   input: DeleteCommentContentCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.DeleteCommentContent";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.DeleteCommentContent"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteCommentContentInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteFileCommand(
+export const serializeAws_json1_1DeleteFileCommand = async (
   input: DeleteFileCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.DeleteFile";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.DeleteFile"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteFileInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeletePullRequestApprovalRuleCommand(
+export const serializeAws_json1_1DeletePullRequestApprovalRuleCommand = async (
   input: DeletePullRequestApprovalRuleCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.DeletePullRequestApprovalRule";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.DeletePullRequestApprovalRule"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeletePullRequestApprovalRuleInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteRepositoryCommand(
+export const serializeAws_json1_1DeleteRepositoryCommand = async (
   input: DeleteRepositoryCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.DeleteRepository";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.DeleteRepository"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteRepositoryInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeMergeConflictsCommand(
+export const serializeAws_json1_1DescribeMergeConflictsCommand = async (
   input: DescribeMergeConflictsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.DescribeMergeConflicts";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.DescribeMergeConflicts"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeMergeConflictsInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribePullRequestEventsCommand(
+export const serializeAws_json1_1DescribePullRequestEventsCommand = async (
   input: DescribePullRequestEventsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.DescribePullRequestEvents";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.DescribePullRequestEvents"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribePullRequestEventsInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DisassociateApprovalRuleTemplateFromRepositoryCommand(
+export const serializeAws_json1_1DisassociateApprovalRuleTemplateFromRepositoryCommand = async (
   input: DisassociateApprovalRuleTemplateFromRepositoryCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "CodeCommit_20150413.DisassociateApprovalRuleTemplateFromRepository";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "CodeCommit_20150413.DisassociateApprovalRuleTemplateFromRepository"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DisassociateApprovalRuleTemplateFromRepositoryInput(
@@ -1005,283 +1027,303 @@ export async function serializeAws_json1_1DisassociateApprovalRuleTemplateFromRe
     )
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1EvaluatePullRequestApprovalRulesCommand(
+export const serializeAws_json1_1EvaluatePullRequestApprovalRulesCommand = async (
   input: EvaluatePullRequestApprovalRulesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "CodeCommit_20150413.EvaluatePullRequestApprovalRules";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.EvaluatePullRequestApprovalRules"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1EvaluatePullRequestApprovalRulesInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetApprovalRuleTemplateCommand(
+export const serializeAws_json1_1GetApprovalRuleTemplateCommand = async (
   input: GetApprovalRuleTemplateCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.GetApprovalRuleTemplate";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.GetApprovalRuleTemplate"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetApprovalRuleTemplateInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetBlobCommand(
+export const serializeAws_json1_1GetBlobCommand = async (
   input: GetBlobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.GetBlob";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.GetBlob"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetBlobInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetBranchCommand(
+export const serializeAws_json1_1GetBranchCommand = async (
   input: GetBranchCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.GetBranch";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.GetBranch"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetBranchInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetCommentCommand(
+export const serializeAws_json1_1GetCommentCommand = async (
   input: GetCommentCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.GetComment";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.GetComment"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetCommentInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetCommentsForComparedCommitCommand(
+export const serializeAws_json1_1GetCommentsForComparedCommitCommand = async (
   input: GetCommentsForComparedCommitCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.GetCommentsForComparedCommit";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.GetCommentsForComparedCommit"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetCommentsForComparedCommitInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetCommentsForPullRequestCommand(
+export const serializeAws_json1_1GetCommentsForPullRequestCommand = async (
   input: GetCommentsForPullRequestCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.GetCommentsForPullRequest";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.GetCommentsForPullRequest"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetCommentsForPullRequestInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetCommitCommand(
+export const serializeAws_json1_1GetCommitCommand = async (
   input: GetCommitCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.GetCommit";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.GetCommit"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetCommitInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetDifferencesCommand(
+export const serializeAws_json1_1GetDifferencesCommand = async (
   input: GetDifferencesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.GetDifferences";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.GetDifferences"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetDifferencesInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetFileCommand(
+export const serializeAws_json1_1GetFileCommand = async (
   input: GetFileCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.GetFile";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.GetFile"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetFileInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetFolderCommand(
+export const serializeAws_json1_1GetFolderCommand = async (
   input: GetFolderCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.GetFolder";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.GetFolder"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetFolderInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetMergeCommitCommand(
+export const serializeAws_json1_1GetMergeCommitCommand = async (
   input: GetMergeCommitCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.GetMergeCommit";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.GetMergeCommit"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetMergeCommitInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetMergeConflictsCommand(
+export const serializeAws_json1_1GetMergeConflictsCommand = async (
   input: GetMergeConflictsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.GetMergeConflicts";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.GetMergeConflicts"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetMergeConflictsInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetMergeOptionsCommand(
+export const serializeAws_json1_1GetMergeOptionsCommand = async (
   input: GetMergeOptionsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.GetMergeOptions";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.GetMergeOptions"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetMergeOptionsInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetPullRequestCommand(
+export const serializeAws_json1_1GetPullRequestCommand = async (
   input: GetPullRequestCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.GetPullRequest";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.GetPullRequest"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetPullRequestInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetPullRequestApprovalStatesCommand(
+export const serializeAws_json1_1GetPullRequestApprovalStatesCommand = async (
   input: GetPullRequestApprovalStatesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.GetPullRequestApprovalStates";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.GetPullRequestApprovalStates"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetPullRequestApprovalStatesInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetPullRequestOverrideStateCommand(
+export const serializeAws_json1_1GetPullRequestOverrideStateCommand = async (
   input: GetPullRequestOverrideStateCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.GetPullRequestOverrideState";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.GetPullRequestOverrideState"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetPullRequestOverrideStateInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetRepositoryCommand(
+export const serializeAws_json1_1GetRepositoryCommand = async (
   input: GetRepositoryCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.GetRepository";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.GetRepository"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetRepositoryInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetRepositoryTriggersCommand(
+export const serializeAws_json1_1GetRepositoryTriggersCommand = async (
   input: GetRepositoryTriggersCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.GetRepositoryTriggers";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.GetRepositoryTriggers"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetRepositoryTriggersInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListApprovalRuleTemplatesCommand(
+export const serializeAws_json1_1ListApprovalRuleTemplatesCommand = async (
   input: ListApprovalRuleTemplatesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.ListApprovalRuleTemplates";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.ListApprovalRuleTemplates"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListApprovalRuleTemplatesInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositoryCommand(
+export const serializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositoryCommand = async (
   input: ListAssociatedApprovalRuleTemplatesForRepositoryCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "CodeCommit_20150413.ListAssociatedApprovalRuleTemplatesForRepository";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "CodeCommit_20150413.ListAssociatedApprovalRuleTemplatesForRepository"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositoryInput(
@@ -1290,56 +1332,60 @@ export async function serializeAws_json1_1ListAssociatedApprovalRuleTemplatesFor
     )
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListBranchesCommand(
+export const serializeAws_json1_1ListBranchesCommand = async (
   input: ListBranchesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.ListBranches";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.ListBranches"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListBranchesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListPullRequestsCommand(
+export const serializeAws_json1_1ListPullRequestsCommand = async (
   input: ListPullRequestsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.ListPullRequests";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.ListPullRequests"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListPullRequestsInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListRepositoriesCommand(
+export const serializeAws_json1_1ListRepositoriesCommand = async (
   input: ListRepositoriesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.ListRepositories";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.ListRepositories"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListRepositoriesInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListRepositoriesForApprovalRuleTemplateCommand(
+export const serializeAws_json1_1ListRepositoriesForApprovalRuleTemplateCommand = async (
   input: ListRepositoriesForApprovalRuleTemplateCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "CodeCommit_20150413.ListRepositoriesForApprovalRuleTemplate";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "CodeCommit_20150413.ListRepositoriesForApprovalRuleTemplate"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListRepositoriesForApprovalRuleTemplateInput(
@@ -1348,250 +1394,265 @@ export async function serializeAws_json1_1ListRepositoriesForApprovalRuleTemplat
     )
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListTagsForResourceCommand(
+export const serializeAws_json1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.ListTagsForResource";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.ListTagsForResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTagsForResourceInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1MergeBranchesByFastForwardCommand(
+export const serializeAws_json1_1MergeBranchesByFastForwardCommand = async (
   input: MergeBranchesByFastForwardCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.MergeBranchesByFastForward";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.MergeBranchesByFastForward"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1MergeBranchesByFastForwardInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1MergeBranchesBySquashCommand(
+export const serializeAws_json1_1MergeBranchesBySquashCommand = async (
   input: MergeBranchesBySquashCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.MergeBranchesBySquash";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.MergeBranchesBySquash"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1MergeBranchesBySquashInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1MergeBranchesByThreeWayCommand(
+export const serializeAws_json1_1MergeBranchesByThreeWayCommand = async (
   input: MergeBranchesByThreeWayCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.MergeBranchesByThreeWay";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.MergeBranchesByThreeWay"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1MergeBranchesByThreeWayInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1MergePullRequestByFastForwardCommand(
+export const serializeAws_json1_1MergePullRequestByFastForwardCommand = async (
   input: MergePullRequestByFastForwardCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.MergePullRequestByFastForward";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.MergePullRequestByFastForward"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1MergePullRequestByFastForwardInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1MergePullRequestBySquashCommand(
+export const serializeAws_json1_1MergePullRequestBySquashCommand = async (
   input: MergePullRequestBySquashCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.MergePullRequestBySquash";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.MergePullRequestBySquash"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1MergePullRequestBySquashInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1MergePullRequestByThreeWayCommand(
+export const serializeAws_json1_1MergePullRequestByThreeWayCommand = async (
   input: MergePullRequestByThreeWayCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.MergePullRequestByThreeWay";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.MergePullRequestByThreeWay"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1MergePullRequestByThreeWayInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1OverridePullRequestApprovalRulesCommand(
+export const serializeAws_json1_1OverridePullRequestApprovalRulesCommand = async (
   input: OverridePullRequestApprovalRulesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "CodeCommit_20150413.OverridePullRequestApprovalRules";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.OverridePullRequestApprovalRules"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1OverridePullRequestApprovalRulesInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1PostCommentForComparedCommitCommand(
+export const serializeAws_json1_1PostCommentForComparedCommitCommand = async (
   input: PostCommentForComparedCommitCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.PostCommentForComparedCommit";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.PostCommentForComparedCommit"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PostCommentForComparedCommitInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1PostCommentForPullRequestCommand(
+export const serializeAws_json1_1PostCommentForPullRequestCommand = async (
   input: PostCommentForPullRequestCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.PostCommentForPullRequest";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.PostCommentForPullRequest"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PostCommentForPullRequestInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1PostCommentReplyCommand(
+export const serializeAws_json1_1PostCommentReplyCommand = async (
   input: PostCommentReplyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.PostCommentReply";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.PostCommentReply"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PostCommentReplyInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1PutFileCommand(
+export const serializeAws_json1_1PutFileCommand = async (
   input: PutFileCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.PutFile";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.PutFile"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutFileInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1PutRepositoryTriggersCommand(
+export const serializeAws_json1_1PutRepositoryTriggersCommand = async (
   input: PutRepositoryTriggersCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.PutRepositoryTriggers";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.PutRepositoryTriggers"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutRepositoryTriggersInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1TagResourceCommand(
+export const serializeAws_json1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.TagResource";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.TagResource"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1TestRepositoryTriggersCommand(
+export const serializeAws_json1_1TestRepositoryTriggersCommand = async (
   input: TestRepositoryTriggersCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.TestRepositoryTriggers";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.TestRepositoryTriggers"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1TestRepositoryTriggersInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UntagResourceCommand(
+export const serializeAws_json1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.UntagResource";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.UntagResource"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UntagResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateApprovalRuleTemplateContentCommand(
+export const serializeAws_json1_1UpdateApprovalRuleTemplateContentCommand = async (
   input: UpdateApprovalRuleTemplateContentCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "CodeCommit_20150413.UpdateApprovalRuleTemplateContent";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.UpdateApprovalRuleTemplateContent"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateApprovalRuleTemplateContentInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateApprovalRuleTemplateDescriptionCommand(
+export const serializeAws_json1_1UpdateApprovalRuleTemplateDescriptionCommand = async (
   input: UpdateApprovalRuleTemplateDescriptionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "CodeCommit_20150413.UpdateApprovalRuleTemplateDescription";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.UpdateApprovalRuleTemplateDescription"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateApprovalRuleTemplateDescriptionInput(
@@ -1600,57 +1661,59 @@ export async function serializeAws_json1_1UpdateApprovalRuleTemplateDescriptionC
     )
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateApprovalRuleTemplateNameCommand(
+export const serializeAws_json1_1UpdateApprovalRuleTemplateNameCommand = async (
   input: UpdateApprovalRuleTemplateNameCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "CodeCommit_20150413.UpdateApprovalRuleTemplateName";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.UpdateApprovalRuleTemplateName"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateApprovalRuleTemplateNameInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateCommentCommand(
+export const serializeAws_json1_1UpdateCommentCommand = async (
   input: UpdateCommentCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.UpdateComment";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.UpdateComment"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateCommentInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateDefaultBranchCommand(
+export const serializeAws_json1_1UpdateDefaultBranchCommand = async (
   input: UpdateDefaultBranchCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.UpdateDefaultBranch";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.UpdateDefaultBranch"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateDefaultBranchInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdatePullRequestApprovalRuleContentCommand(
+export const serializeAws_json1_1UpdatePullRequestApprovalRuleContentCommand = async (
   input: UpdatePullRequestApprovalRuleContentCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "CodeCommit_20150413.UpdatePullRequestApprovalRuleContent";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.UpdatePullRequestApprovalRuleContent"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdatePullRequestApprovalRuleContentInput(
@@ -1659,97 +1722,102 @@ export async function serializeAws_json1_1UpdatePullRequestApprovalRuleContentCo
     )
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdatePullRequestApprovalStateCommand(
+export const serializeAws_json1_1UpdatePullRequestApprovalStateCommand = async (
   input: UpdatePullRequestApprovalStateCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "CodeCommit_20150413.UpdatePullRequestApprovalState";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.UpdatePullRequestApprovalState"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdatePullRequestApprovalStateInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdatePullRequestDescriptionCommand(
+export const serializeAws_json1_1UpdatePullRequestDescriptionCommand = async (
   input: UpdatePullRequestDescriptionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.UpdatePullRequestDescription";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.UpdatePullRequestDescription"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdatePullRequestDescriptionInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdatePullRequestStatusCommand(
+export const serializeAws_json1_1UpdatePullRequestStatusCommand = async (
   input: UpdatePullRequestStatusCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.UpdatePullRequestStatus";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.UpdatePullRequestStatus"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdatePullRequestStatusInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdatePullRequestTitleCommand(
+export const serializeAws_json1_1UpdatePullRequestTitleCommand = async (
   input: UpdatePullRequestTitleCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.UpdatePullRequestTitle";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.UpdatePullRequestTitle"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdatePullRequestTitleInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateRepositoryDescriptionCommand(
+export const serializeAws_json1_1UpdateRepositoryDescriptionCommand = async (
   input: UpdateRepositoryDescriptionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.UpdateRepositoryDescription";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.UpdateRepositoryDescription"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateRepositoryDescriptionInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateRepositoryNameCommand(
+export const serializeAws_json1_1UpdateRepositoryNameCommand = async (
   input: UpdateRepositoryNameCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CodeCommit_20150413.UpdateRepositoryName";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "CodeCommit_20150413.UpdateRepositoryName"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateRepositoryNameInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryCommand(
+export const deserializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AssociateApprovalRuleTemplateWithRepositoryCommandOutput> {
+): Promise<AssociateApprovalRuleTemplateWithRepositoryCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryCommandError(
       output,
@@ -1761,12 +1829,12 @@ export async function deserializeAws_json1_1AssociateApprovalRuleTemplateWithRep
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryCommandError(
+const deserializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AssociateApprovalRuleTemplateWithRepositoryCommandOutput> {
+): Promise<AssociateApprovalRuleTemplateWithRepositoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1924,12 +1992,12 @@ async function deserializeAws_json1_1AssociateApprovalRuleTemplateWithRepository
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesCommand(
+export const deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput> {
+): Promise<BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesCommandError(
       output,
@@ -1948,12 +2016,12 @@ export async function deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWi
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesCommandError(
+const deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput> {
+): Promise<BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2089,12 +2157,12 @@ async function deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepos
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1BatchDescribeMergeConflictsCommand(
+export const deserializeAws_json1_1BatchDescribeMergeConflictsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchDescribeMergeConflictsCommandOutput> {
+): Promise<BatchDescribeMergeConflictsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1BatchDescribeMergeConflictsCommandError(
       output,
@@ -2113,12 +2181,12 @@ export async function deserializeAws_json1_1BatchDescribeMergeConflictsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1BatchDescribeMergeConflictsCommandError(
+const deserializeAws_json1_1BatchDescribeMergeConflictsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchDescribeMergeConflictsCommandOutput> {
+): Promise<BatchDescribeMergeConflictsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2375,12 +2443,14 @@ async function deserializeAws_json1_1BatchDescribeMergeConflictsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand(
+export const deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput> {
+): Promise<
+  BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput
+> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandError(
       output,
@@ -2399,12 +2469,14 @@ export async function deserializeAws_json1_1BatchDisassociateApprovalRuleTemplat
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandError(
+const deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput> {
+): Promise<
+  BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput
+> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2540,12 +2612,12 @@ async function deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRe
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1BatchGetCommitsCommand(
+export const deserializeAws_json1_1BatchGetCommitsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchGetCommitsCommandOutput> {
+): Promise<BatchGetCommitsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1BatchGetCommitsCommandError(output, context);
   }
@@ -2558,12 +2630,12 @@ export async function deserializeAws_json1_1BatchGetCommitsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1BatchGetCommitsCommandError(
+const deserializeAws_json1_1BatchGetCommitsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchGetCommitsCommandOutput> {
+): Promise<BatchGetCommitsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2699,12 +2771,12 @@ async function deserializeAws_json1_1BatchGetCommitsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1BatchGetRepositoriesCommand(
+export const deserializeAws_json1_1BatchGetRepositoriesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchGetRepositoriesCommandOutput> {
+): Promise<BatchGetRepositoriesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1BatchGetRepositoriesCommandError(
       output,
@@ -2720,12 +2792,12 @@ export async function deserializeAws_json1_1BatchGetRepositoriesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1BatchGetRepositoriesCommandError(
+const deserializeAws_json1_1BatchGetRepositoriesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchGetRepositoriesCommandOutput> {
+): Promise<BatchGetRepositoriesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2839,12 +2911,12 @@ async function deserializeAws_json1_1BatchGetRepositoriesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreateApprovalRuleTemplateCommand(
+export const deserializeAws_json1_1CreateApprovalRuleTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateApprovalRuleTemplateCommandOutput> {
+): Promise<CreateApprovalRuleTemplateCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateApprovalRuleTemplateCommandError(
       output,
@@ -2863,12 +2935,12 @@ export async function deserializeAws_json1_1CreateApprovalRuleTemplateCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateApprovalRuleTemplateCommandError(
+const deserializeAws_json1_1CreateApprovalRuleTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateApprovalRuleTemplateCommandOutput> {
+): Promise<CreateApprovalRuleTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2971,12 +3043,12 @@ async function deserializeAws_json1_1CreateApprovalRuleTemplateCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreateBranchCommand(
+export const deserializeAws_json1_1CreateBranchCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateBranchCommandOutput> {
+): Promise<CreateBranchCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateBranchCommandError(output, context);
   }
@@ -2985,12 +3057,12 @@ export async function deserializeAws_json1_1CreateBranchCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateBranchCommandError(
+const deserializeAws_json1_1CreateBranchCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateBranchCommandOutput> {
+): Promise<CreateBranchCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3170,12 +3242,12 @@ async function deserializeAws_json1_1CreateBranchCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreateCommitCommand(
+export const deserializeAws_json1_1CreateCommitCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateCommitCommandOutput> {
+): Promise<CreateCommitCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateCommitCommandError(output, context);
   }
@@ -3188,12 +3260,12 @@ export async function deserializeAws_json1_1CreateCommitCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateCommitCommandError(
+const deserializeAws_json1_1CreateCommitCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateCommitCommandOutput> {
+): Promise<CreateCommitCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3637,12 +3709,12 @@ async function deserializeAws_json1_1CreateCommitCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreatePullRequestCommand(
+export const deserializeAws_json1_1CreatePullRequestCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreatePullRequestCommandOutput> {
+): Promise<CreatePullRequestCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreatePullRequestCommandError(output, context);
   }
@@ -3655,12 +3727,12 @@ export async function deserializeAws_json1_1CreatePullRequestCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreatePullRequestCommandError(
+const deserializeAws_json1_1CreatePullRequestCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreatePullRequestCommandOutput> {
+): Promise<CreatePullRequestCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3961,12 +4033,12 @@ async function deserializeAws_json1_1CreatePullRequestCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreatePullRequestApprovalRuleCommand(
+export const deserializeAws_json1_1CreatePullRequestApprovalRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreatePullRequestApprovalRuleCommandOutput> {
+): Promise<CreatePullRequestApprovalRuleCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreatePullRequestApprovalRuleCommandError(
       output,
@@ -3985,12 +4057,12 @@ export async function deserializeAws_json1_1CreatePullRequestApprovalRuleCommand
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreatePullRequestApprovalRuleCommandError(
+const deserializeAws_json1_1CreatePullRequestApprovalRuleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreatePullRequestApprovalRuleCommandOutput> {
+): Promise<CreatePullRequestApprovalRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4181,12 +4253,12 @@ async function deserializeAws_json1_1CreatePullRequestApprovalRuleCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreateRepositoryCommand(
+export const deserializeAws_json1_1CreateRepositoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateRepositoryCommandOutput> {
+): Promise<CreateRepositoryCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateRepositoryCommandError(output, context);
   }
@@ -4199,12 +4271,12 @@ export async function deserializeAws_json1_1CreateRepositoryCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateRepositoryCommandError(
+const deserializeAws_json1_1CreateRepositoryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateRepositoryCommandOutput> {
+): Promise<CreateRepositoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4384,12 +4456,12 @@ async function deserializeAws_json1_1CreateRepositoryCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreateUnreferencedMergeCommitCommand(
+export const deserializeAws_json1_1CreateUnreferencedMergeCommitCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateUnreferencedMergeCommitCommandOutput> {
+): Promise<CreateUnreferencedMergeCommitCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateUnreferencedMergeCommitCommandError(
       output,
@@ -4408,12 +4480,12 @@ export async function deserializeAws_json1_1CreateUnreferencedMergeCommitCommand
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateUnreferencedMergeCommitCommandError(
+const deserializeAws_json1_1CreateUnreferencedMergeCommitCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateUnreferencedMergeCommitCommandOutput> {
+): Promise<CreateUnreferencedMergeCommitCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4835,12 +4907,12 @@ async function deserializeAws_json1_1CreateUnreferencedMergeCommitCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteApprovalRuleTemplateCommand(
+export const deserializeAws_json1_1DeleteApprovalRuleTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteApprovalRuleTemplateCommandOutput> {
+): Promise<DeleteApprovalRuleTemplateCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteApprovalRuleTemplateCommandError(
       output,
@@ -4859,12 +4931,12 @@ export async function deserializeAws_json1_1DeleteApprovalRuleTemplateCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteApprovalRuleTemplateCommandError(
+const deserializeAws_json1_1DeleteApprovalRuleTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteApprovalRuleTemplateCommandOutput> {
+): Promise<DeleteApprovalRuleTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4923,12 +4995,12 @@ async function deserializeAws_json1_1DeleteApprovalRuleTemplateCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteBranchCommand(
+export const deserializeAws_json1_1DeleteBranchCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteBranchCommandOutput> {
+): Promise<DeleteBranchCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteBranchCommandError(output, context);
   }
@@ -4941,12 +5013,12 @@ export async function deserializeAws_json1_1DeleteBranchCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteBranchCommandError(
+const deserializeAws_json1_1DeleteBranchCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteBranchCommandOutput> {
+): Promise<DeleteBranchCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5093,12 +5165,12 @@ async function deserializeAws_json1_1DeleteBranchCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteCommentContentCommand(
+export const deserializeAws_json1_1DeleteCommentContentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteCommentContentCommandOutput> {
+): Promise<DeleteCommentContentCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteCommentContentCommandError(
       output,
@@ -5114,12 +5186,12 @@ export async function deserializeAws_json1_1DeleteCommentContentCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteCommentContentCommandError(
+const deserializeAws_json1_1DeleteCommentContentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteCommentContentCommandOutput> {
+): Promise<DeleteCommentContentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5189,12 +5261,12 @@ async function deserializeAws_json1_1DeleteCommentContentCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteFileCommand(
+export const deserializeAws_json1_1DeleteFileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteFileCommandOutput> {
+): Promise<DeleteFileCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteFileCommandError(output, context);
   }
@@ -5207,12 +5279,12 @@ export async function deserializeAws_json1_1DeleteFileCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteFileCommandError(
+const deserializeAws_json1_1DeleteFileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteFileCommandOutput> {
+): Promise<DeleteFileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5480,12 +5552,12 @@ async function deserializeAws_json1_1DeleteFileCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeletePullRequestApprovalRuleCommand(
+export const deserializeAws_json1_1DeletePullRequestApprovalRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeletePullRequestApprovalRuleCommandOutput> {
+): Promise<DeletePullRequestApprovalRuleCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeletePullRequestApprovalRuleCommandError(
       output,
@@ -5504,12 +5576,12 @@ export async function deserializeAws_json1_1DeletePullRequestApprovalRuleCommand
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeletePullRequestApprovalRuleCommandError(
+const deserializeAws_json1_1DeletePullRequestApprovalRuleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeletePullRequestApprovalRuleCommandOutput> {
+): Promise<DeletePullRequestApprovalRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5667,12 +5739,12 @@ async function deserializeAws_json1_1DeletePullRequestApprovalRuleCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteRepositoryCommand(
+export const deserializeAws_json1_1DeleteRepositoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteRepositoryCommandOutput> {
+): Promise<DeleteRepositoryCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteRepositoryCommandError(output, context);
   }
@@ -5685,12 +5757,12 @@ export async function deserializeAws_json1_1DeleteRepositoryCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteRepositoryCommandError(
+const deserializeAws_json1_1DeleteRepositoryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteRepositoryCommandOutput> {
+): Promise<DeleteRepositoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5793,12 +5865,12 @@ async function deserializeAws_json1_1DeleteRepositoryCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeMergeConflictsCommand(
+export const deserializeAws_json1_1DescribeMergeConflictsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeMergeConflictsCommandOutput> {
+): Promise<DescribeMergeConflictsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeMergeConflictsCommandError(
       output,
@@ -5814,12 +5886,12 @@ export async function deserializeAws_json1_1DescribeMergeConflictsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeMergeConflictsCommandError(
+const deserializeAws_json1_1DescribeMergeConflictsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeMergeConflictsCommandOutput> {
+): Promise<DescribeMergeConflictsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6098,12 +6170,12 @@ async function deserializeAws_json1_1DescribeMergeConflictsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribePullRequestEventsCommand(
+export const deserializeAws_json1_1DescribePullRequestEventsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribePullRequestEventsCommandOutput> {
+): Promise<DescribePullRequestEventsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribePullRequestEventsCommandError(
       output,
@@ -6122,12 +6194,12 @@ export async function deserializeAws_json1_1DescribePullRequestEventsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribePullRequestEventsCommandError(
+const deserializeAws_json1_1DescribePullRequestEventsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribePullRequestEventsCommandOutput> {
+): Promise<DescribePullRequestEventsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6296,12 +6368,12 @@ async function deserializeAws_json1_1DescribePullRequestEventsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DisassociateApprovalRuleTemplateFromRepositoryCommand(
+export const deserializeAws_json1_1DisassociateApprovalRuleTemplateFromRepositoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisassociateApprovalRuleTemplateFromRepositoryCommandOutput> {
+): Promise<DisassociateApprovalRuleTemplateFromRepositoryCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DisassociateApprovalRuleTemplateFromRepositoryCommandError(
       output,
@@ -6313,12 +6385,12 @@ export async function deserializeAws_json1_1DisassociateApprovalRuleTemplateFrom
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DisassociateApprovalRuleTemplateFromRepositoryCommandError(
+const deserializeAws_json1_1DisassociateApprovalRuleTemplateFromRepositoryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisassociateApprovalRuleTemplateFromRepositoryCommandOutput> {
+): Promise<DisassociateApprovalRuleTemplateFromRepositoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6465,12 +6537,12 @@ async function deserializeAws_json1_1DisassociateApprovalRuleTemplateFromReposit
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1EvaluatePullRequestApprovalRulesCommand(
+export const deserializeAws_json1_1EvaluatePullRequestApprovalRulesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<EvaluatePullRequestApprovalRulesCommandOutput> {
+): Promise<EvaluatePullRequestApprovalRulesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1EvaluatePullRequestApprovalRulesCommandError(
       output,
@@ -6489,12 +6561,12 @@ export async function deserializeAws_json1_1EvaluatePullRequestApprovalRulesComm
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1EvaluatePullRequestApprovalRulesCommandError(
+const deserializeAws_json1_1EvaluatePullRequestApprovalRulesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<EvaluatePullRequestApprovalRulesCommandOutput> {
+): Promise<EvaluatePullRequestApprovalRulesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6641,12 +6713,12 @@ async function deserializeAws_json1_1EvaluatePullRequestApprovalRulesCommandErro
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetApprovalRuleTemplateCommand(
+export const deserializeAws_json1_1GetApprovalRuleTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetApprovalRuleTemplateCommandOutput> {
+): Promise<GetApprovalRuleTemplateCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetApprovalRuleTemplateCommandError(
       output,
@@ -6662,12 +6734,12 @@ export async function deserializeAws_json1_1GetApprovalRuleTemplateCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetApprovalRuleTemplateCommandError(
+const deserializeAws_json1_1GetApprovalRuleTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetApprovalRuleTemplateCommandOutput> {
+): Promise<GetApprovalRuleTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6726,12 +6798,12 @@ async function deserializeAws_json1_1GetApprovalRuleTemplateCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetBlobCommand(
+export const deserializeAws_json1_1GetBlobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBlobCommandOutput> {
+): Promise<GetBlobCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetBlobCommandError(output, context);
   }
@@ -6744,12 +6816,12 @@ export async function deserializeAws_json1_1GetBlobCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetBlobCommandError(
+const deserializeAws_json1_1GetBlobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBlobCommandOutput> {
+): Promise<GetBlobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6907,12 +6979,12 @@ async function deserializeAws_json1_1GetBlobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetBranchCommand(
+export const deserializeAws_json1_1GetBranchCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBranchCommandOutput> {
+): Promise<GetBranchCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetBranchCommandError(output, context);
   }
@@ -6925,12 +6997,12 @@ export async function deserializeAws_json1_1GetBranchCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetBranchCommandError(
+const deserializeAws_json1_1GetBranchCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBranchCommandOutput> {
+): Promise<GetBranchCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -7077,12 +7149,12 @@ async function deserializeAws_json1_1GetBranchCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetCommentCommand(
+export const deserializeAws_json1_1GetCommentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetCommentCommandOutput> {
+): Promise<GetCommentCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetCommentCommandError(output, context);
   }
@@ -7095,12 +7167,12 @@ export async function deserializeAws_json1_1GetCommentCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetCommentCommandError(
+const deserializeAws_json1_1GetCommentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetCommentCommandOutput> {
+): Promise<GetCommentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -7170,12 +7242,12 @@ async function deserializeAws_json1_1GetCommentCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetCommentsForComparedCommitCommand(
+export const deserializeAws_json1_1GetCommentsForComparedCommitCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetCommentsForComparedCommitCommandOutput> {
+): Promise<GetCommentsForComparedCommitCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetCommentsForComparedCommitCommandError(
       output,
@@ -7194,12 +7266,12 @@ export async function deserializeAws_json1_1GetCommentsForComparedCommitCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetCommentsForComparedCommitCommandError(
+const deserializeAws_json1_1GetCommentsForComparedCommitCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetCommentsForComparedCommitCommandOutput> {
+): Promise<GetCommentsForComparedCommitCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -7368,12 +7440,12 @@ async function deserializeAws_json1_1GetCommentsForComparedCommitCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetCommentsForPullRequestCommand(
+export const deserializeAws_json1_1GetCommentsForPullRequestCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetCommentsForPullRequestCommandOutput> {
+): Promise<GetCommentsForPullRequestCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetCommentsForPullRequestCommandError(
       output,
@@ -7392,12 +7464,12 @@ export async function deserializeAws_json1_1GetCommentsForPullRequestCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetCommentsForPullRequestCommandError(
+const deserializeAws_json1_1GetCommentsForPullRequestCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetCommentsForPullRequestCommandOutput> {
+): Promise<GetCommentsForPullRequestCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -7610,12 +7682,12 @@ async function deserializeAws_json1_1GetCommentsForPullRequestCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetCommitCommand(
+export const deserializeAws_json1_1GetCommitCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetCommitCommandOutput> {
+): Promise<GetCommitCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetCommitCommandError(output, context);
   }
@@ -7628,12 +7700,12 @@ export async function deserializeAws_json1_1GetCommitCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetCommitCommandError(
+const deserializeAws_json1_1GetCommitCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetCommitCommandOutput> {
+): Promise<GetCommitCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -7780,12 +7852,12 @@ async function deserializeAws_json1_1GetCommitCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetDifferencesCommand(
+export const deserializeAws_json1_1GetDifferencesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetDifferencesCommandOutput> {
+): Promise<GetDifferencesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetDifferencesCommandError(output, context);
   }
@@ -7798,12 +7870,12 @@ export async function deserializeAws_json1_1GetDifferencesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetDifferencesCommandError(
+const deserializeAws_json1_1GetDifferencesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetDifferencesCommandOutput> {
+): Promise<GetDifferencesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -8005,12 +8077,12 @@ async function deserializeAws_json1_1GetDifferencesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetFileCommand(
+export const deserializeAws_json1_1GetFileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetFileCommandOutput> {
+): Promise<GetFileCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetFileCommandError(output, context);
   }
@@ -8023,12 +8095,12 @@ export async function deserializeAws_json1_1GetFileCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetFileCommandError(
+const deserializeAws_json1_1GetFileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetFileCommandOutput> {
+): Promise<GetFileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -8208,12 +8280,12 @@ async function deserializeAws_json1_1GetFileCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetFolderCommand(
+export const deserializeAws_json1_1GetFolderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetFolderCommandOutput> {
+): Promise<GetFolderCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetFolderCommandError(output, context);
   }
@@ -8226,12 +8298,12 @@ export async function deserializeAws_json1_1GetFolderCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetFolderCommandError(
+const deserializeAws_json1_1GetFolderCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetFolderCommandOutput> {
+): Promise<GetFolderCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -8400,12 +8472,12 @@ async function deserializeAws_json1_1GetFolderCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetMergeCommitCommand(
+export const deserializeAws_json1_1GetMergeCommitCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetMergeCommitCommandOutput> {
+): Promise<GetMergeCommitCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetMergeCommitCommandError(output, context);
   }
@@ -8418,12 +8490,12 @@ export async function deserializeAws_json1_1GetMergeCommitCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetMergeCommitCommandError(
+const deserializeAws_json1_1GetMergeCommitCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetMergeCommitCommandOutput> {
+): Promise<GetMergeCommitCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -8592,12 +8664,12 @@ async function deserializeAws_json1_1GetMergeCommitCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetMergeConflictsCommand(
+export const deserializeAws_json1_1GetMergeConflictsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetMergeConflictsCommandOutput> {
+): Promise<GetMergeConflictsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetMergeConflictsCommandError(output, context);
   }
@@ -8610,12 +8682,12 @@ export async function deserializeAws_json1_1GetMergeConflictsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetMergeConflictsCommandError(
+const deserializeAws_json1_1GetMergeConflictsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetMergeConflictsCommandOutput> {
+): Promise<GetMergeConflictsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -8883,12 +8955,12 @@ async function deserializeAws_json1_1GetMergeConflictsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetMergeOptionsCommand(
+export const deserializeAws_json1_1GetMergeOptionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetMergeOptionsCommandOutput> {
+): Promise<GetMergeOptionsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetMergeOptionsCommandError(output, context);
   }
@@ -8901,12 +8973,12 @@ export async function deserializeAws_json1_1GetMergeOptionsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetMergeOptionsCommandError(
+const deserializeAws_json1_1GetMergeOptionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetMergeOptionsCommandOutput> {
+): Promise<GetMergeOptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -9108,12 +9180,12 @@ async function deserializeAws_json1_1GetMergeOptionsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetPullRequestCommand(
+export const deserializeAws_json1_1GetPullRequestCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetPullRequestCommandOutput> {
+): Promise<GetPullRequestCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetPullRequestCommandError(output, context);
   }
@@ -9126,12 +9198,12 @@ export async function deserializeAws_json1_1GetPullRequestCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetPullRequestCommandError(
+const deserializeAws_json1_1GetPullRequestCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetPullRequestCommandOutput> {
+): Promise<GetPullRequestCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -9245,12 +9317,12 @@ async function deserializeAws_json1_1GetPullRequestCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetPullRequestApprovalStatesCommand(
+export const deserializeAws_json1_1GetPullRequestApprovalStatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetPullRequestApprovalStatesCommandOutput> {
+): Promise<GetPullRequestApprovalStatesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetPullRequestApprovalStatesCommandError(
       output,
@@ -9269,12 +9341,12 @@ export async function deserializeAws_json1_1GetPullRequestApprovalStatesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetPullRequestApprovalStatesCommandError(
+const deserializeAws_json1_1GetPullRequestApprovalStatesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetPullRequestApprovalStatesCommandOutput> {
+): Promise<GetPullRequestApprovalStatesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -9410,12 +9482,12 @@ async function deserializeAws_json1_1GetPullRequestApprovalStatesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetPullRequestOverrideStateCommand(
+export const deserializeAws_json1_1GetPullRequestOverrideStateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetPullRequestOverrideStateCommandOutput> {
+): Promise<GetPullRequestOverrideStateCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetPullRequestOverrideStateCommandError(
       output,
@@ -9434,12 +9506,12 @@ export async function deserializeAws_json1_1GetPullRequestOverrideStateCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetPullRequestOverrideStateCommandError(
+const deserializeAws_json1_1GetPullRequestOverrideStateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetPullRequestOverrideStateCommandOutput> {
+): Promise<GetPullRequestOverrideStateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -9575,12 +9647,12 @@ async function deserializeAws_json1_1GetPullRequestOverrideStateCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetRepositoryCommand(
+export const deserializeAws_json1_1GetRepositoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetRepositoryCommandOutput> {
+): Promise<GetRepositoryCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetRepositoryCommandError(output, context);
   }
@@ -9593,12 +9665,12 @@ export async function deserializeAws_json1_1GetRepositoryCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetRepositoryCommandError(
+const deserializeAws_json1_1GetRepositoryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetRepositoryCommandOutput> {
+): Promise<GetRepositoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -9712,12 +9784,12 @@ async function deserializeAws_json1_1GetRepositoryCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetRepositoryTriggersCommand(
+export const deserializeAws_json1_1GetRepositoryTriggersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetRepositoryTriggersCommandOutput> {
+): Promise<GetRepositoryTriggersCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetRepositoryTriggersCommandError(
       output,
@@ -9733,12 +9805,12 @@ export async function deserializeAws_json1_1GetRepositoryTriggersCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetRepositoryTriggersCommandError(
+const deserializeAws_json1_1GetRepositoryTriggersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetRepositoryTriggersCommandOutput> {
+): Promise<GetRepositoryTriggersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -9852,12 +9924,12 @@ async function deserializeAws_json1_1GetRepositoryTriggersCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListApprovalRuleTemplatesCommand(
+export const deserializeAws_json1_1ListApprovalRuleTemplatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListApprovalRuleTemplatesCommandOutput> {
+): Promise<ListApprovalRuleTemplatesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListApprovalRuleTemplatesCommandError(
       output,
@@ -9876,12 +9948,12 @@ export async function deserializeAws_json1_1ListApprovalRuleTemplatesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListApprovalRuleTemplatesCommandError(
+const deserializeAws_json1_1ListApprovalRuleTemplatesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListApprovalRuleTemplatesCommandOutput> {
+): Promise<ListApprovalRuleTemplatesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -9929,12 +10001,12 @@ async function deserializeAws_json1_1ListApprovalRuleTemplatesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositoryCommand(
+export const deserializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput> {
+): Promise<ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositoryCommandError(
       output,
@@ -9953,12 +10025,12 @@ export async function deserializeAws_json1_1ListAssociatedApprovalRuleTemplatesF
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositoryCommandError(
+const deserializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositoryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput> {
+): Promise<ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -10094,12 +10166,12 @@ async function deserializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepos
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListBranchesCommand(
+export const deserializeAws_json1_1ListBranchesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListBranchesCommandOutput> {
+): Promise<ListBranchesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListBranchesCommandError(output, context);
   }
@@ -10112,12 +10184,12 @@ export async function deserializeAws_json1_1ListBranchesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListBranchesCommandError(
+const deserializeAws_json1_1ListBranchesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListBranchesCommandOutput> {
+): Promise<ListBranchesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -10242,12 +10314,12 @@ async function deserializeAws_json1_1ListBranchesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListPullRequestsCommand(
+export const deserializeAws_json1_1ListPullRequestsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListPullRequestsCommandOutput> {
+): Promise<ListPullRequestsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListPullRequestsCommandError(output, context);
   }
@@ -10260,12 +10332,12 @@ export async function deserializeAws_json1_1ListPullRequestsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListPullRequestsCommandError(
+const deserializeAws_json1_1ListPullRequestsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListPullRequestsCommandOutput> {
+): Promise<ListPullRequestsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -10434,12 +10506,12 @@ async function deserializeAws_json1_1ListPullRequestsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListRepositoriesCommand(
+export const deserializeAws_json1_1ListRepositoriesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListRepositoriesCommandOutput> {
+): Promise<ListRepositoriesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListRepositoriesCommandError(output, context);
   }
@@ -10452,12 +10524,12 @@ export async function deserializeAws_json1_1ListRepositoriesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListRepositoriesCommandError(
+const deserializeAws_json1_1ListRepositoriesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListRepositoriesCommandOutput> {
+): Promise<ListRepositoriesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -10516,12 +10588,12 @@ async function deserializeAws_json1_1ListRepositoriesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListRepositoriesForApprovalRuleTemplateCommand(
+export const deserializeAws_json1_1ListRepositoriesForApprovalRuleTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListRepositoriesForApprovalRuleTemplateCommandOutput> {
+): Promise<ListRepositoriesForApprovalRuleTemplateCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListRepositoriesForApprovalRuleTemplateCommandError(
       output,
@@ -10540,12 +10612,12 @@ export async function deserializeAws_json1_1ListRepositoriesForApprovalRuleTempl
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListRepositoriesForApprovalRuleTemplateCommandError(
+const deserializeAws_json1_1ListRepositoriesForApprovalRuleTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListRepositoriesForApprovalRuleTemplateCommandOutput> {
+): Promise<ListRepositoriesForApprovalRuleTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -10681,12 +10753,12 @@ async function deserializeAws_json1_1ListRepositoriesForApprovalRuleTemplateComm
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListTagsForResourceCommand(
+export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListTagsForResourceCommandError(
       output,
@@ -10702,12 +10774,12 @@ export async function deserializeAws_json1_1ListTagsForResourceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListTagsForResourceCommandError(
+const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -10777,12 +10849,12 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1MergeBranchesByFastForwardCommand(
+export const deserializeAws_json1_1MergeBranchesByFastForwardCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<MergeBranchesByFastForwardCommandOutput> {
+): Promise<MergeBranchesByFastForwardCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1MergeBranchesByFastForwardCommandError(
       output,
@@ -10801,12 +10873,12 @@ export async function deserializeAws_json1_1MergeBranchesByFastForwardCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1MergeBranchesByFastForwardCommandError(
+const deserializeAws_json1_1MergeBranchesByFastForwardCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<MergeBranchesByFastForwardCommandOutput> {
+): Promise<MergeBranchesByFastForwardCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -11041,12 +11113,12 @@ async function deserializeAws_json1_1MergeBranchesByFastForwardCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1MergeBranchesBySquashCommand(
+export const deserializeAws_json1_1MergeBranchesBySquashCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<MergeBranchesBySquashCommandOutput> {
+): Promise<MergeBranchesBySquashCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1MergeBranchesBySquashCommandError(
       output,
@@ -11062,12 +11134,12 @@ export async function deserializeAws_json1_1MergeBranchesBySquashCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1MergeBranchesBySquashCommandError(
+const deserializeAws_json1_1MergeBranchesBySquashCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<MergeBranchesBySquashCommandOutput> {
+): Promise<MergeBranchesBySquashCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -11522,12 +11594,12 @@ async function deserializeAws_json1_1MergeBranchesBySquashCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1MergeBranchesByThreeWayCommand(
+export const deserializeAws_json1_1MergeBranchesByThreeWayCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<MergeBranchesByThreeWayCommandOutput> {
+): Promise<MergeBranchesByThreeWayCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1MergeBranchesByThreeWayCommandError(
       output,
@@ -11543,12 +11615,12 @@ export async function deserializeAws_json1_1MergeBranchesByThreeWayCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1MergeBranchesByThreeWayCommandError(
+const deserializeAws_json1_1MergeBranchesByThreeWayCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<MergeBranchesByThreeWayCommandOutput> {
+): Promise<MergeBranchesByThreeWayCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -12003,12 +12075,12 @@ async function deserializeAws_json1_1MergeBranchesByThreeWayCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1MergePullRequestByFastForwardCommand(
+export const deserializeAws_json1_1MergePullRequestByFastForwardCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<MergePullRequestByFastForwardCommandOutput> {
+): Promise<MergePullRequestByFastForwardCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1MergePullRequestByFastForwardCommandError(
       output,
@@ -12027,12 +12099,12 @@ export async function deserializeAws_json1_1MergePullRequestByFastForwardCommand
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1MergePullRequestByFastForwardCommandError(
+const deserializeAws_json1_1MergePullRequestByFastForwardCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<MergePullRequestByFastForwardCommandOutput> {
+): Promise<MergePullRequestByFastForwardCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -12267,12 +12339,12 @@ async function deserializeAws_json1_1MergePullRequestByFastForwardCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1MergePullRequestBySquashCommand(
+export const deserializeAws_json1_1MergePullRequestBySquashCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<MergePullRequestBySquashCommandOutput> {
+): Promise<MergePullRequestBySquashCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1MergePullRequestBySquashCommandError(
       output,
@@ -12291,12 +12363,12 @@ export async function deserializeAws_json1_1MergePullRequestBySquashCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1MergePullRequestBySquashCommandError(
+const deserializeAws_json1_1MergePullRequestBySquashCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<MergePullRequestBySquashCommandOutput> {
+): Promise<MergePullRequestBySquashCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -12740,12 +12812,12 @@ async function deserializeAws_json1_1MergePullRequestBySquashCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1MergePullRequestByThreeWayCommand(
+export const deserializeAws_json1_1MergePullRequestByThreeWayCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<MergePullRequestByThreeWayCommandOutput> {
+): Promise<MergePullRequestByThreeWayCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1MergePullRequestByThreeWayCommandError(
       output,
@@ -12764,12 +12836,12 @@ export async function deserializeAws_json1_1MergePullRequestByThreeWayCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1MergePullRequestByThreeWayCommandError(
+const deserializeAws_json1_1MergePullRequestByThreeWayCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<MergePullRequestByThreeWayCommandOutput> {
+): Promise<MergePullRequestByThreeWayCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -13213,12 +13285,12 @@ async function deserializeAws_json1_1MergePullRequestByThreeWayCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1OverridePullRequestApprovalRulesCommand(
+export const deserializeAws_json1_1OverridePullRequestApprovalRulesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<OverridePullRequestApprovalRulesCommandOutput> {
+): Promise<OverridePullRequestApprovalRulesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1OverridePullRequestApprovalRulesCommandError(
       output,
@@ -13230,12 +13302,12 @@ export async function deserializeAws_json1_1OverridePullRequestApprovalRulesComm
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1OverridePullRequestApprovalRulesCommandError(
+const deserializeAws_json1_1OverridePullRequestApprovalRulesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<OverridePullRequestApprovalRulesCommandOutput> {
+): Promise<OverridePullRequestApprovalRulesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -13426,12 +13498,12 @@ async function deserializeAws_json1_1OverridePullRequestApprovalRulesCommandErro
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1PostCommentForComparedCommitCommand(
+export const deserializeAws_json1_1PostCommentForComparedCommitCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PostCommentForComparedCommitCommandOutput> {
+): Promise<PostCommentForComparedCommitCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1PostCommentForComparedCommitCommandError(
       output,
@@ -13450,12 +13522,12 @@ export async function deserializeAws_json1_1PostCommentForComparedCommitCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1PostCommentForComparedCommitCommandError(
+const deserializeAws_json1_1PostCommentForComparedCommitCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PostCommentForComparedCommitCommandOutput> {
+): Promise<PostCommentForComparedCommitCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -13734,12 +13806,12 @@ async function deserializeAws_json1_1PostCommentForComparedCommitCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1PostCommentForPullRequestCommand(
+export const deserializeAws_json1_1PostCommentForPullRequestCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PostCommentForPullRequestCommandOutput> {
+): Promise<PostCommentForPullRequestCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1PostCommentForPullRequestCommandError(
       output,
@@ -13758,12 +13830,12 @@ export async function deserializeAws_json1_1PostCommentForPullRequestCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1PostCommentForPullRequestCommandError(
+const deserializeAws_json1_1PostCommentForPullRequestCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PostCommentForPullRequestCommandOutput> {
+): Promise<PostCommentForPullRequestCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -14086,12 +14158,12 @@ async function deserializeAws_json1_1PostCommentForPullRequestCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1PostCommentReplyCommand(
+export const deserializeAws_json1_1PostCommentReplyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PostCommentReplyCommandOutput> {
+): Promise<PostCommentReplyCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1PostCommentReplyCommandError(output, context);
   }
@@ -14104,12 +14176,12 @@ export async function deserializeAws_json1_1PostCommentReplyCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1PostCommentReplyCommandError(
+const deserializeAws_json1_1PostCommentReplyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PostCommentReplyCommandOutput> {
+): Promise<PostCommentReplyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -14223,12 +14295,12 @@ async function deserializeAws_json1_1PostCommentReplyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1PutFileCommand(
+export const deserializeAws_json1_1PutFileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutFileCommandOutput> {
+): Promise<PutFileCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1PutFileCommandError(output, context);
   }
@@ -14241,12 +14313,12 @@ export async function deserializeAws_json1_1PutFileCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1PutFileCommandError(
+const deserializeAws_json1_1PutFileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutFileCommandOutput> {
+): Promise<PutFileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -14602,12 +14674,12 @@ async function deserializeAws_json1_1PutFileCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1PutRepositoryTriggersCommand(
+export const deserializeAws_json1_1PutRepositoryTriggersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutRepositoryTriggersCommandOutput> {
+): Promise<PutRepositoryTriggersCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1PutRepositoryTriggersCommandError(
       output,
@@ -14623,12 +14695,12 @@ export async function deserializeAws_json1_1PutRepositoryTriggersCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1PutRepositoryTriggersCommandError(
+const deserializeAws_json1_1PutRepositoryTriggersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutRepositoryTriggersCommandOutput> {
+): Promise<PutRepositoryTriggersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -14885,12 +14957,12 @@ async function deserializeAws_json1_1PutRepositoryTriggersCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1TagResourceCommand(
+export const deserializeAws_json1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1TagResourceCommandError(output, context);
   }
@@ -14899,12 +14971,12 @@ export async function deserializeAws_json1_1TagResourceCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1TagResourceCommandError(
+const deserializeAws_json1_1TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -15029,12 +15101,12 @@ async function deserializeAws_json1_1TagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1TestRepositoryTriggersCommand(
+export const deserializeAws_json1_1TestRepositoryTriggersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TestRepositoryTriggersCommandOutput> {
+): Promise<TestRepositoryTriggersCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1TestRepositoryTriggersCommandError(
       output,
@@ -15050,12 +15122,12 @@ export async function deserializeAws_json1_1TestRepositoryTriggersCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1TestRepositoryTriggersCommandError(
+const deserializeAws_json1_1TestRepositoryTriggersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TestRepositoryTriggersCommandOutput> {
+): Promise<TestRepositoryTriggersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -15312,12 +15384,12 @@ async function deserializeAws_json1_1TestRepositoryTriggersCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UntagResourceCommand(
+export const deserializeAws_json1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UntagResourceCommandError(output, context);
   }
@@ -15326,12 +15398,12 @@ export async function deserializeAws_json1_1UntagResourceCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UntagResourceCommandError(
+const deserializeAws_json1_1UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -15456,12 +15528,12 @@ async function deserializeAws_json1_1UntagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateApprovalRuleTemplateContentCommand(
+export const deserializeAws_json1_1UpdateApprovalRuleTemplateContentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateApprovalRuleTemplateContentCommandOutput> {
+): Promise<UpdateApprovalRuleTemplateContentCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateApprovalRuleTemplateContentCommandError(
       output,
@@ -15480,12 +15552,12 @@ export async function deserializeAws_json1_1UpdateApprovalRuleTemplateContentCom
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateApprovalRuleTemplateContentCommandError(
+const deserializeAws_json1_1UpdateApprovalRuleTemplateContentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateApprovalRuleTemplateContentCommandOutput> {
+): Promise<UpdateApprovalRuleTemplateContentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -15577,12 +15649,12 @@ async function deserializeAws_json1_1UpdateApprovalRuleTemplateContentCommandErr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateApprovalRuleTemplateDescriptionCommand(
+export const deserializeAws_json1_1UpdateApprovalRuleTemplateDescriptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateApprovalRuleTemplateDescriptionCommandOutput> {
+): Promise<UpdateApprovalRuleTemplateDescriptionCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateApprovalRuleTemplateDescriptionCommandError(
       output,
@@ -15601,12 +15673,12 @@ export async function deserializeAws_json1_1UpdateApprovalRuleTemplateDescriptio
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateApprovalRuleTemplateDescriptionCommandError(
+const deserializeAws_json1_1UpdateApprovalRuleTemplateDescriptionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateApprovalRuleTemplateDescriptionCommandOutput> {
+): Promise<UpdateApprovalRuleTemplateDescriptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -15676,12 +15748,12 @@ async function deserializeAws_json1_1UpdateApprovalRuleTemplateDescriptionComman
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateApprovalRuleTemplateNameCommand(
+export const deserializeAws_json1_1UpdateApprovalRuleTemplateNameCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateApprovalRuleTemplateNameCommandOutput> {
+): Promise<UpdateApprovalRuleTemplateNameCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateApprovalRuleTemplateNameCommandError(
       output,
@@ -15700,12 +15772,12 @@ export async function deserializeAws_json1_1UpdateApprovalRuleTemplateNameComman
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateApprovalRuleTemplateNameCommandError(
+const deserializeAws_json1_1UpdateApprovalRuleTemplateNameCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateApprovalRuleTemplateNameCommandOutput> {
+): Promise<UpdateApprovalRuleTemplateNameCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -15775,12 +15847,12 @@ async function deserializeAws_json1_1UpdateApprovalRuleTemplateNameCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateCommentCommand(
+export const deserializeAws_json1_1UpdateCommentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateCommentCommandOutput> {
+): Promise<UpdateCommentCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateCommentCommandError(output, context);
   }
@@ -15793,12 +15865,12 @@ export async function deserializeAws_json1_1UpdateCommentCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateCommentCommandError(
+const deserializeAws_json1_1UpdateCommentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateCommentCommandOutput> {
+): Promise<UpdateCommentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -15901,12 +15973,12 @@ async function deserializeAws_json1_1UpdateCommentCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateDefaultBranchCommand(
+export const deserializeAws_json1_1UpdateDefaultBranchCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateDefaultBranchCommandOutput> {
+): Promise<UpdateDefaultBranchCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateDefaultBranchCommandError(
       output,
@@ -15918,12 +15990,12 @@ export async function deserializeAws_json1_1UpdateDefaultBranchCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateDefaultBranchCommandError(
+const deserializeAws_json1_1UpdateDefaultBranchCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateDefaultBranchCommandOutput> {
+): Promise<UpdateDefaultBranchCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -16070,12 +16142,12 @@ async function deserializeAws_json1_1UpdateDefaultBranchCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdatePullRequestApprovalRuleContentCommand(
+export const deserializeAws_json1_1UpdatePullRequestApprovalRuleContentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdatePullRequestApprovalRuleContentCommandOutput> {
+): Promise<UpdatePullRequestApprovalRuleContentCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdatePullRequestApprovalRuleContentCommandError(
       output,
@@ -16094,12 +16166,12 @@ export async function deserializeAws_json1_1UpdatePullRequestApprovalRuleContent
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdatePullRequestApprovalRuleContentCommandError(
+const deserializeAws_json1_1UpdatePullRequestApprovalRuleContentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdatePullRequestApprovalRuleContentCommandOutput> {
+): Promise<UpdatePullRequestApprovalRuleContentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -16301,12 +16373,12 @@ async function deserializeAws_json1_1UpdatePullRequestApprovalRuleContentCommand
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdatePullRequestApprovalStateCommand(
+export const deserializeAws_json1_1UpdatePullRequestApprovalStateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdatePullRequestApprovalStateCommandOutput> {
+): Promise<UpdatePullRequestApprovalStateCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdatePullRequestApprovalStateCommandError(
       output,
@@ -16318,12 +16390,12 @@ export async function deserializeAws_json1_1UpdatePullRequestApprovalStateComman
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdatePullRequestApprovalStateCommandError(
+const deserializeAws_json1_1UpdatePullRequestApprovalStateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdatePullRequestApprovalStateCommandOutput> {
+): Promise<UpdatePullRequestApprovalStateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -16525,12 +16597,12 @@ async function deserializeAws_json1_1UpdatePullRequestApprovalStateCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdatePullRequestDescriptionCommand(
+export const deserializeAws_json1_1UpdatePullRequestDescriptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdatePullRequestDescriptionCommandOutput> {
+): Promise<UpdatePullRequestDescriptionCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdatePullRequestDescriptionCommandError(
       output,
@@ -16549,12 +16621,12 @@ export async function deserializeAws_json1_1UpdatePullRequestDescriptionCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdatePullRequestDescriptionCommandError(
+const deserializeAws_json1_1UpdatePullRequestDescriptionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdatePullRequestDescriptionCommandOutput> {
+): Promise<UpdatePullRequestDescriptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -16635,12 +16707,12 @@ async function deserializeAws_json1_1UpdatePullRequestDescriptionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdatePullRequestStatusCommand(
+export const deserializeAws_json1_1UpdatePullRequestStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdatePullRequestStatusCommandOutput> {
+): Promise<UpdatePullRequestStatusCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdatePullRequestStatusCommandError(
       output,
@@ -16656,12 +16728,12 @@ export async function deserializeAws_json1_1UpdatePullRequestStatusCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdatePullRequestStatusCommandError(
+const deserializeAws_json1_1UpdatePullRequestStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdatePullRequestStatusCommandOutput> {
+): Promise<UpdatePullRequestStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -16808,12 +16880,12 @@ async function deserializeAws_json1_1UpdatePullRequestStatusCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdatePullRequestTitleCommand(
+export const deserializeAws_json1_1UpdatePullRequestTitleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdatePullRequestTitleCommandOutput> {
+): Promise<UpdatePullRequestTitleCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdatePullRequestTitleCommandError(
       output,
@@ -16829,12 +16901,12 @@ export async function deserializeAws_json1_1UpdatePullRequestTitleCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdatePullRequestTitleCommandError(
+const deserializeAws_json1_1UpdatePullRequestTitleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdatePullRequestTitleCommandOutput> {
+): Promise<UpdatePullRequestTitleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -16926,12 +16998,12 @@ async function deserializeAws_json1_1UpdatePullRequestTitleCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateRepositoryDescriptionCommand(
+export const deserializeAws_json1_1UpdateRepositoryDescriptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateRepositoryDescriptionCommandOutput> {
+): Promise<UpdateRepositoryDescriptionCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateRepositoryDescriptionCommandError(
       output,
@@ -16943,12 +17015,12 @@ export async function deserializeAws_json1_1UpdateRepositoryDescriptionCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateRepositoryDescriptionCommandError(
+const deserializeAws_json1_1UpdateRepositoryDescriptionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateRepositoryDescriptionCommandOutput> {
+): Promise<UpdateRepositoryDescriptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -17073,12 +17145,12 @@ async function deserializeAws_json1_1UpdateRepositoryDescriptionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateRepositoryNameCommand(
+export const deserializeAws_json1_1UpdateRepositoryNameCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateRepositoryNameCommandOutput> {
+): Promise<UpdateRepositoryNameCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateRepositoryNameCommandError(
       output,
@@ -17090,12 +17162,12 @@ export async function deserializeAws_json1_1UpdateRepositoryNameCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateRepositoryNameCommandError(
+const deserializeAws_json1_1UpdateRepositoryNameCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateRepositoryNameCommandOutput> {
+): Promise<UpdateRepositoryNameCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -17165,7 +17237,7 @@ async function deserializeAws_json1_1UpdateRepositoryNameCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_1ActorDoesNotExistExceptionResponse = async (
   parsedOutput: any,
@@ -20546,25 +20618,17 @@ const serializeAws_json1_1BatchGetRepositoriesInput = (
 };
 
 const serializeAws_json1_1BranchNameList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1CommitIdsInputList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1ConflictResolution = (
@@ -20817,14 +20881,12 @@ const serializeAws_json1_1DeleteCommentContentInput = (
 };
 
 const serializeAws_json1_1DeleteFileEntries = (
-  input: Array<DeleteFileEntry>,
+  input: DeleteFileEntry[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1DeleteFileEntry(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1DeleteFileEntry(entry, context)
+  );
 };
 
 const serializeAws_json1_1DeleteFileEntry = (
@@ -20982,14 +21044,10 @@ const serializeAws_json1_1EvaluatePullRequestApprovalRulesInput = (
 };
 
 const serializeAws_json1_1FilePaths = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1GetApprovalRuleTemplateInput = (
@@ -21752,14 +21810,10 @@ const serializeAws_json1_1PostCommentReplyInput = (
 };
 
 const serializeAws_json1_1PutFileEntries = (
-  input: Array<PutFileEntry>,
+  input: PutFileEntry[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1PutFileEntry(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1PutFileEntry(entry, context));
 };
 
 const serializeAws_json1_1PutFileEntry = (
@@ -21838,14 +21892,12 @@ const serializeAws_json1_1PutRepositoryTriggersInput = (
 };
 
 const serializeAws_json1_1ReplaceContentEntries = (
-  input: Array<ReplaceContentEntry>,
+  input: ReplaceContentEntry[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1ReplaceContentEntry(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1ReplaceContentEntry(entry, context)
+  );
 };
 
 const serializeAws_json1_1ReplaceContentEntry = (
@@ -21869,14 +21921,10 @@ const serializeAws_json1_1ReplaceContentEntry = (
 };
 
 const serializeAws_json1_1RepositoryNameList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1RepositoryTrigger = (
@@ -21909,36 +21957,28 @@ const serializeAws_json1_1RepositoryTrigger = (
 };
 
 const serializeAws_json1_1RepositoryTriggerEventList = (
-  input: Array<RepositoryTriggerEventEnum | string>,
+  input: (RepositoryTriggerEventEnum | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1RepositoryTriggersList = (
-  input: Array<RepositoryTrigger>,
+  input: RepositoryTrigger[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1RepositoryTrigger(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1RepositoryTrigger(entry, context)
+  );
 };
 
 const serializeAws_json1_1SetFileModeEntries = (
-  input: Array<SetFileModeEntry>,
+  input: SetFileModeEntry[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1SetFileModeEntry(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1SetFileModeEntry(entry, context)
+  );
 };
 
 const serializeAws_json1_1SetFileModeEntry = (
@@ -21970,14 +22010,10 @@ const serializeAws_json1_1SourceFileSpecifier = (
 };
 
 const serializeAws_json1_1TagKeysList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1TagResourceInput = (
@@ -21998,11 +22034,10 @@ const serializeAws_json1_1TagsMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = input[key];
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = input[key];
+    return acc;
+  }, {});
 };
 
 const serializeAws_json1_1Target = (
@@ -22023,14 +22058,10 @@ const serializeAws_json1_1Target = (
 };
 
 const serializeAws_json1_1TargetList = (
-  input: Array<Target>,
+  input: Target[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1Target(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1Target(entry, context));
 };
 
 const serializeAws_json1_1TestRepositoryTriggersInput = (
@@ -22285,7 +22316,7 @@ const deserializeAws_json1_1Approval = (
 const deserializeAws_json1_1ApprovalList = (
   output: any,
   context: __SerdeContext
-): Array<Approval> => {
+): Approval[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Approval(entry, context)
   );
@@ -22583,7 +22614,7 @@ const deserializeAws_json1_1ApprovalRuleTemplateNameAlreadyExistsException = (
 const deserializeAws_json1_1ApprovalRuleTemplateNameList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -22604,7 +22635,7 @@ const deserializeAws_json1_1ApprovalRuleTemplateNameRequiredException = (
 const deserializeAws_json1_1ApprovalRulesList = (
   output: any,
   context: __SerdeContext
-): Array<ApprovalRule> => {
+): ApprovalRule[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ApprovalRule(entry, context)
   );
@@ -22613,14 +22644,14 @@ const deserializeAws_json1_1ApprovalRulesList = (
 const deserializeAws_json1_1ApprovalRulesNotSatisfiedList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1ApprovalRulesSatisfiedList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -22695,7 +22726,7 @@ const deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesEr
 const deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesErrorsList = (
   output: any,
   context: __SerdeContext
-): Array<BatchAssociateApprovalRuleTemplateWithRepositoriesError> => {
+): BatchAssociateApprovalRuleTemplateWithRepositoriesError[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesError(
       entry,
@@ -22756,7 +22787,7 @@ const deserializeAws_json1_1BatchDescribeMergeConflictsError = (
 const deserializeAws_json1_1BatchDescribeMergeConflictsErrors = (
   output: any,
   context: __SerdeContext
-): Array<BatchDescribeMergeConflictsError> => {
+): BatchDescribeMergeConflictsError[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1BatchDescribeMergeConflictsError(entry, context)
   );
@@ -22830,7 +22861,7 @@ const deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositorie
 const deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesErrorsList = (
   output: any,
   context: __SerdeContext
-): Array<BatchDisassociateApprovalRuleTemplateFromRepositoriesError> => {
+): BatchDisassociateApprovalRuleTemplateFromRepositoriesError[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesError(
       entry,
@@ -22891,7 +22922,7 @@ const deserializeAws_json1_1BatchGetCommitsError = (
 const deserializeAws_json1_1BatchGetCommitsErrorsList = (
   output: any,
   context: __SerdeContext
-): Array<BatchGetCommitsError> => {
+): BatchGetCommitsError[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1BatchGetCommitsError(entry, context)
   );
@@ -23075,7 +23106,7 @@ const deserializeAws_json1_1BranchNameIsTagNameException = (
 const deserializeAws_json1_1BranchNameList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -23272,7 +23303,7 @@ const deserializeAws_json1_1CommentNotCreatedByCallerException = (
 const deserializeAws_json1_1Comments = (
   output: any,
   context: __SerdeContext
-): Array<Comment> => {
+): Comment[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Comment(entry, context)
   );
@@ -23325,7 +23356,7 @@ const deserializeAws_json1_1CommentsForComparedCommit = (
 const deserializeAws_json1_1CommentsForComparedCommitData = (
   output: any,
   context: __SerdeContext
-): Array<CommentsForComparedCommit> => {
+): CommentsForComparedCommit[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1CommentsForComparedCommit(entry, context)
   );
@@ -23382,7 +23413,7 @@ const deserializeAws_json1_1CommentsForPullRequest = (
 const deserializeAws_json1_1CommentsForPullRequestData = (
   output: any,
   context: __SerdeContext
-): Array<CommentsForPullRequest> => {
+): CommentsForPullRequest[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1CommentsForPullRequest(entry, context)
   );
@@ -23519,7 +23550,7 @@ const deserializeAws_json1_1CommitMessageLengthExceededException = (
 const deserializeAws_json1_1CommitObjectsList = (
   output: any,
   context: __SerdeContext
-): Array<Commit> => {
+): Commit[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Commit(entry, context)
   );
@@ -23657,7 +23688,7 @@ const deserializeAws_json1_1ConflictMetadata = (
 const deserializeAws_json1_1ConflictMetadataList = (
   output: any,
   context: __SerdeContext
-): Array<ConflictMetadata> => {
+): ConflictMetadata[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ConflictMetadata(entry, context)
   );
@@ -23666,7 +23697,7 @@ const deserializeAws_json1_1ConflictMetadataList = (
 const deserializeAws_json1_1Conflicts = (
   output: any,
   context: __SerdeContext
-): Array<Conflict> => {
+): Conflict[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Conflict(entry, context)
   );
@@ -24020,7 +24051,7 @@ const deserializeAws_json1_1Difference = (
 const deserializeAws_json1_1DifferenceList = (
   output: any,
   context: __SerdeContext
-): Array<Difference> => {
+): Difference[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Difference(entry, context)
   );
@@ -24264,7 +24295,7 @@ const deserializeAws_json1_1FileEntryRequiredException = (
 const deserializeAws_json1_1FileList = (
   output: any,
   context: __SerdeContext
-): Array<File> => {
+): File[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1File(entry, context)
   );
@@ -24395,7 +24426,7 @@ const deserializeAws_json1_1FileTooLargeException = (
 const deserializeAws_json1_1FilesMetadata = (
   output: any,
   context: __SerdeContext
-): Array<FileMetadata> => {
+): FileMetadata[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1FileMetadata(entry, context)
   );
@@ -24454,7 +24485,7 @@ const deserializeAws_json1_1FolderDoesNotExistException = (
 const deserializeAws_json1_1FolderList = (
   output: any,
   context: __SerdeContext
-): Array<Folder> => {
+): Folder[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Folder(entry, context)
   );
@@ -26213,7 +26244,7 @@ const deserializeAws_json1_1MergeHunkDetail = (
 const deserializeAws_json1_1MergeHunks = (
   output: any,
   context: __SerdeContext
-): Array<MergeHunk> => {
+): MergeHunk[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1MergeHunk(entry, context)
   );
@@ -26280,7 +26311,7 @@ const deserializeAws_json1_1MergeOptionRequiredException = (
 const deserializeAws_json1_1MergeOptions = (
   output: any,
   context: __SerdeContext
-): Array<MergeOptionTypeEnum | string> => {
+): (MergeOptionTypeEnum | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -26538,7 +26569,7 @@ const deserializeAws_json1_1ParentCommitIdRequiredException = (
 const deserializeAws_json1_1ParentList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -26931,7 +26962,7 @@ const deserializeAws_json1_1PullRequestEvent = (
 const deserializeAws_json1_1PullRequestEventList = (
   output: any,
   context: __SerdeContext
-): Array<PullRequestEvent> => {
+): PullRequestEvent[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PullRequestEvent(entry, context)
   );
@@ -26940,7 +26971,7 @@ const deserializeAws_json1_1PullRequestEventList = (
 const deserializeAws_json1_1PullRequestIdList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -27093,7 +27124,7 @@ const deserializeAws_json1_1PullRequestTarget = (
 const deserializeAws_json1_1PullRequestTargetList = (
   output: any,
   context: __SerdeContext
-): Array<PullRequestTarget> => {
+): PullRequestTarget[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PullRequestTarget(entry, context)
   );
@@ -27308,7 +27339,7 @@ const deserializeAws_json1_1RepositoryMetadata = (
 const deserializeAws_json1_1RepositoryMetadataList = (
   output: any,
   context: __SerdeContext
-): Array<RepositoryMetadata> => {
+): RepositoryMetadata[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RepositoryMetadata(entry, context)
   );
@@ -27349,7 +27380,7 @@ const deserializeAws_json1_1RepositoryNameIdPair = (
 const deserializeAws_json1_1RepositoryNameIdPairList = (
   output: any,
   context: __SerdeContext
-): Array<RepositoryNameIdPair> => {
+): RepositoryNameIdPair[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RepositoryNameIdPair(entry, context)
   );
@@ -27358,7 +27389,7 @@ const deserializeAws_json1_1RepositoryNameIdPairList = (
 const deserializeAws_json1_1RepositoryNameList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -27407,7 +27438,7 @@ const deserializeAws_json1_1RepositoryNotAssociatedWithPullRequestException = (
 const deserializeAws_json1_1RepositoryNotFoundList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -27478,7 +27509,7 @@ const deserializeAws_json1_1RepositoryTriggerDestinationArnRequiredException = (
 const deserializeAws_json1_1RepositoryTriggerEventList = (
   output: any,
   context: __SerdeContext
-): Array<RepositoryTriggerEventEnum | string> => {
+): (RepositoryTriggerEventEnum | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -27517,7 +27548,7 @@ const deserializeAws_json1_1RepositoryTriggerExecutionFailure = (
 const deserializeAws_json1_1RepositoryTriggerExecutionFailureList = (
   output: any,
   context: __SerdeContext
-): Array<RepositoryTriggerExecutionFailure> => {
+): RepositoryTriggerExecutionFailure[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RepositoryTriggerExecutionFailure(entry, context)
   );
@@ -27526,7 +27557,7 @@ const deserializeAws_json1_1RepositoryTriggerExecutionFailureList = (
 const deserializeAws_json1_1RepositoryTriggerNameList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -27547,7 +27578,7 @@ const deserializeAws_json1_1RepositoryTriggerNameRequiredException = (
 const deserializeAws_json1_1RepositoryTriggersList = (
   output: any,
   context: __SerdeContext
-): Array<RepositoryTrigger> => {
+): RepositoryTrigger[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RepositoryTrigger(entry, context)
   );
@@ -27704,7 +27735,7 @@ const deserializeAws_json1_1SubModule = (
 const deserializeAws_json1_1SubModuleList = (
   output: any,
   context: __SerdeContext
-): Array<SubModule> => {
+): SubModule[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SubModule(entry, context)
   );
@@ -27739,7 +27770,7 @@ const deserializeAws_json1_1SymbolicLink = (
 const deserializeAws_json1_1SymbolicLinkList = (
   output: any,
   context: __SerdeContext
-): Array<SymbolicLink> => {
+): SymbolicLink[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SymbolicLink(entry, context)
   );
@@ -27777,11 +27808,10 @@ const deserializeAws_json1_1TagsMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = output[key];
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_1TagsMapRequiredException = (
@@ -28084,7 +28114,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -28099,11 +28129,8 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
@@ -28130,11 +28157,10 @@ const buildHttpRpcRequest = async (
   return new __HttpRequest(contents);
 };
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};

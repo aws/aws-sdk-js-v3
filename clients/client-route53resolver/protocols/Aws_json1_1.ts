@@ -168,14 +168,14 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_json1_1AssociateResolverEndpointIpAddressCommand(
+export const serializeAws_json1_1AssociateResolverEndpointIpAddressCommand = async (
   input: AssociateResolverEndpointIpAddressCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "Route53Resolver.AssociateResolverEndpointIpAddress";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53Resolver.AssociateResolverEndpointIpAddress"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AssociateResolverEndpointIpAddressRequest(
@@ -184,86 +184,91 @@ export async function serializeAws_json1_1AssociateResolverEndpointIpAddressComm
     )
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1AssociateResolverRuleCommand(
+export const serializeAws_json1_1AssociateResolverRuleCommand = async (
   input: AssociateResolverRuleCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53Resolver.AssociateResolverRule";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53Resolver.AssociateResolverRule"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AssociateResolverRuleRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreateResolverEndpointCommand(
+export const serializeAws_json1_1CreateResolverEndpointCommand = async (
   input: CreateResolverEndpointCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53Resolver.CreateResolverEndpoint";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53Resolver.CreateResolverEndpoint"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateResolverEndpointRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreateResolverRuleCommand(
+export const serializeAws_json1_1CreateResolverRuleCommand = async (
   input: CreateResolverRuleCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53Resolver.CreateResolverRule";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53Resolver.CreateResolverRule"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateResolverRuleRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteResolverEndpointCommand(
+export const serializeAws_json1_1DeleteResolverEndpointCommand = async (
   input: DeleteResolverEndpointCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53Resolver.DeleteResolverEndpoint";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53Resolver.DeleteResolverEndpoint"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteResolverEndpointRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteResolverRuleCommand(
+export const serializeAws_json1_1DeleteResolverRuleCommand = async (
   input: DeleteResolverRuleCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53Resolver.DeleteResolverRule";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53Resolver.DeleteResolverRule"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteResolverRuleRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DisassociateResolverEndpointIpAddressCommand(
+export const serializeAws_json1_1DisassociateResolverEndpointIpAddressCommand = async (
   input: DisassociateResolverEndpointIpAddressCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "Route53Resolver.DisassociateResolverEndpointIpAddress";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53Resolver.DisassociateResolverEndpointIpAddress"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DisassociateResolverEndpointIpAddressRequest(
@@ -272,220 +277,235 @@ export async function serializeAws_json1_1DisassociateResolverEndpointIpAddressC
     )
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DisassociateResolverRuleCommand(
+export const serializeAws_json1_1DisassociateResolverRuleCommand = async (
   input: DisassociateResolverRuleCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53Resolver.DisassociateResolverRule";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53Resolver.DisassociateResolverRule"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DisassociateResolverRuleRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetResolverEndpointCommand(
+export const serializeAws_json1_1GetResolverEndpointCommand = async (
   input: GetResolverEndpointCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53Resolver.GetResolverEndpoint";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53Resolver.GetResolverEndpoint"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetResolverEndpointRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetResolverRuleCommand(
+export const serializeAws_json1_1GetResolverRuleCommand = async (
   input: GetResolverRuleCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53Resolver.GetResolverRule";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53Resolver.GetResolverRule"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetResolverRuleRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetResolverRuleAssociationCommand(
+export const serializeAws_json1_1GetResolverRuleAssociationCommand = async (
   input: GetResolverRuleAssociationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53Resolver.GetResolverRuleAssociation";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53Resolver.GetResolverRuleAssociation"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetResolverRuleAssociationRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetResolverRulePolicyCommand(
+export const serializeAws_json1_1GetResolverRulePolicyCommand = async (
   input: GetResolverRulePolicyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53Resolver.GetResolverRulePolicy";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53Resolver.GetResolverRulePolicy"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetResolverRulePolicyRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListResolverEndpointIpAddressesCommand(
+export const serializeAws_json1_1ListResolverEndpointIpAddressesCommand = async (
   input: ListResolverEndpointIpAddressesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53Resolver.ListResolverEndpointIpAddresses";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53Resolver.ListResolverEndpointIpAddresses"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListResolverEndpointIpAddressesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListResolverEndpointsCommand(
+export const serializeAws_json1_1ListResolverEndpointsCommand = async (
   input: ListResolverEndpointsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53Resolver.ListResolverEndpoints";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53Resolver.ListResolverEndpoints"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListResolverEndpointsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListResolverRuleAssociationsCommand(
+export const serializeAws_json1_1ListResolverRuleAssociationsCommand = async (
   input: ListResolverRuleAssociationsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53Resolver.ListResolverRuleAssociations";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53Resolver.ListResolverRuleAssociations"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListResolverRuleAssociationsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListResolverRulesCommand(
+export const serializeAws_json1_1ListResolverRulesCommand = async (
   input: ListResolverRulesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53Resolver.ListResolverRules";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53Resolver.ListResolverRules"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListResolverRulesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListTagsForResourceCommand(
+export const serializeAws_json1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53Resolver.ListTagsForResource";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53Resolver.ListTagsForResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTagsForResourceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1PutResolverRulePolicyCommand(
+export const serializeAws_json1_1PutResolverRulePolicyCommand = async (
   input: PutResolverRulePolicyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53Resolver.PutResolverRulePolicy";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53Resolver.PutResolverRulePolicy"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutResolverRulePolicyRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1TagResourceCommand(
+export const serializeAws_json1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53Resolver.TagResource";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53Resolver.TagResource"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UntagResourceCommand(
+export const serializeAws_json1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53Resolver.UntagResource";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53Resolver.UntagResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UntagResourceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateResolverEndpointCommand(
+export const serializeAws_json1_1UpdateResolverEndpointCommand = async (
   input: UpdateResolverEndpointCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53Resolver.UpdateResolverEndpoint";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53Resolver.UpdateResolverEndpoint"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateResolverEndpointRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateResolverRuleCommand(
+export const serializeAws_json1_1UpdateResolverRuleCommand = async (
   input: UpdateResolverRuleCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Route53Resolver.UpdateResolverRule";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Route53Resolver.UpdateResolverRule"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateResolverRuleRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_1AssociateResolverEndpointIpAddressCommand(
+export const deserializeAws_json1_1AssociateResolverEndpointIpAddressCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AssociateResolverEndpointIpAddressCommandOutput> {
+): Promise<AssociateResolverEndpointIpAddressCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1AssociateResolverEndpointIpAddressCommandError(
       output,
@@ -504,12 +524,12 @@ export async function deserializeAws_json1_1AssociateResolverEndpointIpAddressCo
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1AssociateResolverEndpointIpAddressCommandError(
+const deserializeAws_json1_1AssociateResolverEndpointIpAddressCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AssociateResolverEndpointIpAddressCommandOutput> {
+): Promise<AssociateResolverEndpointIpAddressCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -612,12 +632,12 @@ async function deserializeAws_json1_1AssociateResolverEndpointIpAddressCommandEr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1AssociateResolverRuleCommand(
+export const deserializeAws_json1_1AssociateResolverRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AssociateResolverRuleCommandOutput> {
+): Promise<AssociateResolverRuleCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1AssociateResolverRuleCommandError(
       output,
@@ -633,12 +653,12 @@ export async function deserializeAws_json1_1AssociateResolverRuleCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1AssociateResolverRuleCommandError(
+const deserializeAws_json1_1AssociateResolverRuleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AssociateResolverRuleCommandOutput> {
+): Promise<AssociateResolverRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -741,12 +761,12 @@ async function deserializeAws_json1_1AssociateResolverRuleCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreateResolverEndpointCommand(
+export const deserializeAws_json1_1CreateResolverEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateResolverEndpointCommandOutput> {
+): Promise<CreateResolverEndpointCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateResolverEndpointCommandError(
       output,
@@ -765,12 +785,12 @@ export async function deserializeAws_json1_1CreateResolverEndpointCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateResolverEndpointCommandError(
+const deserializeAws_json1_1CreateResolverEndpointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateResolverEndpointCommandOutput> {
+): Promise<CreateResolverEndpointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -873,12 +893,12 @@ async function deserializeAws_json1_1CreateResolverEndpointCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreateResolverRuleCommand(
+export const deserializeAws_json1_1CreateResolverRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateResolverRuleCommandOutput> {
+): Promise<CreateResolverRuleCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateResolverRuleCommandError(
       output,
@@ -894,12 +914,12 @@ export async function deserializeAws_json1_1CreateResolverRuleCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateResolverRuleCommandError(
+const deserializeAws_json1_1CreateResolverRuleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateResolverRuleCommandOutput> {
+): Promise<CreateResolverRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1013,12 +1033,12 @@ async function deserializeAws_json1_1CreateResolverRuleCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteResolverEndpointCommand(
+export const deserializeAws_json1_1DeleteResolverEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteResolverEndpointCommandOutput> {
+): Promise<DeleteResolverEndpointCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteResolverEndpointCommandError(
       output,
@@ -1037,12 +1057,12 @@ export async function deserializeAws_json1_1DeleteResolverEndpointCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteResolverEndpointCommandError(
+const deserializeAws_json1_1DeleteResolverEndpointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteResolverEndpointCommandOutput> {
+): Promise<DeleteResolverEndpointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1123,12 +1143,12 @@ async function deserializeAws_json1_1DeleteResolverEndpointCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteResolverRuleCommand(
+export const deserializeAws_json1_1DeleteResolverRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteResolverRuleCommandOutput> {
+): Promise<DeleteResolverRuleCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteResolverRuleCommandError(
       output,
@@ -1144,12 +1164,12 @@ export async function deserializeAws_json1_1DeleteResolverRuleCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteResolverRuleCommandError(
+const deserializeAws_json1_1DeleteResolverRuleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteResolverRuleCommandOutput> {
+): Promise<DeleteResolverRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1230,12 +1250,12 @@ async function deserializeAws_json1_1DeleteResolverRuleCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DisassociateResolverEndpointIpAddressCommand(
+export const deserializeAws_json1_1DisassociateResolverEndpointIpAddressCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisassociateResolverEndpointIpAddressCommandOutput> {
+): Promise<DisassociateResolverEndpointIpAddressCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DisassociateResolverEndpointIpAddressCommandError(
       output,
@@ -1254,12 +1274,12 @@ export async function deserializeAws_json1_1DisassociateResolverEndpointIpAddres
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DisassociateResolverEndpointIpAddressCommandError(
+const deserializeAws_json1_1DisassociateResolverEndpointIpAddressCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisassociateResolverEndpointIpAddressCommandOutput> {
+): Promise<DisassociateResolverEndpointIpAddressCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1351,12 +1371,12 @@ async function deserializeAws_json1_1DisassociateResolverEndpointIpAddressComman
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DisassociateResolverRuleCommand(
+export const deserializeAws_json1_1DisassociateResolverRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisassociateResolverRuleCommandOutput> {
+): Promise<DisassociateResolverRuleCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DisassociateResolverRuleCommandError(
       output,
@@ -1375,12 +1395,12 @@ export async function deserializeAws_json1_1DisassociateResolverRuleCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DisassociateResolverRuleCommandError(
+const deserializeAws_json1_1DisassociateResolverRuleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisassociateResolverRuleCommandOutput> {
+): Promise<DisassociateResolverRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1450,12 +1470,12 @@ async function deserializeAws_json1_1DisassociateResolverRuleCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetResolverEndpointCommand(
+export const deserializeAws_json1_1GetResolverEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetResolverEndpointCommandOutput> {
+): Promise<GetResolverEndpointCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetResolverEndpointCommandError(
       output,
@@ -1471,12 +1491,12 @@ export async function deserializeAws_json1_1GetResolverEndpointCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetResolverEndpointCommandError(
+const deserializeAws_json1_1GetResolverEndpointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetResolverEndpointCommandOutput> {
+): Promise<GetResolverEndpointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1546,12 +1566,12 @@ async function deserializeAws_json1_1GetResolverEndpointCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetResolverRuleCommand(
+export const deserializeAws_json1_1GetResolverRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetResolverRuleCommandOutput> {
+): Promise<GetResolverRuleCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetResolverRuleCommandError(output, context);
   }
@@ -1564,12 +1584,12 @@ export async function deserializeAws_json1_1GetResolverRuleCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetResolverRuleCommandError(
+const deserializeAws_json1_1GetResolverRuleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetResolverRuleCommandOutput> {
+): Promise<GetResolverRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1639,12 +1659,12 @@ async function deserializeAws_json1_1GetResolverRuleCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetResolverRuleAssociationCommand(
+export const deserializeAws_json1_1GetResolverRuleAssociationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetResolverRuleAssociationCommandOutput> {
+): Promise<GetResolverRuleAssociationCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetResolverRuleAssociationCommandError(
       output,
@@ -1663,12 +1683,12 @@ export async function deserializeAws_json1_1GetResolverRuleAssociationCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetResolverRuleAssociationCommandError(
+const deserializeAws_json1_1GetResolverRuleAssociationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetResolverRuleAssociationCommandOutput> {
+): Promise<GetResolverRuleAssociationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1738,12 +1758,12 @@ async function deserializeAws_json1_1GetResolverRuleAssociationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetResolverRulePolicyCommand(
+export const deserializeAws_json1_1GetResolverRulePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetResolverRulePolicyCommandOutput> {
+): Promise<GetResolverRulePolicyCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetResolverRulePolicyCommandError(
       output,
@@ -1759,12 +1779,12 @@ export async function deserializeAws_json1_1GetResolverRulePolicyCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetResolverRulePolicyCommandError(
+const deserializeAws_json1_1GetResolverRulePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetResolverRulePolicyCommandOutput> {
+): Promise<GetResolverRulePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1823,12 +1843,12 @@ async function deserializeAws_json1_1GetResolverRulePolicyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListResolverEndpointIpAddressesCommand(
+export const deserializeAws_json1_1ListResolverEndpointIpAddressesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListResolverEndpointIpAddressesCommandOutput> {
+): Promise<ListResolverEndpointIpAddressesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListResolverEndpointIpAddressesCommandError(
       output,
@@ -1847,12 +1867,12 @@ export async function deserializeAws_json1_1ListResolverEndpointIpAddressesComma
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListResolverEndpointIpAddressesCommandError(
+const deserializeAws_json1_1ListResolverEndpointIpAddressesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListResolverEndpointIpAddressesCommandOutput> {
+): Promise<ListResolverEndpointIpAddressesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1933,12 +1953,12 @@ async function deserializeAws_json1_1ListResolverEndpointIpAddressesCommandError
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListResolverEndpointsCommand(
+export const deserializeAws_json1_1ListResolverEndpointsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListResolverEndpointsCommandOutput> {
+): Promise<ListResolverEndpointsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListResolverEndpointsCommandError(
       output,
@@ -1954,12 +1974,12 @@ export async function deserializeAws_json1_1ListResolverEndpointsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListResolverEndpointsCommandError(
+const deserializeAws_json1_1ListResolverEndpointsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListResolverEndpointsCommandOutput> {
+): Promise<ListResolverEndpointsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2040,12 +2060,12 @@ async function deserializeAws_json1_1ListResolverEndpointsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListResolverRuleAssociationsCommand(
+export const deserializeAws_json1_1ListResolverRuleAssociationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListResolverRuleAssociationsCommandOutput> {
+): Promise<ListResolverRuleAssociationsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListResolverRuleAssociationsCommandError(
       output,
@@ -2064,12 +2084,12 @@ export async function deserializeAws_json1_1ListResolverRuleAssociationsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListResolverRuleAssociationsCommandError(
+const deserializeAws_json1_1ListResolverRuleAssociationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListResolverRuleAssociationsCommandOutput> {
+): Promise<ListResolverRuleAssociationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2150,12 +2170,12 @@ async function deserializeAws_json1_1ListResolverRuleAssociationsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListResolverRulesCommand(
+export const deserializeAws_json1_1ListResolverRulesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListResolverRulesCommandOutput> {
+): Promise<ListResolverRulesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListResolverRulesCommandError(output, context);
   }
@@ -2168,12 +2188,12 @@ export async function deserializeAws_json1_1ListResolverRulesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListResolverRulesCommandError(
+const deserializeAws_json1_1ListResolverRulesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListResolverRulesCommandOutput> {
+): Promise<ListResolverRulesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2254,12 +2274,12 @@ async function deserializeAws_json1_1ListResolverRulesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListTagsForResourceCommand(
+export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListTagsForResourceCommandError(
       output,
@@ -2275,12 +2295,12 @@ export async function deserializeAws_json1_1ListTagsForResourceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListTagsForResourceCommandError(
+const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2372,12 +2392,12 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1PutResolverRulePolicyCommand(
+export const deserializeAws_json1_1PutResolverRulePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutResolverRulePolicyCommandOutput> {
+): Promise<PutResolverRulePolicyCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1PutResolverRulePolicyCommandError(
       output,
@@ -2393,12 +2413,12 @@ export async function deserializeAws_json1_1PutResolverRulePolicyCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1PutResolverRulePolicyCommandError(
+const deserializeAws_json1_1PutResolverRulePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutResolverRulePolicyCommandOutput> {
+): Promise<PutResolverRulePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2468,12 +2488,12 @@ async function deserializeAws_json1_1PutResolverRulePolicyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1TagResourceCommand(
+export const deserializeAws_json1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1TagResourceCommandError(output, context);
   }
@@ -2486,12 +2506,12 @@ export async function deserializeAws_json1_1TagResourceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1TagResourceCommandError(
+const deserializeAws_json1_1TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2583,12 +2603,12 @@ async function deserializeAws_json1_1TagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UntagResourceCommand(
+export const deserializeAws_json1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UntagResourceCommandError(output, context);
   }
@@ -2601,12 +2621,12 @@ export async function deserializeAws_json1_1UntagResourceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UntagResourceCommandError(
+const deserializeAws_json1_1UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2676,12 +2696,12 @@ async function deserializeAws_json1_1UntagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateResolverEndpointCommand(
+export const deserializeAws_json1_1UpdateResolverEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateResolverEndpointCommandOutput> {
+): Promise<UpdateResolverEndpointCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateResolverEndpointCommandError(
       output,
@@ -2700,12 +2720,12 @@ export async function deserializeAws_json1_1UpdateResolverEndpointCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateResolverEndpointCommandError(
+const deserializeAws_json1_1UpdateResolverEndpointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateResolverEndpointCommandOutput> {
+): Promise<UpdateResolverEndpointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2786,12 +2806,12 @@ async function deserializeAws_json1_1UpdateResolverEndpointCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateResolverRuleCommand(
+export const deserializeAws_json1_1UpdateResolverRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateResolverRuleCommandOutput> {
+): Promise<UpdateResolverRuleCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateResolverRuleCommandError(
       output,
@@ -2807,12 +2827,12 @@ export async function deserializeAws_json1_1UpdateResolverRuleCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateResolverRuleCommandError(
+const deserializeAws_json1_1UpdateResolverRuleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateResolverRuleCommandOutput> {
+): Promise<UpdateResolverRuleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2915,7 +2935,7 @@ async function deserializeAws_json1_1UpdateResolverRuleCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_1InternalServiceErrorExceptionResponse = async (
   parsedOutput: any,
@@ -3320,25 +3340,17 @@ const serializeAws_json1_1Filter = (
 };
 
 const serializeAws_json1_1FilterValues = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1Filters = (
-  input: Array<Filter>,
+  input: Filter[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1Filter(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1Filter(entry, context));
 };
 
 const serializeAws_json1_1GetResolverEndpointRequest = (
@@ -3417,14 +3429,12 @@ const serializeAws_json1_1IpAddressUpdate = (
 };
 
 const serializeAws_json1_1IpAddressesRequest = (
-  input: Array<IpAddressRequest>,
+  input: IpAddressRequest[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1IpAddressRequest(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1IpAddressRequest(entry, context)
+  );
 };
 
 const serializeAws_json1_1ListResolverEndpointIpAddressesRequest = (
@@ -3547,14 +3557,10 @@ const serializeAws_json1_1ResolverRuleConfig = (
 };
 
 const serializeAws_json1_1SecurityGroupIds = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
@@ -3569,25 +3575,17 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_json1_1TagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1TagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1Tag(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1Tag(entry, context));
 };
 
 const serializeAws_json1_1TagResourceRequest = (
@@ -3619,14 +3617,10 @@ const serializeAws_json1_1TargetAddress = (
 };
 
 const serializeAws_json1_1TargetList = (
-  input: Array<TargetAddress>,
+  input: TargetAddress[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1TargetAddress(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1TargetAddress(entry, context));
 };
 
 const serializeAws_json1_1UntagResourceRequest = (
@@ -4037,7 +4031,7 @@ const deserializeAws_json1_1IpAddressResponse = (
 const deserializeAws_json1_1IpAddressesResponse = (
   output: any,
   context: __SerdeContext
-): Array<IpAddressResponse> => {
+): IpAddressResponse[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1IpAddressResponse(entry, context)
   );
@@ -4272,7 +4266,7 @@ const deserializeAws_json1_1ResolverEndpoint = (
 const deserializeAws_json1_1ResolverEndpoints = (
   output: any,
   context: __SerdeContext
-): Array<ResolverEndpoint> => {
+): ResolverEndpoint[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ResolverEndpoint(entry, context)
   );
@@ -4382,7 +4376,7 @@ const deserializeAws_json1_1ResolverRuleAssociation = (
 const deserializeAws_json1_1ResolverRuleAssociations = (
   output: any,
   context: __SerdeContext
-): Array<ResolverRuleAssociation> => {
+): ResolverRuleAssociation[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ResolverRuleAssociation(entry, context)
   );
@@ -4391,7 +4385,7 @@ const deserializeAws_json1_1ResolverRuleAssociations = (
 const deserializeAws_json1_1ResolverRules = (
   output: any,
   context: __SerdeContext
-): Array<ResolverRule> => {
+): ResolverRule[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ResolverRule(entry, context)
   );
@@ -4472,7 +4466,7 @@ const deserializeAws_json1_1ResourceUnavailableException = (
 const deserializeAws_json1_1SecurityGroupIds = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -4497,7 +4491,7 @@ const deserializeAws_json1_1Tag = (
 const deserializeAws_json1_1TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );
@@ -4534,7 +4528,7 @@ const deserializeAws_json1_1TargetAddress = (
 const deserializeAws_json1_1TargetList = (
   output: any,
   context: __SerdeContext
-): Array<TargetAddress> => {
+): TargetAddress[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1TargetAddress(entry, context)
   );
@@ -4623,7 +4617,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -4638,11 +4632,8 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
@@ -4669,11 +4660,10 @@ const buildHttpRpcRequest = async (
   return new __HttpRequest(contents);
 };
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};

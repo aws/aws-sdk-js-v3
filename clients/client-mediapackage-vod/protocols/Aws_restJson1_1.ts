@@ -86,12 +86,13 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_restJson1_1CreateAssetCommand(
+export const serializeAws_restJson1_1CreateAssetCommand = async (
   input: CreateAssetCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/assets";
   let body: any;
   const bodyParams: any = {};
@@ -121,14 +122,15 @@ export async function serializeAws_restJson1_1CreateAssetCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1CreatePackagingConfigurationCommand(
+export const serializeAws_restJson1_1CreatePackagingConfigurationCommand = async (
   input: CreatePackagingConfigurationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/packaging_configurations";
   let body: any;
   const bodyParams: any = {};
@@ -173,14 +175,15 @@ export async function serializeAws_restJson1_1CreatePackagingConfigurationComman
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1CreatePackagingGroupCommand(
+export const serializeAws_restJson1_1CreatePackagingGroupCommand = async (
   input: CreatePackagingGroupCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/packaging_groups";
   let body: any;
   const bodyParams: any = {};
@@ -198,14 +201,15 @@ export async function serializeAws_restJson1_1CreatePackagingGroupCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeleteAssetCommand(
+export const serializeAws_restJson1_1DeleteAssetCommand = async (
   input: DeleteAssetCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/assets/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -230,14 +234,15 @@ export async function serializeAws_restJson1_1DeleteAssetCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeletePackagingConfigurationCommand(
+export const serializeAws_restJson1_1DeletePackagingConfigurationCommand = async (
   input: DeletePackagingConfigurationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/packaging_configurations/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -262,14 +267,15 @@ export async function serializeAws_restJson1_1DeletePackagingConfigurationComman
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeletePackagingGroupCommand(
+export const serializeAws_restJson1_1DeletePackagingGroupCommand = async (
   input: DeletePackagingGroupCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/packaging_groups/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -294,14 +300,15 @@ export async function serializeAws_restJson1_1DeletePackagingGroupCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribeAssetCommand(
+export const serializeAws_restJson1_1DescribeAssetCommand = async (
   input: DescribeAssetCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/assets/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -326,14 +333,15 @@ export async function serializeAws_restJson1_1DescribeAssetCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribePackagingConfigurationCommand(
+export const serializeAws_restJson1_1DescribePackagingConfigurationCommand = async (
   input: DescribePackagingConfigurationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/packaging_configurations/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -358,14 +366,15 @@ export async function serializeAws_restJson1_1DescribePackagingConfigurationComm
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribePackagingGroupCommand(
+export const serializeAws_restJson1_1DescribePackagingGroupCommand = async (
   input: DescribePackagingGroupCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/packaging_groups/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -390,25 +399,25 @@ export async function serializeAws_restJson1_1DescribePackagingGroupCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListAssetsCommand(
+export const serializeAws_restJson1_1ListAssetsCommand = async (
   input: ListAssetsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/assets";
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
-  if (input.PackagingGroupId !== undefined) {
-    query["packagingGroupId"] = input.PackagingGroupId;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.PackagingGroupId !== undefined && {
+      packagingGroupId: input.PackagingGroupId
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -421,25 +430,25 @@ export async function serializeAws_restJson1_1ListAssetsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListPackagingConfigurationsCommand(
+export const serializeAws_restJson1_1ListPackagingConfigurationsCommand = async (
   input: ListPackagingConfigurationsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/packaging_configurations";
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
-  if (input.PackagingGroupId !== undefined) {
-    query["packagingGroupId"] = input.PackagingGroupId;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.PackagingGroupId !== undefined && {
+      packagingGroupId: input.PackagingGroupId
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -452,22 +461,22 @@ export async function serializeAws_restJson1_1ListPackagingConfigurationsCommand
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListPackagingGroupsCommand(
+export const serializeAws_restJson1_1ListPackagingGroupsCommand = async (
   input: ListPackagingGroupsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/packaging_groups";
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -480,12 +489,12 @@ export async function serializeAws_restJson1_1ListPackagingGroupsCommand(
     query,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1CreateAssetCommand(
+export const deserializeAws_restJson1_1CreateAssetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateAssetCommandOutput> {
+): Promise<CreateAssetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateAssetCommandError(output, context);
   }
@@ -530,12 +539,12 @@ export async function deserializeAws_restJson1_1CreateAssetCommand(
     contents.SourceRoleArn = data.sourceRoleArn;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreateAssetCommandError(
+const deserializeAws_restJson1_1CreateAssetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateAssetCommandOutput> {
+): Promise<CreateAssetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -625,12 +634,12 @@ async function deserializeAws_restJson1_1CreateAssetCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1CreatePackagingConfigurationCommand(
+export const deserializeAws_restJson1_1CreatePackagingConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreatePackagingConfigurationCommandOutput> {
+): Promise<CreatePackagingConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreatePackagingConfigurationCommandError(
       output,
@@ -683,12 +692,12 @@ export async function deserializeAws_restJson1_1CreatePackagingConfigurationComm
     contents.PackagingGroupId = data.packagingGroupId;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreatePackagingConfigurationCommandError(
+const deserializeAws_restJson1_1CreatePackagingConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreatePackagingConfigurationCommandOutput> {
+): Promise<CreatePackagingConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -778,12 +787,12 @@ async function deserializeAws_restJson1_1CreatePackagingConfigurationCommandErro
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1CreatePackagingGroupCommand(
+export const deserializeAws_restJson1_1CreatePackagingGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreatePackagingGroupCommandOutput> {
+): Promise<CreatePackagingGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreatePackagingGroupCommandError(
       output,
@@ -808,12 +817,12 @@ export async function deserializeAws_restJson1_1CreatePackagingGroupCommand(
     contents.Id = data.id;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreatePackagingGroupCommandError(
+const deserializeAws_restJson1_1CreatePackagingGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreatePackagingGroupCommandOutput> {
+): Promise<CreatePackagingGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -903,12 +912,12 @@ async function deserializeAws_restJson1_1CreatePackagingGroupCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteAssetCommand(
+export const deserializeAws_restJson1_1DeleteAssetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteAssetCommandOutput> {
+): Promise<DeleteAssetCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteAssetCommandError(output, context);
   }
@@ -918,12 +927,12 @@ export async function deserializeAws_restJson1_1DeleteAssetCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteAssetCommandError(
+const deserializeAws_restJson1_1DeleteAssetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteAssetCommandOutput> {
+): Promise<DeleteAssetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1013,12 +1022,12 @@ async function deserializeAws_restJson1_1DeleteAssetCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeletePackagingConfigurationCommand(
+export const deserializeAws_restJson1_1DeletePackagingConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeletePackagingConfigurationCommandOutput> {
+): Promise<DeletePackagingConfigurationCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeletePackagingConfigurationCommandError(
       output,
@@ -1031,12 +1040,12 @@ export async function deserializeAws_restJson1_1DeletePackagingConfigurationComm
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeletePackagingConfigurationCommandError(
+const deserializeAws_restJson1_1DeletePackagingConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeletePackagingConfigurationCommandOutput> {
+): Promise<DeletePackagingConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1126,12 +1135,12 @@ async function deserializeAws_restJson1_1DeletePackagingConfigurationCommandErro
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeletePackagingGroupCommand(
+export const deserializeAws_restJson1_1DeletePackagingGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeletePackagingGroupCommandOutput> {
+): Promise<DeletePackagingGroupCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeletePackagingGroupCommandError(
       output,
@@ -1144,12 +1153,12 @@ export async function deserializeAws_restJson1_1DeletePackagingGroupCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeletePackagingGroupCommandError(
+const deserializeAws_restJson1_1DeletePackagingGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeletePackagingGroupCommandOutput> {
+): Promise<DeletePackagingGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1239,12 +1248,12 @@ async function deserializeAws_restJson1_1DeletePackagingGroupCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeAssetCommand(
+export const deserializeAws_restJson1_1DescribeAssetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeAssetCommandOutput> {
+): Promise<DescribeAssetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeAssetCommandError(output, context);
   }
@@ -1289,12 +1298,12 @@ export async function deserializeAws_restJson1_1DescribeAssetCommand(
     contents.SourceRoleArn = data.sourceRoleArn;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeAssetCommandError(
+const deserializeAws_restJson1_1DescribeAssetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeAssetCommandOutput> {
+): Promise<DescribeAssetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1384,12 +1393,12 @@ async function deserializeAws_restJson1_1DescribeAssetCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribePackagingConfigurationCommand(
+export const deserializeAws_restJson1_1DescribePackagingConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribePackagingConfigurationCommandOutput> {
+): Promise<DescribePackagingConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribePackagingConfigurationCommandError(
       output,
@@ -1442,12 +1451,12 @@ export async function deserializeAws_restJson1_1DescribePackagingConfigurationCo
     contents.PackagingGroupId = data.packagingGroupId;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribePackagingConfigurationCommandError(
+const deserializeAws_restJson1_1DescribePackagingConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribePackagingConfigurationCommandOutput> {
+): Promise<DescribePackagingConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1537,12 +1546,12 @@ async function deserializeAws_restJson1_1DescribePackagingConfigurationCommandEr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribePackagingGroupCommand(
+export const deserializeAws_restJson1_1DescribePackagingGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribePackagingGroupCommandOutput> {
+): Promise<DescribePackagingGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribePackagingGroupCommandError(
       output,
@@ -1567,12 +1576,12 @@ export async function deserializeAws_restJson1_1DescribePackagingGroupCommand(
     contents.Id = data.id;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribePackagingGroupCommandError(
+const deserializeAws_restJson1_1DescribePackagingGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribePackagingGroupCommandOutput> {
+): Promise<DescribePackagingGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1662,12 +1671,12 @@ async function deserializeAws_restJson1_1DescribePackagingGroupCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListAssetsCommand(
+export const deserializeAws_restJson1_1ListAssetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListAssetsCommandOutput> {
+): Promise<ListAssetsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListAssetsCommandError(output, context);
   }
@@ -1688,12 +1697,12 @@ export async function deserializeAws_restJson1_1ListAssetsCommand(
     contents.NextToken = data.nextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListAssetsCommandError(
+const deserializeAws_restJson1_1ListAssetsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListAssetsCommandOutput> {
+): Promise<ListAssetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1783,12 +1792,12 @@ async function deserializeAws_restJson1_1ListAssetsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListPackagingConfigurationsCommand(
+export const deserializeAws_restJson1_1ListPackagingConfigurationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListPackagingConfigurationsCommandOutput> {
+): Promise<ListPackagingConfigurationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListPackagingConfigurationsCommandError(
       output,
@@ -1815,12 +1824,12 @@ export async function deserializeAws_restJson1_1ListPackagingConfigurationsComma
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListPackagingConfigurationsCommandError(
+const deserializeAws_restJson1_1ListPackagingConfigurationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListPackagingConfigurationsCommandOutput> {
+): Promise<ListPackagingConfigurationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1910,12 +1919,12 @@ async function deserializeAws_restJson1_1ListPackagingConfigurationsCommandError
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListPackagingGroupsCommand(
+export const deserializeAws_restJson1_1ListPackagingGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListPackagingGroupsCommandOutput> {
+): Promise<ListPackagingGroupsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListPackagingGroupsCommandError(
       output,
@@ -1939,12 +1948,12 @@ export async function deserializeAws_restJson1_1ListPackagingGroupsCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListPackagingGroupsCommandError(
+const deserializeAws_restJson1_1ListPackagingGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListPackagingGroupsCommandOutput> {
+): Promise<ListPackagingGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2034,7 +2043,7 @@ async function deserializeAws_restJson1_1ListPackagingGroupsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1ForbiddenExceptionResponse = async (
   parsedOutput: any,
@@ -2404,47 +2413,37 @@ const serializeAws_restJson1_1StreamSelection = (
 };
 
 const serializeAws_restJson1_1__listOfDashManifest = (
-  input: Array<DashManifest>,
+  input: DashManifest[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1DashManifest(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1DashManifest(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1__listOfHlsManifest = (
-  input: Array<HlsManifest>,
+  input: HlsManifest[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1HlsManifest(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1HlsManifest(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1__listOfMssManifest = (
-  input: Array<MssManifest>,
+  input: MssManifest[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1MssManifest(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1MssManifest(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1__listOf__string = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const deserializeAws_restJson1_1AssetShallow = (
@@ -2962,7 +2961,7 @@ const deserializeAws_restJson1_1StreamSelection = (
 const deserializeAws_restJson1_1__listOfAssetShallow = (
   output: any,
   context: __SerdeContext
-): Array<AssetShallow> => {
+): AssetShallow[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1AssetShallow(entry, context)
   );
@@ -2971,7 +2970,7 @@ const deserializeAws_restJson1_1__listOfAssetShallow = (
 const deserializeAws_restJson1_1__listOfDashManifest = (
   output: any,
   context: __SerdeContext
-): Array<DashManifest> => {
+): DashManifest[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DashManifest(entry, context)
   );
@@ -2980,7 +2979,7 @@ const deserializeAws_restJson1_1__listOfDashManifest = (
 const deserializeAws_restJson1_1__listOfEgressEndpoint = (
   output: any,
   context: __SerdeContext
-): Array<EgressEndpoint> => {
+): EgressEndpoint[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1EgressEndpoint(entry, context)
   );
@@ -2989,7 +2988,7 @@ const deserializeAws_restJson1_1__listOfEgressEndpoint = (
 const deserializeAws_restJson1_1__listOfHlsManifest = (
   output: any,
   context: __SerdeContext
-): Array<HlsManifest> => {
+): HlsManifest[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1HlsManifest(entry, context)
   );
@@ -2998,7 +2997,7 @@ const deserializeAws_restJson1_1__listOfHlsManifest = (
 const deserializeAws_restJson1_1__listOfMssManifest = (
   output: any,
   context: __SerdeContext
-): Array<MssManifest> => {
+): MssManifest[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1MssManifest(entry, context)
   );
@@ -3007,7 +3006,7 @@ const deserializeAws_restJson1_1__listOfMssManifest = (
 const deserializeAws_restJson1_1__listOfPackagingConfiguration = (
   output: any,
   context: __SerdeContext
-): Array<PackagingConfiguration> => {
+): PackagingConfiguration[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1PackagingConfiguration(entry, context)
   );
@@ -3016,7 +3015,7 @@ const deserializeAws_restJson1_1__listOfPackagingConfiguration = (
 const deserializeAws_restJson1_1__listOfPackagingGroup = (
   output: any,
   context: __SerdeContext
-): Array<PackagingGroup> => {
+): PackagingGroup[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1PackagingGroup(entry, context)
   );
@@ -3025,7 +3024,7 @@ const deserializeAws_restJson1_1__listOfPackagingGroup = (
 const deserializeAws_restJson1_1__listOf__string = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -3037,7 +3036,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -3052,30 +3051,23 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
-function isSerializableHeaderValue(value: any): boolean {
-  return (
-    value !== undefined &&
-    value !== "" &&
-    (!Object.getOwnPropertyNames(value).includes("length") ||
-      value.length != 0) &&
-    (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0)
-  );
-}
+const isSerializableHeaderValue = (value: any): boolean =>
+  value !== undefined &&
+  value !== "" &&
+  (!Object.getOwnPropertyNames(value).includes("length") ||
+    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};
 
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.

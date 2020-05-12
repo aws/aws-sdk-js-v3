@@ -84,7 +84,7 @@ export interface CmafPackage {
   /**
    * A list of HLS manifest configurations.
    */
-  HlsManifests: Array<HlsManifest> | undefined;
+  HlsManifests: HlsManifest[] | undefined;
 
   /**
    * Duration (in seconds) of each fragment. Actual fragments will be
@@ -148,7 +148,7 @@ export interface CreateAssetResponse {
   /**
    * The list of egress endpoints available for the Asset.
    */
-  EgressEndpoints?: Array<EgressEndpoint>;
+  EgressEndpoints?: EgressEndpoint[];
 
   /**
    * The unique identifier for the Asset.
@@ -358,7 +358,7 @@ export interface DashPackage {
   /**
    * A list of DASH manifest configurations.
    */
-  DashManifests: Array<DashManifest> | undefined;
+  DashManifests: DashManifest[] | undefined;
 
   /**
    * A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
@@ -470,7 +470,7 @@ export interface DescribeAssetResponse {
   /**
    * The list of egress endpoints available for the Asset.
    */
-  EgressEndpoints?: Array<EgressEndpoint>;
+  EgressEndpoints?: EgressEndpoint[];
 
   /**
    * The unique identifier for the Asset.
@@ -727,7 +727,7 @@ export interface HlsPackage {
   /**
    * A list of HLS manifest configurations.
    */
-  HlsManifests: Array<HlsManifest> | undefined;
+  HlsManifests: HlsManifest[] | undefined;
 
   /**
    * Duration (in seconds) of each fragment. Actual fragments will be
@@ -789,7 +789,7 @@ export interface ListAssetsResponse {
   /**
    * A list of MediaPackage VOD Asset resources.
    */
-  Assets?: Array<AssetShallow>;
+  Assets?: AssetShallow[];
 
   /**
    * A token that can be used to resume pagination from the end of the collection.
@@ -835,7 +835,7 @@ export interface ListPackagingConfigurationsResponse {
   /**
    * A list of MediaPackage VOD PackagingConfiguration resources.
    */
-  PackagingConfigurations?: Array<PackagingConfiguration>;
+  PackagingConfigurations?: PackagingConfiguration[];
 }
 
 export namespace ListPackagingConfigurationsResponse {
@@ -871,7 +871,7 @@ export interface ListPackagingGroupsResponse {
   /**
    * A list of MediaPackage VOD PackagingGroup resources.
    */
-  PackagingGroups?: Array<PackagingGroup>;
+  PackagingGroups?: PackagingGroup[];
 }
 
 export namespace ListPackagingGroupsResponse {
@@ -927,7 +927,7 @@ export interface MssPackage {
   /**
    * A list of MSS manifest configurations.
    */
-  MssManifests: Array<MssManifest> | undefined;
+  MssManifests: MssManifest[] | undefined;
 
   /**
    * The duration (in seconds) of each segment.
@@ -1060,7 +1060,7 @@ export interface SpekeKeyProvider {
   /**
    * The system IDs to include in key requests.
    */
-  SystemIds: Array<string> | undefined;
+  SystemIds: string[] | undefined;
 
   /**
    * The URL of the external key provider service.

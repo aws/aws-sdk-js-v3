@@ -178,12 +178,13 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_restJson1_1AbortMultipartUploadCommand(
+export const serializeAws_restJson1_1AbortMultipartUploadCommand = async (
   input: AbortMultipartUploadCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}";
   if (input.accountId !== undefined) {
@@ -233,14 +234,15 @@ export async function serializeAws_restJson1_1AbortMultipartUploadCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1AbortVaultLockCommand(
+export const serializeAws_restJson1_1AbortVaultLockCommand = async (
   input: AbortVaultLockCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/{accountId}/vaults/{vaultName}/lock-policy";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
@@ -277,14 +279,15 @@ export async function serializeAws_restJson1_1AbortVaultLockCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1AddTagsToVaultCommand(
+export const serializeAws_restJson1_1AddTagsToVaultCommand = async (
   input: AddTagsToVaultCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/{accountId}/vaults/{vaultName}/tags";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
@@ -330,20 +333,21 @@ export async function serializeAws_restJson1_1AddTagsToVaultCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1CompleteMultipartUploadCommand(
+export const serializeAws_restJson1_1CompleteMultipartUploadCommand = async (
   input: CompleteMultipartUploadCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.archiveSize)) {
-    headers["x-amz-archive-size"] = input.archiveSize!;
-  }
-  if (isSerializableHeaderValue(input.checksum)) {
-    headers["x-amz-sha256-tree-hash"] = input.checksum!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.archiveSize) && {
+      "x-amz-archive-size": input.archiveSize!
+    }),
+    ...(isSerializableHeaderValue(input.checksum) && {
+      "x-amz-sha256-tree-hash": input.checksum!
+    })
+  };
   let resolvedPath =
     "/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}";
   if (input.accountId !== undefined) {
@@ -393,14 +397,15 @@ export async function serializeAws_restJson1_1CompleteMultipartUploadCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1CompleteVaultLockCommand(
+export const serializeAws_restJson1_1CompleteVaultLockCommand = async (
   input: CompleteVaultLockCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/{accountId}/vaults/{vaultName}/lock-policy/{lockId}";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
@@ -449,14 +454,15 @@ export async function serializeAws_restJson1_1CompleteVaultLockCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1CreateVaultCommand(
+export const serializeAws_restJson1_1CreateVaultCommand = async (
   input: CreateVaultCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/{accountId}/vaults/{vaultName}";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
@@ -493,14 +499,15 @@ export async function serializeAws_restJson1_1CreateVaultCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeleteArchiveCommand(
+export const serializeAws_restJson1_1DeleteArchiveCommand = async (
   input: DeleteArchiveCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/{accountId}/vaults/{vaultName}/archives/{archiveId}";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
@@ -549,14 +556,15 @@ export async function serializeAws_restJson1_1DeleteArchiveCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeleteVaultCommand(
+export const serializeAws_restJson1_1DeleteVaultCommand = async (
   input: DeleteVaultCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/{accountId}/vaults/{vaultName}";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
@@ -593,14 +601,15 @@ export async function serializeAws_restJson1_1DeleteVaultCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeleteVaultAccessPolicyCommand(
+export const serializeAws_restJson1_1DeleteVaultAccessPolicyCommand = async (
   input: DeleteVaultAccessPolicyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/{accountId}/vaults/{vaultName}/access-policy";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
@@ -637,14 +646,15 @@ export async function serializeAws_restJson1_1DeleteVaultAccessPolicyCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeleteVaultNotificationsCommand(
+export const serializeAws_restJson1_1DeleteVaultNotificationsCommand = async (
   input: DeleteVaultNotificationsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/{accountId}/vaults/{vaultName}/notification-configuration";
   if (input.accountId !== undefined) {
@@ -682,14 +692,15 @@ export async function serializeAws_restJson1_1DeleteVaultNotificationsCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribeJobCommand(
+export const serializeAws_restJson1_1DescribeJobCommand = async (
   input: DescribeJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/{accountId}/vaults/{vaultName}/jobs/{jobId}";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
@@ -738,14 +749,15 @@ export async function serializeAws_restJson1_1DescribeJobCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribeVaultCommand(
+export const serializeAws_restJson1_1DescribeVaultCommand = async (
   input: DescribeVaultCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/{accountId}/vaults/{vaultName}";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
@@ -782,14 +794,15 @@ export async function serializeAws_restJson1_1DescribeVaultCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetDataRetrievalPolicyCommand(
+export const serializeAws_restJson1_1GetDataRetrievalPolicyCommand = async (
   input: GetDataRetrievalPolicyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/{accountId}/policies/data-retrieval";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
@@ -814,17 +827,16 @@ export async function serializeAws_restJson1_1GetDataRetrievalPolicyCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetJobOutputCommand(
+export const serializeAws_restJson1_1GetJobOutputCommand = async (
   input: GetJobOutputCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.range)) {
-    headers["Range"] = input.range!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.range) && { Range: input.range! })
+  };
   let resolvedPath = "/{accountId}/vaults/{vaultName}/jobs/{jobId}/output";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
@@ -873,14 +885,15 @@ export async function serializeAws_restJson1_1GetJobOutputCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetVaultAccessPolicyCommand(
+export const serializeAws_restJson1_1GetVaultAccessPolicyCommand = async (
   input: GetVaultAccessPolicyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/{accountId}/vaults/{vaultName}/access-policy";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
@@ -917,14 +930,15 @@ export async function serializeAws_restJson1_1GetVaultAccessPolicyCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetVaultLockCommand(
+export const serializeAws_restJson1_1GetVaultLockCommand = async (
   input: GetVaultLockCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/{accountId}/vaults/{vaultName}/lock-policy";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
@@ -961,14 +975,15 @@ export async function serializeAws_restJson1_1GetVaultLockCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetVaultNotificationsCommand(
+export const serializeAws_restJson1_1GetVaultNotificationsCommand = async (
   input: GetVaultNotificationsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/{accountId}/vaults/{vaultName}/notification-configuration";
   if (input.accountId !== undefined) {
@@ -1006,14 +1021,15 @@ export async function serializeAws_restJson1_1GetVaultNotificationsCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1InitiateJobCommand(
+export const serializeAws_restJson1_1InitiateJobCommand = async (
   input: InitiateJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/{accountId}/vaults/{vaultName}/jobs";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
@@ -1057,20 +1073,21 @@ export async function serializeAws_restJson1_1InitiateJobCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1InitiateMultipartUploadCommand(
+export const serializeAws_restJson1_1InitiateMultipartUploadCommand = async (
   input: InitiateMultipartUploadCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.archiveDescription)) {
-    headers["x-amz-archive-description"] = input.archiveDescription!;
-  }
-  if (isSerializableHeaderValue(input.partSize)) {
-    headers["x-amz-part-size"] = input.partSize!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.archiveDescription) && {
+      "x-amz-archive-description": input.archiveDescription!
+    }),
+    ...(isSerializableHeaderValue(input.partSize) && {
+      "x-amz-part-size": input.partSize!
+    })
+  };
   let resolvedPath = "/{accountId}/vaults/{vaultName}/multipart-uploads";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
@@ -1107,14 +1124,15 @@ export async function serializeAws_restJson1_1InitiateMultipartUploadCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1InitiateVaultLockCommand(
+export const serializeAws_restJson1_1InitiateVaultLockCommand = async (
   input: InitiateVaultLockCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/{accountId}/vaults/{vaultName}/lock-policy";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
@@ -1158,14 +1176,15 @@ export async function serializeAws_restJson1_1InitiateVaultLockCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListJobsCommand(
+export const serializeAws_restJson1_1ListJobsCommand = async (
   input: ListJobsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/{accountId}/vaults/{vaultName}/jobs";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
@@ -1191,19 +1210,12 @@ export async function serializeAws_restJson1_1ListJobsCommand(
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
-  const query: any = {};
-  if (input.completed !== undefined) {
-    query["completed"] = input.completed;
-  }
-  if (input.limit !== undefined) {
-    query["limit"] = input.limit;
-  }
-  if (input.marker !== undefined) {
-    query["marker"] = input.marker;
-  }
-  if (input.statuscode !== undefined) {
-    query["statuscode"] = input.statuscode;
-  }
+  const query: any = {
+    ...(input.completed !== undefined && { completed: input.completed }),
+    ...(input.limit !== undefined && { limit: input.limit }),
+    ...(input.marker !== undefined && { marker: input.marker }),
+    ...(input.statuscode !== undefined && { statuscode: input.statuscode })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1216,14 +1228,15 @@ export async function serializeAws_restJson1_1ListJobsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListMultipartUploadsCommand(
+export const serializeAws_restJson1_1ListMultipartUploadsCommand = async (
   input: ListMultipartUploadsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/{accountId}/vaults/{vaultName}/multipart-uploads";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
@@ -1249,13 +1262,10 @@ export async function serializeAws_restJson1_1ListMultipartUploadsCommand(
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
-  const query: any = {};
-  if (input.limit !== undefined) {
-    query["limit"] = input.limit;
-  }
-  if (input.marker !== undefined) {
-    query["marker"] = input.marker;
-  }
+  const query: any = {
+    ...(input.limit !== undefined && { limit: input.limit }),
+    ...(input.marker !== undefined && { marker: input.marker })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1268,14 +1278,15 @@ export async function serializeAws_restJson1_1ListMultipartUploadsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListPartsCommand(
+export const serializeAws_restJson1_1ListPartsCommand = async (
   input: ListPartsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}";
   if (input.accountId !== undefined) {
@@ -1314,13 +1325,10 @@ export async function serializeAws_restJson1_1ListPartsCommand(
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
-  const query: any = {};
-  if (input.limit !== undefined) {
-    query["limit"] = input.limit;
-  }
-  if (input.marker !== undefined) {
-    query["marker"] = input.marker;
-  }
+  const query: any = {
+    ...(input.limit !== undefined && { limit: input.limit }),
+    ...(input.marker !== undefined && { marker: input.marker })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1333,14 +1341,15 @@ export async function serializeAws_restJson1_1ListPartsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListProvisionedCapacityCommand(
+export const serializeAws_restJson1_1ListProvisionedCapacityCommand = async (
   input: ListProvisionedCapacityCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/{accountId}/provisioned-capacity";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
@@ -1365,14 +1374,15 @@ export async function serializeAws_restJson1_1ListProvisionedCapacityCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListTagsForVaultCommand(
+export const serializeAws_restJson1_1ListTagsForVaultCommand = async (
   input: ListTagsForVaultCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/{accountId}/vaults/{vaultName}/tags";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
@@ -1409,14 +1419,15 @@ export async function serializeAws_restJson1_1ListTagsForVaultCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListVaultsCommand(
+export const serializeAws_restJson1_1ListVaultsCommand = async (
   input: ListVaultsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/{accountId}/vaults";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
@@ -1430,13 +1441,10 @@ export async function serializeAws_restJson1_1ListVaultsCommand(
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
   }
-  const query: any = {};
-  if (input.limit !== undefined) {
-    query["limit"] = input.limit;
-  }
-  if (input.marker !== undefined) {
-    query["marker"] = input.marker;
-  }
+  const query: any = {
+    ...(input.limit !== undefined && { limit: input.limit }),
+    ...(input.marker !== undefined && { marker: input.marker })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1449,14 +1457,15 @@ export async function serializeAws_restJson1_1ListVaultsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1PurchaseProvisionedCapacityCommand(
+export const serializeAws_restJson1_1PurchaseProvisionedCapacityCommand = async (
   input: PurchaseProvisionedCapacityCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/{accountId}/provisioned-capacity";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
@@ -1481,14 +1490,15 @@ export async function serializeAws_restJson1_1PurchaseProvisionedCapacityCommand
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1RemoveTagsFromVaultCommand(
+export const serializeAws_restJson1_1RemoveTagsFromVaultCommand = async (
   input: RemoveTagsFromVaultCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/{accountId}/vaults/{vaultName}/tags";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
@@ -1537,14 +1547,15 @@ export async function serializeAws_restJson1_1RemoveTagsFromVaultCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1SetDataRetrievalPolicyCommand(
+export const serializeAws_restJson1_1SetDataRetrievalPolicyCommand = async (
   input: SetDataRetrievalPolicyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/{accountId}/policies/data-retrieval";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
@@ -1577,14 +1588,15 @@ export async function serializeAws_restJson1_1SetDataRetrievalPolicyCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1SetVaultAccessPolicyCommand(
+export const serializeAws_restJson1_1SetVaultAccessPolicyCommand = async (
   input: SetVaultAccessPolicyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/{accountId}/vaults/{vaultName}/access-policy";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
@@ -1628,14 +1640,15 @@ export async function serializeAws_restJson1_1SetVaultAccessPolicyCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1SetVaultNotificationsCommand(
+export const serializeAws_restJson1_1SetVaultNotificationsCommand = async (
   input: SetVaultNotificationsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath =
     "/{accountId}/vaults/{vaultName}/notification-configuration";
   if (input.accountId !== undefined) {
@@ -1683,20 +1696,21 @@ export async function serializeAws_restJson1_1SetVaultNotificationsCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UploadArchiveCommand(
+export const serializeAws_restJson1_1UploadArchiveCommand = async (
   input: UploadArchiveCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/octet-stream";
-  if (isSerializableHeaderValue(input.archiveDescription)) {
-    headers["x-amz-archive-description"] = input.archiveDescription!;
-  }
-  if (isSerializableHeaderValue(input.checksum)) {
-    headers["x-amz-sha256-tree-hash"] = input.checksum!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/octet-stream",
+    ...(isSerializableHeaderValue(input.archiveDescription) && {
+      "x-amz-archive-description": input.archiveDescription!
+    }),
+    ...(isSerializableHeaderValue(input.checksum) && {
+      "x-amz-sha256-tree-hash": input.checksum!
+    })
+  };
   let resolvedPath = "/{accountId}/vaults/{vaultName}/archives";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
@@ -1736,20 +1750,21 @@ export async function serializeAws_restJson1_1UploadArchiveCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UploadMultipartPartCommand(
+export const serializeAws_restJson1_1UploadMultipartPartCommand = async (
   input: UploadMultipartPartCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/octet-stream";
-  if (isSerializableHeaderValue(input.checksum)) {
-    headers["x-amz-sha256-tree-hash"] = input.checksum!;
-  }
-  if (isSerializableHeaderValue(input.range)) {
-    headers["Content-Range"] = input.range!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/octet-stream",
+    ...(isSerializableHeaderValue(input.checksum) && {
+      "x-amz-sha256-tree-hash": input.checksum!
+    }),
+    ...(isSerializableHeaderValue(input.range) && {
+      "Content-Range": input.range!
+    })
+  };
   let resolvedPath =
     "/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}";
   if (input.accountId !== undefined) {
@@ -1802,12 +1817,12 @@ export async function serializeAws_restJson1_1UploadMultipartPartCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1AbortMultipartUploadCommand(
+export const deserializeAws_restJson1_1AbortMultipartUploadCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AbortMultipartUploadCommandOutput> {
+): Promise<AbortMultipartUploadCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1AbortMultipartUploadCommandError(
       output,
@@ -1819,12 +1834,12 @@ export async function deserializeAws_restJson1_1AbortMultipartUploadCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1AbortMultipartUploadCommandError(
+const deserializeAws_restJson1_1AbortMultipartUploadCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AbortMultipartUploadCommandOutput> {
+): Promise<AbortMultipartUploadCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1892,12 +1907,12 @@ async function deserializeAws_restJson1_1AbortMultipartUploadCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1AbortVaultLockCommand(
+export const deserializeAws_restJson1_1AbortVaultLockCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AbortVaultLockCommandOutput> {
+): Promise<AbortVaultLockCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1AbortVaultLockCommandError(
       output,
@@ -1909,12 +1924,12 @@ export async function deserializeAws_restJson1_1AbortVaultLockCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1AbortVaultLockCommandError(
+const deserializeAws_restJson1_1AbortVaultLockCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AbortVaultLockCommandOutput> {
+): Promise<AbortVaultLockCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1982,12 +1997,12 @@ async function deserializeAws_restJson1_1AbortVaultLockCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1AddTagsToVaultCommand(
+export const deserializeAws_restJson1_1AddTagsToVaultCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AddTagsToVaultCommandOutput> {
+): Promise<AddTagsToVaultCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1AddTagsToVaultCommandError(
       output,
@@ -1999,12 +2014,12 @@ export async function deserializeAws_restJson1_1AddTagsToVaultCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1AddTagsToVaultCommandError(
+const deserializeAws_restJson1_1AddTagsToVaultCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AddTagsToVaultCommandOutput> {
+): Promise<AddTagsToVaultCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2083,12 +2098,12 @@ async function deserializeAws_restJson1_1AddTagsToVaultCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1CompleteMultipartUploadCommand(
+export const deserializeAws_restJson1_1CompleteMultipartUploadCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CompleteMultipartUploadCommandOutput> {
+): Promise<CompleteMultipartUploadCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CompleteMultipartUploadCommandError(
       output,
@@ -2113,12 +2128,12 @@ export async function deserializeAws_restJson1_1CompleteMultipartUploadCommand(
   }
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CompleteMultipartUploadCommandError(
+const deserializeAws_restJson1_1CompleteMultipartUploadCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CompleteMultipartUploadCommandOutput> {
+): Promise<CompleteMultipartUploadCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2186,12 +2201,12 @@ async function deserializeAws_restJson1_1CompleteMultipartUploadCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1CompleteVaultLockCommand(
+export const deserializeAws_restJson1_1CompleteVaultLockCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CompleteVaultLockCommandOutput> {
+): Promise<CompleteVaultLockCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CompleteVaultLockCommandError(
       output,
@@ -2203,12 +2218,12 @@ export async function deserializeAws_restJson1_1CompleteVaultLockCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CompleteVaultLockCommandError(
+const deserializeAws_restJson1_1CompleteVaultLockCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CompleteVaultLockCommandOutput> {
+): Promise<CompleteVaultLockCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2276,12 +2291,12 @@ async function deserializeAws_restJson1_1CompleteVaultLockCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1CreateVaultCommand(
+export const deserializeAws_restJson1_1CreateVaultCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateVaultCommandOutput> {
+): Promise<CreateVaultCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateVaultCommandError(output, context);
   }
@@ -2295,12 +2310,12 @@ export async function deserializeAws_restJson1_1CreateVaultCommand(
   }
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreateVaultCommandError(
+const deserializeAws_restJson1_1CreateVaultCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateVaultCommandOutput> {
+): Promise<CreateVaultCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2368,12 +2383,12 @@ async function deserializeAws_restJson1_1CreateVaultCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteArchiveCommand(
+export const deserializeAws_restJson1_1DeleteArchiveCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteArchiveCommandOutput> {
+): Promise<DeleteArchiveCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteArchiveCommandError(output, context);
   }
@@ -2382,12 +2397,12 @@ export async function deserializeAws_restJson1_1DeleteArchiveCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteArchiveCommandError(
+const deserializeAws_restJson1_1DeleteArchiveCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteArchiveCommandOutput> {
+): Promise<DeleteArchiveCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2455,12 +2470,12 @@ async function deserializeAws_restJson1_1DeleteArchiveCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteVaultCommand(
+export const deserializeAws_restJson1_1DeleteVaultCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteVaultCommandOutput> {
+): Promise<DeleteVaultCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteVaultCommandError(output, context);
   }
@@ -2469,12 +2484,12 @@ export async function deserializeAws_restJson1_1DeleteVaultCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteVaultCommandError(
+const deserializeAws_restJson1_1DeleteVaultCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteVaultCommandOutput> {
+): Promise<DeleteVaultCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2542,12 +2557,12 @@ async function deserializeAws_restJson1_1DeleteVaultCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteVaultAccessPolicyCommand(
+export const deserializeAws_restJson1_1DeleteVaultAccessPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteVaultAccessPolicyCommandOutput> {
+): Promise<DeleteVaultAccessPolicyCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteVaultAccessPolicyCommandError(
       output,
@@ -2559,12 +2574,12 @@ export async function deserializeAws_restJson1_1DeleteVaultAccessPolicyCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteVaultAccessPolicyCommandError(
+const deserializeAws_restJson1_1DeleteVaultAccessPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteVaultAccessPolicyCommandOutput> {
+): Promise<DeleteVaultAccessPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2632,12 +2647,12 @@ async function deserializeAws_restJson1_1DeleteVaultAccessPolicyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteVaultNotificationsCommand(
+export const deserializeAws_restJson1_1DeleteVaultNotificationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteVaultNotificationsCommandOutput> {
+): Promise<DeleteVaultNotificationsCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteVaultNotificationsCommandError(
       output,
@@ -2649,12 +2664,12 @@ export async function deserializeAws_restJson1_1DeleteVaultNotificationsCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteVaultNotificationsCommandError(
+const deserializeAws_restJson1_1DeleteVaultNotificationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteVaultNotificationsCommandOutput> {
+): Promise<DeleteVaultNotificationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2722,12 +2737,12 @@ async function deserializeAws_restJson1_1DeleteVaultNotificationsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeJobCommand(
+export const deserializeAws_restJson1_1DescribeJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeJobCommandOutput> {
+): Promise<DescribeJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeJobCommandError(output, context);
   }
@@ -2845,12 +2860,12 @@ export async function deserializeAws_restJson1_1DescribeJobCommand(
     contents.VaultARN = data.VaultARN;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeJobCommandError(
+const deserializeAws_restJson1_1DescribeJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeJobCommandOutput> {
+): Promise<DescribeJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2918,12 +2933,12 @@ async function deserializeAws_restJson1_1DescribeJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeVaultCommand(
+export const deserializeAws_restJson1_1DescribeVaultCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeVaultCommandOutput> {
+): Promise<DescribeVaultCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeVaultCommandError(output, context);
   }
@@ -2957,12 +2972,12 @@ export async function deserializeAws_restJson1_1DescribeVaultCommand(
     contents.VaultName = data.VaultName;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeVaultCommandError(
+const deserializeAws_restJson1_1DescribeVaultCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeVaultCommandOutput> {
+): Promise<DescribeVaultCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3030,12 +3045,12 @@ async function deserializeAws_restJson1_1DescribeVaultCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetDataRetrievalPolicyCommand(
+export const deserializeAws_restJson1_1GetDataRetrievalPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetDataRetrievalPolicyCommandOutput> {
+): Promise<GetDataRetrievalPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetDataRetrievalPolicyCommandError(
       output,
@@ -3055,12 +3070,12 @@ export async function deserializeAws_restJson1_1GetDataRetrievalPolicyCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetDataRetrievalPolicyCommandError(
+const deserializeAws_restJson1_1GetDataRetrievalPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetDataRetrievalPolicyCommandOutput> {
+): Promise<GetDataRetrievalPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3117,12 +3132,12 @@ async function deserializeAws_restJson1_1GetDataRetrievalPolicyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetJobOutputCommand(
+export const deserializeAws_restJson1_1GetJobOutputCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetJobOutputCommandOutput> {
+): Promise<GetJobOutputCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetJobOutputCommandError(output, context);
   }
@@ -3154,12 +3169,12 @@ export async function deserializeAws_restJson1_1GetJobOutputCommand(
   const data: any = output.body;
   contents.body = data;
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetJobOutputCommandError(
+const deserializeAws_restJson1_1GetJobOutputCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetJobOutputCommandOutput> {
+): Promise<GetJobOutputCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3227,12 +3242,12 @@ async function deserializeAws_restJson1_1GetJobOutputCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetVaultAccessPolicyCommand(
+export const deserializeAws_restJson1_1GetVaultAccessPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetVaultAccessPolicyCommandOutput> {
+): Promise<GetVaultAccessPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetVaultAccessPolicyCommandError(
       output,
@@ -3247,12 +3262,12 @@ export async function deserializeAws_restJson1_1GetVaultAccessPolicyCommand(
   const data: any = await parseBody(output.body, context);
   contents.policy = deserializeAws_restJson1_1VaultAccessPolicy(data, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetVaultAccessPolicyCommandError(
+const deserializeAws_restJson1_1GetVaultAccessPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetVaultAccessPolicyCommandOutput> {
+): Promise<GetVaultAccessPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3320,12 +3335,12 @@ async function deserializeAws_restJson1_1GetVaultAccessPolicyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetVaultLockCommand(
+export const deserializeAws_restJson1_1GetVaultLockCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetVaultLockCommandOutput> {
+): Promise<GetVaultLockCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetVaultLockCommandError(output, context);
   }
@@ -3351,12 +3366,12 @@ export async function deserializeAws_restJson1_1GetVaultLockCommand(
     contents.State = data.State;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetVaultLockCommandError(
+const deserializeAws_restJson1_1GetVaultLockCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetVaultLockCommandOutput> {
+): Promise<GetVaultLockCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3424,12 +3439,12 @@ async function deserializeAws_restJson1_1GetVaultLockCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetVaultNotificationsCommand(
+export const deserializeAws_restJson1_1GetVaultNotificationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetVaultNotificationsCommandOutput> {
+): Promise<GetVaultNotificationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetVaultNotificationsCommandError(
       output,
@@ -3447,12 +3462,12 @@ export async function deserializeAws_restJson1_1GetVaultNotificationsCommand(
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetVaultNotificationsCommandError(
+const deserializeAws_restJson1_1GetVaultNotificationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetVaultNotificationsCommandOutput> {
+): Promise<GetVaultNotificationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3520,12 +3535,12 @@ async function deserializeAws_restJson1_1GetVaultNotificationsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1InitiateJobCommand(
+export const deserializeAws_restJson1_1InitiateJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<InitiateJobCommandOutput> {
+): Promise<InitiateJobCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1InitiateJobCommandError(output, context);
   }
@@ -3547,12 +3562,12 @@ export async function deserializeAws_restJson1_1InitiateJobCommand(
   }
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1InitiateJobCommandError(
+const deserializeAws_restJson1_1InitiateJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<InitiateJobCommandOutput> {
+): Promise<InitiateJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3642,12 +3657,12 @@ async function deserializeAws_restJson1_1InitiateJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1InitiateMultipartUploadCommand(
+export const deserializeAws_restJson1_1InitiateMultipartUploadCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<InitiateMultipartUploadCommandOutput> {
+): Promise<InitiateMultipartUploadCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1InitiateMultipartUploadCommandError(
       output,
@@ -3668,12 +3683,12 @@ export async function deserializeAws_restJson1_1InitiateMultipartUploadCommand(
   }
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1InitiateMultipartUploadCommandError(
+const deserializeAws_restJson1_1InitiateMultipartUploadCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<InitiateMultipartUploadCommandOutput> {
+): Promise<InitiateMultipartUploadCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3741,12 +3756,12 @@ async function deserializeAws_restJson1_1InitiateMultipartUploadCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1InitiateVaultLockCommand(
+export const deserializeAws_restJson1_1InitiateVaultLockCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<InitiateVaultLockCommandOutput> {
+): Promise<InitiateVaultLockCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1InitiateVaultLockCommandError(
       output,
@@ -3763,12 +3778,12 @@ export async function deserializeAws_restJson1_1InitiateVaultLockCommand(
   }
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1InitiateVaultLockCommandError(
+const deserializeAws_restJson1_1InitiateVaultLockCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<InitiateVaultLockCommandOutput> {
+): Promise<InitiateVaultLockCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3836,12 +3851,12 @@ async function deserializeAws_restJson1_1InitiateVaultLockCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListJobsCommand(
+export const deserializeAws_restJson1_1ListJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListJobsCommandOutput> {
+): Promise<ListJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListJobsCommandError(output, context);
   }
@@ -3859,12 +3874,12 @@ export async function deserializeAws_restJson1_1ListJobsCommand(
     contents.Marker = data.Marker;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListJobsCommandError(
+const deserializeAws_restJson1_1ListJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListJobsCommandOutput> {
+): Promise<ListJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3932,12 +3947,12 @@ async function deserializeAws_restJson1_1ListJobsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListMultipartUploadsCommand(
+export const deserializeAws_restJson1_1ListMultipartUploadsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListMultipartUploadsCommandOutput> {
+): Promise<ListMultipartUploadsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListMultipartUploadsCommandError(
       output,
@@ -3961,12 +3976,12 @@ export async function deserializeAws_restJson1_1ListMultipartUploadsCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListMultipartUploadsCommandError(
+const deserializeAws_restJson1_1ListMultipartUploadsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListMultipartUploadsCommandOutput> {
+): Promise<ListMultipartUploadsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4034,12 +4049,12 @@ async function deserializeAws_restJson1_1ListMultipartUploadsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListPartsCommand(
+export const deserializeAws_restJson1_1ListPartsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListPartsCommandOutput> {
+): Promise<ListPartsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListPartsCommandError(output, context);
   }
@@ -4080,12 +4095,12 @@ export async function deserializeAws_restJson1_1ListPartsCommand(
     contents.VaultARN = data.VaultARN;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListPartsCommandError(
+const deserializeAws_restJson1_1ListPartsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListPartsCommandOutput> {
+): Promise<ListPartsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4153,12 +4168,12 @@ async function deserializeAws_restJson1_1ListPartsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListProvisionedCapacityCommand(
+export const deserializeAws_restJson1_1ListProvisionedCapacityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListProvisionedCapacityCommandOutput> {
+): Promise<ListProvisionedCapacityCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListProvisionedCapacityCommandError(
       output,
@@ -4181,12 +4196,12 @@ export async function deserializeAws_restJson1_1ListProvisionedCapacityCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListProvisionedCapacityCommandError(
+const deserializeAws_restJson1_1ListProvisionedCapacityCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListProvisionedCapacityCommandOutput> {
+): Promise<ListProvisionedCapacityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4243,12 +4258,12 @@ async function deserializeAws_restJson1_1ListProvisionedCapacityCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListTagsForVaultCommand(
+export const deserializeAws_restJson1_1ListTagsForVaultCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForVaultCommandOutput> {
+): Promise<ListTagsForVaultCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListTagsForVaultCommandError(
       output,
@@ -4265,12 +4280,12 @@ export async function deserializeAws_restJson1_1ListTagsForVaultCommand(
     contents.Tags = deserializeAws_restJson1_1TagMap(data.Tags, context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListTagsForVaultCommandError(
+const deserializeAws_restJson1_1ListTagsForVaultCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForVaultCommandOutput> {
+): Promise<ListTagsForVaultCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4338,12 +4353,12 @@ async function deserializeAws_restJson1_1ListTagsForVaultCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListVaultsCommand(
+export const deserializeAws_restJson1_1ListVaultsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListVaultsCommandOutput> {
+): Promise<ListVaultsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListVaultsCommandError(output, context);
   }
@@ -4364,12 +4379,12 @@ export async function deserializeAws_restJson1_1ListVaultsCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListVaultsCommandError(
+const deserializeAws_restJson1_1ListVaultsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListVaultsCommandOutput> {
+): Promise<ListVaultsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4437,12 +4452,12 @@ async function deserializeAws_restJson1_1ListVaultsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1PurchaseProvisionedCapacityCommand(
+export const deserializeAws_restJson1_1PurchaseProvisionedCapacityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PurchaseProvisionedCapacityCommandOutput> {
+): Promise<PurchaseProvisionedCapacityCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1PurchaseProvisionedCapacityCommandError(
       output,
@@ -4459,12 +4474,12 @@ export async function deserializeAws_restJson1_1PurchaseProvisionedCapacityComma
   }
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1PurchaseProvisionedCapacityCommandError(
+const deserializeAws_restJson1_1PurchaseProvisionedCapacityCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PurchaseProvisionedCapacityCommandOutput> {
+): Promise<PurchaseProvisionedCapacityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4532,12 +4547,12 @@ async function deserializeAws_restJson1_1PurchaseProvisionedCapacityCommandError
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1RemoveTagsFromVaultCommand(
+export const deserializeAws_restJson1_1RemoveTagsFromVaultCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RemoveTagsFromVaultCommandOutput> {
+): Promise<RemoveTagsFromVaultCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1RemoveTagsFromVaultCommandError(
       output,
@@ -4549,12 +4564,12 @@ export async function deserializeAws_restJson1_1RemoveTagsFromVaultCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1RemoveTagsFromVaultCommandError(
+const deserializeAws_restJson1_1RemoveTagsFromVaultCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RemoveTagsFromVaultCommandOutput> {
+): Promise<RemoveTagsFromVaultCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4622,12 +4637,12 @@ async function deserializeAws_restJson1_1RemoveTagsFromVaultCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1SetDataRetrievalPolicyCommand(
+export const deserializeAws_restJson1_1SetDataRetrievalPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SetDataRetrievalPolicyCommandOutput> {
+): Promise<SetDataRetrievalPolicyCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1SetDataRetrievalPolicyCommandError(
       output,
@@ -4639,12 +4654,12 @@ export async function deserializeAws_restJson1_1SetDataRetrievalPolicyCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1SetDataRetrievalPolicyCommandError(
+const deserializeAws_restJson1_1SetDataRetrievalPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SetDataRetrievalPolicyCommandOutput> {
+): Promise<SetDataRetrievalPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4701,12 +4716,12 @@ async function deserializeAws_restJson1_1SetDataRetrievalPolicyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1SetVaultAccessPolicyCommand(
+export const deserializeAws_restJson1_1SetVaultAccessPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SetVaultAccessPolicyCommandOutput> {
+): Promise<SetVaultAccessPolicyCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1SetVaultAccessPolicyCommandError(
       output,
@@ -4718,12 +4733,12 @@ export async function deserializeAws_restJson1_1SetVaultAccessPolicyCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1SetVaultAccessPolicyCommandError(
+const deserializeAws_restJson1_1SetVaultAccessPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SetVaultAccessPolicyCommandOutput> {
+): Promise<SetVaultAccessPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4791,12 +4806,12 @@ async function deserializeAws_restJson1_1SetVaultAccessPolicyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1SetVaultNotificationsCommand(
+export const deserializeAws_restJson1_1SetVaultNotificationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SetVaultNotificationsCommandOutput> {
+): Promise<SetVaultNotificationsCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1SetVaultNotificationsCommandError(
       output,
@@ -4808,12 +4823,12 @@ export async function deserializeAws_restJson1_1SetVaultNotificationsCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1SetVaultNotificationsCommandError(
+const deserializeAws_restJson1_1SetVaultNotificationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SetVaultNotificationsCommandOutput> {
+): Promise<SetVaultNotificationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4881,12 +4896,12 @@ async function deserializeAws_restJson1_1SetVaultNotificationsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UploadArchiveCommand(
+export const deserializeAws_restJson1_1UploadArchiveCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UploadArchiveCommandOutput> {
+): Promise<UploadArchiveCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UploadArchiveCommandError(output, context);
   }
@@ -4908,12 +4923,12 @@ export async function deserializeAws_restJson1_1UploadArchiveCommand(
   }
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UploadArchiveCommandError(
+const deserializeAws_restJson1_1UploadArchiveCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UploadArchiveCommandOutput> {
+): Promise<UploadArchiveCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4992,12 +5007,12 @@ async function deserializeAws_restJson1_1UploadArchiveCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UploadMultipartPartCommand(
+export const deserializeAws_restJson1_1UploadMultipartPartCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UploadMultipartPartCommandOutput> {
+): Promise<UploadMultipartPartCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UploadMultipartPartCommandError(
       output,
@@ -5014,12 +5029,12 @@ export async function deserializeAws_restJson1_1UploadMultipartPartCommand(
   }
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UploadMultipartPartCommandError(
+const deserializeAws_restJson1_1UploadMultipartPartCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UploadMultipartPartCommandOutput> {
+): Promise<UploadMultipartPartCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5098,7 +5113,7 @@ async function deserializeAws_restJson1_1UploadMultipartPartCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1InsufficientCapacityExceptionResponse = async (
   parsedOutput: any,
@@ -5301,14 +5316,10 @@ const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
 };
 
 const serializeAws_restJson1_1AccessControlPolicyList = (
-  input: Array<Grant>,
+  input: Grant[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1Grant(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_restJson1_1Grant(entry, context));
 };
 
 const serializeAws_restJson1_1CSVInput = (
@@ -5530,11 +5541,10 @@ const serializeAws_restJson1_1hashmap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = input[key];
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = input[key];
+    return acc;
+  }, {});
 };
 
 const serializeAws_restJson1_1DataRetrievalPolicy = (
@@ -5566,14 +5576,12 @@ const serializeAws_restJson1_1DataRetrievalRule = (
 };
 
 const serializeAws_restJson1_1DataRetrievalRulesList = (
-  input: Array<DataRetrievalRule>,
+  input: DataRetrievalRule[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1DataRetrievalRule(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1DataRetrievalRule(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1InventoryRetrievalJobInput = (
@@ -5646,36 +5654,27 @@ const serializeAws_restJson1_1JobParameters = (
 };
 
 const serializeAws_restJson1_1NotificationEventList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1TagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1TagMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = input[key];
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = input[key];
+    return acc;
+  }, {});
 };
 
 const serializeAws_restJson1_1VaultAccessPolicy = (
@@ -5720,7 +5719,7 @@ const serializeAws_restJson1_1VaultNotificationConfig = (
 const deserializeAws_restJson1_1AccessControlPolicyList = (
   output: any,
   context: __SerdeContext
-): Array<Grant> => {
+): Grant[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Grant(entry, context)
   );
@@ -6161,11 +6160,10 @@ const deserializeAws_restJson1_1hashmap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = output[key];
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1_1DataRetrievalPolicy = (
@@ -6206,7 +6204,7 @@ const deserializeAws_restJson1_1DataRetrievalRule = (
 const deserializeAws_restJson1_1DataRetrievalRulesList = (
   output: any,
   context: __SerdeContext
-): Array<DataRetrievalRule> => {
+): DataRetrievalRule[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DataRetrievalRule(entry, context)
   );
@@ -6255,7 +6253,7 @@ const deserializeAws_restJson1_1DescribeVaultOutput = (
 const deserializeAws_restJson1_1JobList = (
   output: any,
   context: __SerdeContext
-): Array<GlacierJobDescription> => {
+): GlacierJobDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1GlacierJobDescription(entry, context)
   );
@@ -6264,14 +6262,14 @@ const deserializeAws_restJson1_1JobList = (
 const deserializeAws_restJson1_1NotificationEventList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1PartList = (
   output: any,
   context: __SerdeContext
-): Array<PartListElement> => {
+): PartListElement[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1PartListElement(entry, context)
   );
@@ -6320,7 +6318,7 @@ const deserializeAws_restJson1_1ProvisionedCapacityDescription = (
 const deserializeAws_restJson1_1ProvisionedCapacityList = (
   output: any,
   context: __SerdeContext
-): Array<ProvisionedCapacityDescription> => {
+): ProvisionedCapacityDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ProvisionedCapacityDescription(entry, context)
   );
@@ -6330,11 +6328,10 @@ const deserializeAws_restJson1_1TagMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = output[key];
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1_1UploadListElement = (
@@ -6376,7 +6373,7 @@ const deserializeAws_restJson1_1UploadListElement = (
 const deserializeAws_restJson1_1UploadsList = (
   output: any,
   context: __SerdeContext
-): Array<UploadListElement> => {
+): UploadListElement[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1UploadListElement(entry, context)
   );
@@ -6399,7 +6396,7 @@ const deserializeAws_restJson1_1VaultAccessPolicy = (
 const deserializeAws_restJson1_1VaultList = (
   output: any,
   context: __SerdeContext
-): Array<DescribeVaultOutput> => {
+): DescribeVaultOutput[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DescribeVaultOutput(entry, context)
   );
@@ -6434,7 +6431,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -6449,30 +6446,23 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
-function isSerializableHeaderValue(value: any): boolean {
-  return (
-    value !== undefined &&
-    value !== "" &&
-    (!Object.getOwnPropertyNames(value).includes("length") ||
-      value.length != 0) &&
-    (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0)
-  );
-}
+const isSerializableHeaderValue = (value: any): boolean =>
+  value !== undefined &&
+  value !== "" &&
+  (!Object.getOwnPropertyNames(value).includes("length") ||
+    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};
 
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.

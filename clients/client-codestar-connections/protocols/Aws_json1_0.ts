@@ -40,64 +40,68 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_json1_0CreateConnectionCommand(
+export const serializeAws_json1_0CreateConnectionCommand = async (
   input: CreateConnectionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "CodeStar_connections_20191201.CreateConnection";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "CodeStar_connections_20191201.CreateConnection"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0CreateConnectionInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0DeleteConnectionCommand(
+export const serializeAws_json1_0DeleteConnectionCommand = async (
   input: DeleteConnectionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "CodeStar_connections_20191201.DeleteConnection";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "CodeStar_connections_20191201.DeleteConnection"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0DeleteConnectionInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0GetConnectionCommand(
+export const serializeAws_json1_0GetConnectionCommand = async (
   input: GetConnectionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "CodeStar_connections_20191201.GetConnection";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "CodeStar_connections_20191201.GetConnection"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0GetConnectionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0ListConnectionsCommand(
+export const serializeAws_json1_0ListConnectionsCommand = async (
   input: ListConnectionsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "CodeStar_connections_20191201.ListConnections";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "CodeStar_connections_20191201.ListConnections"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0ListConnectionsInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_0CreateConnectionCommand(
+export const deserializeAws_json1_0CreateConnectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateConnectionCommandOutput> {
+): Promise<CreateConnectionCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0CreateConnectionCommandError(output, context);
   }
@@ -110,12 +114,12 @@ export async function deserializeAws_json1_0CreateConnectionCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0CreateConnectionCommandError(
+const deserializeAws_json1_0CreateConnectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateConnectionCommandOutput> {
+): Promise<CreateConnectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -152,12 +156,12 @@ async function deserializeAws_json1_0CreateConnectionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0DeleteConnectionCommand(
+export const deserializeAws_json1_0DeleteConnectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteConnectionCommandOutput> {
+): Promise<DeleteConnectionCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0DeleteConnectionCommandError(output, context);
   }
@@ -170,12 +174,12 @@ export async function deserializeAws_json1_0DeleteConnectionCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0DeleteConnectionCommandError(
+const deserializeAws_json1_0DeleteConnectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteConnectionCommandOutput> {
+): Promise<DeleteConnectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -212,12 +216,12 @@ async function deserializeAws_json1_0DeleteConnectionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0GetConnectionCommand(
+export const deserializeAws_json1_0GetConnectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetConnectionCommandOutput> {
+): Promise<GetConnectionCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0GetConnectionCommandError(output, context);
   }
@@ -230,12 +234,12 @@ export async function deserializeAws_json1_0GetConnectionCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0GetConnectionCommandError(
+const deserializeAws_json1_0GetConnectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetConnectionCommandOutput> {
+): Promise<GetConnectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -272,12 +276,12 @@ async function deserializeAws_json1_0GetConnectionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0ListConnectionsCommand(
+export const deserializeAws_json1_0ListConnectionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListConnectionsCommandOutput> {
+): Promise<ListConnectionsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0ListConnectionsCommandError(output, context);
   }
@@ -290,12 +294,12 @@ export async function deserializeAws_json1_0ListConnectionsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0ListConnectionsCommandError(
+const deserializeAws_json1_0ListConnectionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListConnectionsCommandOutput> {
+): Promise<ListConnectionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -321,7 +325,7 @@ async function deserializeAws_json1_0ListConnectionsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_0LimitExceededExceptionResponse = async (
   parsedOutput: any,
@@ -448,7 +452,7 @@ const deserializeAws_json1_0Connection = (
 const deserializeAws_json1_0ConnectionList = (
   output: any,
   context: __SerdeContext
-): Array<Connection> => {
+): Connection[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0Connection(entry, context)
   );
@@ -552,7 +556,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -567,11 +571,8 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
@@ -598,11 +599,10 @@ const buildHttpRpcRequest = async (
   return new __HttpRequest(contents);
 };
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};

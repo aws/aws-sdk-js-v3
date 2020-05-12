@@ -97,7 +97,7 @@ export interface DestinationConfig {
    * 			instantiates the local proxy which uses this information to connect to the destination
    * 			application.</p>
    */
-  services: Array<string> | undefined;
+  services: string[] | undefined;
 
   /**
    * <p>The name of the IoT thing to which you want to connect.</p>
@@ -144,7 +144,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>The tags for the specified resource.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace ListTagsForResourceResponse {
@@ -185,7 +185,7 @@ export interface ListTunnelsResponse {
   /**
    * <p>A short description of the tunnels in an AWS account.</p>
    */
-  tunnelSummaries?: Array<TunnelSummary>;
+  tunnelSummaries?: TunnelSummary[];
 }
 
 export namespace ListTunnelsResponse {
@@ -208,7 +208,7 @@ export interface OpenTunnelRequest {
   /**
    * <p>A collection of tag metadata.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 
   /**
    * <p>Timeout configuration for a tunnel.</p>
@@ -300,7 +300,7 @@ export interface TagResourceRequest {
   /**
    * <p>The tags for the resource.</p>
    */
-  tags: Array<Tag> | undefined;
+  tags: Tag[] | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -379,7 +379,7 @@ export interface Tunnel {
   /**
    * <p>A list of tag metadata associated with the secure tunnel.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 
   /**
    * <p>Timeout configuration for the tunnel.</p>
@@ -460,7 +460,7 @@ export interface UntagResourceRequest {
   /**
    * <p>The keys of the tags to remove.</p>
    */
-  tagKeys: Array<string> | undefined;
+  tagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {

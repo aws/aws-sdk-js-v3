@@ -17,7 +17,7 @@ export interface ApplicationSource {
   /**
    * <p>A set of tags (up to 50).</p>
    */
-  TagFilters?: Array<TagFilter>;
+  TagFilters?: TagFilter[];
 }
 
 export namespace ApplicationSource {
@@ -53,7 +53,7 @@ export interface CreateScalingPlanRequest {
   /**
    * <p>The scaling instructions.</p>
    */
-  ScalingInstructions: Array<ScalingInstruction> | undefined;
+  ScalingInstructions: ScalingInstruction[] | undefined;
 
   /**
    * <p>The name of the scaling plan. Names cannot contain vertical bars, colons, or forward
@@ -107,7 +107,7 @@ export interface CustomizedLoadMetricSpecification {
    *          <p>Conditional: If you published your metric with dimensions, you must specify the same
    *          dimensions in your customized load metric specification.</p>
    */
-  Dimensions?: Array<MetricDimension>;
+  Dimensions?: MetricDimension[];
 
   /**
    * <p>The name of the metric.</p>
@@ -163,7 +163,7 @@ export interface CustomizedScalingMetricSpecification {
    *          <p>Conditional: If you published your metric with dimensions, you must specify the same
    *          dimensions in your customized scaling metric specification.</p>
    */
-  Dimensions?: Array<MetricDimension>;
+  Dimensions?: MetricDimension[];
 
   /**
    * <p>The name of the metric.</p>
@@ -278,7 +278,7 @@ export interface DescribeScalingPlanResourcesResponse {
   /**
    * <p>Information about the scalable resources.</p>
    */
-  ScalingPlanResources?: Array<ScalingPlanResource>;
+  ScalingPlanResources?: ScalingPlanResource[];
 }
 
 export namespace DescribeScalingPlanResourcesResponse {
@@ -292,7 +292,7 @@ export interface DescribeScalingPlansRequest {
    * <p>The sources for the applications (up to 10). If you specify scaling plan names, you
    *          cannot specify application sources.</p>
    */
-  ApplicationSources?: Array<ApplicationSource>;
+  ApplicationSources?: ApplicationSource[];
 
   /**
    * <p>The maximum number of scalable resources to return. This value can be between
@@ -309,7 +309,7 @@ export interface DescribeScalingPlansRequest {
    * <p>The names of the scaling plans (up to 10). If you specify application sources, you
    *          cannot specify scaling plan names.</p>
    */
-  ScalingPlanNames?: Array<string>;
+  ScalingPlanNames?: string[];
 
   /**
    * <p>The version number of the scaling plan. If you specify a scaling plan version, you must
@@ -334,7 +334,7 @@ export interface DescribeScalingPlansResponse {
   /**
    * <p>Information about the scaling plans.</p>
    */
-  ScalingPlans?: Array<ScalingPlan>;
+  ScalingPlans?: ScalingPlan[];
 }
 
 export namespace DescribeScalingPlansResponse {
@@ -456,7 +456,7 @@ export interface GetScalingPlanResourceForecastDataResponse {
   /**
    * <p>The data points to return.</p>
    */
-  Datapoints: Array<Datapoint> | undefined;
+  Datapoints: Datapoint[] | undefined;
 }
 
 export namespace GetScalingPlanResourceForecastDataResponse {
@@ -884,7 +884,7 @@ export interface ScalingInstruction {
    *          <p>Condition: The scaling metric must be unique across target tracking
    *          configurations.</p>
    */
-  TargetTrackingConfigurations: Array<TargetTrackingConfiguration> | undefined;
+  TargetTrackingConfigurations: TargetTrackingConfiguration[] | undefined;
 }
 
 export namespace ScalingInstruction {
@@ -926,7 +926,7 @@ export interface ScalingPlan {
   /**
    * <p>The scaling instructions.</p>
    */
-  ScalingInstructions: Array<ScalingInstruction> | undefined;
+  ScalingInstructions: ScalingInstruction[] | undefined;
 
   /**
    * <p>The name of the scaling plan.</p>
@@ -1082,7 +1082,7 @@ export interface ScalingPlanResource {
   /**
    * <p>The scaling policies.</p>
    */
-  ScalingPolicies?: Array<ScalingPolicy>;
+  ScalingPolicies?: ScalingPolicy[];
 
   /**
    * <p>The scaling status of the resource.</p>
@@ -1192,7 +1192,7 @@ export interface TagFilter {
   /**
    * <p>The tag values (0 to 20).</p>
    */
-  Values?: Array<string>;
+  Values?: string[];
 }
 
 export namespace TagFilter {
@@ -1275,7 +1275,7 @@ export interface UpdateScalingPlanRequest {
   /**
    * <p>The scaling instructions.</p>
    */
-  ScalingInstructions?: Array<ScalingInstruction>;
+  ScalingInstructions?: ScalingInstruction[];
 
   /**
    * <p>The name of the scaling plan.</p>

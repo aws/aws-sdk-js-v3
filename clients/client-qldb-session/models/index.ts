@@ -122,7 +122,7 @@ export interface ExecuteStatementRequest {
   /**
    * <p>Specifies the parameters for the parameterized statement in the request.</p>
    */
-  Parameters?: Array<ValueHolder>;
+  Parameters?: ValueHolder[];
 
   /**
    * <p>Specifies the statement of the request.</p>
@@ -255,7 +255,7 @@ export interface Page {
   /**
    * <p>A structure that contains values in multiple encoding formats.</p>
    */
-  Values?: Array<ValueHolder>;
+  Values?: ValueHolder[];
 }
 
 export namespace Page {

@@ -512,7 +512,7 @@ export interface AccessPointDescription {
   /**
    * <p>The tags associated with the access point, presented as an array of Tag objects.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace AccessPointDescription {
@@ -552,7 +552,7 @@ export interface CreateAccessPointRequest {
   /**
    * <p>Creates tags associated with the access point. Each tag is a key-value pair.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateAccessPointRequest {
@@ -627,7 +627,7 @@ export interface CreateFileSystemRequest {
    *         tag is a user-defined key-value pair. Name your file system on creation by including a
    *           <code>"Key":"Name","Value":"{value}"</code> key-value pair.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The throughput mode for the file system to be created. There are two throughput modes to
@@ -667,7 +667,7 @@ export interface CreateMountTargetRequest {
    * <p>Up to five VPC security group IDs, of the form <code>sg-xxxxxxxx</code>. These must be
    *       for the same VPC as subnet specified.</p>
    */
-  SecurityGroups?: Array<string>;
+  SecurityGroups?: string[];
 
   /**
    * <p>The ID of the subnet to add the mount target in.</p>
@@ -695,7 +695,7 @@ export interface CreateTagsRequest {
    * <p>An array of <code>Tag</code> objects to add. Each <code>Tag</code> object is a key-value
    *       pair. </p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace CreateTagsRequest {
@@ -807,7 +807,7 @@ export interface DeleteTagsRequest {
   /**
    * <p>A list of tag keys to delete.</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace DeleteTagsRequest {
@@ -851,7 +851,7 @@ export interface DescribeAccessPointsResponse {
   /**
    * <p>An array of access point descriptions.</p>
    */
-  AccessPoints?: Array<AccessPointDescription>;
+  AccessPoints?: AccessPointDescription[];
 
   /**
    * <p>Present if there are more access points than returned in the response.
@@ -920,7 +920,7 @@ export interface DescribeFileSystemsResponse {
   /**
    * <p>An array of file system descriptions.</p>
    */
-  FileSystems?: Array<FileSystemDescription>;
+  FileSystems?: FileSystemDescription[];
 
   /**
    * <p>Present if provided by caller in the request (String).</p>
@@ -974,7 +974,7 @@ export interface DescribeMountTargetSecurityGroupsResponse {
   /**
    * <p>An array of security groups.</p>
    */
-  SecurityGroups: Array<string> | undefined;
+  SecurityGroups: string[] | undefined;
 }
 
 export namespace DescribeMountTargetSecurityGroupsResponse {
@@ -1040,7 +1040,7 @@ export interface DescribeMountTargetsResponse {
    * <p>Returns the file system's mount targets as an array of
    *         <code>MountTargetDescription</code> objects.</p>
    */
-  MountTargets?: Array<MountTargetDescription>;
+  MountTargets?: MountTargetDescription[];
 
   /**
    * <p>If a value is present, there are more mount targets to return. In a subsequent request,
@@ -1107,7 +1107,7 @@ export interface DescribeTagsResponse {
    * <p>Returns tags associated with the file system as an array of <code>Tag</code> objects.
    *     </p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace DescribeTagsResponse {
@@ -1202,7 +1202,7 @@ export interface FileSystemDescription {
    * <p>The tags associated with the file system, presented as an array of <code>Tag</code>
    *       objects.</p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 
   /**
    * <p>The throughput mode for a file system. There are two throughput modes to choose from for
@@ -1292,7 +1292,7 @@ export interface LifecycleConfigurationDescription {
    * <p>An array of lifecycle management policies. Currently, EFS supports a maximum of one
    *       policy per file system.</p>
    */
-  LifecyclePolicies?: Array<LifecyclePolicy>;
+  LifecyclePolicies?: LifecyclePolicy[];
 }
 
 export namespace LifecycleConfigurationDescription {
@@ -1354,7 +1354,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>An array of the tags for the specified EFS resource.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace ListTagsForResourceResponse {
@@ -1375,7 +1375,7 @@ export interface ModifyMountTargetSecurityGroupsRequest {
   /**
    * <p>An array of up to five VPC security group IDs.</p>
    */
-  SecurityGroups?: Array<string>;
+  SecurityGroups?: string[];
 }
 
 export namespace ModifyMountTargetSecurityGroupsRequest {
@@ -1462,7 +1462,7 @@ export interface PosixUser {
   /**
    * <p>Secondary POSIX group IDs used for all file system operations using this access point.</p>
    */
-  SecondaryGids?: Array<number>;
+  SecondaryGids?: number[];
 
   /**
    * <p>The POSIX user ID used for all file system operations using this access point.</p>
@@ -1519,7 +1519,7 @@ export interface PutLifecycleConfigurationRequest {
    *       tells lifecycle management when to transition files from the Standard storage class to the
    *       Infrequent Access storage class.</p>
    */
-  LifecyclePolicies: Array<LifecyclePolicy> | undefined;
+  LifecyclePolicies: LifecyclePolicy[] | undefined;
 }
 
 export namespace PutLifecycleConfigurationRequest {
@@ -1592,7 +1592,7 @@ export interface TagResourceRequest {
   /**
    * <p></p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -1623,7 +1623,7 @@ export interface UntagResourceRequest {
   /**
    * <p>The keys of the key:value tag pairs that you want to remove from the specified EFS resource.</p>
    */
-  TagKeys?: Array<string>;
+  TagKeys?: string[];
 }
 
 export namespace UntagResourceRequest {

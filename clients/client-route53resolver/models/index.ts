@@ -102,7 +102,7 @@ export interface CreateResolverEndpointRequest {
    * <p>The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs to your network
    * 			(for outbound endpoints) or on the way from your network to your VPCs (for inbound resolver endpoints). </p>
    */
-  IpAddresses: Array<IpAddressRequest> | undefined;
+  IpAddresses: IpAddressRequest[] | undefined;
 
   /**
    * <p>A friendly name that lets you easily find a configuration in the Resolver dashboard in the Route 53 console.</p>
@@ -113,12 +113,12 @@ export interface CreateResolverEndpointRequest {
    * <p>The ID of one or more security groups that you want to use to control access to this VPC. The security group that you specify
    * 			must include one or more inbound rules (for inbound resolver endpoints) or outbound rules (for outbound resolver endpoints).</p>
    */
-  SecurityGroupIds: Array<string> | undefined;
+  SecurityGroupIds: string[] | undefined;
 
   /**
    * <p>A list of the tag keys and values that you want to associate with the endpoint.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateResolverEndpointRequest {
@@ -173,12 +173,12 @@ export interface CreateResolverRuleRequest {
   /**
    * <p>A list of the tag keys and values that you want to associate with the endpoint.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The IPs that you want Resolver to forward DNS queries to. You can specify only IPv4 addresses. Separate IP addresses with a comma.</p>
    */
-  TargetIps?: Array<TargetAddress>;
+  TargetIps?: TargetAddress[];
 }
 
 export namespace CreateResolverRuleRequest {
@@ -334,7 +334,7 @@ export interface Filter {
    * 			the value of the parameter that you want to use to filter objects. For example, to list only inbound resolver endpoints, specify
    * 			<code>INBOUND</code> for the value of <code>Values</code>.</p>
    */
-  Values?: Array<string>;
+  Values?: string[];
 }
 
 export namespace Filter {
@@ -708,7 +708,7 @@ export interface ListResolverEndpointIpAddressesResponse {
    * <p>The IP addresses that DNS queries pass through on their way to your network (outbound endpoint) or on the way to
    * 			Resolver (inbound endpoint).</p>
    */
-  IpAddresses?: Array<IpAddressResponse>;
+  IpAddresses?: IpAddressResponse[];
 
   /**
    * <p>The value that you specified for <code>MaxResults</code> in the request.</p>
@@ -737,7 +737,7 @@ export interface ListResolverEndpointsRequest {
    * 			you must use the same values for <code>Filters</code>, if any, as in the previous request.</p>
    *          </note>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of resolver endpoints that you want to return in the response to a <code>ListResolverEndpoints</code> request.
@@ -774,7 +774,7 @@ export interface ListResolverEndpointsResponse {
   /**
    * <p>The resolver endpoints that were created by using the current AWS account, and that match the specified filters, if any.</p>
    */
-  ResolverEndpoints?: Array<ResolverEndpoint>;
+  ResolverEndpoints?: ResolverEndpoint[];
 }
 
 export namespace ListResolverEndpointsResponse {
@@ -791,7 +791,7 @@ export interface ListResolverRuleAssociationsRequest {
    * 			you must use the same values for <code>Filters</code>, if any, as in the previous request.</p>
    *          </note>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of rule associations that you want to return in the response to a <code>ListResolverRuleAssociations</code> request.
@@ -830,7 +830,7 @@ export interface ListResolverRuleAssociationsResponse {
    * <p>The associations that were created between resolver rules and VPCs using the current AWS account, and that match the
    * 			specified filters, if any.</p>
    */
-  ResolverRuleAssociations?: Array<ResolverRuleAssociation>;
+  ResolverRuleAssociations?: ResolverRuleAssociation[];
 }
 
 export namespace ListResolverRuleAssociationsResponse {
@@ -847,7 +847,7 @@ export interface ListResolverRulesRequest {
    * 			you must use the same values for <code>Filters</code>, if any, as in the previous request.</p>
    *          </note>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of resolver rules that you want to return in the response to a <code>ListResolverRules</code> request.
@@ -885,7 +885,7 @@ export interface ListResolverRulesResponse {
   /**
    * <p>The resolver rules that were created using the current AWS account and that match the specified filters, if any.</p>
    */
-  ResolverRules?: Array<ResolverRule>;
+  ResolverRules?: ResolverRule[];
 }
 
 export namespace ListResolverRulesResponse {
@@ -931,7 +931,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>The tags that are associated with the resource that you specified in the <code>ListTagsForResource</code> request.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace ListTagsForResourceResponse {
@@ -1039,7 +1039,7 @@ export interface ResolverEndpoint {
   /**
    * <p>The ID of one or more security groups that control access to this VPC. The security group must include one or more inbound resolver rules.</p>
    */
-  SecurityGroupIds?: Array<string>;
+  SecurityGroupIds?: string[];
 
   /**
    * <p>A code that specifies the current status of the resolver endpoint.</p>
@@ -1141,7 +1141,7 @@ export interface ResolverRule {
   /**
    * <p>An array that contains the IP addresses and ports that you want to forward </p>
    */
-  TargetIps?: Array<TargetAddress>;
+  TargetIps?: TargetAddress[];
 }
 
 export namespace ResolverRule {
@@ -1219,7 +1219,7 @@ export interface ResolverRuleConfig {
   /**
    * <p>For DNS queries that originate in your VPC, the new IP addresses that you want to route outbound DNS queries to.</p>
    */
-  TargetIps?: Array<TargetAddress>;
+  TargetIps?: TargetAddress[];
 }
 
 export namespace ResolverRuleConfig {
@@ -1391,7 +1391,7 @@ export interface TagResourceRequest {
   /**
    * <p>The tags that you want to add to the specified resource.</p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -1503,7 +1503,7 @@ export interface UntagResourceRequest {
   /**
    * <p>The tags that you want to remove to the specified resource.</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {

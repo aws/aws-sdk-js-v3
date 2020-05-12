@@ -208,7 +208,7 @@ export interface ContactDetail {
   /**
    * <p>A list of name-value pairs for parameters required by certain top-level domains.</p>
    */
-  ExtraParams?: Array<ExtraParam>;
+  ExtraParams?: ExtraParam[];
 
   /**
    * <p>Fax number of the contact.</p>
@@ -505,7 +505,7 @@ export interface DeleteTagsForDomainRequest {
   /**
    * <p>A list of tag keys to delete.</p>
    */
-  TagsToDelete: Array<string> | undefined;
+  TagsToDelete: string[] | undefined;
 }
 
 export namespace DeleteTagsForDomainRequest {
@@ -1048,7 +1048,7 @@ export interface GetDomainDetailResponse {
   /**
    * <p>The name of the domain.</p>
    */
-  Nameservers: Array<Nameserver> | undefined;
+  Nameservers: Nameserver[] | undefined;
 
   /**
    * <p>Provides details about the domain registrant.</p>
@@ -1095,7 +1095,7 @@ export interface GetDomainDetailResponse {
    * 	<a href="https://www.icann.org/">ICANN website</a> and search for <code>epp status codes</code>.
    * 	(Search on the ICANN website; web searches sometimes return an old version of the document.)</p>
    */
-  StatusList?: Array<string>;
+  StatusList?: string[];
 
   /**
    * <p>Provides details about the domain technical contact.</p>
@@ -1162,7 +1162,7 @@ export interface GetDomainSuggestionsResponse {
    * <p>A list of possible domain names. If you specified <code>true</code> for <code>OnlyAvailable</code> in the request,
    * 			the list contains only domains that are available for registration.</p>
    */
-  SuggestionsList?: Array<DomainSuggestion>;
+  SuggestionsList?: DomainSuggestion[];
 }
 
 export namespace GetDomainSuggestionsResponse {
@@ -1281,7 +1281,7 @@ export interface ListDomainsResponse {
   /**
    * <p>A summary of domains.</p>
    */
-  Domains: Array<DomainSummary> | undefined;
+  Domains: DomainSummary[] | undefined;
 
   /**
    * <p>If there are more domains than you specified for <code>MaxItems</code> in the request, submit another
@@ -1340,7 +1340,7 @@ export interface ListOperationsResponse {
   /**
    * <p>Lists summaries of the operations.</p>
    */
-  Operations: Array<OperationSummary> | undefined;
+  Operations: OperationSummary[] | undefined;
 }
 
 export namespace ListOperationsResponse {
@@ -1372,7 +1372,7 @@ export interface ListTagsForDomainResponse {
   /**
    * <p>A list of the tags that are associated with the specified domain.</p>
    */
-  TagList: Array<Tag> | undefined;
+  TagList: Tag[] | undefined;
 }
 
 export namespace ListTagsForDomainResponse {
@@ -1389,7 +1389,7 @@ export interface Nameserver {
    * <p>Glue IP address of a name server entry. Glue IP addresses are required only when the name of the name server is a subdomain of the domain. For example, if your domain is example.com and the name server for the domain is ns.example.com, you need to specify the IP address for ns.example.com.</p>
    * 		       <p>Constraints: The list can contain only one IPv4 and one IPv6 address.</p>
    */
-  GlueIps?: Array<string>;
+  GlueIps?: string[];
 
   /**
    * <p>The fully qualified host name of the name server.</p>
@@ -1786,7 +1786,7 @@ export interface TransferDomainRequest {
   /**
    * <p>Contains details for the host and glue IP addresses.</p>
    */
-  Nameservers?: Array<Nameserver>;
+  Nameservers?: Nameserver[];
 
   /**
    * <p>Whether you want to conceal contact information from WHOIS queries. If you specify <code>true</code>,
@@ -1999,7 +1999,7 @@ export interface UpdateDomainNameserversRequest {
   /**
    * <p>A list of new name servers for the domain.</p>
    */
-  Nameservers: Array<Nameserver> | undefined;
+  Nameservers: Nameserver[] | undefined;
 }
 
 export namespace UpdateDomainNameserversRequest {
@@ -2038,7 +2038,7 @@ export interface UpdateTagsForDomainRequest {
    * <p>A list of the tag keys and values that you want to add or update. If you specify a key
    * 			that already exists, the corresponding value will be replaced.</p>
    */
-  TagsToUpdate?: Array<Tag>;
+  TagsToUpdate?: Tag[];
 }
 
 export namespace UpdateTagsForDomainRequest {
@@ -2103,7 +2103,7 @@ export interface ViewBillingResponse {
   /**
    * <p>A summary of billing records.</p>
    */
-  BillingRecords?: Array<BillingRecord>;
+  BillingRecords?: BillingRecord[];
 
   /**
    * <p>If there are more billing records than you specified for <code>MaxItems</code> in the request, submit another

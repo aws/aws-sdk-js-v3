@@ -546,7 +546,7 @@ export interface AudioSelector {
   /**
    * Selects a specific PID from within an audio source (e.g. 257 selects PID 0x101).
    */
-  Pids?: Array<number>;
+  Pids?: number[];
 
   /**
    * Use this setting for input streams that contain Dolby E, to have the service extract specific program data from the track. To select multiple programs, create multiple selectors with the same Track and different Program numbers. In the console, this setting is visible when you set Selector type to Track. Choose the program number from the dropdown list. If you are sending a JSON file, provide the program ID, which is part of the audio metadata. If your input file has incorrect metadata, you can choose All channels instead of a program number to have the service ignore the program IDs and include all the programs in the track.
@@ -566,7 +566,7 @@ export interface AudioSelector {
   /**
    * Identify a track from the input audio to include in this selector by entering the track index number. To include several tracks in a single audio selector, specify multiple tracks as follows. Using the console, enter a comma-separated list. For examle, type "1,2,3" to include tracks 1 through 3. Specifying directly in your JSON job file, provide the track numbers in an array. For example, "tracks": [1,2,3].
    */
-  Tracks?: Array<number>;
+  Tracks?: number[];
 }
 
 export namespace AudioSelector {
@@ -581,7 +581,7 @@ export interface AudioSelectorGroup {
   /**
    * Name of an Audio Selector within the same input to include in the group.  Audio selector names are standardized, based on their order within the input (e.g., "Audio Selector 1"). The audio selector name parameter can be repeated to add any number of audio selectors to the group.
    */
-  AudioSelectorNames?: Array<string>;
+  AudioSelectorNames?: string[];
 }
 
 export namespace AudioSelectorGroup {
@@ -1028,7 +1028,7 @@ export interface ChannelMapping {
   /**
    * List of output channels
    */
-  OutputChannels?: Array<OutputChannelMapping>;
+  OutputChannels?: OutputChannelMapping[];
 }
 
 export namespace ChannelMapping {
@@ -1049,7 +1049,7 @@ export interface CmafAdditionalManifest {
   /**
    * Specify the outputs that you want this additional top-level manifest to reference.
    */
-  SelectedOutputs?: Array<string>;
+  SelectedOutputs?: string[];
 }
 
 export namespace CmafAdditionalManifest {
@@ -1121,7 +1121,7 @@ export interface CmafGroupSettings {
   /**
    * By default, the service creates one top-level .m3u8 HLS manifest and one top -level .mpd DASH manifest for each CMAF output group in your job. These default manifests reference every output in the output group. To create additional top-level manifests that reference a subset of the outputs in the output group, specify a list of them here. For each additional manifest that you specify, the service creates one HLS manifest and one DASH manifest.
    */
-  AdditionalManifests?: Array<CmafAdditionalManifest>;
+  AdditionalManifests?: CmafAdditionalManifest[];
 
   /**
    * A partial URI prefix that will be put in the manifest file at the top level BaseURL element. Can be used if streams are delivered from a different URL than the manifest file.
@@ -1707,7 +1707,7 @@ export interface DashAdditionalManifest {
   /**
    * Specify the outputs that you want this additional top-level manifest to reference.
    */
-  SelectedOutputs?: Array<string>;
+  SelectedOutputs?: string[];
 }
 
 export namespace DashAdditionalManifest {
@@ -1744,7 +1744,7 @@ export interface DashIsoGroupSettings {
   /**
    * By default, the service creates one .mpd DASH manifest for each DASH ISO output group in your job. This default manifest references every output in the output group. To create additional DASH manifests that reference a subset of the outputs in the output group, specify a list of them here.
    */
-  AdditionalManifests?: Array<DashAdditionalManifest>;
+  AdditionalManifests?: DashAdditionalManifest[];
 
   /**
    * A partial URI prefix that will be put in the manifest (.mpd) file at the top level BaseURL element. Can be used if streams are delivered from a different URL than the manifest file.
@@ -1985,7 +1985,7 @@ export interface DescribeEndpointsResponse {
   /**
    * List of endpoints
    */
-  Endpoints?: Array<Endpoint>;
+  Endpoints?: Endpoint[];
 
   /**
    * Use this string to request the next batch of endpoints.
@@ -3876,7 +3876,7 @@ export interface HlsAdditionalManifest {
   /**
    * Specify the outputs that you want this additional top-level manifest to reference.
    */
-  SelectedOutputs?: Array<string>;
+  SelectedOutputs?: string[];
 }
 
 export namespace HlsAdditionalManifest {
@@ -4007,12 +4007,12 @@ export interface HlsGroupSettings {
   /**
    * Choose one or more ad marker types to decorate your Apple HLS manifest. This setting does not determine whether SCTE-35 markers appear in the outputs themselves.
    */
-  AdMarkers?: Array<HlsAdMarkers | string>;
+  AdMarkers?: (HlsAdMarkers | string)[];
 
   /**
    * By default, the service creates one top-level .m3u8 HLS manifest for each HLS output group in your job. This default manifest references every output in the output group. To create additional top-level manifests that reference a subset of the outputs in the output group, specify a list of them here.
    */
-  AdditionalManifests?: Array<HlsAdditionalManifest>;
+  AdditionalManifests?: HlsAdditionalManifest[];
 
   /**
    * A partial URI prefix that will be prepended to each output in the media .m3u8 file. Can be used if base manifest is delivered from a different URL than the main .m3u8 file.
@@ -4022,7 +4022,7 @@ export interface HlsGroupSettings {
   /**
    * Language to be used on Caption outputs
    */
-  CaptionLanguageMappings?: Array<HlsCaptionLanguageMapping>;
+  CaptionLanguageMappings?: HlsCaptionLanguageMapping[];
 
   /**
    * Applies only to 608 Embedded output captions. Insert: Include CLOSED-CAPTIONS lines in the manifest. Specify at least one language in the CC1 Language Code field. One CLOSED-CAPTION line is added for each Language Code you specify. Make sure to specify the languages in the order in which they appear in the original source (if the source is embedded format) or the order of the caption selectors (if the source is other than embedded). Otherwise, languages in the manifest will not match up properly with the output captions. None: Include CLOSED-CAPTIONS=NONE line in the manifest. Omit: Omit any CLOSED-CAPTIONS line from the manifest.
@@ -4259,7 +4259,7 @@ export interface ImageInserter {
   /**
    * Specify the images that you want to overlay on your video. The images must be PNG or TGA files.
    */
-  InsertableImages?: Array<InsertableImage>;
+  InsertableImages?: InsertableImage[];
 }
 
 export namespace ImageInserter {
@@ -4350,7 +4350,7 @@ export interface Input {
   /**
    * (InputClippings) contains sets of start and end times that together specify a portion of the input to be used in the outputs. If you provide only a start time, the clip will be the entire input from that point to the end. If you provide only an end time, it will be the entire input up to that point. When you specify more than one input clip, the transcoding service creates the job outputs by stringing the clips together in the order you specify them.
    */
-  InputClippings?: Array<InputClipping>;
+  InputClippings?: InputClipping[];
 
   /**
    * Use Selection placement (position) to define the video area in your output frame. The area outside of the rectangle that you specify here is black. If you specify a value here, it will override any value that you specify in the output setting Selection placement (position). If you specify a value here, this will override any AFD values in your input, even if you set Respond to AFD (RespondToAfd) to Respond (RESPOND). If you specify a value here, this will ignore anything that you specify for the setting Scaling Behavior (scalingBehavior).
@@ -4370,7 +4370,7 @@ export interface Input {
   /**
    * Provide a list of any necessary supplemental IMPs. You need supplemental IMPs if the CPL that you're using for your input is in an incomplete IMP. Specify either the supplemental IMP directories with a trailing slash or the ASSETMAP.xml files. For example ["s3://bucket/ov/", "s3://bucket/vf2/ASSETMAP.xml"]. You don't need to specify the IMP that contains your input CPL, because the service automatically detects it.
    */
-  SupplementalImps?: Array<string>;
+  SupplementalImps?: string[];
 
   /**
    * Use this Timecode source setting, located under the input settings (InputTimecodeSource), to specify how the service counts input video frames. This input frame count affects only the behavior of features that apply to a single input at a time, such as input clipping and synchronizing some captions formats. Choose Embedded (EMBEDDED) to use the timecodes in your input video. Choose Start at zero (ZEROBASED) to start the first frame at zero. Choose Specified start (SPECIFIEDSTART) to start the first frame at the timecode that you specify in the setting Start timecode (timecodeStart). If you don't specify a value for Timecode source, the service will use Embedded by default. For more information about timecodes, see https://docs.aws.amazon.com/console/mediaconvert/timecode.
@@ -4525,7 +4525,7 @@ export interface InputTemplate {
   /**
    * (InputClippings) contains sets of start and end times that together specify a portion of the input to be used in the outputs. If you provide only a start time, the clip will be the entire input from that point to the end. If you provide only an end time, it will be the entire input up to that point. When you specify more than one input clip, the transcoding service creates the job outputs by stringing the clips together in the order you specify them.
    */
-  InputClippings?: Array<InputClipping>;
+  InputClippings?: InputClipping[];
 
   /**
    * Use Selection placement (position) to define the video area in your output frame. The area outside of the rectangle that you specify here is black. If you specify a value here, it will override any value that you specify in the output setting Selection placement (position). If you specify a value here, this will override any AFD values in your input, even if you set Respond to AFD (RespondToAfd) to Respond (RESPOND). If you specify a value here, this will ignore anything that you specify for the setting Scaling Behavior (scalingBehavior).
@@ -4718,7 +4718,7 @@ export interface Job {
   /**
    * List of output group details
    */
-  OutputGroupDetails?: Array<OutputGroupDetail>;
+  OutputGroupDetails?: OutputGroupDetail[];
 
   /**
    * Relative priority on the job.
@@ -4783,12 +4783,12 @@ export interface JobMessages {
   /**
    * List of messages that are informational only and don't indicate a problem with your job.
    */
-  Info?: Array<string>;
+  Info?: string[];
 
   /**
    * List of messages that warn about conditions that might cause your job not to run or to fail.
    */
-  Warning?: Array<string>;
+  Warning?: string[];
 }
 
 export namespace JobMessages {
@@ -4824,7 +4824,7 @@ export interface JobSettings {
   /**
    * Use Inputs (inputs) to define source file used in the transcode job. There can be multiple inputs add in a job. These inputs will be concantenated together to create the output.
    */
-  Inputs?: Array<Input>;
+  Inputs?: Input[];
 
   /**
    * Overlay motion graphics on top of your video. The motion graphics that you specify here appear on all outputs in all output groups.
@@ -4839,7 +4839,7 @@ export interface JobSettings {
   /**
    * (OutputGroups) contains one group of settings for each set of outputs that share a common package type. All unpackaged files (MPEG-4, MPEG-2 TS, Quicktime, MXF, and no container) are grouped in a single output group as well. Required in (OutputGroups) is a group of settings that apply to the whole group. This required object depends on the value you set for (Type) under (OutputGroups)>(OutputGroupSettings). Type, settings object pairs are as follows. * FILE_GROUP_SETTINGS, FileGroupSettings * HLS_GROUP_SETTINGS, HlsGroupSettings * DASH_ISO_GROUP_SETTINGS, DashIsoGroupSettings * MS_SMOOTH_GROUP_SETTINGS, MsSmoothGroupSettings * CMAF_GROUP_SETTINGS, CmafGroupSettings
    */
-  OutputGroups?: Array<OutputGroup>;
+  OutputGroups?: OutputGroup[];
 
   /**
    * Contains settings used to acquire and adjust timecode information from inputs.
@@ -4963,7 +4963,7 @@ export interface JobTemplateSettings {
   /**
    * Use Inputs (inputs) to define the source file used in the transcode job. There can only be one input in a job template.  Using the API, you can include multiple inputs when referencing a job template.
    */
-  Inputs?: Array<InputTemplate>;
+  Inputs?: InputTemplate[];
 
   /**
    * Overlay motion graphics on top of your video. The motion graphics that you specify here appear on all outputs in all output groups.
@@ -4978,7 +4978,7 @@ export interface JobTemplateSettings {
   /**
    * (OutputGroups) contains one group of settings for each set of outputs that share a common package type. All unpackaged files (MPEG-4, MPEG-2 TS, Quicktime, MXF, and no container) are grouped in a single output group as well. Required in (OutputGroups) is a group of settings that apply to the whole group. This required object depends on the value you set for (Type) under (OutputGroups)>(OutputGroupSettings). Type, settings object pairs are as follows. * FILE_GROUP_SETTINGS, FileGroupSettings * HLS_GROUP_SETTINGS, HlsGroupSettings * DASH_ISO_GROUP_SETTINGS, DashIsoGroupSettings * MS_SMOOTH_GROUP_SETTINGS, MsSmoothGroupSettings * CMAF_GROUP_SETTINGS, CmafGroupSettings
    */
-  OutputGroups?: Array<OutputGroup>;
+  OutputGroups?: OutputGroup[];
 
   /**
    * Contains settings used to acquire and adjust timecode information from inputs.
@@ -5228,7 +5228,7 @@ export interface ListJobTemplatesResponse {
   /**
    * List of Job templates.
    */
-  JobTemplates?: Array<JobTemplate>;
+  JobTemplates?: JobTemplate[];
 
   /**
    * Use this string to request the next batch of job templates.
@@ -5279,7 +5279,7 @@ export interface ListJobsResponse {
   /**
    * List of jobs
    */
-  Jobs?: Array<Job>;
+  Jobs?: Job[];
 
   /**
    * Use this string to request the next batch of jobs.
@@ -5335,7 +5335,7 @@ export interface ListPresetsResponse {
   /**
    * List of presets
    */
-  Presets?: Array<Preset>;
+  Presets?: Preset[];
 }
 
 export namespace ListPresetsResponse {
@@ -5381,7 +5381,7 @@ export interface ListQueuesResponse {
   /**
    * List of queues.
    */
-  Queues?: Array<Queue>;
+  Queues?: Queue[];
 }
 
 export namespace ListQueuesResponse {
@@ -5513,7 +5513,7 @@ export interface M2tsSettings {
   /**
    * Specify the packet identifiers (PIDs) for any elementary audio streams you include in this output. Specify multiple PIDs as a JSON array. Default is the range 482-492.
    */
-  AudioPids?: Array<number>;
+  AudioPids?: number[];
 
   /**
    * Specify the output bitrate of the transport stream in bits per second. Setting to 0 lets the muxer automatically determine the appropriate bitrate. Other common values are 3750000, 7500000, and 15000000.
@@ -5538,7 +5538,7 @@ export interface M2tsSettings {
   /**
    * Specify the packet identifiers (PIDs) for DVB subtitle data included in this output. Specify multiple PIDs as a JSON array. Default is the range 460-479.
    */
-  DvbSubPids?: Array<number>;
+  DvbSubPids?: number[];
 
   /**
    * Inserts DVB Time and Date Table (TDT) at the specified table repetition interval.
@@ -5713,7 +5713,7 @@ export interface M3u8Settings {
   /**
    * Packet Identifier (PID) of the elementary audio stream(s) in the transport stream. Multiple values are accepted, and can be entered in ranges and/or by comma separation.
    */
-  AudioPids?: Array<number>;
+  AudioPids?: number[];
 
   /**
    * If INSERT, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
@@ -6380,7 +6380,7 @@ export interface MsSmoothAdditionalManifest {
   /**
    * Specify the outputs that you want this additional top-level manifest to reference.
    */
-  SelectedOutputs?: Array<string>;
+  SelectedOutputs?: string[];
 }
 
 export namespace MsSmoothAdditionalManifest {
@@ -6417,7 +6417,7 @@ export interface MsSmoothGroupSettings {
   /**
    * By default, the service creates one .ism Microsoft Smooth Streaming manifest for each Microsoft Smooth Streaming output group in your job. This default manifest references every output in the output group. To create additional manifests that reference a subset of the outputs in the output group, specify a list of them here.
    */
-  AdditionalManifests?: Array<MsSmoothAdditionalManifest>;
+  AdditionalManifests?: MsSmoothAdditionalManifest[];
 
   /**
    * COMBINE_DUPLICATE_STREAMS combines identical audio encoding settings across a Microsoft Smooth output group into a single audio stream.
@@ -6617,12 +6617,12 @@ export interface Output {
   /**
    * (AudioDescriptions) contains groups of audio encoding settings organized by audio codec. Include one instance of (AudioDescriptions) per output. (AudioDescriptions) can contain multiple groups of encoding settings.
    */
-  AudioDescriptions?: Array<AudioDescription>;
+  AudioDescriptions?: AudioDescription[];
 
   /**
    * (CaptionDescriptions) contains groups of captions settings. For each output that has captions, include one instance of (CaptionDescriptions). (CaptionDescriptions) can contain multiple groups of captions settings.
    */
-  CaptionDescriptions?: Array<CaptionDescription>;
+  CaptionDescriptions?: CaptionDescription[];
 
   /**
    * Container specific settings.
@@ -6667,7 +6667,7 @@ export interface OutputChannelMapping {
   /**
    * List of input channels
    */
-  InputChannels?: Array<number>;
+  InputChannels?: number[];
 }
 
 export namespace OutputChannelMapping {
@@ -6718,7 +6718,7 @@ export interface OutputGroup {
   /**
    * This object holds groups of encoding settings, one group of settings per output.
    */
-  Outputs?: Array<Output>;
+  Outputs?: Output[];
 }
 
 export namespace OutputGroup {
@@ -6733,7 +6733,7 @@ export interface OutputGroupDetail {
   /**
    * Details about the output
    */
-  OutputDetails?: Array<OutputDetail>;
+  OutputDetails?: OutputDetail[];
 }
 
 export namespace OutputGroupDetail {
@@ -6877,12 +6877,12 @@ export interface PresetSettings {
   /**
    * (AudioDescriptions) contains groups of audio encoding settings organized by audio codec. Include one instance of (AudioDescriptions) per output. (AudioDescriptions) can contain multiple groups of encoding settings.
    */
-  AudioDescriptions?: Array<AudioDescription>;
+  AudioDescriptions?: AudioDescription[];
 
   /**
    * Caption settings for this preset. There can be multiple caption settings in a single output.
    */
-  CaptionDescriptions?: Array<CaptionDescriptionPreset>;
+  CaptionDescriptions?: CaptionDescriptionPreset[];
 
   /**
    * Container specific settings.
@@ -7369,7 +7369,7 @@ export interface SpekeKeyProvider {
    * Relates to SPEKE implementation. DRM system identifiers. DASH output groups support a max of two system ids. Other group types support one system id. See
    *  https://dashif.org/identifiers/content_protection/ for more details.
    */
-  SystemIds?: Array<string>;
+  SystemIds?: string[];
 
   /**
    * Specify the URL to the key server that your SPEKE-compliant DRM key provider uses to provide keys for encrypting your content.
@@ -7395,12 +7395,12 @@ export interface SpekeKeyProviderCmaf {
   /**
    * Specify the DRM system IDs that you want signaled in the DASH manifest that MediaConvert creates as part of this CMAF package. The DASH manifest can currently signal up to three system IDs. For more information, see https://dashif.org/identifiers/content_protection/.
    */
-  DashSignaledSystemIds?: Array<string>;
+  DashSignaledSystemIds?: string[];
 
   /**
    * Specify the DRM system ID that you want signaled in the HLS manifest that MediaConvert creates as part of this CMAF package. The HLS manifest can currently signal only one system ID. For more information, see https://dashif.org/identifiers/content_protection/.
    */
-  HlsSignaledSystemIds?: Array<string>;
+  HlsSignaledSystemIds?: string[];
 
   /**
    * Specify the resource ID that your SPEKE-compliant key provider uses to identify this content.
@@ -7507,7 +7507,7 @@ export interface TeletextDestinationSettings {
   /**
    * Specify the page types for this Teletext page. If you don't specify a value here, the service sets the page type to the default value Subtitle (PAGE_TYPE_SUBTITLE). If you pass through the entire set of Teletext data, don't use this field. When you pass through a set of Teletext pages, your output has the same page types as your input.
    */
-  PageTypes?: Array<TeletextPageType | string>;
+  PageTypes?: (TeletextPageType | string)[];
 }
 
 export namespace TeletextDestinationSettings {
@@ -7627,7 +7627,7 @@ export interface TimedMetadataInsertion {
   /**
    * Id3Insertions contains the array of Id3Insertion instances.
    */
-  Id3Insertions?: Array<Id3Insertion>;
+  Id3Insertions?: Id3Insertion[];
 }
 
 export namespace TimedMetadataInsertion {
@@ -7728,7 +7728,7 @@ export interface UntagResourceRequest {
   /**
    * The keys of the tags that you want to remove from the resource.
    */
-  TagKeys?: Array<string>;
+  TagKeys?: string[];
 }
 
 export namespace UntagResourceRequest {

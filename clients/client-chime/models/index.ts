@@ -62,12 +62,12 @@ export interface Account {
   /**
    * <p>The sign-in delegate groups associated with the account.</p>
    */
-  SigninDelegateGroups?: Array<SigninDelegateGroup>;
+  SigninDelegateGroups?: SigninDelegateGroup[];
 
   /**
    * <p>Supported licenses for the Amazon Chime account.</p>
    */
-  SupportedLicenses?: Array<License | string>;
+  SupportedLicenses?: (License | string)[];
 }
 
 export namespace Account {
@@ -164,7 +164,7 @@ export interface AssociatePhoneNumbersWithVoiceConnectorGroupRequest {
   /**
    * <p>List of phone numbers, in E.164 format.</p>
    */
-  E164PhoneNumbers?: Array<string>;
+  E164PhoneNumbers?: string[];
 
   /**
    * <p>If true, associates the provided phone numbers with the provided Amazon Chime Voice Connector Group and removes any previously existing associations. If false, does not associate any phone numbers that have previously existing associations.</p>
@@ -189,7 +189,7 @@ export interface AssociatePhoneNumbersWithVoiceConnectorGroupResponse {
   /**
    * <p>If the action fails for one or more of the phone numbers in the request, a list of the phone numbers is returned, along with error codes and error messages.</p>
    */
-  PhoneNumberErrors?: Array<PhoneNumberError>;
+  PhoneNumberErrors?: PhoneNumberError[];
 }
 
 export namespace AssociatePhoneNumbersWithVoiceConnectorGroupResponse {
@@ -204,7 +204,7 @@ export interface AssociatePhoneNumbersWithVoiceConnectorRequest {
   /**
    * <p>List of phone numbers, in E.164 format.</p>
    */
-  E164PhoneNumbers?: Array<string>;
+  E164PhoneNumbers?: string[];
 
   /**
    * <p>If true, associates the provided phone numbers with the provided Amazon Chime Voice Connector and removes any previously existing associations. If false, does not associate any phone numbers that have previously existing associations.</p>
@@ -229,7 +229,7 @@ export interface AssociatePhoneNumbersWithVoiceConnectorResponse {
   /**
    * <p>If the action fails for one or more of the phone numbers in the request, a list of the phone numbers is returned, along with error codes and error messages.</p>
    */
-  PhoneNumberErrors?: Array<PhoneNumberError>;
+  PhoneNumberErrors?: PhoneNumberError[];
 }
 
 export namespace AssociatePhoneNumbersWithVoiceConnectorResponse {
@@ -249,7 +249,7 @@ export interface AssociateSigninDelegateGroupsWithAccountRequest {
   /**
    * <p>The sign-in delegate groups.</p>
    */
-  SigninDelegateGroups: Array<SigninDelegateGroup> | undefined;
+  SigninDelegateGroups: SigninDelegateGroup[] | undefined;
 }
 
 export namespace AssociateSigninDelegateGroupsWithAccountRequest {
@@ -320,7 +320,7 @@ export interface BatchCreateAttendeeRequest {
   /**
    * <p>The request containing the attendees to create.</p>
    */
-  Attendees: Array<CreateAttendeeRequestItem> | undefined;
+  Attendees: CreateAttendeeRequestItem[] | undefined;
 
   /**
    * <p>The Amazon Chime SDK meeting ID.</p>
@@ -338,12 +338,12 @@ export interface BatchCreateAttendeeResponse {
   /**
    * <p>The attendee information, including attendees IDs and join tokens.</p>
    */
-  Attendees?: Array<Attendee>;
+  Attendees?: Attendee[];
 
   /**
    * <p>If the action fails for one or more of the attendees in the request, a list of the attendees is returned, along with error codes and error messages.</p>
    */
-  Errors?: Array<CreateAttendeeError>;
+  Errors?: CreateAttendeeError[];
 }
 
 export namespace BatchCreateAttendeeResponse {
@@ -361,7 +361,7 @@ export interface BatchCreateRoomMembershipRequest {
   /**
    * <p>The list of membership items.</p>
    */
-  MembershipItemList: Array<MembershipItem> | undefined;
+  MembershipItemList: MembershipItem[] | undefined;
 
   /**
    * <p>The room ID.</p>
@@ -379,7 +379,7 @@ export interface BatchCreateRoomMembershipResponse {
   /**
    * <p>If the action fails for one or more of the member IDs in the request, a list of the member IDs is returned, along with error codes and error messages.</p>
    */
-  Errors?: Array<MemberError>;
+  Errors?: MemberError[];
 }
 
 export namespace BatchCreateRoomMembershipResponse {
@@ -392,7 +392,7 @@ export interface BatchDeletePhoneNumberRequest {
   /**
    * <p>List of phone number IDs.</p>
    */
-  PhoneNumberIds: Array<string> | undefined;
+  PhoneNumberIds: string[] | undefined;
 }
 
 export namespace BatchDeletePhoneNumberRequest {
@@ -405,7 +405,7 @@ export interface BatchDeletePhoneNumberResponse {
   /**
    * <p>If the action fails for one or more of the phone numbers in the request, a list of the phone numbers is returned, along with error codes and error messages.</p>
    */
-  PhoneNumberErrors?: Array<PhoneNumberError>;
+  PhoneNumberErrors?: PhoneNumberError[];
 }
 
 export namespace BatchDeletePhoneNumberResponse {
@@ -423,7 +423,7 @@ export interface BatchSuspendUserRequest {
   /**
    * <p>The request containing the user IDs to suspend.</p>
    */
-  UserIdList: Array<string> | undefined;
+  UserIdList: string[] | undefined;
 }
 
 export namespace BatchSuspendUserRequest {
@@ -438,7 +438,7 @@ export interface BatchSuspendUserResponse {
    *       or more of the user IDs in the request, a list of the user IDs is returned, along with error
    *       codes and error messages.</p>
    */
-  UserErrors?: Array<UserError>;
+  UserErrors?: UserError[];
 }
 
 export namespace BatchSuspendUserResponse {
@@ -456,7 +456,7 @@ export interface BatchUnsuspendUserRequest {
   /**
    * <p>The request containing the user IDs to unsuspend.</p>
    */
-  UserIdList: Array<string> | undefined;
+  UserIdList: string[] | undefined;
 }
 
 export namespace BatchUnsuspendUserRequest {
@@ -471,7 +471,7 @@ export interface BatchUnsuspendUserResponse {
    *       or more of the user IDs in the request, a list of the user IDs is returned, along with error
    *       codes and error messages.</p>
    */
-  UserErrors?: Array<UserError>;
+  UserErrors?: UserError[];
 }
 
 export namespace BatchUnsuspendUserResponse {
@@ -484,9 +484,7 @@ export interface BatchUpdatePhoneNumberRequest {
   /**
    * <p>The request containing the phone number IDs and product types or calling names to update.</p>
    */
-  UpdatePhoneNumberRequestItems:
-    | Array<UpdatePhoneNumberRequestItem>
-    | undefined;
+  UpdatePhoneNumberRequestItems: UpdatePhoneNumberRequestItem[] | undefined;
 }
 
 export namespace BatchUpdatePhoneNumberRequest {
@@ -499,7 +497,7 @@ export interface BatchUpdatePhoneNumberResponse {
   /**
    * <p>If the action fails for one or more of the phone numbers in the request, a list of the phone numbers is returned, along with error codes and error messages.</p>
    */
-  PhoneNumberErrors?: Array<PhoneNumberError>;
+  PhoneNumberErrors?: PhoneNumberError[];
 }
 
 export namespace BatchUpdatePhoneNumberResponse {
@@ -517,7 +515,7 @@ export interface BatchUpdateUserRequest {
   /**
    * <p>The request containing the user IDs and details to update.</p>
    */
-  UpdateUserRequestItems: Array<UpdateUserRequestItem> | undefined;
+  UpdateUserRequestItems: UpdateUserRequestItem[] | undefined;
 }
 
 export namespace BatchUpdateUserRequest {
@@ -532,7 +530,7 @@ export interface BatchUpdateUserResponse {
    *       or more of the user IDs in the request, a list of the user IDs is returned, along with error
    *       codes and error messages.</p>
    */
-  UserErrors?: Array<UserError>;
+  UserErrors?: UserError[];
 }
 
 export namespace BatchUpdateUserResponse {
@@ -820,7 +818,7 @@ export interface CreatePhoneNumberOrderRequest {
   /**
    * <p>List of phone numbers, in E.164 format.</p>
    */
-  E164PhoneNumbers: Array<string> | undefined;
+  E164PhoneNumbers: string[] | undefined;
 
   /**
    * <p>The phone number product type.</p>
@@ -974,7 +972,7 @@ export interface CreateVoiceConnectorGroupRequest {
   /**
    * <p>The Amazon Chime Voice Connectors to route inbound calls to.</p>
    */
-  VoiceConnectorItems?: Array<VoiceConnectorItem>;
+  VoiceConnectorItems?: VoiceConnectorItem[];
 }
 
 export namespace CreateVoiceConnectorGroupRequest {
@@ -1236,7 +1234,7 @@ export interface DeleteVoiceConnectorTerminationCredentialsRequest {
   /**
    * <p>The RFC2617 compliant username associated with the SIP credentials, in US-ASCII format.</p>
    */
-  Usernames?: Array<string>;
+  Usernames?: string[];
 
   /**
    * <p>The Amazon Chime Voice Connector ID.</p>
@@ -1296,7 +1294,7 @@ export interface DisassociatePhoneNumbersFromVoiceConnectorGroupRequest {
   /**
    * <p>List of phone numbers, in E.164 format.</p>
    */
-  E164PhoneNumbers?: Array<string>;
+  E164PhoneNumbers?: string[];
 
   /**
    * <p>The Amazon Chime Voice Connector group ID.</p>
@@ -1316,7 +1314,7 @@ export interface DisassociatePhoneNumbersFromVoiceConnectorGroupResponse {
   /**
    * <p>If the action fails for one or more of the phone numbers in the request, a list of the phone numbers is returned, along with error codes and error messages.</p>
    */
-  PhoneNumberErrors?: Array<PhoneNumberError>;
+  PhoneNumberErrors?: PhoneNumberError[];
 }
 
 export namespace DisassociatePhoneNumbersFromVoiceConnectorGroupResponse {
@@ -1331,7 +1329,7 @@ export interface DisassociatePhoneNumbersFromVoiceConnectorRequest {
   /**
    * <p>List of phone numbers, in E.164 format.</p>
    */
-  E164PhoneNumbers?: Array<string>;
+  E164PhoneNumbers?: string[];
 
   /**
    * <p>The Amazon Chime Voice Connector ID.</p>
@@ -1351,7 +1349,7 @@ export interface DisassociatePhoneNumbersFromVoiceConnectorResponse {
   /**
    * <p>If the action fails for one or more of the phone numbers in the request, a list of the phone numbers is returned, along with error codes and error messages.</p>
    */
-  PhoneNumberErrors?: Array<PhoneNumberError>;
+  PhoneNumberErrors?: PhoneNumberError[];
 }
 
 export namespace DisassociatePhoneNumbersFromVoiceConnectorResponse {
@@ -1371,7 +1369,7 @@ export interface DisassociateSigninDelegateGroupsFromAccountRequest {
   /**
    * <p>The sign-in delegate group names.</p>
    */
-  GroupNames: Array<string> | undefined;
+  GroupNames: string[] | undefined;
 }
 
 export namespace DisassociateSigninDelegateGroupsFromAccountRequest {
@@ -2047,7 +2045,7 @@ export interface InviteUsersRequest {
   /**
    * <p>The user email addresses to which to send the email invitation.</p>
    */
-  UserEmailList: Array<string> | undefined;
+  UserEmailList: string[] | undefined;
 
   /**
    * <p>The user type.</p>
@@ -2065,7 +2063,7 @@ export interface InviteUsersResponse {
   /**
    * <p>The email invitation details.</p>
    */
-  Invites?: Array<Invite>;
+  Invites?: Invite[];
 }
 
 export namespace InviteUsersResponse {
@@ -2113,7 +2111,7 @@ export interface ListAccountsResponse {
   /**
    * <p>List of Amazon Chime accounts and account details.</p>
    */
-  Accounts?: Array<Account>;
+  Accounts?: Account[];
 
   /**
    * <p>The token to use to retrieve the next page of results.</p>
@@ -2154,7 +2152,7 @@ export interface ListAttendeesResponse {
   /**
    * <p>The Amazon Chime SDK attendee information.</p>
    */
-  Attendees?: Array<Attendee>;
+  Attendees?: Attendee[];
 
   /**
    * <p>The token to use to retrieve the next page of results.</p>
@@ -2195,7 +2193,7 @@ export interface ListBotsResponse {
   /**
    * <p>List of bots and bot details.</p>
    */
-  Bots?: Array<Bot>;
+  Bots?: Bot[];
 
   /**
    * <p>The token to use to retrieve the next page of results.</p>
@@ -2231,7 +2229,7 @@ export interface ListMeetingsResponse {
   /**
    * <p>The Amazon Chime SDK meeting information.</p>
    */
-  Meetings?: Array<Meeting>;
+  Meetings?: Meeting[];
 
   /**
    * <p>The token to use to retrieve the next page of results.</p>
@@ -2272,7 +2270,7 @@ export interface ListPhoneNumberOrdersResponse {
   /**
    * <p>The phone number order details.</p>
    */
-  PhoneNumberOrders?: Array<PhoneNumberOrder>;
+  PhoneNumberOrders?: PhoneNumberOrder[];
 }
 
 export namespace ListPhoneNumberOrdersResponse {
@@ -2328,7 +2326,7 @@ export interface ListPhoneNumbersResponse {
   /**
    * <p>The phone number details.</p>
    */
-  PhoneNumbers?: Array<PhoneNumber>;
+  PhoneNumbers?: PhoneNumber[];
 }
 
 export namespace ListPhoneNumbersResponse {
@@ -2374,7 +2372,7 @@ export interface ListRoomMembershipsResponse {
   /**
    * <p>The room membership details.</p>
    */
-  RoomMemberships?: Array<RoomMembership>;
+  RoomMemberships?: RoomMembership[];
 }
 
 export namespace ListRoomMembershipsResponse {
@@ -2420,7 +2418,7 @@ export interface ListRoomsResponse {
   /**
    * <p>The room details.</p>
    */
-  Rooms?: Array<Room>;
+  Rooms?: Room[];
 }
 
 export namespace ListRoomsResponse {
@@ -2471,7 +2469,7 @@ export interface ListUsersResponse {
   /**
    * <p>List of users and user details.</p>
    */
-  Users?: Array<User>;
+  Users?: User[];
 }
 
 export namespace ListUsersResponse {
@@ -2507,7 +2505,7 @@ export interface ListVoiceConnectorGroupsResponse {
   /**
    * <p>The details of the Amazon Chime Voice Connector groups.</p>
    */
-  VoiceConnectorGroups?: Array<VoiceConnectorGroup>;
+  VoiceConnectorGroups?: VoiceConnectorGroup[];
 }
 
 export namespace ListVoiceConnectorGroupsResponse {
@@ -2535,7 +2533,7 @@ export interface ListVoiceConnectorTerminationCredentialsResponse {
   /**
    * <p>A list of user names.</p>
    */
-  Usernames?: Array<string>;
+  Usernames?: string[];
 }
 
 export namespace ListVoiceConnectorTerminationCredentialsResponse {
@@ -2573,7 +2571,7 @@ export interface ListVoiceConnectorsResponse {
   /**
    * <p>The details of the Amazon Chime Voice Connectors.</p>
    */
-  VoiceConnectors?: Array<VoiceConnector>;
+  VoiceConnectors?: VoiceConnector[];
 }
 
 export namespace ListVoiceConnectorsResponse {
@@ -2856,7 +2854,7 @@ export interface Origination {
    * <p>The call distribution properties defined for your SIP hosts. Valid range: Minimum value
    *     of 1. Maximum value of 20.</p>
    */
-  Routes?: Array<OriginationRoute>;
+  Routes?: OriginationRoute[];
 }
 
 export namespace Origination {
@@ -2917,7 +2915,7 @@ export interface PhoneNumber {
   /**
    * <p>The phone number associations.</p>
    */
-  Associations?: Array<PhoneNumberAssociation>;
+  Associations?: PhoneNumberAssociation[];
 
   /**
    * <p>The outbound calling name associated with the phone number.</p>
@@ -3097,7 +3095,7 @@ export interface PhoneNumberOrder {
    * <p>The ordered phone number details, such as the phone number in E.164 format and the
    *      phone number status.</p>
    */
-  OrderedPhoneNumbers?: Array<OrderedPhoneNumber>;
+  OrderedPhoneNumbers?: OrderedPhoneNumber[];
 
   /**
    * <p>The phone number order ID.</p>
@@ -3300,7 +3298,7 @@ export interface PutVoiceConnectorTerminationCredentialsRequest {
   /**
    * <p>The termination SIP credentials.</p>
    */
-  Credentials?: Array<Credential>;
+  Credentials?: Credential[];
 
   /**
    * <p>The Amazon Chime Voice Connector ID.</p>
@@ -3586,7 +3584,7 @@ export interface SearchAvailablePhoneNumbersResponse {
   /**
    * <p>List of phone numbers, in E.164 format.</p>
    */
-  E164PhoneNumbers?: Array<string>;
+  E164PhoneNumbers?: string[];
 }
 
 export namespace SearchAvailablePhoneNumbersResponse {
@@ -3701,12 +3699,12 @@ export interface Termination {
   /**
    * <p>The countries to which calls are allowed, in ISO 3166-1 alpha-2 format. Required.</p>
    */
-  CallingRegions?: Array<string>;
+  CallingRegions?: string[];
 
   /**
    * <p>The IP addresses allowed to make calls, in CIDR format. Required.</p>
    */
-  CidrAllowedList?: Array<string>;
+  CidrAllowedList?: string[];
 
   /**
    * <p>The limit on calls per second. Max value based on account service limit. Default value
@@ -4182,7 +4180,7 @@ export interface UpdateVoiceConnectorGroupRequest {
   /**
    * <p>The <code>VoiceConnectorItems</code> to associate with the group.</p>
    */
-  VoiceConnectorItems: Array<VoiceConnectorItem> | undefined;
+  VoiceConnectorItems: VoiceConnectorItem[] | undefined;
 }
 
 export namespace UpdateVoiceConnectorGroupRequest {
@@ -4445,7 +4443,7 @@ export interface VoiceConnectorGroup {
   /**
    * <p>The Amazon Chime Voice Connectors to which to route inbound calls.</p>
    */
-  VoiceConnectorItems?: Array<VoiceConnectorItem>;
+  VoiceConnectorItems?: VoiceConnectorItem[];
 }
 
 export namespace VoiceConnectorGroup {

@@ -23,24 +23,23 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_restJson1_1InvokeEndpointCommand(
+export const serializeAws_restJson1_1InvokeEndpointCommand = async (
   input: InvokeEndpointCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/octet-stream";
-  if (isSerializableHeaderValue(input.Accept)) {
-    headers["Accept"] = input.Accept!;
-  }
-  if (isSerializableHeaderValue(input.ContentType)) {
-    headers["Content-Type"] = input.ContentType!;
-  }
-  if (isSerializableHeaderValue(input.CustomAttributes)) {
-    headers["X-Amzn-SageMaker-Custom-Attributes"] = input.CustomAttributes!;
-  }
-  if (isSerializableHeaderValue(input.TargetModel)) {
-    headers["X-Amzn-SageMaker-Target-Model"] = input.TargetModel!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/octet-stream",
+    ...(isSerializableHeaderValue(input.Accept) && { Accept: input.Accept! }),
+    ...(isSerializableHeaderValue(input.ContentType) && {
+      "Content-Type": input.ContentType!
+    }),
+    ...(isSerializableHeaderValue(input.CustomAttributes) && {
+      "X-Amzn-SageMaker-Custom-Attributes": input.CustomAttributes!
+    }),
+    ...(isSerializableHeaderValue(input.TargetModel) && {
+      "X-Amzn-SageMaker-Target-Model": input.TargetModel!
+    })
+  };
   let resolvedPath = "/endpoints/{EndpointName}/invocations";
   if (input.EndpointName !== undefined) {
     const labelValue: string = input.EndpointName;
@@ -70,12 +69,12 @@ export async function serializeAws_restJson1_1InvokeEndpointCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1InvokeEndpointCommand(
+export const deserializeAws_restJson1_1InvokeEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<InvokeEndpointCommandOutput> {
+): Promise<InvokeEndpointCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1InvokeEndpointCommandError(
       output,
@@ -104,12 +103,12 @@ export async function deserializeAws_restJson1_1InvokeEndpointCommand(
   const data: any = await collectBody(output.body, context);
   contents.Body = data;
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1InvokeEndpointCommandError(
+const deserializeAws_restJson1_1InvokeEndpointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<InvokeEndpointCommandOutput> {
+): Promise<InvokeEndpointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -177,7 +176,7 @@ async function deserializeAws_restJson1_1InvokeEndpointCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1InternalFailureResponse = async (
   parsedOutput: any,
@@ -270,7 +269,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -285,30 +284,23 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
-function isSerializableHeaderValue(value: any): boolean {
-  return (
-    value !== undefined &&
-    value !== "" &&
-    (!Object.getOwnPropertyNames(value).includes("length") ||
-      value.length != 0) &&
-    (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0)
-  );
-}
+const isSerializableHeaderValue = (value: any): boolean =>
+  value !== undefined &&
+  value !== "" &&
+  (!Object.getOwnPropertyNames(value).includes("length") ||
+    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};
 
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.

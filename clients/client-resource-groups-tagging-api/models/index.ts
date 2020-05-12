@@ -19,12 +19,12 @@ export interface ComplianceDetails {
    * <p>These are keys defined in the effective policy that are on the resource with either
    *             incorrect case treatment or noncompliant values. </p>
    */
-  KeysWithNoncompliantValues?: Array<string>;
+  KeysWithNoncompliantValues?: string[];
 
   /**
    * <p>These tag keys on the resource are noncompliant with the effective tag policy.</p>
    */
-  NoncompliantKeys?: Array<string>;
+  NoncompliantKeys?: string[];
 }
 
 export namespace ComplianceDetails {
@@ -182,7 +182,7 @@ export interface GetComplianceSummaryInput {
    * <p>A list of attributes to group the counts of noncompliant resources by. If supplied,
    *             the counts are sorted by those attributes.</p>
    */
-  GroupBy?: Array<GroupByAttribute | string>;
+  GroupBy?: (GroupByAttribute | string)[];
 
   /**
    * <p>A limit that restricts the number of results that are returned per page.</p>
@@ -200,7 +200,7 @@ export interface GetComplianceSummaryInput {
    * <p>A list of Regions to limit the output by. If you use this parameter, the count of
    *             returned noncompliant resources includes only resources in the specified Regions.</p>
    */
-  RegionFilters?: Array<string>;
+  RegionFilters?: string[];
 
   /**
    * <p>The constraints on the resources that you want returned. The format of each resource
@@ -226,21 +226,21 @@ export interface GetComplianceSummaryInput {
    *             100 items. Note that the length constraint requirement applies to each resource type
    *             filter. </p>
    */
-  ResourceTypeFilters?: Array<string>;
+  ResourceTypeFilters?: string[];
 
   /**
    * <p>A list of tag keys to limit the output by. If you use this parameter, the count of
    *             returned noncompliant resources includes only resources that have the specified tag
    *             keys.</p>
    */
-  TagKeyFilters?: Array<string>;
+  TagKeyFilters?: string[];
 
   /**
    * <p>The target identifiers (usually, specific account IDs) to limit the output by. If you
    *             use this parameter, the count of returned noncompliant resources includes only resources
    *             with the specified target IDs.</p>
    */
-  TargetIdFilters?: Array<string>;
+  TargetIdFilters?: string[];
 }
 
 export namespace GetComplianceSummaryInput {
@@ -260,7 +260,7 @@ export interface GetComplianceSummaryOutput {
   /**
    * <p>A table that shows counts of noncompliant resources.</p>
    */
-  SummaryList?: Array<Summary>;
+  SummaryList?: Summary[];
 }
 
 export namespace GetComplianceSummaryOutput {
@@ -317,7 +317,7 @@ export interface GetResourcesInput {
    *             100 items. Note that the length constraint requirement applies to each resource type
    *             filter. </p>
    */
-  ResourceTypeFilters?: Array<string>;
+  ResourceTypeFilters?: string[];
 
   /**
    * <p>A limit that restricts the number of resources returned by GetResources in paginated
@@ -378,7 +378,7 @@ export interface GetResourcesInput {
    *             </li>
    *          </ul>
    */
-  TagFilters?: Array<TagFilter>;
+  TagFilters?: TagFilter[];
 
   /**
    * <p>AWS recommends using <code>ResourcesPerPage</code> instead of this parameter.</p>
@@ -418,7 +418,7 @@ export interface GetResourcesOutput {
   /**
    * <p>A list of resource ARNs and the tags (keys and values) associated with each.</p>
    */
-  ResourceTagMappingList?: Array<ResourceTagMapping>;
+  ResourceTagMappingList?: ResourceTagMapping[];
 }
 
 export namespace GetResourcesOutput {
@@ -454,7 +454,7 @@ export interface GetTagKeysOutput {
   /**
    * <p>A list of all tag keys in the AWS account.</p>
    */
-  TagKeys?: Array<string>;
+  TagKeys?: string[];
 }
 
 export namespace GetTagKeysOutput {
@@ -496,7 +496,7 @@ export interface GetTagValuesOutput {
   /**
    * <p>A list of all tag values for the specified key in the AWS account.</p>
    */
-  TagValues?: Array<string>;
+  TagValues?: string[];
 }
 
 export namespace GetTagValuesOutput {
@@ -600,7 +600,7 @@ export interface ResourceTagMapping {
   /**
    * <p>The tags that have been applied to one or more AWS resources.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace ResourceTagMapping {
@@ -713,7 +713,7 @@ export interface TagFilter {
   /**
    * <p>The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).</p>
    */
-  Values?: Array<string>;
+  Values?: string[];
 }
 
 export namespace TagFilter {
@@ -729,7 +729,7 @@ export interface TagResourcesInput {
    *                 Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General
    *                 Reference</i>.</p>
    */
-  ResourceARNList: Array<string> | undefined;
+  ResourceARNList: string[] | undefined;
 
   /**
    * <p>The tags that you want to add to the specified resources. A tag consists of a key and
@@ -786,12 +786,12 @@ export interface UntagResourcesInput {
    *                 Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General
    *                 Reference</i>.</p>
    */
-  ResourceARNList: Array<string> | undefined;
+  ResourceARNList: string[] | undefined;
 
   /**
    * <p>A list of the tag keys that you want to remove from the specified resources.</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourcesInput {

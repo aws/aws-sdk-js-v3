@@ -346,7 +346,9 @@ import {
 } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  getArrayIfSingleItem as __getArrayIfSingleItem,
+  getValueFromTextNode as __getValueFromTextNode
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -357,12 +359,13 @@ import {
 } from "@aws-sdk/types";
 import { parse as xmlParse } from "fast-xml-parser";
 
-export async function serializeAws_queryAttachInstancesCommand(
+export const serializeAws_queryAttachInstancesCommand = async (
   input: AttachInstancesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryAttachInstancesQuery(input, context);
   body = buildFormUrlencodedString({
@@ -371,14 +374,15 @@ export async function serializeAws_queryAttachInstancesCommand(
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryAttachLoadBalancerTargetGroupsCommand(
+export const serializeAws_queryAttachLoadBalancerTargetGroupsCommand = async (
   input: AttachLoadBalancerTargetGroupsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryAttachLoadBalancerTargetGroupsType(
     input,
@@ -390,14 +394,15 @@ export async function serializeAws_queryAttachLoadBalancerTargetGroupsCommand(
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryAttachLoadBalancersCommand(
+export const serializeAws_queryAttachLoadBalancersCommand = async (
   input: AttachLoadBalancersCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryAttachLoadBalancersType(input, context);
   body = buildFormUrlencodedString({
@@ -406,14 +411,15 @@ export async function serializeAws_queryAttachLoadBalancersCommand(
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryBatchDeleteScheduledActionCommand(
+export const serializeAws_queryBatchDeleteScheduledActionCommand = async (
   input: BatchDeleteScheduledActionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryBatchDeleteScheduledActionType(
     input,
@@ -425,14 +431,15 @@ export async function serializeAws_queryBatchDeleteScheduledActionCommand(
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryBatchPutScheduledUpdateGroupActionCommand(
+export const serializeAws_queryBatchPutScheduledUpdateGroupActionCommand = async (
   input: BatchPutScheduledUpdateGroupActionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryBatchPutScheduledUpdateGroupActionType(
     input,
@@ -444,14 +451,15 @@ export async function serializeAws_queryBatchPutScheduledUpdateGroupActionComman
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryCompleteLifecycleActionCommand(
+export const serializeAws_queryCompleteLifecycleActionCommand = async (
   input: CompleteLifecycleActionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCompleteLifecycleActionType(input, context);
   body = buildFormUrlencodedString({
@@ -460,14 +468,15 @@ export async function serializeAws_queryCompleteLifecycleActionCommand(
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryCreateAutoScalingGroupCommand(
+export const serializeAws_queryCreateAutoScalingGroupCommand = async (
   input: CreateAutoScalingGroupCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCreateAutoScalingGroupType(input, context);
   body = buildFormUrlencodedString({
@@ -476,14 +485,15 @@ export async function serializeAws_queryCreateAutoScalingGroupCommand(
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryCreateLaunchConfigurationCommand(
+export const serializeAws_queryCreateLaunchConfigurationCommand = async (
   input: CreateLaunchConfigurationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCreateLaunchConfigurationType(
     input,
@@ -495,14 +505,15 @@ export async function serializeAws_queryCreateLaunchConfigurationCommand(
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryCreateOrUpdateTagsCommand(
+export const serializeAws_queryCreateOrUpdateTagsCommand = async (
   input: CreateOrUpdateTagsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryCreateOrUpdateTagsType(input, context);
   body = buildFormUrlencodedString({
@@ -511,14 +522,15 @@ export async function serializeAws_queryCreateOrUpdateTagsCommand(
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDeleteAutoScalingGroupCommand(
+export const serializeAws_queryDeleteAutoScalingGroupCommand = async (
   input: DeleteAutoScalingGroupCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteAutoScalingGroupType(input, context);
   body = buildFormUrlencodedString({
@@ -527,14 +539,15 @@ export async function serializeAws_queryDeleteAutoScalingGroupCommand(
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDeleteLaunchConfigurationCommand(
+export const serializeAws_queryDeleteLaunchConfigurationCommand = async (
   input: DeleteLaunchConfigurationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryLaunchConfigurationNameType(input, context);
   body = buildFormUrlencodedString({
@@ -543,14 +556,15 @@ export async function serializeAws_queryDeleteLaunchConfigurationCommand(
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDeleteLifecycleHookCommand(
+export const serializeAws_queryDeleteLifecycleHookCommand = async (
   input: DeleteLifecycleHookCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteLifecycleHookType(input, context);
   body = buildFormUrlencodedString({
@@ -559,14 +573,15 @@ export async function serializeAws_queryDeleteLifecycleHookCommand(
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDeleteNotificationConfigurationCommand(
+export const serializeAws_queryDeleteNotificationConfigurationCommand = async (
   input: DeleteNotificationConfigurationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteNotificationConfigurationType(
     input,
@@ -578,14 +593,15 @@ export async function serializeAws_queryDeleteNotificationConfigurationCommand(
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDeletePolicyCommand(
+export const serializeAws_queryDeletePolicyCommand = async (
   input: DeletePolicyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeletePolicyType(input, context);
   body = buildFormUrlencodedString({
@@ -594,14 +610,15 @@ export async function serializeAws_queryDeletePolicyCommand(
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDeleteScheduledActionCommand(
+export const serializeAws_queryDeleteScheduledActionCommand = async (
   input: DeleteScheduledActionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteScheduledActionType(input, context);
   body = buildFormUrlencodedString({
@@ -610,14 +627,15 @@ export async function serializeAws_queryDeleteScheduledActionCommand(
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDeleteTagsCommand(
+export const serializeAws_queryDeleteTagsCommand = async (
   input: DeleteTagsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDeleteTagsType(input, context);
   body = buildFormUrlencodedString({
@@ -626,40 +644,43 @@ export async function serializeAws_queryDeleteTagsCommand(
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDescribeAccountLimitsCommand(
+export const serializeAws_queryDescribeAccountLimitsCommand = async (
   input: DescribeAccountLimitsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   const body = buildFormUrlencodedString({
     Action: "DescribeAccountLimits",
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDescribeAdjustmentTypesCommand(
+export const serializeAws_queryDescribeAdjustmentTypesCommand = async (
   input: DescribeAdjustmentTypesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   const body = buildFormUrlencodedString({
     Action: "DescribeAdjustmentTypes",
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDescribeAutoScalingGroupsCommand(
+export const serializeAws_queryDescribeAutoScalingGroupsCommand = async (
   input: DescribeAutoScalingGroupsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryAutoScalingGroupNamesType(input, context);
   body = buildFormUrlencodedString({
@@ -668,14 +689,15 @@ export async function serializeAws_queryDescribeAutoScalingGroupsCommand(
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDescribeAutoScalingInstancesCommand(
+export const serializeAws_queryDescribeAutoScalingInstancesCommand = async (
   input: DescribeAutoScalingInstancesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeAutoScalingInstancesType(
     input,
@@ -687,27 +709,29 @@ export async function serializeAws_queryDescribeAutoScalingInstancesCommand(
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDescribeAutoScalingNotificationTypesCommand(
+export const serializeAws_queryDescribeAutoScalingNotificationTypesCommand = async (
   input: DescribeAutoScalingNotificationTypesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   const body = buildFormUrlencodedString({
     Action: "DescribeAutoScalingNotificationTypes",
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDescribeLaunchConfigurationsCommand(
+export const serializeAws_queryDescribeLaunchConfigurationsCommand = async (
   input: DescribeLaunchConfigurationsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryLaunchConfigurationNamesType(
     input,
@@ -719,27 +743,29 @@ export async function serializeAws_queryDescribeLaunchConfigurationsCommand(
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDescribeLifecycleHookTypesCommand(
+export const serializeAws_queryDescribeLifecycleHookTypesCommand = async (
   input: DescribeLifecycleHookTypesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   const body = buildFormUrlencodedString({
     Action: "DescribeLifecycleHookTypes",
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDescribeLifecycleHooksCommand(
+export const serializeAws_queryDescribeLifecycleHooksCommand = async (
   input: DescribeLifecycleHooksCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeLifecycleHooksType(input, context);
   body = buildFormUrlencodedString({
@@ -748,14 +774,15 @@ export async function serializeAws_queryDescribeLifecycleHooksCommand(
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDescribeLoadBalancerTargetGroupsCommand(
+export const serializeAws_queryDescribeLoadBalancerTargetGroupsCommand = async (
   input: DescribeLoadBalancerTargetGroupsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeLoadBalancerTargetGroupsRequest(
     input,
@@ -767,14 +794,15 @@ export async function serializeAws_queryDescribeLoadBalancerTargetGroupsCommand(
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDescribeLoadBalancersCommand(
+export const serializeAws_queryDescribeLoadBalancersCommand = async (
   input: DescribeLoadBalancersCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeLoadBalancersRequest(
     input,
@@ -786,27 +814,29 @@ export async function serializeAws_queryDescribeLoadBalancersCommand(
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDescribeMetricCollectionTypesCommand(
+export const serializeAws_queryDescribeMetricCollectionTypesCommand = async (
   input: DescribeMetricCollectionTypesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   const body = buildFormUrlencodedString({
     Action: "DescribeMetricCollectionTypes",
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDescribeNotificationConfigurationsCommand(
+export const serializeAws_queryDescribeNotificationConfigurationsCommand = async (
   input: DescribeNotificationConfigurationsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeNotificationConfigurationsType(
     input,
@@ -818,14 +848,15 @@ export async function serializeAws_queryDescribeNotificationConfigurationsComman
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDescribePoliciesCommand(
+export const serializeAws_queryDescribePoliciesCommand = async (
   input: DescribePoliciesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribePoliciesType(input, context);
   body = buildFormUrlencodedString({
@@ -834,14 +865,15 @@ export async function serializeAws_queryDescribePoliciesCommand(
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDescribeScalingActivitiesCommand(
+export const serializeAws_queryDescribeScalingActivitiesCommand = async (
   input: DescribeScalingActivitiesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeScalingActivitiesType(
     input,
@@ -853,27 +885,29 @@ export async function serializeAws_queryDescribeScalingActivitiesCommand(
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDescribeScalingProcessTypesCommand(
+export const serializeAws_queryDescribeScalingProcessTypesCommand = async (
   input: DescribeScalingProcessTypesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   const body = buildFormUrlencodedString({
     Action: "DescribeScalingProcessTypes",
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDescribeScheduledActionsCommand(
+export const serializeAws_queryDescribeScheduledActionsCommand = async (
   input: DescribeScheduledActionsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeScheduledActionsType(
     input,
@@ -885,14 +919,15 @@ export async function serializeAws_queryDescribeScheduledActionsCommand(
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDescribeTagsCommand(
+export const serializeAws_queryDescribeTagsCommand = async (
   input: DescribeTagsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDescribeTagsType(input, context);
   body = buildFormUrlencodedString({
@@ -901,27 +936,29 @@ export async function serializeAws_queryDescribeTagsCommand(
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDescribeTerminationPolicyTypesCommand(
+export const serializeAws_queryDescribeTerminationPolicyTypesCommand = async (
   input: DescribeTerminationPolicyTypesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   const body = buildFormUrlencodedString({
     Action: "DescribeTerminationPolicyTypes",
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDetachInstancesCommand(
+export const serializeAws_queryDetachInstancesCommand = async (
   input: DetachInstancesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDetachInstancesQuery(input, context);
   body = buildFormUrlencodedString({
@@ -930,14 +967,15 @@ export async function serializeAws_queryDetachInstancesCommand(
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDetachLoadBalancerTargetGroupsCommand(
+export const serializeAws_queryDetachLoadBalancerTargetGroupsCommand = async (
   input: DetachLoadBalancerTargetGroupsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDetachLoadBalancerTargetGroupsType(
     input,
@@ -949,14 +987,15 @@ export async function serializeAws_queryDetachLoadBalancerTargetGroupsCommand(
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDetachLoadBalancersCommand(
+export const serializeAws_queryDetachLoadBalancersCommand = async (
   input: DetachLoadBalancersCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDetachLoadBalancersType(input, context);
   body = buildFormUrlencodedString({
@@ -965,14 +1004,15 @@ export async function serializeAws_queryDetachLoadBalancersCommand(
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryDisableMetricsCollectionCommand(
+export const serializeAws_queryDisableMetricsCollectionCommand = async (
   input: DisableMetricsCollectionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryDisableMetricsCollectionQuery(
     input,
@@ -984,14 +1024,15 @@ export async function serializeAws_queryDisableMetricsCollectionCommand(
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryEnableMetricsCollectionCommand(
+export const serializeAws_queryEnableMetricsCollectionCommand = async (
   input: EnableMetricsCollectionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryEnableMetricsCollectionQuery(
     input,
@@ -1003,14 +1044,15 @@ export async function serializeAws_queryEnableMetricsCollectionCommand(
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryEnterStandbyCommand(
+export const serializeAws_queryEnterStandbyCommand = async (
   input: EnterStandbyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryEnterStandbyQuery(input, context);
   body = buildFormUrlencodedString({
@@ -1019,14 +1061,15 @@ export async function serializeAws_queryEnterStandbyCommand(
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryExecutePolicyCommand(
+export const serializeAws_queryExecutePolicyCommand = async (
   input: ExecutePolicyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryExecutePolicyType(input, context);
   body = buildFormUrlencodedString({
@@ -1035,14 +1078,15 @@ export async function serializeAws_queryExecutePolicyCommand(
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryExitStandbyCommand(
+export const serializeAws_queryExitStandbyCommand = async (
   input: ExitStandbyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryExitStandbyQuery(input, context);
   body = buildFormUrlencodedString({
@@ -1051,14 +1095,15 @@ export async function serializeAws_queryExitStandbyCommand(
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryPutLifecycleHookCommand(
+export const serializeAws_queryPutLifecycleHookCommand = async (
   input: PutLifecycleHookCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryPutLifecycleHookType(input, context);
   body = buildFormUrlencodedString({
@@ -1067,14 +1112,15 @@ export async function serializeAws_queryPutLifecycleHookCommand(
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryPutNotificationConfigurationCommand(
+export const serializeAws_queryPutNotificationConfigurationCommand = async (
   input: PutNotificationConfigurationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryPutNotificationConfigurationType(
     input,
@@ -1086,14 +1132,15 @@ export async function serializeAws_queryPutNotificationConfigurationCommand(
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryPutScalingPolicyCommand(
+export const serializeAws_queryPutScalingPolicyCommand = async (
   input: PutScalingPolicyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryPutScalingPolicyType(input, context);
   body = buildFormUrlencodedString({
@@ -1102,14 +1149,15 @@ export async function serializeAws_queryPutScalingPolicyCommand(
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryPutScheduledUpdateGroupActionCommand(
+export const serializeAws_queryPutScheduledUpdateGroupActionCommand = async (
   input: PutScheduledUpdateGroupActionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryPutScheduledUpdateGroupActionType(
     input,
@@ -1121,14 +1169,15 @@ export async function serializeAws_queryPutScheduledUpdateGroupActionCommand(
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryRecordLifecycleActionHeartbeatCommand(
+export const serializeAws_queryRecordLifecycleActionHeartbeatCommand = async (
   input: RecordLifecycleActionHeartbeatCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryRecordLifecycleActionHeartbeatType(
     input,
@@ -1140,14 +1189,15 @@ export async function serializeAws_queryRecordLifecycleActionHeartbeatCommand(
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryResumeProcessesCommand(
+export const serializeAws_queryResumeProcessesCommand = async (
   input: ResumeProcessesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryScalingProcessQuery(input, context);
   body = buildFormUrlencodedString({
@@ -1156,14 +1206,15 @@ export async function serializeAws_queryResumeProcessesCommand(
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_querySetDesiredCapacityCommand(
+export const serializeAws_querySetDesiredCapacityCommand = async (
   input: SetDesiredCapacityCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_querySetDesiredCapacityType(input, context);
   body = buildFormUrlencodedString({
@@ -1172,14 +1223,15 @@ export async function serializeAws_querySetDesiredCapacityCommand(
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_querySetInstanceHealthCommand(
+export const serializeAws_querySetInstanceHealthCommand = async (
   input: SetInstanceHealthCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_querySetInstanceHealthQuery(input, context);
   body = buildFormUrlencodedString({
@@ -1188,14 +1240,15 @@ export async function serializeAws_querySetInstanceHealthCommand(
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_querySetInstanceProtectionCommand(
+export const serializeAws_querySetInstanceProtectionCommand = async (
   input: SetInstanceProtectionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_querySetInstanceProtectionQuery(input, context);
   body = buildFormUrlencodedString({
@@ -1204,14 +1257,15 @@ export async function serializeAws_querySetInstanceProtectionCommand(
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_querySuspendProcessesCommand(
+export const serializeAws_querySuspendProcessesCommand = async (
   input: SuspendProcessesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryScalingProcessQuery(input, context);
   body = buildFormUrlencodedString({
@@ -1220,14 +1274,15 @@ export async function serializeAws_querySuspendProcessesCommand(
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryTerminateInstanceInAutoScalingGroupCommand(
+export const serializeAws_queryTerminateInstanceInAutoScalingGroupCommand = async (
   input: TerminateInstanceInAutoScalingGroupCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryTerminateInstanceInAutoScalingGroupType(
     input,
@@ -1239,14 +1294,15 @@ export async function serializeAws_queryTerminateInstanceInAutoScalingGroupComma
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_queryUpdateAutoScalingGroupCommand(
+export const serializeAws_queryUpdateAutoScalingGroupCommand = async (
   input: UpdateAutoScalingGroupCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_queryUpdateAutoScalingGroupType(input, context);
   body = buildFormUrlencodedString({
@@ -1255,12 +1311,12 @@ export async function serializeAws_queryUpdateAutoScalingGroupCommand(
     Version: "2011-01-01"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_queryAttachInstancesCommand(
+export const deserializeAws_queryAttachInstancesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AttachInstancesCommandOutput> {
+): Promise<AttachInstancesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryAttachInstancesCommandError(output, context);
   }
@@ -1269,12 +1325,12 @@ export async function deserializeAws_queryAttachInstancesCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryAttachInstancesCommandError(
+const deserializeAws_queryAttachInstancesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AttachInstancesCommandOutput> {
+): Promise<AttachInstancesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1321,12 +1377,12 @@ async function deserializeAws_queryAttachInstancesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryAttachLoadBalancerTargetGroupsCommand(
+export const deserializeAws_queryAttachLoadBalancerTargetGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AttachLoadBalancerTargetGroupsCommandOutput> {
+): Promise<AttachLoadBalancerTargetGroupsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryAttachLoadBalancerTargetGroupsCommandError(
       output,
@@ -1345,12 +1401,12 @@ export async function deserializeAws_queryAttachLoadBalancerTargetGroupsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryAttachLoadBalancerTargetGroupsCommandError(
+const deserializeAws_queryAttachLoadBalancerTargetGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AttachLoadBalancerTargetGroupsCommandOutput> {
+): Promise<AttachLoadBalancerTargetGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1397,12 +1453,12 @@ async function deserializeAws_queryAttachLoadBalancerTargetGroupsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryAttachLoadBalancersCommand(
+export const deserializeAws_queryAttachLoadBalancersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AttachLoadBalancersCommandOutput> {
+): Promise<AttachLoadBalancersCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryAttachLoadBalancersCommandError(output, context);
   }
@@ -1418,12 +1474,12 @@ export async function deserializeAws_queryAttachLoadBalancersCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryAttachLoadBalancersCommandError(
+const deserializeAws_queryAttachLoadBalancersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AttachLoadBalancersCommandOutput> {
+): Promise<AttachLoadBalancersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1470,12 +1526,12 @@ async function deserializeAws_queryAttachLoadBalancersCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryBatchDeleteScheduledActionCommand(
+export const deserializeAws_queryBatchDeleteScheduledActionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchDeleteScheduledActionCommandOutput> {
+): Promise<BatchDeleteScheduledActionCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryBatchDeleteScheduledActionCommandError(
       output,
@@ -1494,12 +1550,12 @@ export async function deserializeAws_queryBatchDeleteScheduledActionCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryBatchDeleteScheduledActionCommandError(
+const deserializeAws_queryBatchDeleteScheduledActionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchDeleteScheduledActionCommandOutput> {
+): Promise<BatchDeleteScheduledActionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1535,12 +1591,12 @@ async function deserializeAws_queryBatchDeleteScheduledActionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryBatchPutScheduledUpdateGroupActionCommand(
+export const deserializeAws_queryBatchPutScheduledUpdateGroupActionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchPutScheduledUpdateGroupActionCommandOutput> {
+): Promise<BatchPutScheduledUpdateGroupActionCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryBatchPutScheduledUpdateGroupActionCommandError(
       output,
@@ -1559,12 +1615,12 @@ export async function deserializeAws_queryBatchPutScheduledUpdateGroupActionComm
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryBatchPutScheduledUpdateGroupActionCommandError(
+const deserializeAws_queryBatchPutScheduledUpdateGroupActionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchPutScheduledUpdateGroupActionCommandOutput> {
+): Promise<BatchPutScheduledUpdateGroupActionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1622,12 +1678,12 @@ async function deserializeAws_queryBatchPutScheduledUpdateGroupActionCommandErro
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryCompleteLifecycleActionCommand(
+export const deserializeAws_queryCompleteLifecycleActionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CompleteLifecycleActionCommandOutput> {
+): Promise<CompleteLifecycleActionCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryCompleteLifecycleActionCommandError(
       output,
@@ -1646,12 +1702,12 @@ export async function deserializeAws_queryCompleteLifecycleActionCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryCompleteLifecycleActionCommandError(
+const deserializeAws_queryCompleteLifecycleActionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CompleteLifecycleActionCommandOutput> {
+): Promise<CompleteLifecycleActionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1687,12 +1743,12 @@ async function deserializeAws_queryCompleteLifecycleActionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryCreateAutoScalingGroupCommand(
+export const deserializeAws_queryCreateAutoScalingGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateAutoScalingGroupCommandOutput> {
+): Promise<CreateAutoScalingGroupCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryCreateAutoScalingGroupCommandError(
       output,
@@ -1704,12 +1760,12 @@ export async function deserializeAws_queryCreateAutoScalingGroupCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryCreateAutoScalingGroupCommandError(
+const deserializeAws_queryCreateAutoScalingGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateAutoScalingGroupCommandOutput> {
+): Promise<CreateAutoScalingGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1778,12 +1834,12 @@ async function deserializeAws_queryCreateAutoScalingGroupCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryCreateLaunchConfigurationCommand(
+export const deserializeAws_queryCreateLaunchConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateLaunchConfigurationCommandOutput> {
+): Promise<CreateLaunchConfigurationCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryCreateLaunchConfigurationCommandError(
       output,
@@ -1795,12 +1851,12 @@ export async function deserializeAws_queryCreateLaunchConfigurationCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryCreateLaunchConfigurationCommandError(
+const deserializeAws_queryCreateLaunchConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateLaunchConfigurationCommandOutput> {
+): Promise<CreateLaunchConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1858,12 +1914,12 @@ async function deserializeAws_queryCreateLaunchConfigurationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryCreateOrUpdateTagsCommand(
+export const deserializeAws_queryCreateOrUpdateTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateOrUpdateTagsCommandOutput> {
+): Promise<CreateOrUpdateTagsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryCreateOrUpdateTagsCommandError(output, context);
   }
@@ -1872,12 +1928,12 @@ export async function deserializeAws_queryCreateOrUpdateTagsCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryCreateOrUpdateTagsCommandError(
+const deserializeAws_queryCreateOrUpdateTagsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateOrUpdateTagsCommandOutput> {
+): Promise<CreateOrUpdateTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1946,12 +2002,12 @@ async function deserializeAws_queryCreateOrUpdateTagsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDeleteAutoScalingGroupCommand(
+export const deserializeAws_queryDeleteAutoScalingGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteAutoScalingGroupCommandOutput> {
+): Promise<DeleteAutoScalingGroupCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDeleteAutoScalingGroupCommandError(
       output,
@@ -1963,12 +2019,12 @@ export async function deserializeAws_queryDeleteAutoScalingGroupCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDeleteAutoScalingGroupCommandError(
+const deserializeAws_queryDeleteAutoScalingGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteAutoScalingGroupCommandOutput> {
+): Promise<DeleteAutoScalingGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2026,12 +2082,12 @@ async function deserializeAws_queryDeleteAutoScalingGroupCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDeleteLaunchConfigurationCommand(
+export const deserializeAws_queryDeleteLaunchConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteLaunchConfigurationCommandOutput> {
+): Promise<DeleteLaunchConfigurationCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDeleteLaunchConfigurationCommandError(
       output,
@@ -2043,12 +2099,12 @@ export async function deserializeAws_queryDeleteLaunchConfigurationCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDeleteLaunchConfigurationCommandError(
+const deserializeAws_queryDeleteLaunchConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteLaunchConfigurationCommandOutput> {
+): Promise<DeleteLaunchConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2095,12 +2151,12 @@ async function deserializeAws_queryDeleteLaunchConfigurationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDeleteLifecycleHookCommand(
+export const deserializeAws_queryDeleteLifecycleHookCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteLifecycleHookCommandOutput> {
+): Promise<DeleteLifecycleHookCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDeleteLifecycleHookCommandError(output, context);
   }
@@ -2116,12 +2172,12 @@ export async function deserializeAws_queryDeleteLifecycleHookCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDeleteLifecycleHookCommandError(
+const deserializeAws_queryDeleteLifecycleHookCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteLifecycleHookCommandOutput> {
+): Promise<DeleteLifecycleHookCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2157,12 +2213,12 @@ async function deserializeAws_queryDeleteLifecycleHookCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDeleteNotificationConfigurationCommand(
+export const deserializeAws_queryDeleteNotificationConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteNotificationConfigurationCommandOutput> {
+): Promise<DeleteNotificationConfigurationCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDeleteNotificationConfigurationCommandError(
       output,
@@ -2174,12 +2230,12 @@ export async function deserializeAws_queryDeleteNotificationConfigurationCommand
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDeleteNotificationConfigurationCommandError(
+const deserializeAws_queryDeleteNotificationConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteNotificationConfigurationCommandOutput> {
+): Promise<DeleteNotificationConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2215,12 +2271,12 @@ async function deserializeAws_queryDeleteNotificationConfigurationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDeletePolicyCommand(
+export const deserializeAws_queryDeletePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeletePolicyCommandOutput> {
+): Promise<DeletePolicyCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDeletePolicyCommandError(output, context);
   }
@@ -2229,12 +2285,12 @@ export async function deserializeAws_queryDeletePolicyCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDeletePolicyCommandError(
+const deserializeAws_queryDeletePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeletePolicyCommandOutput> {
+): Promise<DeletePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2281,12 +2337,12 @@ async function deserializeAws_queryDeletePolicyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDeleteScheduledActionCommand(
+export const deserializeAws_queryDeleteScheduledActionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteScheduledActionCommandOutput> {
+): Promise<DeleteScheduledActionCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDeleteScheduledActionCommandError(
       output,
@@ -2298,12 +2354,12 @@ export async function deserializeAws_queryDeleteScheduledActionCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDeleteScheduledActionCommandError(
+const deserializeAws_queryDeleteScheduledActionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteScheduledActionCommandOutput> {
+): Promise<DeleteScheduledActionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2339,12 +2395,12 @@ async function deserializeAws_queryDeleteScheduledActionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDeleteTagsCommand(
+export const deserializeAws_queryDeleteTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteTagsCommandOutput> {
+): Promise<DeleteTagsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDeleteTagsCommandError(output, context);
   }
@@ -2353,12 +2409,12 @@ export async function deserializeAws_queryDeleteTagsCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDeleteTagsCommandError(
+const deserializeAws_queryDeleteTagsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteTagsCommandOutput> {
+): Promise<DeleteTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2405,12 +2461,12 @@ async function deserializeAws_queryDeleteTagsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDescribeAccountLimitsCommand(
+export const deserializeAws_queryDescribeAccountLimitsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeAccountLimitsCommandOutput> {
+): Promise<DescribeAccountLimitsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDescribeAccountLimitsCommandError(
       output,
@@ -2429,12 +2485,12 @@ export async function deserializeAws_queryDescribeAccountLimitsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDescribeAccountLimitsCommandError(
+const deserializeAws_queryDescribeAccountLimitsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeAccountLimitsCommandOutput> {
+): Promise<DescribeAccountLimitsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2470,12 +2526,12 @@ async function deserializeAws_queryDescribeAccountLimitsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDescribeAdjustmentTypesCommand(
+export const deserializeAws_queryDescribeAdjustmentTypesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeAdjustmentTypesCommandOutput> {
+): Promise<DescribeAdjustmentTypesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDescribeAdjustmentTypesCommandError(
       output,
@@ -2494,12 +2550,12 @@ export async function deserializeAws_queryDescribeAdjustmentTypesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDescribeAdjustmentTypesCommandError(
+const deserializeAws_queryDescribeAdjustmentTypesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeAdjustmentTypesCommandOutput> {
+): Promise<DescribeAdjustmentTypesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2535,12 +2591,12 @@ async function deserializeAws_queryDescribeAdjustmentTypesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDescribeAutoScalingGroupsCommand(
+export const deserializeAws_queryDescribeAutoScalingGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeAutoScalingGroupsCommandOutput> {
+): Promise<DescribeAutoScalingGroupsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDescribeAutoScalingGroupsCommandError(
       output,
@@ -2559,12 +2615,12 @@ export async function deserializeAws_queryDescribeAutoScalingGroupsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDescribeAutoScalingGroupsCommandError(
+const deserializeAws_queryDescribeAutoScalingGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeAutoScalingGroupsCommandOutput> {
+): Promise<DescribeAutoScalingGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2611,12 +2667,12 @@ async function deserializeAws_queryDescribeAutoScalingGroupsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDescribeAutoScalingInstancesCommand(
+export const deserializeAws_queryDescribeAutoScalingInstancesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeAutoScalingInstancesCommandOutput> {
+): Promise<DescribeAutoScalingInstancesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDescribeAutoScalingInstancesCommandError(
       output,
@@ -2635,12 +2691,12 @@ export async function deserializeAws_queryDescribeAutoScalingInstancesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDescribeAutoScalingInstancesCommandError(
+const deserializeAws_queryDescribeAutoScalingInstancesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeAutoScalingInstancesCommandOutput> {
+): Promise<DescribeAutoScalingInstancesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2687,12 +2743,12 @@ async function deserializeAws_queryDescribeAutoScalingInstancesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDescribeAutoScalingNotificationTypesCommand(
+export const deserializeAws_queryDescribeAutoScalingNotificationTypesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeAutoScalingNotificationTypesCommandOutput> {
+): Promise<DescribeAutoScalingNotificationTypesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDescribeAutoScalingNotificationTypesCommandError(
       output,
@@ -2711,12 +2767,12 @@ export async function deserializeAws_queryDescribeAutoScalingNotificationTypesCo
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDescribeAutoScalingNotificationTypesCommandError(
+const deserializeAws_queryDescribeAutoScalingNotificationTypesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeAutoScalingNotificationTypesCommandOutput> {
+): Promise<DescribeAutoScalingNotificationTypesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2752,12 +2808,12 @@ async function deserializeAws_queryDescribeAutoScalingNotificationTypesCommandEr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDescribeLaunchConfigurationsCommand(
+export const deserializeAws_queryDescribeLaunchConfigurationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeLaunchConfigurationsCommandOutput> {
+): Promise<DescribeLaunchConfigurationsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDescribeLaunchConfigurationsCommandError(
       output,
@@ -2776,12 +2832,12 @@ export async function deserializeAws_queryDescribeLaunchConfigurationsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDescribeLaunchConfigurationsCommandError(
+const deserializeAws_queryDescribeLaunchConfigurationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeLaunchConfigurationsCommandOutput> {
+): Promise<DescribeLaunchConfigurationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2828,12 +2884,12 @@ async function deserializeAws_queryDescribeLaunchConfigurationsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDescribeLifecycleHookTypesCommand(
+export const deserializeAws_queryDescribeLifecycleHookTypesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeLifecycleHookTypesCommandOutput> {
+): Promise<DescribeLifecycleHookTypesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDescribeLifecycleHookTypesCommandError(
       output,
@@ -2852,12 +2908,12 @@ export async function deserializeAws_queryDescribeLifecycleHookTypesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDescribeLifecycleHookTypesCommandError(
+const deserializeAws_queryDescribeLifecycleHookTypesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeLifecycleHookTypesCommandOutput> {
+): Promise<DescribeLifecycleHookTypesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2893,12 +2949,12 @@ async function deserializeAws_queryDescribeLifecycleHookTypesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDescribeLifecycleHooksCommand(
+export const deserializeAws_queryDescribeLifecycleHooksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeLifecycleHooksCommandOutput> {
+): Promise<DescribeLifecycleHooksCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDescribeLifecycleHooksCommandError(
       output,
@@ -2917,12 +2973,12 @@ export async function deserializeAws_queryDescribeLifecycleHooksCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDescribeLifecycleHooksCommandError(
+const deserializeAws_queryDescribeLifecycleHooksCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeLifecycleHooksCommandOutput> {
+): Promise<DescribeLifecycleHooksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2958,12 +3014,12 @@ async function deserializeAws_queryDescribeLifecycleHooksCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDescribeLoadBalancerTargetGroupsCommand(
+export const deserializeAws_queryDescribeLoadBalancerTargetGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeLoadBalancerTargetGroupsCommandOutput> {
+): Promise<DescribeLoadBalancerTargetGroupsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDescribeLoadBalancerTargetGroupsCommandError(
       output,
@@ -2982,12 +3038,12 @@ export async function deserializeAws_queryDescribeLoadBalancerTargetGroupsComman
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDescribeLoadBalancerTargetGroupsCommandError(
+const deserializeAws_queryDescribeLoadBalancerTargetGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeLoadBalancerTargetGroupsCommandOutput> {
+): Promise<DescribeLoadBalancerTargetGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3023,12 +3079,12 @@ async function deserializeAws_queryDescribeLoadBalancerTargetGroupsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDescribeLoadBalancersCommand(
+export const deserializeAws_queryDescribeLoadBalancersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeLoadBalancersCommandOutput> {
+): Promise<DescribeLoadBalancersCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDescribeLoadBalancersCommandError(
       output,
@@ -3047,12 +3103,12 @@ export async function deserializeAws_queryDescribeLoadBalancersCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDescribeLoadBalancersCommandError(
+const deserializeAws_queryDescribeLoadBalancersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeLoadBalancersCommandOutput> {
+): Promise<DescribeLoadBalancersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3088,12 +3144,12 @@ async function deserializeAws_queryDescribeLoadBalancersCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDescribeMetricCollectionTypesCommand(
+export const deserializeAws_queryDescribeMetricCollectionTypesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeMetricCollectionTypesCommandOutput> {
+): Promise<DescribeMetricCollectionTypesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDescribeMetricCollectionTypesCommandError(
       output,
@@ -3112,12 +3168,12 @@ export async function deserializeAws_queryDescribeMetricCollectionTypesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDescribeMetricCollectionTypesCommandError(
+const deserializeAws_queryDescribeMetricCollectionTypesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeMetricCollectionTypesCommandOutput> {
+): Promise<DescribeMetricCollectionTypesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3153,12 +3209,12 @@ async function deserializeAws_queryDescribeMetricCollectionTypesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDescribeNotificationConfigurationsCommand(
+export const deserializeAws_queryDescribeNotificationConfigurationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeNotificationConfigurationsCommandOutput> {
+): Promise<DescribeNotificationConfigurationsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDescribeNotificationConfigurationsCommandError(
       output,
@@ -3177,12 +3233,12 @@ export async function deserializeAws_queryDescribeNotificationConfigurationsComm
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDescribeNotificationConfigurationsCommandError(
+const deserializeAws_queryDescribeNotificationConfigurationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeNotificationConfigurationsCommandOutput> {
+): Promise<DescribeNotificationConfigurationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3229,12 +3285,12 @@ async function deserializeAws_queryDescribeNotificationConfigurationsCommandErro
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDescribePoliciesCommand(
+export const deserializeAws_queryDescribePoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribePoliciesCommandOutput> {
+): Promise<DescribePoliciesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDescribePoliciesCommandError(output, context);
   }
@@ -3250,12 +3306,12 @@ export async function deserializeAws_queryDescribePoliciesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDescribePoliciesCommandError(
+const deserializeAws_queryDescribePoliciesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribePoliciesCommandOutput> {
+): Promise<DescribePoliciesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3313,12 +3369,12 @@ async function deserializeAws_queryDescribePoliciesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDescribeScalingActivitiesCommand(
+export const deserializeAws_queryDescribeScalingActivitiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeScalingActivitiesCommandOutput> {
+): Promise<DescribeScalingActivitiesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDescribeScalingActivitiesCommandError(
       output,
@@ -3337,12 +3393,12 @@ export async function deserializeAws_queryDescribeScalingActivitiesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDescribeScalingActivitiesCommandError(
+const deserializeAws_queryDescribeScalingActivitiesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeScalingActivitiesCommandOutput> {
+): Promise<DescribeScalingActivitiesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3389,12 +3445,12 @@ async function deserializeAws_queryDescribeScalingActivitiesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDescribeScalingProcessTypesCommand(
+export const deserializeAws_queryDescribeScalingProcessTypesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeScalingProcessTypesCommandOutput> {
+): Promise<DescribeScalingProcessTypesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDescribeScalingProcessTypesCommandError(
       output,
@@ -3413,12 +3469,12 @@ export async function deserializeAws_queryDescribeScalingProcessTypesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDescribeScalingProcessTypesCommandError(
+const deserializeAws_queryDescribeScalingProcessTypesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeScalingProcessTypesCommandOutput> {
+): Promise<DescribeScalingProcessTypesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3454,12 +3510,12 @@ async function deserializeAws_queryDescribeScalingProcessTypesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDescribeScheduledActionsCommand(
+export const deserializeAws_queryDescribeScheduledActionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeScheduledActionsCommandOutput> {
+): Promise<DescribeScheduledActionsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDescribeScheduledActionsCommandError(
       output,
@@ -3478,12 +3534,12 @@ export async function deserializeAws_queryDescribeScheduledActionsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDescribeScheduledActionsCommandError(
+const deserializeAws_queryDescribeScheduledActionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeScheduledActionsCommandOutput> {
+): Promise<DescribeScheduledActionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3530,12 +3586,12 @@ async function deserializeAws_queryDescribeScheduledActionsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDescribeTagsCommand(
+export const deserializeAws_queryDescribeTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeTagsCommandOutput> {
+): Promise<DescribeTagsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDescribeTagsCommandError(output, context);
   }
@@ -3548,12 +3604,12 @@ export async function deserializeAws_queryDescribeTagsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDescribeTagsCommandError(
+const deserializeAws_queryDescribeTagsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeTagsCommandOutput> {
+): Promise<DescribeTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3600,12 +3656,12 @@ async function deserializeAws_queryDescribeTagsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDescribeTerminationPolicyTypesCommand(
+export const deserializeAws_queryDescribeTerminationPolicyTypesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeTerminationPolicyTypesCommandOutput> {
+): Promise<DescribeTerminationPolicyTypesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDescribeTerminationPolicyTypesCommandError(
       output,
@@ -3624,12 +3680,12 @@ export async function deserializeAws_queryDescribeTerminationPolicyTypesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDescribeTerminationPolicyTypesCommandError(
+const deserializeAws_queryDescribeTerminationPolicyTypesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeTerminationPolicyTypesCommandOutput> {
+): Promise<DescribeTerminationPolicyTypesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3665,12 +3721,12 @@ async function deserializeAws_queryDescribeTerminationPolicyTypesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDetachInstancesCommand(
+export const deserializeAws_queryDetachInstancesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DetachInstancesCommandOutput> {
+): Promise<DetachInstancesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDetachInstancesCommandError(output, context);
   }
@@ -3686,12 +3742,12 @@ export async function deserializeAws_queryDetachInstancesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDetachInstancesCommandError(
+const deserializeAws_queryDetachInstancesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DetachInstancesCommandOutput> {
+): Promise<DetachInstancesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3727,12 +3783,12 @@ async function deserializeAws_queryDetachInstancesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDetachLoadBalancerTargetGroupsCommand(
+export const deserializeAws_queryDetachLoadBalancerTargetGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DetachLoadBalancerTargetGroupsCommandOutput> {
+): Promise<DetachLoadBalancerTargetGroupsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDetachLoadBalancerTargetGroupsCommandError(
       output,
@@ -3751,12 +3807,12 @@ export async function deserializeAws_queryDetachLoadBalancerTargetGroupsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDetachLoadBalancerTargetGroupsCommandError(
+const deserializeAws_queryDetachLoadBalancerTargetGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DetachLoadBalancerTargetGroupsCommandOutput> {
+): Promise<DetachLoadBalancerTargetGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3792,12 +3848,12 @@ async function deserializeAws_queryDetachLoadBalancerTargetGroupsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDetachLoadBalancersCommand(
+export const deserializeAws_queryDetachLoadBalancersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DetachLoadBalancersCommandOutput> {
+): Promise<DetachLoadBalancersCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDetachLoadBalancersCommandError(output, context);
   }
@@ -3813,12 +3869,12 @@ export async function deserializeAws_queryDetachLoadBalancersCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDetachLoadBalancersCommandError(
+const deserializeAws_queryDetachLoadBalancersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DetachLoadBalancersCommandOutput> {
+): Promise<DetachLoadBalancersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3854,12 +3910,12 @@ async function deserializeAws_queryDetachLoadBalancersCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryDisableMetricsCollectionCommand(
+export const deserializeAws_queryDisableMetricsCollectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisableMetricsCollectionCommandOutput> {
+): Promise<DisableMetricsCollectionCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryDisableMetricsCollectionCommandError(
       output,
@@ -3871,12 +3927,12 @@ export async function deserializeAws_queryDisableMetricsCollectionCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryDisableMetricsCollectionCommandError(
+const deserializeAws_queryDisableMetricsCollectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisableMetricsCollectionCommandOutput> {
+): Promise<DisableMetricsCollectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3912,12 +3968,12 @@ async function deserializeAws_queryDisableMetricsCollectionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryEnableMetricsCollectionCommand(
+export const deserializeAws_queryEnableMetricsCollectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<EnableMetricsCollectionCommandOutput> {
+): Promise<EnableMetricsCollectionCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryEnableMetricsCollectionCommandError(
       output,
@@ -3929,12 +3985,12 @@ export async function deserializeAws_queryEnableMetricsCollectionCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryEnableMetricsCollectionCommandError(
+const deserializeAws_queryEnableMetricsCollectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<EnableMetricsCollectionCommandOutput> {
+): Promise<EnableMetricsCollectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3970,12 +4026,12 @@ async function deserializeAws_queryEnableMetricsCollectionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryEnterStandbyCommand(
+export const deserializeAws_queryEnterStandbyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<EnterStandbyCommandOutput> {
+): Promise<EnterStandbyCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryEnterStandbyCommandError(output, context);
   }
@@ -3991,12 +4047,12 @@ export async function deserializeAws_queryEnterStandbyCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryEnterStandbyCommandError(
+const deserializeAws_queryEnterStandbyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<EnterStandbyCommandOutput> {
+): Promise<EnterStandbyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4032,12 +4088,12 @@ async function deserializeAws_queryEnterStandbyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryExecutePolicyCommand(
+export const deserializeAws_queryExecutePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ExecutePolicyCommandOutput> {
+): Promise<ExecutePolicyCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryExecutePolicyCommandError(output, context);
   }
@@ -4046,12 +4102,12 @@ export async function deserializeAws_queryExecutePolicyCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryExecutePolicyCommandError(
+const deserializeAws_queryExecutePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ExecutePolicyCommandOutput> {
+): Promise<ExecutePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4098,12 +4154,12 @@ async function deserializeAws_queryExecutePolicyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryExitStandbyCommand(
+export const deserializeAws_queryExitStandbyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ExitStandbyCommandOutput> {
+): Promise<ExitStandbyCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryExitStandbyCommandError(output, context);
   }
@@ -4119,12 +4175,12 @@ export async function deserializeAws_queryExitStandbyCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryExitStandbyCommandError(
+const deserializeAws_queryExitStandbyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ExitStandbyCommandOutput> {
+): Promise<ExitStandbyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4160,12 +4216,12 @@ async function deserializeAws_queryExitStandbyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryPutLifecycleHookCommand(
+export const deserializeAws_queryPutLifecycleHookCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutLifecycleHookCommandOutput> {
+): Promise<PutLifecycleHookCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryPutLifecycleHookCommandError(output, context);
   }
@@ -4181,12 +4237,12 @@ export async function deserializeAws_queryPutLifecycleHookCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryPutLifecycleHookCommandError(
+const deserializeAws_queryPutLifecycleHookCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutLifecycleHookCommandOutput> {
+): Promise<PutLifecycleHookCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4233,12 +4289,12 @@ async function deserializeAws_queryPutLifecycleHookCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryPutNotificationConfigurationCommand(
+export const deserializeAws_queryPutNotificationConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutNotificationConfigurationCommandOutput> {
+): Promise<PutNotificationConfigurationCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryPutNotificationConfigurationCommandError(
       output,
@@ -4250,12 +4306,12 @@ export async function deserializeAws_queryPutNotificationConfigurationCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryPutNotificationConfigurationCommandError(
+const deserializeAws_queryPutNotificationConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutNotificationConfigurationCommandOutput> {
+): Promise<PutNotificationConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4313,12 +4369,12 @@ async function deserializeAws_queryPutNotificationConfigurationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryPutScalingPolicyCommand(
+export const deserializeAws_queryPutScalingPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutScalingPolicyCommandOutput> {
+): Promise<PutScalingPolicyCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryPutScalingPolicyCommandError(output, context);
   }
@@ -4334,12 +4390,12 @@ export async function deserializeAws_queryPutScalingPolicyCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryPutScalingPolicyCommandError(
+const deserializeAws_queryPutScalingPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutScalingPolicyCommandOutput> {
+): Promise<PutScalingPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4397,12 +4453,12 @@ async function deserializeAws_queryPutScalingPolicyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryPutScheduledUpdateGroupActionCommand(
+export const deserializeAws_queryPutScheduledUpdateGroupActionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutScheduledUpdateGroupActionCommandOutput> {
+): Promise<PutScheduledUpdateGroupActionCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryPutScheduledUpdateGroupActionCommandError(
       output,
@@ -4414,12 +4470,12 @@ export async function deserializeAws_queryPutScheduledUpdateGroupActionCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryPutScheduledUpdateGroupActionCommandError(
+const deserializeAws_queryPutScheduledUpdateGroupActionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutScheduledUpdateGroupActionCommandOutput> {
+): Promise<PutScheduledUpdateGroupActionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4477,12 +4533,12 @@ async function deserializeAws_queryPutScheduledUpdateGroupActionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryRecordLifecycleActionHeartbeatCommand(
+export const deserializeAws_queryRecordLifecycleActionHeartbeatCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RecordLifecycleActionHeartbeatCommandOutput> {
+): Promise<RecordLifecycleActionHeartbeatCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryRecordLifecycleActionHeartbeatCommandError(
       output,
@@ -4501,12 +4557,12 @@ export async function deserializeAws_queryRecordLifecycleActionHeartbeatCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryRecordLifecycleActionHeartbeatCommandError(
+const deserializeAws_queryRecordLifecycleActionHeartbeatCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RecordLifecycleActionHeartbeatCommandOutput> {
+): Promise<RecordLifecycleActionHeartbeatCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4542,12 +4598,12 @@ async function deserializeAws_queryRecordLifecycleActionHeartbeatCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryResumeProcessesCommand(
+export const deserializeAws_queryResumeProcessesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ResumeProcessesCommandOutput> {
+): Promise<ResumeProcessesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryResumeProcessesCommandError(output, context);
   }
@@ -4556,12 +4612,12 @@ export async function deserializeAws_queryResumeProcessesCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryResumeProcessesCommandError(
+const deserializeAws_queryResumeProcessesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ResumeProcessesCommandOutput> {
+): Promise<ResumeProcessesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4608,12 +4664,12 @@ async function deserializeAws_queryResumeProcessesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_querySetDesiredCapacityCommand(
+export const deserializeAws_querySetDesiredCapacityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SetDesiredCapacityCommandOutput> {
+): Promise<SetDesiredCapacityCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_querySetDesiredCapacityCommandError(output, context);
   }
@@ -4622,12 +4678,12 @@ export async function deserializeAws_querySetDesiredCapacityCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_querySetDesiredCapacityCommandError(
+const deserializeAws_querySetDesiredCapacityCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SetDesiredCapacityCommandOutput> {
+): Promise<SetDesiredCapacityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4674,12 +4730,12 @@ async function deserializeAws_querySetDesiredCapacityCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_querySetInstanceHealthCommand(
+export const deserializeAws_querySetInstanceHealthCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SetInstanceHealthCommandOutput> {
+): Promise<SetInstanceHealthCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_querySetInstanceHealthCommandError(output, context);
   }
@@ -4688,12 +4744,12 @@ export async function deserializeAws_querySetInstanceHealthCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_querySetInstanceHealthCommandError(
+const deserializeAws_querySetInstanceHealthCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SetInstanceHealthCommandOutput> {
+): Promise<SetInstanceHealthCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4729,12 +4785,12 @@ async function deserializeAws_querySetInstanceHealthCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_querySetInstanceProtectionCommand(
+export const deserializeAws_querySetInstanceProtectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SetInstanceProtectionCommandOutput> {
+): Promise<SetInstanceProtectionCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_querySetInstanceProtectionCommandError(
       output,
@@ -4753,12 +4809,12 @@ export async function deserializeAws_querySetInstanceProtectionCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_querySetInstanceProtectionCommandError(
+const deserializeAws_querySetInstanceProtectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SetInstanceProtectionCommandOutput> {
+): Promise<SetInstanceProtectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4805,12 +4861,12 @@ async function deserializeAws_querySetInstanceProtectionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_querySuspendProcessesCommand(
+export const deserializeAws_querySuspendProcessesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SuspendProcessesCommandOutput> {
+): Promise<SuspendProcessesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_querySuspendProcessesCommandError(output, context);
   }
@@ -4819,12 +4875,12 @@ export async function deserializeAws_querySuspendProcessesCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_querySuspendProcessesCommandError(
+const deserializeAws_querySuspendProcessesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SuspendProcessesCommandOutput> {
+): Promise<SuspendProcessesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4871,12 +4927,12 @@ async function deserializeAws_querySuspendProcessesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryTerminateInstanceInAutoScalingGroupCommand(
+export const deserializeAws_queryTerminateInstanceInAutoScalingGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TerminateInstanceInAutoScalingGroupCommandOutput> {
+): Promise<TerminateInstanceInAutoScalingGroupCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryTerminateInstanceInAutoScalingGroupCommandError(
       output,
@@ -4895,12 +4951,12 @@ export async function deserializeAws_queryTerminateInstanceInAutoScalingGroupCom
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryTerminateInstanceInAutoScalingGroupCommandError(
+const deserializeAws_queryTerminateInstanceInAutoScalingGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TerminateInstanceInAutoScalingGroupCommandOutput> {
+): Promise<TerminateInstanceInAutoScalingGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4947,12 +5003,12 @@ async function deserializeAws_queryTerminateInstanceInAutoScalingGroupCommandErr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_queryUpdateAutoScalingGroupCommand(
+export const deserializeAws_queryUpdateAutoScalingGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateAutoScalingGroupCommandOutput> {
+): Promise<UpdateAutoScalingGroupCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_queryUpdateAutoScalingGroupCommandError(
       output,
@@ -4964,12 +5020,12 @@ export async function deserializeAws_queryUpdateAutoScalingGroupCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_queryUpdateAutoScalingGroupCommandError(
+const deserializeAws_queryUpdateAutoScalingGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateAutoScalingGroupCommandOutput> {
+): Promise<UpdateAutoScalingGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5027,7 +5083,7 @@ async function deserializeAws_queryUpdateAutoScalingGroupCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_queryAlreadyExistsFaultResponse = async (
   parsedOutput: any,
@@ -5156,7 +5212,7 @@ const deserializeAws_queryServiceLinkedRoleFailureResponse = async (
 };
 
 const serializeAws_queryActivityIds = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -5232,7 +5288,7 @@ const serializeAws_queryAttachLoadBalancersType = (
 };
 
 const serializeAws_queryAutoScalingGroupNames = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -5269,7 +5325,7 @@ const serializeAws_queryAutoScalingGroupNamesType = (
 };
 
 const serializeAws_queryAutoScalingNotificationTypes = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -5282,7 +5338,7 @@ const serializeAws_queryAutoScalingNotificationTypes = (
 };
 
 const serializeAws_queryAvailabilityZones = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -5361,7 +5417,7 @@ const serializeAws_queryBlockDeviceMapping = (
 };
 
 const serializeAws_queryBlockDeviceMappings = (
-  input: Array<BlockDeviceMapping>,
+  input: BlockDeviceMapping[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -5377,7 +5433,7 @@ const serializeAws_queryBlockDeviceMappings = (
 };
 
 const serializeAws_queryClassicLinkVPCSecurityGroups = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -6198,7 +6254,7 @@ const serializeAws_queryFilter = (
 };
 
 const serializeAws_queryFilters = (
-  input: Array<Filter>,
+  input: Filter[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -6214,7 +6270,7 @@ const serializeAws_queryFilters = (
 };
 
 const serializeAws_queryInstanceIds = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -6276,7 +6332,7 @@ const serializeAws_queryLaunchConfigurationNameType = (
 };
 
 const serializeAws_queryLaunchConfigurationNames = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -6369,7 +6425,7 @@ const serializeAws_queryLaunchTemplateSpecification = (
 };
 
 const serializeAws_queryLifecycleHookNames = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -6411,7 +6467,7 @@ const serializeAws_queryLifecycleHookSpecification = (
 };
 
 const serializeAws_queryLifecycleHookSpecifications = (
-  input: Array<LifecycleHookSpecification>,
+  input: LifecycleHookSpecification[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -6430,7 +6486,7 @@ const serializeAws_queryLifecycleHookSpecifications = (
 };
 
 const serializeAws_queryLoadBalancerNames = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -6457,7 +6513,7 @@ const serializeAws_queryMetricDimension = (
 };
 
 const serializeAws_queryMetricDimensions = (
-  input: Array<MetricDimension>,
+  input: MetricDimension[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -6473,7 +6529,7 @@ const serializeAws_queryMetricDimensions = (
 };
 
 const serializeAws_queryMetrics = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -6514,7 +6570,7 @@ const serializeAws_queryMixedInstancesPolicy = (
 };
 
 const serializeAws_queryOverrides = (
-  input: Array<LaunchTemplateOverrides>,
+  input: LaunchTemplateOverrides[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -6533,7 +6589,7 @@ const serializeAws_queryOverrides = (
 };
 
 const serializeAws_queryPolicyNames = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -6546,7 +6602,7 @@ const serializeAws_queryPolicyNames = (
 };
 
 const serializeAws_queryPolicyTypes = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -6573,7 +6629,7 @@ const serializeAws_queryPredefinedMetricSpecification = (
 };
 
 const serializeAws_queryProcessNames = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -6776,7 +6832,7 @@ const serializeAws_queryScalingProcessQuery = (
 };
 
 const serializeAws_queryScheduledActionNames = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -6818,7 +6874,7 @@ const serializeAws_queryScheduledUpdateGroupActionRequest = (
 };
 
 const serializeAws_queryScheduledUpdateGroupActionRequests = (
-  input: Array<ScheduledUpdateGroupActionRequest>,
+  input: ScheduledUpdateGroupActionRequest[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -6837,7 +6893,7 @@ const serializeAws_queryScheduledUpdateGroupActionRequests = (
 };
 
 const serializeAws_querySecurityGroups = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -6925,7 +6981,7 @@ const serializeAws_queryStepAdjustment = (
 };
 
 const serializeAws_queryStepAdjustments = (
-  input: Array<StepAdjustment>,
+  input: StepAdjustment[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -6960,10 +7016,7 @@ const serializeAws_queryTag = (input: Tag, context: __SerdeContext): any => {
   return entries;
 };
 
-const serializeAws_queryTags = (
-  input: Array<Tag>,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryTags = (input: Tag[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
@@ -6977,7 +7030,7 @@ const serializeAws_queryTags = (
 };
 
 const serializeAws_queryTargetGroupARNs = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -7039,7 +7092,7 @@ const serializeAws_queryTerminateInstanceInAutoScalingGroupType = (
 };
 
 const serializeAws_queryTerminationPolicies = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -7140,7 +7193,7 @@ const serializeAws_queryUpdateAutoScalingGroupType = (
 };
 
 const serializeAws_queryValues = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -7155,12 +7208,10 @@ const serializeAws_queryValues = (
 const deserializeAws_queryActivities = (
   output: any,
   context: __SerdeContext
-): Array<Activity> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryActivity(entry, context));
-  });
-  return contents;
+): Activity[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryActivity(entry, context)
+  );
 };
 
 const deserializeAws_queryActivitiesType = (
@@ -7179,17 +7230,13 @@ const deserializeAws_queryActivitiesType = (
     output["Activities"] !== undefined &&
     output["Activities"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Activities"]["member"] instanceof Array
-        ? output["Activities"]["member"]
-        : [output["Activities"]["member"]];
-    contents.Activities = deserializeAws_queryActivities(wrappedItem, context);
+    contents.Activities = deserializeAws_queryActivities(
+      __getArrayIfSingleItem(output["Activities"]["member"]),
+      context
+    );
   }
   if (output["NextToken"] !== undefined) {
-    contents.NextToken =
-      output["NextToken"]["#text"] !== undefined
-        ? output["NextToken"]["#text"]
-        : output["NextToken"];
+    contents.NextToken = output["NextToken"];
   }
   return contents;
 };
@@ -7212,59 +7259,34 @@ const deserializeAws_queryActivity = (
     StatusMessage: undefined
   };
   if (output["ActivityId"] !== undefined) {
-    contents.ActivityId =
-      output["ActivityId"]["#text"] !== undefined
-        ? output["ActivityId"]["#text"]
-        : output["ActivityId"];
+    contents.ActivityId = output["ActivityId"];
   }
   if (output["AutoScalingGroupName"] !== undefined) {
-    contents.AutoScalingGroupName =
-      output["AutoScalingGroupName"]["#text"] !== undefined
-        ? output["AutoScalingGroupName"]["#text"]
-        : output["AutoScalingGroupName"];
+    contents.AutoScalingGroupName = output["AutoScalingGroupName"];
   }
   if (output["Cause"] !== undefined) {
-    contents.Cause =
-      output["Cause"]["#text"] !== undefined
-        ? output["Cause"]["#text"]
-        : output["Cause"];
+    contents.Cause = output["Cause"];
   }
   if (output["Description"] !== undefined) {
-    contents.Description =
-      output["Description"]["#text"] !== undefined
-        ? output["Description"]["#text"]
-        : output["Description"];
+    contents.Description = output["Description"];
   }
   if (output["Details"] !== undefined) {
-    contents.Details =
-      output["Details"]["#text"] !== undefined
-        ? output["Details"]["#text"]
-        : output["Details"];
+    contents.Details = output["Details"];
   }
   if (output["EndTime"] !== undefined) {
     contents.EndTime = new Date(output["EndTime"]);
   }
   if (output["Progress"] !== undefined) {
-    contents.Progress = parseInt(
-      output["Progress"]["#text"] !== undefined
-        ? output["Progress"]["#text"]
-        : output["Progress"]
-    );
+    contents.Progress = parseInt(output["Progress"]);
   }
   if (output["StartTime"] !== undefined) {
     contents.StartTime = new Date(output["StartTime"]);
   }
   if (output["StatusCode"] !== undefined) {
-    contents.StatusCode =
-      output["StatusCode"]["#text"] !== undefined
-        ? output["StatusCode"]["#text"]
-        : output["StatusCode"];
+    contents.StatusCode = output["StatusCode"];
   }
   if (output["StatusMessage"] !== undefined) {
-    contents.StatusMessage =
-      output["StatusMessage"]["#text"] !== undefined
-        ? output["StatusMessage"]["#text"]
-        : output["StatusMessage"];
+    contents.StatusMessage = output["StatusMessage"];
   }
   return contents;
 };
@@ -7295,10 +7317,7 @@ const deserializeAws_queryAdjustmentType = (
     AdjustmentType: undefined
   };
   if (output["AdjustmentType"] !== undefined) {
-    contents.AdjustmentType =
-      output["AdjustmentType"]["#text"] !== undefined
-        ? output["AdjustmentType"]["#text"]
-        : output["AdjustmentType"];
+    contents.AdjustmentType = output["AdjustmentType"];
   }
   return contents;
 };
@@ -7306,12 +7325,10 @@ const deserializeAws_queryAdjustmentType = (
 const deserializeAws_queryAdjustmentTypes = (
   output: any,
   context: __SerdeContext
-): Array<AdjustmentType> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryAdjustmentType(entry, context));
-  });
-  return contents;
+): AdjustmentType[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryAdjustmentType(entry, context)
+  );
 };
 
 const deserializeAws_queryAlarm = (
@@ -7324,16 +7341,10 @@ const deserializeAws_queryAlarm = (
     AlarmName: undefined
   };
   if (output["AlarmARN"] !== undefined) {
-    contents.AlarmARN =
-      output["AlarmARN"]["#text"] !== undefined
-        ? output["AlarmARN"]["#text"]
-        : output["AlarmARN"];
+    contents.AlarmARN = output["AlarmARN"];
   }
   if (output["AlarmName"] !== undefined) {
-    contents.AlarmName =
-      output["AlarmName"]["#text"] !== undefined
-        ? output["AlarmName"]["#text"]
-        : output["AlarmName"];
+    contents.AlarmName = output["AlarmName"];
   }
   return contents;
 };
@@ -7341,12 +7352,10 @@ const deserializeAws_queryAlarm = (
 const deserializeAws_queryAlarms = (
   output: any,
   context: __SerdeContext
-): Array<Alarm> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryAlarm(entry, context));
-  });
-  return contents;
+): Alarm[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryAlarm(entry, context)
+  );
 };
 
 const deserializeAws_queryAlreadyExistsFault = (
@@ -7358,10 +7367,7 @@ const deserializeAws_queryAlreadyExistsFault = (
     message: undefined
   };
   if (output["message"] !== undefined) {
-    contents.message =
-      output["message"]["#text"] !== undefined
-        ? output["message"]["#text"]
-        : output["message"];
+    contents.message = output["message"];
   }
   return contents;
 };
@@ -7420,16 +7426,10 @@ const deserializeAws_queryAutoScalingGroup = (
     VPCZoneIdentifier: undefined
   };
   if (output["AutoScalingGroupARN"] !== undefined) {
-    contents.AutoScalingGroupARN =
-      output["AutoScalingGroupARN"]["#text"] !== undefined
-        ? output["AutoScalingGroupARN"]["#text"]
-        : output["AutoScalingGroupARN"];
+    contents.AutoScalingGroupARN = output["AutoScalingGroupARN"];
   }
   if (output["AutoScalingGroupName"] !== undefined) {
-    contents.AutoScalingGroupName =
-      output["AutoScalingGroupName"]["#text"] !== undefined
-        ? output["AutoScalingGroupName"]["#text"]
-        : output["AutoScalingGroupName"];
+    contents.AutoScalingGroupName = output["AutoScalingGroupName"];
   }
   if (output.AvailabilityZones === "") {
     contents.AvailabilityZones = [];
@@ -7438,12 +7438,8 @@ const deserializeAws_queryAutoScalingGroup = (
     output["AvailabilityZones"] !== undefined &&
     output["AvailabilityZones"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["AvailabilityZones"]["member"] instanceof Array
-        ? output["AvailabilityZones"]["member"]
-        : [output["AvailabilityZones"]["member"]];
     contents.AvailabilityZones = deserializeAws_queryAvailabilityZones(
-      wrappedItem,
+      __getArrayIfSingleItem(output["AvailabilityZones"]["member"]),
       context
     );
   }
@@ -7451,18 +7447,10 @@ const deserializeAws_queryAutoScalingGroup = (
     contents.CreatedTime = new Date(output["CreatedTime"]);
   }
   if (output["DefaultCooldown"] !== undefined) {
-    contents.DefaultCooldown = parseInt(
-      output["DefaultCooldown"]["#text"] !== undefined
-        ? output["DefaultCooldown"]["#text"]
-        : output["DefaultCooldown"]
-    );
+    contents.DefaultCooldown = parseInt(output["DefaultCooldown"]);
   }
   if (output["DesiredCapacity"] !== undefined) {
-    contents.DesiredCapacity = parseInt(
-      output["DesiredCapacity"]["#text"] !== undefined
-        ? output["DesiredCapacity"]["#text"]
-        : output["DesiredCapacity"]
-    );
+    contents.DesiredCapacity = parseInt(output["DesiredCapacity"]);
   }
   if (output.EnabledMetrics === "") {
     contents.EnabledMetrics = [];
@@ -7471,27 +7459,18 @@ const deserializeAws_queryAutoScalingGroup = (
     output["EnabledMetrics"] !== undefined &&
     output["EnabledMetrics"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["EnabledMetrics"]["member"] instanceof Array
-        ? output["EnabledMetrics"]["member"]
-        : [output["EnabledMetrics"]["member"]];
     contents.EnabledMetrics = deserializeAws_queryEnabledMetrics(
-      wrappedItem,
+      __getArrayIfSingleItem(output["EnabledMetrics"]["member"]),
       context
     );
   }
   if (output["HealthCheckGracePeriod"] !== undefined) {
     contents.HealthCheckGracePeriod = parseInt(
-      output["HealthCheckGracePeriod"]["#text"] !== undefined
-        ? output["HealthCheckGracePeriod"]["#text"]
-        : output["HealthCheckGracePeriod"]
+      output["HealthCheckGracePeriod"]
     );
   }
   if (output["HealthCheckType"] !== undefined) {
-    contents.HealthCheckType =
-      output["HealthCheckType"]["#text"] !== undefined
-        ? output["HealthCheckType"]["#text"]
-        : output["HealthCheckType"];
+    contents.HealthCheckType = output["HealthCheckType"];
   }
   if (output.Instances === "") {
     contents.Instances = [];
@@ -7500,17 +7479,13 @@ const deserializeAws_queryAutoScalingGroup = (
     output["Instances"] !== undefined &&
     output["Instances"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Instances"]["member"] instanceof Array
-        ? output["Instances"]["member"]
-        : [output["Instances"]["member"]];
-    contents.Instances = deserializeAws_queryInstances(wrappedItem, context);
+    contents.Instances = deserializeAws_queryInstances(
+      __getArrayIfSingleItem(output["Instances"]["member"]),
+      context
+    );
   }
   if (output["LaunchConfigurationName"] !== undefined) {
-    contents.LaunchConfigurationName =
-      output["LaunchConfigurationName"]["#text"] !== undefined
-        ? output["LaunchConfigurationName"]["#text"]
-        : output["LaunchConfigurationName"];
+    contents.LaunchConfigurationName = output["LaunchConfigurationName"];
   }
   if (output["LaunchTemplate"] !== undefined) {
     contents.LaunchTemplate = deserializeAws_queryLaunchTemplateSpecification(
@@ -7525,35 +7500,19 @@ const deserializeAws_queryAutoScalingGroup = (
     output["LoadBalancerNames"] !== undefined &&
     output["LoadBalancerNames"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["LoadBalancerNames"]["member"] instanceof Array
-        ? output["LoadBalancerNames"]["member"]
-        : [output["LoadBalancerNames"]["member"]];
     contents.LoadBalancerNames = deserializeAws_queryLoadBalancerNames(
-      wrappedItem,
+      __getArrayIfSingleItem(output["LoadBalancerNames"]["member"]),
       context
     );
   }
   if (output["MaxInstanceLifetime"] !== undefined) {
-    contents.MaxInstanceLifetime = parseInt(
-      output["MaxInstanceLifetime"]["#text"] !== undefined
-        ? output["MaxInstanceLifetime"]["#text"]
-        : output["MaxInstanceLifetime"]
-    );
+    contents.MaxInstanceLifetime = parseInt(output["MaxInstanceLifetime"]);
   }
   if (output["MaxSize"] !== undefined) {
-    contents.MaxSize = parseInt(
-      output["MaxSize"]["#text"] !== undefined
-        ? output["MaxSize"]["#text"]
-        : output["MaxSize"]
-    );
+    contents.MaxSize = parseInt(output["MaxSize"]);
   }
   if (output["MinSize"] !== undefined) {
-    contents.MinSize = parseInt(
-      output["MinSize"]["#text"] !== undefined
-        ? output["MinSize"]["#text"]
-        : output["MinSize"]
-    );
+    contents.MinSize = parseInt(output["MinSize"]);
   }
   if (output["MixedInstancesPolicy"] !== undefined) {
     contents.MixedInstancesPolicy = deserializeAws_queryMixedInstancesPolicy(
@@ -7563,27 +7522,16 @@ const deserializeAws_queryAutoScalingGroup = (
   }
   if (output["NewInstancesProtectedFromScaleIn"] !== undefined) {
     contents.NewInstancesProtectedFromScaleIn =
-      (output["NewInstancesProtectedFromScaleIn"]["#text"] !== undefined
-        ? output["NewInstancesProtectedFromScaleIn"]["#text"]
-        : output["NewInstancesProtectedFromScaleIn"]) == "true";
+      output["NewInstancesProtectedFromScaleIn"] == "true";
   }
   if (output["PlacementGroup"] !== undefined) {
-    contents.PlacementGroup =
-      output["PlacementGroup"]["#text"] !== undefined
-        ? output["PlacementGroup"]["#text"]
-        : output["PlacementGroup"];
+    contents.PlacementGroup = output["PlacementGroup"];
   }
   if (output["ServiceLinkedRoleARN"] !== undefined) {
-    contents.ServiceLinkedRoleARN =
-      output["ServiceLinkedRoleARN"]["#text"] !== undefined
-        ? output["ServiceLinkedRoleARN"]["#text"]
-        : output["ServiceLinkedRoleARN"];
+    contents.ServiceLinkedRoleARN = output["ServiceLinkedRoleARN"];
   }
   if (output["Status"] !== undefined) {
-    contents.Status =
-      output["Status"]["#text"] !== undefined
-        ? output["Status"]["#text"]
-        : output["Status"];
+    contents.Status = output["Status"];
   }
   if (output.SuspendedProcesses === "") {
     contents.SuspendedProcesses = [];
@@ -7592,12 +7540,8 @@ const deserializeAws_queryAutoScalingGroup = (
     output["SuspendedProcesses"] !== undefined &&
     output["SuspendedProcesses"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["SuspendedProcesses"]["member"] instanceof Array
-        ? output["SuspendedProcesses"]["member"]
-        : [output["SuspendedProcesses"]["member"]];
     contents.SuspendedProcesses = deserializeAws_querySuspendedProcesses(
-      wrappedItem,
+      __getArrayIfSingleItem(output["SuspendedProcesses"]["member"]),
       context
     );
   }
@@ -7605,12 +7549,8 @@ const deserializeAws_queryAutoScalingGroup = (
     contents.Tags = [];
   }
   if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    const wrappedItem =
-      output["Tags"]["member"] instanceof Array
-        ? output["Tags"]["member"]
-        : [output["Tags"]["member"]];
     contents.Tags = deserializeAws_queryTagDescriptionList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Tags"]["member"]),
       context
     );
   }
@@ -7621,12 +7561,8 @@ const deserializeAws_queryAutoScalingGroup = (
     output["TargetGroupARNs"] !== undefined &&
     output["TargetGroupARNs"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["TargetGroupARNs"]["member"] instanceof Array
-        ? output["TargetGroupARNs"]["member"]
-        : [output["TargetGroupARNs"]["member"]];
     contents.TargetGroupARNs = deserializeAws_queryTargetGroupARNs(
-      wrappedItem,
+      __getArrayIfSingleItem(output["TargetGroupARNs"]["member"]),
       context
     );
   }
@@ -7637,20 +7573,13 @@ const deserializeAws_queryAutoScalingGroup = (
     output["TerminationPolicies"] !== undefined &&
     output["TerminationPolicies"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["TerminationPolicies"]["member"] instanceof Array
-        ? output["TerminationPolicies"]["member"]
-        : [output["TerminationPolicies"]["member"]];
     contents.TerminationPolicies = deserializeAws_queryTerminationPolicies(
-      wrappedItem,
+      __getArrayIfSingleItem(output["TerminationPolicies"]["member"]),
       context
     );
   }
   if (output["VPCZoneIdentifier"] !== undefined) {
-    contents.VPCZoneIdentifier =
-      output["VPCZoneIdentifier"]["#text"] !== undefined
-        ? output["VPCZoneIdentifier"]["#text"]
-        : output["VPCZoneIdentifier"];
+    contents.VPCZoneIdentifier = output["VPCZoneIdentifier"];
   }
   return contents;
 };
@@ -7658,12 +7587,10 @@ const deserializeAws_queryAutoScalingGroup = (
 const deserializeAws_queryAutoScalingGroups = (
   output: any,
   context: __SerdeContext
-): Array<AutoScalingGroup> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryAutoScalingGroup(entry, context));
-  });
-  return contents;
+): AutoScalingGroup[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryAutoScalingGroup(entry, context)
+  );
 };
 
 const deserializeAws_queryAutoScalingGroupsType = (
@@ -7682,20 +7609,13 @@ const deserializeAws_queryAutoScalingGroupsType = (
     output["AutoScalingGroups"] !== undefined &&
     output["AutoScalingGroups"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["AutoScalingGroups"]["member"] instanceof Array
-        ? output["AutoScalingGroups"]["member"]
-        : [output["AutoScalingGroups"]["member"]];
     contents.AutoScalingGroups = deserializeAws_queryAutoScalingGroups(
-      wrappedItem,
+      __getArrayIfSingleItem(output["AutoScalingGroups"]["member"]),
       context
     );
   }
   if (output["NextToken"] !== undefined) {
-    contents.NextToken =
-      output["NextToken"]["#text"] !== undefined
-        ? output["NextToken"]["#text"]
-        : output["NextToken"];
+    contents.NextToken = output["NextToken"];
   }
   return contents;
 };
@@ -7718,40 +7638,22 @@ const deserializeAws_queryAutoScalingInstanceDetails = (
     WeightedCapacity: undefined
   };
   if (output["AutoScalingGroupName"] !== undefined) {
-    contents.AutoScalingGroupName =
-      output["AutoScalingGroupName"]["#text"] !== undefined
-        ? output["AutoScalingGroupName"]["#text"]
-        : output["AutoScalingGroupName"];
+    contents.AutoScalingGroupName = output["AutoScalingGroupName"];
   }
   if (output["AvailabilityZone"] !== undefined) {
-    contents.AvailabilityZone =
-      output["AvailabilityZone"]["#text"] !== undefined
-        ? output["AvailabilityZone"]["#text"]
-        : output["AvailabilityZone"];
+    contents.AvailabilityZone = output["AvailabilityZone"];
   }
   if (output["HealthStatus"] !== undefined) {
-    contents.HealthStatus =
-      output["HealthStatus"]["#text"] !== undefined
-        ? output["HealthStatus"]["#text"]
-        : output["HealthStatus"];
+    contents.HealthStatus = output["HealthStatus"];
   }
   if (output["InstanceId"] !== undefined) {
-    contents.InstanceId =
-      output["InstanceId"]["#text"] !== undefined
-        ? output["InstanceId"]["#text"]
-        : output["InstanceId"];
+    contents.InstanceId = output["InstanceId"];
   }
   if (output["InstanceType"] !== undefined) {
-    contents.InstanceType =
-      output["InstanceType"]["#text"] !== undefined
-        ? output["InstanceType"]["#text"]
-        : output["InstanceType"];
+    contents.InstanceType = output["InstanceType"];
   }
   if (output["LaunchConfigurationName"] !== undefined) {
-    contents.LaunchConfigurationName =
-      output["LaunchConfigurationName"]["#text"] !== undefined
-        ? output["LaunchConfigurationName"]["#text"]
-        : output["LaunchConfigurationName"];
+    contents.LaunchConfigurationName = output["LaunchConfigurationName"];
   }
   if (output["LaunchTemplate"] !== undefined) {
     contents.LaunchTemplate = deserializeAws_queryLaunchTemplateSpecification(
@@ -7760,22 +7662,13 @@ const deserializeAws_queryAutoScalingInstanceDetails = (
     );
   }
   if (output["LifecycleState"] !== undefined) {
-    contents.LifecycleState =
-      output["LifecycleState"]["#text"] !== undefined
-        ? output["LifecycleState"]["#text"]
-        : output["LifecycleState"];
+    contents.LifecycleState = output["LifecycleState"];
   }
   if (output["ProtectedFromScaleIn"] !== undefined) {
-    contents.ProtectedFromScaleIn =
-      (output["ProtectedFromScaleIn"]["#text"] !== undefined
-        ? output["ProtectedFromScaleIn"]["#text"]
-        : output["ProtectedFromScaleIn"]) == "true";
+    contents.ProtectedFromScaleIn = output["ProtectedFromScaleIn"] == "true";
   }
   if (output["WeightedCapacity"] !== undefined) {
-    contents.WeightedCapacity =
-      output["WeightedCapacity"]["#text"] !== undefined
-        ? output["WeightedCapacity"]["#text"]
-        : output["WeightedCapacity"];
+    contents.WeightedCapacity = output["WeightedCapacity"];
   }
   return contents;
 };
@@ -7783,14 +7676,10 @@ const deserializeAws_queryAutoScalingInstanceDetails = (
 const deserializeAws_queryAutoScalingInstances = (
   output: any,
   context: __SerdeContext
-): Array<AutoScalingInstanceDetails> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      deserializeAws_queryAutoScalingInstanceDetails(entry, context)
-    );
-  });
-  return contents;
+): AutoScalingInstanceDetails[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryAutoScalingInstanceDetails(entry, context)
+  );
 };
 
 const deserializeAws_queryAutoScalingInstancesType = (
@@ -7809,20 +7698,13 @@ const deserializeAws_queryAutoScalingInstancesType = (
     output["AutoScalingInstances"] !== undefined &&
     output["AutoScalingInstances"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["AutoScalingInstances"]["member"] instanceof Array
-        ? output["AutoScalingInstances"]["member"]
-        : [output["AutoScalingInstances"]["member"]];
     contents.AutoScalingInstances = deserializeAws_queryAutoScalingInstances(
-      wrappedItem,
+      __getArrayIfSingleItem(output["AutoScalingInstances"]["member"]),
       context
     );
   }
   if (output["NextToken"] !== undefined) {
-    contents.NextToken =
-      output["NextToken"]["#text"] !== undefined
-        ? output["NextToken"]["#text"]
-        : output["NextToken"];
+    contents.NextToken = output["NextToken"];
   }
   return contents;
 };
@@ -7830,23 +7712,15 @@ const deserializeAws_queryAutoScalingInstancesType = (
 const deserializeAws_queryAutoScalingNotificationTypes = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_queryAvailabilityZones = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_queryBatchDeleteScheduledActionAnswer = (
@@ -7864,12 +7738,8 @@ const deserializeAws_queryBatchDeleteScheduledActionAnswer = (
     output["FailedScheduledActions"] !== undefined &&
     output["FailedScheduledActions"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["FailedScheduledActions"]["member"] instanceof Array
-        ? output["FailedScheduledActions"]["member"]
-        : [output["FailedScheduledActions"]["member"]];
     contents.FailedScheduledActions = deserializeAws_queryFailedScheduledUpdateGroupActionRequests(
-      wrappedItem,
+      __getArrayIfSingleItem(output["FailedScheduledActions"]["member"]),
       context
     );
   }
@@ -7891,12 +7761,10 @@ const deserializeAws_queryBatchPutScheduledUpdateGroupActionAnswer = (
     output["FailedScheduledUpdateGroupActions"] !== undefined &&
     output["FailedScheduledUpdateGroupActions"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["FailedScheduledUpdateGroupActions"]["member"] instanceof Array
-        ? output["FailedScheduledUpdateGroupActions"]["member"]
-        : [output["FailedScheduledUpdateGroupActions"]["member"]];
     contents.FailedScheduledUpdateGroupActions = deserializeAws_queryFailedScheduledUpdateGroupActionRequests(
-      wrappedItem,
+      __getArrayIfSingleItem(
+        output["FailedScheduledUpdateGroupActions"]["member"]
+      ),
       context
     );
   }
@@ -7915,25 +7783,16 @@ const deserializeAws_queryBlockDeviceMapping = (
     VirtualName: undefined
   };
   if (output["DeviceName"] !== undefined) {
-    contents.DeviceName =
-      output["DeviceName"]["#text"] !== undefined
-        ? output["DeviceName"]["#text"]
-        : output["DeviceName"];
+    contents.DeviceName = output["DeviceName"];
   }
   if (output["Ebs"] !== undefined) {
     contents.Ebs = deserializeAws_queryEbs(output["Ebs"], context);
   }
   if (output["NoDevice"] !== undefined) {
-    contents.NoDevice =
-      (output["NoDevice"]["#text"] !== undefined
-        ? output["NoDevice"]["#text"]
-        : output["NoDevice"]) == "true";
+    contents.NoDevice = output["NoDevice"] == "true";
   }
   if (output["VirtualName"] !== undefined) {
-    contents.VirtualName =
-      output["VirtualName"]["#text"] !== undefined
-        ? output["VirtualName"]["#text"]
-        : output["VirtualName"];
+    contents.VirtualName = output["VirtualName"];
   }
   return contents;
 };
@@ -7941,23 +7800,17 @@ const deserializeAws_queryBlockDeviceMapping = (
 const deserializeAws_queryBlockDeviceMappings = (
   output: any,
   context: __SerdeContext
-): Array<BlockDeviceMapping> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryBlockDeviceMapping(entry, context));
-  });
-  return contents;
+): BlockDeviceMapping[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryBlockDeviceMapping(entry, context)
+  );
 };
 
 const deserializeAws_queryClassicLinkVPCSecurityGroups = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_queryCompleteLifecycleActionAnswer = (
@@ -7989,38 +7842,22 @@ const deserializeAws_queryCustomizedMetricSpecification = (
     output["Dimensions"] !== undefined &&
     output["Dimensions"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Dimensions"]["member"] instanceof Array
-        ? output["Dimensions"]["member"]
-        : [output["Dimensions"]["member"]];
     contents.Dimensions = deserializeAws_queryMetricDimensions(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Dimensions"]["member"]),
       context
     );
   }
   if (output["MetricName"] !== undefined) {
-    contents.MetricName =
-      output["MetricName"]["#text"] !== undefined
-        ? output["MetricName"]["#text"]
-        : output["MetricName"];
+    contents.MetricName = output["MetricName"];
   }
   if (output["Namespace"] !== undefined) {
-    contents.Namespace =
-      output["Namespace"]["#text"] !== undefined
-        ? output["Namespace"]["#text"]
-        : output["Namespace"];
+    contents.Namespace = output["Namespace"];
   }
   if (output["Statistic"] !== undefined) {
-    contents.Statistic =
-      output["Statistic"]["#text"] !== undefined
-        ? output["Statistic"]["#text"]
-        : output["Statistic"];
+    contents.Statistic = output["Statistic"];
   }
   if (output["Unit"] !== undefined) {
-    contents.Unit =
-      output["Unit"]["#text"] !== undefined
-        ? output["Unit"]["#text"]
-        : output["Unit"];
+    contents.Unit = output["Unit"];
   }
   return contents;
 };
@@ -8048,30 +7885,22 @@ const deserializeAws_queryDescribeAccountLimitsAnswer = (
   };
   if (output["MaxNumberOfAutoScalingGroups"] !== undefined) {
     contents.MaxNumberOfAutoScalingGroups = parseInt(
-      output["MaxNumberOfAutoScalingGroups"]["#text"] !== undefined
-        ? output["MaxNumberOfAutoScalingGroups"]["#text"]
-        : output["MaxNumberOfAutoScalingGroups"]
+      output["MaxNumberOfAutoScalingGroups"]
     );
   }
   if (output["MaxNumberOfLaunchConfigurations"] !== undefined) {
     contents.MaxNumberOfLaunchConfigurations = parseInt(
-      output["MaxNumberOfLaunchConfigurations"]["#text"] !== undefined
-        ? output["MaxNumberOfLaunchConfigurations"]["#text"]
-        : output["MaxNumberOfLaunchConfigurations"]
+      output["MaxNumberOfLaunchConfigurations"]
     );
   }
   if (output["NumberOfAutoScalingGroups"] !== undefined) {
     contents.NumberOfAutoScalingGroups = parseInt(
-      output["NumberOfAutoScalingGroups"]["#text"] !== undefined
-        ? output["NumberOfAutoScalingGroups"]["#text"]
-        : output["NumberOfAutoScalingGroups"]
+      output["NumberOfAutoScalingGroups"]
     );
   }
   if (output["NumberOfLaunchConfigurations"] !== undefined) {
     contents.NumberOfLaunchConfigurations = parseInt(
-      output["NumberOfLaunchConfigurations"]["#text"] !== undefined
-        ? output["NumberOfLaunchConfigurations"]["#text"]
-        : output["NumberOfLaunchConfigurations"]
+      output["NumberOfLaunchConfigurations"]
     );
   }
   return contents;
@@ -8092,12 +7921,8 @@ const deserializeAws_queryDescribeAdjustmentTypesAnswer = (
     output["AdjustmentTypes"] !== undefined &&
     output["AdjustmentTypes"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["AdjustmentTypes"]["member"] instanceof Array
-        ? output["AdjustmentTypes"]["member"]
-        : [output["AdjustmentTypes"]["member"]];
     contents.AdjustmentTypes = deserializeAws_queryAdjustmentTypes(
-      wrappedItem,
+      __getArrayIfSingleItem(output["AdjustmentTypes"]["member"]),
       context
     );
   }
@@ -8119,12 +7944,8 @@ const deserializeAws_queryDescribeAutoScalingNotificationTypesAnswer = (
     output["AutoScalingNotificationTypes"] !== undefined &&
     output["AutoScalingNotificationTypes"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["AutoScalingNotificationTypes"]["member"] instanceof Array
-        ? output["AutoScalingNotificationTypes"]["member"]
-        : [output["AutoScalingNotificationTypes"]["member"]];
     contents.AutoScalingNotificationTypes = deserializeAws_queryAutoScalingNotificationTypes(
-      wrappedItem,
+      __getArrayIfSingleItem(output["AutoScalingNotificationTypes"]["member"]),
       context
     );
   }
@@ -8146,12 +7967,8 @@ const deserializeAws_queryDescribeLifecycleHookTypesAnswer = (
     output["LifecycleHookTypes"] !== undefined &&
     output["LifecycleHookTypes"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["LifecycleHookTypes"]["member"] instanceof Array
-        ? output["LifecycleHookTypes"]["member"]
-        : [output["LifecycleHookTypes"]["member"]];
     contents.LifecycleHookTypes = deserializeAws_queryAutoScalingNotificationTypes(
-      wrappedItem,
+      __getArrayIfSingleItem(output["LifecycleHookTypes"]["member"]),
       context
     );
   }
@@ -8173,12 +7990,8 @@ const deserializeAws_queryDescribeLifecycleHooksAnswer = (
     output["LifecycleHooks"] !== undefined &&
     output["LifecycleHooks"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["LifecycleHooks"]["member"] instanceof Array
-        ? output["LifecycleHooks"]["member"]
-        : [output["LifecycleHooks"]["member"]];
     contents.LifecycleHooks = deserializeAws_queryLifecycleHooks(
-      wrappedItem,
+      __getArrayIfSingleItem(output["LifecycleHooks"]["member"]),
       context
     );
   }
@@ -8201,20 +8014,13 @@ const deserializeAws_queryDescribeLoadBalancerTargetGroupsResponse = (
     output["LoadBalancerTargetGroups"] !== undefined &&
     output["LoadBalancerTargetGroups"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["LoadBalancerTargetGroups"]["member"] instanceof Array
-        ? output["LoadBalancerTargetGroups"]["member"]
-        : [output["LoadBalancerTargetGroups"]["member"]];
     contents.LoadBalancerTargetGroups = deserializeAws_queryLoadBalancerTargetGroupStates(
-      wrappedItem,
+      __getArrayIfSingleItem(output["LoadBalancerTargetGroups"]["member"]),
       context
     );
   }
   if (output["NextToken"] !== undefined) {
-    contents.NextToken =
-      output["NextToken"]["#text"] !== undefined
-        ? output["NextToken"]["#text"]
-        : output["NextToken"];
+    contents.NextToken = output["NextToken"];
   }
   return contents;
 };
@@ -8235,20 +8041,13 @@ const deserializeAws_queryDescribeLoadBalancersResponse = (
     output["LoadBalancers"] !== undefined &&
     output["LoadBalancers"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["LoadBalancers"]["member"] instanceof Array
-        ? output["LoadBalancers"]["member"]
-        : [output["LoadBalancers"]["member"]];
     contents.LoadBalancers = deserializeAws_queryLoadBalancerStates(
-      wrappedItem,
+      __getArrayIfSingleItem(output["LoadBalancers"]["member"]),
       context
     );
   }
   if (output["NextToken"] !== undefined) {
-    contents.NextToken =
-      output["NextToken"]["#text"] !== undefined
-        ? output["NextToken"]["#text"]
-        : output["NextToken"];
+    contents.NextToken = output["NextToken"];
   }
   return contents;
 };
@@ -8269,12 +8068,8 @@ const deserializeAws_queryDescribeMetricCollectionTypesAnswer = (
     output["Granularities"] !== undefined &&
     output["Granularities"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Granularities"]["member"] instanceof Array
-        ? output["Granularities"]["member"]
-        : [output["Granularities"]["member"]];
     contents.Granularities = deserializeAws_queryMetricGranularityTypes(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Granularities"]["member"]),
       context
     );
   }
@@ -8285,12 +8080,8 @@ const deserializeAws_queryDescribeMetricCollectionTypesAnswer = (
     output["Metrics"] !== undefined &&
     output["Metrics"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Metrics"]["member"] instanceof Array
-        ? output["Metrics"]["member"]
-        : [output["Metrics"]["member"]];
     contents.Metrics = deserializeAws_queryMetricCollectionTypes(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Metrics"]["member"]),
       context
     );
   }
@@ -8307,10 +8098,7 @@ const deserializeAws_queryDescribeNotificationConfigurationsAnswer = (
     NotificationConfigurations: undefined
   };
   if (output["NextToken"] !== undefined) {
-    contents.NextToken =
-      output["NextToken"]["#text"] !== undefined
-        ? output["NextToken"]["#text"]
-        : output["NextToken"];
+    contents.NextToken = output["NextToken"];
   }
   if (output.NotificationConfigurations === "") {
     contents.NotificationConfigurations = [];
@@ -8319,12 +8107,8 @@ const deserializeAws_queryDescribeNotificationConfigurationsAnswer = (
     output["NotificationConfigurations"] !== undefined &&
     output["NotificationConfigurations"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["NotificationConfigurations"]["member"] instanceof Array
-        ? output["NotificationConfigurations"]["member"]
-        : [output["NotificationConfigurations"]["member"]];
     contents.NotificationConfigurations = deserializeAws_queryNotificationConfigurations(
-      wrappedItem,
+      __getArrayIfSingleItem(output["NotificationConfigurations"]["member"]),
       context
     );
   }
@@ -8346,12 +8130,8 @@ const deserializeAws_queryDescribeTerminationPolicyTypesAnswer = (
     output["TerminationPolicyTypes"] !== undefined &&
     output["TerminationPolicyTypes"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["TerminationPolicyTypes"]["member"] instanceof Array
-        ? output["TerminationPolicyTypes"]["member"]
-        : [output["TerminationPolicyTypes"]["member"]];
     contents.TerminationPolicyTypes = deserializeAws_queryTerminationPolicies(
-      wrappedItem,
+      __getArrayIfSingleItem(output["TerminationPolicyTypes"]["member"]),
       context
     );
   }
@@ -8373,11 +8153,10 @@ const deserializeAws_queryDetachInstancesAnswer = (
     output["Activities"] !== undefined &&
     output["Activities"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Activities"]["member"] instanceof Array
-        ? output["Activities"]["member"]
-        : [output["Activities"]["member"]];
-    contents.Activities = deserializeAws_queryActivities(wrappedItem, context);
+    contents.Activities = deserializeAws_queryActivities(
+      __getArrayIfSingleItem(output["Activities"]["member"]),
+      context
+    );
   }
   return contents;
 };
@@ -8413,42 +8192,22 @@ const deserializeAws_queryEbs = (output: any, context: __SerdeContext): Ebs => {
     VolumeType: undefined
   };
   if (output["DeleteOnTermination"] !== undefined) {
-    contents.DeleteOnTermination =
-      (output["DeleteOnTermination"]["#text"] !== undefined
-        ? output["DeleteOnTermination"]["#text"]
-        : output["DeleteOnTermination"]) == "true";
+    contents.DeleteOnTermination = output["DeleteOnTermination"] == "true";
   }
   if (output["Encrypted"] !== undefined) {
-    contents.Encrypted =
-      (output["Encrypted"]["#text"] !== undefined
-        ? output["Encrypted"]["#text"]
-        : output["Encrypted"]) == "true";
+    contents.Encrypted = output["Encrypted"] == "true";
   }
   if (output["Iops"] !== undefined) {
-    contents.Iops = parseInt(
-      output["Iops"]["#text"] !== undefined
-        ? output["Iops"]["#text"]
-        : output["Iops"]
-    );
+    contents.Iops = parseInt(output["Iops"]);
   }
   if (output["SnapshotId"] !== undefined) {
-    contents.SnapshotId =
-      output["SnapshotId"]["#text"] !== undefined
-        ? output["SnapshotId"]["#text"]
-        : output["SnapshotId"];
+    contents.SnapshotId = output["SnapshotId"];
   }
   if (output["VolumeSize"] !== undefined) {
-    contents.VolumeSize = parseInt(
-      output["VolumeSize"]["#text"] !== undefined
-        ? output["VolumeSize"]["#text"]
-        : output["VolumeSize"]
-    );
+    contents.VolumeSize = parseInt(output["VolumeSize"]);
   }
   if (output["VolumeType"] !== undefined) {
-    contents.VolumeType =
-      output["VolumeType"]["#text"] !== undefined
-        ? output["VolumeType"]["#text"]
-        : output["VolumeType"];
+    contents.VolumeType = output["VolumeType"];
   }
   return contents;
 };
@@ -8463,16 +8222,10 @@ const deserializeAws_queryEnabledMetric = (
     Metric: undefined
   };
   if (output["Granularity"] !== undefined) {
-    contents.Granularity =
-      output["Granularity"]["#text"] !== undefined
-        ? output["Granularity"]["#text"]
-        : output["Granularity"];
+    contents.Granularity = output["Granularity"];
   }
   if (output["Metric"] !== undefined) {
-    contents.Metric =
-      output["Metric"]["#text"] !== undefined
-        ? output["Metric"]["#text"]
-        : output["Metric"];
+    contents.Metric = output["Metric"];
   }
   return contents;
 };
@@ -8480,12 +8233,10 @@ const deserializeAws_queryEnabledMetric = (
 const deserializeAws_queryEnabledMetrics = (
   output: any,
   context: __SerdeContext
-): Array<EnabledMetric> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryEnabledMetric(entry, context));
-  });
-  return contents;
+): EnabledMetric[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryEnabledMetric(entry, context)
+  );
 };
 
 const deserializeAws_queryEnterStandbyAnswer = (
@@ -8503,11 +8254,10 @@ const deserializeAws_queryEnterStandbyAnswer = (
     output["Activities"] !== undefined &&
     output["Activities"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Activities"]["member"] instanceof Array
-        ? output["Activities"]["member"]
-        : [output["Activities"]["member"]];
-    contents.Activities = deserializeAws_queryActivities(wrappedItem, context);
+    contents.Activities = deserializeAws_queryActivities(
+      __getArrayIfSingleItem(output["Activities"]["member"]),
+      context
+    );
   }
   return contents;
 };
@@ -8527,11 +8277,10 @@ const deserializeAws_queryExitStandbyAnswer = (
     output["Activities"] !== undefined &&
     output["Activities"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Activities"]["member"] instanceof Array
-        ? output["Activities"]["member"]
-        : [output["Activities"]["member"]];
-    contents.Activities = deserializeAws_queryActivities(wrappedItem, context);
+    contents.Activities = deserializeAws_queryActivities(
+      __getArrayIfSingleItem(output["Activities"]["member"]),
+      context
+    );
   }
   return contents;
 };
@@ -8547,22 +8296,13 @@ const deserializeAws_queryFailedScheduledUpdateGroupActionRequest = (
     ScheduledActionName: undefined
   };
   if (output["ErrorCode"] !== undefined) {
-    contents.ErrorCode =
-      output["ErrorCode"]["#text"] !== undefined
-        ? output["ErrorCode"]["#text"]
-        : output["ErrorCode"];
+    contents.ErrorCode = output["ErrorCode"];
   }
   if (output["ErrorMessage"] !== undefined) {
-    contents.ErrorMessage =
-      output["ErrorMessage"]["#text"] !== undefined
-        ? output["ErrorMessage"]["#text"]
-        : output["ErrorMessage"];
+    contents.ErrorMessage = output["ErrorMessage"];
   }
   if (output["ScheduledActionName"] !== undefined) {
-    contents.ScheduledActionName =
-      output["ScheduledActionName"]["#text"] !== undefined
-        ? output["ScheduledActionName"]["#text"]
-        : output["ScheduledActionName"];
+    contents.ScheduledActionName = output["ScheduledActionName"];
   }
   return contents;
 };
@@ -8570,17 +8310,10 @@ const deserializeAws_queryFailedScheduledUpdateGroupActionRequest = (
 const deserializeAws_queryFailedScheduledUpdateGroupActionRequests = (
   output: any,
   context: __SerdeContext
-): Array<FailedScheduledUpdateGroupActionRequest> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      deserializeAws_queryFailedScheduledUpdateGroupActionRequest(
-        entry,
-        context
-      )
-    );
-  });
-  return contents;
+): FailedScheduledUpdateGroupActionRequest[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryFailedScheduledUpdateGroupActionRequest(entry, context)
+  );
 };
 
 const deserializeAws_queryInstance = (
@@ -8600,34 +8333,19 @@ const deserializeAws_queryInstance = (
     WeightedCapacity: undefined
   };
   if (output["AvailabilityZone"] !== undefined) {
-    contents.AvailabilityZone =
-      output["AvailabilityZone"]["#text"] !== undefined
-        ? output["AvailabilityZone"]["#text"]
-        : output["AvailabilityZone"];
+    contents.AvailabilityZone = output["AvailabilityZone"];
   }
   if (output["HealthStatus"] !== undefined) {
-    contents.HealthStatus =
-      output["HealthStatus"]["#text"] !== undefined
-        ? output["HealthStatus"]["#text"]
-        : output["HealthStatus"];
+    contents.HealthStatus = output["HealthStatus"];
   }
   if (output["InstanceId"] !== undefined) {
-    contents.InstanceId =
-      output["InstanceId"]["#text"] !== undefined
-        ? output["InstanceId"]["#text"]
-        : output["InstanceId"];
+    contents.InstanceId = output["InstanceId"];
   }
   if (output["InstanceType"] !== undefined) {
-    contents.InstanceType =
-      output["InstanceType"]["#text"] !== undefined
-        ? output["InstanceType"]["#text"]
-        : output["InstanceType"];
+    contents.InstanceType = output["InstanceType"];
   }
   if (output["LaunchConfigurationName"] !== undefined) {
-    contents.LaunchConfigurationName =
-      output["LaunchConfigurationName"]["#text"] !== undefined
-        ? output["LaunchConfigurationName"]["#text"]
-        : output["LaunchConfigurationName"];
+    contents.LaunchConfigurationName = output["LaunchConfigurationName"];
   }
   if (output["LaunchTemplate"] !== undefined) {
     contents.LaunchTemplate = deserializeAws_queryLaunchTemplateSpecification(
@@ -8636,22 +8354,13 @@ const deserializeAws_queryInstance = (
     );
   }
   if (output["LifecycleState"] !== undefined) {
-    contents.LifecycleState =
-      output["LifecycleState"]["#text"] !== undefined
-        ? output["LifecycleState"]["#text"]
-        : output["LifecycleState"];
+    contents.LifecycleState = output["LifecycleState"];
   }
   if (output["ProtectedFromScaleIn"] !== undefined) {
-    contents.ProtectedFromScaleIn =
-      (output["ProtectedFromScaleIn"]["#text"] !== undefined
-        ? output["ProtectedFromScaleIn"]["#text"]
-        : output["ProtectedFromScaleIn"]) == "true";
+    contents.ProtectedFromScaleIn = output["ProtectedFromScaleIn"] == "true";
   }
   if (output["WeightedCapacity"] !== undefined) {
-    contents.WeightedCapacity =
-      output["WeightedCapacity"]["#text"] !== undefined
-        ? output["WeightedCapacity"]["#text"]
-        : output["WeightedCapacity"];
+    contents.WeightedCapacity = output["WeightedCapacity"];
   }
   return contents;
 };
@@ -8665,10 +8374,7 @@ const deserializeAws_queryInstanceMonitoring = (
     Enabled: undefined
   };
   if (output["Enabled"] !== undefined) {
-    contents.Enabled =
-      (output["Enabled"]["#text"] !== undefined
-        ? output["Enabled"]["#text"]
-        : output["Enabled"]) == "true";
+    contents.Enabled = output["Enabled"] == "true";
   }
   return contents;
 };
@@ -8676,12 +8382,10 @@ const deserializeAws_queryInstanceMonitoring = (
 const deserializeAws_queryInstances = (
   output: any,
   context: __SerdeContext
-): Array<Instance> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryInstance(entry, context));
-  });
-  return contents;
+): Instance[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryInstance(entry, context)
+  );
 };
 
 const deserializeAws_queryInstancesDistribution = (
@@ -8698,43 +8402,24 @@ const deserializeAws_queryInstancesDistribution = (
     SpotMaxPrice: undefined
   };
   if (output["OnDemandAllocationStrategy"] !== undefined) {
-    contents.OnDemandAllocationStrategy =
-      output["OnDemandAllocationStrategy"]["#text"] !== undefined
-        ? output["OnDemandAllocationStrategy"]["#text"]
-        : output["OnDemandAllocationStrategy"];
+    contents.OnDemandAllocationStrategy = output["OnDemandAllocationStrategy"];
   }
   if (output["OnDemandBaseCapacity"] !== undefined) {
-    contents.OnDemandBaseCapacity = parseInt(
-      output["OnDemandBaseCapacity"]["#text"] !== undefined
-        ? output["OnDemandBaseCapacity"]["#text"]
-        : output["OnDemandBaseCapacity"]
-    );
+    contents.OnDemandBaseCapacity = parseInt(output["OnDemandBaseCapacity"]);
   }
   if (output["OnDemandPercentageAboveBaseCapacity"] !== undefined) {
     contents.OnDemandPercentageAboveBaseCapacity = parseInt(
-      output["OnDemandPercentageAboveBaseCapacity"]["#text"] !== undefined
-        ? output["OnDemandPercentageAboveBaseCapacity"]["#text"]
-        : output["OnDemandPercentageAboveBaseCapacity"]
+      output["OnDemandPercentageAboveBaseCapacity"]
     );
   }
   if (output["SpotAllocationStrategy"] !== undefined) {
-    contents.SpotAllocationStrategy =
-      output["SpotAllocationStrategy"]["#text"] !== undefined
-        ? output["SpotAllocationStrategy"]["#text"]
-        : output["SpotAllocationStrategy"];
+    contents.SpotAllocationStrategy = output["SpotAllocationStrategy"];
   }
   if (output["SpotInstancePools"] !== undefined) {
-    contents.SpotInstancePools = parseInt(
-      output["SpotInstancePools"]["#text"] !== undefined
-        ? output["SpotInstancePools"]["#text"]
-        : output["SpotInstancePools"]
-    );
+    contents.SpotInstancePools = parseInt(output["SpotInstancePools"]);
   }
   if (output["SpotMaxPrice"] !== undefined) {
-    contents.SpotMaxPrice =
-      output["SpotMaxPrice"]["#text"] !== undefined
-        ? output["SpotMaxPrice"]["#text"]
-        : output["SpotMaxPrice"];
+    contents.SpotMaxPrice = output["SpotMaxPrice"];
   }
   return contents;
 };
@@ -8748,10 +8433,7 @@ const deserializeAws_queryInvalidNextToken = (
     message: undefined
   };
   if (output["message"] !== undefined) {
-    contents.message =
-      output["message"]["#text"] !== undefined
-        ? output["message"]["#text"]
-        : output["message"];
+    contents.message = output["message"];
   }
   return contents;
 };
@@ -8784,9 +8466,7 @@ const deserializeAws_queryLaunchConfiguration = (
   };
   if (output["AssociatePublicIpAddress"] !== undefined) {
     contents.AssociatePublicIpAddress =
-      (output["AssociatePublicIpAddress"]["#text"] !== undefined
-        ? output["AssociatePublicIpAddress"]["#text"]
-        : output["AssociatePublicIpAddress"]) == "true";
+      output["AssociatePublicIpAddress"] == "true";
   }
   if (output.BlockDeviceMappings === "") {
     contents.BlockDeviceMappings = [];
@@ -8795,20 +8475,13 @@ const deserializeAws_queryLaunchConfiguration = (
     output["BlockDeviceMappings"] !== undefined &&
     output["BlockDeviceMappings"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["BlockDeviceMappings"]["member"] instanceof Array
-        ? output["BlockDeviceMappings"]["member"]
-        : [output["BlockDeviceMappings"]["member"]];
     contents.BlockDeviceMappings = deserializeAws_queryBlockDeviceMappings(
-      wrappedItem,
+      __getArrayIfSingleItem(output["BlockDeviceMappings"]["member"]),
       context
     );
   }
   if (output["ClassicLinkVPCId"] !== undefined) {
-    contents.ClassicLinkVPCId =
-      output["ClassicLinkVPCId"]["#text"] !== undefined
-        ? output["ClassicLinkVPCId"]["#text"]
-        : output["ClassicLinkVPCId"];
+    contents.ClassicLinkVPCId = output["ClassicLinkVPCId"];
   }
   if (output.ClassicLinkVPCSecurityGroups === "") {
     contents.ClassicLinkVPCSecurityGroups = [];
@@ -8817,12 +8490,8 @@ const deserializeAws_queryLaunchConfiguration = (
     output["ClassicLinkVPCSecurityGroups"] !== undefined &&
     output["ClassicLinkVPCSecurityGroups"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["ClassicLinkVPCSecurityGroups"]["member"] instanceof Array
-        ? output["ClassicLinkVPCSecurityGroups"]["member"]
-        : [output["ClassicLinkVPCSecurityGroups"]["member"]];
     contents.ClassicLinkVPCSecurityGroups = deserializeAws_queryClassicLinkVPCSecurityGroups(
-      wrappedItem,
+      __getArrayIfSingleItem(output["ClassicLinkVPCSecurityGroups"]["member"]),
       context
     );
   }
@@ -8830,22 +8499,13 @@ const deserializeAws_queryLaunchConfiguration = (
     contents.CreatedTime = new Date(output["CreatedTime"]);
   }
   if (output["EbsOptimized"] !== undefined) {
-    contents.EbsOptimized =
-      (output["EbsOptimized"]["#text"] !== undefined
-        ? output["EbsOptimized"]["#text"]
-        : output["EbsOptimized"]) == "true";
+    contents.EbsOptimized = output["EbsOptimized"] == "true";
   }
   if (output["IamInstanceProfile"] !== undefined) {
-    contents.IamInstanceProfile =
-      output["IamInstanceProfile"]["#text"] !== undefined
-        ? output["IamInstanceProfile"]["#text"]
-        : output["IamInstanceProfile"];
+    contents.IamInstanceProfile = output["IamInstanceProfile"];
   }
   if (output["ImageId"] !== undefined) {
-    contents.ImageId =
-      output["ImageId"]["#text"] !== undefined
-        ? output["ImageId"]["#text"]
-        : output["ImageId"];
+    contents.ImageId = output["ImageId"];
   }
   if (output["InstanceMonitoring"] !== undefined) {
     contents.InstanceMonitoring = deserializeAws_queryInstanceMonitoring(
@@ -8854,46 +8514,25 @@ const deserializeAws_queryLaunchConfiguration = (
     );
   }
   if (output["InstanceType"] !== undefined) {
-    contents.InstanceType =
-      output["InstanceType"]["#text"] !== undefined
-        ? output["InstanceType"]["#text"]
-        : output["InstanceType"];
+    contents.InstanceType = output["InstanceType"];
   }
   if (output["KernelId"] !== undefined) {
-    contents.KernelId =
-      output["KernelId"]["#text"] !== undefined
-        ? output["KernelId"]["#text"]
-        : output["KernelId"];
+    contents.KernelId = output["KernelId"];
   }
   if (output["KeyName"] !== undefined) {
-    contents.KeyName =
-      output["KeyName"]["#text"] !== undefined
-        ? output["KeyName"]["#text"]
-        : output["KeyName"];
+    contents.KeyName = output["KeyName"];
   }
   if (output["LaunchConfigurationARN"] !== undefined) {
-    contents.LaunchConfigurationARN =
-      output["LaunchConfigurationARN"]["#text"] !== undefined
-        ? output["LaunchConfigurationARN"]["#text"]
-        : output["LaunchConfigurationARN"];
+    contents.LaunchConfigurationARN = output["LaunchConfigurationARN"];
   }
   if (output["LaunchConfigurationName"] !== undefined) {
-    contents.LaunchConfigurationName =
-      output["LaunchConfigurationName"]["#text"] !== undefined
-        ? output["LaunchConfigurationName"]["#text"]
-        : output["LaunchConfigurationName"];
+    contents.LaunchConfigurationName = output["LaunchConfigurationName"];
   }
   if (output["PlacementTenancy"] !== undefined) {
-    contents.PlacementTenancy =
-      output["PlacementTenancy"]["#text"] !== undefined
-        ? output["PlacementTenancy"]["#text"]
-        : output["PlacementTenancy"];
+    contents.PlacementTenancy = output["PlacementTenancy"];
   }
   if (output["RamdiskId"] !== undefined) {
-    contents.RamdiskId =
-      output["RamdiskId"]["#text"] !== undefined
-        ? output["RamdiskId"]["#text"]
-        : output["RamdiskId"];
+    contents.RamdiskId = output["RamdiskId"];
   }
   if (output.SecurityGroups === "") {
     contents.SecurityGroups = [];
@@ -8902,26 +8541,16 @@ const deserializeAws_queryLaunchConfiguration = (
     output["SecurityGroups"] !== undefined &&
     output["SecurityGroups"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["SecurityGroups"]["member"] instanceof Array
-        ? output["SecurityGroups"]["member"]
-        : [output["SecurityGroups"]["member"]];
     contents.SecurityGroups = deserializeAws_querySecurityGroups(
-      wrappedItem,
+      __getArrayIfSingleItem(output["SecurityGroups"]["member"]),
       context
     );
   }
   if (output["SpotPrice"] !== undefined) {
-    contents.SpotPrice =
-      output["SpotPrice"]["#text"] !== undefined
-        ? output["SpotPrice"]["#text"]
-        : output["SpotPrice"];
+    contents.SpotPrice = output["SpotPrice"];
   }
   if (output["UserData"] !== undefined) {
-    contents.UserData =
-      output["UserData"]["#text"] !== undefined
-        ? output["UserData"]["#text"]
-        : output["UserData"];
+    contents.UserData = output["UserData"];
   }
   return contents;
 };
@@ -8929,12 +8558,10 @@ const deserializeAws_queryLaunchConfiguration = (
 const deserializeAws_queryLaunchConfigurations = (
   output: any,
   context: __SerdeContext
-): Array<LaunchConfiguration> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryLaunchConfiguration(entry, context));
-  });
-  return contents;
+): LaunchConfiguration[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryLaunchConfiguration(entry, context)
+  );
 };
 
 const deserializeAws_queryLaunchConfigurationsType = (
@@ -8953,20 +8580,13 @@ const deserializeAws_queryLaunchConfigurationsType = (
     output["LaunchConfigurations"] !== undefined &&
     output["LaunchConfigurations"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["LaunchConfigurations"]["member"] instanceof Array
-        ? output["LaunchConfigurations"]["member"]
-        : [output["LaunchConfigurations"]["member"]];
     contents.LaunchConfigurations = deserializeAws_queryLaunchConfigurations(
-      wrappedItem,
+      __getArrayIfSingleItem(output["LaunchConfigurations"]["member"]),
       context
     );
   }
   if (output["NextToken"] !== undefined) {
-    contents.NextToken =
-      output["NextToken"]["#text"] !== undefined
-        ? output["NextToken"]["#text"]
-        : output["NextToken"];
+    contents.NextToken = output["NextToken"];
   }
   return contents;
 };
@@ -8993,11 +8613,10 @@ const deserializeAws_queryLaunchTemplate = (
     output["Overrides"] !== undefined &&
     output["Overrides"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Overrides"]["member"] instanceof Array
-        ? output["Overrides"]["member"]
-        : [output["Overrides"]["member"]];
-    contents.Overrides = deserializeAws_queryOverrides(wrappedItem, context);
+    contents.Overrides = deserializeAws_queryOverrides(
+      __getArrayIfSingleItem(output["Overrides"]["member"]),
+      context
+    );
   }
   return contents;
 };
@@ -9012,16 +8631,10 @@ const deserializeAws_queryLaunchTemplateOverrides = (
     WeightedCapacity: undefined
   };
   if (output["InstanceType"] !== undefined) {
-    contents.InstanceType =
-      output["InstanceType"]["#text"] !== undefined
-        ? output["InstanceType"]["#text"]
-        : output["InstanceType"];
+    contents.InstanceType = output["InstanceType"];
   }
   if (output["WeightedCapacity"] !== undefined) {
-    contents.WeightedCapacity =
-      output["WeightedCapacity"]["#text"] !== undefined
-        ? output["WeightedCapacity"]["#text"]
-        : output["WeightedCapacity"];
+    contents.WeightedCapacity = output["WeightedCapacity"];
   }
   return contents;
 };
@@ -9037,22 +8650,13 @@ const deserializeAws_queryLaunchTemplateSpecification = (
     Version: undefined
   };
   if (output["LaunchTemplateId"] !== undefined) {
-    contents.LaunchTemplateId =
-      output["LaunchTemplateId"]["#text"] !== undefined
-        ? output["LaunchTemplateId"]["#text"]
-        : output["LaunchTemplateId"];
+    contents.LaunchTemplateId = output["LaunchTemplateId"];
   }
   if (output["LaunchTemplateName"] !== undefined) {
-    contents.LaunchTemplateName =
-      output["LaunchTemplateName"]["#text"] !== undefined
-        ? output["LaunchTemplateName"]["#text"]
-        : output["LaunchTemplateName"];
+    contents.LaunchTemplateName = output["LaunchTemplateName"];
   }
   if (output["Version"] !== undefined) {
-    contents.Version =
-      output["Version"]["#text"] !== undefined
-        ? output["Version"]["#text"]
-        : output["Version"];
+    contents.Version = output["Version"];
   }
   return contents;
 };
@@ -9074,60 +8678,31 @@ const deserializeAws_queryLifecycleHook = (
     RoleARN: undefined
   };
   if (output["AutoScalingGroupName"] !== undefined) {
-    contents.AutoScalingGroupName =
-      output["AutoScalingGroupName"]["#text"] !== undefined
-        ? output["AutoScalingGroupName"]["#text"]
-        : output["AutoScalingGroupName"];
+    contents.AutoScalingGroupName = output["AutoScalingGroupName"];
   }
   if (output["DefaultResult"] !== undefined) {
-    contents.DefaultResult =
-      output["DefaultResult"]["#text"] !== undefined
-        ? output["DefaultResult"]["#text"]
-        : output["DefaultResult"];
+    contents.DefaultResult = output["DefaultResult"];
   }
   if (output["GlobalTimeout"] !== undefined) {
-    contents.GlobalTimeout = parseInt(
-      output["GlobalTimeout"]["#text"] !== undefined
-        ? output["GlobalTimeout"]["#text"]
-        : output["GlobalTimeout"]
-    );
+    contents.GlobalTimeout = parseInt(output["GlobalTimeout"]);
   }
   if (output["HeartbeatTimeout"] !== undefined) {
-    contents.HeartbeatTimeout = parseInt(
-      output["HeartbeatTimeout"]["#text"] !== undefined
-        ? output["HeartbeatTimeout"]["#text"]
-        : output["HeartbeatTimeout"]
-    );
+    contents.HeartbeatTimeout = parseInt(output["HeartbeatTimeout"]);
   }
   if (output["LifecycleHookName"] !== undefined) {
-    contents.LifecycleHookName =
-      output["LifecycleHookName"]["#text"] !== undefined
-        ? output["LifecycleHookName"]["#text"]
-        : output["LifecycleHookName"];
+    contents.LifecycleHookName = output["LifecycleHookName"];
   }
   if (output["LifecycleTransition"] !== undefined) {
-    contents.LifecycleTransition =
-      output["LifecycleTransition"]["#text"] !== undefined
-        ? output["LifecycleTransition"]["#text"]
-        : output["LifecycleTransition"];
+    contents.LifecycleTransition = output["LifecycleTransition"];
   }
   if (output["NotificationMetadata"] !== undefined) {
-    contents.NotificationMetadata =
-      output["NotificationMetadata"]["#text"] !== undefined
-        ? output["NotificationMetadata"]["#text"]
-        : output["NotificationMetadata"];
+    contents.NotificationMetadata = output["NotificationMetadata"];
   }
   if (output["NotificationTargetARN"] !== undefined) {
-    contents.NotificationTargetARN =
-      output["NotificationTargetARN"]["#text"] !== undefined
-        ? output["NotificationTargetARN"]["#text"]
-        : output["NotificationTargetARN"];
+    contents.NotificationTargetARN = output["NotificationTargetARN"];
   }
   if (output["RoleARN"] !== undefined) {
-    contents.RoleARN =
-      output["RoleARN"]["#text"] !== undefined
-        ? output["RoleARN"]["#text"]
-        : output["RoleARN"];
+    contents.RoleARN = output["RoleARN"];
   }
   return contents;
 };
@@ -9135,12 +8710,10 @@ const deserializeAws_queryLifecycleHook = (
 const deserializeAws_queryLifecycleHooks = (
   output: any,
   context: __SerdeContext
-): Array<LifecycleHook> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryLifecycleHook(entry, context));
-  });
-  return contents;
+): LifecycleHook[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryLifecycleHook(entry, context)
+  );
 };
 
 const deserializeAws_queryLimitExceededFault = (
@@ -9152,10 +8725,7 @@ const deserializeAws_queryLimitExceededFault = (
     message: undefined
   };
   if (output["message"] !== undefined) {
-    contents.message =
-      output["message"]["#text"] !== undefined
-        ? output["message"]["#text"]
-        : output["message"];
+    contents.message = output["message"];
   }
   return contents;
 };
@@ -9163,12 +8733,8 @@ const deserializeAws_queryLimitExceededFault = (
 const deserializeAws_queryLoadBalancerNames = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_queryLoadBalancerState = (
@@ -9181,16 +8747,10 @@ const deserializeAws_queryLoadBalancerState = (
     State: undefined
   };
   if (output["LoadBalancerName"] !== undefined) {
-    contents.LoadBalancerName =
-      output["LoadBalancerName"]["#text"] !== undefined
-        ? output["LoadBalancerName"]["#text"]
-        : output["LoadBalancerName"];
+    contents.LoadBalancerName = output["LoadBalancerName"];
   }
   if (output["State"] !== undefined) {
-    contents.State =
-      output["State"]["#text"] !== undefined
-        ? output["State"]["#text"]
-        : output["State"];
+    contents.State = output["State"];
   }
   return contents;
 };
@@ -9198,12 +8758,10 @@ const deserializeAws_queryLoadBalancerState = (
 const deserializeAws_queryLoadBalancerStates = (
   output: any,
   context: __SerdeContext
-): Array<LoadBalancerState> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryLoadBalancerState(entry, context));
-  });
-  return contents;
+): LoadBalancerState[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryLoadBalancerState(entry, context)
+  );
 };
 
 const deserializeAws_queryLoadBalancerTargetGroupState = (
@@ -9216,16 +8774,10 @@ const deserializeAws_queryLoadBalancerTargetGroupState = (
     State: undefined
   };
   if (output["LoadBalancerTargetGroupARN"] !== undefined) {
-    contents.LoadBalancerTargetGroupARN =
-      output["LoadBalancerTargetGroupARN"]["#text"] !== undefined
-        ? output["LoadBalancerTargetGroupARN"]["#text"]
-        : output["LoadBalancerTargetGroupARN"];
+    contents.LoadBalancerTargetGroupARN = output["LoadBalancerTargetGroupARN"];
   }
   if (output["State"] !== undefined) {
-    contents.State =
-      output["State"]["#text"] !== undefined
-        ? output["State"]["#text"]
-        : output["State"];
+    contents.State = output["State"];
   }
   return contents;
 };
@@ -9233,14 +8785,10 @@ const deserializeAws_queryLoadBalancerTargetGroupState = (
 const deserializeAws_queryLoadBalancerTargetGroupStates = (
   output: any,
   context: __SerdeContext
-): Array<LoadBalancerTargetGroupState> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      deserializeAws_queryLoadBalancerTargetGroupState(entry, context)
-    );
-  });
-  return contents;
+): LoadBalancerTargetGroupState[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryLoadBalancerTargetGroupState(entry, context)
+  );
 };
 
 const deserializeAws_queryMetricCollectionType = (
@@ -9252,10 +8800,7 @@ const deserializeAws_queryMetricCollectionType = (
     Metric: undefined
   };
   if (output["Metric"] !== undefined) {
-    contents.Metric =
-      output["Metric"]["#text"] !== undefined
-        ? output["Metric"]["#text"]
-        : output["Metric"];
+    contents.Metric = output["Metric"];
   }
   return contents;
 };
@@ -9263,12 +8808,10 @@ const deserializeAws_queryMetricCollectionType = (
 const deserializeAws_queryMetricCollectionTypes = (
   output: any,
   context: __SerdeContext
-): Array<MetricCollectionType> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryMetricCollectionType(entry, context));
-  });
-  return contents;
+): MetricCollectionType[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryMetricCollectionType(entry, context)
+  );
 };
 
 const deserializeAws_queryMetricDimension = (
@@ -9281,16 +8824,10 @@ const deserializeAws_queryMetricDimension = (
     Value: undefined
   };
   if (output["Name"] !== undefined) {
-    contents.Name =
-      output["Name"]["#text"] !== undefined
-        ? output["Name"]["#text"]
-        : output["Name"];
+    contents.Name = output["Name"];
   }
   if (output["Value"] !== undefined) {
-    contents.Value =
-      output["Value"]["#text"] !== undefined
-        ? output["Value"]["#text"]
-        : output["Value"];
+    contents.Value = output["Value"];
   }
   return contents;
 };
@@ -9298,12 +8835,10 @@ const deserializeAws_queryMetricDimension = (
 const deserializeAws_queryMetricDimensions = (
   output: any,
   context: __SerdeContext
-): Array<MetricDimension> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryMetricDimension(entry, context));
-  });
-  return contents;
+): MetricDimension[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryMetricDimension(entry, context)
+  );
 };
 
 const deserializeAws_queryMetricGranularityType = (
@@ -9315,10 +8850,7 @@ const deserializeAws_queryMetricGranularityType = (
     Granularity: undefined
   };
   if (output["Granularity"] !== undefined) {
-    contents.Granularity =
-      output["Granularity"]["#text"] !== undefined
-        ? output["Granularity"]["#text"]
-        : output["Granularity"];
+    contents.Granularity = output["Granularity"];
   }
   return contents;
 };
@@ -9326,12 +8858,10 @@ const deserializeAws_queryMetricGranularityType = (
 const deserializeAws_queryMetricGranularityTypes = (
   output: any,
   context: __SerdeContext
-): Array<MetricGranularityType> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryMetricGranularityType(entry, context));
-  });
-  return contents;
+): MetricGranularityType[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryMetricGranularityType(entry, context)
+  );
 };
 
 const deserializeAws_queryMixedInstancesPolicy = (
@@ -9369,22 +8899,13 @@ const deserializeAws_queryNotificationConfiguration = (
     TopicARN: undefined
   };
   if (output["AutoScalingGroupName"] !== undefined) {
-    contents.AutoScalingGroupName =
-      output["AutoScalingGroupName"]["#text"] !== undefined
-        ? output["AutoScalingGroupName"]["#text"]
-        : output["AutoScalingGroupName"];
+    contents.AutoScalingGroupName = output["AutoScalingGroupName"];
   }
   if (output["NotificationType"] !== undefined) {
-    contents.NotificationType =
-      output["NotificationType"]["#text"] !== undefined
-        ? output["NotificationType"]["#text"]
-        : output["NotificationType"];
+    contents.NotificationType = output["NotificationType"];
   }
   if (output["TopicARN"] !== undefined) {
-    contents.TopicARN =
-      output["TopicARN"]["#text"] !== undefined
-        ? output["TopicARN"]["#text"]
-        : output["TopicARN"];
+    contents.TopicARN = output["TopicARN"];
   }
   return contents;
 };
@@ -9392,25 +8913,19 @@ const deserializeAws_queryNotificationConfiguration = (
 const deserializeAws_queryNotificationConfigurations = (
   output: any,
   context: __SerdeContext
-): Array<NotificationConfiguration> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      deserializeAws_queryNotificationConfiguration(entry, context)
-    );
-  });
-  return contents;
+): NotificationConfiguration[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryNotificationConfiguration(entry, context)
+  );
 };
 
 const deserializeAws_queryOverrides = (
   output: any,
   context: __SerdeContext
-): Array<LaunchTemplateOverrides> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryLaunchTemplateOverrides(entry, context));
-  });
-  return contents;
+): LaunchTemplateOverrides[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryLaunchTemplateOverrides(entry, context)
+  );
 };
 
 const deserializeAws_queryPoliciesType = (
@@ -9423,10 +8938,7 @@ const deserializeAws_queryPoliciesType = (
     ScalingPolicies: undefined
   };
   if (output["NextToken"] !== undefined) {
-    contents.NextToken =
-      output["NextToken"]["#text"] !== undefined
-        ? output["NextToken"]["#text"]
-        : output["NextToken"];
+    contents.NextToken = output["NextToken"];
   }
   if (output.ScalingPolicies === "") {
     contents.ScalingPolicies = [];
@@ -9435,12 +8947,8 @@ const deserializeAws_queryPoliciesType = (
     output["ScalingPolicies"] !== undefined &&
     output["ScalingPolicies"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["ScalingPolicies"]["member"] instanceof Array
-        ? output["ScalingPolicies"]["member"]
-        : [output["ScalingPolicies"]["member"]];
     contents.ScalingPolicies = deserializeAws_queryScalingPolicies(
-      wrappedItem,
+      __getArrayIfSingleItem(output["ScalingPolicies"]["member"]),
       context
     );
   }
@@ -9463,17 +8971,13 @@ const deserializeAws_queryPolicyARNType = (
     output["Alarms"] !== undefined &&
     output["Alarms"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Alarms"]["member"] instanceof Array
-        ? output["Alarms"]["member"]
-        : [output["Alarms"]["member"]];
-    contents.Alarms = deserializeAws_queryAlarms(wrappedItem, context);
+    contents.Alarms = deserializeAws_queryAlarms(
+      __getArrayIfSingleItem(output["Alarms"]["member"]),
+      context
+    );
   }
   if (output["PolicyARN"] !== undefined) {
-    contents.PolicyARN =
-      output["PolicyARN"]["#text"] !== undefined
-        ? output["PolicyARN"]["#text"]
-        : output["PolicyARN"];
+    contents.PolicyARN = output["PolicyARN"];
   }
   return contents;
 };
@@ -9488,16 +8992,10 @@ const deserializeAws_queryPredefinedMetricSpecification = (
     ResourceLabel: undefined
   };
   if (output["PredefinedMetricType"] !== undefined) {
-    contents.PredefinedMetricType =
-      output["PredefinedMetricType"]["#text"] !== undefined
-        ? output["PredefinedMetricType"]["#text"]
-        : output["PredefinedMetricType"];
+    contents.PredefinedMetricType = output["PredefinedMetricType"];
   }
   if (output["ResourceLabel"] !== undefined) {
-    contents.ResourceLabel =
-      output["ResourceLabel"]["#text"] !== undefined
-        ? output["ResourceLabel"]["#text"]
-        : output["ResourceLabel"];
+    contents.ResourceLabel = output["ResourceLabel"];
   }
   return contents;
 };
@@ -9511,10 +9009,7 @@ const deserializeAws_queryProcessType = (
     ProcessName: undefined
   };
   if (output["ProcessName"] !== undefined) {
-    contents.ProcessName =
-      output["ProcessName"]["#text"] !== undefined
-        ? output["ProcessName"]["#text"]
-        : output["ProcessName"];
+    contents.ProcessName = output["ProcessName"];
   }
   return contents;
 };
@@ -9522,12 +9017,10 @@ const deserializeAws_queryProcessType = (
 const deserializeAws_queryProcesses = (
   output: any,
   context: __SerdeContext
-): Array<ProcessType> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryProcessType(entry, context));
-  });
-  return contents;
+): ProcessType[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryProcessType(entry, context)
+  );
 };
 
 const deserializeAws_queryProcessesType = (
@@ -9545,11 +9038,10 @@ const deserializeAws_queryProcessesType = (
     output["Processes"] !== undefined &&
     output["Processes"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Processes"]["member"] instanceof Array
-        ? output["Processes"]["member"]
-        : [output["Processes"]["member"]];
-    contents.Processes = deserializeAws_queryProcesses(wrappedItem, context);
+    contents.Processes = deserializeAws_queryProcesses(
+      __getArrayIfSingleItem(output["Processes"]["member"]),
+      context
+    );
   }
   return contents;
 };
@@ -9583,10 +9075,7 @@ const deserializeAws_queryResourceContentionFault = (
     message: undefined
   };
   if (output["message"] !== undefined) {
-    contents.message =
-      output["message"]["#text"] !== undefined
-        ? output["message"]["#text"]
-        : output["message"];
+    contents.message = output["message"];
   }
   return contents;
 };
@@ -9600,10 +9089,7 @@ const deserializeAws_queryResourceInUseFault = (
     message: undefined
   };
   if (output["message"] !== undefined) {
-    contents.message =
-      output["message"]["#text"] !== undefined
-        ? output["message"]["#text"]
-        : output["message"];
+    contents.message = output["message"];
   }
   return contents;
 };
@@ -9617,10 +9103,7 @@ const deserializeAws_queryScalingActivityInProgressFault = (
     message: undefined
   };
   if (output["message"] !== undefined) {
-    contents.message =
-      output["message"]["#text"] !== undefined
-        ? output["message"]["#text"]
-        : output["message"];
+    contents.message = output["message"];
   }
   return contents;
 };
@@ -9628,12 +9111,10 @@ const deserializeAws_queryScalingActivityInProgressFault = (
 const deserializeAws_queryScalingPolicies = (
   output: any,
   context: __SerdeContext
-): Array<ScalingPolicy> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryScalingPolicy(entry, context));
-  });
-  return contents;
+): ScalingPolicy[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryScalingPolicy(entry, context)
+  );
 };
 
 const deserializeAws_queryScalingPolicy = (
@@ -9658,10 +9139,7 @@ const deserializeAws_queryScalingPolicy = (
     TargetTrackingConfiguration: undefined
   };
   if (output["AdjustmentType"] !== undefined) {
-    contents.AdjustmentType =
-      output["AdjustmentType"]["#text"] !== undefined
-        ? output["AdjustmentType"]["#text"]
-        : output["AdjustmentType"];
+    contents.AdjustmentType = output["AdjustmentType"];
   }
   if (output.Alarms === "") {
     contents.Alarms = [];
@@ -9670,76 +9148,44 @@ const deserializeAws_queryScalingPolicy = (
     output["Alarms"] !== undefined &&
     output["Alarms"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["Alarms"]["member"] instanceof Array
-        ? output["Alarms"]["member"]
-        : [output["Alarms"]["member"]];
-    contents.Alarms = deserializeAws_queryAlarms(wrappedItem, context);
+    contents.Alarms = deserializeAws_queryAlarms(
+      __getArrayIfSingleItem(output["Alarms"]["member"]),
+      context
+    );
   }
   if (output["AutoScalingGroupName"] !== undefined) {
-    contents.AutoScalingGroupName =
-      output["AutoScalingGroupName"]["#text"] !== undefined
-        ? output["AutoScalingGroupName"]["#text"]
-        : output["AutoScalingGroupName"];
+    contents.AutoScalingGroupName = output["AutoScalingGroupName"];
   }
   if (output["Cooldown"] !== undefined) {
-    contents.Cooldown = parseInt(
-      output["Cooldown"]["#text"] !== undefined
-        ? output["Cooldown"]["#text"]
-        : output["Cooldown"]
-    );
+    contents.Cooldown = parseInt(output["Cooldown"]);
   }
   if (output["EstimatedInstanceWarmup"] !== undefined) {
     contents.EstimatedInstanceWarmup = parseInt(
-      output["EstimatedInstanceWarmup"]["#text"] !== undefined
-        ? output["EstimatedInstanceWarmup"]["#text"]
-        : output["EstimatedInstanceWarmup"]
+      output["EstimatedInstanceWarmup"]
     );
   }
   if (output["MetricAggregationType"] !== undefined) {
-    contents.MetricAggregationType =
-      output["MetricAggregationType"]["#text"] !== undefined
-        ? output["MetricAggregationType"]["#text"]
-        : output["MetricAggregationType"];
+    contents.MetricAggregationType = output["MetricAggregationType"];
   }
   if (output["MinAdjustmentMagnitude"] !== undefined) {
     contents.MinAdjustmentMagnitude = parseInt(
-      output["MinAdjustmentMagnitude"]["#text"] !== undefined
-        ? output["MinAdjustmentMagnitude"]["#text"]
-        : output["MinAdjustmentMagnitude"]
+      output["MinAdjustmentMagnitude"]
     );
   }
   if (output["MinAdjustmentStep"] !== undefined) {
-    contents.MinAdjustmentStep = parseInt(
-      output["MinAdjustmentStep"]["#text"] !== undefined
-        ? output["MinAdjustmentStep"]["#text"]
-        : output["MinAdjustmentStep"]
-    );
+    contents.MinAdjustmentStep = parseInt(output["MinAdjustmentStep"]);
   }
   if (output["PolicyARN"] !== undefined) {
-    contents.PolicyARN =
-      output["PolicyARN"]["#text"] !== undefined
-        ? output["PolicyARN"]["#text"]
-        : output["PolicyARN"];
+    contents.PolicyARN = output["PolicyARN"];
   }
   if (output["PolicyName"] !== undefined) {
-    contents.PolicyName =
-      output["PolicyName"]["#text"] !== undefined
-        ? output["PolicyName"]["#text"]
-        : output["PolicyName"];
+    contents.PolicyName = output["PolicyName"];
   }
   if (output["PolicyType"] !== undefined) {
-    contents.PolicyType =
-      output["PolicyType"]["#text"] !== undefined
-        ? output["PolicyType"]["#text"]
-        : output["PolicyType"];
+    contents.PolicyType = output["PolicyType"];
   }
   if (output["ScalingAdjustment"] !== undefined) {
-    contents.ScalingAdjustment = parseInt(
-      output["ScalingAdjustment"]["#text"] !== undefined
-        ? output["ScalingAdjustment"]["#text"]
-        : output["ScalingAdjustment"]
-    );
+    contents.ScalingAdjustment = parseInt(output["ScalingAdjustment"]);
   }
   if (output.StepAdjustments === "") {
     contents.StepAdjustments = [];
@@ -9748,12 +9194,8 @@ const deserializeAws_queryScalingPolicy = (
     output["StepAdjustments"] !== undefined &&
     output["StepAdjustments"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["StepAdjustments"]["member"] instanceof Array
-        ? output["StepAdjustments"]["member"]
-        : [output["StepAdjustments"]["member"]];
     contents.StepAdjustments = deserializeAws_queryStepAdjustments(
-      wrappedItem,
+      __getArrayIfSingleItem(output["StepAdjustments"]["member"]),
       context
     );
   }
@@ -9776,10 +9218,7 @@ const deserializeAws_queryScheduledActionsType = (
     ScheduledUpdateGroupActions: undefined
   };
   if (output["NextToken"] !== undefined) {
-    contents.NextToken =
-      output["NextToken"]["#text"] !== undefined
-        ? output["NextToken"]["#text"]
-        : output["NextToken"];
+    contents.NextToken = output["NextToken"];
   }
   if (output.ScheduledUpdateGroupActions === "") {
     contents.ScheduledUpdateGroupActions = [];
@@ -9788,12 +9227,8 @@ const deserializeAws_queryScheduledActionsType = (
     output["ScheduledUpdateGroupActions"] !== undefined &&
     output["ScheduledUpdateGroupActions"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["ScheduledUpdateGroupActions"]["member"] instanceof Array
-        ? output["ScheduledUpdateGroupActions"]["member"]
-        : [output["ScheduledUpdateGroupActions"]["member"]];
     contents.ScheduledUpdateGroupActions = deserializeAws_queryScheduledUpdateGroupActions(
-      wrappedItem,
+      __getArrayIfSingleItem(output["ScheduledUpdateGroupActions"]["member"]),
       context
     );
   }
@@ -9818,52 +9253,28 @@ const deserializeAws_queryScheduledUpdateGroupAction = (
     Time: undefined
   };
   if (output["AutoScalingGroupName"] !== undefined) {
-    contents.AutoScalingGroupName =
-      output["AutoScalingGroupName"]["#text"] !== undefined
-        ? output["AutoScalingGroupName"]["#text"]
-        : output["AutoScalingGroupName"];
+    contents.AutoScalingGroupName = output["AutoScalingGroupName"];
   }
   if (output["DesiredCapacity"] !== undefined) {
-    contents.DesiredCapacity = parseInt(
-      output["DesiredCapacity"]["#text"] !== undefined
-        ? output["DesiredCapacity"]["#text"]
-        : output["DesiredCapacity"]
-    );
+    contents.DesiredCapacity = parseInt(output["DesiredCapacity"]);
   }
   if (output["EndTime"] !== undefined) {
     contents.EndTime = new Date(output["EndTime"]);
   }
   if (output["MaxSize"] !== undefined) {
-    contents.MaxSize = parseInt(
-      output["MaxSize"]["#text"] !== undefined
-        ? output["MaxSize"]["#text"]
-        : output["MaxSize"]
-    );
+    contents.MaxSize = parseInt(output["MaxSize"]);
   }
   if (output["MinSize"] !== undefined) {
-    contents.MinSize = parseInt(
-      output["MinSize"]["#text"] !== undefined
-        ? output["MinSize"]["#text"]
-        : output["MinSize"]
-    );
+    contents.MinSize = parseInt(output["MinSize"]);
   }
   if (output["Recurrence"] !== undefined) {
-    contents.Recurrence =
-      output["Recurrence"]["#text"] !== undefined
-        ? output["Recurrence"]["#text"]
-        : output["Recurrence"];
+    contents.Recurrence = output["Recurrence"];
   }
   if (output["ScheduledActionARN"] !== undefined) {
-    contents.ScheduledActionARN =
-      output["ScheduledActionARN"]["#text"] !== undefined
-        ? output["ScheduledActionARN"]["#text"]
-        : output["ScheduledActionARN"];
+    contents.ScheduledActionARN = output["ScheduledActionARN"];
   }
   if (output["ScheduledActionName"] !== undefined) {
-    contents.ScheduledActionName =
-      output["ScheduledActionName"]["#text"] !== undefined
-        ? output["ScheduledActionName"]["#text"]
-        : output["ScheduledActionName"];
+    contents.ScheduledActionName = output["ScheduledActionName"];
   }
   if (output["StartTime"] !== undefined) {
     contents.StartTime = new Date(output["StartTime"]);
@@ -9877,25 +9288,17 @@ const deserializeAws_queryScheduledUpdateGroupAction = (
 const deserializeAws_queryScheduledUpdateGroupActions = (
   output: any,
   context: __SerdeContext
-): Array<ScheduledUpdateGroupAction> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      deserializeAws_queryScheduledUpdateGroupAction(entry, context)
-    );
-  });
-  return contents;
+): ScheduledUpdateGroupAction[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryScheduledUpdateGroupAction(entry, context)
+  );
 };
 
 const deserializeAws_querySecurityGroups = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_queryServiceLinkedRoleFailure = (
@@ -9907,10 +9310,7 @@ const deserializeAws_queryServiceLinkedRoleFailure = (
     message: undefined
   };
   if (output["message"] !== undefined) {
-    contents.message =
-      output["message"]["#text"] !== undefined
-        ? output["message"]["#text"]
-        : output["message"];
+    contents.message = output["message"];
   }
   return contents;
 };
@@ -9937,24 +9337,16 @@ const deserializeAws_queryStepAdjustment = (
   };
   if (output["MetricIntervalLowerBound"] !== undefined) {
     contents.MetricIntervalLowerBound = parseFloat(
-      output["MetricIntervalLowerBound"]["#text"] !== undefined
-        ? output["MetricIntervalLowerBound"]["#text"]
-        : output["MetricIntervalLowerBound"]
+      output["MetricIntervalLowerBound"]
     );
   }
   if (output["MetricIntervalUpperBound"] !== undefined) {
     contents.MetricIntervalUpperBound = parseFloat(
-      output["MetricIntervalUpperBound"]["#text"] !== undefined
-        ? output["MetricIntervalUpperBound"]["#text"]
-        : output["MetricIntervalUpperBound"]
+      output["MetricIntervalUpperBound"]
     );
   }
   if (output["ScalingAdjustment"] !== undefined) {
-    contents.ScalingAdjustment = parseInt(
-      output["ScalingAdjustment"]["#text"] !== undefined
-        ? output["ScalingAdjustment"]["#text"]
-        : output["ScalingAdjustment"]
-    );
+    contents.ScalingAdjustment = parseInt(output["ScalingAdjustment"]);
   }
   return contents;
 };
@@ -9962,12 +9354,10 @@ const deserializeAws_queryStepAdjustment = (
 const deserializeAws_queryStepAdjustments = (
   output: any,
   context: __SerdeContext
-): Array<StepAdjustment> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryStepAdjustment(entry, context));
-  });
-  return contents;
+): StepAdjustment[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryStepAdjustment(entry, context)
+  );
 };
 
 const deserializeAws_querySuspendedProcess = (
@@ -9980,16 +9370,10 @@ const deserializeAws_querySuspendedProcess = (
     SuspensionReason: undefined
   };
   if (output["ProcessName"] !== undefined) {
-    contents.ProcessName =
-      output["ProcessName"]["#text"] !== undefined
-        ? output["ProcessName"]["#text"]
-        : output["ProcessName"];
+    contents.ProcessName = output["ProcessName"];
   }
   if (output["SuspensionReason"] !== undefined) {
-    contents.SuspensionReason =
-      output["SuspensionReason"]["#text"] !== undefined
-        ? output["SuspensionReason"]["#text"]
-        : output["SuspensionReason"];
+    contents.SuspensionReason = output["SuspensionReason"];
   }
   return contents;
 };
@@ -9997,12 +9381,10 @@ const deserializeAws_querySuspendedProcess = (
 const deserializeAws_querySuspendedProcesses = (
   output: any,
   context: __SerdeContext
-): Array<SuspendedProcess> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_querySuspendedProcess(entry, context));
-  });
-  return contents;
+): SuspendedProcess[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_querySuspendedProcess(entry, context)
+  );
 };
 
 const deserializeAws_queryTagDescription = (
@@ -10018,34 +9400,19 @@ const deserializeAws_queryTagDescription = (
     Value: undefined
   };
   if (output["Key"] !== undefined) {
-    contents.Key =
-      output["Key"]["#text"] !== undefined
-        ? output["Key"]["#text"]
-        : output["Key"];
+    contents.Key = output["Key"];
   }
   if (output["PropagateAtLaunch"] !== undefined) {
-    contents.PropagateAtLaunch =
-      (output["PropagateAtLaunch"]["#text"] !== undefined
-        ? output["PropagateAtLaunch"]["#text"]
-        : output["PropagateAtLaunch"]) == "true";
+    contents.PropagateAtLaunch = output["PropagateAtLaunch"] == "true";
   }
   if (output["ResourceId"] !== undefined) {
-    contents.ResourceId =
-      output["ResourceId"]["#text"] !== undefined
-        ? output["ResourceId"]["#text"]
-        : output["ResourceId"];
+    contents.ResourceId = output["ResourceId"];
   }
   if (output["ResourceType"] !== undefined) {
-    contents.ResourceType =
-      output["ResourceType"]["#text"] !== undefined
-        ? output["ResourceType"]["#text"]
-        : output["ResourceType"];
+    contents.ResourceType = output["ResourceType"];
   }
   if (output["Value"] !== undefined) {
-    contents.Value =
-      output["Value"]["#text"] !== undefined
-        ? output["Value"]["#text"]
-        : output["Value"];
+    contents.Value = output["Value"];
   }
   return contents;
 };
@@ -10053,12 +9420,10 @@ const deserializeAws_queryTagDescription = (
 const deserializeAws_queryTagDescriptionList = (
   output: any,
   context: __SerdeContext
-): Array<TagDescription> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_queryTagDescription(entry, context));
-  });
-  return contents;
+): TagDescription[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_queryTagDescription(entry, context)
+  );
 };
 
 const deserializeAws_queryTagsType = (
@@ -10071,21 +9436,14 @@ const deserializeAws_queryTagsType = (
     Tags: undefined
   };
   if (output["NextToken"] !== undefined) {
-    contents.NextToken =
-      output["NextToken"]["#text"] !== undefined
-        ? output["NextToken"]["#text"]
-        : output["NextToken"];
+    contents.NextToken = output["NextToken"];
   }
   if (output.Tags === "") {
     contents.Tags = [];
   }
   if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    const wrappedItem =
-      output["Tags"]["member"] instanceof Array
-        ? output["Tags"]["member"]
-        : [output["Tags"]["member"]];
     contents.Tags = deserializeAws_queryTagDescriptionList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Tags"]["member"]),
       context
     );
   }
@@ -10095,12 +9453,8 @@ const deserializeAws_queryTagsType = (
 const deserializeAws_queryTargetGroupARNs = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_queryTargetTrackingConfiguration = (
@@ -10121,10 +9475,7 @@ const deserializeAws_queryTargetTrackingConfiguration = (
     );
   }
   if (output["DisableScaleIn"] !== undefined) {
-    contents.DisableScaleIn =
-      (output["DisableScaleIn"]["#text"] !== undefined
-        ? output["DisableScaleIn"]["#text"]
-        : output["DisableScaleIn"]) == "true";
+    contents.DisableScaleIn = output["DisableScaleIn"] == "true";
   }
   if (output["PredefinedMetricSpecification"] !== undefined) {
     contents.PredefinedMetricSpecification = deserializeAws_queryPredefinedMetricSpecification(
@@ -10133,11 +9484,7 @@ const deserializeAws_queryTargetTrackingConfiguration = (
     );
   }
   if (output["TargetValue"] !== undefined) {
-    contents.TargetValue = parseFloat(
-      output["TargetValue"]["#text"] !== undefined
-        ? output["TargetValue"]["#text"]
-        : output["TargetValue"]
-    );
+    contents.TargetValue = parseFloat(output["TargetValue"]);
   }
   return contents;
 };
@@ -10145,12 +9492,8 @@ const deserializeAws_queryTargetTrackingConfiguration = (
 const deserializeAws_queryTerminationPolicies = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -10161,7 +9504,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -10176,11 +9519,8 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
@@ -10207,17 +9547,16 @@ const buildHttpRpcRequest = async (
   return new __HttpRequest(contents);
 };
 
-const decodeEscapedXML = (str: string) => {
-  return str
+const decodeEscapedXML = (str: string) =>
+  str
     .replace(/&amp;/g, "&")
     .replace(/&apos;/g, "'")
     .replace(/&quot;/g, '"')
     .replace(/&gt;/g, ">")
     .replace(/&lt;/g, "<");
-};
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       const parsedObj = xmlParse(encoded, {
         attributeNamePrefix: "",
@@ -10232,14 +9571,13 @@ const parseBody = (streamBody: any, context: __SerdeContext): any => {
         parsedObjToReturn[key] = parsedObjToReturn[textNodeName];
         delete parsedObjToReturn[textNodeName];
       }
-      return parsedObjToReturn;
+      return __getValueFromTextNode(parsedObjToReturn);
     }
     return {};
   });
-};
 
-const buildFormUrlencodedString = (entries: any): string => {
-  return Object.keys(entries)
+const buildFormUrlencodedString = (entries: any): string =>
+  Object.keys(entries)
     .map(
       key =>
         __extendedEncodeURIComponent(key) +
@@ -10247,7 +9585,6 @@ const buildFormUrlencodedString = (entries: any): string => {
         __extendedEncodeURIComponent(entries[key])
     )
     .join("&");
-};
 
 const loadQueryErrorCode = (output: __HttpResponse, data: any): string => {
   if (data.Error.Code !== undefined) {

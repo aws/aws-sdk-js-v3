@@ -378,7 +378,7 @@ export interface ListPlacementsResponse {
   /**
    * <p>An object listing the requested placements.</p>
    */
-  placements: Array<PlacementSummary> | undefined;
+  placements: PlacementSummary[] | undefined;
 }
 
 export namespace ListPlacementsResponse {
@@ -416,7 +416,7 @@ export interface ListProjectsResponse {
   /**
    * <p>An object containing the list of projects.</p>
    */
-  projects: Array<ProjectSummary> | undefined;
+  projects: ProjectSummary[] | undefined;
 }
 
 export namespace ListProjectsResponse {
@@ -719,7 +719,7 @@ export interface UntagResourceRequest {
   /**
    * <p>The keys of those tags which you want to remove.</p>
    */
-  tagKeys: Array<string> | undefined;
+  tagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {

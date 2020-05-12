@@ -39,7 +39,7 @@ export interface AddTagsRequest {
   /**
    * <p> List of <code>Tag</code> that need to be added for the Elasticsearch domain. </p>
    */
-  TagList: Array<Tag> | undefined;
+  TagList: Tag[] | undefined;
 }
 
 export namespace AddTagsRequest {
@@ -97,7 +97,7 @@ export interface AdditionalLimit {
    *     .
    *   </p>
    */
-  LimitValues?: Array<string>;
+  LimitValues?: string[];
 }
 
 export namespace AdditionalLimit {
@@ -244,7 +244,7 @@ export interface CompatibleVersionsMap {
    * <p>List of supported elastic search versions.
    *     </p>
    */
-  TargetVersions?: Array<string>;
+  TargetVersions?: string[];
 }
 
 export namespace CompatibleVersionsMap {
@@ -454,7 +454,7 @@ export interface DescribeElasticsearchDomainsRequest {
   /**
    * <p>The Elasticsearch domains for which you want information.</p>
    */
-  DomainNames: Array<string> | undefined;
+  DomainNames: string[] | undefined;
 }
 
 export namespace DescribeElasticsearchDomainsRequest {
@@ -470,7 +470,7 @@ export interface DescribeElasticsearchDomainsResponse {
   /**
    * <p>The status of the domains requested in the <code>DescribeElasticsearchDomains</code> request.</p>
    */
-  DomainStatusList: Array<ElasticsearchDomainStatus> | undefined;
+  DomainStatusList: ElasticsearchDomainStatus[] | undefined;
 }
 
 export namespace DescribeElasticsearchDomainsResponse {
@@ -607,9 +607,7 @@ export interface DescribeReservedElasticsearchInstanceOfferingsResponse {
   /**
    * <p>List of reserved Elasticsearch instance offerings</p>
    */
-  ReservedElasticsearchInstanceOfferings?: Array<
-    ReservedElasticsearchInstanceOffering
-  >;
+  ReservedElasticsearchInstanceOfferings?: ReservedElasticsearchInstanceOffering[];
 }
 
 export namespace DescribeReservedElasticsearchInstanceOfferingsResponse {
@@ -661,7 +659,7 @@ export interface DescribeReservedElasticsearchInstancesResponse {
   /**
    * <p>List of reserved Elasticsearch instances.</p>
    */
-  ReservedElasticsearchInstances?: Array<ReservedElasticsearchInstance>;
+  ReservedElasticsearchInstances?: ReservedElasticsearchInstance[];
 }
 
 export namespace DescribeReservedElasticsearchInstancesResponse {
@@ -1221,7 +1219,7 @@ export interface GetCompatibleElasticsearchVersionsResponse {
    *       operation.
    *     </p>
    */
-  CompatibleElasticsearchVersions?: Array<CompatibleVersionsMap>;
+  CompatibleElasticsearchVersions?: CompatibleVersionsMap[];
 }
 
 export namespace GetCompatibleElasticsearchVersionsResponse {
@@ -1297,7 +1295,7 @@ export interface GetUpgradeHistoryResponse {
    *       object.
    *     </p>
    */
-  UpgradeHistories?: Array<UpgradeHistory>;
+  UpgradeHistories?: UpgradeHistory[];
 }
 
 export namespace GetUpgradeHistoryResponse {
@@ -1454,7 +1452,7 @@ export interface Limits {
    *       .
    *     </p>
    */
-  AdditionalLimits?: Array<AdditionalLimit>;
+  AdditionalLimits?: AdditionalLimit[];
 
   /**
    * <p>InstanceLimits represents the list of instance related attributes that are available for given InstanceType.
@@ -1467,7 +1465,7 @@ export interface Limits {
    *       that are available for given InstanceType.
    *     </p>
    */
-  StorageTypes?: Array<StorageType>;
+  StorageTypes?: StorageType[];
 }
 
 export namespace Limits {
@@ -1482,7 +1480,7 @@ export interface ListDomainNamesResponse {
   /**
    * <p>List of Elasticsearch domain names.</p>
    */
-  DomainNames?: Array<DomainInfo>;
+  DomainNames?: DomainInfo[];
 }
 
 export namespace ListDomainNamesResponse {
@@ -1556,7 +1554,7 @@ export interface ListElasticsearchInstanceTypesResponse {
    *       </code>
    *     </p>
    */
-  ElasticsearchInstanceTypes?: Array<ESPartitionInstanceType | string>;
+  ElasticsearchInstanceTypes?: (ESPartitionInstanceType | string)[];
 
   /**
    * <p>In case if there are more results available NextToken would be
@@ -1636,7 +1634,7 @@ export interface ListElasticsearchVersionsResponse {
    * <p>List of supported elastic search versions.
    *     </p>
    */
-  ElasticsearchVersions?: Array<string>;
+  ElasticsearchVersions?: string[];
 
   /**
    * <p>
@@ -1676,7 +1674,7 @@ export interface ListTagsResponse {
   /**
    * <p> List of <code>Tag</code> for the requested Elasticsearch domain.</p>
    */
-  TagList?: Array<Tag>;
+  TagList?: Tag[];
 }
 
 export namespace ListTagsResponse {
@@ -1896,7 +1894,7 @@ export interface RemoveTagsRequest {
   /**
    * <p>Specifies the <code>TagKey</code> list which you want to remove from the Elasticsearch domain.</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace RemoveTagsRequest {
@@ -1942,7 +1940,7 @@ export interface ReservedElasticsearchInstance {
   /**
    * <p>The charge to your account regardless of whether you are creating any domains using the instance offering.</p>
    */
-  RecurringCharges?: Array<RecurringCharge>;
+  RecurringCharges?: RecurringCharge[];
 
   /**
    * <p>The customer-specified identifier to track this reservation.</p>
@@ -2013,7 +2011,7 @@ export interface ReservedElasticsearchInstanceOffering {
   /**
    * <p>The charge to your account regardless of whether you are creating any domains using the instance offering.</p>
    */
-  RecurringCharges?: Array<RecurringCharge>;
+  RecurringCharges?: RecurringCharge[];
 
   /**
    * <p>The Elasticsearch reserved instance offering identifier.</p>
@@ -2182,7 +2180,7 @@ export interface StorageType {
    * <p>List of limits that are applicable for given storage type.
    *     </p>
    */
-  StorageTypeLimits?: Array<StorageTypeLimit>;
+  StorageTypeLimits?: StorageTypeLimit[];
 
   /**
    * <p>
@@ -2238,7 +2236,7 @@ export interface StorageTypeLimit {
    *       .
    *     </p>
    */
-  LimitValues?: Array<string>;
+  LimitValues?: string[];
 }
 
 export namespace StorageTypeLimit {
@@ -2439,7 +2437,7 @@ export interface UpgradeHistory {
    *       s representing information about each step performed as pard of a specific Upgrade or Upgrade Eligibility Check.
    *     </p>
    */
-  StepsList?: Array<UpgradeStepItem>;
+  StepsList?: UpgradeStepItem[];
 
   /**
    * <p>A string that describes the update briefly</p>
@@ -2481,7 +2479,7 @@ export interface UpgradeStepItem {
   /**
    * <p>A list of strings containing detailed information about the errors encountered in a particular step.</p>
    */
-  Issues?: Array<string>;
+  Issues?: string[];
 
   /**
    * <p>The Floating point value representing progress percentage of a particular step.</p>
@@ -2527,17 +2525,17 @@ export interface VPCDerivedInfo {
   /**
    * <p>The availability zones for the Elasticsearch domain. Exists only if the domain was created with VPCOptions.</p>
    */
-  AvailabilityZones?: Array<string>;
+  AvailabilityZones?: string[];
 
   /**
    * <p>Specifies the security groups for VPC endpoint.</p>
    */
-  SecurityGroupIds?: Array<string>;
+  SecurityGroupIds?: string[];
 
   /**
    * <p>Specifies the subnets for VPC endpoint.</p>
    */
-  SubnetIds?: Array<string>;
+  SubnetIds?: string[];
 
   /**
    * <p>The VPC Id for the Elasticsearch domain. Exists only if the domain was created with VPCOptions.</p>
@@ -2579,12 +2577,12 @@ export interface VPCOptions {
   /**
    * <p>Specifies the security groups for VPC endpoint.</p>
    */
-  SecurityGroupIds?: Array<string>;
+  SecurityGroupIds?: string[];
 
   /**
    * <p>Specifies the subnets for VPC endpoint.</p>
    */
-  SubnetIds?: Array<string>;
+  SubnetIds?: string[];
 }
 
 export namespace VPCOptions {

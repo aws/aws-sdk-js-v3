@@ -368,550 +368,591 @@ import {
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
-export async function serializeAws_json1_0DescribeEndpointsCommand(
+export const serializeAws_json1_0DescribeEndpointsCommand = async (
   input: DescribeEndpointsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.DescribeEndpoints";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.DescribeEndpoints"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0DescribeEndpointsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0BatchGetItemCommand(
+export const serializeAws_json1_0BatchGetItemCommand = async (
   input: BatchGetItemCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.BatchGetItem";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.BatchGetItem"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0BatchGetItemInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0BatchWriteItemCommand(
+export const serializeAws_json1_0BatchWriteItemCommand = async (
   input: BatchWriteItemCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.BatchWriteItem";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.BatchWriteItem"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0BatchWriteItemInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0CreateBackupCommand(
+export const serializeAws_json1_0CreateBackupCommand = async (
   input: CreateBackupCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.CreateBackup";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.CreateBackup"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0CreateBackupInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0CreateGlobalTableCommand(
+export const serializeAws_json1_0CreateGlobalTableCommand = async (
   input: CreateGlobalTableCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.CreateGlobalTable";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.CreateGlobalTable"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0CreateGlobalTableInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0CreateTableCommand(
+export const serializeAws_json1_0CreateTableCommand = async (
   input: CreateTableCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.CreateTable";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.CreateTable"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0CreateTableInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0DeleteBackupCommand(
+export const serializeAws_json1_0DeleteBackupCommand = async (
   input: DeleteBackupCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.DeleteBackup";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.DeleteBackup"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DeleteBackupInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0DeleteItemCommand(
+export const serializeAws_json1_0DeleteItemCommand = async (
   input: DeleteItemCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.DeleteItem";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.DeleteItem"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DeleteItemInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0DeleteTableCommand(
+export const serializeAws_json1_0DeleteTableCommand = async (
   input: DeleteTableCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.DeleteTable";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.DeleteTable"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DeleteTableInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0DescribeBackupCommand(
+export const serializeAws_json1_0DescribeBackupCommand = async (
   input: DescribeBackupCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.DescribeBackup";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.DescribeBackup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0DescribeBackupInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0DescribeContinuousBackupsCommand(
+export const serializeAws_json1_0DescribeContinuousBackupsCommand = async (
   input: DescribeContinuousBackupsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.DescribeContinuousBackups";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.DescribeContinuousBackups"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0DescribeContinuousBackupsInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0DescribeContributorInsightsCommand(
+export const serializeAws_json1_0DescribeContributorInsightsCommand = async (
   input: DescribeContributorInsightsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.DescribeContributorInsights";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.DescribeContributorInsights"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0DescribeContributorInsightsInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0DescribeGlobalTableCommand(
+export const serializeAws_json1_0DescribeGlobalTableCommand = async (
   input: DescribeGlobalTableCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.DescribeGlobalTable";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.DescribeGlobalTable"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0DescribeGlobalTableInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0DescribeGlobalTableSettingsCommand(
+export const serializeAws_json1_0DescribeGlobalTableSettingsCommand = async (
   input: DescribeGlobalTableSettingsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.DescribeGlobalTableSettings";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.DescribeGlobalTableSettings"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0DescribeGlobalTableSettingsInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0DescribeLimitsCommand(
+export const serializeAws_json1_0DescribeLimitsCommand = async (
   input: DescribeLimitsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.DescribeLimits";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.DescribeLimits"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0DescribeLimitsInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0DescribeTableCommand(
+export const serializeAws_json1_0DescribeTableCommand = async (
   input: DescribeTableCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.DescribeTable";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.DescribeTable"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DescribeTableInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0DescribeTableReplicaAutoScalingCommand(
+export const serializeAws_json1_0DescribeTableReplicaAutoScalingCommand = async (
   input: DescribeTableReplicaAutoScalingCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.DescribeTableReplicaAutoScaling";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.DescribeTableReplicaAutoScaling"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0DescribeTableReplicaAutoScalingInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0DescribeTimeToLiveCommand(
+export const serializeAws_json1_0DescribeTimeToLiveCommand = async (
   input: DescribeTimeToLiveCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.DescribeTimeToLive";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.DescribeTimeToLive"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0DescribeTimeToLiveInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0GetItemCommand(
+export const serializeAws_json1_0GetItemCommand = async (
   input: GetItemCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.GetItem";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.GetItem"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0GetItemInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0ListBackupsCommand(
+export const serializeAws_json1_0ListBackupsCommand = async (
   input: ListBackupsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.ListBackups";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.ListBackups"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ListBackupsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0ListContributorInsightsCommand(
+export const serializeAws_json1_0ListContributorInsightsCommand = async (
   input: ListContributorInsightsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.ListContributorInsights";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.ListContributorInsights"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0ListContributorInsightsInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0ListGlobalTablesCommand(
+export const serializeAws_json1_0ListGlobalTablesCommand = async (
   input: ListGlobalTablesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.ListGlobalTables";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.ListGlobalTables"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0ListGlobalTablesInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0ListTablesCommand(
+export const serializeAws_json1_0ListTablesCommand = async (
   input: ListTablesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.ListTables";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.ListTables"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ListTablesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0ListTagsOfResourceCommand(
+export const serializeAws_json1_0ListTagsOfResourceCommand = async (
   input: ListTagsOfResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.ListTagsOfResource";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.ListTagsOfResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0ListTagsOfResourceInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0PutItemCommand(
+export const serializeAws_json1_0PutItemCommand = async (
   input: PutItemCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.PutItem";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.PutItem"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0PutItemInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0QueryCommand(
+export const serializeAws_json1_0QueryCommand = async (
   input: QueryCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.Query";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.Query"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0QueryInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0RestoreTableFromBackupCommand(
+export const serializeAws_json1_0RestoreTableFromBackupCommand = async (
   input: RestoreTableFromBackupCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.RestoreTableFromBackup";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.RestoreTableFromBackup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0RestoreTableFromBackupInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0RestoreTableToPointInTimeCommand(
+export const serializeAws_json1_0RestoreTableToPointInTimeCommand = async (
   input: RestoreTableToPointInTimeCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.RestoreTableToPointInTime";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.RestoreTableToPointInTime"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0RestoreTableToPointInTimeInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0ScanCommand(
+export const serializeAws_json1_0ScanCommand = async (
   input: ScanCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.Scan";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.Scan"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ScanInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0TagResourceCommand(
+export const serializeAws_json1_0TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.TagResource";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.TagResource"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0TagResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0TransactGetItemsCommand(
+export const serializeAws_json1_0TransactGetItemsCommand = async (
   input: TransactGetItemsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.TransactGetItems";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.TransactGetItems"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0TransactGetItemsInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0TransactWriteItemsCommand(
+export const serializeAws_json1_0TransactWriteItemsCommand = async (
   input: TransactWriteItemsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.TransactWriteItems";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.TransactWriteItems"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0TransactWriteItemsInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0UntagResourceCommand(
+export const serializeAws_json1_0UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.UntagResource";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.UntagResource"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0UntagResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0UpdateContinuousBackupsCommand(
+export const serializeAws_json1_0UpdateContinuousBackupsCommand = async (
   input: UpdateContinuousBackupsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.UpdateContinuousBackups";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.UpdateContinuousBackups"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0UpdateContinuousBackupsInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0UpdateContributorInsightsCommand(
+export const serializeAws_json1_0UpdateContributorInsightsCommand = async (
   input: UpdateContributorInsightsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.UpdateContributorInsights";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.UpdateContributorInsights"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0UpdateContributorInsightsInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0UpdateGlobalTableCommand(
+export const serializeAws_json1_0UpdateGlobalTableCommand = async (
   input: UpdateGlobalTableCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.UpdateGlobalTable";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.UpdateGlobalTable"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0UpdateGlobalTableInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0UpdateGlobalTableSettingsCommand(
+export const serializeAws_json1_0UpdateGlobalTableSettingsCommand = async (
   input: UpdateGlobalTableSettingsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.UpdateGlobalTableSettings";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.UpdateGlobalTableSettings"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0UpdateGlobalTableSettingsInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0UpdateItemCommand(
+export const serializeAws_json1_0UpdateItemCommand = async (
   input: UpdateItemCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.UpdateItem";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.UpdateItem"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0UpdateItemInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0UpdateTableCommand(
+export const serializeAws_json1_0UpdateTableCommand = async (
   input: UpdateTableCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.UpdateTable";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.UpdateTable"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0UpdateTableInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0UpdateTableReplicaAutoScalingCommand(
+export const serializeAws_json1_0UpdateTableReplicaAutoScalingCommand = async (
   input: UpdateTableReplicaAutoScalingCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.UpdateTableReplicaAutoScaling";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.UpdateTableReplicaAutoScaling"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0UpdateTableReplicaAutoScalingInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0UpdateTimeToLiveCommand(
+export const serializeAws_json1_0UpdateTimeToLiveCommand = async (
   input: UpdateTimeToLiveCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDB_20120810.UpdateTimeToLive";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDB_20120810.UpdateTimeToLive"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0UpdateTimeToLiveInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_0DescribeEndpointsCommand(
+export const deserializeAws_json1_0DescribeEndpointsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeEndpointsCommandOutput> {
+): Promise<DescribeEndpointsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0DescribeEndpointsCommandError(output, context);
   }
@@ -924,12 +965,12 @@ export async function deserializeAws_json1_0DescribeEndpointsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0DescribeEndpointsCommandError(
+const deserializeAws_json1_0DescribeEndpointsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeEndpointsCommandOutput> {
+): Promise<DescribeEndpointsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -955,12 +996,12 @@ async function deserializeAws_json1_0DescribeEndpointsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0BatchGetItemCommand(
+export const deserializeAws_json1_0BatchGetItemCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchGetItemCommandOutput> {
+): Promise<BatchGetItemCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0BatchGetItemCommandError(output, context);
   }
@@ -973,12 +1014,12 @@ export async function deserializeAws_json1_0BatchGetItemCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0BatchGetItemCommandError(
+const deserializeAws_json1_0BatchGetItemCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchGetItemCommandOutput> {
+): Promise<BatchGetItemCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1059,12 +1100,12 @@ async function deserializeAws_json1_0BatchGetItemCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0BatchWriteItemCommand(
+export const deserializeAws_json1_0BatchWriteItemCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchWriteItemCommandOutput> {
+): Promise<BatchWriteItemCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0BatchWriteItemCommandError(output, context);
   }
@@ -1077,12 +1118,12 @@ export async function deserializeAws_json1_0BatchWriteItemCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0BatchWriteItemCommandError(
+const deserializeAws_json1_0BatchWriteItemCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchWriteItemCommandOutput> {
+): Promise<BatchWriteItemCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1174,12 +1215,12 @@ async function deserializeAws_json1_0BatchWriteItemCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0CreateBackupCommand(
+export const deserializeAws_json1_0CreateBackupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateBackupCommandOutput> {
+): Promise<CreateBackupCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0CreateBackupCommandError(output, context);
   }
@@ -1192,12 +1233,12 @@ export async function deserializeAws_json1_0CreateBackupCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0CreateBackupCommandError(
+const deserializeAws_json1_0CreateBackupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateBackupCommandOutput> {
+): Promise<CreateBackupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1300,12 +1341,12 @@ async function deserializeAws_json1_0CreateBackupCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0CreateGlobalTableCommand(
+export const deserializeAws_json1_0CreateGlobalTableCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateGlobalTableCommandOutput> {
+): Promise<CreateGlobalTableCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0CreateGlobalTableCommandError(output, context);
   }
@@ -1318,12 +1359,12 @@ export async function deserializeAws_json1_0CreateGlobalTableCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0CreateGlobalTableCommandError(
+const deserializeAws_json1_0CreateGlobalTableCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateGlobalTableCommandOutput> {
+): Promise<CreateGlobalTableCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1404,12 +1445,12 @@ async function deserializeAws_json1_0CreateGlobalTableCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0CreateTableCommand(
+export const deserializeAws_json1_0CreateTableCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateTableCommandOutput> {
+): Promise<CreateTableCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0CreateTableCommandError(output, context);
   }
@@ -1422,12 +1463,12 @@ export async function deserializeAws_json1_0CreateTableCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0CreateTableCommandError(
+const deserializeAws_json1_0CreateTableCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateTableCommandOutput> {
+): Promise<CreateTableCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1497,12 +1538,12 @@ async function deserializeAws_json1_0CreateTableCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0DeleteBackupCommand(
+export const deserializeAws_json1_0DeleteBackupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteBackupCommandOutput> {
+): Promise<DeleteBackupCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0DeleteBackupCommandError(output, context);
   }
@@ -1515,12 +1556,12 @@ export async function deserializeAws_json1_0DeleteBackupCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0DeleteBackupCommandError(
+const deserializeAws_json1_0DeleteBackupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteBackupCommandOutput> {
+): Promise<DeleteBackupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1601,12 +1642,12 @@ async function deserializeAws_json1_0DeleteBackupCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0DeleteItemCommand(
+export const deserializeAws_json1_0DeleteItemCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteItemCommandOutput> {
+): Promise<DeleteItemCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0DeleteItemCommandError(output, context);
   }
@@ -1619,12 +1660,12 @@ export async function deserializeAws_json1_0DeleteItemCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0DeleteItemCommandError(
+const deserializeAws_json1_0DeleteItemCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteItemCommandOutput> {
+): Promise<DeleteItemCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1738,12 +1779,12 @@ async function deserializeAws_json1_0DeleteItemCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0DeleteTableCommand(
+export const deserializeAws_json1_0DeleteTableCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteTableCommandOutput> {
+): Promise<DeleteTableCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0DeleteTableCommandError(output, context);
   }
@@ -1756,12 +1797,12 @@ export async function deserializeAws_json1_0DeleteTableCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0DeleteTableCommandError(
+const deserializeAws_json1_0DeleteTableCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteTableCommandOutput> {
+): Promise<DeleteTableCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1842,12 +1883,12 @@ async function deserializeAws_json1_0DeleteTableCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0DescribeBackupCommand(
+export const deserializeAws_json1_0DescribeBackupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeBackupCommandOutput> {
+): Promise<DescribeBackupCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0DescribeBackupCommandError(output, context);
   }
@@ -1860,12 +1901,12 @@ export async function deserializeAws_json1_0DescribeBackupCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0DescribeBackupCommandError(
+const deserializeAws_json1_0DescribeBackupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeBackupCommandOutput> {
+): Promise<DescribeBackupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1924,12 +1965,12 @@ async function deserializeAws_json1_0DescribeBackupCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0DescribeContinuousBackupsCommand(
+export const deserializeAws_json1_0DescribeContinuousBackupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeContinuousBackupsCommandOutput> {
+): Promise<DescribeContinuousBackupsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0DescribeContinuousBackupsCommandError(
       output,
@@ -1948,12 +1989,12 @@ export async function deserializeAws_json1_0DescribeContinuousBackupsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0DescribeContinuousBackupsCommandError(
+const deserializeAws_json1_0DescribeContinuousBackupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeContinuousBackupsCommandOutput> {
+): Promise<DescribeContinuousBackupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2012,12 +2053,12 @@ async function deserializeAws_json1_0DescribeContinuousBackupsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0DescribeContributorInsightsCommand(
+export const deserializeAws_json1_0DescribeContributorInsightsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeContributorInsightsCommandOutput> {
+): Promise<DescribeContributorInsightsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0DescribeContributorInsightsCommandError(
       output,
@@ -2036,12 +2077,12 @@ export async function deserializeAws_json1_0DescribeContributorInsightsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0DescribeContributorInsightsCommandError(
+const deserializeAws_json1_0DescribeContributorInsightsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeContributorInsightsCommandOutput> {
+): Promise<DescribeContributorInsightsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2089,12 +2130,12 @@ async function deserializeAws_json1_0DescribeContributorInsightsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0DescribeGlobalTableCommand(
+export const deserializeAws_json1_0DescribeGlobalTableCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeGlobalTableCommandOutput> {
+): Promise<DescribeGlobalTableCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0DescribeGlobalTableCommandError(
       output,
@@ -2110,12 +2151,12 @@ export async function deserializeAws_json1_0DescribeGlobalTableCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0DescribeGlobalTableCommandError(
+const deserializeAws_json1_0DescribeGlobalTableCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeGlobalTableCommandOutput> {
+): Promise<DescribeGlobalTableCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2174,12 +2215,12 @@ async function deserializeAws_json1_0DescribeGlobalTableCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0DescribeGlobalTableSettingsCommand(
+export const deserializeAws_json1_0DescribeGlobalTableSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeGlobalTableSettingsCommandOutput> {
+): Promise<DescribeGlobalTableSettingsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0DescribeGlobalTableSettingsCommandError(
       output,
@@ -2198,12 +2239,12 @@ export async function deserializeAws_json1_0DescribeGlobalTableSettingsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0DescribeGlobalTableSettingsCommandError(
+const deserializeAws_json1_0DescribeGlobalTableSettingsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeGlobalTableSettingsCommandOutput> {
+): Promise<DescribeGlobalTableSettingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2262,12 +2303,12 @@ async function deserializeAws_json1_0DescribeGlobalTableSettingsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0DescribeLimitsCommand(
+export const deserializeAws_json1_0DescribeLimitsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeLimitsCommandOutput> {
+): Promise<DescribeLimitsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0DescribeLimitsCommandError(output, context);
   }
@@ -2280,12 +2321,12 @@ export async function deserializeAws_json1_0DescribeLimitsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0DescribeLimitsCommandError(
+const deserializeAws_json1_0DescribeLimitsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeLimitsCommandOutput> {
+): Promise<DescribeLimitsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2333,12 +2374,12 @@ async function deserializeAws_json1_0DescribeLimitsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0DescribeTableCommand(
+export const deserializeAws_json1_0DescribeTableCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeTableCommandOutput> {
+): Promise<DescribeTableCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0DescribeTableCommandError(output, context);
   }
@@ -2351,12 +2392,12 @@ export async function deserializeAws_json1_0DescribeTableCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0DescribeTableCommandError(
+const deserializeAws_json1_0DescribeTableCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeTableCommandOutput> {
+): Promise<DescribeTableCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2415,12 +2456,12 @@ async function deserializeAws_json1_0DescribeTableCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0DescribeTableReplicaAutoScalingCommand(
+export const deserializeAws_json1_0DescribeTableReplicaAutoScalingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeTableReplicaAutoScalingCommandOutput> {
+): Promise<DescribeTableReplicaAutoScalingCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0DescribeTableReplicaAutoScalingCommandError(
       output,
@@ -2439,12 +2480,12 @@ export async function deserializeAws_json1_0DescribeTableReplicaAutoScalingComma
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0DescribeTableReplicaAutoScalingCommandError(
+const deserializeAws_json1_0DescribeTableReplicaAutoScalingCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeTableReplicaAutoScalingCommandOutput> {
+): Promise<DescribeTableReplicaAutoScalingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2492,12 +2533,12 @@ async function deserializeAws_json1_0DescribeTableReplicaAutoScalingCommandError
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0DescribeTimeToLiveCommand(
+export const deserializeAws_json1_0DescribeTimeToLiveCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeTimeToLiveCommandOutput> {
+): Promise<DescribeTimeToLiveCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0DescribeTimeToLiveCommandError(
       output,
@@ -2513,12 +2554,12 @@ export async function deserializeAws_json1_0DescribeTimeToLiveCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0DescribeTimeToLiveCommandError(
+const deserializeAws_json1_0DescribeTimeToLiveCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeTimeToLiveCommandOutput> {
+): Promise<DescribeTimeToLiveCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2577,12 +2618,12 @@ async function deserializeAws_json1_0DescribeTimeToLiveCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0GetItemCommand(
+export const deserializeAws_json1_0GetItemCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetItemCommandOutput> {
+): Promise<GetItemCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0GetItemCommandError(output, context);
   }
@@ -2595,12 +2636,12 @@ export async function deserializeAws_json1_0GetItemCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0GetItemCommandError(
+const deserializeAws_json1_0GetItemCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetItemCommandOutput> {
+): Promise<GetItemCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2681,12 +2722,12 @@ async function deserializeAws_json1_0GetItemCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0ListBackupsCommand(
+export const deserializeAws_json1_0ListBackupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListBackupsCommandOutput> {
+): Promise<ListBackupsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0ListBackupsCommandError(output, context);
   }
@@ -2699,12 +2740,12 @@ export async function deserializeAws_json1_0ListBackupsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0ListBackupsCommandError(
+const deserializeAws_json1_0ListBackupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListBackupsCommandOutput> {
+): Promise<ListBackupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2752,12 +2793,12 @@ async function deserializeAws_json1_0ListBackupsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0ListContributorInsightsCommand(
+export const deserializeAws_json1_0ListContributorInsightsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListContributorInsightsCommandOutput> {
+): Promise<ListContributorInsightsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0ListContributorInsightsCommandError(
       output,
@@ -2773,12 +2814,12 @@ export async function deserializeAws_json1_0ListContributorInsightsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0ListContributorInsightsCommandError(
+const deserializeAws_json1_0ListContributorInsightsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListContributorInsightsCommandOutput> {
+): Promise<ListContributorInsightsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2826,12 +2867,12 @@ async function deserializeAws_json1_0ListContributorInsightsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0ListGlobalTablesCommand(
+export const deserializeAws_json1_0ListGlobalTablesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListGlobalTablesCommandOutput> {
+): Promise<ListGlobalTablesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0ListGlobalTablesCommandError(output, context);
   }
@@ -2844,12 +2885,12 @@ export async function deserializeAws_json1_0ListGlobalTablesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0ListGlobalTablesCommandError(
+const deserializeAws_json1_0ListGlobalTablesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListGlobalTablesCommandOutput> {
+): Promise<ListGlobalTablesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2897,12 +2938,12 @@ async function deserializeAws_json1_0ListGlobalTablesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0ListTablesCommand(
+export const deserializeAws_json1_0ListTablesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTablesCommandOutput> {
+): Promise<ListTablesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0ListTablesCommandError(output, context);
   }
@@ -2915,12 +2956,12 @@ export async function deserializeAws_json1_0ListTablesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0ListTablesCommandError(
+const deserializeAws_json1_0ListTablesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTablesCommandOutput> {
+): Promise<ListTablesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2968,12 +3009,12 @@ async function deserializeAws_json1_0ListTablesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0ListTagsOfResourceCommand(
+export const deserializeAws_json1_0ListTagsOfResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsOfResourceCommandOutput> {
+): Promise<ListTagsOfResourceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0ListTagsOfResourceCommandError(
       output,
@@ -2989,12 +3030,12 @@ export async function deserializeAws_json1_0ListTagsOfResourceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0ListTagsOfResourceCommandError(
+const deserializeAws_json1_0ListTagsOfResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsOfResourceCommandOutput> {
+): Promise<ListTagsOfResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3053,12 +3094,12 @@ async function deserializeAws_json1_0ListTagsOfResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0PutItemCommand(
+export const deserializeAws_json1_0PutItemCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutItemCommandOutput> {
+): Promise<PutItemCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0PutItemCommandError(output, context);
   }
@@ -3071,12 +3112,12 @@ export async function deserializeAws_json1_0PutItemCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0PutItemCommandError(
+const deserializeAws_json1_0PutItemCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutItemCommandOutput> {
+): Promise<PutItemCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3190,12 +3231,12 @@ async function deserializeAws_json1_0PutItemCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0QueryCommand(
+export const deserializeAws_json1_0QueryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<QueryCommandOutput> {
+): Promise<QueryCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0QueryCommandError(output, context);
   }
@@ -3208,12 +3249,12 @@ export async function deserializeAws_json1_0QueryCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0QueryCommandError(
+const deserializeAws_json1_0QueryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<QueryCommandOutput> {
+): Promise<QueryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3294,12 +3335,12 @@ async function deserializeAws_json1_0QueryCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0RestoreTableFromBackupCommand(
+export const deserializeAws_json1_0RestoreTableFromBackupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RestoreTableFromBackupCommandOutput> {
+): Promise<RestoreTableFromBackupCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0RestoreTableFromBackupCommandError(
       output,
@@ -3315,12 +3356,12 @@ export async function deserializeAws_json1_0RestoreTableFromBackupCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0RestoreTableFromBackupCommandError(
+const deserializeAws_json1_0RestoreTableFromBackupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RestoreTableFromBackupCommandOutput> {
+): Promise<RestoreTableFromBackupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3423,12 +3464,12 @@ async function deserializeAws_json1_0RestoreTableFromBackupCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0RestoreTableToPointInTimeCommand(
+export const deserializeAws_json1_0RestoreTableToPointInTimeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RestoreTableToPointInTimeCommandOutput> {
+): Promise<RestoreTableToPointInTimeCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0RestoreTableToPointInTimeCommandError(
       output,
@@ -3447,12 +3488,12 @@ export async function deserializeAws_json1_0RestoreTableToPointInTimeCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0RestoreTableToPointInTimeCommandError(
+const deserializeAws_json1_0RestoreTableToPointInTimeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RestoreTableToPointInTimeCommandOutput> {
+): Promise<RestoreTableToPointInTimeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3566,12 +3607,12 @@ async function deserializeAws_json1_0RestoreTableToPointInTimeCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0ScanCommand(
+export const deserializeAws_json1_0ScanCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ScanCommandOutput> {
+): Promise<ScanCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0ScanCommandError(output, context);
   }
@@ -3584,12 +3625,12 @@ export async function deserializeAws_json1_0ScanCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0ScanCommandError(
+const deserializeAws_json1_0ScanCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ScanCommandOutput> {
+): Promise<ScanCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3670,12 +3711,12 @@ async function deserializeAws_json1_0ScanCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0TagResourceCommand(
+export const deserializeAws_json1_0TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0TagResourceCommandError(output, context);
   }
@@ -3684,12 +3725,12 @@ export async function deserializeAws_json1_0TagResourceCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0TagResourceCommandError(
+const deserializeAws_json1_0TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3770,12 +3811,12 @@ async function deserializeAws_json1_0TagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0TransactGetItemsCommand(
+export const deserializeAws_json1_0TransactGetItemsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TransactGetItemsCommandOutput> {
+): Promise<TransactGetItemsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0TransactGetItemsCommandError(output, context);
   }
@@ -3788,12 +3829,12 @@ export async function deserializeAws_json1_0TransactGetItemsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0TransactGetItemsCommandError(
+const deserializeAws_json1_0TransactGetItemsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TransactGetItemsCommandOutput> {
+): Promise<TransactGetItemsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3885,12 +3926,12 @@ async function deserializeAws_json1_0TransactGetItemsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0TransactWriteItemsCommand(
+export const deserializeAws_json1_0TransactWriteItemsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TransactWriteItemsCommandOutput> {
+): Promise<TransactWriteItemsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0TransactWriteItemsCommandError(
       output,
@@ -3906,12 +3947,12 @@ export async function deserializeAws_json1_0TransactWriteItemsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0TransactWriteItemsCommandError(
+const deserializeAws_json1_0TransactWriteItemsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TransactWriteItemsCommandOutput> {
+): Promise<TransactWriteItemsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4025,12 +4066,12 @@ async function deserializeAws_json1_0TransactWriteItemsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0UntagResourceCommand(
+export const deserializeAws_json1_0UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0UntagResourceCommandError(output, context);
   }
@@ -4039,12 +4080,12 @@ export async function deserializeAws_json1_0UntagResourceCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0UntagResourceCommandError(
+const deserializeAws_json1_0UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4125,12 +4166,12 @@ async function deserializeAws_json1_0UntagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0UpdateContinuousBackupsCommand(
+export const deserializeAws_json1_0UpdateContinuousBackupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateContinuousBackupsCommandOutput> {
+): Promise<UpdateContinuousBackupsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0UpdateContinuousBackupsCommandError(
       output,
@@ -4146,12 +4187,12 @@ export async function deserializeAws_json1_0UpdateContinuousBackupsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0UpdateContinuousBackupsCommandError(
+const deserializeAws_json1_0UpdateContinuousBackupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateContinuousBackupsCommandOutput> {
+): Promise<UpdateContinuousBackupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4221,12 +4262,12 @@ async function deserializeAws_json1_0UpdateContinuousBackupsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0UpdateContributorInsightsCommand(
+export const deserializeAws_json1_0UpdateContributorInsightsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateContributorInsightsCommandOutput> {
+): Promise<UpdateContributorInsightsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0UpdateContributorInsightsCommandError(
       output,
@@ -4245,12 +4286,12 @@ export async function deserializeAws_json1_0UpdateContributorInsightsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0UpdateContributorInsightsCommandError(
+const deserializeAws_json1_0UpdateContributorInsightsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateContributorInsightsCommandOutput> {
+): Promise<UpdateContributorInsightsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4298,12 +4339,12 @@ async function deserializeAws_json1_0UpdateContributorInsightsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0UpdateGlobalTableCommand(
+export const deserializeAws_json1_0UpdateGlobalTableCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateGlobalTableCommandOutput> {
+): Promise<UpdateGlobalTableCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0UpdateGlobalTableCommandError(output, context);
   }
@@ -4316,12 +4357,12 @@ export async function deserializeAws_json1_0UpdateGlobalTableCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0UpdateGlobalTableCommandError(
+const deserializeAws_json1_0UpdateGlobalTableCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateGlobalTableCommandOutput> {
+): Promise<UpdateGlobalTableCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4413,12 +4454,12 @@ async function deserializeAws_json1_0UpdateGlobalTableCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0UpdateGlobalTableSettingsCommand(
+export const deserializeAws_json1_0UpdateGlobalTableSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateGlobalTableSettingsCommandOutput> {
+): Promise<UpdateGlobalTableSettingsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0UpdateGlobalTableSettingsCommandError(
       output,
@@ -4437,12 +4478,12 @@ export async function deserializeAws_json1_0UpdateGlobalTableSettingsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0UpdateGlobalTableSettingsCommandError(
+const deserializeAws_json1_0UpdateGlobalTableSettingsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateGlobalTableSettingsCommandOutput> {
+): Promise<UpdateGlobalTableSettingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4545,12 +4586,12 @@ async function deserializeAws_json1_0UpdateGlobalTableSettingsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0UpdateItemCommand(
+export const deserializeAws_json1_0UpdateItemCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateItemCommandOutput> {
+): Promise<UpdateItemCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0UpdateItemCommandError(output, context);
   }
@@ -4563,12 +4604,12 @@ export async function deserializeAws_json1_0UpdateItemCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0UpdateItemCommandError(
+const deserializeAws_json1_0UpdateItemCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateItemCommandOutput> {
+): Promise<UpdateItemCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4682,12 +4723,12 @@ async function deserializeAws_json1_0UpdateItemCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0UpdateTableCommand(
+export const deserializeAws_json1_0UpdateTableCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateTableCommandOutput> {
+): Promise<UpdateTableCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0UpdateTableCommandError(output, context);
   }
@@ -4700,12 +4741,12 @@ export async function deserializeAws_json1_0UpdateTableCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0UpdateTableCommandError(
+const deserializeAws_json1_0UpdateTableCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateTableCommandOutput> {
+): Promise<UpdateTableCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4786,12 +4827,12 @@ async function deserializeAws_json1_0UpdateTableCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0UpdateTableReplicaAutoScalingCommand(
+export const deserializeAws_json1_0UpdateTableReplicaAutoScalingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateTableReplicaAutoScalingCommandOutput> {
+): Promise<UpdateTableReplicaAutoScalingCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0UpdateTableReplicaAutoScalingCommandError(
       output,
@@ -4810,12 +4851,12 @@ export async function deserializeAws_json1_0UpdateTableReplicaAutoScalingCommand
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0UpdateTableReplicaAutoScalingCommandError(
+const deserializeAws_json1_0UpdateTableReplicaAutoScalingCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateTableReplicaAutoScalingCommandOutput> {
+): Promise<UpdateTableReplicaAutoScalingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4885,12 +4926,12 @@ async function deserializeAws_json1_0UpdateTableReplicaAutoScalingCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0UpdateTimeToLiveCommand(
+export const deserializeAws_json1_0UpdateTimeToLiveCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateTimeToLiveCommandOutput> {
+): Promise<UpdateTimeToLiveCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0UpdateTimeToLiveCommandError(output, context);
   }
@@ -4903,12 +4944,12 @@ export async function deserializeAws_json1_0UpdateTimeToLiveCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0UpdateTimeToLiveCommandError(
+const deserializeAws_json1_0UpdateTimeToLiveCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateTimeToLiveCommandOutput> {
+): Promise<UpdateTimeToLiveCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4989,7 +5030,7 @@ async function deserializeAws_json1_0UpdateTimeToLiveCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_0InvalidEndpointExceptionResponse = async (
   parsedOutput: any,
@@ -5482,39 +5523,29 @@ const serializeAws_json1_0AttributeDefinition = (
 };
 
 const serializeAws_json1_0AttributeDefinitions = (
-  input: Array<AttributeDefinition>,
+  input: AttributeDefinition[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_0AttributeDefinition(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_0AttributeDefinition(entry, context)
+  );
 };
 
 const serializeAws_json1_0AttributeNameList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_0AttributeUpdates = (
   input: { [key: string]: AttributeValueUpdate },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = serializeAws_json1_0AttributeValueUpdate(
-      input[key],
-      context
-    );
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = serializeAws_json1_0AttributeValueUpdate(input[key], context);
+    return acc;
+  }, {});
 };
 
 const serializeAws_json1_0AttributeValue = (
@@ -5565,14 +5596,10 @@ const serializeAws_json1_0AttributeValue = (
 };
 
 const serializeAws_json1_0AttributeValueList = (
-  input: Array<AttributeValue>,
+  input: AttributeValue[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_0AttributeValue(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_0AttributeValue(entry, context));
 };
 
 const serializeAws_json1_0AttributeValueUpdate = (
@@ -5680,11 +5707,10 @@ const serializeAws_json1_0BatchGetRequestMap = (
   input: { [key: string]: KeysAndAttributes },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = serializeAws_json1_0KeysAndAttributes(input[key], context);
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = serializeAws_json1_0KeysAndAttributes(input[key], context);
+    return acc;
+  }, {});
 };
 
 const serializeAws_json1_0BatchWriteItemInput = (
@@ -5709,25 +5735,20 @@ const serializeAws_json1_0BatchWriteItemInput = (
 };
 
 const serializeAws_json1_0BatchWriteItemRequestMap = (
-  input: { [key: string]: Array<WriteRequest> },
+  input: { [key: string]: WriteRequest[] },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = serializeAws_json1_0WriteRequests(input[key], context);
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = serializeAws_json1_0WriteRequests(input[key], context);
+    return acc;
+  }, {});
 };
 
 const serializeAws_json1_0BinarySetAttributeValue = (
-  input: Array<Uint8Array>,
+  input: Uint8Array[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(context.base64Encoder(entry));
-  }
-  return contents;
+  return input.map(entry => context.base64Encoder(entry));
 };
 
 const serializeAws_json1_0Condition = (
@@ -6212,14 +6233,10 @@ const serializeAws_json1_0ExpectedAttributeMap = (
   input: { [key: string]: ExpectedAttributeValue },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = serializeAws_json1_0ExpectedAttributeValue(
-      input[key],
-      context
-    );
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = serializeAws_json1_0ExpectedAttributeValue(input[key], context);
+    return acc;
+  }, {});
 };
 
 const serializeAws_json1_0ExpectedAttributeValue = (
@@ -6252,33 +6269,30 @@ const serializeAws_json1_0ExpressionAttributeNameMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = input[key];
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = input[key];
+    return acc;
+  }, {});
 };
 
 const serializeAws_json1_0ExpressionAttributeValueMap = (
   input: { [key: string]: AttributeValue },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = serializeAws_json1_0AttributeValue(input[key], context);
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = serializeAws_json1_0AttributeValue(input[key], context);
+    return acc;
+  }, {});
 };
 
 const serializeAws_json1_0FilterConditionMap = (
   input: { [key: string]: Condition },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = serializeAws_json1_0Condition(input[key], context);
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = serializeAws_json1_0Condition(input[key], context);
+    return acc;
+  }, {});
 };
 
 const serializeAws_json1_0Get = (input: Get, context: __SerdeContext): any => {
@@ -6391,27 +6405,21 @@ const serializeAws_json1_0GlobalSecondaryIndexAutoScalingUpdate = (
 };
 
 const serializeAws_json1_0GlobalSecondaryIndexAutoScalingUpdateList = (
-  input: Array<GlobalSecondaryIndexAutoScalingUpdate>,
+  input: GlobalSecondaryIndexAutoScalingUpdate[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_json1_0GlobalSecondaryIndexAutoScalingUpdate(entry, context)
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_0GlobalSecondaryIndexAutoScalingUpdate(entry, context)
+  );
 };
 
 const serializeAws_json1_0GlobalSecondaryIndexList = (
-  input: Array<GlobalSecondaryIndex>,
+  input: GlobalSecondaryIndex[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_0GlobalSecondaryIndex(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_0GlobalSecondaryIndex(entry, context)
+  );
 };
 
 const serializeAws_json1_0GlobalSecondaryIndexUpdate = (
@@ -6441,16 +6449,12 @@ const serializeAws_json1_0GlobalSecondaryIndexUpdate = (
 };
 
 const serializeAws_json1_0GlobalSecondaryIndexUpdateList = (
-  input: Array<GlobalSecondaryIndexUpdate>,
+  input: GlobalSecondaryIndexUpdate[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_json1_0GlobalSecondaryIndexUpdate(entry, context)
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_0GlobalSecondaryIndexUpdate(entry, context)
+  );
 };
 
 const serializeAws_json1_0GlobalTableGlobalSecondaryIndexSettingsUpdate = (
@@ -6477,63 +6481,51 @@ const serializeAws_json1_0GlobalTableGlobalSecondaryIndexSettingsUpdate = (
 };
 
 const serializeAws_json1_0GlobalTableGlobalSecondaryIndexSettingsUpdateList = (
-  input: Array<GlobalTableGlobalSecondaryIndexSettingsUpdate>,
+  input: GlobalTableGlobalSecondaryIndexSettingsUpdate[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_json1_0GlobalTableGlobalSecondaryIndexSettingsUpdate(
-        entry,
-        context
-      )
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_0GlobalTableGlobalSecondaryIndexSettingsUpdate(
+      entry,
+      context
+    )
+  );
 };
 
 const serializeAws_json1_0Key = (
   input: { [key: string]: AttributeValue },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = serializeAws_json1_0AttributeValue(input[key], context);
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = serializeAws_json1_0AttributeValue(input[key], context);
+    return acc;
+  }, {});
 };
 
 const serializeAws_json1_0KeyConditions = (
   input: { [key: string]: Condition },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = serializeAws_json1_0Condition(input[key], context);
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = serializeAws_json1_0Condition(input[key], context);
+    return acc;
+  }, {});
 };
 
 const serializeAws_json1_0KeyList = (
-  input: Array<{ [key: string]: AttributeValue }>,
+  input: { [key: string]: AttributeValue }[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_0Key(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_0Key(entry, context));
 };
 
 const serializeAws_json1_0KeySchema = (
-  input: Array<KeySchemaElement>,
+  input: KeySchemaElement[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_0KeySchemaElement(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_0KeySchemaElement(entry, context)
+  );
 };
 
 const serializeAws_json1_0KeySchemaElement = (
@@ -6582,14 +6574,10 @@ const serializeAws_json1_0KeysAndAttributes = (
 };
 
 const serializeAws_json1_0ListAttributeValue = (
-  input: Array<AttributeValue>,
+  input: AttributeValue[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_0AttributeValue(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_0AttributeValue(entry, context));
 };
 
 const serializeAws_json1_0ListBackupsInput = (
@@ -6709,47 +6697,36 @@ const serializeAws_json1_0LocalSecondaryIndex = (
 };
 
 const serializeAws_json1_0LocalSecondaryIndexList = (
-  input: Array<LocalSecondaryIndex>,
+  input: LocalSecondaryIndex[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_0LocalSecondaryIndex(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_0LocalSecondaryIndex(entry, context)
+  );
 };
 
 const serializeAws_json1_0MapAttributeValue = (
   input: { [key: string]: AttributeValue },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = serializeAws_json1_0AttributeValue(input[key], context);
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = serializeAws_json1_0AttributeValue(input[key], context);
+    return acc;
+  }, {});
 };
 
 const serializeAws_json1_0NonKeyAttributeNameList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_0NumberSetAttributeValue = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_0PointInTimeRecoverySpecification = (
@@ -6903,11 +6880,10 @@ const serializeAws_json1_0PutItemInputAttributeMap = (
   input: { [key: string]: AttributeValue },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = serializeAws_json1_0AttributeValue(input[key], context);
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = serializeAws_json1_0AttributeValue(input[key], context);
+    return acc;
+  }, {});
 };
 
 const serializeAws_json1_0PutRequest = (
@@ -7044,14 +7020,12 @@ const serializeAws_json1_0ReplicaAutoScalingUpdate = (
 };
 
 const serializeAws_json1_0ReplicaAutoScalingUpdateList = (
-  input: Array<ReplicaAutoScalingUpdate>,
+  input: ReplicaAutoScalingUpdate[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_0ReplicaAutoScalingUpdate(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_0ReplicaAutoScalingUpdate(entry, context)
+  );
 };
 
 const serializeAws_json1_0ReplicaGlobalSecondaryIndex = (
@@ -7093,32 +7067,24 @@ const serializeAws_json1_0ReplicaGlobalSecondaryIndexAutoScalingUpdate = (
 };
 
 const serializeAws_json1_0ReplicaGlobalSecondaryIndexAutoScalingUpdateList = (
-  input: Array<ReplicaGlobalSecondaryIndexAutoScalingUpdate>,
+  input: ReplicaGlobalSecondaryIndexAutoScalingUpdate[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_json1_0ReplicaGlobalSecondaryIndexAutoScalingUpdate(
-        entry,
-        context
-      )
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_0ReplicaGlobalSecondaryIndexAutoScalingUpdate(
+      entry,
+      context
+    )
+  );
 };
 
 const serializeAws_json1_0ReplicaGlobalSecondaryIndexList = (
-  input: Array<ReplicaGlobalSecondaryIndex>,
+  input: ReplicaGlobalSecondaryIndex[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_json1_0ReplicaGlobalSecondaryIndex(entry, context)
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_0ReplicaGlobalSecondaryIndex(entry, context)
+  );
 };
 
 const serializeAws_json1_0ReplicaGlobalSecondaryIndexSettingsUpdate = (
@@ -7145,30 +7111,22 @@ const serializeAws_json1_0ReplicaGlobalSecondaryIndexSettingsUpdate = (
 };
 
 const serializeAws_json1_0ReplicaGlobalSecondaryIndexSettingsUpdateList = (
-  input: Array<ReplicaGlobalSecondaryIndexSettingsUpdate>,
+  input: ReplicaGlobalSecondaryIndexSettingsUpdate[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_json1_0ReplicaGlobalSecondaryIndexSettingsUpdate(
-        entry,
-        context
-      )
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_0ReplicaGlobalSecondaryIndexSettingsUpdate(
+      entry,
+      context
+    )
+  );
 };
 
 const serializeAws_json1_0ReplicaList = (
-  input: Array<Replica>,
+  input: Replica[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_0Replica(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_0Replica(entry, context));
 };
 
 const serializeAws_json1_0ReplicaSettingsUpdate = (
@@ -7205,14 +7163,12 @@ const serializeAws_json1_0ReplicaSettingsUpdate = (
 };
 
 const serializeAws_json1_0ReplicaSettingsUpdateList = (
-  input: Array<ReplicaSettingsUpdate>,
+  input: ReplicaSettingsUpdate[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_0ReplicaSettingsUpdate(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_0ReplicaSettingsUpdate(entry, context)
+  );
 };
 
 const serializeAws_json1_0ReplicaUpdate = (
@@ -7236,14 +7192,10 @@ const serializeAws_json1_0ReplicaUpdate = (
 };
 
 const serializeAws_json1_0ReplicaUpdateList = (
-  input: Array<ReplicaUpdate>,
+  input: ReplicaUpdate[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_0ReplicaUpdate(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_0ReplicaUpdate(entry, context));
 };
 
 const serializeAws_json1_0ReplicationGroupUpdate = (
@@ -7279,14 +7231,12 @@ const serializeAws_json1_0ReplicationGroupUpdate = (
 };
 
 const serializeAws_json1_0ReplicationGroupUpdateList = (
-  input: Array<ReplicationGroupUpdate>,
+  input: ReplicationGroupUpdate[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_0ReplicationGroupUpdate(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_0ReplicationGroupUpdate(entry, context)
+  );
 };
 
 const serializeAws_json1_0RestoreTableFromBackupInput = (
@@ -7486,14 +7436,10 @@ const serializeAws_json1_0StreamSpecification = (
 };
 
 const serializeAws_json1_0StringSetAttributeValue = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_0Tag = (input: Tag, context: __SerdeContext): any => {
@@ -7508,25 +7454,17 @@ const serializeAws_json1_0Tag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_json1_0TagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_0TagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_0Tag(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_0Tag(entry, context));
 };
 
 const serializeAws_json1_0TagResourceInput = (
@@ -7569,14 +7507,12 @@ const serializeAws_json1_0TransactGetItem = (
 };
 
 const serializeAws_json1_0TransactGetItemList = (
-  input: Array<TransactGetItem>,
+  input: TransactGetItem[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_0TransactGetItem(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_0TransactGetItem(entry, context)
+  );
 };
 
 const serializeAws_json1_0TransactGetItemsInput = (
@@ -7620,14 +7556,12 @@ const serializeAws_json1_0TransactWriteItem = (
 };
 
 const serializeAws_json1_0TransactWriteItemList = (
-  input: Array<TransactWriteItem>,
+  input: TransactWriteItem[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_0TransactWriteItem(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_0TransactWriteItem(entry, context)
+  );
 };
 
 const serializeAws_json1_0TransactWriteItemsInput = (
@@ -8055,14 +7989,10 @@ const serializeAws_json1_0WriteRequest = (
 };
 
 const serializeAws_json1_0WriteRequests = (
-  input: Array<WriteRequest>,
+  input: WriteRequest[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_0WriteRequest(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_0WriteRequest(entry, context));
 };
 
 const deserializeAws_json1_0DescribeEndpointsResponse = (
@@ -8106,7 +8036,7 @@ const deserializeAws_json1_0Endpoint = (
 const deserializeAws_json1_0Endpoints = (
   output: any,
   context: __SerdeContext
-): Array<Endpoint> => {
+): Endpoint[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0Endpoint(entry, context)
   );
@@ -8177,7 +8107,7 @@ const deserializeAws_json1_0AttributeDefinition = (
 const deserializeAws_json1_0AttributeDefinitions = (
   output: any,
   context: __SerdeContext
-): Array<AttributeDefinition> => {
+): AttributeDefinition[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0AttributeDefinition(entry, context)
   );
@@ -8187,17 +8117,16 @@ const deserializeAws_json1_0AttributeMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: AttributeValue } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_json1_0AttributeValue(output[key], context);
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = deserializeAws_json1_0AttributeValue(output[key], context);
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_0AttributeNameList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -8287,7 +8216,7 @@ const deserializeAws_json1_0AutoScalingPolicyDescription = (
 const deserializeAws_json1_0AutoScalingPolicyDescriptionList = (
   output: any,
   context: __SerdeContext
-): Array<AutoScalingPolicyDescription> => {
+): AutoScalingPolicyDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0AutoScalingPolicyDescription(entry, context)
   );
@@ -8477,7 +8406,7 @@ const deserializeAws_json1_0BackupNotFoundException = (
 const deserializeAws_json1_0BackupSummaries = (
   output: any,
   context: __SerdeContext
-): Array<BackupSummary> => {
+): BackupSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0BackupSummary(entry, context)
   );
@@ -8581,25 +8510,20 @@ const deserializeAws_json1_0BatchGetRequestMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: KeysAndAttributes } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_json1_0KeysAndAttributes(
-      output[key],
-      context
-    );
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = deserializeAws_json1_0KeysAndAttributes(output[key], context);
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_0BatchGetResponseMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: Array<{ [key: string]: AttributeValue }> } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_json1_0ItemList(output[key], context);
-  });
-  return mapParams;
+): { [key: string]: { [key: string]: AttributeValue }[] } => {
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = deserializeAws_json1_0ItemList(output[key], context);
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_0BatchWriteItemOutput = (
@@ -8645,12 +8569,11 @@ const deserializeAws_json1_0BatchWriteItemOutput = (
 const deserializeAws_json1_0BatchWriteItemRequestMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: Array<WriteRequest> } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_json1_0WriteRequests(output[key], context);
-  });
-  return mapParams;
+): { [key: string]: WriteRequest[] } => {
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = deserializeAws_json1_0WriteRequests(output[key], context);
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_0BillingModeSummary = (
@@ -8679,7 +8602,7 @@ const deserializeAws_json1_0BillingModeSummary = (
 const deserializeAws_json1_0BinarySetAttributeValue = (
   output: any,
   context: __SerdeContext
-): Array<Uint8Array> => {
+): Uint8Array[] => {
   return (output || []).map((entry: any) => context.base64Decoder(entry));
 };
 
@@ -8708,7 +8631,7 @@ const deserializeAws_json1_0CancellationReason = (
 const deserializeAws_json1_0CancellationReasonList = (
   output: any,
   context: __SerdeContext
-): Array<CancellationReason> => {
+): CancellationReason[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0CancellationReason(entry, context)
   );
@@ -8815,7 +8738,7 @@ const deserializeAws_json1_0ConsumedCapacity = (
 const deserializeAws_json1_0ConsumedCapacityMultiple = (
   output: any,
   context: __SerdeContext
-): Array<ConsumedCapacity> => {
+): ConsumedCapacity[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0ConsumedCapacity(entry, context)
   );
@@ -8865,14 +8788,14 @@ const deserializeAws_json1_0ContinuousBackupsUnavailableException = (
 const deserializeAws_json1_0ContributorInsightsRuleList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_0ContributorInsightsSummaries = (
   output: any,
   context: __SerdeContext
-): Array<ContributorInsightsSummary> => {
+): ContributorInsightsSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0ContributorInsightsSummary(entry, context)
   );
@@ -9285,11 +9208,10 @@ const deserializeAws_json1_0ExpressionAttributeNameMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = output[key];
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_0FailureException = (
@@ -9398,7 +9320,7 @@ const deserializeAws_json1_0GlobalSecondaryIndexDescription = (
 const deserializeAws_json1_0GlobalSecondaryIndexDescriptionList = (
   output: any,
   context: __SerdeContext
-): Array<GlobalSecondaryIndexDescription> => {
+): GlobalSecondaryIndexDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0GlobalSecondaryIndexDescription(entry, context)
   );
@@ -9445,7 +9367,7 @@ const deserializeAws_json1_0GlobalSecondaryIndexInfo = (
 const deserializeAws_json1_0GlobalSecondaryIndexes = (
   output: any,
   context: __SerdeContext
-): Array<GlobalSecondaryIndexInfo> => {
+): GlobalSecondaryIndexInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0GlobalSecondaryIndexInfo(entry, context)
   );
@@ -9536,7 +9458,7 @@ const deserializeAws_json1_0GlobalTableDescription = (
 const deserializeAws_json1_0GlobalTableList = (
   output: any,
   context: __SerdeContext
-): Array<GlobalTable> => {
+): GlobalTable[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0GlobalTable(entry, context)
   );
@@ -9616,11 +9538,10 @@ const deserializeAws_json1_0ItemCollectionKeyAttributeMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: AttributeValue } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_json1_0AttributeValue(output[key], context);
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = deserializeAws_json1_0AttributeValue(output[key], context);
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_0ItemCollectionMetrics = (
@@ -9656,7 +9577,7 @@ const deserializeAws_json1_0ItemCollectionMetrics = (
 const deserializeAws_json1_0ItemCollectionMetricsMultiple = (
   output: any,
   context: __SerdeContext
-): Array<ItemCollectionMetrics> => {
+): ItemCollectionMetrics[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0ItemCollectionMetrics(entry, context)
   );
@@ -9665,21 +9586,20 @@ const deserializeAws_json1_0ItemCollectionMetricsMultiple = (
 const deserializeAws_json1_0ItemCollectionMetricsPerTable = (
   output: any,
   context: __SerdeContext
-): { [key: string]: Array<ItemCollectionMetrics> } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_json1_0ItemCollectionMetricsMultiple(
+): { [key: string]: ItemCollectionMetrics[] } => {
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = deserializeAws_json1_0ItemCollectionMetricsMultiple(
       output[key],
       context
     );
-  });
-  return mapParams;
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_0ItemCollectionSizeEstimateRange = (
   output: any,
   context: __SerdeContext
-): Array<number> => {
+): number[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -9700,7 +9620,7 @@ const deserializeAws_json1_0ItemCollectionSizeLimitExceededException = (
 const deserializeAws_json1_0ItemList = (
   output: any,
   context: __SerdeContext
-): Array<{ [key: string]: AttributeValue }> => {
+): { [key: string]: AttributeValue }[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0AttributeMap(entry, context)
   );
@@ -9723,7 +9643,7 @@ const deserializeAws_json1_0ItemResponse = (
 const deserializeAws_json1_0ItemResponseList = (
   output: any,
   context: __SerdeContext
-): Array<ItemResponse> => {
+): ItemResponse[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0ItemResponse(entry, context)
   );
@@ -9733,17 +9653,16 @@ const deserializeAws_json1_0Key = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: AttributeValue } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_json1_0AttributeValue(output[key], context);
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = deserializeAws_json1_0AttributeValue(output[key], context);
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_0KeyList = (
   output: any,
   context: __SerdeContext
-): Array<{ [key: string]: AttributeValue }> => {
+): { [key: string]: AttributeValue }[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0Key(entry, context)
   );
@@ -9752,7 +9671,7 @@ const deserializeAws_json1_0KeyList = (
 const deserializeAws_json1_0KeySchema = (
   output: any,
   context: __SerdeContext
-): Array<KeySchemaElement> => {
+): KeySchemaElement[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0KeySchemaElement(entry, context)
   );
@@ -9835,7 +9754,7 @@ const deserializeAws_json1_0LimitExceededException = (
 const deserializeAws_json1_0ListAttributeValue = (
   output: any,
   context: __SerdeContext
-): Array<AttributeValue> => {
+): AttributeValue[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0AttributeValue(entry, context)
   );
@@ -9998,7 +9917,7 @@ const deserializeAws_json1_0LocalSecondaryIndexDescription = (
 const deserializeAws_json1_0LocalSecondaryIndexDescriptionList = (
   output: any,
   context: __SerdeContext
-): Array<LocalSecondaryIndexDescription> => {
+): LocalSecondaryIndexDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0LocalSecondaryIndexDescription(entry, context)
   );
@@ -10035,7 +9954,7 @@ const deserializeAws_json1_0LocalSecondaryIndexInfo = (
 const deserializeAws_json1_0LocalSecondaryIndexes = (
   output: any,
   context: __SerdeContext
-): Array<LocalSecondaryIndexInfo> => {
+): LocalSecondaryIndexInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0LocalSecondaryIndexInfo(entry, context)
   );
@@ -10045,24 +9964,23 @@ const deserializeAws_json1_0MapAttributeValue = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: AttributeValue } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_json1_0AttributeValue(output[key], context);
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = deserializeAws_json1_0AttributeValue(output[key], context);
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_0NonKeyAttributeNameList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_0NumberSetAttributeValue = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -10247,11 +10165,10 @@ const deserializeAws_json1_0PutItemInputAttributeMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: AttributeValue } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_json1_0AttributeValue(output[key], context);
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = deserializeAws_json1_0AttributeValue(output[key], context);
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_0PutItemOutput = (
@@ -10429,7 +10346,7 @@ const deserializeAws_json1_0ReplicaAutoScalingDescription = (
 const deserializeAws_json1_0ReplicaAutoScalingDescriptionList = (
   output: any,
   context: __SerdeContext
-): Array<ReplicaAutoScalingDescription> => {
+): ReplicaAutoScalingDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0ReplicaAutoScalingDescription(entry, context)
   );
@@ -10494,7 +10411,7 @@ const deserializeAws_json1_0ReplicaDescription = (
 const deserializeAws_json1_0ReplicaDescriptionList = (
   output: any,
   context: __SerdeContext
-): Array<ReplicaDescription> => {
+): ReplicaDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0ReplicaDescription(entry, context)
   );
@@ -10541,7 +10458,7 @@ const deserializeAws_json1_0ReplicaGlobalSecondaryIndexAutoScalingDescription = 
 const deserializeAws_json1_0ReplicaGlobalSecondaryIndexAutoScalingDescriptionList = (
   output: any,
   context: __SerdeContext
-): Array<ReplicaGlobalSecondaryIndexAutoScalingDescription> => {
+): ReplicaGlobalSecondaryIndexAutoScalingDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0ReplicaGlobalSecondaryIndexAutoScalingDescription(
       entry,
@@ -10577,7 +10494,7 @@ const deserializeAws_json1_0ReplicaGlobalSecondaryIndexDescription = (
 const deserializeAws_json1_0ReplicaGlobalSecondaryIndexDescriptionList = (
   output: any,
   context: __SerdeContext
-): Array<ReplicaGlobalSecondaryIndexDescription> => {
+): ReplicaGlobalSecondaryIndexDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0ReplicaGlobalSecondaryIndexDescription(entry, context)
   );
@@ -10639,7 +10556,7 @@ const deserializeAws_json1_0ReplicaGlobalSecondaryIndexSettingsDescription = (
 const deserializeAws_json1_0ReplicaGlobalSecondaryIndexSettingsDescriptionList = (
   output: any,
   context: __SerdeContext
-): Array<ReplicaGlobalSecondaryIndexSettingsDescription> => {
+): ReplicaGlobalSecondaryIndexSettingsDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0ReplicaGlobalSecondaryIndexSettingsDescription(
       entry,
@@ -10651,7 +10568,7 @@ const deserializeAws_json1_0ReplicaGlobalSecondaryIndexSettingsDescriptionList =
 const deserializeAws_json1_0ReplicaList = (
   output: any,
   context: __SerdeContext
-): Array<Replica> => {
+): Replica[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0Replica(entry, context)
   );
@@ -10748,7 +10665,7 @@ const deserializeAws_json1_0ReplicaSettingsDescription = (
 const deserializeAws_json1_0ReplicaSettingsDescriptionList = (
   output: any,
   context: __SerdeContext
-): Array<ReplicaSettingsDescription> => {
+): ReplicaSettingsDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0ReplicaSettingsDescription(entry, context)
   );
@@ -10944,11 +10861,10 @@ const deserializeAws_json1_0SecondaryIndexesCapacityMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: Capacity } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_json1_0Capacity(output[key], context);
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = deserializeAws_json1_0Capacity(output[key], context);
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_0SourceTableDetails = (
@@ -11089,7 +11005,7 @@ const deserializeAws_json1_0StreamSpecification = (
 const deserializeAws_json1_0StringSetAttributeValue = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -11305,7 +11221,7 @@ const deserializeAws_json1_0TableInUseException = (
 const deserializeAws_json1_0TableNameList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -11344,7 +11260,7 @@ const deserializeAws_json1_0Tag = (
 const deserializeAws_json1_0TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0Tag(entry, context)
   );
@@ -11708,7 +11624,7 @@ const deserializeAws_json1_0WriteRequest = (
 const deserializeAws_json1_0WriteRequests = (
   output: any,
   context: __SerdeContext
-): Array<WriteRequest> => {
+): WriteRequest[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0WriteRequest(entry, context)
   );
@@ -11722,7 +11638,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -11737,11 +11653,8 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
@@ -11768,11 +11681,10 @@ const buildHttpRpcRequest = async (
   return new __HttpRequest(contents);
 };
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};

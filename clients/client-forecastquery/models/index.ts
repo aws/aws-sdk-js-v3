@@ -46,7 +46,7 @@ export interface Forecast {
    *             </li>
    *          </ul>
    */
-  Predictions?: { [key: string]: Array<DataPoint> };
+  Predictions?: { [key: string]: DataPoint[] };
 }
 
 export namespace Forecast {

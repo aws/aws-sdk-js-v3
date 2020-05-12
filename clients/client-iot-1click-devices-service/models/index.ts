@@ -243,7 +243,7 @@ export interface GetDeviceMethodsResponse {
   /**
    * <p>List of available device APIs.</p>
    */
-  DeviceMethods?: Array<DeviceMethod>;
+  DeviceMethods?: DeviceMethod[];
 }
 
 export namespace GetDeviceMethodsResponse {
@@ -399,7 +399,7 @@ export interface ListDeviceEventsResponse {
    * <p>An array of zero or more elements describing the event(s) associated with the
    *  device.</p>
    */
-  Events?: Array<DeviceEvent>;
+  Events?: DeviceEvent[];
 
   /**
    * <p>The token to retrieve the next set of results.</p>
@@ -441,7 +441,7 @@ export interface ListDevicesResponse {
   /**
    * <p>A list of devices.</p>
    */
-  Devices?: Array<DeviceDescription>;
+  Devices?: DeviceDescription[];
 
   /**
    * <p>The token to retrieve the next set of results.</p>
@@ -627,7 +627,7 @@ export interface UntagResourceRequest {
   /**
    * <p>A collections of tag keys. For example, {"key1","key2"}</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {

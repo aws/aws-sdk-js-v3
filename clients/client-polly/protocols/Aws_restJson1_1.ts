@@ -80,12 +80,13 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_restJson1_1DeleteLexiconCommand(
+export const serializeAws_restJson1_1DeleteLexiconCommand = async (
   input: DeleteLexiconCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/lexicons/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
@@ -110,30 +111,26 @@ export async function serializeAws_restJson1_1DeleteLexiconCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribeVoicesCommand(
+export const serializeAws_restJson1_1DescribeVoicesCommand = async (
   input: DescribeVoicesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/voices";
-  const query: any = {};
-  if (input.Engine !== undefined) {
-    query["Engine"] = input.Engine;
-  }
-  if (input.IncludeAdditionalLanguageCodes !== undefined) {
-    query[
-      "IncludeAdditionalLanguageCodes"
-    ] = input.IncludeAdditionalLanguageCodes.toString();
-  }
-  if (input.LanguageCode !== undefined) {
-    query["LanguageCode"] = input.LanguageCode;
-  }
-  if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.Engine !== undefined && { Engine: input.Engine }),
+    ...(input.IncludeAdditionalLanguageCodes !== undefined && {
+      IncludeAdditionalLanguageCodes: input.IncludeAdditionalLanguageCodes.toString()
+    }),
+    ...(input.LanguageCode !== undefined && {
+      LanguageCode: input.LanguageCode
+    }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -146,14 +143,15 @@ export async function serializeAws_restJson1_1DescribeVoicesCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetLexiconCommand(
+export const serializeAws_restJson1_1GetLexiconCommand = async (
   input: GetLexiconCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/lexicons/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
@@ -178,14 +176,15 @@ export async function serializeAws_restJson1_1GetLexiconCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetSpeechSynthesisTaskCommand(
+export const serializeAws_restJson1_1GetSpeechSynthesisTaskCommand = async (
   input: GetSpeechSynthesisTaskCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/synthesisTasks/{TaskId}";
   if (input.TaskId !== undefined) {
     const labelValue: string = input.TaskId;
@@ -210,19 +209,19 @@ export async function serializeAws_restJson1_1GetSpeechSynthesisTaskCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListLexiconsCommand(
+export const serializeAws_restJson1_1ListLexiconsCommand = async (
   input: ListLexiconsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/lexicons";
-  const query: any = {};
-  if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -235,25 +234,23 @@ export async function serializeAws_restJson1_1ListLexiconsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListSpeechSynthesisTasksCommand(
+export const serializeAws_restJson1_1ListSpeechSynthesisTasksCommand = async (
   input: ListSpeechSynthesisTasksCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/v1/synthesisTasks";
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken;
-  }
-  if (input.Status !== undefined) {
-    query["Status"] = input.Status;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && {
+      MaxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Status !== undefined && { Status: input.Status })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -266,14 +263,15 @@ export async function serializeAws_restJson1_1ListSpeechSynthesisTasksCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1PutLexiconCommand(
+export const serializeAws_restJson1_1PutLexiconCommand = async (
   input: PutLexiconCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/lexicons/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
@@ -303,14 +301,15 @@ export async function serializeAws_restJson1_1PutLexiconCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1StartSpeechSynthesisTaskCommand(
+export const serializeAws_restJson1_1StartSpeechSynthesisTaskCommand = async (
   input: StartSpeechSynthesisTaskCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/synthesisTasks";
   let body: any;
   const bodyParams: any = {};
@@ -367,14 +366,15 @@ export async function serializeAws_restJson1_1StartSpeechSynthesisTaskCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1SynthesizeSpeechCommand(
+export const serializeAws_restJson1_1SynthesizeSpeechCommand = async (
   input: SynthesizeSpeechCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/v1/speech";
   let body: any;
   const bodyParams: any = {};
@@ -422,12 +422,12 @@ export async function serializeAws_restJson1_1SynthesizeSpeechCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteLexiconCommand(
+export const deserializeAws_restJson1_1DeleteLexiconCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteLexiconCommandOutput> {
+): Promise<DeleteLexiconCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteLexiconCommandError(output, context);
   }
@@ -437,12 +437,12 @@ export async function deserializeAws_restJson1_1DeleteLexiconCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteLexiconCommandError(
+const deserializeAws_restJson1_1DeleteLexiconCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteLexiconCommandOutput> {
+): Promise<DeleteLexiconCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -488,12 +488,12 @@ async function deserializeAws_restJson1_1DeleteLexiconCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeVoicesCommand(
+export const deserializeAws_restJson1_1DescribeVoicesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeVoicesCommandOutput> {
+): Promise<DescribeVoicesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeVoicesCommandError(
       output,
@@ -514,12 +514,12 @@ export async function deserializeAws_restJson1_1DescribeVoicesCommand(
     contents.Voices = deserializeAws_restJson1_1VoiceList(data.Voices, context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeVoicesCommandError(
+const deserializeAws_restJson1_1DescribeVoicesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeVoicesCommandOutput> {
+): Promise<DescribeVoicesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -565,12 +565,12 @@ async function deserializeAws_restJson1_1DescribeVoicesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetLexiconCommand(
+export const deserializeAws_restJson1_1GetLexiconCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetLexiconCommandOutput> {
+): Promise<GetLexiconCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetLexiconCommandError(output, context);
   }
@@ -591,12 +591,12 @@ export async function deserializeAws_restJson1_1GetLexiconCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetLexiconCommandError(
+const deserializeAws_restJson1_1GetLexiconCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetLexiconCommandOutput> {
+): Promise<GetLexiconCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -642,12 +642,12 @@ async function deserializeAws_restJson1_1GetLexiconCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetSpeechSynthesisTaskCommand(
+export const deserializeAws_restJson1_1GetSpeechSynthesisTaskCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetSpeechSynthesisTaskCommandOutput> {
+): Promise<GetSpeechSynthesisTaskCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetSpeechSynthesisTaskCommandError(
       output,
@@ -667,12 +667,12 @@ export async function deserializeAws_restJson1_1GetSpeechSynthesisTaskCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetSpeechSynthesisTaskCommandError(
+const deserializeAws_restJson1_1GetSpeechSynthesisTaskCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetSpeechSynthesisTaskCommandOutput> {
+): Promise<GetSpeechSynthesisTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -729,12 +729,12 @@ async function deserializeAws_restJson1_1GetSpeechSynthesisTaskCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListLexiconsCommand(
+export const deserializeAws_restJson1_1ListLexiconsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListLexiconsCommandOutput> {
+): Promise<ListLexiconsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListLexiconsCommandError(output, context);
   }
@@ -755,12 +755,12 @@ export async function deserializeAws_restJson1_1ListLexiconsCommand(
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListLexiconsCommandError(
+const deserializeAws_restJson1_1ListLexiconsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListLexiconsCommandOutput> {
+): Promise<ListLexiconsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -806,12 +806,12 @@ async function deserializeAws_restJson1_1ListLexiconsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListSpeechSynthesisTasksCommand(
+export const deserializeAws_restJson1_1ListSpeechSynthesisTasksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListSpeechSynthesisTasksCommandOutput> {
+): Promise<ListSpeechSynthesisTasksCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListSpeechSynthesisTasksCommandError(
       output,
@@ -835,12 +835,12 @@ export async function deserializeAws_restJson1_1ListSpeechSynthesisTasksCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListSpeechSynthesisTasksCommandError(
+const deserializeAws_restJson1_1ListSpeechSynthesisTasksCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListSpeechSynthesisTasksCommandOutput> {
+): Promise<ListSpeechSynthesisTasksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -886,12 +886,12 @@ async function deserializeAws_restJson1_1ListSpeechSynthesisTasksCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1PutLexiconCommand(
+export const deserializeAws_restJson1_1PutLexiconCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutLexiconCommandOutput> {
+): Promise<PutLexiconCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1PutLexiconCommandError(output, context);
   }
@@ -901,12 +901,12 @@ export async function deserializeAws_restJson1_1PutLexiconCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1PutLexiconCommandError(
+const deserializeAws_restJson1_1PutLexiconCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutLexiconCommandOutput> {
+): Promise<PutLexiconCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1007,12 +1007,12 @@ async function deserializeAws_restJson1_1PutLexiconCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1StartSpeechSynthesisTaskCommand(
+export const deserializeAws_restJson1_1StartSpeechSynthesisTaskCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartSpeechSynthesisTaskCommandOutput> {
+): Promise<StartSpeechSynthesisTaskCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1StartSpeechSynthesisTaskCommandError(
       output,
@@ -1032,12 +1032,12 @@ export async function deserializeAws_restJson1_1StartSpeechSynthesisTaskCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1StartSpeechSynthesisTaskCommandError(
+const deserializeAws_restJson1_1StartSpeechSynthesisTaskCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartSpeechSynthesisTaskCommandOutput> {
+): Promise<StartSpeechSynthesisTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1193,12 +1193,12 @@ async function deserializeAws_restJson1_1StartSpeechSynthesisTaskCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1SynthesizeSpeechCommand(
+export const deserializeAws_restJson1_1SynthesizeSpeechCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SynthesizeSpeechCommandOutput> {
+): Promise<SynthesizeSpeechCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1SynthesizeSpeechCommandError(
       output,
@@ -1224,12 +1224,12 @@ export async function deserializeAws_restJson1_1SynthesizeSpeechCommand(
   const data: any = output.body;
   contents.AudioStream = data;
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1SynthesizeSpeechCommandError(
+const deserializeAws_restJson1_1SynthesizeSpeechCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SynthesizeSpeechCommandOutput> {
+): Promise<SynthesizeSpeechCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1352,7 +1352,7 @@ async function deserializeAws_restJson1_1SynthesizeSpeechCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1EngineNotSupportedExceptionResponse = async (
   parsedOutput: any,
@@ -1712,38 +1712,30 @@ const deserializeAws_restJson1_1UnsupportedPlsLanguageExceptionResponse = async 
 };
 
 const serializeAws_restJson1_1LexiconNameList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1SpeechMarkTypeList = (
-  input: Array<SpeechMarkType | string>,
+  input: (SpeechMarkType | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const deserializeAws_restJson1_1EngineList = (
   output: any,
   context: __SerdeContext
-): Array<Engine | string> => {
+): (Engine | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1LanguageCodeList = (
   output: any,
   context: __SerdeContext
-): Array<LanguageCode | string> => {
+): (LanguageCode | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -1823,7 +1815,7 @@ const deserializeAws_restJson1_1LexiconDescription = (
 const deserializeAws_restJson1_1LexiconDescriptionList = (
   output: any,
   context: __SerdeContext
-): Array<LexiconDescription> => {
+): LexiconDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1LexiconDescription(entry, context)
   );
@@ -1832,14 +1824,14 @@ const deserializeAws_restJson1_1LexiconDescriptionList = (
 const deserializeAws_restJson1_1LexiconNameList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1SpeechMarkTypeList = (
   output: any,
   context: __SerdeContext
-): Array<SpeechMarkType | string> => {
+): (SpeechMarkType | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -1928,7 +1920,7 @@ const deserializeAws_restJson1_1SynthesisTask = (
 const deserializeAws_restJson1_1SynthesisTasks = (
   output: any,
   context: __SerdeContext
-): Array<SynthesisTask> => {
+): SynthesisTask[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SynthesisTask(entry, context)
   );
@@ -1987,7 +1979,7 @@ const deserializeAws_restJson1_1Voice = (
 const deserializeAws_restJson1_1VoiceList = (
   output: any,
   context: __SerdeContext
-): Array<Voice> => {
+): Voice[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Voice(entry, context)
   );
@@ -2001,7 +1993,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -2016,30 +2008,23 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
-function isSerializableHeaderValue(value: any): boolean {
-  return (
-    value !== undefined &&
-    value !== "" &&
-    (!Object.getOwnPropertyNames(value).includes("length") ||
-      value.length != 0) &&
-    (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0)
-  );
-}
+const isSerializableHeaderValue = (value: any): boolean =>
+  value !== undefined &&
+  value !== "" &&
+  (!Object.getOwnPropertyNames(value).includes("length") ||
+    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};
 
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.

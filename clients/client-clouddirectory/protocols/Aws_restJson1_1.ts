@@ -406,15 +406,16 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_restJson1_1AddFacetToObjectCommand(
+export const serializeAws_restJson1_1AddFacetToObjectCommand = async (
   input: AddFacetToObjectCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/facets";
   let body: any;
   const bodyParams: any = {};
@@ -449,17 +450,18 @@ export async function serializeAws_restJson1_1AddFacetToObjectCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ApplySchemaCommand(
+export const serializeAws_restJson1_1ApplySchemaCommand = async (
   input: ApplySchemaCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/apply";
   let body: any;
   const bodyParams: any = {};
@@ -477,17 +479,18 @@ export async function serializeAws_restJson1_1ApplySchemaCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1AttachObjectCommand(
+export const serializeAws_restJson1_1AttachObjectCommand = async (
   input: AttachObjectCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/attach";
   let body: any;
   const bodyParams: any = {};
@@ -517,17 +520,18 @@ export async function serializeAws_restJson1_1AttachObjectCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1AttachPolicyCommand(
+export const serializeAws_restJson1_1AttachPolicyCommand = async (
   input: AttachPolicyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/policy/attach";
   let body: any;
   const bodyParams: any = {};
@@ -554,17 +558,18 @@ export async function serializeAws_restJson1_1AttachPolicyCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1AttachToIndexCommand(
+export const serializeAws_restJson1_1AttachToIndexCommand = async (
   input: AttachToIndexCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/index/attach";
   let body: any;
   const bodyParams: any = {};
@@ -591,17 +596,18 @@ export async function serializeAws_restJson1_1AttachToIndexCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1AttachTypedLinkCommand(
+export const serializeAws_restJson1_1AttachTypedLinkCommand = async (
   input: AttachTypedLinkCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/attach";
   let body: any;
   const bodyParams: any = {};
@@ -648,20 +654,21 @@ export async function serializeAws_restJson1_1AttachTypedLinkCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1BatchReadCommand(
+export const serializeAws_restJson1_1BatchReadCommand = async (
   input: BatchReadCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.ConsistencyLevel)) {
-    headers["x-amz-consistency-level"] = input.ConsistencyLevel!;
-  }
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.ConsistencyLevel) && {
+      "x-amz-consistency-level": input.ConsistencyLevel!
+    }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/batchread";
   let body: any;
   const bodyParams: any = {};
@@ -682,17 +689,18 @@ export async function serializeAws_restJson1_1BatchReadCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1BatchWriteCommand(
+export const serializeAws_restJson1_1BatchWriteCommand = async (
   input: BatchWriteCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/batchwrite";
   let body: any;
   const bodyParams: any = {};
@@ -713,17 +721,18 @@ export async function serializeAws_restJson1_1BatchWriteCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1CreateDirectoryCommand(
+export const serializeAws_restJson1_1CreateDirectoryCommand = async (
   input: CreateDirectoryCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.SchemaArn)) {
-    headers["x-amz-data-partition"] = input.SchemaArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.SchemaArn) && {
+      "x-amz-data-partition": input.SchemaArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/directory/create";
   let body: any;
   const bodyParams: any = {};
@@ -741,17 +750,18 @@ export async function serializeAws_restJson1_1CreateDirectoryCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1CreateFacetCommand(
+export const serializeAws_restJson1_1CreateFacetCommand = async (
   input: CreateFacetCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.SchemaArn)) {
-    headers["x-amz-data-partition"] = input.SchemaArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.SchemaArn) && {
+      "x-amz-data-partition": input.SchemaArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/facet/create";
   let body: any;
   const bodyParams: any = {};
@@ -781,17 +791,18 @@ export async function serializeAws_restJson1_1CreateFacetCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1CreateIndexCommand(
+export const serializeAws_restJson1_1CreateIndexCommand = async (
   input: CreateIndexCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/index";
   let body: any;
   const bodyParams: any = {};
@@ -826,17 +837,18 @@ export async function serializeAws_restJson1_1CreateIndexCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1CreateObjectCommand(
+export const serializeAws_restJson1_1CreateObjectCommand = async (
   input: CreateObjectCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object";
   let body: any;
   const bodyParams: any = {};
@@ -874,14 +886,15 @@ export async function serializeAws_restJson1_1CreateObjectCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1CreateSchemaCommand(
+export const serializeAws_restJson1_1CreateSchemaCommand = async (
   input: CreateSchemaCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/create";
   let body: any;
   const bodyParams: any = {};
@@ -899,17 +912,18 @@ export async function serializeAws_restJson1_1CreateSchemaCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1CreateTypedLinkFacetCommand(
+export const serializeAws_restJson1_1CreateTypedLinkFacetCommand = async (
   input: CreateTypedLinkFacetCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.SchemaArn)) {
-    headers["x-amz-data-partition"] = input.SchemaArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.SchemaArn) && {
+      "x-amz-data-partition": input.SchemaArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/facet/create";
   let body: any;
   const bodyParams: any = {};
@@ -930,17 +944,18 @@ export async function serializeAws_restJson1_1CreateTypedLinkFacetCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeleteDirectoryCommand(
+export const serializeAws_restJson1_1DeleteDirectoryCommand = async (
   input: DeleteDirectoryCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/directory";
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -953,17 +968,18 @@ export async function serializeAws_restJson1_1DeleteDirectoryCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeleteFacetCommand(
+export const serializeAws_restJson1_1DeleteFacetCommand = async (
   input: DeleteFacetCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.SchemaArn)) {
-    headers["x-amz-data-partition"] = input.SchemaArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.SchemaArn) && {
+      "x-amz-data-partition": input.SchemaArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/facet/delete";
   let body: any;
   const bodyParams: any = {};
@@ -981,17 +997,18 @@ export async function serializeAws_restJson1_1DeleteFacetCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeleteObjectCommand(
+export const serializeAws_restJson1_1DeleteObjectCommand = async (
   input: DeleteObjectCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/delete";
   let body: any;
   const bodyParams: any = {};
@@ -1012,17 +1029,18 @@ export async function serializeAws_restJson1_1DeleteObjectCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeleteSchemaCommand(
+export const serializeAws_restJson1_1DeleteSchemaCommand = async (
   input: DeleteSchemaCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.SchemaArn)) {
-    headers["x-amz-data-partition"] = input.SchemaArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.SchemaArn) && {
+      "x-amz-data-partition": input.SchemaArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema";
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1035,17 +1053,18 @@ export async function serializeAws_restJson1_1DeleteSchemaCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeleteTypedLinkFacetCommand(
+export const serializeAws_restJson1_1DeleteTypedLinkFacetCommand = async (
   input: DeleteTypedLinkFacetCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.SchemaArn)) {
-    headers["x-amz-data-partition"] = input.SchemaArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.SchemaArn) && {
+      "x-amz-data-partition": input.SchemaArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/facet/delete";
   let body: any;
   const bodyParams: any = {};
@@ -1063,17 +1082,18 @@ export async function serializeAws_restJson1_1DeleteTypedLinkFacetCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DetachFromIndexCommand(
+export const serializeAws_restJson1_1DetachFromIndexCommand = async (
   input: DetachFromIndexCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/index/detach";
   let body: any;
   const bodyParams: any = {};
@@ -1100,17 +1120,18 @@ export async function serializeAws_restJson1_1DetachFromIndexCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DetachObjectCommand(
+export const serializeAws_restJson1_1DetachObjectCommand = async (
   input: DetachObjectCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/detach";
   let body: any;
   const bodyParams: any = {};
@@ -1134,17 +1155,18 @@ export async function serializeAws_restJson1_1DetachObjectCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DetachPolicyCommand(
+export const serializeAws_restJson1_1DetachPolicyCommand = async (
   input: DetachPolicyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/policy/detach";
   let body: any;
   const bodyParams: any = {};
@@ -1171,17 +1193,18 @@ export async function serializeAws_restJson1_1DetachPolicyCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DetachTypedLinkCommand(
+export const serializeAws_restJson1_1DetachTypedLinkCommand = async (
   input: DetachTypedLinkCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/detach";
   let body: any;
   const bodyParams: any = {};
@@ -1204,17 +1227,18 @@ export async function serializeAws_restJson1_1DetachTypedLinkCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DisableDirectoryCommand(
+export const serializeAws_restJson1_1DisableDirectoryCommand = async (
   input: DisableDirectoryCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/directory/disable";
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1227,17 +1251,18 @@ export async function serializeAws_restJson1_1DisableDirectoryCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1EnableDirectoryCommand(
+export const serializeAws_restJson1_1EnableDirectoryCommand = async (
   input: EnableDirectoryCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/directory/enable";
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1250,14 +1275,15 @@ export async function serializeAws_restJson1_1EnableDirectoryCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetAppliedSchemaVersionCommand(
+export const serializeAws_restJson1_1GetAppliedSchemaVersionCommand = async (
   input: GetAppliedSchemaVersionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/getappliedschema";
   let body: any;
   const bodyParams: any = {};
@@ -1275,17 +1301,18 @@ export async function serializeAws_restJson1_1GetAppliedSchemaVersionCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetDirectoryCommand(
+export const serializeAws_restJson1_1GetDirectoryCommand = async (
   input: GetDirectoryCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/directory/get";
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1298,17 +1325,18 @@ export async function serializeAws_restJson1_1GetDirectoryCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetFacetCommand(
+export const serializeAws_restJson1_1GetFacetCommand = async (
   input: GetFacetCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.SchemaArn)) {
-    headers["x-amz-data-partition"] = input.SchemaArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.SchemaArn) && {
+      "x-amz-data-partition": input.SchemaArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/facet";
   let body: any;
   const bodyParams: any = {};
@@ -1326,17 +1354,18 @@ export async function serializeAws_restJson1_1GetFacetCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetLinkAttributesCommand(
+export const serializeAws_restJson1_1GetLinkAttributesCommand = async (
   input: GetLinkAttributesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath =
     "/amazonclouddirectory/2017-01-11/typedlink/attributes/get";
   let body: any;
@@ -1369,20 +1398,21 @@ export async function serializeAws_restJson1_1GetLinkAttributesCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetObjectAttributesCommand(
+export const serializeAws_restJson1_1GetObjectAttributesCommand = async (
   input: GetObjectAttributesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.ConsistencyLevel)) {
-    headers["x-amz-consistency-level"] = input.ConsistencyLevel!;
-  }
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.ConsistencyLevel) && {
+      "x-amz-consistency-level": input.ConsistencyLevel!
+    }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/attributes/get";
   let body: any;
   const bodyParams: any = {};
@@ -1415,20 +1445,21 @@ export async function serializeAws_restJson1_1GetObjectAttributesCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetObjectInformationCommand(
+export const serializeAws_restJson1_1GetObjectInformationCommand = async (
   input: GetObjectInformationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.ConsistencyLevel)) {
-    headers["x-amz-consistency-level"] = input.ConsistencyLevel!;
-  }
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.ConsistencyLevel) && {
+      "x-amz-consistency-level": input.ConsistencyLevel!
+    }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/information";
   let body: any;
   const bodyParams: any = {};
@@ -1449,17 +1480,18 @@ export async function serializeAws_restJson1_1GetObjectInformationCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetSchemaAsJsonCommand(
+export const serializeAws_restJson1_1GetSchemaAsJsonCommand = async (
   input: GetSchemaAsJsonCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.SchemaArn)) {
-    headers["x-amz-data-partition"] = input.SchemaArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.SchemaArn) && {
+      "x-amz-data-partition": input.SchemaArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/json";
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1472,17 +1504,18 @@ export async function serializeAws_restJson1_1GetSchemaAsJsonCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetTypedLinkFacetInformationCommand(
+export const serializeAws_restJson1_1GetTypedLinkFacetInformationCommand = async (
   input: GetTypedLinkFacetInformationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.SchemaArn)) {
-    headers["x-amz-data-partition"] = input.SchemaArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.SchemaArn) && {
+      "x-amz-data-partition": input.SchemaArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/facet/get";
   let body: any;
   const bodyParams: any = {};
@@ -1500,14 +1533,15 @@ export async function serializeAws_restJson1_1GetTypedLinkFacetInformationComman
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListAppliedSchemaArnsCommand(
+export const serializeAws_restJson1_1ListAppliedSchemaArnsCommand = async (
   input: ListAppliedSchemaArnsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/applied";
   let body: any;
   const bodyParams: any = {};
@@ -1534,20 +1568,21 @@ export async function serializeAws_restJson1_1ListAppliedSchemaArnsCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListAttachedIndicesCommand(
+export const serializeAws_restJson1_1ListAttachedIndicesCommand = async (
   input: ListAttachedIndicesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.ConsistencyLevel)) {
-    headers["x-amz-consistency-level"] = input.ConsistencyLevel!;
-  }
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.ConsistencyLevel) && {
+      "x-amz-consistency-level": input.ConsistencyLevel!
+    }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/indices";
   let body: any;
   const bodyParams: any = {};
@@ -1574,14 +1609,15 @@ export async function serializeAws_restJson1_1ListAttachedIndicesCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListDevelopmentSchemaArnsCommand(
+export const serializeAws_restJson1_1ListDevelopmentSchemaArnsCommand = async (
   input: ListDevelopmentSchemaArnsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/development";
   let body: any;
   const bodyParams: any = {};
@@ -1602,14 +1638,15 @@ export async function serializeAws_restJson1_1ListDevelopmentSchemaArnsCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListDirectoriesCommand(
+export const serializeAws_restJson1_1ListDirectoriesCommand = async (
   input: ListDirectoriesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/directory/list";
   let body: any;
   const bodyParams: any = {};
@@ -1633,17 +1670,18 @@ export async function serializeAws_restJson1_1ListDirectoriesCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListFacetAttributesCommand(
+export const serializeAws_restJson1_1ListFacetAttributesCommand = async (
   input: ListFacetAttributesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.SchemaArn)) {
-    headers["x-amz-data-partition"] = input.SchemaArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.SchemaArn) && {
+      "x-amz-data-partition": input.SchemaArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/facet/attributes";
   let body: any;
   const bodyParams: any = {};
@@ -1667,17 +1705,18 @@ export async function serializeAws_restJson1_1ListFacetAttributesCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListFacetNamesCommand(
+export const serializeAws_restJson1_1ListFacetNamesCommand = async (
   input: ListFacetNamesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.SchemaArn)) {
-    headers["x-amz-data-partition"] = input.SchemaArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.SchemaArn) && {
+      "x-amz-data-partition": input.SchemaArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/facet/list";
   let body: any;
   const bodyParams: any = {};
@@ -1698,17 +1737,18 @@ export async function serializeAws_restJson1_1ListFacetNamesCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListIncomingTypedLinksCommand(
+export const serializeAws_restJson1_1ListIncomingTypedLinksCommand = async (
   input: ListIncomingTypedLinksCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/incoming";
   let body: any;
   const bodyParams: any = {};
@@ -1754,20 +1794,21 @@ export async function serializeAws_restJson1_1ListIncomingTypedLinksCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListIndexCommand(
+export const serializeAws_restJson1_1ListIndexCommand = async (
   input: ListIndexCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.ConsistencyLevel)) {
-    headers["x-amz-consistency-level"] = input.ConsistencyLevel!;
-  }
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.ConsistencyLevel) && {
+      "x-amz-consistency-level": input.ConsistencyLevel!
+    }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/index/targets";
   let body: any;
   const bodyParams: any = {};
@@ -1802,14 +1843,15 @@ export async function serializeAws_restJson1_1ListIndexCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListManagedSchemaArnsCommand(
+export const serializeAws_restJson1_1ListManagedSchemaArnsCommand = async (
   input: ListManagedSchemaArnsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/managed";
   let body: any;
   const bodyParams: any = {};
@@ -1833,20 +1875,21 @@ export async function serializeAws_restJson1_1ListManagedSchemaArnsCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListObjectAttributesCommand(
+export const serializeAws_restJson1_1ListObjectAttributesCommand = async (
   input: ListObjectAttributesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.ConsistencyLevel)) {
-    headers["x-amz-consistency-level"] = input.ConsistencyLevel!;
-  }
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.ConsistencyLevel) && {
+      "x-amz-consistency-level": input.ConsistencyLevel!
+    }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/attributes";
   let body: any;
   const bodyParams: any = {};
@@ -1879,20 +1922,21 @@ export async function serializeAws_restJson1_1ListObjectAttributesCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListObjectChildrenCommand(
+export const serializeAws_restJson1_1ListObjectChildrenCommand = async (
   input: ListObjectChildrenCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.ConsistencyLevel)) {
-    headers["x-amz-consistency-level"] = input.ConsistencyLevel!;
-  }
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.ConsistencyLevel) && {
+      "x-amz-consistency-level": input.ConsistencyLevel!
+    }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/children";
   let body: any;
   const bodyParams: any = {};
@@ -1919,17 +1963,18 @@ export async function serializeAws_restJson1_1ListObjectChildrenCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListObjectParentPathsCommand(
+export const serializeAws_restJson1_1ListObjectParentPathsCommand = async (
   input: ListObjectParentPathsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/parentpaths";
   let body: any;
   const bodyParams: any = {};
@@ -1956,20 +2001,21 @@ export async function serializeAws_restJson1_1ListObjectParentPathsCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListObjectParentsCommand(
+export const serializeAws_restJson1_1ListObjectParentsCommand = async (
   input: ListObjectParentsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.ConsistencyLevel)) {
-    headers["x-amz-consistency-level"] = input.ConsistencyLevel!;
-  }
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.ConsistencyLevel) && {
+      "x-amz-consistency-level": input.ConsistencyLevel!
+    }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/parent";
   let body: any;
   const bodyParams: any = {};
@@ -2000,20 +2046,21 @@ export async function serializeAws_restJson1_1ListObjectParentsCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListObjectPoliciesCommand(
+export const serializeAws_restJson1_1ListObjectPoliciesCommand = async (
   input: ListObjectPoliciesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.ConsistencyLevel)) {
-    headers["x-amz-consistency-level"] = input.ConsistencyLevel!;
-  }
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.ConsistencyLevel) && {
+      "x-amz-consistency-level": input.ConsistencyLevel!
+    }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/policy";
   let body: any;
   const bodyParams: any = {};
@@ -2040,17 +2087,18 @@ export async function serializeAws_restJson1_1ListObjectPoliciesCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListOutgoingTypedLinksCommand(
+export const serializeAws_restJson1_1ListOutgoingTypedLinksCommand = async (
   input: ListOutgoingTypedLinksCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/outgoing";
   let body: any;
   const bodyParams: any = {};
@@ -2096,20 +2144,21 @@ export async function serializeAws_restJson1_1ListOutgoingTypedLinksCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListPolicyAttachmentsCommand(
+export const serializeAws_restJson1_1ListPolicyAttachmentsCommand = async (
   input: ListPolicyAttachmentsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.ConsistencyLevel)) {
-    headers["x-amz-consistency-level"] = input.ConsistencyLevel!;
-  }
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.ConsistencyLevel) && {
+      "x-amz-consistency-level": input.ConsistencyLevel!
+    }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/policy/attachment";
   let body: any;
   const bodyParams: any = {};
@@ -2136,14 +2185,15 @@ export async function serializeAws_restJson1_1ListPolicyAttachmentsCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListPublishedSchemaArnsCommand(
+export const serializeAws_restJson1_1ListPublishedSchemaArnsCommand = async (
   input: ListPublishedSchemaArnsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/published";
   let body: any;
   const bodyParams: any = {};
@@ -2167,14 +2217,15 @@ export async function serializeAws_restJson1_1ListPublishedSchemaArnsCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListTagsForResourceCommand(
+export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/tags";
   let body: any;
   const bodyParams: any = {};
@@ -2198,17 +2249,18 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListTypedLinkFacetAttributesCommand(
+export const serializeAws_restJson1_1ListTypedLinkFacetAttributesCommand = async (
   input: ListTypedLinkFacetAttributesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.SchemaArn)) {
-    headers["x-amz-data-partition"] = input.SchemaArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.SchemaArn) && {
+      "x-amz-data-partition": input.SchemaArn!
+    })
+  };
   let resolvedPath =
     "/amazonclouddirectory/2017-01-11/typedlink/facet/attributes";
   let body: any;
@@ -2233,17 +2285,18 @@ export async function serializeAws_restJson1_1ListTypedLinkFacetAttributesComman
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListTypedLinkFacetNamesCommand(
+export const serializeAws_restJson1_1ListTypedLinkFacetNamesCommand = async (
   input: ListTypedLinkFacetNamesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.SchemaArn)) {
-    headers["x-amz-data-partition"] = input.SchemaArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.SchemaArn) && {
+      "x-amz-data-partition": input.SchemaArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/facet/list";
   let body: any;
   const bodyParams: any = {};
@@ -2264,17 +2317,18 @@ export async function serializeAws_restJson1_1ListTypedLinkFacetNamesCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1LookupPolicyCommand(
+export const serializeAws_restJson1_1LookupPolicyCommand = async (
   input: LookupPolicyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/policy/lookup";
   let body: any;
   const bodyParams: any = {};
@@ -2301,17 +2355,18 @@ export async function serializeAws_restJson1_1LookupPolicyCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1PublishSchemaCommand(
+export const serializeAws_restJson1_1PublishSchemaCommand = async (
   input: PublishSchemaCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.DevelopmentSchemaArn)) {
-    headers["x-amz-data-partition"] = input.DevelopmentSchemaArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.DevelopmentSchemaArn) && {
+      "x-amz-data-partition": input.DevelopmentSchemaArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/publish";
   let body: any;
   const bodyParams: any = {};
@@ -2335,17 +2390,18 @@ export async function serializeAws_restJson1_1PublishSchemaCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1PutSchemaFromJsonCommand(
+export const serializeAws_restJson1_1PutSchemaFromJsonCommand = async (
   input: PutSchemaFromJsonCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.SchemaArn)) {
-    headers["x-amz-data-partition"] = input.SchemaArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.SchemaArn) && {
+      "x-amz-data-partition": input.SchemaArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/json";
   let body: any;
   const bodyParams: any = {};
@@ -2363,17 +2419,18 @@ export async function serializeAws_restJson1_1PutSchemaFromJsonCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1RemoveFacetFromObjectCommand(
+export const serializeAws_restJson1_1RemoveFacetFromObjectCommand = async (
   input: RemoveFacetFromObjectCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/facets/delete";
   let body: any;
   const bodyParams: any = {};
@@ -2400,14 +2457,15 @@ export async function serializeAws_restJson1_1RemoveFacetFromObjectCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1TagResourceCommand(
+export const serializeAws_restJson1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/tags/add";
   let body: any;
   const bodyParams: any = {};
@@ -2428,14 +2486,15 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UntagResourceCommand(
+export const serializeAws_restJson1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/tags/remove";
   let body: any;
   const bodyParams: any = {};
@@ -2459,17 +2518,18 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UpdateFacetCommand(
+export const serializeAws_restJson1_1UpdateFacetCommand = async (
   input: UpdateFacetCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.SchemaArn)) {
-    headers["x-amz-data-partition"] = input.SchemaArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.SchemaArn) && {
+      "x-amz-data-partition": input.SchemaArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/facet";
   let body: any;
   const bodyParams: any = {};
@@ -2498,17 +2558,18 @@ export async function serializeAws_restJson1_1UpdateFacetCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UpdateLinkAttributesCommand(
+export const serializeAws_restJson1_1UpdateLinkAttributesCommand = async (
   input: UpdateLinkAttributesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath =
     "/amazonclouddirectory/2017-01-11/typedlink/attributes/update";
   let body: any;
@@ -2540,17 +2601,18 @@ export async function serializeAws_restJson1_1UpdateLinkAttributesCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UpdateObjectAttributesCommand(
+export const serializeAws_restJson1_1UpdateObjectAttributesCommand = async (
   input: UpdateObjectAttributesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.DirectoryArn)) {
-    headers["x-amz-data-partition"] = input.DirectoryArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.DirectoryArn) && {
+      "x-amz-data-partition": input.DirectoryArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/update";
   let body: any;
   const bodyParams: any = {};
@@ -2579,17 +2641,18 @@ export async function serializeAws_restJson1_1UpdateObjectAttributesCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UpdateSchemaCommand(
+export const serializeAws_restJson1_1UpdateSchemaCommand = async (
   input: UpdateSchemaCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.SchemaArn)) {
-    headers["x-amz-data-partition"] = input.SchemaArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.SchemaArn) && {
+      "x-amz-data-partition": input.SchemaArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/update";
   let body: any;
   const bodyParams: any = {};
@@ -2607,17 +2670,18 @@ export async function serializeAws_restJson1_1UpdateSchemaCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UpdateTypedLinkFacetCommand(
+export const serializeAws_restJson1_1UpdateTypedLinkFacetCommand = async (
   input: UpdateTypedLinkFacetCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.SchemaArn)) {
-    headers["x-amz-data-partition"] = input.SchemaArn!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.SchemaArn) && {
+      "x-amz-data-partition": input.SchemaArn!
+    })
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/facet";
   let body: any;
   const bodyParams: any = {};
@@ -2651,14 +2715,15 @@ export async function serializeAws_restJson1_1UpdateTypedLinkFacetCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UpgradeAppliedSchemaCommand(
+export const serializeAws_restJson1_1UpgradeAppliedSchemaCommand = async (
   input: UpgradeAppliedSchemaCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/upgradeapplied";
   let body: any;
   const bodyParams: any = {};
@@ -2682,14 +2747,15 @@ export async function serializeAws_restJson1_1UpgradeAppliedSchemaCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UpgradePublishedSchemaCommand(
+export const serializeAws_restJson1_1UpgradePublishedSchemaCommand = async (
   input: UpgradePublishedSchemaCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/upgradepublished";
   let body: any;
   const bodyParams: any = {};
@@ -2716,12 +2782,12 @@ export async function serializeAws_restJson1_1UpgradePublishedSchemaCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1AddFacetToObjectCommand(
+export const deserializeAws_restJson1_1AddFacetToObjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AddFacetToObjectCommandOutput> {
+): Promise<AddFacetToObjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1AddFacetToObjectCommandError(
       output,
@@ -2734,12 +2800,12 @@ export async function deserializeAws_restJson1_1AddFacetToObjectCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1AddFacetToObjectCommandError(
+const deserializeAws_restJson1_1AddFacetToObjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AddFacetToObjectCommandOutput> {
+): Promise<AddFacetToObjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2862,12 +2928,12 @@ async function deserializeAws_restJson1_1AddFacetToObjectCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ApplySchemaCommand(
+export const deserializeAws_restJson1_1ApplySchemaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ApplySchemaCommandOutput> {
+): Promise<ApplySchemaCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ApplySchemaCommandError(output, context);
   }
@@ -2885,12 +2951,12 @@ export async function deserializeAws_restJson1_1ApplySchemaCommand(
     contents.DirectoryArn = data.DirectoryArn;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ApplySchemaCommandError(
+const deserializeAws_restJson1_1ApplySchemaCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ApplySchemaCommandOutput> {
+): Promise<ApplySchemaCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3013,12 +3079,12 @@ async function deserializeAws_restJson1_1ApplySchemaCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1AttachObjectCommand(
+export const deserializeAws_restJson1_1AttachObjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AttachObjectCommandOutput> {
+): Promise<AttachObjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1AttachObjectCommandError(output, context);
   }
@@ -3035,12 +3101,12 @@ export async function deserializeAws_restJson1_1AttachObjectCommand(
     contents.AttachedObjectIdentifier = data.AttachedObjectIdentifier;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1AttachObjectCommandError(
+const deserializeAws_restJson1_1AttachObjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AttachObjectCommandOutput> {
+): Promise<AttachObjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3185,12 +3251,12 @@ async function deserializeAws_restJson1_1AttachObjectCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1AttachPolicyCommand(
+export const deserializeAws_restJson1_1AttachPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AttachPolicyCommandOutput> {
+): Promise<AttachPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1AttachPolicyCommandError(output, context);
   }
@@ -3200,12 +3266,12 @@ export async function deserializeAws_restJson1_1AttachPolicyCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1AttachPolicyCommandError(
+const deserializeAws_restJson1_1AttachPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AttachPolicyCommandOutput> {
+): Promise<AttachPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3328,12 +3394,12 @@ async function deserializeAws_restJson1_1AttachPolicyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1AttachToIndexCommand(
+export const deserializeAws_restJson1_1AttachToIndexCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AttachToIndexCommandOutput> {
+): Promise<AttachToIndexCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1AttachToIndexCommandError(output, context);
   }
@@ -3350,12 +3416,12 @@ export async function deserializeAws_restJson1_1AttachToIndexCommand(
     contents.AttachedObjectIdentifier = data.AttachedObjectIdentifier;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1AttachToIndexCommandError(
+const deserializeAws_restJson1_1AttachToIndexCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AttachToIndexCommandOutput> {
+): Promise<AttachToIndexCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3511,12 +3577,12 @@ async function deserializeAws_restJson1_1AttachToIndexCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1AttachTypedLinkCommand(
+export const deserializeAws_restJson1_1AttachTypedLinkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AttachTypedLinkCommandOutput> {
+): Promise<AttachTypedLinkCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1AttachTypedLinkCommandError(
       output,
@@ -3539,12 +3605,12 @@ export async function deserializeAws_restJson1_1AttachTypedLinkCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1AttachTypedLinkCommandError(
+const deserializeAws_restJson1_1AttachTypedLinkCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AttachTypedLinkCommandOutput> {
+): Promise<AttachTypedLinkCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3678,12 +3744,12 @@ async function deserializeAws_restJson1_1AttachTypedLinkCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1BatchReadCommand(
+export const deserializeAws_restJson1_1BatchReadCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchReadCommandOutput> {
+): Promise<BatchReadCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1BatchReadCommandError(output, context);
   }
@@ -3700,12 +3766,12 @@ export async function deserializeAws_restJson1_1BatchReadCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1BatchReadCommandError(
+const deserializeAws_restJson1_1BatchReadCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchReadCommandOutput> {
+): Promise<BatchReadCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3806,12 +3872,12 @@ async function deserializeAws_restJson1_1BatchReadCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1BatchWriteCommand(
+export const deserializeAws_restJson1_1BatchWriteCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchWriteCommandOutput> {
+): Promise<BatchWriteCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1BatchWriteCommandError(output, context);
   }
@@ -3828,12 +3894,12 @@ export async function deserializeAws_restJson1_1BatchWriteCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1BatchWriteCommandError(
+const deserializeAws_restJson1_1BatchWriteCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchWriteCommandOutput> {
+): Promise<BatchWriteCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3945,12 +4011,12 @@ async function deserializeAws_restJson1_1BatchWriteCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1CreateDirectoryCommand(
+export const deserializeAws_restJson1_1CreateDirectoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateDirectoryCommandOutput> {
+): Promise<CreateDirectoryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateDirectoryCommandError(
       output,
@@ -3979,12 +4045,12 @@ export async function deserializeAws_restJson1_1CreateDirectoryCommand(
     contents.ObjectIdentifier = data.ObjectIdentifier;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreateDirectoryCommandError(
+const deserializeAws_restJson1_1CreateDirectoryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateDirectoryCommandOutput> {
+): Promise<CreateDirectoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4096,12 +4162,12 @@ async function deserializeAws_restJson1_1CreateDirectoryCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1CreateFacetCommand(
+export const deserializeAws_restJson1_1CreateFacetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateFacetCommandOutput> {
+): Promise<CreateFacetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateFacetCommandError(output, context);
   }
@@ -4111,12 +4177,12 @@ export async function deserializeAws_restJson1_1CreateFacetCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreateFacetCommandError(
+const deserializeAws_restJson1_1CreateFacetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateFacetCommandOutput> {
+): Promise<CreateFacetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4250,12 +4316,12 @@ async function deserializeAws_restJson1_1CreateFacetCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1CreateIndexCommand(
+export const deserializeAws_restJson1_1CreateIndexCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateIndexCommandOutput> {
+): Promise<CreateIndexCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateIndexCommandError(output, context);
   }
@@ -4269,12 +4335,12 @@ export async function deserializeAws_restJson1_1CreateIndexCommand(
     contents.ObjectIdentifier = data.ObjectIdentifier;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreateIndexCommandError(
+const deserializeAws_restJson1_1CreateIndexCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateIndexCommandOutput> {
+): Promise<CreateIndexCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4419,12 +4485,12 @@ async function deserializeAws_restJson1_1CreateIndexCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1CreateObjectCommand(
+export const deserializeAws_restJson1_1CreateObjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateObjectCommandOutput> {
+): Promise<CreateObjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateObjectCommandError(output, context);
   }
@@ -4438,12 +4504,12 @@ export async function deserializeAws_restJson1_1CreateObjectCommand(
     contents.ObjectIdentifier = data.ObjectIdentifier;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreateObjectCommandError(
+const deserializeAws_restJson1_1CreateObjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateObjectCommandOutput> {
+): Promise<CreateObjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4588,12 +4654,12 @@ async function deserializeAws_restJson1_1CreateObjectCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1CreateSchemaCommand(
+export const deserializeAws_restJson1_1CreateSchemaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateSchemaCommandOutput> {
+): Promise<CreateSchemaCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateSchemaCommandError(output, context);
   }
@@ -4607,12 +4673,12 @@ export async function deserializeAws_restJson1_1CreateSchemaCommand(
     contents.SchemaArn = data.SchemaArn;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreateSchemaCommandError(
+const deserializeAws_restJson1_1CreateSchemaCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateSchemaCommandOutput> {
+): Promise<CreateSchemaCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4713,12 +4779,12 @@ async function deserializeAws_restJson1_1CreateSchemaCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1CreateTypedLinkFacetCommand(
+export const deserializeAws_restJson1_1CreateTypedLinkFacetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateTypedLinkFacetCommandOutput> {
+): Promise<CreateTypedLinkFacetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateTypedLinkFacetCommandError(
       output,
@@ -4731,12 +4797,12 @@ export async function deserializeAws_restJson1_1CreateTypedLinkFacetCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreateTypedLinkFacetCommandError(
+const deserializeAws_restJson1_1CreateTypedLinkFacetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateTypedLinkFacetCommandOutput> {
+): Promise<CreateTypedLinkFacetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4870,12 +4936,12 @@ async function deserializeAws_restJson1_1CreateTypedLinkFacetCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteDirectoryCommand(
+export const deserializeAws_restJson1_1DeleteDirectoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteDirectoryCommandOutput> {
+): Promise<DeleteDirectoryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteDirectoryCommandError(
       output,
@@ -4892,12 +4958,12 @@ export async function deserializeAws_restJson1_1DeleteDirectoryCommand(
     contents.DirectoryArn = data.DirectoryArn;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteDirectoryCommandError(
+const deserializeAws_restJson1_1DeleteDirectoryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteDirectoryCommandOutput> {
+): Promise<DeleteDirectoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5020,12 +5086,12 @@ async function deserializeAws_restJson1_1DeleteDirectoryCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteFacetCommand(
+export const deserializeAws_restJson1_1DeleteFacetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteFacetCommandOutput> {
+): Promise<DeleteFacetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteFacetCommandError(output, context);
   }
@@ -5035,12 +5101,12 @@ export async function deserializeAws_restJson1_1DeleteFacetCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteFacetCommandError(
+const deserializeAws_restJson1_1DeleteFacetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteFacetCommandOutput> {
+): Promise<DeleteFacetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5163,12 +5229,12 @@ async function deserializeAws_restJson1_1DeleteFacetCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteObjectCommand(
+export const deserializeAws_restJson1_1DeleteObjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteObjectCommandOutput> {
+): Promise<DeleteObjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteObjectCommandError(output, context);
   }
@@ -5178,12 +5244,12 @@ export async function deserializeAws_restJson1_1DeleteObjectCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteObjectCommandError(
+const deserializeAws_restJson1_1DeleteObjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteObjectCommandOutput> {
+): Promise<DeleteObjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5306,12 +5372,12 @@ async function deserializeAws_restJson1_1DeleteObjectCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteSchemaCommand(
+export const deserializeAws_restJson1_1DeleteSchemaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteSchemaCommandOutput> {
+): Promise<DeleteSchemaCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteSchemaCommandError(output, context);
   }
@@ -5325,12 +5391,12 @@ export async function deserializeAws_restJson1_1DeleteSchemaCommand(
     contents.SchemaArn = data.SchemaArn;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteSchemaCommandError(
+const deserializeAws_restJson1_1DeleteSchemaCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteSchemaCommandOutput> {
+): Promise<DeleteSchemaCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5442,12 +5508,12 @@ async function deserializeAws_restJson1_1DeleteSchemaCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteTypedLinkFacetCommand(
+export const deserializeAws_restJson1_1DeleteTypedLinkFacetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteTypedLinkFacetCommandOutput> {
+): Promise<DeleteTypedLinkFacetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteTypedLinkFacetCommandError(
       output,
@@ -5460,12 +5526,12 @@ export async function deserializeAws_restJson1_1DeleteTypedLinkFacetCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteTypedLinkFacetCommandError(
+const deserializeAws_restJson1_1DeleteTypedLinkFacetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteTypedLinkFacetCommandOutput> {
+): Promise<DeleteTypedLinkFacetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5577,12 +5643,12 @@ async function deserializeAws_restJson1_1DeleteTypedLinkFacetCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DetachFromIndexCommand(
+export const deserializeAws_restJson1_1DetachFromIndexCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DetachFromIndexCommandOutput> {
+): Promise<DetachFromIndexCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DetachFromIndexCommandError(
       output,
@@ -5602,12 +5668,12 @@ export async function deserializeAws_restJson1_1DetachFromIndexCommand(
     contents.DetachedObjectIdentifier = data.DetachedObjectIdentifier;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DetachFromIndexCommandError(
+const deserializeAws_restJson1_1DetachFromIndexCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DetachFromIndexCommandOutput> {
+): Promise<DetachFromIndexCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5741,12 +5807,12 @@ async function deserializeAws_restJson1_1DetachFromIndexCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DetachObjectCommand(
+export const deserializeAws_restJson1_1DetachObjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DetachObjectCommandOutput> {
+): Promise<DetachObjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DetachObjectCommandError(output, context);
   }
@@ -5763,12 +5829,12 @@ export async function deserializeAws_restJson1_1DetachObjectCommand(
     contents.DetachedObjectIdentifier = data.DetachedObjectIdentifier;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DetachObjectCommandError(
+const deserializeAws_restJson1_1DetachObjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DetachObjectCommandOutput> {
+): Promise<DetachObjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5891,12 +5957,12 @@ async function deserializeAws_restJson1_1DetachObjectCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DetachPolicyCommand(
+export const deserializeAws_restJson1_1DetachPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DetachPolicyCommandOutput> {
+): Promise<DetachPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DetachPolicyCommandError(output, context);
   }
@@ -5906,12 +5972,12 @@ export async function deserializeAws_restJson1_1DetachPolicyCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DetachPolicyCommandError(
+const deserializeAws_restJson1_1DetachPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DetachPolicyCommandOutput> {
+): Promise<DetachPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6034,12 +6100,12 @@ async function deserializeAws_restJson1_1DetachPolicyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DetachTypedLinkCommand(
+export const deserializeAws_restJson1_1DetachTypedLinkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DetachTypedLinkCommandOutput> {
+): Promise<DetachTypedLinkCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DetachTypedLinkCommandError(
       output,
@@ -6051,12 +6117,12 @@ export async function deserializeAws_restJson1_1DetachTypedLinkCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DetachTypedLinkCommandError(
+const deserializeAws_restJson1_1DetachTypedLinkCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DetachTypedLinkCommandOutput> {
+): Promise<DetachTypedLinkCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6179,12 +6245,12 @@ async function deserializeAws_restJson1_1DetachTypedLinkCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DisableDirectoryCommand(
+export const deserializeAws_restJson1_1DisableDirectoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisableDirectoryCommandOutput> {
+): Promise<DisableDirectoryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DisableDirectoryCommandError(
       output,
@@ -6201,12 +6267,12 @@ export async function deserializeAws_restJson1_1DisableDirectoryCommand(
     contents.DirectoryArn = data.DirectoryArn;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DisableDirectoryCommandError(
+const deserializeAws_restJson1_1DisableDirectoryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisableDirectoryCommandOutput> {
+): Promise<DisableDirectoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6318,12 +6384,12 @@ async function deserializeAws_restJson1_1DisableDirectoryCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1EnableDirectoryCommand(
+export const deserializeAws_restJson1_1EnableDirectoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<EnableDirectoryCommandOutput> {
+): Promise<EnableDirectoryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1EnableDirectoryCommandError(
       output,
@@ -6340,12 +6406,12 @@ export async function deserializeAws_restJson1_1EnableDirectoryCommand(
     contents.DirectoryArn = data.DirectoryArn;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1EnableDirectoryCommandError(
+const deserializeAws_restJson1_1EnableDirectoryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<EnableDirectoryCommandOutput> {
+): Promise<EnableDirectoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6457,12 +6523,12 @@ async function deserializeAws_restJson1_1EnableDirectoryCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetAppliedSchemaVersionCommand(
+export const deserializeAws_restJson1_1GetAppliedSchemaVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetAppliedSchemaVersionCommandOutput> {
+): Promise<GetAppliedSchemaVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetAppliedSchemaVersionCommandError(
       output,
@@ -6479,12 +6545,12 @@ export async function deserializeAws_restJson1_1GetAppliedSchemaVersionCommand(
     contents.AppliedSchemaArn = data.AppliedSchemaArn;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetAppliedSchemaVersionCommandError(
+const deserializeAws_restJson1_1GetAppliedSchemaVersionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetAppliedSchemaVersionCommandOutput> {
+): Promise<GetAppliedSchemaVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6585,12 +6651,12 @@ async function deserializeAws_restJson1_1GetAppliedSchemaVersionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetDirectoryCommand(
+export const deserializeAws_restJson1_1GetDirectoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetDirectoryCommandOutput> {
+): Promise<GetDirectoryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetDirectoryCommandError(output, context);
   }
@@ -6607,12 +6673,12 @@ export async function deserializeAws_restJson1_1GetDirectoryCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetDirectoryCommandError(
+const deserializeAws_restJson1_1GetDirectoryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetDirectoryCommandOutput> {
+): Promise<GetDirectoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6702,12 +6768,12 @@ async function deserializeAws_restJson1_1GetDirectoryCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetFacetCommand(
+export const deserializeAws_restJson1_1GetFacetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetFacetCommandOutput> {
+): Promise<GetFacetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetFacetCommandError(output, context);
   }
@@ -6721,12 +6787,12 @@ export async function deserializeAws_restJson1_1GetFacetCommand(
     contents.Facet = deserializeAws_restJson1_1Facet(data.Facet, context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetFacetCommandError(
+const deserializeAws_restJson1_1GetFacetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetFacetCommandOutput> {
+): Promise<GetFacetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6838,12 +6904,12 @@ async function deserializeAws_restJson1_1GetFacetCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetLinkAttributesCommand(
+export const deserializeAws_restJson1_1GetLinkAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetLinkAttributesCommandOutput> {
+): Promise<GetLinkAttributesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetLinkAttributesCommandError(
       output,
@@ -6863,12 +6929,12 @@ export async function deserializeAws_restJson1_1GetLinkAttributesCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetLinkAttributesCommandError(
+const deserializeAws_restJson1_1GetLinkAttributesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetLinkAttributesCommandOutput> {
+): Promise<GetLinkAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6991,12 +7057,12 @@ async function deserializeAws_restJson1_1GetLinkAttributesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetObjectAttributesCommand(
+export const deserializeAws_restJson1_1GetObjectAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetObjectAttributesCommandOutput> {
+): Promise<GetObjectAttributesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetObjectAttributesCommandError(
       output,
@@ -7016,12 +7082,12 @@ export async function deserializeAws_restJson1_1GetObjectAttributesCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetObjectAttributesCommandError(
+const deserializeAws_restJson1_1GetObjectAttributesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetObjectAttributesCommandOutput> {
+): Promise<GetObjectAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -7144,12 +7210,12 @@ async function deserializeAws_restJson1_1GetObjectAttributesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetObjectInformationCommand(
+export const deserializeAws_restJson1_1GetObjectInformationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetObjectInformationCommandOutput> {
+): Promise<GetObjectInformationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetObjectInformationCommandError(
       output,
@@ -7173,12 +7239,12 @@ export async function deserializeAws_restJson1_1GetObjectInformationCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetObjectInformationCommandError(
+const deserializeAws_restJson1_1GetObjectInformationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetObjectInformationCommandOutput> {
+): Promise<GetObjectInformationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -7290,12 +7356,12 @@ async function deserializeAws_restJson1_1GetObjectInformationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetSchemaAsJsonCommand(
+export const deserializeAws_restJson1_1GetSchemaAsJsonCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetSchemaAsJsonCommandOutput> {
+): Promise<GetSchemaAsJsonCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetSchemaAsJsonCommandError(
       output,
@@ -7316,12 +7382,12 @@ export async function deserializeAws_restJson1_1GetSchemaAsJsonCommand(
     contents.Name = data.Name;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetSchemaAsJsonCommandError(
+const deserializeAws_restJson1_1GetSchemaAsJsonCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetSchemaAsJsonCommandOutput> {
+): Promise<GetSchemaAsJsonCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -7422,12 +7488,12 @@ async function deserializeAws_restJson1_1GetSchemaAsJsonCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetTypedLinkFacetInformationCommand(
+export const deserializeAws_restJson1_1GetTypedLinkFacetInformationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetTypedLinkFacetInformationCommandOutput> {
+): Promise<GetTypedLinkFacetInformationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetTypedLinkFacetInformationCommandError(
       output,
@@ -7450,12 +7516,12 @@ export async function deserializeAws_restJson1_1GetTypedLinkFacetInformationComm
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetTypedLinkFacetInformationCommandError(
+const deserializeAws_restJson1_1GetTypedLinkFacetInformationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetTypedLinkFacetInformationCommandOutput> {
+): Promise<GetTypedLinkFacetInformationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -7578,12 +7644,12 @@ async function deserializeAws_restJson1_1GetTypedLinkFacetInformationCommandErro
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListAppliedSchemaArnsCommand(
+export const deserializeAws_restJson1_1ListAppliedSchemaArnsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListAppliedSchemaArnsCommandOutput> {
+): Promise<ListAppliedSchemaArnsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListAppliedSchemaArnsCommandError(
       output,
@@ -7607,12 +7673,12 @@ export async function deserializeAws_restJson1_1ListAppliedSchemaArnsCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListAppliedSchemaArnsCommandError(
+const deserializeAws_restJson1_1ListAppliedSchemaArnsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListAppliedSchemaArnsCommandOutput> {
+): Promise<ListAppliedSchemaArnsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -7724,12 +7790,12 @@ async function deserializeAws_restJson1_1ListAppliedSchemaArnsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListAttachedIndicesCommand(
+export const deserializeAws_restJson1_1ListAttachedIndicesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListAttachedIndicesCommandOutput> {
+): Promise<ListAttachedIndicesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListAttachedIndicesCommandError(
       output,
@@ -7753,12 +7819,12 @@ export async function deserializeAws_restJson1_1ListAttachedIndicesCommand(
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListAttachedIndicesCommandError(
+const deserializeAws_restJson1_1ListAttachedIndicesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListAttachedIndicesCommandOutput> {
+): Promise<ListAttachedIndicesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -7870,12 +7936,12 @@ async function deserializeAws_restJson1_1ListAttachedIndicesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListDevelopmentSchemaArnsCommand(
+export const deserializeAws_restJson1_1ListDevelopmentSchemaArnsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListDevelopmentSchemaArnsCommandOutput> {
+): Promise<ListDevelopmentSchemaArnsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListDevelopmentSchemaArnsCommandError(
       output,
@@ -7899,12 +7965,12 @@ export async function deserializeAws_restJson1_1ListDevelopmentSchemaArnsCommand
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListDevelopmentSchemaArnsCommandError(
+const deserializeAws_restJson1_1ListDevelopmentSchemaArnsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListDevelopmentSchemaArnsCommandOutput> {
+): Promise<ListDevelopmentSchemaArnsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -8016,12 +8082,12 @@ async function deserializeAws_restJson1_1ListDevelopmentSchemaArnsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListDirectoriesCommand(
+export const deserializeAws_restJson1_1ListDirectoriesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListDirectoriesCommandOutput> {
+): Promise<ListDirectoriesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListDirectoriesCommandError(
       output,
@@ -8045,12 +8111,12 @@ export async function deserializeAws_restJson1_1ListDirectoriesCommand(
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListDirectoriesCommandError(
+const deserializeAws_restJson1_1ListDirectoriesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListDirectoriesCommandOutput> {
+): Promise<ListDirectoriesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -8151,12 +8217,12 @@ async function deserializeAws_restJson1_1ListDirectoriesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListFacetAttributesCommand(
+export const deserializeAws_restJson1_1ListFacetAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListFacetAttributesCommandOutput> {
+): Promise<ListFacetAttributesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListFacetAttributesCommandError(
       output,
@@ -8180,12 +8246,12 @@ export async function deserializeAws_restJson1_1ListFacetAttributesCommand(
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListFacetAttributesCommandError(
+const deserializeAws_restJson1_1ListFacetAttributesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListFacetAttributesCommandOutput> {
+): Promise<ListFacetAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -8308,12 +8374,12 @@ async function deserializeAws_restJson1_1ListFacetAttributesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListFacetNamesCommand(
+export const deserializeAws_restJson1_1ListFacetNamesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListFacetNamesCommandOutput> {
+): Promise<ListFacetNamesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListFacetNamesCommandError(
       output,
@@ -8337,12 +8403,12 @@ export async function deserializeAws_restJson1_1ListFacetNamesCommand(
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListFacetNamesCommandError(
+const deserializeAws_restJson1_1ListFacetNamesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListFacetNamesCommandOutput> {
+): Promise<ListFacetNamesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -8454,12 +8520,12 @@ async function deserializeAws_restJson1_1ListFacetNamesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListIncomingTypedLinksCommand(
+export const deserializeAws_restJson1_1ListIncomingTypedLinksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListIncomingTypedLinksCommandOutput> {
+): Promise<ListIncomingTypedLinksCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListIncomingTypedLinksCommandError(
       output,
@@ -8483,12 +8549,12 @@ export async function deserializeAws_restJson1_1ListIncomingTypedLinksCommand(
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListIncomingTypedLinksCommandError(
+const deserializeAws_restJson1_1ListIncomingTypedLinksCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListIncomingTypedLinksCommandOutput> {
+): Promise<ListIncomingTypedLinksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -8622,12 +8688,12 @@ async function deserializeAws_restJson1_1ListIncomingTypedLinksCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListIndexCommand(
+export const deserializeAws_restJson1_1ListIndexCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListIndexCommandOutput> {
+): Promise<ListIndexCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListIndexCommandError(output, context);
   }
@@ -8648,12 +8714,12 @@ export async function deserializeAws_restJson1_1ListIndexCommand(
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListIndexCommandError(
+const deserializeAws_restJson1_1ListIndexCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListIndexCommandOutput> {
+): Promise<ListIndexCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -8798,12 +8864,12 @@ async function deserializeAws_restJson1_1ListIndexCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListManagedSchemaArnsCommand(
+export const deserializeAws_restJson1_1ListManagedSchemaArnsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListManagedSchemaArnsCommandOutput> {
+): Promise<ListManagedSchemaArnsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListManagedSchemaArnsCommandError(
       output,
@@ -8827,12 +8893,12 @@ export async function deserializeAws_restJson1_1ListManagedSchemaArnsCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListManagedSchemaArnsCommandError(
+const deserializeAws_restJson1_1ListManagedSchemaArnsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListManagedSchemaArnsCommandOutput> {
+): Promise<ListManagedSchemaArnsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -8922,12 +8988,12 @@ async function deserializeAws_restJson1_1ListManagedSchemaArnsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListObjectAttributesCommand(
+export const deserializeAws_restJson1_1ListObjectAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListObjectAttributesCommandOutput> {
+): Promise<ListObjectAttributesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListObjectAttributesCommandError(
       output,
@@ -8951,12 +9017,12 @@ export async function deserializeAws_restJson1_1ListObjectAttributesCommand(
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListObjectAttributesCommandError(
+const deserializeAws_restJson1_1ListObjectAttributesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListObjectAttributesCommandOutput> {
+): Promise<ListObjectAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -9090,12 +9156,12 @@ async function deserializeAws_restJson1_1ListObjectAttributesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListObjectChildrenCommand(
+export const deserializeAws_restJson1_1ListObjectChildrenCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListObjectChildrenCommandOutput> {
+): Promise<ListObjectChildrenCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListObjectChildrenCommandError(
       output,
@@ -9119,12 +9185,12 @@ export async function deserializeAws_restJson1_1ListObjectChildrenCommand(
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListObjectChildrenCommandError(
+const deserializeAws_restJson1_1ListObjectChildrenCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListObjectChildrenCommandOutput> {
+): Promise<ListObjectChildrenCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -9258,12 +9324,12 @@ async function deserializeAws_restJson1_1ListObjectChildrenCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListObjectParentPathsCommand(
+export const deserializeAws_restJson1_1ListObjectParentPathsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListObjectParentPathsCommandOutput> {
+): Promise<ListObjectParentPathsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListObjectParentPathsCommandError(
       output,
@@ -9290,12 +9356,12 @@ export async function deserializeAws_restJson1_1ListObjectParentPathsCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListObjectParentPathsCommandError(
+const deserializeAws_restJson1_1ListObjectParentPathsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListObjectParentPathsCommandOutput> {
+): Promise<ListObjectParentPathsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -9418,12 +9484,12 @@ async function deserializeAws_restJson1_1ListObjectParentPathsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListObjectParentsCommand(
+export const deserializeAws_restJson1_1ListObjectParentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListObjectParentsCommandOutput> {
+): Promise<ListObjectParentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListObjectParentsCommandError(
       output,
@@ -9454,12 +9520,12 @@ export async function deserializeAws_restJson1_1ListObjectParentsCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListObjectParentsCommandError(
+const deserializeAws_restJson1_1ListObjectParentsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListObjectParentsCommandOutput> {
+): Promise<ListObjectParentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -9593,12 +9659,12 @@ async function deserializeAws_restJson1_1ListObjectParentsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListObjectPoliciesCommand(
+export const deserializeAws_restJson1_1ListObjectPoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListObjectPoliciesCommandOutput> {
+): Promise<ListObjectPoliciesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListObjectPoliciesCommandError(
       output,
@@ -9622,12 +9688,12 @@ export async function deserializeAws_restJson1_1ListObjectPoliciesCommand(
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListObjectPoliciesCommandError(
+const deserializeAws_restJson1_1ListObjectPoliciesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListObjectPoliciesCommandOutput> {
+): Promise<ListObjectPoliciesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -9750,12 +9816,12 @@ async function deserializeAws_restJson1_1ListObjectPoliciesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListOutgoingTypedLinksCommand(
+export const deserializeAws_restJson1_1ListOutgoingTypedLinksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListOutgoingTypedLinksCommandOutput> {
+): Promise<ListOutgoingTypedLinksCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListOutgoingTypedLinksCommandError(
       output,
@@ -9782,12 +9848,12 @@ export async function deserializeAws_restJson1_1ListOutgoingTypedLinksCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListOutgoingTypedLinksCommandError(
+const deserializeAws_restJson1_1ListOutgoingTypedLinksCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListOutgoingTypedLinksCommandOutput> {
+): Promise<ListOutgoingTypedLinksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -9921,12 +9987,12 @@ async function deserializeAws_restJson1_1ListOutgoingTypedLinksCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListPolicyAttachmentsCommand(
+export const deserializeAws_restJson1_1ListPolicyAttachmentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListPolicyAttachmentsCommandOutput> {
+): Promise<ListPolicyAttachmentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListPolicyAttachmentsCommandError(
       output,
@@ -9950,12 +10016,12 @@ export async function deserializeAws_restJson1_1ListPolicyAttachmentsCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListPolicyAttachmentsCommandError(
+const deserializeAws_restJson1_1ListPolicyAttachmentsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListPolicyAttachmentsCommandOutput> {
+): Promise<ListPolicyAttachmentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -10089,12 +10155,12 @@ async function deserializeAws_restJson1_1ListPolicyAttachmentsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListPublishedSchemaArnsCommand(
+export const deserializeAws_restJson1_1ListPublishedSchemaArnsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListPublishedSchemaArnsCommandOutput> {
+): Promise<ListPublishedSchemaArnsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListPublishedSchemaArnsCommandError(
       output,
@@ -10118,12 +10184,12 @@ export async function deserializeAws_restJson1_1ListPublishedSchemaArnsCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListPublishedSchemaArnsCommandError(
+const deserializeAws_restJson1_1ListPublishedSchemaArnsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListPublishedSchemaArnsCommandOutput> {
+): Promise<ListPublishedSchemaArnsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -10235,12 +10301,12 @@ async function deserializeAws_restJson1_1ListPublishedSchemaArnsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
+export const deserializeAws_restJson1_1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListTagsForResourceCommandError(
       output,
@@ -10261,12 +10327,12 @@ export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
     contents.Tags = deserializeAws_restJson1_1TagList(data.Tags, context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
+const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -10378,12 +10444,12 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListTypedLinkFacetAttributesCommand(
+export const deserializeAws_restJson1_1ListTypedLinkFacetAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTypedLinkFacetAttributesCommandOutput> {
+): Promise<ListTypedLinkFacetAttributesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListTypedLinkFacetAttributesCommandError(
       output,
@@ -10407,12 +10473,12 @@ export async function deserializeAws_restJson1_1ListTypedLinkFacetAttributesComm
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListTypedLinkFacetAttributesCommandError(
+const deserializeAws_restJson1_1ListTypedLinkFacetAttributesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTypedLinkFacetAttributesCommandOutput> {
+): Promise<ListTypedLinkFacetAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -10535,12 +10601,12 @@ async function deserializeAws_restJson1_1ListTypedLinkFacetAttributesCommandErro
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListTypedLinkFacetNamesCommand(
+export const deserializeAws_restJson1_1ListTypedLinkFacetNamesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTypedLinkFacetNamesCommandOutput> {
+): Promise<ListTypedLinkFacetNamesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListTypedLinkFacetNamesCommandError(
       output,
@@ -10564,12 +10630,12 @@ export async function deserializeAws_restJson1_1ListTypedLinkFacetNamesCommand(
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListTypedLinkFacetNamesCommandError(
+const deserializeAws_restJson1_1ListTypedLinkFacetNamesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTypedLinkFacetNamesCommandOutput> {
+): Promise<ListTypedLinkFacetNamesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -10681,12 +10747,12 @@ async function deserializeAws_restJson1_1ListTypedLinkFacetNamesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1LookupPolicyCommand(
+export const deserializeAws_restJson1_1LookupPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<LookupPolicyCommandOutput> {
+): Promise<LookupPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1LookupPolicyCommandError(output, context);
   }
@@ -10707,12 +10773,12 @@ export async function deserializeAws_restJson1_1LookupPolicyCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1LookupPolicyCommandError(
+const deserializeAws_restJson1_1LookupPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<LookupPolicyCommandOutput> {
+): Promise<LookupPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -10835,12 +10901,12 @@ async function deserializeAws_restJson1_1LookupPolicyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1PublishSchemaCommand(
+export const deserializeAws_restJson1_1PublishSchemaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PublishSchemaCommandOutput> {
+): Promise<PublishSchemaCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1PublishSchemaCommandError(output, context);
   }
@@ -10857,12 +10923,12 @@ export async function deserializeAws_restJson1_1PublishSchemaCommand(
     contents.PublishedSchemaArn = data.PublishedSchemaArn;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1PublishSchemaCommandError(
+const deserializeAws_restJson1_1PublishSchemaCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PublishSchemaCommandOutput> {
+): Promise<PublishSchemaCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -10974,12 +11040,12 @@ async function deserializeAws_restJson1_1PublishSchemaCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1PutSchemaFromJsonCommand(
+export const deserializeAws_restJson1_1PutSchemaFromJsonCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutSchemaFromJsonCommandOutput> {
+): Promise<PutSchemaFromJsonCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1PutSchemaFromJsonCommandError(
       output,
@@ -10996,12 +11062,12 @@ export async function deserializeAws_restJson1_1PutSchemaFromJsonCommand(
     contents.Arn = data.Arn;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1PutSchemaFromJsonCommandError(
+const deserializeAws_restJson1_1PutSchemaFromJsonCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutSchemaFromJsonCommandOutput> {
+): Promise<PutSchemaFromJsonCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -11113,12 +11179,12 @@ async function deserializeAws_restJson1_1PutSchemaFromJsonCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1RemoveFacetFromObjectCommand(
+export const deserializeAws_restJson1_1RemoveFacetFromObjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RemoveFacetFromObjectCommandOutput> {
+): Promise<RemoveFacetFromObjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1RemoveFacetFromObjectCommandError(
       output,
@@ -11131,12 +11197,12 @@ export async function deserializeAws_restJson1_1RemoveFacetFromObjectCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1RemoveFacetFromObjectCommandError(
+const deserializeAws_restJson1_1RemoveFacetFromObjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RemoveFacetFromObjectCommandOutput> {
+): Promise<RemoveFacetFromObjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -11259,12 +11325,12 @@ async function deserializeAws_restJson1_1RemoveFacetFromObjectCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1TagResourceCommand(
+export const deserializeAws_restJson1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1TagResourceCommandError(output, context);
   }
@@ -11274,12 +11340,12 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1TagResourceCommandError(
+const deserializeAws_restJson1_1TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -11391,12 +11457,12 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UntagResourceCommand(
+export const deserializeAws_restJson1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UntagResourceCommandError(output, context);
   }
@@ -11406,12 +11472,12 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UntagResourceCommandError(
+const deserializeAws_restJson1_1UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -11523,12 +11589,12 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UpdateFacetCommand(
+export const deserializeAws_restJson1_1UpdateFacetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateFacetCommandOutput> {
+): Promise<UpdateFacetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateFacetCommandError(output, context);
   }
@@ -11538,12 +11604,12 @@ export async function deserializeAws_restJson1_1UpdateFacetCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UpdateFacetCommandError(
+const deserializeAws_restJson1_1UpdateFacetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateFacetCommandOutput> {
+): Promise<UpdateFacetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -11688,12 +11754,12 @@ async function deserializeAws_restJson1_1UpdateFacetCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UpdateLinkAttributesCommand(
+export const deserializeAws_restJson1_1UpdateLinkAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateLinkAttributesCommandOutput> {
+): Promise<UpdateLinkAttributesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateLinkAttributesCommandError(
       output,
@@ -11706,12 +11772,12 @@ export async function deserializeAws_restJson1_1UpdateLinkAttributesCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UpdateLinkAttributesCommandError(
+const deserializeAws_restJson1_1UpdateLinkAttributesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateLinkAttributesCommandOutput> {
+): Promise<UpdateLinkAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -11834,12 +11900,12 @@ async function deserializeAws_restJson1_1UpdateLinkAttributesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UpdateObjectAttributesCommand(
+export const deserializeAws_restJson1_1UpdateObjectAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateObjectAttributesCommandOutput> {
+): Promise<UpdateObjectAttributesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateObjectAttributesCommandError(
       output,
@@ -11856,12 +11922,12 @@ export async function deserializeAws_restJson1_1UpdateObjectAttributesCommand(
     contents.ObjectIdentifier = data.ObjectIdentifier;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UpdateObjectAttributesCommandError(
+const deserializeAws_restJson1_1UpdateObjectAttributesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateObjectAttributesCommandOutput> {
+): Promise<UpdateObjectAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -11995,12 +12061,12 @@ async function deserializeAws_restJson1_1UpdateObjectAttributesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UpdateSchemaCommand(
+export const deserializeAws_restJson1_1UpdateSchemaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateSchemaCommandOutput> {
+): Promise<UpdateSchemaCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateSchemaCommandError(output, context);
   }
@@ -12014,12 +12080,12 @@ export async function deserializeAws_restJson1_1UpdateSchemaCommand(
     contents.SchemaArn = data.SchemaArn;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UpdateSchemaCommandError(
+const deserializeAws_restJson1_1UpdateSchemaCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateSchemaCommandOutput> {
+): Promise<UpdateSchemaCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -12120,12 +12186,12 @@ async function deserializeAws_restJson1_1UpdateSchemaCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UpdateTypedLinkFacetCommand(
+export const deserializeAws_restJson1_1UpdateTypedLinkFacetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateTypedLinkFacetCommandOutput> {
+): Promise<UpdateTypedLinkFacetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateTypedLinkFacetCommandError(
       output,
@@ -12138,12 +12204,12 @@ export async function deserializeAws_restJson1_1UpdateTypedLinkFacetCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UpdateTypedLinkFacetCommandError(
+const deserializeAws_restJson1_1UpdateTypedLinkFacetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateTypedLinkFacetCommandOutput> {
+): Promise<UpdateTypedLinkFacetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -12288,12 +12354,12 @@ async function deserializeAws_restJson1_1UpdateTypedLinkFacetCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UpgradeAppliedSchemaCommand(
+export const deserializeAws_restJson1_1UpgradeAppliedSchemaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpgradeAppliedSchemaCommandOutput> {
+): Promise<UpgradeAppliedSchemaCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpgradeAppliedSchemaCommandError(
       output,
@@ -12314,12 +12380,12 @@ export async function deserializeAws_restJson1_1UpgradeAppliedSchemaCommand(
     contents.UpgradedSchemaArn = data.UpgradedSchemaArn;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UpgradeAppliedSchemaCommandError(
+const deserializeAws_restJson1_1UpgradeAppliedSchemaCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpgradeAppliedSchemaCommandOutput> {
+): Promise<UpgradeAppliedSchemaCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -12442,12 +12508,12 @@ async function deserializeAws_restJson1_1UpgradeAppliedSchemaCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UpgradePublishedSchemaCommand(
+export const deserializeAws_restJson1_1UpgradePublishedSchemaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpgradePublishedSchemaCommandOutput> {
+): Promise<UpgradePublishedSchemaCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpgradePublishedSchemaCommandError(
       output,
@@ -12464,12 +12530,12 @@ export async function deserializeAws_restJson1_1UpgradePublishedSchemaCommand(
     contents.UpgradedSchemaArn = data.UpgradedSchemaArn;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UpgradePublishedSchemaCommandError(
+const deserializeAws_restJson1_1UpgradePublishedSchemaCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpgradePublishedSchemaCommandOutput> {
+): Promise<UpgradePublishedSchemaCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -12592,7 +12658,7 @@ async function deserializeAws_restJson1_1UpgradePublishedSchemaCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
   parsedOutput: any,
@@ -13235,25 +13301,21 @@ const serializeAws_restJson1_1AttributeKeyAndValue = (
 };
 
 const serializeAws_restJson1_1AttributeKeyAndValueList = (
-  input: Array<AttributeKeyAndValue>,
+  input: AttributeKeyAndValue[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1AttributeKeyAndValue(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1AttributeKeyAndValue(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1AttributeKeyList = (
-  input: Array<AttributeKey>,
+  input: AttributeKey[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1AttributeKey(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1AttributeKey(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1AttributeNameAndValue = (
@@ -13274,27 +13336,19 @@ const serializeAws_restJson1_1AttributeNameAndValue = (
 };
 
 const serializeAws_restJson1_1AttributeNameAndValueList = (
-  input: Array<AttributeNameAndValue>,
+  input: AttributeNameAndValue[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_restJson1_1AttributeNameAndValue(entry, context)
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1AttributeNameAndValue(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1AttributeNameList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1BatchAddFacetToObject = (
@@ -14028,14 +14082,12 @@ const serializeAws_restJson1_1BatchReadOperation = (
 };
 
 const serializeAws_restJson1_1BatchReadOperationList = (
-  input: Array<BatchReadOperation>,
+  input: BatchReadOperation[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1BatchReadOperation(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1BatchReadOperation(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1BatchRemoveFacetFromObject = (
@@ -14217,14 +14269,12 @@ const serializeAws_restJson1_1BatchWriteOperation = (
 };
 
 const serializeAws_restJson1_1BatchWriteOperationList = (
-  input: Array<BatchWriteOperation>,
+  input: BatchWriteOperation[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1BatchWriteOperation(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1BatchWriteOperation(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1FacetAttribute = (
@@ -14281,14 +14331,12 @@ const serializeAws_restJson1_1FacetAttributeDefinition = (
 };
 
 const serializeAws_restJson1_1FacetAttributeList = (
-  input: Array<FacetAttribute>,
+  input: FacetAttribute[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1FacetAttribute(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1FacetAttribute(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1FacetAttributeReference = (
@@ -14323,14 +14371,12 @@ const serializeAws_restJson1_1FacetAttributeUpdate = (
 };
 
 const serializeAws_restJson1_1FacetAttributeUpdateList = (
-  input: Array<FacetAttributeUpdate>,
+  input: FacetAttributeUpdate[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1FacetAttributeUpdate(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1FacetAttributeUpdate(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1LinkAttributeAction = (
@@ -14373,14 +14419,12 @@ const serializeAws_restJson1_1LinkAttributeUpdate = (
 };
 
 const serializeAws_restJson1_1LinkAttributeUpdateList = (
-  input: Array<LinkAttributeUpdate>,
+  input: LinkAttributeUpdate[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1LinkAttributeUpdate(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1LinkAttributeUpdate(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1ObjectAttributeAction = (
@@ -14423,14 +14467,12 @@ const serializeAws_restJson1_1ObjectAttributeRange = (
 };
 
 const serializeAws_restJson1_1ObjectAttributeRangeList = (
-  input: Array<ObjectAttributeRange>,
+  input: ObjectAttributeRange[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1ObjectAttributeRange(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1ObjectAttributeRange(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1ObjectAttributeUpdate = (
@@ -14456,16 +14498,12 @@ const serializeAws_restJson1_1ObjectAttributeUpdate = (
 };
 
 const serializeAws_restJson1_1ObjectAttributeUpdateList = (
-  input: Array<ObjectAttributeUpdate>,
+  input: ObjectAttributeUpdate[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_restJson1_1ObjectAttributeUpdate(entry, context)
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1ObjectAttributeUpdate(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1ObjectReference = (
@@ -14500,22 +14538,20 @@ const serializeAws_restJson1_1RuleMap = (
   input: { [key: string]: Rule },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = serializeAws_restJson1_1Rule(input[key], context);
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = serializeAws_restJson1_1Rule(input[key], context);
+    return acc;
+  }, {});
 };
 
 const serializeAws_restJson1_1RuleParameterMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = input[key];
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = input[key];
+    return acc;
+  }, {});
 };
 
 const serializeAws_restJson1_1SchemaFacet = (
@@ -14533,14 +14569,12 @@ const serializeAws_restJson1_1SchemaFacet = (
 };
 
 const serializeAws_restJson1_1SchemaFacetList = (
-  input: Array<SchemaFacet>,
+  input: SchemaFacet[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1SchemaFacet(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1SchemaFacet(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1Tag = (
@@ -14558,25 +14592,17 @@ const serializeAws_restJson1_1Tag = (
 };
 
 const serializeAws_restJson1_1TagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1TagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1Tag(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_restJson1_1Tag(entry, context));
 };
 
 const serializeAws_restJson1_1TypedAttributeValue = (
@@ -14660,16 +14686,12 @@ const serializeAws_restJson1_1TypedLinkAttributeDefinition = (
 };
 
 const serializeAws_restJson1_1TypedLinkAttributeDefinitionList = (
-  input: Array<TypedLinkAttributeDefinition>,
+  input: TypedLinkAttributeDefinition[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_restJson1_1TypedLinkAttributeDefinition(entry, context)
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1TypedLinkAttributeDefinition(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1TypedLinkAttributeRange = (
@@ -14690,16 +14712,12 @@ const serializeAws_restJson1_1TypedLinkAttributeRange = (
 };
 
 const serializeAws_restJson1_1TypedLinkAttributeRangeList = (
-  input: Array<TypedLinkAttributeRange>,
+  input: TypedLinkAttributeRange[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_restJson1_1TypedLinkAttributeRange(entry, context)
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1TypedLinkAttributeRange(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1TypedLinkFacet = (
@@ -14749,16 +14767,12 @@ const serializeAws_restJson1_1TypedLinkFacetAttributeUpdate = (
 };
 
 const serializeAws_restJson1_1TypedLinkFacetAttributeUpdateList = (
-  input: Array<TypedLinkFacetAttributeUpdate>,
+  input: TypedLinkFacetAttributeUpdate[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_restJson1_1TypedLinkFacetAttributeUpdate(entry, context)
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1TypedLinkFacetAttributeUpdate(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1TypedLinkSchemaAndFacetName = (
@@ -14818,7 +14832,7 @@ const serializeAws_restJson1_1TypedLinkSpecifier = (
 const deserializeAws_restJson1_1Arns = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -14868,7 +14882,7 @@ const deserializeAws_restJson1_1AttributeKeyAndValue = (
 const deserializeAws_restJson1_1AttributeKeyAndValueList = (
   output: any,
   context: __SerdeContext
-): Array<AttributeKeyAndValue> => {
+): AttributeKeyAndValue[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1AttributeKeyAndValue(entry, context)
   );
@@ -14898,7 +14912,7 @@ const deserializeAws_restJson1_1AttributeNameAndValue = (
 const deserializeAws_restJson1_1AttributeNameAndValueList = (
   output: any,
   context: __SerdeContext
-): Array<AttributeNameAndValue> => {
+): AttributeNameAndValue[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1AttributeNameAndValue(entry, context)
   );
@@ -14907,7 +14921,7 @@ const deserializeAws_restJson1_1AttributeNameAndValueList = (
 const deserializeAws_restJson1_1AttributeNameList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -15444,7 +15458,7 @@ const deserializeAws_restJson1_1BatchReadOperationResponse = (
 const deserializeAws_restJson1_1BatchReadOperationResponseList = (
   output: any,
   context: __SerdeContext
-): Array<BatchReadOperationResponse> => {
+): BatchReadOperationResponse[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1BatchReadOperationResponse(entry, context)
   );
@@ -15761,7 +15775,7 @@ const deserializeAws_restJson1_1BatchWriteOperationResponse = (
 const deserializeAws_restJson1_1BatchWriteOperationResponseList = (
   output: any,
   context: __SerdeContext
-): Array<BatchWriteOperationResponse> => {
+): BatchWriteOperationResponse[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1BatchWriteOperationResponse(entry, context)
   );
@@ -15801,7 +15815,7 @@ const deserializeAws_restJson1_1Directory = (
 const deserializeAws_restJson1_1DirectoryList = (
   output: any,
   context: __SerdeContext
-): Array<Directory> => {
+): Directory[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Directory(entry, context)
   );
@@ -15902,7 +15916,7 @@ const deserializeAws_restJson1_1FacetAttributeDefinition = (
 const deserializeAws_restJson1_1FacetAttributeList = (
   output: any,
   context: __SerdeContext
-): Array<FacetAttribute> => {
+): FacetAttribute[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1FacetAttribute(entry, context)
   );
@@ -15932,7 +15946,7 @@ const deserializeAws_restJson1_1FacetAttributeReference = (
 const deserializeAws_restJson1_1FacetNameList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -15966,7 +15980,7 @@ const deserializeAws_restJson1_1IndexAttachment = (
 const deserializeAws_restJson1_1IndexAttachmentList = (
   output: any,
   context: __SerdeContext
-): Array<IndexAttachment> => {
+): IndexAttachment[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1IndexAttachment(entry, context)
   );
@@ -15976,17 +15990,16 @@ const deserializeAws_restJson1_1LinkNameToObjectIdentifierMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = output[key];
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1_1ObjectIdentifierAndLinkNameList = (
   output: any,
   context: __SerdeContext
-): Array<ObjectIdentifierAndLinkNameTuple> => {
+): ObjectIdentifierAndLinkNameTuple[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ObjectIdentifierAndLinkNameTuple(entry, context)
   );
@@ -16016,7 +16029,7 @@ const deserializeAws_restJson1_1ObjectIdentifierAndLinkNameTuple = (
 const deserializeAws_restJson1_1ObjectIdentifierList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -16024,11 +16037,10 @@ const deserializeAws_restJson1_1ObjectIdentifierToLinkNameMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = output[key];
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1_1ObjectReference = (
@@ -16072,7 +16084,7 @@ const deserializeAws_restJson1_1PathToObjectIdentifiers = (
 const deserializeAws_restJson1_1PathToObjectIdentifiersList = (
   output: any,
   context: __SerdeContext
-): Array<PathToObjectIdentifiers> => {
+): PathToObjectIdentifiers[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1PathToObjectIdentifiers(entry, context)
   );
@@ -16106,7 +16118,7 @@ const deserializeAws_restJson1_1PolicyAttachment = (
 const deserializeAws_restJson1_1PolicyAttachmentList = (
   output: any,
   context: __SerdeContext
-): Array<PolicyAttachment> => {
+): PolicyAttachment[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1PolicyAttachment(entry, context)
   );
@@ -16136,7 +16148,7 @@ const deserializeAws_restJson1_1PolicyToPath = (
 const deserializeAws_restJson1_1PolicyToPathList = (
   output: any,
   context: __SerdeContext
-): Array<PolicyToPath> => {
+): PolicyToPath[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1PolicyToPath(entry, context)
   );
@@ -16167,22 +16179,20 @@ const deserializeAws_restJson1_1RuleMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: Rule } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_restJson1_1Rule(output[key], context);
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = deserializeAws_restJson1_1Rule(output[key], context);
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1_1RuleParameterMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = output[key];
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1_1SchemaFacet = (
@@ -16206,7 +16216,7 @@ const deserializeAws_restJson1_1SchemaFacet = (
 const deserializeAws_restJson1_1SchemaFacetList = (
   output: any,
   context: __SerdeContext
-): Array<SchemaFacet> => {
+): SchemaFacet[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SchemaFacet(entry, context)
   );
@@ -16233,7 +16243,7 @@ const deserializeAws_restJson1_1Tag = (
 const deserializeAws_restJson1_1TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Tag(entry, context)
   );
@@ -16312,7 +16322,7 @@ const deserializeAws_restJson1_1TypedLinkAttributeDefinition = (
 const deserializeAws_restJson1_1TypedLinkAttributeDefinitionList = (
   output: any,
   context: __SerdeContext
-): Array<TypedLinkAttributeDefinition> => {
+): TypedLinkAttributeDefinition[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1TypedLinkAttributeDefinition(entry, context)
   );
@@ -16321,7 +16331,7 @@ const deserializeAws_restJson1_1TypedLinkAttributeDefinitionList = (
 const deserializeAws_restJson1_1TypedLinkNameList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -16393,7 +16403,7 @@ const deserializeAws_restJson1_1TypedLinkSpecifier = (
 const deserializeAws_restJson1_1TypedLinkSpecifierList = (
   output: any,
   context: __SerdeContext
-): Array<TypedLinkSpecifier> => {
+): TypedLinkSpecifier[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1TypedLinkSpecifier(entry, context)
   );
@@ -16407,7 +16417,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -16422,30 +16432,23 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
-function isSerializableHeaderValue(value: any): boolean {
-  return (
-    value !== undefined &&
-    value !== "" &&
-    (!Object.getOwnPropertyNames(value).includes("length") ||
-      value.length != 0) &&
-    (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0)
-  );
-}
+const isSerializableHeaderValue = (value: any): boolean =>
+  value !== undefined &&
+  value !== "" &&
+  (!Object.getOwnPropertyNames(value).includes("length") ||
+    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};
 
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.

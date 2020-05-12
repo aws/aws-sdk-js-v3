@@ -50,7 +50,7 @@ export interface AssociateS3ResourcesRequest {
    * <p>The S3 resources that you want to associate with Amazon Macie for monitoring and data
    *       classification. </p>
    */
-  s3Resources: Array<S3ResourceClassification> | undefined;
+  s3Resources: S3ResourceClassification[] | undefined;
 }
 
 export namespace AssociateS3ResourcesRequest {
@@ -64,7 +64,7 @@ export interface AssociateS3ResourcesResult {
    * <p>S3 resources that couldn't be associated with Amazon Macie. An error code and an error
    *       message are provided for each failed item. </p>
    */
-  failedS3Resources?: Array<FailedS3Resource>;
+  failedS3Resources?: FailedS3Resource[];
 }
 
 export namespace AssociateS3ResourcesResult {
@@ -141,7 +141,7 @@ export interface DisassociateS3ResourcesRequest {
    * <p>The S3 resources (buckets or prefixes) that you want to remove from being monitored and
    *       classified by Amazon Macie. </p>
    */
-  associatedS3Resources: Array<S3Resource> | undefined;
+  associatedS3Resources: S3Resource[] | undefined;
 
   /**
    * <p>The ID of the Amazon Macie member account whose resources you want to remove from being
@@ -161,7 +161,7 @@ export interface DisassociateS3ResourcesResult {
    * <p>S3 resources that couldn't be removed from being monitored and classified by Amazon
    *       Macie. An error code and an error message are provided for each failed item. </p>
    */
-  failedS3Resources?: Array<FailedS3Resource>;
+  failedS3Resources?: FailedS3Resource[];
 }
 
 export namespace DisassociateS3ResourcesResult {
@@ -295,7 +295,7 @@ export interface ListMemberAccountsResult {
    * <p>A list of the Amazon Macie member accounts returned by the action. The current master
    *       account is also included in this list. </p>
    */
-  memberAccounts?: Array<MemberAccount>;
+  memberAccounts?: MemberAccount[];
 
   /**
    * <p>When a response is generated, if there is more data to be listed, this parameter is
@@ -351,7 +351,7 @@ export interface ListS3ResourcesResult {
   /**
    * <p>A list of the associated S3 resources returned by the action.</p>
    */
-  s3Resources?: Array<S3ResourceClassification>;
+  s3Resources?: S3ResourceClassification[];
 }
 
 export namespace ListS3ResourcesResult {
@@ -473,7 +473,7 @@ export interface UpdateS3ResourcesRequest {
   /**
    * <p>The S3 resources whose classification types you want to update.</p>
    */
-  s3ResourcesUpdate: Array<S3ResourceClassificationUpdate> | undefined;
+  s3ResourcesUpdate: S3ResourceClassificationUpdate[] | undefined;
 }
 
 export namespace UpdateS3ResourcesRequest {
@@ -487,7 +487,7 @@ export interface UpdateS3ResourcesResult {
    * <p>The S3 resources whose classification types can't be updated. An error code and an
    *       error message are provided for each failed item. </p>
    */
-  failedS3Resources?: Array<FailedS3Resource>;
+  failedS3Resources?: FailedS3Resource[];
 }
 
 export namespace UpdateS3ResourcesResult {

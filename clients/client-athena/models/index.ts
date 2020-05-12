@@ -9,7 +9,7 @@ export interface BatchGetNamedQueryInput {
   /**
    * <p>An array of query IDs.</p>
    */
-  NamedQueryIds: Array<string> | undefined;
+  NamedQueryIds: string[] | undefined;
 }
 
 export namespace BatchGetNamedQueryInput {
@@ -22,12 +22,12 @@ export interface BatchGetNamedQueryOutput {
   /**
    * <p>Information about the named query IDs submitted.</p>
    */
-  NamedQueries?: Array<NamedQuery>;
+  NamedQueries?: NamedQuery[];
 
   /**
    * <p>Information about provided query IDs.</p>
    */
-  UnprocessedNamedQueryIds?: Array<UnprocessedNamedQueryId>;
+  UnprocessedNamedQueryIds?: UnprocessedNamedQueryId[];
 }
 
 export namespace BatchGetNamedQueryOutput {
@@ -40,7 +40,7 @@ export interface BatchGetQueryExecutionInput {
   /**
    * <p>An array of query execution IDs.</p>
    */
-  QueryExecutionIds: Array<string> | undefined;
+  QueryExecutionIds: string[] | undefined;
 }
 
 export namespace BatchGetQueryExecutionInput {
@@ -53,12 +53,12 @@ export interface BatchGetQueryExecutionOutput {
   /**
    * <p>Information about a query execution.</p>
    */
-  QueryExecutions?: Array<QueryExecution>;
+  QueryExecutions?: QueryExecution[];
 
   /**
    * <p>Information about the query executions that failed to run.</p>
    */
-  UnprocessedQueryExecutionIds?: Array<UnprocessedQueryExecutionId>;
+  UnprocessedQueryExecutionIds?: UnprocessedQueryExecutionId[];
 }
 
 export namespace BatchGetQueryExecutionOutput {
@@ -211,7 +211,7 @@ export interface CreateWorkGroupInput {
   /**
    * <p>One or more tags, separated by commas, that you want to attach to the workgroup as you create it.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateWorkGroupInput {
@@ -517,7 +517,7 @@ export interface ListNamedQueriesOutput {
   /**
    * <p>The list of unique query IDs.</p>
    */
-  NamedQueryIds?: Array<string>;
+  NamedQueryIds?: string[];
 
   /**
    * <p>A token to be used by the next request if this request is truncated.</p>
@@ -563,7 +563,7 @@ export interface ListQueryExecutionsOutput {
   /**
    * <p>The unique IDs of each query execution as an array of strings.</p>
    */
-  QueryExecutionIds?: Array<string>;
+  QueryExecutionIds?: string[];
 }
 
 export namespace ListQueryExecutionsOutput {
@@ -604,7 +604,7 @@ export interface ListTagsForResourceOutput {
   /**
    * <p>The list of tags associated with this workgroup.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace ListTagsForResourceOutput {
@@ -640,7 +640,7 @@ export interface ListWorkGroupsOutput {
   /**
    * <p>The list of workgroups, including their names, descriptions, creation times, and states.</p>
    */
-  WorkGroups?: Array<WorkGroupSummary>;
+  WorkGroups?: WorkGroupSummary[];
 }
 
 export namespace ListWorkGroupsOutput {
@@ -960,7 +960,7 @@ export interface ResultSet {
   /**
    * <p>The rows in the table.</p>
    */
-  Rows?: Array<Row>;
+  Rows?: Row[];
 }
 
 export namespace ResultSet {
@@ -976,7 +976,7 @@ export interface ResultSetMetadata {
   /**
    * <p>Information about the columns returned in a query result metadata.</p>
    */
-  ColumnInfo?: Array<ColumnInfo>;
+  ColumnInfo?: ColumnInfo[];
 }
 
 export namespace ResultSetMetadata {
@@ -992,7 +992,7 @@ export interface Row {
   /**
    * <p>The data that populates a row in a query result table.</p>
    */
-  Data?: Array<Datum>;
+  Data?: Datum[];
 }
 
 export namespace Row {
@@ -1115,7 +1115,7 @@ export interface TagResourceInput {
   /**
    * <p>One or more tags, separated by commas, to be added to the resource, such as a workgroup.</p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace TagResourceInput {
@@ -1218,7 +1218,7 @@ export interface UntagResourceInput {
   /**
    * <p>Removes the tags associated with one or more tag keys from the workgroup resource.</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceInput {

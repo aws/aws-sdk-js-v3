@@ -655,7 +655,7 @@ export interface LoggingConfiguration {
    * <p>An object that describes where your execution history events will be logged. Limited to
    *       size 1. Required, if your log level is not set to <code>OFF</code>.</p>
    */
-  destinations?: Array<LogDestination>;
+  destinations?: LogDestination[];
 
   /**
    * <p>Determines whether execution history data is included in your log. When set to
@@ -1145,7 +1145,7 @@ export interface CreateActivityInput {
    *           Tags</a>.</p>
    *          <p>Tags may only contain Unicode letters, digits, white space, or these symbols: <code>_ . : / = + - @</code>.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace CreateActivityInput {
@@ -1222,7 +1222,7 @@ export interface CreateStateMachineInput {
    *           Tags</a>.</p>
    *          <p>Tags may only contain Unicode letters, digits, white space, or these symbols: <code>_ . : / = + - @</code>.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 
   /**
    * <p>Determines whether a Standard or Express state machine is created. If not set, Standard is created.</p>
@@ -1770,7 +1770,7 @@ export interface GetExecutionHistoryOutput {
   /**
    * <p>The list of events that occurred in the execution.</p>
    */
-  events: Array<HistoryEvent> | undefined;
+  events: HistoryEvent[] | undefined;
 
   /**
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
@@ -1908,7 +1908,7 @@ export interface ListActivitiesOutput {
   /**
    * <p>The list of activities.</p>
    */
-  activities: Array<ActivityListItem> | undefined;
+  activities: ActivityListItem[] | undefined;
 
   /**
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
@@ -1959,7 +1959,7 @@ export interface ListExecutionsOutput {
   /**
    * <p>The list of matching executions.</p>
    */
-  executions: Array<ExecutionListItem> | undefined;
+  executions: ExecutionListItem[] | undefined;
 
   /**
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
@@ -2002,7 +2002,7 @@ export interface ListStateMachinesOutput {
    */
   nextToken?: string;
 
-  stateMachines: Array<StateMachineListItem> | undefined;
+  stateMachines: StateMachineListItem[] | undefined;
 }
 
 export namespace ListStateMachinesOutput {
@@ -2028,7 +2028,7 @@ export interface ListTagsForResourceOutput {
   /**
    * <p>An array of tags associated with the resource.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace ListTagsForResourceOutput {
@@ -2437,7 +2437,7 @@ export interface TagResourceInput {
    * <p>The list of tags to add to a resource.</p>
    *          <p>Tags may only contain Unicode letters, digits, white space, or these symbols: <code>_ . : / = + - @</code>.</p>
    */
-  tags: Array<Tag> | undefined;
+  tags: Tag[] | undefined;
 }
 
 export namespace TagResourceInput {
@@ -2500,7 +2500,7 @@ export interface UntagResourceInput {
   /**
    * <p>The list of tags to remove from the resource.</p>
    */
-  tagKeys: Array<string> | undefined;
+  tagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceInput {

@@ -24,10 +24,8 @@ import software.amazon.smithy.codegen.core.CodegenException;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.shapes.CollectionShape;
 import software.amazon.smithy.model.shapes.DocumentShape;
-import software.amazon.smithy.model.shapes.ListShape;
 import software.amazon.smithy.model.shapes.MapShape;
 import software.amazon.smithy.model.shapes.MemberShape;
-import software.amazon.smithy.model.shapes.SetShape;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.shapes.UnionShape;
@@ -66,27 +64,24 @@ final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
         Shape target = context.getModel().expectShape(shape.getMember().getTarget());
 
         // Dispatch to the output value provider for any additional handling.
-        writer.write("const contents: any = [];");
-        writer.openBlock("(output || []).map((entry: any) => {", "});", () -> {
-            String dataSource = handleUnnamedTargetWrapping(context, target, "entry");
-            writer.write("contents.push($L);", target.accept(getMemberVisitor(dataSource)));
+        writer.openBlock("return (output || []).map((entry: any) => ", ");", () -> {
+            String dataSource = getUnnamedTargetWrapper(context, target, "entry");
+            writer.write("$L", target.accept(getMemberVisitor(dataSource)));
         });
-        writer.write("return contents;");
     }
 
-    private String handleUnnamedTargetWrapping(GenerationContext context, Shape target, String dataSource) {
+    private String getUnnamedTargetWrapper(GenerationContext context, Shape target, String dataSource) {
         if (!deserializationReturnsArray(target)) {
             return dataSource;
         }
 
         TypeScriptWriter writer = context.getWriter();
+        writer.addImport("getArrayIfSingleItem", "__getArrayIfSingleItem", "@aws-sdk/smithy-client");
         // The XML parser will set one K:V for a member that could
         // return multiple entries but only has one.
         // Update the target element if we target another level of collection.
         String targetLocation = getUnnamedAggregateTargetLocation(context.getModel(), target);
-        writer.write("const wrappedItem = ($1L[$2S] instanceof Array) ? $1L[$2S] : [$1L[$2S]];",
-                dataSource, targetLocation);
-        return "wrappedItem";
+        return String.format("__getArrayIfSingleItem(%s[\"%s\"])", dataSource, targetLocation);
     }
 
     private boolean deserializationReturnsArray(Shape shape) {
@@ -109,13 +104,12 @@ final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
 
         // Get the right serialization for each entry in the map. Undefined
         // outputs won't have this deserializer invoked.
-        writer.write("const mapParams: any = {};");
-        writer.openBlock("output.forEach((pair: any) => {", "});", () -> {
+        writer.openBlock("return output.reduce((acc: any, pair: any) => {", "}, {});", () -> {
             // Dispatch to the output value provider for any additional handling.
-            String dataSource = handleUnnamedTargetWrapping(context, target, "pair[\"" + valueLocation + "\"]");
-            writer.write("mapParams[pair[$S]] = $L;", keyLocation, target.accept(getMemberVisitor(dataSource)));
+            String dataSource = getUnnamedTargetWrapper(context, target, "pair[\"" + valueLocation + "\"]");
+            writer.write("acc[pair[$S]] = $L;", keyLocation, target.accept(getMemberVisitor(dataSource)));
+            writer.write("return acc;");
         });
-        writer.write("return mapParams;");
     }
 
     @Override
@@ -195,10 +189,8 @@ final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
             writer.openBlock("if ($L.$L === \"\") {", "}", inputLocation, locationName, () -> {
                 if (target instanceof MapShape) {
                     writer.write("contents.$L = {};", memberName);
-                } else if (target instanceof ListShape) {
+                } else if (target instanceof CollectionShape) {
                     writer.write("contents.$L = [];", memberName);
-                } else if (target instanceof SetShape) {
-                    writer.write("contents.$L = new Set([]);", memberName);
                 }
             });
         }
@@ -212,21 +204,21 @@ final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
                 .map(location -> location + " !== undefined")
                 .collect(Collectors.joining(" && "));
         writer.openBlock("if ($L) {", "}", validationStatement, () -> {
-            String dataSource = handleNamedTargetWrapping(context, target, source);
+            String dataSource = getNamedTargetWrapper(context, target, source);
             statementBodyGenerator.accept(dataSource, getMemberVisitor(dataSource));
         });
     }
 
-    private String handleNamedTargetWrapping(GenerationContext context, Shape target, String dataSource) {
+    private String getNamedTargetWrapper(GenerationContext context, Shape target, String dataSource) {
         if (!deserializationReturnsArray(target)) {
             return dataSource;
         }
 
         TypeScriptWriter writer = context.getWriter();
+        writer.addImport("getArrayIfSingleItem", "__getArrayIfSingleItem", "@aws-sdk/smithy-client");
         // The XML parser will set one K:V for a member that could
         // return multiple entries but only has one.
-        writer.write("const wrappedItem = ($1L instanceof Array) ? $1L : [$1L];", dataSource);
-        return "wrappedItem";
+        return String.format("__getArrayIfSingleItem(%s)", dataSource);
     }
 
     private String getUnnamedAggregateTargetLocation(Model model, Shape shape) {

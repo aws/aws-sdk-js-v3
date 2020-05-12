@@ -193,7 +193,7 @@ export interface CreateApplicationRequest {
    *          length of a tag key is 128 characters. The maximum length of a tag value is 256
    *          characters.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateApplicationRequest {
@@ -229,7 +229,7 @@ export interface CreateComponentRequest {
   /**
    * <p>The list of resource ARNs that belong to the component.</p>
    */
-  ResourceList: Array<string> | undefined;
+  ResourceList: string[] | undefined;
 }
 
 export namespace CreateComponentRequest {
@@ -519,7 +519,7 @@ export interface DescribeComponentResponse {
   /**
    * <p>The list of resource ARNs that belong to the component.</p>
    */
-  ResourceList?: Array<string>;
+  ResourceList?: string[];
 }
 
 export namespace DescribeComponentResponse {
@@ -690,7 +690,7 @@ export interface ListApplicationsResponse {
   /**
    * <p>The list of applications.</p>
    */
-  ApplicationInfoList?: Array<ApplicationInfo>;
+  ApplicationInfoList?: ApplicationInfo[];
 
   /**
    * <p>The token used to retrieve the next page of results. This value is <code>null</code>
@@ -733,7 +733,7 @@ export interface ListComponentsResponse {
   /**
    * <p>The list of application components.</p>
    */
-  ApplicationComponentList?: Array<ApplicationComponent>;
+  ApplicationComponentList?: ApplicationComponent[];
 
   /**
    * <p>The token to request the next page of results.</p>
@@ -798,7 +798,7 @@ export interface ListConfigurationHistoryResponse {
   /**
    * <p> The list of configuration events and their corresponding details. </p>
    */
-  EventList?: Array<ConfigurationEvent>;
+  EventList?: ConfigurationEvent[];
 
   /**
    * <p>The <code>NextToken</code> value to include in a future
@@ -844,7 +844,7 @@ export interface ListLogPatternSetsResponse {
   /**
    * <p>The list of log pattern sets.</p>
    */
-  LogPatternSets?: Array<string>;
+  LogPatternSets?: string[];
 
   /**
    * <p>The token used to retrieve the next page of results. This value is <code>null</code>
@@ -897,7 +897,7 @@ export interface ListLogPatternsResponse {
   /**
    * <p>The list of log patterns.</p>
    */
-  LogPatterns?: Array<LogPattern>;
+  LogPatterns?: LogPattern[];
 
   /**
    * <p>The token used to retrieve the next page of results. This value is <code>null</code>
@@ -963,7 +963,7 @@ export interface ListProblemsResponse {
   /**
    * <p>The list of problems. </p>
    */
-  ProblemList?: Array<Problem>;
+  ProblemList?: Problem[];
 }
 
 export namespace ListProblemsResponse {
@@ -992,7 +992,7 @@ export interface ListTagsForResourceResponse {
    *          consists of a required tag key (<code>Key</code>) and an associated tag value
    *          (<code>Value</code>).</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace ListTagsForResourceResponse {
@@ -1178,7 +1178,7 @@ export interface RelatedObservations {
   /**
    * <p>The list of observations related to the problem.</p>
    */
-  ObservationList?: Array<Observation>;
+  ObservationList?: Observation[];
 }
 
 export namespace RelatedObservations {
@@ -1282,7 +1282,7 @@ export interface TagResourceRequest {
    *          length of a tag key is 128 characters. The maximum length of a tag value is 256
    *          characters.</p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -1357,7 +1357,7 @@ export interface UntagResourceRequest {
    *          parameter and argument for each additional tag to remove, separated by an ampersand.
    *       </p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -1486,7 +1486,7 @@ export interface UpdateComponentRequest {
   /**
    * <p>The list of resource ARNs that belong to the component.</p>
    */
-  ResourceList?: Array<string>;
+  ResourceList?: string[];
 }
 
 export namespace UpdateComponentRequest {

@@ -75,7 +75,7 @@ export interface CreateMembersRequest {
    *          For each invited account, the account list contains the account identifier and the AWS
    *          account root user email address.</p>
    */
-  Accounts: Array<Account> | undefined;
+  Accounts: Account[] | undefined;
 
   /**
    * <p>The ARN of the behavior graph to invite the member accounts to contribute their data
@@ -102,14 +102,14 @@ export interface CreateMembersResponse {
    *          includes accounts that are being verified, that failed verification, and that passed
    *          verification and are being sent an invitation.</p>
    */
-  Members?: Array<MemberDetail>;
+  Members?: MemberDetail[];
 
   /**
    * <p>The list of accounts for which Detective was unable to process the invitation request. For
    *          each account, the list provides the reason why the request could not be processed. The list
    *          includes accounts that are already member accounts in the behavior graph.</p>
    */
-  UnprocessedAccounts?: Array<UnprocessedAccount>;
+  UnprocessedAccounts?: UnprocessedAccount[];
 }
 
 export namespace CreateMembersResponse {
@@ -136,7 +136,7 @@ export interface DeleteMembersRequest {
    * <p>The list of AWS account identifiers for the member accounts to delete from the
    *          behavior graph.</p>
    */
-  AccountIds: Array<string> | undefined;
+  AccountIds: string[] | undefined;
 
   /**
    * <p>The ARN of the behavior graph to delete members from.</p>
@@ -155,14 +155,14 @@ export interface DeleteMembersResponse {
    * <p>The list of AWS account identifiers for the member accounts that Detective successfully
    *          deleted from the behavior graph.</p>
    */
-  AccountIds?: Array<string>;
+  AccountIds?: string[];
 
   /**
    * <p>The list of member accounts that Detective was not able to delete from the behavior graph.
    *          For each member account, provides the reason that the deletion could not be
    *          processed.</p>
    */
-  UnprocessedAccounts?: Array<UnprocessedAccount>;
+  UnprocessedAccounts?: UnprocessedAccount[];
 }
 
 export namespace DeleteMembersResponse {
@@ -193,7 +193,7 @@ export interface GetMembersRequest {
    *          <p>You cannot use <code>GetMembers</code> to retrieve information about member accounts
    *          that were removed from the behavior graph.</p>
    */
-  AccountIds: Array<string> | undefined;
+  AccountIds: string[] | undefined;
 
   /**
    * <p>The ARN of the behavior graph for which to request the member details.</p>
@@ -211,14 +211,14 @@ export interface GetMembersResponse {
   /**
    * <p>The member account details that Detective is returning in response to the request.</p>
    */
-  MemberDetails?: Array<MemberDetail>;
+  MemberDetails?: MemberDetail[];
 
   /**
    * <p>The requested member accounts for which Detective was unable to return member
    *          details.</p>
    *          <p>For each account, provides the reason why the request could not be processed.</p>
    */
-  UnprocessedAccounts?: Array<UnprocessedAccount>;
+  UnprocessedAccounts?: UnprocessedAccount[];
 }
 
 export namespace GetMembersResponse {
@@ -291,7 +291,7 @@ export interface ListGraphsResponse {
   /**
    * <p>A list of behavior graphs that the account is a master for.</p>
    */
-  GraphList?: Array<Graph>;
+  GraphList?: Graph[];
 
   /**
    * <p>If there are more behavior graphs remaining in the results, then this is the pagination
@@ -333,7 +333,7 @@ export interface ListInvitationsResponse {
    * <p>The list of behavior graphs for which the member account has open or accepted
    *          invitations.</p>
    */
-  Invitations?: Array<MemberDetail>;
+  Invitations?: MemberDetail[];
 
   /**
    * <p>If there are more behavior graphs remaining in the results, then this is the pagination
@@ -381,7 +381,7 @@ export interface ListMembersResponse {
    *          that have not yet accepted the invitation to the behavior graph. The results do not include
    *          member accounts that were removed from the behavior graph.</p>
    */
-  MemberDetails?: Array<MemberDetail>;
+  MemberDetails?: MemberDetail[];
 
   /**
    * <p>If there are more member accounts remaining in the results, then this is the pagination

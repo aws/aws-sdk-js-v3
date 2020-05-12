@@ -201,374 +201,400 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_json1_1CreateDatasetCommand(
+export const serializeAws_json1_1CreateDatasetCommand = async (
   input: CreateDatasetCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecast.CreateDataset";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.CreateDataset"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateDatasetRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreateDatasetGroupCommand(
+export const serializeAws_json1_1CreateDatasetGroupCommand = async (
   input: CreateDatasetGroupCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecast.CreateDatasetGroup";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.CreateDatasetGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateDatasetGroupRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreateDatasetImportJobCommand(
+export const serializeAws_json1_1CreateDatasetImportJobCommand = async (
   input: CreateDatasetImportJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecast.CreateDatasetImportJob";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.CreateDatasetImportJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateDatasetImportJobRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreateForecastCommand(
+export const serializeAws_json1_1CreateForecastCommand = async (
   input: CreateForecastCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecast.CreateForecast";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.CreateForecast"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateForecastRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreateForecastExportJobCommand(
+export const serializeAws_json1_1CreateForecastExportJobCommand = async (
   input: CreateForecastExportJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecast.CreateForecastExportJob";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.CreateForecastExportJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateForecastExportJobRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreatePredictorCommand(
+export const serializeAws_json1_1CreatePredictorCommand = async (
   input: CreatePredictorCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecast.CreatePredictor";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.CreatePredictor"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreatePredictorRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteDatasetCommand(
+export const serializeAws_json1_1DeleteDatasetCommand = async (
   input: DeleteDatasetCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecast.DeleteDataset";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.DeleteDataset"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteDatasetRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteDatasetGroupCommand(
+export const serializeAws_json1_1DeleteDatasetGroupCommand = async (
   input: DeleteDatasetGroupCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecast.DeleteDatasetGroup";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.DeleteDatasetGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteDatasetGroupRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteDatasetImportJobCommand(
+export const serializeAws_json1_1DeleteDatasetImportJobCommand = async (
   input: DeleteDatasetImportJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecast.DeleteDatasetImportJob";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.DeleteDatasetImportJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteDatasetImportJobRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteForecastCommand(
+export const serializeAws_json1_1DeleteForecastCommand = async (
   input: DeleteForecastCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecast.DeleteForecast";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.DeleteForecast"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteForecastRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteForecastExportJobCommand(
+export const serializeAws_json1_1DeleteForecastExportJobCommand = async (
   input: DeleteForecastExportJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecast.DeleteForecastExportJob";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.DeleteForecastExportJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteForecastExportJobRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeletePredictorCommand(
+export const serializeAws_json1_1DeletePredictorCommand = async (
   input: DeletePredictorCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecast.DeletePredictor";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.DeletePredictor"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeletePredictorRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeDatasetCommand(
+export const serializeAws_json1_1DescribeDatasetCommand = async (
   input: DescribeDatasetCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecast.DescribeDataset";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.DescribeDataset"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeDatasetRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeDatasetGroupCommand(
+export const serializeAws_json1_1DescribeDatasetGroupCommand = async (
   input: DescribeDatasetGroupCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecast.DescribeDatasetGroup";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.DescribeDatasetGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeDatasetGroupRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeDatasetImportJobCommand(
+export const serializeAws_json1_1DescribeDatasetImportJobCommand = async (
   input: DescribeDatasetImportJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecast.DescribeDatasetImportJob";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.DescribeDatasetImportJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeDatasetImportJobRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeForecastCommand(
+export const serializeAws_json1_1DescribeForecastCommand = async (
   input: DescribeForecastCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecast.DescribeForecast";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.DescribeForecast"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeForecastRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeForecastExportJobCommand(
+export const serializeAws_json1_1DescribeForecastExportJobCommand = async (
   input: DescribeForecastExportJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecast.DescribeForecastExportJob";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.DescribeForecastExportJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeForecastExportJobRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribePredictorCommand(
+export const serializeAws_json1_1DescribePredictorCommand = async (
   input: DescribePredictorCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecast.DescribePredictor";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.DescribePredictor"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribePredictorRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetAccuracyMetricsCommand(
+export const serializeAws_json1_1GetAccuracyMetricsCommand = async (
   input: GetAccuracyMetricsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecast.GetAccuracyMetrics";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.GetAccuracyMetrics"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetAccuracyMetricsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListDatasetGroupsCommand(
+export const serializeAws_json1_1ListDatasetGroupsCommand = async (
   input: ListDatasetGroupsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecast.ListDatasetGroups";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.ListDatasetGroups"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListDatasetGroupsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListDatasetImportJobsCommand(
+export const serializeAws_json1_1ListDatasetImportJobsCommand = async (
   input: ListDatasetImportJobsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecast.ListDatasetImportJobs";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.ListDatasetImportJobs"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListDatasetImportJobsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListDatasetsCommand(
+export const serializeAws_json1_1ListDatasetsCommand = async (
   input: ListDatasetsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecast.ListDatasets";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.ListDatasets"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListDatasetsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListForecastExportJobsCommand(
+export const serializeAws_json1_1ListForecastExportJobsCommand = async (
   input: ListForecastExportJobsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecast.ListForecastExportJobs";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.ListForecastExportJobs"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListForecastExportJobsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListForecastsCommand(
+export const serializeAws_json1_1ListForecastsCommand = async (
   input: ListForecastsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecast.ListForecasts";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.ListForecasts"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListForecastsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListPredictorsCommand(
+export const serializeAws_json1_1ListPredictorsCommand = async (
   input: ListPredictorsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecast.ListPredictors";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.ListPredictors"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListPredictorsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateDatasetGroupCommand(
+export const serializeAws_json1_1UpdateDatasetGroupCommand = async (
   input: UpdateDatasetGroupCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonForecast.UpdateDatasetGroup";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AmazonForecast.UpdateDatasetGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateDatasetGroupRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_1CreateDatasetCommand(
+export const deserializeAws_json1_1CreateDatasetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateDatasetCommandOutput> {
+): Promise<CreateDatasetCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateDatasetCommandError(output, context);
   }
@@ -581,12 +607,12 @@ export async function deserializeAws_json1_1CreateDatasetCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateDatasetCommandError(
+const deserializeAws_json1_1CreateDatasetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateDatasetCommandOutput> {
+): Promise<CreateDatasetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -645,12 +671,12 @@ async function deserializeAws_json1_1CreateDatasetCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreateDatasetGroupCommand(
+export const deserializeAws_json1_1CreateDatasetGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateDatasetGroupCommandOutput> {
+): Promise<CreateDatasetGroupCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateDatasetGroupCommandError(
       output,
@@ -666,12 +692,12 @@ export async function deserializeAws_json1_1CreateDatasetGroupCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateDatasetGroupCommandError(
+const deserializeAws_json1_1CreateDatasetGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateDatasetGroupCommandOutput> {
+): Promise<CreateDatasetGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -752,12 +778,12 @@ async function deserializeAws_json1_1CreateDatasetGroupCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreateDatasetImportJobCommand(
+export const deserializeAws_json1_1CreateDatasetImportJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateDatasetImportJobCommandOutput> {
+): Promise<CreateDatasetImportJobCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateDatasetImportJobCommandError(
       output,
@@ -776,12 +802,12 @@ export async function deserializeAws_json1_1CreateDatasetImportJobCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateDatasetImportJobCommandError(
+const deserializeAws_json1_1CreateDatasetImportJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateDatasetImportJobCommandOutput> {
+): Promise<CreateDatasetImportJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -862,12 +888,12 @@ async function deserializeAws_json1_1CreateDatasetImportJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreateForecastCommand(
+export const deserializeAws_json1_1CreateForecastCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateForecastCommandOutput> {
+): Promise<CreateForecastCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateForecastCommandError(output, context);
   }
@@ -880,12 +906,12 @@ export async function deserializeAws_json1_1CreateForecastCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateForecastCommandError(
+const deserializeAws_json1_1CreateForecastCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateForecastCommandOutput> {
+): Promise<CreateForecastCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -966,12 +992,12 @@ async function deserializeAws_json1_1CreateForecastCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreateForecastExportJobCommand(
+export const deserializeAws_json1_1CreateForecastExportJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateForecastExportJobCommandOutput> {
+): Promise<CreateForecastExportJobCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateForecastExportJobCommandError(
       output,
@@ -990,12 +1016,12 @@ export async function deserializeAws_json1_1CreateForecastExportJobCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateForecastExportJobCommandError(
+const deserializeAws_json1_1CreateForecastExportJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateForecastExportJobCommandOutput> {
+): Promise<CreateForecastExportJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1076,12 +1102,12 @@ async function deserializeAws_json1_1CreateForecastExportJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreatePredictorCommand(
+export const deserializeAws_json1_1CreatePredictorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreatePredictorCommandOutput> {
+): Promise<CreatePredictorCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreatePredictorCommandError(output, context);
   }
@@ -1094,12 +1120,12 @@ export async function deserializeAws_json1_1CreatePredictorCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreatePredictorCommandError(
+const deserializeAws_json1_1CreatePredictorCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreatePredictorCommandOutput> {
+): Promise<CreatePredictorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1180,12 +1206,12 @@ async function deserializeAws_json1_1CreatePredictorCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteDatasetCommand(
+export const deserializeAws_json1_1DeleteDatasetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteDatasetCommandOutput> {
+): Promise<DeleteDatasetCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteDatasetCommandError(output, context);
   }
@@ -1194,12 +1220,12 @@ export async function deserializeAws_json1_1DeleteDatasetCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteDatasetCommandError(
+const deserializeAws_json1_1DeleteDatasetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteDatasetCommandOutput> {
+): Promise<DeleteDatasetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1258,12 +1284,12 @@ async function deserializeAws_json1_1DeleteDatasetCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteDatasetGroupCommand(
+export const deserializeAws_json1_1DeleteDatasetGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteDatasetGroupCommandOutput> {
+): Promise<DeleteDatasetGroupCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteDatasetGroupCommandError(
       output,
@@ -1275,12 +1301,12 @@ export async function deserializeAws_json1_1DeleteDatasetGroupCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteDatasetGroupCommandError(
+const deserializeAws_json1_1DeleteDatasetGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteDatasetGroupCommandOutput> {
+): Promise<DeleteDatasetGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1339,12 +1365,12 @@ async function deserializeAws_json1_1DeleteDatasetGroupCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteDatasetImportJobCommand(
+export const deserializeAws_json1_1DeleteDatasetImportJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteDatasetImportJobCommandOutput> {
+): Promise<DeleteDatasetImportJobCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteDatasetImportJobCommandError(
       output,
@@ -1356,12 +1382,12 @@ export async function deserializeAws_json1_1DeleteDatasetImportJobCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteDatasetImportJobCommandError(
+const deserializeAws_json1_1DeleteDatasetImportJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteDatasetImportJobCommandOutput> {
+): Promise<DeleteDatasetImportJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1420,12 +1446,12 @@ async function deserializeAws_json1_1DeleteDatasetImportJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteForecastCommand(
+export const deserializeAws_json1_1DeleteForecastCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteForecastCommandOutput> {
+): Promise<DeleteForecastCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteForecastCommandError(output, context);
   }
@@ -1434,12 +1460,12 @@ export async function deserializeAws_json1_1DeleteForecastCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteForecastCommandError(
+const deserializeAws_json1_1DeleteForecastCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteForecastCommandOutput> {
+): Promise<DeleteForecastCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1498,12 +1524,12 @@ async function deserializeAws_json1_1DeleteForecastCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteForecastExportJobCommand(
+export const deserializeAws_json1_1DeleteForecastExportJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteForecastExportJobCommandOutput> {
+): Promise<DeleteForecastExportJobCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteForecastExportJobCommandError(
       output,
@@ -1515,12 +1541,12 @@ export async function deserializeAws_json1_1DeleteForecastExportJobCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteForecastExportJobCommandError(
+const deserializeAws_json1_1DeleteForecastExportJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteForecastExportJobCommandOutput> {
+): Promise<DeleteForecastExportJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1579,12 +1605,12 @@ async function deserializeAws_json1_1DeleteForecastExportJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeletePredictorCommand(
+export const deserializeAws_json1_1DeletePredictorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeletePredictorCommandOutput> {
+): Promise<DeletePredictorCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeletePredictorCommandError(output, context);
   }
@@ -1593,12 +1619,12 @@ export async function deserializeAws_json1_1DeletePredictorCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeletePredictorCommandError(
+const deserializeAws_json1_1DeletePredictorCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeletePredictorCommandOutput> {
+): Promise<DeletePredictorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1657,12 +1683,12 @@ async function deserializeAws_json1_1DeletePredictorCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeDatasetCommand(
+export const deserializeAws_json1_1DescribeDatasetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeDatasetCommandOutput> {
+): Promise<DescribeDatasetCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeDatasetCommandError(output, context);
   }
@@ -1675,12 +1701,12 @@ export async function deserializeAws_json1_1DescribeDatasetCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeDatasetCommandError(
+const deserializeAws_json1_1DescribeDatasetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeDatasetCommandOutput> {
+): Promise<DescribeDatasetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1728,12 +1754,12 @@ async function deserializeAws_json1_1DescribeDatasetCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeDatasetGroupCommand(
+export const deserializeAws_json1_1DescribeDatasetGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeDatasetGroupCommandOutput> {
+): Promise<DescribeDatasetGroupCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeDatasetGroupCommandError(
       output,
@@ -1749,12 +1775,12 @@ export async function deserializeAws_json1_1DescribeDatasetGroupCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeDatasetGroupCommandError(
+const deserializeAws_json1_1DescribeDatasetGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeDatasetGroupCommandOutput> {
+): Promise<DescribeDatasetGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1802,12 +1828,12 @@ async function deserializeAws_json1_1DescribeDatasetGroupCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeDatasetImportJobCommand(
+export const deserializeAws_json1_1DescribeDatasetImportJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeDatasetImportJobCommandOutput> {
+): Promise<DescribeDatasetImportJobCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeDatasetImportJobCommandError(
       output,
@@ -1826,12 +1852,12 @@ export async function deserializeAws_json1_1DescribeDatasetImportJobCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeDatasetImportJobCommandError(
+const deserializeAws_json1_1DescribeDatasetImportJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeDatasetImportJobCommandOutput> {
+): Promise<DescribeDatasetImportJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1879,12 +1905,12 @@ async function deserializeAws_json1_1DescribeDatasetImportJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeForecastCommand(
+export const deserializeAws_json1_1DescribeForecastCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeForecastCommandOutput> {
+): Promise<DescribeForecastCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeForecastCommandError(output, context);
   }
@@ -1897,12 +1923,12 @@ export async function deserializeAws_json1_1DescribeForecastCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeForecastCommandError(
+const deserializeAws_json1_1DescribeForecastCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeForecastCommandOutput> {
+): Promise<DescribeForecastCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1950,12 +1976,12 @@ async function deserializeAws_json1_1DescribeForecastCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeForecastExportJobCommand(
+export const deserializeAws_json1_1DescribeForecastExportJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeForecastExportJobCommandOutput> {
+): Promise<DescribeForecastExportJobCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeForecastExportJobCommandError(
       output,
@@ -1974,12 +2000,12 @@ export async function deserializeAws_json1_1DescribeForecastExportJobCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeForecastExportJobCommandError(
+const deserializeAws_json1_1DescribeForecastExportJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeForecastExportJobCommandOutput> {
+): Promise<DescribeForecastExportJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2027,12 +2053,12 @@ async function deserializeAws_json1_1DescribeForecastExportJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribePredictorCommand(
+export const deserializeAws_json1_1DescribePredictorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribePredictorCommandOutput> {
+): Promise<DescribePredictorCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribePredictorCommandError(output, context);
   }
@@ -2045,12 +2071,12 @@ export async function deserializeAws_json1_1DescribePredictorCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribePredictorCommandError(
+const deserializeAws_json1_1DescribePredictorCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribePredictorCommandOutput> {
+): Promise<DescribePredictorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2098,12 +2124,12 @@ async function deserializeAws_json1_1DescribePredictorCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetAccuracyMetricsCommand(
+export const deserializeAws_json1_1GetAccuracyMetricsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetAccuracyMetricsCommandOutput> {
+): Promise<GetAccuracyMetricsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetAccuracyMetricsCommandError(
       output,
@@ -2119,12 +2145,12 @@ export async function deserializeAws_json1_1GetAccuracyMetricsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetAccuracyMetricsCommandError(
+const deserializeAws_json1_1GetAccuracyMetricsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetAccuracyMetricsCommandOutput> {
+): Promise<GetAccuracyMetricsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2183,12 +2209,12 @@ async function deserializeAws_json1_1GetAccuracyMetricsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListDatasetGroupsCommand(
+export const deserializeAws_json1_1ListDatasetGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListDatasetGroupsCommandOutput> {
+): Promise<ListDatasetGroupsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListDatasetGroupsCommandError(output, context);
   }
@@ -2201,12 +2227,12 @@ export async function deserializeAws_json1_1ListDatasetGroupsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListDatasetGroupsCommandError(
+const deserializeAws_json1_1ListDatasetGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListDatasetGroupsCommandOutput> {
+): Promise<ListDatasetGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2243,12 +2269,12 @@ async function deserializeAws_json1_1ListDatasetGroupsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListDatasetImportJobsCommand(
+export const deserializeAws_json1_1ListDatasetImportJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListDatasetImportJobsCommandOutput> {
+): Promise<ListDatasetImportJobsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListDatasetImportJobsCommandError(
       output,
@@ -2264,12 +2290,12 @@ export async function deserializeAws_json1_1ListDatasetImportJobsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListDatasetImportJobsCommandError(
+const deserializeAws_json1_1ListDatasetImportJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListDatasetImportJobsCommandOutput> {
+): Promise<ListDatasetImportJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2317,12 +2343,12 @@ async function deserializeAws_json1_1ListDatasetImportJobsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListDatasetsCommand(
+export const deserializeAws_json1_1ListDatasetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListDatasetsCommandOutput> {
+): Promise<ListDatasetsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListDatasetsCommandError(output, context);
   }
@@ -2335,12 +2361,12 @@ export async function deserializeAws_json1_1ListDatasetsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListDatasetsCommandError(
+const deserializeAws_json1_1ListDatasetsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListDatasetsCommandOutput> {
+): Promise<ListDatasetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2377,12 +2403,12 @@ async function deserializeAws_json1_1ListDatasetsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListForecastExportJobsCommand(
+export const deserializeAws_json1_1ListForecastExportJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListForecastExportJobsCommandOutput> {
+): Promise<ListForecastExportJobsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListForecastExportJobsCommandError(
       output,
@@ -2401,12 +2427,12 @@ export async function deserializeAws_json1_1ListForecastExportJobsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListForecastExportJobsCommandError(
+const deserializeAws_json1_1ListForecastExportJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListForecastExportJobsCommandOutput> {
+): Promise<ListForecastExportJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2454,12 +2480,12 @@ async function deserializeAws_json1_1ListForecastExportJobsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListForecastsCommand(
+export const deserializeAws_json1_1ListForecastsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListForecastsCommandOutput> {
+): Promise<ListForecastsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListForecastsCommandError(output, context);
   }
@@ -2472,12 +2498,12 @@ export async function deserializeAws_json1_1ListForecastsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListForecastsCommandError(
+const deserializeAws_json1_1ListForecastsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListForecastsCommandOutput> {
+): Promise<ListForecastsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2525,12 +2551,12 @@ async function deserializeAws_json1_1ListForecastsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListPredictorsCommand(
+export const deserializeAws_json1_1ListPredictorsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListPredictorsCommandOutput> {
+): Promise<ListPredictorsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListPredictorsCommandError(output, context);
   }
@@ -2543,12 +2569,12 @@ export async function deserializeAws_json1_1ListPredictorsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListPredictorsCommandError(
+const deserializeAws_json1_1ListPredictorsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListPredictorsCommandOutput> {
+): Promise<ListPredictorsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2596,12 +2622,12 @@ async function deserializeAws_json1_1ListPredictorsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateDatasetGroupCommand(
+export const deserializeAws_json1_1UpdateDatasetGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateDatasetGroupCommandOutput> {
+): Promise<UpdateDatasetGroupCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateDatasetGroupCommandError(
       output,
@@ -2617,12 +2643,12 @@ export async function deserializeAws_json1_1UpdateDatasetGroupCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateDatasetGroupCommandError(
+const deserializeAws_json1_1UpdateDatasetGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateDatasetGroupCommandOutput> {
+): Promise<UpdateDatasetGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2681,7 +2707,7 @@ async function deserializeAws_json1_1UpdateDatasetGroupCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_1InvalidInputExceptionResponse = async (
   parsedOutput: any,
@@ -2792,14 +2818,10 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
 };
 
 const serializeAws_json1_1ArnList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1CategoricalParameterRange = (
@@ -2817,16 +2839,12 @@ const serializeAws_json1_1CategoricalParameterRange = (
 };
 
 const serializeAws_json1_1CategoricalParameterRanges = (
-  input: Array<CategoricalParameterRange>,
+  input: CategoricalParameterRange[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_json1_1CategoricalParameterRange(entry, context)
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1CategoricalParameterRange(entry, context)
+  );
 };
 
 const serializeAws_json1_1ContinuousParameterRange = (
@@ -2850,14 +2868,12 @@ const serializeAws_json1_1ContinuousParameterRange = (
 };
 
 const serializeAws_json1_1ContinuousParameterRanges = (
-  input: Array<ContinuousParameterRange>,
+  input: ContinuousParameterRange[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1ContinuousParameterRange(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1ContinuousParameterRange(entry, context)
+  );
 };
 
 const serializeAws_json1_1CreateDatasetGroupRequest = (
@@ -3286,33 +3302,26 @@ const serializeAws_json1_1FeaturizationMethodParameters = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = input[key];
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = input[key];
+    return acc;
+  }, {});
 };
 
 const serializeAws_json1_1FeaturizationPipeline = (
-  input: Array<FeaturizationMethod>,
+  input: FeaturizationMethod[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1FeaturizationMethod(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1FeaturizationMethod(entry, context)
+  );
 };
 
 const serializeAws_json1_1Featurizations = (
-  input: Array<Featurization>,
+  input: Featurization[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1Featurization(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1Featurization(entry, context));
 };
 
 const serializeAws_json1_1Filter = (
@@ -3333,36 +3342,24 @@ const serializeAws_json1_1Filter = (
 };
 
 const serializeAws_json1_1Filters = (
-  input: Array<Filter>,
+  input: Filter[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1Filter(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1Filter(entry, context));
 };
 
 const serializeAws_json1_1ForecastDimensions = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1ForecastTypes = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1GetAccuracyMetricsRequest = (
@@ -3430,14 +3427,12 @@ const serializeAws_json1_1IntegerParameterRange = (
 };
 
 const serializeAws_json1_1IntegerParameterRanges = (
-  input: Array<IntegerParameterRange>,
+  input: IntegerParameterRange[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1IntegerParameterRange(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1IntegerParameterRange(entry, context)
+  );
 };
 
 const serializeAws_json1_1ListDatasetGroupsRequest = (
@@ -3614,14 +3609,12 @@ const serializeAws_json1_1SchemaAttribute = (
 };
 
 const serializeAws_json1_1SchemaAttributes = (
-  input: Array<SchemaAttribute>,
+  input: SchemaAttribute[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1SchemaAttribute(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1SchemaAttribute(entry, context)
+  );
 };
 
 const serializeAws_json1_1SupplementaryFeature = (
@@ -3639,25 +3632,22 @@ const serializeAws_json1_1SupplementaryFeature = (
 };
 
 const serializeAws_json1_1SupplementaryFeatures = (
-  input: Array<SupplementaryFeature>,
+  input: SupplementaryFeature[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1SupplementaryFeature(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1SupplementaryFeature(entry, context)
+  );
 };
 
 const serializeAws_json1_1TrainingParameters = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = input[key];
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = input[key];
+    return acc;
+  }, {});
 };
 
 const serializeAws_json1_1UpdateDatasetGroupRequest = (
@@ -3678,20 +3668,16 @@ const serializeAws_json1_1UpdateDatasetGroupRequest = (
 };
 
 const serializeAws_json1_1Values = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const deserializeAws_json1_1ArnList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -3716,7 +3702,7 @@ const deserializeAws_json1_1CategoricalParameterRange = (
 const deserializeAws_json1_1CategoricalParameterRanges = (
   output: any,
   context: __SerdeContext
-): Array<CategoricalParameterRange> => {
+): CategoricalParameterRange[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1CategoricalParameterRange(entry, context)
   );
@@ -3751,7 +3737,7 @@ const deserializeAws_json1_1ContinuousParameterRange = (
 const deserializeAws_json1_1ContinuousParameterRanges = (
   output: any,
   context: __SerdeContext
-): Array<ContinuousParameterRange> => {
+): ContinuousParameterRange[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ContinuousParameterRange(entry, context)
   );
@@ -3918,7 +3904,7 @@ const deserializeAws_json1_1DatasetGroupSummary = (
 const deserializeAws_json1_1DatasetGroups = (
   output: any,
   context: __SerdeContext
-): Array<DatasetGroupSummary> => {
+): DatasetGroupSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DatasetGroupSummary(entry, context)
   );
@@ -3979,7 +3965,7 @@ const deserializeAws_json1_1DatasetImportJobSummary = (
 const deserializeAws_json1_1DatasetImportJobs = (
   output: any,
   context: __SerdeContext
-): Array<DatasetImportJobSummary> => {
+): DatasetImportJobSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DatasetImportJobSummary(entry, context)
   );
@@ -4027,7 +4013,7 @@ const deserializeAws_json1_1DatasetSummary = (
 const deserializeAws_json1_1Datasets = (
   output: any,
   context: __SerdeContext
-): Array<DatasetSummary> => {
+): DatasetSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DatasetSummary(entry, context)
   );
@@ -4615,17 +4601,16 @@ const deserializeAws_json1_1FeaturizationMethodParameters = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = output[key];
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_1FeaturizationPipeline = (
   output: any,
   context: __SerdeContext
-): Array<FeaturizationMethod> => {
+): FeaturizationMethod[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1FeaturizationMethod(entry, context)
   );
@@ -4634,7 +4619,7 @@ const deserializeAws_json1_1FeaturizationPipeline = (
 const deserializeAws_json1_1Featurizations = (
   output: any,
   context: __SerdeContext
-): Array<Featurization> => {
+): Featurization[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Featurization(entry, context)
   );
@@ -4644,17 +4629,16 @@ const deserializeAws_json1_1FieldStatistics = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: Statistics } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_json1_1Statistics(output[key], context);
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = deserializeAws_json1_1Statistics(output[key], context);
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_1ForecastDimensions = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -4713,7 +4697,7 @@ const deserializeAws_json1_1ForecastExportJobSummary = (
 const deserializeAws_json1_1ForecastExportJobs = (
   output: any,
   context: __SerdeContext
-): Array<ForecastExportJobSummary> => {
+): ForecastExportJobSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ForecastExportJobSummary(entry, context)
   );
@@ -4769,14 +4753,14 @@ const deserializeAws_json1_1ForecastSummary = (
 const deserializeAws_json1_1ForecastTypes = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1Forecasts = (
   output: any,
   context: __SerdeContext
-): Array<ForecastSummary> => {
+): ForecastSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ForecastSummary(entry, context)
   );
@@ -4872,7 +4856,7 @@ const deserializeAws_json1_1IntegerParameterRange = (
 const deserializeAws_json1_1IntegerParameterRanges = (
   output: any,
   context: __SerdeContext
-): Array<IntegerParameterRange> => {
+): IntegerParameterRange[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1IntegerParameterRange(entry, context)
   );
@@ -5119,7 +5103,7 @@ const deserializeAws_json1_1ParameterRanges = (
 const deserializeAws_json1_1PredictorEvaluationResults = (
   output: any,
   context: __SerdeContext
-): Array<EvaluationResult> => {
+): EvaluationResult[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EvaluationResult(entry, context)
   );
@@ -5169,7 +5153,7 @@ const deserializeAws_json1_1PredictorExecutionDetails = (
 const deserializeAws_json1_1PredictorExecutions = (
   output: any,
   context: __SerdeContext
-): Array<PredictorExecution> => {
+): PredictorExecution[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PredictorExecution(entry, context)
   );
@@ -5221,7 +5205,7 @@ const deserializeAws_json1_1PredictorSummary = (
 const deserializeAws_json1_1Predictors = (
   output: any,
   context: __SerdeContext
-): Array<PredictorSummary> => {
+): PredictorSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PredictorSummary(entry, context)
   );
@@ -5329,7 +5313,7 @@ const deserializeAws_json1_1SchemaAttribute = (
 const deserializeAws_json1_1SchemaAttributes = (
   output: any,
   context: __SerdeContext
-): Array<SchemaAttribute> => {
+): SchemaAttribute[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SchemaAttribute(entry, context)
   );
@@ -5398,7 +5382,7 @@ const deserializeAws_json1_1SupplementaryFeature = (
 const deserializeAws_json1_1SupplementaryFeatures = (
   output: any,
   context: __SerdeContext
-): Array<SupplementaryFeature> => {
+): SupplementaryFeature[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SupplementaryFeature(entry, context)
   );
@@ -5407,7 +5391,7 @@ const deserializeAws_json1_1SupplementaryFeatures = (
 const deserializeAws_json1_1TestWindowDetails = (
   output: any,
   context: __SerdeContext
-): Array<TestWindowSummary> => {
+): TestWindowSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1TestWindowSummary(entry, context)
   );
@@ -5444,7 +5428,7 @@ const deserializeAws_json1_1TestWindowSummary = (
 const deserializeAws_json1_1TestWindows = (
   output: any,
   context: __SerdeContext
-): Array<WindowSummary> => {
+): WindowSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1WindowSummary(entry, context)
   );
@@ -5454,11 +5438,10 @@ const deserializeAws_json1_1TrainingParameters = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = output[key];
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_1UpdateDatasetGroupResponse = (
@@ -5474,7 +5457,7 @@ const deserializeAws_json1_1UpdateDatasetGroupResponse = (
 const deserializeAws_json1_1Values = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -5499,7 +5482,7 @@ const deserializeAws_json1_1WeightedQuantileLoss = (
 const deserializeAws_json1_1WeightedQuantileLosses = (
   output: any,
   context: __SerdeContext
-): Array<WeightedQuantileLoss> => {
+): WeightedQuantileLoss[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1WeightedQuantileLoss(entry, context)
   );
@@ -5545,7 +5528,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -5560,11 +5543,8 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
@@ -5591,11 +5571,10 @@ const buildHttpRpcRequest = async (
   return new __HttpRequest(contents);
 };
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};

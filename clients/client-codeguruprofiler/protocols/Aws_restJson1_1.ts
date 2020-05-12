@@ -64,12 +64,13 @@ import {
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
-export async function serializeAws_restJson1_1ConfigureAgentCommand(
+export const serializeAws_restJson1_1ConfigureAgentCommand = async (
   input: ConfigureAgentCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/profilingGroups/{profilingGroupName}/configureAgent";
   if (input.profilingGroupName !== undefined) {
     const labelValue: string = input.profilingGroupName;
@@ -103,19 +104,19 @@ export async function serializeAws_restJson1_1ConfigureAgentCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1CreateProfilingGroupCommand(
+export const serializeAws_restJson1_1CreateProfilingGroupCommand = async (
   input: CreateProfilingGroupCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/profilingGroups";
-  const query: any = {};
-  if (input.clientToken !== undefined) {
-    query["clientToken"] = input.clientToken;
-  }
+  const query: any = {
+    ...(input.clientToken !== undefined && { clientToken: input.clientToken })
+  };
   let body: any;
   const bodyParams: any = {};
   if (input.agentOrchestrationConfig !== undefined) {
@@ -141,14 +142,15 @@ export async function serializeAws_restJson1_1CreateProfilingGroupCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeleteProfilingGroupCommand(
+export const serializeAws_restJson1_1DeleteProfilingGroupCommand = async (
   input: DeleteProfilingGroupCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/profilingGroups/{profilingGroupName}";
   if (input.profilingGroupName !== undefined) {
     const labelValue: string = input.profilingGroupName;
@@ -177,14 +179,15 @@ export async function serializeAws_restJson1_1DeleteProfilingGroupCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribeProfilingGroupCommand(
+export const serializeAws_restJson1_1DescribeProfilingGroupCommand = async (
   input: DescribeProfilingGroupCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/profilingGroups/{profilingGroupName}";
   if (input.profilingGroupName !== undefined) {
     const labelValue: string = input.profilingGroupName;
@@ -213,25 +216,25 @@ export async function serializeAws_restJson1_1DescribeProfilingGroupCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListProfilingGroupsCommand(
+export const serializeAws_restJson1_1ListProfilingGroupsCommand = async (
   input: ListProfilingGroupsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/profilingGroups";
-  const query: any = {};
-  if (input.includeDescription !== undefined) {
-    query["includeDescription"] = input.includeDescription.toString();
-  }
-  if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
-  }
-  if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken;
-  }
+  const query: any = {
+    ...(input.includeDescription !== undefined && {
+      includeDescription: input.includeDescription.toString()
+    }),
+    ...(input.maxResults !== undefined && {
+      maxResults: input.maxResults.toString()
+    }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -244,14 +247,15 @@ export async function serializeAws_restJson1_1ListProfilingGroupsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UpdateProfilingGroupCommand(
+export const serializeAws_restJson1_1UpdateProfilingGroupCommand = async (
   input: UpdateProfilingGroupCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/profilingGroups/{profilingGroupName}";
   if (input.profilingGroupName !== undefined) {
     const labelValue: string = input.profilingGroupName;
@@ -290,17 +294,16 @@ export async function serializeAws_restJson1_1UpdateProfilingGroupCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetProfileCommand(
+export const serializeAws_restJson1_1GetProfileCommand = async (
   input: GetProfileCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.accept)) {
-    headers["Accept"] = input.accept!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.accept) && { Accept: input.accept! })
+  };
   let resolvedPath = "/profilingGroups/{profilingGroupName}/profile";
   if (input.profilingGroupName !== undefined) {
     const labelValue: string = input.profilingGroupName;
@@ -318,23 +321,18 @@ export async function serializeAws_restJson1_1GetProfileCommand(
       "No value provided for input HTTP label: profilingGroupName."
     );
   }
-  const query: any = {};
-  if (input.endTime !== undefined) {
-    query["endTime"] = (
-      input.endTime.toISOString().split(".")[0] + "Z"
-    ).toString();
-  }
-  if (input.maxDepth !== undefined) {
-    query["maxDepth"] = input.maxDepth.toString();
-  }
-  if (input.period !== undefined) {
-    query["period"] = input.period;
-  }
-  if (input.startTime !== undefined) {
-    query["startTime"] = (
-      input.startTime.toISOString().split(".")[0] + "Z"
-    ).toString();
-  }
+  const query: any = {
+    ...(input.endTime !== undefined && {
+      endTime: (input.endTime.toISOString().split(".")[0] + "Z").toString()
+    }),
+    ...(input.maxDepth !== undefined && {
+      maxDepth: input.maxDepth.toString()
+    }),
+    ...(input.period !== undefined && { period: input.period }),
+    ...(input.startTime !== undefined && {
+      startTime: (input.startTime.toISOString().split(".")[0] + "Z").toString()
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -347,14 +345,15 @@ export async function serializeAws_restJson1_1GetProfileCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListProfileTimesCommand(
+export const serializeAws_restJson1_1ListProfileTimesCommand = async (
   input: ListProfileTimesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/profilingGroups/{profilingGroupName}/profileTimes";
   if (input.profilingGroupName !== undefined) {
     const labelValue: string = input.profilingGroupName;
@@ -372,29 +371,20 @@ export async function serializeAws_restJson1_1ListProfileTimesCommand(
       "No value provided for input HTTP label: profilingGroupName."
     );
   }
-  const query: any = {};
-  if (input.endTime !== undefined) {
-    query["endTime"] = (
-      input.endTime.toISOString().split(".")[0] + "Z"
-    ).toString();
-  }
-  if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
-  }
-  if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken;
-  }
-  if (input.orderBy !== undefined) {
-    query["orderBy"] = input.orderBy;
-  }
-  if (input.period !== undefined) {
-    query["period"] = input.period;
-  }
-  if (input.startTime !== undefined) {
-    query["startTime"] = (
-      input.startTime.toISOString().split(".")[0] + "Z"
-    ).toString();
-  }
+  const query: any = {
+    ...(input.endTime !== undefined && {
+      endTime: (input.endTime.toISOString().split(".")[0] + "Z").toString()
+    }),
+    ...(input.maxResults !== undefined && {
+      maxResults: input.maxResults.toString()
+    }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.orderBy !== undefined && { orderBy: input.orderBy }),
+    ...(input.period !== undefined && { period: input.period }),
+    ...(input.startTime !== undefined && {
+      startTime: (input.startTime.toISOString().split(".")[0] + "Z").toString()
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -407,17 +397,18 @@ export async function serializeAws_restJson1_1ListProfileTimesCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1PostAgentProfileCommand(
+export const serializeAws_restJson1_1PostAgentProfileCommand = async (
   input: PostAgentProfileCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/octet-stream";
-  if (isSerializableHeaderValue(input.contentType)) {
-    headers["Content-Type"] = input.contentType!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/octet-stream",
+    ...(isSerializableHeaderValue(input.contentType) && {
+      "Content-Type": input.contentType!
+    })
+  };
   let resolvedPath = "/profilingGroups/{profilingGroupName}/agentProfile";
   if (input.profilingGroupName !== undefined) {
     const labelValue: string = input.profilingGroupName;
@@ -435,10 +426,11 @@ export async function serializeAws_restJson1_1PostAgentProfileCommand(
       "No value provided for input HTTP label: profilingGroupName."
     );
   }
-  const query: any = {};
-  if (input.profileToken !== undefined) {
-    query["profileToken"] = input.profileToken;
-  }
+  const query: any = {
+    ...(input.profileToken !== undefined && {
+      profileToken: input.profileToken
+    })
+  };
   let body: any;
   if (input.agentProfile !== undefined) {
     body = input.agentProfile;
@@ -454,12 +446,12 @@ export async function serializeAws_restJson1_1PostAgentProfileCommand(
     query,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1ConfigureAgentCommand(
+export const deserializeAws_restJson1_1ConfigureAgentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ConfigureAgentCommandOutput> {
+): Promise<ConfigureAgentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ConfigureAgentCommandError(
       output,
@@ -477,12 +469,12 @@ export async function deserializeAws_restJson1_1ConfigureAgentCommand(
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ConfigureAgentCommandError(
+const deserializeAws_restJson1_1ConfigureAgentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ConfigureAgentCommandOutput> {
+): Promise<ConfigureAgentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -550,12 +542,12 @@ async function deserializeAws_restJson1_1ConfigureAgentCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1CreateProfilingGroupCommand(
+export const deserializeAws_restJson1_1CreateProfilingGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateProfilingGroupCommandOutput> {
+): Promise<CreateProfilingGroupCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateProfilingGroupCommandError(
       output,
@@ -573,12 +565,12 @@ export async function deserializeAws_restJson1_1CreateProfilingGroupCommand(
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreateProfilingGroupCommandError(
+const deserializeAws_restJson1_1CreateProfilingGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateProfilingGroupCommandOutput> {
+): Promise<CreateProfilingGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -657,12 +649,12 @@ async function deserializeAws_restJson1_1CreateProfilingGroupCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteProfilingGroupCommand(
+export const deserializeAws_restJson1_1DeleteProfilingGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteProfilingGroupCommandOutput> {
+): Promise<DeleteProfilingGroupCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteProfilingGroupCommandError(
       output,
@@ -675,12 +667,12 @@ export async function deserializeAws_restJson1_1DeleteProfilingGroupCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteProfilingGroupCommandError(
+const deserializeAws_restJson1_1DeleteProfilingGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteProfilingGroupCommandOutput> {
+): Promise<DeleteProfilingGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -748,12 +740,12 @@ async function deserializeAws_restJson1_1DeleteProfilingGroupCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeProfilingGroupCommand(
+export const deserializeAws_restJson1_1DescribeProfilingGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeProfilingGroupCommandOutput> {
+): Promise<DescribeProfilingGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeProfilingGroupCommandError(
       output,
@@ -771,12 +763,12 @@ export async function deserializeAws_restJson1_1DescribeProfilingGroupCommand(
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeProfilingGroupCommandError(
+const deserializeAws_restJson1_1DescribeProfilingGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeProfilingGroupCommandOutput> {
+): Promise<DescribeProfilingGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -844,12 +836,12 @@ async function deserializeAws_restJson1_1DescribeProfilingGroupCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListProfilingGroupsCommand(
+export const deserializeAws_restJson1_1ListProfilingGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListProfilingGroupsCommandOutput> {
+): Promise<ListProfilingGroupsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListProfilingGroupsCommandError(
       output,
@@ -883,12 +875,12 @@ export async function deserializeAws_restJson1_1ListProfilingGroupsCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListProfilingGroupsCommandError(
+const deserializeAws_restJson1_1ListProfilingGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListProfilingGroupsCommandOutput> {
+): Promise<ListProfilingGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -934,12 +926,12 @@ async function deserializeAws_restJson1_1ListProfilingGroupsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UpdateProfilingGroupCommand(
+export const deserializeAws_restJson1_1UpdateProfilingGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateProfilingGroupCommandOutput> {
+): Promise<UpdateProfilingGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateProfilingGroupCommandError(
       output,
@@ -957,12 +949,12 @@ export async function deserializeAws_restJson1_1UpdateProfilingGroupCommand(
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UpdateProfilingGroupCommandError(
+const deserializeAws_restJson1_1UpdateProfilingGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateProfilingGroupCommandOutput> {
+): Promise<UpdateProfilingGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1041,12 +1033,12 @@ async function deserializeAws_restJson1_1UpdateProfilingGroupCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetProfileCommand(
+export const deserializeAws_restJson1_1GetProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetProfileCommandOutput> {
+): Promise<GetProfileCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetProfileCommandError(output, context);
   }
@@ -1066,12 +1058,12 @@ export async function deserializeAws_restJson1_1GetProfileCommand(
   const data: any = await collectBody(output.body, context);
   contents.profile = data;
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetProfileCommandError(
+const deserializeAws_restJson1_1GetProfileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetProfileCommandOutput> {
+): Promise<GetProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1139,12 +1131,12 @@ async function deserializeAws_restJson1_1GetProfileCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListProfileTimesCommand(
+export const deserializeAws_restJson1_1ListProfileTimesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListProfileTimesCommandOutput> {
+): Promise<ListProfileTimesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListProfileTimesCommandError(
       output,
@@ -1168,12 +1160,12 @@ export async function deserializeAws_restJson1_1ListProfileTimesCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListProfileTimesCommandError(
+const deserializeAws_restJson1_1ListProfileTimesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListProfileTimesCommandOutput> {
+): Promise<ListProfileTimesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1241,12 +1233,12 @@ async function deserializeAws_restJson1_1ListProfileTimesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1PostAgentProfileCommand(
+export const deserializeAws_restJson1_1PostAgentProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PostAgentProfileCommandOutput> {
+): Promise<PostAgentProfileCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1PostAgentProfileCommandError(
       output,
@@ -1259,12 +1251,12 @@ export async function deserializeAws_restJson1_1PostAgentProfileCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1PostAgentProfileCommandError(
+const deserializeAws_restJson1_1PostAgentProfileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PostAgentProfileCommandOutput> {
+): Promise<PostAgentProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1332,7 +1324,7 @@ async function deserializeAws_restJson1_1PostAgentProfileCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1ConflictExceptionResponse = async (
   parsedOutput: any,
@@ -1546,7 +1538,7 @@ const deserializeAws_restJson1_1ProfilingGroupDescription = (
 const deserializeAws_restJson1_1ProfilingGroupDescriptions = (
   output: any,
   context: __SerdeContext
-): Array<ProfilingGroupDescription> => {
+): ProfilingGroupDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ProfilingGroupDescription(entry, context)
   );
@@ -1555,7 +1547,7 @@ const deserializeAws_restJson1_1ProfilingGroupDescriptions = (
 const deserializeAws_restJson1_1ProfilingGroupNames = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -1614,7 +1606,7 @@ const deserializeAws_restJson1_1ProfileTime = (
 const deserializeAws_restJson1_1ProfileTimes = (
   output: any,
   context: __SerdeContext
-): Array<ProfileTime> => {
+): ProfileTime[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ProfileTime(entry, context)
   );
@@ -1628,7 +1620,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -1643,30 +1635,23 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
-function isSerializableHeaderValue(value: any): boolean {
-  return (
-    value !== undefined &&
-    value !== "" &&
-    (!Object.getOwnPropertyNames(value).includes("length") ||
-      value.length != 0) &&
-    (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0)
-  );
-}
+const isSerializableHeaderValue = (value: any): boolean =>
+  value !== undefined &&
+  value !== "" &&
+  (!Object.getOwnPropertyNames(value).includes("length") ||
+    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};
 
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.

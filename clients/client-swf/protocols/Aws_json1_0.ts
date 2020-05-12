@@ -312,527 +312,559 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_json1_0CountClosedWorkflowExecutionsCommand(
+export const serializeAws_json1_0CountClosedWorkflowExecutionsCommand = async (
   input: CountClosedWorkflowExecutionsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] =
-    "SimpleWorkflowService.CountClosedWorkflowExecutions";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "SimpleWorkflowService.CountClosedWorkflowExecutions"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0CountClosedWorkflowExecutionsInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0CountOpenWorkflowExecutionsCommand(
+export const serializeAws_json1_0CountOpenWorkflowExecutionsCommand = async (
   input: CountOpenWorkflowExecutionsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "SimpleWorkflowService.CountOpenWorkflowExecutions";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "SimpleWorkflowService.CountOpenWorkflowExecutions"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0CountOpenWorkflowExecutionsInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0CountPendingActivityTasksCommand(
+export const serializeAws_json1_0CountPendingActivityTasksCommand = async (
   input: CountPendingActivityTasksCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "SimpleWorkflowService.CountPendingActivityTasks";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "SimpleWorkflowService.CountPendingActivityTasks"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0CountPendingActivityTasksInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0CountPendingDecisionTasksCommand(
+export const serializeAws_json1_0CountPendingDecisionTasksCommand = async (
   input: CountPendingDecisionTasksCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "SimpleWorkflowService.CountPendingDecisionTasks";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "SimpleWorkflowService.CountPendingDecisionTasks"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0CountPendingDecisionTasksInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0DeprecateActivityTypeCommand(
+export const serializeAws_json1_0DeprecateActivityTypeCommand = async (
   input: DeprecateActivityTypeCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "SimpleWorkflowService.DeprecateActivityType";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "SimpleWorkflowService.DeprecateActivityType"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0DeprecateActivityTypeInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0DeprecateDomainCommand(
+export const serializeAws_json1_0DeprecateDomainCommand = async (
   input: DeprecateDomainCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "SimpleWorkflowService.DeprecateDomain";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "SimpleWorkflowService.DeprecateDomain"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0DeprecateDomainInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0DeprecateWorkflowTypeCommand(
+export const serializeAws_json1_0DeprecateWorkflowTypeCommand = async (
   input: DeprecateWorkflowTypeCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "SimpleWorkflowService.DeprecateWorkflowType";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "SimpleWorkflowService.DeprecateWorkflowType"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0DeprecateWorkflowTypeInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0DescribeActivityTypeCommand(
+export const serializeAws_json1_0DescribeActivityTypeCommand = async (
   input: DescribeActivityTypeCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "SimpleWorkflowService.DescribeActivityType";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "SimpleWorkflowService.DescribeActivityType"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0DescribeActivityTypeInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0DescribeDomainCommand(
+export const serializeAws_json1_0DescribeDomainCommand = async (
   input: DescribeDomainCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "SimpleWorkflowService.DescribeDomain";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "SimpleWorkflowService.DescribeDomain"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0DescribeDomainInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0DescribeWorkflowExecutionCommand(
+export const serializeAws_json1_0DescribeWorkflowExecutionCommand = async (
   input: DescribeWorkflowExecutionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "SimpleWorkflowService.DescribeWorkflowExecution";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "SimpleWorkflowService.DescribeWorkflowExecution"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0DescribeWorkflowExecutionInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0DescribeWorkflowTypeCommand(
+export const serializeAws_json1_0DescribeWorkflowTypeCommand = async (
   input: DescribeWorkflowTypeCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "SimpleWorkflowService.DescribeWorkflowType";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "SimpleWorkflowService.DescribeWorkflowType"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0DescribeWorkflowTypeInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0GetWorkflowExecutionHistoryCommand(
+export const serializeAws_json1_0GetWorkflowExecutionHistoryCommand = async (
   input: GetWorkflowExecutionHistoryCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "SimpleWorkflowService.GetWorkflowExecutionHistory";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "SimpleWorkflowService.GetWorkflowExecutionHistory"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0GetWorkflowExecutionHistoryInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0ListActivityTypesCommand(
+export const serializeAws_json1_0ListActivityTypesCommand = async (
   input: ListActivityTypesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "SimpleWorkflowService.ListActivityTypes";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "SimpleWorkflowService.ListActivityTypes"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0ListActivityTypesInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0ListClosedWorkflowExecutionsCommand(
+export const serializeAws_json1_0ListClosedWorkflowExecutionsCommand = async (
   input: ListClosedWorkflowExecutionsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] =
-    "SimpleWorkflowService.ListClosedWorkflowExecutions";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "SimpleWorkflowService.ListClosedWorkflowExecutions"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0ListClosedWorkflowExecutionsInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0ListDomainsCommand(
+export const serializeAws_json1_0ListDomainsCommand = async (
   input: ListDomainsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "SimpleWorkflowService.ListDomains";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "SimpleWorkflowService.ListDomains"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ListDomainsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0ListOpenWorkflowExecutionsCommand(
+export const serializeAws_json1_0ListOpenWorkflowExecutionsCommand = async (
   input: ListOpenWorkflowExecutionsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "SimpleWorkflowService.ListOpenWorkflowExecutions";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "SimpleWorkflowService.ListOpenWorkflowExecutions"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0ListOpenWorkflowExecutionsInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0ListTagsForResourceCommand(
+export const serializeAws_json1_0ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "SimpleWorkflowService.ListTagsForResource";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "SimpleWorkflowService.ListTagsForResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0ListTagsForResourceInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0ListWorkflowTypesCommand(
+export const serializeAws_json1_0ListWorkflowTypesCommand = async (
   input: ListWorkflowTypesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "SimpleWorkflowService.ListWorkflowTypes";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "SimpleWorkflowService.ListWorkflowTypes"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0ListWorkflowTypesInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0PollForActivityTaskCommand(
+export const serializeAws_json1_0PollForActivityTaskCommand = async (
   input: PollForActivityTaskCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "SimpleWorkflowService.PollForActivityTask";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "SimpleWorkflowService.PollForActivityTask"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0PollForActivityTaskInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0PollForDecisionTaskCommand(
+export const serializeAws_json1_0PollForDecisionTaskCommand = async (
   input: PollForDecisionTaskCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "SimpleWorkflowService.PollForDecisionTask";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "SimpleWorkflowService.PollForDecisionTask"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0PollForDecisionTaskInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0RecordActivityTaskHeartbeatCommand(
+export const serializeAws_json1_0RecordActivityTaskHeartbeatCommand = async (
   input: RecordActivityTaskHeartbeatCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "SimpleWorkflowService.RecordActivityTaskHeartbeat";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "SimpleWorkflowService.RecordActivityTaskHeartbeat"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0RecordActivityTaskHeartbeatInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0RegisterActivityTypeCommand(
+export const serializeAws_json1_0RegisterActivityTypeCommand = async (
   input: RegisterActivityTypeCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "SimpleWorkflowService.RegisterActivityType";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "SimpleWorkflowService.RegisterActivityType"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0RegisterActivityTypeInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0RegisterDomainCommand(
+export const serializeAws_json1_0RegisterDomainCommand = async (
   input: RegisterDomainCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "SimpleWorkflowService.RegisterDomain";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "SimpleWorkflowService.RegisterDomain"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0RegisterDomainInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0RegisterWorkflowTypeCommand(
+export const serializeAws_json1_0RegisterWorkflowTypeCommand = async (
   input: RegisterWorkflowTypeCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "SimpleWorkflowService.RegisterWorkflowType";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "SimpleWorkflowService.RegisterWorkflowType"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0RegisterWorkflowTypeInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0RequestCancelWorkflowExecutionCommand(
+export const serializeAws_json1_0RequestCancelWorkflowExecutionCommand = async (
   input: RequestCancelWorkflowExecutionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] =
-    "SimpleWorkflowService.RequestCancelWorkflowExecution";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "SimpleWorkflowService.RequestCancelWorkflowExecution"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0RequestCancelWorkflowExecutionInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0RespondActivityTaskCanceledCommand(
+export const serializeAws_json1_0RespondActivityTaskCanceledCommand = async (
   input: RespondActivityTaskCanceledCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "SimpleWorkflowService.RespondActivityTaskCanceled";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "SimpleWorkflowService.RespondActivityTaskCanceled"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0RespondActivityTaskCanceledInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0RespondActivityTaskCompletedCommand(
+export const serializeAws_json1_0RespondActivityTaskCompletedCommand = async (
   input: RespondActivityTaskCompletedCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] =
-    "SimpleWorkflowService.RespondActivityTaskCompleted";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "SimpleWorkflowService.RespondActivityTaskCompleted"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0RespondActivityTaskCompletedInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0RespondActivityTaskFailedCommand(
+export const serializeAws_json1_0RespondActivityTaskFailedCommand = async (
   input: RespondActivityTaskFailedCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "SimpleWorkflowService.RespondActivityTaskFailed";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "SimpleWorkflowService.RespondActivityTaskFailed"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0RespondActivityTaskFailedInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0RespondDecisionTaskCompletedCommand(
+export const serializeAws_json1_0RespondDecisionTaskCompletedCommand = async (
   input: RespondDecisionTaskCompletedCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] =
-    "SimpleWorkflowService.RespondDecisionTaskCompleted";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "SimpleWorkflowService.RespondDecisionTaskCompleted"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0RespondDecisionTaskCompletedInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0SignalWorkflowExecutionCommand(
+export const serializeAws_json1_0SignalWorkflowExecutionCommand = async (
   input: SignalWorkflowExecutionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "SimpleWorkflowService.SignalWorkflowExecution";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "SimpleWorkflowService.SignalWorkflowExecution"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0SignalWorkflowExecutionInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0StartWorkflowExecutionCommand(
+export const serializeAws_json1_0StartWorkflowExecutionCommand = async (
   input: StartWorkflowExecutionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "SimpleWorkflowService.StartWorkflowExecution";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "SimpleWorkflowService.StartWorkflowExecution"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0StartWorkflowExecutionInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0TagResourceCommand(
+export const serializeAws_json1_0TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "SimpleWorkflowService.TagResource";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "SimpleWorkflowService.TagResource"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0TagResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0TerminateWorkflowExecutionCommand(
+export const serializeAws_json1_0TerminateWorkflowExecutionCommand = async (
   input: TerminateWorkflowExecutionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "SimpleWorkflowService.TerminateWorkflowExecution";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "SimpleWorkflowService.TerminateWorkflowExecution"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0TerminateWorkflowExecutionInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0UndeprecateActivityTypeCommand(
+export const serializeAws_json1_0UndeprecateActivityTypeCommand = async (
   input: UndeprecateActivityTypeCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "SimpleWorkflowService.UndeprecateActivityType";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "SimpleWorkflowService.UndeprecateActivityType"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0UndeprecateActivityTypeInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0UndeprecateDomainCommand(
+export const serializeAws_json1_0UndeprecateDomainCommand = async (
   input: UndeprecateDomainCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "SimpleWorkflowService.UndeprecateDomain";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "SimpleWorkflowService.UndeprecateDomain"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0UndeprecateDomainInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0UndeprecateWorkflowTypeCommand(
+export const serializeAws_json1_0UndeprecateWorkflowTypeCommand = async (
   input: UndeprecateWorkflowTypeCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "SimpleWorkflowService.UndeprecateWorkflowType";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "SimpleWorkflowService.UndeprecateWorkflowType"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0UndeprecateWorkflowTypeInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0UntagResourceCommand(
+export const serializeAws_json1_0UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "SimpleWorkflowService.UntagResource";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "SimpleWorkflowService.UntagResource"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0UntagResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_0CountClosedWorkflowExecutionsCommand(
+export const deserializeAws_json1_0CountClosedWorkflowExecutionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CountClosedWorkflowExecutionsCommandOutput> {
+): Promise<CountClosedWorkflowExecutionsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0CountClosedWorkflowExecutionsCommandError(
       output,
@@ -848,12 +880,12 @@ export async function deserializeAws_json1_0CountClosedWorkflowExecutionsCommand
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0CountClosedWorkflowExecutionsCommandError(
+const deserializeAws_json1_0CountClosedWorkflowExecutionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CountClosedWorkflowExecutionsCommandOutput> {
+): Promise<CountClosedWorkflowExecutionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -901,12 +933,12 @@ async function deserializeAws_json1_0CountClosedWorkflowExecutionsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0CountOpenWorkflowExecutionsCommand(
+export const deserializeAws_json1_0CountOpenWorkflowExecutionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CountOpenWorkflowExecutionsCommandOutput> {
+): Promise<CountOpenWorkflowExecutionsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0CountOpenWorkflowExecutionsCommandError(
       output,
@@ -922,12 +954,12 @@ export async function deserializeAws_json1_0CountOpenWorkflowExecutionsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0CountOpenWorkflowExecutionsCommandError(
+const deserializeAws_json1_0CountOpenWorkflowExecutionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CountOpenWorkflowExecutionsCommandOutput> {
+): Promise<CountOpenWorkflowExecutionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -975,12 +1007,12 @@ async function deserializeAws_json1_0CountOpenWorkflowExecutionsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0CountPendingActivityTasksCommand(
+export const deserializeAws_json1_0CountPendingActivityTasksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CountPendingActivityTasksCommandOutput> {
+): Promise<CountPendingActivityTasksCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0CountPendingActivityTasksCommandError(
       output,
@@ -996,12 +1028,12 @@ export async function deserializeAws_json1_0CountPendingActivityTasksCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0CountPendingActivityTasksCommandError(
+const deserializeAws_json1_0CountPendingActivityTasksCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CountPendingActivityTasksCommandOutput> {
+): Promise<CountPendingActivityTasksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1049,12 +1081,12 @@ async function deserializeAws_json1_0CountPendingActivityTasksCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0CountPendingDecisionTasksCommand(
+export const deserializeAws_json1_0CountPendingDecisionTasksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CountPendingDecisionTasksCommandOutput> {
+): Promise<CountPendingDecisionTasksCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0CountPendingDecisionTasksCommandError(
       output,
@@ -1070,12 +1102,12 @@ export async function deserializeAws_json1_0CountPendingDecisionTasksCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0CountPendingDecisionTasksCommandError(
+const deserializeAws_json1_0CountPendingDecisionTasksCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CountPendingDecisionTasksCommandOutput> {
+): Promise<CountPendingDecisionTasksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1123,12 +1155,12 @@ async function deserializeAws_json1_0CountPendingDecisionTasksCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0DeprecateActivityTypeCommand(
+export const deserializeAws_json1_0DeprecateActivityTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeprecateActivityTypeCommandOutput> {
+): Promise<DeprecateActivityTypeCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0DeprecateActivityTypeCommandError(
       output,
@@ -1140,12 +1172,12 @@ export async function deserializeAws_json1_0DeprecateActivityTypeCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0DeprecateActivityTypeCommandError(
+const deserializeAws_json1_0DeprecateActivityTypeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeprecateActivityTypeCommandOutput> {
+): Promise<DeprecateActivityTypeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1204,12 +1236,12 @@ async function deserializeAws_json1_0DeprecateActivityTypeCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0DeprecateDomainCommand(
+export const deserializeAws_json1_0DeprecateDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeprecateDomainCommandOutput> {
+): Promise<DeprecateDomainCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0DeprecateDomainCommandError(output, context);
   }
@@ -1218,12 +1250,12 @@ export async function deserializeAws_json1_0DeprecateDomainCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0DeprecateDomainCommandError(
+const deserializeAws_json1_0DeprecateDomainCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeprecateDomainCommandOutput> {
+): Promise<DeprecateDomainCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1282,12 +1314,12 @@ async function deserializeAws_json1_0DeprecateDomainCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0DeprecateWorkflowTypeCommand(
+export const deserializeAws_json1_0DeprecateWorkflowTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeprecateWorkflowTypeCommandOutput> {
+): Promise<DeprecateWorkflowTypeCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0DeprecateWorkflowTypeCommandError(
       output,
@@ -1299,12 +1331,12 @@ export async function deserializeAws_json1_0DeprecateWorkflowTypeCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0DeprecateWorkflowTypeCommandError(
+const deserializeAws_json1_0DeprecateWorkflowTypeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeprecateWorkflowTypeCommandOutput> {
+): Promise<DeprecateWorkflowTypeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1363,12 +1395,12 @@ async function deserializeAws_json1_0DeprecateWorkflowTypeCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0DescribeActivityTypeCommand(
+export const deserializeAws_json1_0DescribeActivityTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeActivityTypeCommandOutput> {
+): Promise<DescribeActivityTypeCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0DescribeActivityTypeCommandError(
       output,
@@ -1384,12 +1416,12 @@ export async function deserializeAws_json1_0DescribeActivityTypeCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0DescribeActivityTypeCommandError(
+const deserializeAws_json1_0DescribeActivityTypeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeActivityTypeCommandOutput> {
+): Promise<DescribeActivityTypeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1437,12 +1469,12 @@ async function deserializeAws_json1_0DescribeActivityTypeCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0DescribeDomainCommand(
+export const deserializeAws_json1_0DescribeDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeDomainCommandOutput> {
+): Promise<DescribeDomainCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0DescribeDomainCommandError(output, context);
   }
@@ -1455,12 +1487,12 @@ export async function deserializeAws_json1_0DescribeDomainCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0DescribeDomainCommandError(
+const deserializeAws_json1_0DescribeDomainCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeDomainCommandOutput> {
+): Promise<DescribeDomainCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1508,12 +1540,12 @@ async function deserializeAws_json1_0DescribeDomainCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0DescribeWorkflowExecutionCommand(
+export const deserializeAws_json1_0DescribeWorkflowExecutionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeWorkflowExecutionCommandOutput> {
+): Promise<DescribeWorkflowExecutionCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0DescribeWorkflowExecutionCommandError(
       output,
@@ -1529,12 +1561,12 @@ export async function deserializeAws_json1_0DescribeWorkflowExecutionCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0DescribeWorkflowExecutionCommandError(
+const deserializeAws_json1_0DescribeWorkflowExecutionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeWorkflowExecutionCommandOutput> {
+): Promise<DescribeWorkflowExecutionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1582,12 +1614,12 @@ async function deserializeAws_json1_0DescribeWorkflowExecutionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0DescribeWorkflowTypeCommand(
+export const deserializeAws_json1_0DescribeWorkflowTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeWorkflowTypeCommandOutput> {
+): Promise<DescribeWorkflowTypeCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0DescribeWorkflowTypeCommandError(
       output,
@@ -1603,12 +1635,12 @@ export async function deserializeAws_json1_0DescribeWorkflowTypeCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0DescribeWorkflowTypeCommandError(
+const deserializeAws_json1_0DescribeWorkflowTypeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeWorkflowTypeCommandOutput> {
+): Promise<DescribeWorkflowTypeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1656,12 +1688,12 @@ async function deserializeAws_json1_0DescribeWorkflowTypeCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0GetWorkflowExecutionHistoryCommand(
+export const deserializeAws_json1_0GetWorkflowExecutionHistoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetWorkflowExecutionHistoryCommandOutput> {
+): Promise<GetWorkflowExecutionHistoryCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0GetWorkflowExecutionHistoryCommandError(
       output,
@@ -1677,12 +1709,12 @@ export async function deserializeAws_json1_0GetWorkflowExecutionHistoryCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0GetWorkflowExecutionHistoryCommandError(
+const deserializeAws_json1_0GetWorkflowExecutionHistoryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetWorkflowExecutionHistoryCommandOutput> {
+): Promise<GetWorkflowExecutionHistoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1730,12 +1762,12 @@ async function deserializeAws_json1_0GetWorkflowExecutionHistoryCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0ListActivityTypesCommand(
+export const deserializeAws_json1_0ListActivityTypesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListActivityTypesCommandOutput> {
+): Promise<ListActivityTypesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0ListActivityTypesCommandError(output, context);
   }
@@ -1748,12 +1780,12 @@ export async function deserializeAws_json1_0ListActivityTypesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0ListActivityTypesCommandError(
+const deserializeAws_json1_0ListActivityTypesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListActivityTypesCommandOutput> {
+): Promise<ListActivityTypesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1801,12 +1833,12 @@ async function deserializeAws_json1_0ListActivityTypesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0ListClosedWorkflowExecutionsCommand(
+export const deserializeAws_json1_0ListClosedWorkflowExecutionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListClosedWorkflowExecutionsCommandOutput> {
+): Promise<ListClosedWorkflowExecutionsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0ListClosedWorkflowExecutionsCommandError(
       output,
@@ -1822,12 +1854,12 @@ export async function deserializeAws_json1_0ListClosedWorkflowExecutionsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0ListClosedWorkflowExecutionsCommandError(
+const deserializeAws_json1_0ListClosedWorkflowExecutionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListClosedWorkflowExecutionsCommandOutput> {
+): Promise<ListClosedWorkflowExecutionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1875,12 +1907,12 @@ async function deserializeAws_json1_0ListClosedWorkflowExecutionsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0ListDomainsCommand(
+export const deserializeAws_json1_0ListDomainsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListDomainsCommandOutput> {
+): Promise<ListDomainsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0ListDomainsCommandError(output, context);
   }
@@ -1893,12 +1925,12 @@ export async function deserializeAws_json1_0ListDomainsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0ListDomainsCommandError(
+const deserializeAws_json1_0ListDomainsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListDomainsCommandOutput> {
+): Promise<ListDomainsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1935,12 +1967,12 @@ async function deserializeAws_json1_0ListDomainsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0ListOpenWorkflowExecutionsCommand(
+export const deserializeAws_json1_0ListOpenWorkflowExecutionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListOpenWorkflowExecutionsCommandOutput> {
+): Promise<ListOpenWorkflowExecutionsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0ListOpenWorkflowExecutionsCommandError(
       output,
@@ -1956,12 +1988,12 @@ export async function deserializeAws_json1_0ListOpenWorkflowExecutionsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0ListOpenWorkflowExecutionsCommandError(
+const deserializeAws_json1_0ListOpenWorkflowExecutionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListOpenWorkflowExecutionsCommandOutput> {
+): Promise<ListOpenWorkflowExecutionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2009,12 +2041,12 @@ async function deserializeAws_json1_0ListOpenWorkflowExecutionsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0ListTagsForResourceCommand(
+export const deserializeAws_json1_0ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0ListTagsForResourceCommandError(
       output,
@@ -2030,12 +2062,12 @@ export async function deserializeAws_json1_0ListTagsForResourceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0ListTagsForResourceCommandError(
+const deserializeAws_json1_0ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2094,12 +2126,12 @@ async function deserializeAws_json1_0ListTagsForResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0ListWorkflowTypesCommand(
+export const deserializeAws_json1_0ListWorkflowTypesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListWorkflowTypesCommandOutput> {
+): Promise<ListWorkflowTypesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0ListWorkflowTypesCommandError(output, context);
   }
@@ -2112,12 +2144,12 @@ export async function deserializeAws_json1_0ListWorkflowTypesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0ListWorkflowTypesCommandError(
+const deserializeAws_json1_0ListWorkflowTypesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListWorkflowTypesCommandOutput> {
+): Promise<ListWorkflowTypesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2165,12 +2197,12 @@ async function deserializeAws_json1_0ListWorkflowTypesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0PollForActivityTaskCommand(
+export const deserializeAws_json1_0PollForActivityTaskCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PollForActivityTaskCommandOutput> {
+): Promise<PollForActivityTaskCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0PollForActivityTaskCommandError(
       output,
@@ -2186,12 +2218,12 @@ export async function deserializeAws_json1_0PollForActivityTaskCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0PollForActivityTaskCommandError(
+const deserializeAws_json1_0PollForActivityTaskCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PollForActivityTaskCommandOutput> {
+): Promise<PollForActivityTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2250,12 +2282,12 @@ async function deserializeAws_json1_0PollForActivityTaskCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0PollForDecisionTaskCommand(
+export const deserializeAws_json1_0PollForDecisionTaskCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PollForDecisionTaskCommandOutput> {
+): Promise<PollForDecisionTaskCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0PollForDecisionTaskCommandError(
       output,
@@ -2271,12 +2303,12 @@ export async function deserializeAws_json1_0PollForDecisionTaskCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0PollForDecisionTaskCommandError(
+const deserializeAws_json1_0PollForDecisionTaskCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PollForDecisionTaskCommandOutput> {
+): Promise<PollForDecisionTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2335,12 +2367,12 @@ async function deserializeAws_json1_0PollForDecisionTaskCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0RecordActivityTaskHeartbeatCommand(
+export const deserializeAws_json1_0RecordActivityTaskHeartbeatCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RecordActivityTaskHeartbeatCommandOutput> {
+): Promise<RecordActivityTaskHeartbeatCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0RecordActivityTaskHeartbeatCommandError(
       output,
@@ -2356,12 +2388,12 @@ export async function deserializeAws_json1_0RecordActivityTaskHeartbeatCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0RecordActivityTaskHeartbeatCommandError(
+const deserializeAws_json1_0RecordActivityTaskHeartbeatCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RecordActivityTaskHeartbeatCommandOutput> {
+): Promise<RecordActivityTaskHeartbeatCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2409,12 +2441,12 @@ async function deserializeAws_json1_0RecordActivityTaskHeartbeatCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0RegisterActivityTypeCommand(
+export const deserializeAws_json1_0RegisterActivityTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RegisterActivityTypeCommandOutput> {
+): Promise<RegisterActivityTypeCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0RegisterActivityTypeCommandError(
       output,
@@ -2426,12 +2458,12 @@ export async function deserializeAws_json1_0RegisterActivityTypeCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0RegisterActivityTypeCommandError(
+const deserializeAws_json1_0RegisterActivityTypeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RegisterActivityTypeCommandOutput> {
+): Promise<RegisterActivityTypeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2501,12 +2533,12 @@ async function deserializeAws_json1_0RegisterActivityTypeCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0RegisterDomainCommand(
+export const deserializeAws_json1_0RegisterDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RegisterDomainCommandOutput> {
+): Promise<RegisterDomainCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0RegisterDomainCommandError(output, context);
   }
@@ -2515,12 +2547,12 @@ export async function deserializeAws_json1_0RegisterDomainCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0RegisterDomainCommandError(
+const deserializeAws_json1_0RegisterDomainCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RegisterDomainCommandOutput> {
+): Promise<RegisterDomainCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2590,12 +2622,12 @@ async function deserializeAws_json1_0RegisterDomainCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0RegisterWorkflowTypeCommand(
+export const deserializeAws_json1_0RegisterWorkflowTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RegisterWorkflowTypeCommandOutput> {
+): Promise<RegisterWorkflowTypeCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0RegisterWorkflowTypeCommandError(
       output,
@@ -2607,12 +2639,12 @@ export async function deserializeAws_json1_0RegisterWorkflowTypeCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0RegisterWorkflowTypeCommandError(
+const deserializeAws_json1_0RegisterWorkflowTypeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RegisterWorkflowTypeCommandOutput> {
+): Promise<RegisterWorkflowTypeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2682,12 +2714,12 @@ async function deserializeAws_json1_0RegisterWorkflowTypeCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0RequestCancelWorkflowExecutionCommand(
+export const deserializeAws_json1_0RequestCancelWorkflowExecutionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RequestCancelWorkflowExecutionCommandOutput> {
+): Promise<RequestCancelWorkflowExecutionCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0RequestCancelWorkflowExecutionCommandError(
       output,
@@ -2699,12 +2731,12 @@ export async function deserializeAws_json1_0RequestCancelWorkflowExecutionComman
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0RequestCancelWorkflowExecutionCommandError(
+const deserializeAws_json1_0RequestCancelWorkflowExecutionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RequestCancelWorkflowExecutionCommandOutput> {
+): Promise<RequestCancelWorkflowExecutionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2752,12 +2784,12 @@ async function deserializeAws_json1_0RequestCancelWorkflowExecutionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0RespondActivityTaskCanceledCommand(
+export const deserializeAws_json1_0RespondActivityTaskCanceledCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RespondActivityTaskCanceledCommandOutput> {
+): Promise<RespondActivityTaskCanceledCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0RespondActivityTaskCanceledCommandError(
       output,
@@ -2769,12 +2801,12 @@ export async function deserializeAws_json1_0RespondActivityTaskCanceledCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0RespondActivityTaskCanceledCommandError(
+const deserializeAws_json1_0RespondActivityTaskCanceledCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RespondActivityTaskCanceledCommandOutput> {
+): Promise<RespondActivityTaskCanceledCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2822,12 +2854,12 @@ async function deserializeAws_json1_0RespondActivityTaskCanceledCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0RespondActivityTaskCompletedCommand(
+export const deserializeAws_json1_0RespondActivityTaskCompletedCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RespondActivityTaskCompletedCommandOutput> {
+): Promise<RespondActivityTaskCompletedCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0RespondActivityTaskCompletedCommandError(
       output,
@@ -2839,12 +2871,12 @@ export async function deserializeAws_json1_0RespondActivityTaskCompletedCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0RespondActivityTaskCompletedCommandError(
+const deserializeAws_json1_0RespondActivityTaskCompletedCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RespondActivityTaskCompletedCommandOutput> {
+): Promise<RespondActivityTaskCompletedCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2892,12 +2924,12 @@ async function deserializeAws_json1_0RespondActivityTaskCompletedCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0RespondActivityTaskFailedCommand(
+export const deserializeAws_json1_0RespondActivityTaskFailedCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RespondActivityTaskFailedCommandOutput> {
+): Promise<RespondActivityTaskFailedCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0RespondActivityTaskFailedCommandError(
       output,
@@ -2909,12 +2941,12 @@ export async function deserializeAws_json1_0RespondActivityTaskFailedCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0RespondActivityTaskFailedCommandError(
+const deserializeAws_json1_0RespondActivityTaskFailedCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RespondActivityTaskFailedCommandOutput> {
+): Promise<RespondActivityTaskFailedCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2962,12 +2994,12 @@ async function deserializeAws_json1_0RespondActivityTaskFailedCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0RespondDecisionTaskCompletedCommand(
+export const deserializeAws_json1_0RespondDecisionTaskCompletedCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RespondDecisionTaskCompletedCommandOutput> {
+): Promise<RespondDecisionTaskCompletedCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0RespondDecisionTaskCompletedCommandError(
       output,
@@ -2979,12 +3011,12 @@ export async function deserializeAws_json1_0RespondDecisionTaskCompletedCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0RespondDecisionTaskCompletedCommandError(
+const deserializeAws_json1_0RespondDecisionTaskCompletedCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RespondDecisionTaskCompletedCommandOutput> {
+): Promise<RespondDecisionTaskCompletedCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3032,12 +3064,12 @@ async function deserializeAws_json1_0RespondDecisionTaskCompletedCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0SignalWorkflowExecutionCommand(
+export const deserializeAws_json1_0SignalWorkflowExecutionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SignalWorkflowExecutionCommandOutput> {
+): Promise<SignalWorkflowExecutionCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0SignalWorkflowExecutionCommandError(
       output,
@@ -3049,12 +3081,12 @@ export async function deserializeAws_json1_0SignalWorkflowExecutionCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0SignalWorkflowExecutionCommandError(
+const deserializeAws_json1_0SignalWorkflowExecutionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SignalWorkflowExecutionCommandOutput> {
+): Promise<SignalWorkflowExecutionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3102,12 +3134,12 @@ async function deserializeAws_json1_0SignalWorkflowExecutionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0StartWorkflowExecutionCommand(
+export const deserializeAws_json1_0StartWorkflowExecutionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartWorkflowExecutionCommandOutput> {
+): Promise<StartWorkflowExecutionCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0StartWorkflowExecutionCommandError(
       output,
@@ -3123,12 +3155,12 @@ export async function deserializeAws_json1_0StartWorkflowExecutionCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0StartWorkflowExecutionCommandError(
+const deserializeAws_json1_0StartWorkflowExecutionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartWorkflowExecutionCommandOutput> {
+): Promise<StartWorkflowExecutionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3220,12 +3252,12 @@ async function deserializeAws_json1_0StartWorkflowExecutionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0TagResourceCommand(
+export const deserializeAws_json1_0TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0TagResourceCommandError(output, context);
   }
@@ -3234,12 +3266,12 @@ export async function deserializeAws_json1_0TagResourceCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0TagResourceCommandError(
+const deserializeAws_json1_0TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3309,12 +3341,12 @@ async function deserializeAws_json1_0TagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0TerminateWorkflowExecutionCommand(
+export const deserializeAws_json1_0TerminateWorkflowExecutionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TerminateWorkflowExecutionCommandOutput> {
+): Promise<TerminateWorkflowExecutionCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0TerminateWorkflowExecutionCommandError(
       output,
@@ -3326,12 +3358,12 @@ export async function deserializeAws_json1_0TerminateWorkflowExecutionCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0TerminateWorkflowExecutionCommandError(
+const deserializeAws_json1_0TerminateWorkflowExecutionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TerminateWorkflowExecutionCommandOutput> {
+): Promise<TerminateWorkflowExecutionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3379,12 +3411,12 @@ async function deserializeAws_json1_0TerminateWorkflowExecutionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0UndeprecateActivityTypeCommand(
+export const deserializeAws_json1_0UndeprecateActivityTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UndeprecateActivityTypeCommandOutput> {
+): Promise<UndeprecateActivityTypeCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0UndeprecateActivityTypeCommandError(
       output,
@@ -3396,12 +3428,12 @@ export async function deserializeAws_json1_0UndeprecateActivityTypeCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0UndeprecateActivityTypeCommandError(
+const deserializeAws_json1_0UndeprecateActivityTypeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UndeprecateActivityTypeCommandOutput> {
+): Promise<UndeprecateActivityTypeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3460,12 +3492,12 @@ async function deserializeAws_json1_0UndeprecateActivityTypeCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0UndeprecateDomainCommand(
+export const deserializeAws_json1_0UndeprecateDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UndeprecateDomainCommandOutput> {
+): Promise<UndeprecateDomainCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0UndeprecateDomainCommandError(output, context);
   }
@@ -3474,12 +3506,12 @@ export async function deserializeAws_json1_0UndeprecateDomainCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0UndeprecateDomainCommandError(
+const deserializeAws_json1_0UndeprecateDomainCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UndeprecateDomainCommandOutput> {
+): Promise<UndeprecateDomainCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3538,12 +3570,12 @@ async function deserializeAws_json1_0UndeprecateDomainCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0UndeprecateWorkflowTypeCommand(
+export const deserializeAws_json1_0UndeprecateWorkflowTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UndeprecateWorkflowTypeCommandOutput> {
+): Promise<UndeprecateWorkflowTypeCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0UndeprecateWorkflowTypeCommandError(
       output,
@@ -3555,12 +3587,12 @@ export async function deserializeAws_json1_0UndeprecateWorkflowTypeCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0UndeprecateWorkflowTypeCommandError(
+const deserializeAws_json1_0UndeprecateWorkflowTypeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UndeprecateWorkflowTypeCommandOutput> {
+): Promise<UndeprecateWorkflowTypeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3619,12 +3651,12 @@ async function deserializeAws_json1_0UndeprecateWorkflowTypeCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0UntagResourceCommand(
+export const deserializeAws_json1_0UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0UntagResourceCommandError(output, context);
   }
@@ -3633,12 +3665,12 @@ export async function deserializeAws_json1_0UntagResourceCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0UntagResourceCommandError(
+const deserializeAws_json1_0UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3697,7 +3729,7 @@ async function deserializeAws_json1_0UntagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_0DefaultUndefinedFaultResponse = async (
   parsedOutput: any,
@@ -4094,14 +4126,10 @@ const serializeAws_json1_0Decision = (
 };
 
 const serializeAws_json1_0DecisionList = (
-  input: Array<Decision>,
+  input: Decision[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_0Decision(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_0Decision(entry, context));
 };
 
 const serializeAws_json1_0ExecutionTimeFilter = (
@@ -4189,25 +4217,17 @@ const serializeAws_json1_0ResourceTag = (
 };
 
 const serializeAws_json1_0ResourceTagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_0ResourceTagList = (
-  input: Array<ResourceTag>,
+  input: ResourceTag[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_0ResourceTag(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_0ResourceTag(entry, context));
 };
 
 const serializeAws_json1_0ScheduleActivityTaskDecisionAttributes = (
@@ -4377,14 +4397,10 @@ const serializeAws_json1_0TagFilter = (
 };
 
 const serializeAws_json1_0TagList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_0TaskList = (
@@ -5740,7 +5756,7 @@ const deserializeAws_json1_0ActivityTypeInfo = (
 const deserializeAws_json1_0ActivityTypeInfoList = (
   output: any,
   context: __SerdeContext
-): Array<ActivityTypeInfo> => {
+): ActivityTypeInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0ActivityTypeInfo(entry, context)
   );
@@ -6367,7 +6383,7 @@ const deserializeAws_json1_0DomainInfo = (
 const deserializeAws_json1_0DomainInfoList = (
   output: any,
   context: __SerdeContext
-): Array<DomainInfo> => {
+): DomainInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0DomainInfo(entry, context)
   );
@@ -7062,7 +7078,7 @@ const deserializeAws_json1_0HistoryEvent = (
 const deserializeAws_json1_0HistoryEventList = (
   output: any,
   context: __SerdeContext
-): Array<HistoryEvent> => {
+): HistoryEvent[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0HistoryEvent(entry, context)
   );
@@ -7415,7 +7431,7 @@ const deserializeAws_json1_0ResourceTag = (
 const deserializeAws_json1_0ResourceTagList = (
   output: any,
   context: __SerdeContext
-): Array<ResourceTag> => {
+): ResourceTag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0ResourceTag(entry, context)
   );
@@ -7728,7 +7744,7 @@ const deserializeAws_json1_0StartTimerFailedEventAttributes = (
 const deserializeAws_json1_0TagList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -8252,7 +8268,7 @@ const deserializeAws_json1_0WorkflowExecutionInfo = (
 const deserializeAws_json1_0WorkflowExecutionInfoList = (
   output: any,
   context: __SerdeContext
-): Array<WorkflowExecutionInfo> => {
+): WorkflowExecutionInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0WorkflowExecutionInfo(entry, context)
   );
@@ -8616,7 +8632,7 @@ const deserializeAws_json1_0WorkflowTypeInfo = (
 const deserializeAws_json1_0WorkflowTypeInfoList = (
   output: any,
   context: __SerdeContext
-): Array<WorkflowTypeInfo> => {
+): WorkflowTypeInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0WorkflowTypeInfo(entry, context)
   );
@@ -8679,7 +8695,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -8694,11 +8710,8 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
@@ -8725,11 +8738,10 @@ const buildHttpRpcRequest = async (
   return new __HttpRequest(contents);
 };
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};

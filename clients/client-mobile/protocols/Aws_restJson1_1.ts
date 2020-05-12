@@ -64,23 +64,19 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_restJson1_1CreateProjectCommand(
+export const serializeAws_restJson1_1CreateProjectCommand = async (
   input: CreateProjectCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/octet-stream";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/octet-stream"
+  };
   let resolvedPath = "/projects";
-  const query: any = {};
-  if (input.name !== undefined) {
-    query["name"] = input.name;
-  }
-  if (input.region !== undefined) {
-    query["region"] = input.region;
-  }
-  if (input.snapshotId !== undefined) {
-    query["snapshotId"] = input.snapshotId;
-  }
+  const query: any = {
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.region !== undefined && { region: input.region }),
+    ...(input.snapshotId !== undefined && { snapshotId: input.snapshotId })
+  };
   let body: any;
   if (input.contents !== undefined) {
     body = input.contents;
@@ -96,14 +92,15 @@ export async function serializeAws_restJson1_1CreateProjectCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeleteProjectCommand(
+export const serializeAws_restJson1_1DeleteProjectCommand = async (
   input: DeleteProjectCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/projects/{projectId}";
   if (input.projectId !== undefined) {
     const labelValue: string = input.projectId;
@@ -128,14 +125,15 @@ export async function serializeAws_restJson1_1DeleteProjectCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribeBundleCommand(
+export const serializeAws_restJson1_1DescribeBundleCommand = async (
   input: DescribeBundleCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/bundles/{bundleId}";
   if (input.bundleId !== undefined) {
     const labelValue: string = input.bundleId;
@@ -160,22 +158,22 @@ export async function serializeAws_restJson1_1DescribeBundleCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribeProjectCommand(
+export const serializeAws_restJson1_1DescribeProjectCommand = async (
   input: DescribeProjectCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/project";
-  const query: any = {};
-  if (input.projectId !== undefined) {
-    query["projectId"] = input.projectId;
-  }
-  if (input.syncFromResources !== undefined) {
-    query["syncFromResources"] = input.syncFromResources.toString();
-  }
+  const query: any = {
+    ...(input.projectId !== undefined && { projectId: input.projectId }),
+    ...(input.syncFromResources !== undefined && {
+      syncFromResources: input.syncFromResources.toString()
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -188,14 +186,15 @@ export async function serializeAws_restJson1_1DescribeProjectCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ExportBundleCommand(
+export const serializeAws_restJson1_1ExportBundleCommand = async (
   input: ExportBundleCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/bundles/{bundleId}";
   if (input.bundleId !== undefined) {
     const labelValue: string = input.bundleId;
@@ -209,13 +208,10 @@ export async function serializeAws_restJson1_1ExportBundleCommand(
   } else {
     throw new Error("No value provided for input HTTP label: bundleId.");
   }
-  const query: any = {};
-  if (input.platform !== undefined) {
-    query["platform"] = input.platform;
-  }
-  if (input.projectId !== undefined) {
-    query["projectId"] = input.projectId;
-  }
+  const query: any = {
+    ...(input.platform !== undefined && { platform: input.platform }),
+    ...(input.projectId !== undefined && { projectId: input.projectId })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -228,14 +224,15 @@ export async function serializeAws_restJson1_1ExportBundleCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ExportProjectCommand(
+export const serializeAws_restJson1_1ExportProjectCommand = async (
   input: ExportProjectCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/exports/{projectId}";
   if (input.projectId !== undefined) {
     const labelValue: string = input.projectId;
@@ -260,22 +257,22 @@ export async function serializeAws_restJson1_1ExportProjectCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListBundlesCommand(
+export const serializeAws_restJson1_1ListBundlesCommand = async (
   input: ListBundlesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/bundles";
-  const query: any = {};
-  if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
-  }
-  if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken;
-  }
+  const query: any = {
+    ...(input.maxResults !== undefined && {
+      maxResults: input.maxResults.toString()
+    }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -288,22 +285,22 @@ export async function serializeAws_restJson1_1ListBundlesCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListProjectsCommand(
+export const serializeAws_restJson1_1ListProjectsCommand = async (
   input: ListProjectsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/projects";
-  const query: any = {};
-  if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
-  }
-  if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken;
-  }
+  const query: any = {
+    ...(input.maxResults !== undefined && {
+      maxResults: input.maxResults.toString()
+    }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -316,19 +313,19 @@ export async function serializeAws_restJson1_1ListProjectsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UpdateProjectCommand(
+export const serializeAws_restJson1_1UpdateProjectCommand = async (
   input: UpdateProjectCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/octet-stream";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/octet-stream"
+  };
   let resolvedPath = "/update";
-  const query: any = {};
-  if (input.projectId !== undefined) {
-    query["projectId"] = input.projectId;
-  }
+  const query: any = {
+    ...(input.projectId !== undefined && { projectId: input.projectId })
+  };
   let body: any;
   if (input.contents !== undefined) {
     body = input.contents;
@@ -344,12 +341,12 @@ export async function serializeAws_restJson1_1UpdateProjectCommand(
     query,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1CreateProjectCommand(
+export const deserializeAws_restJson1_1CreateProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateProjectCommandOutput> {
+): Promise<CreateProjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateProjectCommandError(output, context);
   }
@@ -366,12 +363,12 @@ export async function deserializeAws_restJson1_1CreateProjectCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreateProjectCommandError(
+const deserializeAws_restJson1_1CreateProjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateProjectCommandOutput> {
+): Promise<CreateProjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -472,12 +469,12 @@ async function deserializeAws_restJson1_1CreateProjectCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteProjectCommand(
+export const deserializeAws_restJson1_1DeleteProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteProjectCommandOutput> {
+): Promise<DeleteProjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteProjectCommandError(output, context);
   }
@@ -501,12 +498,12 @@ export async function deserializeAws_restJson1_1DeleteProjectCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteProjectCommandError(
+const deserializeAws_restJson1_1DeleteProjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteProjectCommandOutput> {
+): Promise<DeleteProjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -585,12 +582,12 @@ async function deserializeAws_restJson1_1DeleteProjectCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeBundleCommand(
+export const deserializeAws_restJson1_1DescribeBundleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeBundleCommandOutput> {
+): Promise<DescribeBundleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeBundleCommandError(
       output,
@@ -610,12 +607,12 @@ export async function deserializeAws_restJson1_1DescribeBundleCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeBundleCommandError(
+const deserializeAws_restJson1_1DescribeBundleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeBundleCommandOutput> {
+): Promise<DescribeBundleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -705,12 +702,12 @@ async function deserializeAws_restJson1_1DescribeBundleCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeProjectCommand(
+export const deserializeAws_restJson1_1DescribeProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeProjectCommandOutput> {
+): Promise<DescribeProjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeProjectCommandError(
       output,
@@ -730,12 +727,12 @@ export async function deserializeAws_restJson1_1DescribeProjectCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeProjectCommandError(
+const deserializeAws_restJson1_1DescribeProjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeProjectCommandOutput> {
+): Promise<DescribeProjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -825,12 +822,12 @@ async function deserializeAws_restJson1_1DescribeProjectCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ExportBundleCommand(
+export const deserializeAws_restJson1_1ExportBundleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ExportBundleCommandOutput> {
+): Promise<ExportBundleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ExportBundleCommandError(output, context);
   }
@@ -844,12 +841,12 @@ export async function deserializeAws_restJson1_1ExportBundleCommand(
     contents.downloadUrl = data.downloadUrl;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ExportBundleCommandError(
+const deserializeAws_restJson1_1ExportBundleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ExportBundleCommandOutput> {
+): Promise<ExportBundleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -939,12 +936,12 @@ async function deserializeAws_restJson1_1ExportBundleCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ExportProjectCommand(
+export const deserializeAws_restJson1_1ExportProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ExportProjectCommandOutput> {
+): Promise<ExportProjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ExportProjectCommandError(output, context);
   }
@@ -966,12 +963,12 @@ export async function deserializeAws_restJson1_1ExportProjectCommand(
     contents.snapshotId = data.snapshotId;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ExportProjectCommandError(
+const deserializeAws_restJson1_1ExportProjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ExportProjectCommandOutput> {
+): Promise<ExportProjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1061,12 +1058,12 @@ async function deserializeAws_restJson1_1ExportProjectCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListBundlesCommand(
+export const deserializeAws_restJson1_1ListBundlesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListBundlesCommandOutput> {
+): Promise<ListBundlesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListBundlesCommandError(output, context);
   }
@@ -1087,12 +1084,12 @@ export async function deserializeAws_restJson1_1ListBundlesCommand(
     contents.nextToken = data.nextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListBundlesCommandError(
+const deserializeAws_restJson1_1ListBundlesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListBundlesCommandOutput> {
+): Promise<ListBundlesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1171,12 +1168,12 @@ async function deserializeAws_restJson1_1ListBundlesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListProjectsCommand(
+export const deserializeAws_restJson1_1ListProjectsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListProjectsCommandOutput> {
+): Promise<ListProjectsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListProjectsCommandError(output, context);
   }
@@ -1197,12 +1194,12 @@ export async function deserializeAws_restJson1_1ListProjectsCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListProjectsCommandError(
+const deserializeAws_restJson1_1ListProjectsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListProjectsCommandOutput> {
+): Promise<ListProjectsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1281,12 +1278,12 @@ async function deserializeAws_restJson1_1ListProjectsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UpdateProjectCommand(
+export const deserializeAws_restJson1_1UpdateProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateProjectCommandOutput> {
+): Promise<UpdateProjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateProjectCommandError(output, context);
   }
@@ -1303,12 +1300,12 @@ export async function deserializeAws_restJson1_1UpdateProjectCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UpdateProjectCommandError(
+const deserializeAws_restJson1_1UpdateProjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateProjectCommandOutput> {
+): Promise<UpdateProjectCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1420,7 +1417,7 @@ async function deserializeAws_restJson1_1UpdateProjectCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1AccountActionRequiredExceptionResponse = async (
   parsedOutput: any,
@@ -1574,11 +1571,10 @@ const deserializeAws_restJson1_1Attributes = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = output[key];
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1_1BundleDetails = (
@@ -1624,7 +1620,7 @@ const deserializeAws_restJson1_1BundleDetails = (
 const deserializeAws_restJson1_1BundleList = (
   output: any,
   context: __SerdeContext
-): Array<BundleDetails> => {
+): BundleDetails[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1BundleDetails(entry, context)
   );
@@ -1633,7 +1629,7 @@ const deserializeAws_restJson1_1BundleList = (
 const deserializeAws_restJson1_1Platforms = (
   output: any,
   context: __SerdeContext
-): Array<Platform | string> => {
+): (Platform | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -1687,7 +1683,7 @@ const deserializeAws_restJson1_1ProjectDetails = (
 const deserializeAws_restJson1_1ProjectSummaries = (
   output: any,
   context: __SerdeContext
-): Array<ProjectSummary> => {
+): ProjectSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ProjectSummary(entry, context)
   );
@@ -1747,7 +1743,7 @@ const deserializeAws_restJson1_1Resource = (
 const deserializeAws_restJson1_1Resources = (
   output: any,
   context: __SerdeContext
-): Array<Resource> => {
+): Resource[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Resource(entry, context)
   );
@@ -1761,7 +1757,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -1776,30 +1772,23 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
-function isSerializableHeaderValue(value: any): boolean {
-  return (
-    value !== undefined &&
-    value !== "" &&
-    (!Object.getOwnPropertyNames(value).includes("length") ||
-      value.length != 0) &&
-    (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0)
-  );
-}
+const isSerializableHeaderValue = (value: any): boolean =>
+  value !== undefined &&
+  value !== "" &&
+  (!Object.getOwnPropertyNames(value).includes("length") ||
+    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};
 
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.

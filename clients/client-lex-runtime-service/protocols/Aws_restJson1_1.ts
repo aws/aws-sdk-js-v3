@@ -53,12 +53,13 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_restJson1_1DeleteSessionCommand(
+export const serializeAws_restJson1_1DeleteSessionCommand = async (
   input: DeleteSessionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/bot/{botName}/alias/{botAlias}/user/{userId}/session";
   if (input.botAlias !== undefined) {
     const labelValue: string = input.botAlias;
@@ -107,14 +108,15 @@ export async function serializeAws_restJson1_1DeleteSessionCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetSessionCommand(
+export const serializeAws_restJson1_1GetSessionCommand = async (
   input: GetSessionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/bot/{botName}/alias/{botAlias}/user/{userId}/session";
   if (input.botAlias !== undefined) {
     const labelValue: string = input.botAlias;
@@ -152,10 +154,11 @@ export async function serializeAws_restJson1_1GetSessionCommand(
   } else {
     throw new Error("No value provided for input HTTP label: userId.");
   }
-  const query: any = {};
-  if (input.checkpointLabelFilter !== undefined) {
-    query["checkpointLabelFilter"] = input.checkpointLabelFilter;
-  }
+  const query: any = {
+    ...(input.checkpointLabelFilter !== undefined && {
+      checkpointLabelFilter: input.checkpointLabelFilter
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -168,31 +171,30 @@ export async function serializeAws_restJson1_1GetSessionCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1PostContentCommand(
+export const serializeAws_restJson1_1PostContentCommand = async (
   input: PostContentCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/octet-stream";
-  headers["x-amz-content-sha256"] = "UNSIGNED_PAYLOAD";
-  if (isSerializableHeaderValue(input.accept)) {
-    headers["Accept"] = input.accept!;
-  }
-  if (isSerializableHeaderValue(input.contentType)) {
-    headers["Content-Type"] = input.contentType!;
-  }
-  if (isSerializableHeaderValue(input.requestAttributes)) {
-    headers["x-amz-lex-request-attributes"] = __LazyJsonString.fromObject(
-      input.requestAttributes!
-    );
-  }
-  if (isSerializableHeaderValue(input.sessionAttributes)) {
-    headers["x-amz-lex-session-attributes"] = __LazyJsonString.fromObject(
-      input.sessionAttributes!
-    );
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/octet-stream",
+    "x-amz-content-sha256": "UNSIGNED_PAYLOAD",
+    ...(isSerializableHeaderValue(input.accept) && { Accept: input.accept! }),
+    ...(isSerializableHeaderValue(input.contentType) && {
+      "Content-Type": input.contentType!
+    }),
+    ...(isSerializableHeaderValue(input.requestAttributes) && {
+      "x-amz-lex-request-attributes": __LazyJsonString.fromObject(
+        input.requestAttributes!
+      )
+    }),
+    ...(isSerializableHeaderValue(input.sessionAttributes) && {
+      "x-amz-lex-session-attributes": __LazyJsonString.fromObject(
+        input.sessionAttributes!
+      )
+    })
+  };
   let resolvedPath = "/bot/{botName}/alias/{botAlias}/user/{userId}/content";
   if (input.botAlias !== undefined) {
     const labelValue: string = input.botAlias;
@@ -244,14 +246,15 @@ export async function serializeAws_restJson1_1PostContentCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1PostTextCommand(
+export const serializeAws_restJson1_1PostTextCommand = async (
   input: PostTextCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/bot/{botName}/alias/{botAlias}/user/{userId}/text";
   if (input.botAlias !== undefined) {
     const labelValue: string = input.botAlias;
@@ -317,17 +320,16 @@ export async function serializeAws_restJson1_1PostTextCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1PutSessionCommand(
+export const serializeAws_restJson1_1PutSessionCommand = async (
   input: PutSessionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.accept)) {
-    headers["Accept"] = input.accept!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.accept) && { Accept: input.accept! })
+  };
   let resolvedPath = "/bot/{botName}/alias/{botAlias}/user/{userId}/session";
   if (input.botAlias !== undefined) {
     const labelValue: string = input.botAlias;
@@ -398,12 +400,12 @@ export async function serializeAws_restJson1_1PutSessionCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteSessionCommand(
+export const deserializeAws_restJson1_1DeleteSessionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteSessionCommandOutput> {
+): Promise<DeleteSessionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteSessionCommandError(output, context);
   }
@@ -429,12 +431,12 @@ export async function deserializeAws_restJson1_1DeleteSessionCommand(
     contents.userId = data.userId;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteSessionCommandError(
+const deserializeAws_restJson1_1DeleteSessionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteSessionCommandOutput> {
+): Promise<DeleteSessionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -513,12 +515,12 @@ async function deserializeAws_restJson1_1DeleteSessionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetSessionCommand(
+export const deserializeAws_restJson1_1GetSessionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetSessionCommandOutput> {
+): Promise<GetSessionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetSessionCommandError(output, context);
   }
@@ -556,12 +558,12 @@ export async function deserializeAws_restJson1_1GetSessionCommand(
     contents.sessionId = data.sessionId;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetSessionCommandError(
+const deserializeAws_restJson1_1GetSessionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetSessionCommandOutput> {
+): Promise<GetSessionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -629,12 +631,12 @@ async function deserializeAws_restJson1_1GetSessionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1PostContentCommand(
+export const deserializeAws_restJson1_1PostContentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PostContentCommandOutput> {
+): Promise<PostContentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1PostContentCommandError(output, context);
   }
@@ -692,12 +694,12 @@ export async function deserializeAws_restJson1_1PostContentCommand(
   const data: any = output.body;
   contents.audioStream = data;
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1PostContentCommandError(
+const deserializeAws_restJson1_1PostContentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PostContentCommandOutput> {
+): Promise<PostContentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -842,12 +844,12 @@ async function deserializeAws_restJson1_1PostContentCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1PostTextCommand(
+export const deserializeAws_restJson1_1PostTextCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PostTextCommandOutput> {
+): Promise<PostTextCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1PostTextCommandError(output, context);
   }
@@ -906,12 +908,12 @@ export async function deserializeAws_restJson1_1PostTextCommand(
     contents.slots = deserializeAws_restJson1_1StringMap(data.slots, context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1PostTextCommandError(
+const deserializeAws_restJson1_1PostTextCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PostTextCommandOutput> {
+): Promise<PostTextCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1023,12 +1025,12 @@ async function deserializeAws_restJson1_1PostTextCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1PutSessionCommand(
+export const deserializeAws_restJson1_1PutSessionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutSessionCommandOutput> {
+): Promise<PutSessionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1PutSessionCommandError(output, context);
   }
@@ -1078,12 +1080,12 @@ export async function deserializeAws_restJson1_1PutSessionCommand(
   const data: any = output.body;
   contents.audioStream = data;
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1PutSessionCommandError(
+const deserializeAws_restJson1_1PutSessionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutSessionCommandOutput> {
+): Promise<PutSessionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1195,7 +1197,7 @@ async function deserializeAws_restJson1_1PutSessionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
   parsedOutput: any,
@@ -1453,25 +1455,22 @@ const serializeAws_restJson1_1IntentSummary = (
 };
 
 const serializeAws_restJson1_1IntentSummaryList = (
-  input: Array<IntentSummary>,
+  input: IntentSummary[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1IntentSummary(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1IntentSummary(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1StringMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = input[key];
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = input[key];
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1_1DialogAction = (
@@ -1565,7 +1564,7 @@ const deserializeAws_restJson1_1IntentSummary = (
 const deserializeAws_restJson1_1IntentSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<IntentSummary> => {
+): IntentSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1IntentSummary(entry, context)
   );
@@ -1593,11 +1592,10 @@ const deserializeAws_restJson1_1StringMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = output[key];
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1_1Button = (
@@ -1685,7 +1683,7 @@ const deserializeAws_restJson1_1ResponseCard = (
 const deserializeAws_restJson1_1genericAttachmentList = (
   output: any,
   context: __SerdeContext
-): Array<GenericAttachment> => {
+): GenericAttachment[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1GenericAttachment(entry, context)
   );
@@ -1694,7 +1692,7 @@ const deserializeAws_restJson1_1genericAttachmentList = (
 const deserializeAws_restJson1_1listOfButtons = (
   output: any,
   context: __SerdeContext
-): Array<Button> => {
+): Button[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Button(entry, context)
   );
@@ -1708,7 +1706,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -1723,30 +1721,23 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
-function isSerializableHeaderValue(value: any): boolean {
-  return (
-    value !== undefined &&
-    value !== "" &&
-    (!Object.getOwnPropertyNames(value).includes("length") ||
-      value.length != 0) &&
-    (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0)
-  );
-}
+const isSerializableHeaderValue = (value: any): boolean =>
+  value !== undefined &&
+  value !== "" &&
+  (!Object.getOwnPropertyNames(value).includes("length") ||
+    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};
 
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.

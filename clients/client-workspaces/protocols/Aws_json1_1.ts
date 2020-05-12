@@ -303,290 +303,310 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_json1_1AssociateIpGroupsCommand(
+export const serializeAws_json1_1AssociateIpGroupsCommand = async (
   input: AssociateIpGroupsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.AssociateIpGroups";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.AssociateIpGroups"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AssociateIpGroupsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1AuthorizeIpRulesCommand(
+export const serializeAws_json1_1AuthorizeIpRulesCommand = async (
   input: AuthorizeIpRulesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.AuthorizeIpRules";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.AuthorizeIpRules"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AuthorizeIpRulesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CopyWorkspaceImageCommand(
+export const serializeAws_json1_1CopyWorkspaceImageCommand = async (
   input: CopyWorkspaceImageCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.CopyWorkspaceImage";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.CopyWorkspaceImage"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CopyWorkspaceImageRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreateIpGroupCommand(
+export const serializeAws_json1_1CreateIpGroupCommand = async (
   input: CreateIpGroupCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.CreateIpGroup";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.CreateIpGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateIpGroupRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreateTagsCommand(
+export const serializeAws_json1_1CreateTagsCommand = async (
   input: CreateTagsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.CreateTags";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.CreateTags"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateTagsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreateWorkspacesCommand(
+export const serializeAws_json1_1CreateWorkspacesCommand = async (
   input: CreateWorkspacesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.CreateWorkspaces";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.CreateWorkspaces"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateWorkspacesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteIpGroupCommand(
+export const serializeAws_json1_1DeleteIpGroupCommand = async (
   input: DeleteIpGroupCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.DeleteIpGroup";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.DeleteIpGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteIpGroupRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteTagsCommand(
+export const serializeAws_json1_1DeleteTagsCommand = async (
   input: DeleteTagsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.DeleteTags";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.DeleteTags"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteTagsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteWorkspaceImageCommand(
+export const serializeAws_json1_1DeleteWorkspaceImageCommand = async (
   input: DeleteWorkspaceImageCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.DeleteWorkspaceImage";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.DeleteWorkspaceImage"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteWorkspaceImageRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeregisterWorkspaceDirectoryCommand(
+export const serializeAws_json1_1DeregisterWorkspaceDirectoryCommand = async (
   input: DeregisterWorkspaceDirectoryCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.DeregisterWorkspaceDirectory";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.DeregisterWorkspaceDirectory"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeregisterWorkspaceDirectoryRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeAccountCommand(
+export const serializeAws_json1_1DescribeAccountCommand = async (
   input: DescribeAccountCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.DescribeAccount";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.DescribeAccount"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeAccountRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeAccountModificationsCommand(
+export const serializeAws_json1_1DescribeAccountModificationsCommand = async (
   input: DescribeAccountModificationsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.DescribeAccountModifications";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.DescribeAccountModifications"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeAccountModificationsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeClientPropertiesCommand(
+export const serializeAws_json1_1DescribeClientPropertiesCommand = async (
   input: DescribeClientPropertiesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.DescribeClientProperties";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.DescribeClientProperties"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeClientPropertiesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeIpGroupsCommand(
+export const serializeAws_json1_1DescribeIpGroupsCommand = async (
   input: DescribeIpGroupsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.DescribeIpGroups";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.DescribeIpGroups"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeIpGroupsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeTagsCommand(
+export const serializeAws_json1_1DescribeTagsCommand = async (
   input: DescribeTagsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.DescribeTags";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.DescribeTags"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeTagsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeWorkspaceBundlesCommand(
+export const serializeAws_json1_1DescribeWorkspaceBundlesCommand = async (
   input: DescribeWorkspaceBundlesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.DescribeWorkspaceBundles";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.DescribeWorkspaceBundles"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeWorkspaceBundlesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeWorkspaceDirectoriesCommand(
+export const serializeAws_json1_1DescribeWorkspaceDirectoriesCommand = async (
   input: DescribeWorkspaceDirectoriesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.DescribeWorkspaceDirectories";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.DescribeWorkspaceDirectories"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeWorkspaceDirectoriesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeWorkspaceImagesCommand(
+export const serializeAws_json1_1DescribeWorkspaceImagesCommand = async (
   input: DescribeWorkspaceImagesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.DescribeWorkspaceImages";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.DescribeWorkspaceImages"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeWorkspaceImagesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeWorkspaceSnapshotsCommand(
+export const serializeAws_json1_1DescribeWorkspaceSnapshotsCommand = async (
   input: DescribeWorkspaceSnapshotsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.DescribeWorkspaceSnapshots";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.DescribeWorkspaceSnapshots"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeWorkspaceSnapshotsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeWorkspacesCommand(
+export const serializeAws_json1_1DescribeWorkspacesCommand = async (
   input: DescribeWorkspacesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.DescribeWorkspaces";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.DescribeWorkspaces"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeWorkspacesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeWorkspacesConnectionStatusCommand(
+export const serializeAws_json1_1DescribeWorkspacesConnectionStatusCommand = async (
   input: DescribeWorkspacesConnectionStatusCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "WorkspacesService.DescribeWorkspacesConnectionStatus";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.DescribeWorkspacesConnectionStatus"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeWorkspacesConnectionStatusRequest(
@@ -595,294 +615,312 @@ export async function serializeAws_json1_1DescribeWorkspacesConnectionStatusComm
     )
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DisassociateIpGroupsCommand(
+export const serializeAws_json1_1DisassociateIpGroupsCommand = async (
   input: DisassociateIpGroupsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.DisassociateIpGroups";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.DisassociateIpGroups"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DisassociateIpGroupsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ImportWorkspaceImageCommand(
+export const serializeAws_json1_1ImportWorkspaceImageCommand = async (
   input: ImportWorkspaceImageCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.ImportWorkspaceImage";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.ImportWorkspaceImage"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ImportWorkspaceImageRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListAvailableManagementCidrRangesCommand(
+export const serializeAws_json1_1ListAvailableManagementCidrRangesCommand = async (
   input: ListAvailableManagementCidrRangesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "WorkspacesService.ListAvailableManagementCidrRanges";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.ListAvailableManagementCidrRanges"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListAvailableManagementCidrRangesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1MigrateWorkspaceCommand(
+export const serializeAws_json1_1MigrateWorkspaceCommand = async (
   input: MigrateWorkspaceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.MigrateWorkspace";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.MigrateWorkspace"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1MigrateWorkspaceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ModifyAccountCommand(
+export const serializeAws_json1_1ModifyAccountCommand = async (
   input: ModifyAccountCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.ModifyAccount";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.ModifyAccount"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ModifyAccountRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ModifyClientPropertiesCommand(
+export const serializeAws_json1_1ModifyClientPropertiesCommand = async (
   input: ModifyClientPropertiesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.ModifyClientProperties";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.ModifyClientProperties"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ModifyClientPropertiesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ModifySelfservicePermissionsCommand(
+export const serializeAws_json1_1ModifySelfservicePermissionsCommand = async (
   input: ModifySelfservicePermissionsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.ModifySelfservicePermissions";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.ModifySelfservicePermissions"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ModifySelfservicePermissionsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ModifyWorkspaceAccessPropertiesCommand(
+export const serializeAws_json1_1ModifyWorkspaceAccessPropertiesCommand = async (
   input: ModifyWorkspaceAccessPropertiesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.ModifyWorkspaceAccessProperties";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.ModifyWorkspaceAccessProperties"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ModifyWorkspaceAccessPropertiesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ModifyWorkspaceCreationPropertiesCommand(
+export const serializeAws_json1_1ModifyWorkspaceCreationPropertiesCommand = async (
   input: ModifyWorkspaceCreationPropertiesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "WorkspacesService.ModifyWorkspaceCreationProperties";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.ModifyWorkspaceCreationProperties"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ModifyWorkspaceCreationPropertiesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ModifyWorkspacePropertiesCommand(
+export const serializeAws_json1_1ModifyWorkspacePropertiesCommand = async (
   input: ModifyWorkspacePropertiesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.ModifyWorkspaceProperties";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.ModifyWorkspaceProperties"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ModifyWorkspacePropertiesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ModifyWorkspaceStateCommand(
+export const serializeAws_json1_1ModifyWorkspaceStateCommand = async (
   input: ModifyWorkspaceStateCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.ModifyWorkspaceState";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.ModifyWorkspaceState"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ModifyWorkspaceStateRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1RebootWorkspacesCommand(
+export const serializeAws_json1_1RebootWorkspacesCommand = async (
   input: RebootWorkspacesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.RebootWorkspaces";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.RebootWorkspaces"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RebootWorkspacesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1RebuildWorkspacesCommand(
+export const serializeAws_json1_1RebuildWorkspacesCommand = async (
   input: RebuildWorkspacesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.RebuildWorkspaces";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.RebuildWorkspaces"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RebuildWorkspacesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1RegisterWorkspaceDirectoryCommand(
+export const serializeAws_json1_1RegisterWorkspaceDirectoryCommand = async (
   input: RegisterWorkspaceDirectoryCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.RegisterWorkspaceDirectory";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.RegisterWorkspaceDirectory"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RegisterWorkspaceDirectoryRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1RestoreWorkspaceCommand(
+export const serializeAws_json1_1RestoreWorkspaceCommand = async (
   input: RestoreWorkspaceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.RestoreWorkspace";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.RestoreWorkspace"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RestoreWorkspaceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1RevokeIpRulesCommand(
+export const serializeAws_json1_1RevokeIpRulesCommand = async (
   input: RevokeIpRulesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.RevokeIpRules";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.RevokeIpRules"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RevokeIpRulesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1StartWorkspacesCommand(
+export const serializeAws_json1_1StartWorkspacesCommand = async (
   input: StartWorkspacesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.StartWorkspaces";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.StartWorkspaces"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartWorkspacesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1StopWorkspacesCommand(
+export const serializeAws_json1_1StopWorkspacesCommand = async (
   input: StopWorkspacesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.StopWorkspaces";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.StopWorkspaces"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StopWorkspacesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1TerminateWorkspacesCommand(
+export const serializeAws_json1_1TerminateWorkspacesCommand = async (
   input: TerminateWorkspacesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.TerminateWorkspaces";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.TerminateWorkspaces"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1TerminateWorkspacesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateRulesOfIpGroupCommand(
+export const serializeAws_json1_1UpdateRulesOfIpGroupCommand = async (
   input: UpdateRulesOfIpGroupCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "WorkspacesService.UpdateRulesOfIpGroup";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "WorkspacesService.UpdateRulesOfIpGroup"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateRulesOfIpGroupRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_1AssociateIpGroupsCommand(
+export const deserializeAws_json1_1AssociateIpGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AssociateIpGroupsCommandOutput> {
+): Promise<AssociateIpGroupsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1AssociateIpGroupsCommandError(output, context);
   }
@@ -895,12 +933,12 @@ export async function deserializeAws_json1_1AssociateIpGroupsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1AssociateIpGroupsCommandError(
+const deserializeAws_json1_1AssociateIpGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AssociateIpGroupsCommandOutput> {
+): Promise<AssociateIpGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -992,12 +1030,12 @@ async function deserializeAws_json1_1AssociateIpGroupsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1AuthorizeIpRulesCommand(
+export const deserializeAws_json1_1AuthorizeIpRulesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AuthorizeIpRulesCommandOutput> {
+): Promise<AuthorizeIpRulesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1AuthorizeIpRulesCommandError(output, context);
   }
@@ -1010,12 +1048,12 @@ export async function deserializeAws_json1_1AuthorizeIpRulesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1AuthorizeIpRulesCommandError(
+const deserializeAws_json1_1AuthorizeIpRulesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AuthorizeIpRulesCommandOutput> {
+): Promise<AuthorizeIpRulesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1096,12 +1134,12 @@ async function deserializeAws_json1_1AuthorizeIpRulesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CopyWorkspaceImageCommand(
+export const deserializeAws_json1_1CopyWorkspaceImageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CopyWorkspaceImageCommandOutput> {
+): Promise<CopyWorkspaceImageCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CopyWorkspaceImageCommandError(
       output,
@@ -1117,12 +1155,12 @@ export async function deserializeAws_json1_1CopyWorkspaceImageCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CopyWorkspaceImageCommandError(
+const deserializeAws_json1_1CopyWorkspaceImageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CopyWorkspaceImageCommandOutput> {
+): Promise<CopyWorkspaceImageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1225,12 +1263,12 @@ async function deserializeAws_json1_1CopyWorkspaceImageCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreateIpGroupCommand(
+export const deserializeAws_json1_1CreateIpGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateIpGroupCommandOutput> {
+): Promise<CreateIpGroupCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateIpGroupCommandError(output, context);
   }
@@ -1243,12 +1281,12 @@ export async function deserializeAws_json1_1CreateIpGroupCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateIpGroupCommandError(
+const deserializeAws_json1_1CreateIpGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateIpGroupCommandOutput> {
+): Promise<CreateIpGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1329,12 +1367,12 @@ async function deserializeAws_json1_1CreateIpGroupCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreateTagsCommand(
+export const deserializeAws_json1_1CreateTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateTagsCommandOutput> {
+): Promise<CreateTagsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateTagsCommandError(output, context);
   }
@@ -1347,12 +1385,12 @@ export async function deserializeAws_json1_1CreateTagsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateTagsCommandError(
+const deserializeAws_json1_1CreateTagsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateTagsCommandOutput> {
+): Promise<CreateTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1411,12 +1449,12 @@ async function deserializeAws_json1_1CreateTagsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreateWorkspacesCommand(
+export const deserializeAws_json1_1CreateWorkspacesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateWorkspacesCommandOutput> {
+): Promise<CreateWorkspacesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateWorkspacesCommandError(output, context);
   }
@@ -1429,12 +1467,12 @@ export async function deserializeAws_json1_1CreateWorkspacesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateWorkspacesCommandError(
+const deserializeAws_json1_1CreateWorkspacesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateWorkspacesCommandOutput> {
+): Promise<CreateWorkspacesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1482,12 +1520,12 @@ async function deserializeAws_json1_1CreateWorkspacesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteIpGroupCommand(
+export const deserializeAws_json1_1DeleteIpGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteIpGroupCommandOutput> {
+): Promise<DeleteIpGroupCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteIpGroupCommandError(output, context);
   }
@@ -1500,12 +1538,12 @@ export async function deserializeAws_json1_1DeleteIpGroupCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteIpGroupCommandError(
+const deserializeAws_json1_1DeleteIpGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteIpGroupCommandOutput> {
+): Promise<DeleteIpGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1575,12 +1613,12 @@ async function deserializeAws_json1_1DeleteIpGroupCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteTagsCommand(
+export const deserializeAws_json1_1DeleteTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteTagsCommandOutput> {
+): Promise<DeleteTagsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteTagsCommandError(output, context);
   }
@@ -1593,12 +1631,12 @@ export async function deserializeAws_json1_1DeleteTagsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteTagsCommandError(
+const deserializeAws_json1_1DeleteTagsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteTagsCommandOutput> {
+): Promise<DeleteTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1646,12 +1684,12 @@ async function deserializeAws_json1_1DeleteTagsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteWorkspaceImageCommand(
+export const deserializeAws_json1_1DeleteWorkspaceImageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteWorkspaceImageCommandOutput> {
+): Promise<DeleteWorkspaceImageCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteWorkspaceImageCommandError(
       output,
@@ -1667,12 +1705,12 @@ export async function deserializeAws_json1_1DeleteWorkspaceImageCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteWorkspaceImageCommandError(
+const deserializeAws_json1_1DeleteWorkspaceImageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteWorkspaceImageCommandOutput> {
+): Promise<DeleteWorkspaceImageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1731,12 +1769,12 @@ async function deserializeAws_json1_1DeleteWorkspaceImageCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeregisterWorkspaceDirectoryCommand(
+export const deserializeAws_json1_1DeregisterWorkspaceDirectoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeregisterWorkspaceDirectoryCommandOutput> {
+): Promise<DeregisterWorkspaceDirectoryCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeregisterWorkspaceDirectoryCommandError(
       output,
@@ -1755,12 +1793,12 @@ export async function deserializeAws_json1_1DeregisterWorkspaceDirectoryCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeregisterWorkspaceDirectoryCommandError(
+const deserializeAws_json1_1DeregisterWorkspaceDirectoryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeregisterWorkspaceDirectoryCommandOutput> {
+): Promise<DeregisterWorkspaceDirectoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1841,12 +1879,12 @@ async function deserializeAws_json1_1DeregisterWorkspaceDirectoryCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeAccountCommand(
+export const deserializeAws_json1_1DescribeAccountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeAccountCommandOutput> {
+): Promise<DescribeAccountCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeAccountCommandError(output, context);
   }
@@ -1859,12 +1897,12 @@ export async function deserializeAws_json1_1DescribeAccountCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeAccountCommandError(
+const deserializeAws_json1_1DescribeAccountCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeAccountCommandOutput> {
+): Promise<DescribeAccountCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1901,12 +1939,12 @@ async function deserializeAws_json1_1DescribeAccountCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeAccountModificationsCommand(
+export const deserializeAws_json1_1DescribeAccountModificationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeAccountModificationsCommandOutput> {
+): Promise<DescribeAccountModificationsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeAccountModificationsCommandError(
       output,
@@ -1925,12 +1963,12 @@ export async function deserializeAws_json1_1DescribeAccountModificationsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeAccountModificationsCommandError(
+const deserializeAws_json1_1DescribeAccountModificationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeAccountModificationsCommandOutput> {
+): Promise<DescribeAccountModificationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1967,12 +2005,12 @@ async function deserializeAws_json1_1DescribeAccountModificationsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeClientPropertiesCommand(
+export const deserializeAws_json1_1DescribeClientPropertiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeClientPropertiesCommandOutput> {
+): Promise<DescribeClientPropertiesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeClientPropertiesCommandError(
       output,
@@ -1991,12 +2029,12 @@ export async function deserializeAws_json1_1DescribeClientPropertiesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeClientPropertiesCommandError(
+const deserializeAws_json1_1DescribeClientPropertiesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeClientPropertiesCommandOutput> {
+): Promise<DescribeClientPropertiesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2055,12 +2093,12 @@ async function deserializeAws_json1_1DescribeClientPropertiesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeIpGroupsCommand(
+export const deserializeAws_json1_1DescribeIpGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeIpGroupsCommandOutput> {
+): Promise<DescribeIpGroupsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeIpGroupsCommandError(output, context);
   }
@@ -2073,12 +2111,12 @@ export async function deserializeAws_json1_1DescribeIpGroupsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeIpGroupsCommandError(
+const deserializeAws_json1_1DescribeIpGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeIpGroupsCommandOutput> {
+): Promise<DescribeIpGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2126,12 +2164,12 @@ async function deserializeAws_json1_1DescribeIpGroupsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeTagsCommand(
+export const deserializeAws_json1_1DescribeTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeTagsCommandOutput> {
+): Promise<DescribeTagsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeTagsCommandError(output, context);
   }
@@ -2144,12 +2182,12 @@ export async function deserializeAws_json1_1DescribeTagsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeTagsCommandError(
+const deserializeAws_json1_1DescribeTagsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeTagsCommandOutput> {
+): Promise<DescribeTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2186,12 +2224,12 @@ async function deserializeAws_json1_1DescribeTagsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeWorkspaceBundlesCommand(
+export const deserializeAws_json1_1DescribeWorkspaceBundlesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeWorkspaceBundlesCommandOutput> {
+): Promise<DescribeWorkspaceBundlesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeWorkspaceBundlesCommandError(
       output,
@@ -2210,12 +2248,12 @@ export async function deserializeAws_json1_1DescribeWorkspaceBundlesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeWorkspaceBundlesCommandError(
+const deserializeAws_json1_1DescribeWorkspaceBundlesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeWorkspaceBundlesCommandOutput> {
+): Promise<DescribeWorkspaceBundlesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2252,12 +2290,12 @@ async function deserializeAws_json1_1DescribeWorkspaceBundlesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeWorkspaceDirectoriesCommand(
+export const deserializeAws_json1_1DescribeWorkspaceDirectoriesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeWorkspaceDirectoriesCommandOutput> {
+): Promise<DescribeWorkspaceDirectoriesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeWorkspaceDirectoriesCommandError(
       output,
@@ -2276,12 +2314,12 @@ export async function deserializeAws_json1_1DescribeWorkspaceDirectoriesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeWorkspaceDirectoriesCommandError(
+const deserializeAws_json1_1DescribeWorkspaceDirectoriesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeWorkspaceDirectoriesCommandOutput> {
+): Promise<DescribeWorkspaceDirectoriesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2318,12 +2356,12 @@ async function deserializeAws_json1_1DescribeWorkspaceDirectoriesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeWorkspaceImagesCommand(
+export const deserializeAws_json1_1DescribeWorkspaceImagesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeWorkspaceImagesCommandOutput> {
+): Promise<DescribeWorkspaceImagesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeWorkspaceImagesCommandError(
       output,
@@ -2339,12 +2377,12 @@ export async function deserializeAws_json1_1DescribeWorkspaceImagesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeWorkspaceImagesCommandError(
+const deserializeAws_json1_1DescribeWorkspaceImagesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeWorkspaceImagesCommandOutput> {
+): Promise<DescribeWorkspaceImagesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2381,12 +2419,12 @@ async function deserializeAws_json1_1DescribeWorkspaceImagesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeWorkspaceSnapshotsCommand(
+export const deserializeAws_json1_1DescribeWorkspaceSnapshotsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeWorkspaceSnapshotsCommandOutput> {
+): Promise<DescribeWorkspaceSnapshotsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeWorkspaceSnapshotsCommandError(
       output,
@@ -2405,12 +2443,12 @@ export async function deserializeAws_json1_1DescribeWorkspaceSnapshotsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeWorkspaceSnapshotsCommandError(
+const deserializeAws_json1_1DescribeWorkspaceSnapshotsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeWorkspaceSnapshotsCommandOutput> {
+): Promise<DescribeWorkspaceSnapshotsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2469,12 +2507,12 @@ async function deserializeAws_json1_1DescribeWorkspaceSnapshotsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeWorkspacesCommand(
+export const deserializeAws_json1_1DescribeWorkspacesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeWorkspacesCommandOutput> {
+): Promise<DescribeWorkspacesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeWorkspacesCommandError(
       output,
@@ -2490,12 +2528,12 @@ export async function deserializeAws_json1_1DescribeWorkspacesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeWorkspacesCommandError(
+const deserializeAws_json1_1DescribeWorkspacesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeWorkspacesCommandOutput> {
+): Promise<DescribeWorkspacesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2543,12 +2581,12 @@ async function deserializeAws_json1_1DescribeWorkspacesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeWorkspacesConnectionStatusCommand(
+export const deserializeAws_json1_1DescribeWorkspacesConnectionStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeWorkspacesConnectionStatusCommandOutput> {
+): Promise<DescribeWorkspacesConnectionStatusCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeWorkspacesConnectionStatusCommandError(
       output,
@@ -2567,12 +2605,12 @@ export async function deserializeAws_json1_1DescribeWorkspacesConnectionStatusCo
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeWorkspacesConnectionStatusCommandError(
+const deserializeAws_json1_1DescribeWorkspacesConnectionStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeWorkspacesConnectionStatusCommandOutput> {
+): Promise<DescribeWorkspacesConnectionStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2609,12 +2647,12 @@ async function deserializeAws_json1_1DescribeWorkspacesConnectionStatusCommandEr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DisassociateIpGroupsCommand(
+export const deserializeAws_json1_1DisassociateIpGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisassociateIpGroupsCommandOutput> {
+): Promise<DisassociateIpGroupsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DisassociateIpGroupsCommandError(
       output,
@@ -2630,12 +2668,12 @@ export async function deserializeAws_json1_1DisassociateIpGroupsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DisassociateIpGroupsCommandError(
+const deserializeAws_json1_1DisassociateIpGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisassociateIpGroupsCommandOutput> {
+): Promise<DisassociateIpGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2705,12 +2743,12 @@ async function deserializeAws_json1_1DisassociateIpGroupsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ImportWorkspaceImageCommand(
+export const deserializeAws_json1_1ImportWorkspaceImageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ImportWorkspaceImageCommandOutput> {
+): Promise<ImportWorkspaceImageCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ImportWorkspaceImageCommandError(
       output,
@@ -2726,12 +2764,12 @@ export async function deserializeAws_json1_1ImportWorkspaceImageCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ImportWorkspaceImageCommandError(
+const deserializeAws_json1_1ImportWorkspaceImageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ImportWorkspaceImageCommandOutput> {
+): Promise<ImportWorkspaceImageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2823,12 +2861,12 @@ async function deserializeAws_json1_1ImportWorkspaceImageCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListAvailableManagementCidrRangesCommand(
+export const deserializeAws_json1_1ListAvailableManagementCidrRangesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListAvailableManagementCidrRangesCommandOutput> {
+): Promise<ListAvailableManagementCidrRangesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListAvailableManagementCidrRangesCommandError(
       output,
@@ -2847,12 +2885,12 @@ export async function deserializeAws_json1_1ListAvailableManagementCidrRangesCom
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListAvailableManagementCidrRangesCommandError(
+const deserializeAws_json1_1ListAvailableManagementCidrRangesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListAvailableManagementCidrRangesCommandOutput> {
+): Promise<ListAvailableManagementCidrRangesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2900,12 +2938,12 @@ async function deserializeAws_json1_1ListAvailableManagementCidrRangesCommandErr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1MigrateWorkspaceCommand(
+export const deserializeAws_json1_1MigrateWorkspaceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<MigrateWorkspaceCommandOutput> {
+): Promise<MigrateWorkspaceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1MigrateWorkspaceCommandError(output, context);
   }
@@ -2918,12 +2956,12 @@ export async function deserializeAws_json1_1MigrateWorkspaceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1MigrateWorkspaceCommandError(
+const deserializeAws_json1_1MigrateWorkspaceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<MigrateWorkspaceCommandOutput> {
+): Promise<MigrateWorkspaceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3015,12 +3053,12 @@ async function deserializeAws_json1_1MigrateWorkspaceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ModifyAccountCommand(
+export const deserializeAws_json1_1ModifyAccountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ModifyAccountCommandOutput> {
+): Promise<ModifyAccountCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ModifyAccountCommandError(output, context);
   }
@@ -3033,12 +3071,12 @@ export async function deserializeAws_json1_1ModifyAccountCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ModifyAccountCommandError(
+const deserializeAws_json1_1ModifyAccountCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ModifyAccountCommandOutput> {
+): Promise<ModifyAccountCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3119,12 +3157,12 @@ async function deserializeAws_json1_1ModifyAccountCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ModifyClientPropertiesCommand(
+export const deserializeAws_json1_1ModifyClientPropertiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ModifyClientPropertiesCommandOutput> {
+): Promise<ModifyClientPropertiesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ModifyClientPropertiesCommandError(
       output,
@@ -3140,12 +3178,12 @@ export async function deserializeAws_json1_1ModifyClientPropertiesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ModifyClientPropertiesCommandError(
+const deserializeAws_json1_1ModifyClientPropertiesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ModifyClientPropertiesCommandOutput> {
+): Promise<ModifyClientPropertiesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3204,12 +3242,12 @@ async function deserializeAws_json1_1ModifyClientPropertiesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ModifySelfservicePermissionsCommand(
+export const deserializeAws_json1_1ModifySelfservicePermissionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ModifySelfservicePermissionsCommandOutput> {
+): Promise<ModifySelfservicePermissionsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ModifySelfservicePermissionsCommandError(
       output,
@@ -3228,12 +3266,12 @@ export async function deserializeAws_json1_1ModifySelfservicePermissionsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ModifySelfservicePermissionsCommandError(
+const deserializeAws_json1_1ModifySelfservicePermissionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ModifySelfservicePermissionsCommandOutput> {
+): Promise<ModifySelfservicePermissionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3292,12 +3330,12 @@ async function deserializeAws_json1_1ModifySelfservicePermissionsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ModifyWorkspaceAccessPropertiesCommand(
+export const deserializeAws_json1_1ModifyWorkspaceAccessPropertiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ModifyWorkspaceAccessPropertiesCommandOutput> {
+): Promise<ModifyWorkspaceAccessPropertiesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ModifyWorkspaceAccessPropertiesCommandError(
       output,
@@ -3316,12 +3354,12 @@ export async function deserializeAws_json1_1ModifyWorkspaceAccessPropertiesComma
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ModifyWorkspaceAccessPropertiesCommandError(
+const deserializeAws_json1_1ModifyWorkspaceAccessPropertiesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ModifyWorkspaceAccessPropertiesCommandOutput> {
+): Promise<ModifyWorkspaceAccessPropertiesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3369,12 +3407,12 @@ async function deserializeAws_json1_1ModifyWorkspaceAccessPropertiesCommandError
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ModifyWorkspaceCreationPropertiesCommand(
+export const deserializeAws_json1_1ModifyWorkspaceCreationPropertiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ModifyWorkspaceCreationPropertiesCommandOutput> {
+): Promise<ModifyWorkspaceCreationPropertiesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ModifyWorkspaceCreationPropertiesCommandError(
       output,
@@ -3393,12 +3431,12 @@ export async function deserializeAws_json1_1ModifyWorkspaceCreationPropertiesCom
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ModifyWorkspaceCreationPropertiesCommandError(
+const deserializeAws_json1_1ModifyWorkspaceCreationPropertiesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ModifyWorkspaceCreationPropertiesCommandOutput> {
+): Promise<ModifyWorkspaceCreationPropertiesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3457,12 +3495,12 @@ async function deserializeAws_json1_1ModifyWorkspaceCreationPropertiesCommandErr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ModifyWorkspacePropertiesCommand(
+export const deserializeAws_json1_1ModifyWorkspacePropertiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ModifyWorkspacePropertiesCommandOutput> {
+): Promise<ModifyWorkspacePropertiesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ModifyWorkspacePropertiesCommandError(
       output,
@@ -3481,12 +3519,12 @@ export async function deserializeAws_json1_1ModifyWorkspacePropertiesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ModifyWorkspacePropertiesCommandError(
+const deserializeAws_json1_1ModifyWorkspacePropertiesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ModifyWorkspacePropertiesCommandOutput> {
+): Promise<ModifyWorkspacePropertiesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3589,12 +3627,12 @@ async function deserializeAws_json1_1ModifyWorkspacePropertiesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ModifyWorkspaceStateCommand(
+export const deserializeAws_json1_1ModifyWorkspaceStateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ModifyWorkspaceStateCommandOutput> {
+): Promise<ModifyWorkspaceStateCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ModifyWorkspaceStateCommandError(
       output,
@@ -3610,12 +3648,12 @@ export async function deserializeAws_json1_1ModifyWorkspaceStateCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ModifyWorkspaceStateCommandError(
+const deserializeAws_json1_1ModifyWorkspaceStateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ModifyWorkspaceStateCommandOutput> {
+): Promise<ModifyWorkspaceStateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3674,12 +3712,12 @@ async function deserializeAws_json1_1ModifyWorkspaceStateCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1RebootWorkspacesCommand(
+export const deserializeAws_json1_1RebootWorkspacesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RebootWorkspacesCommandOutput> {
+): Promise<RebootWorkspacesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1RebootWorkspacesCommandError(output, context);
   }
@@ -3692,12 +3730,12 @@ export async function deserializeAws_json1_1RebootWorkspacesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1RebootWorkspacesCommandError(
+const deserializeAws_json1_1RebootWorkspacesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RebootWorkspacesCommandOutput> {
+): Promise<RebootWorkspacesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3723,12 +3761,12 @@ async function deserializeAws_json1_1RebootWorkspacesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1RebuildWorkspacesCommand(
+export const deserializeAws_json1_1RebuildWorkspacesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RebuildWorkspacesCommandOutput> {
+): Promise<RebuildWorkspacesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1RebuildWorkspacesCommandError(output, context);
   }
@@ -3741,12 +3779,12 @@ export async function deserializeAws_json1_1RebuildWorkspacesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1RebuildWorkspacesCommandError(
+const deserializeAws_json1_1RebuildWorkspacesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RebuildWorkspacesCommandOutput> {
+): Promise<RebuildWorkspacesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3772,12 +3810,12 @@ async function deserializeAws_json1_1RebuildWorkspacesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1RegisterWorkspaceDirectoryCommand(
+export const deserializeAws_json1_1RegisterWorkspaceDirectoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RegisterWorkspaceDirectoryCommandOutput> {
+): Promise<RegisterWorkspaceDirectoryCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1RegisterWorkspaceDirectoryCommandError(
       output,
@@ -3796,12 +3834,12 @@ export async function deserializeAws_json1_1RegisterWorkspaceDirectoryCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1RegisterWorkspaceDirectoryCommandError(
+const deserializeAws_json1_1RegisterWorkspaceDirectoryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RegisterWorkspaceDirectoryCommandOutput> {
+): Promise<RegisterWorkspaceDirectoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3915,12 +3953,12 @@ async function deserializeAws_json1_1RegisterWorkspaceDirectoryCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1RestoreWorkspaceCommand(
+export const deserializeAws_json1_1RestoreWorkspaceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RestoreWorkspaceCommandOutput> {
+): Promise<RestoreWorkspaceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1RestoreWorkspaceCommandError(output, context);
   }
@@ -3933,12 +3971,12 @@ export async function deserializeAws_json1_1RestoreWorkspaceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1RestoreWorkspaceCommandError(
+const deserializeAws_json1_1RestoreWorkspaceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RestoreWorkspaceCommandOutput> {
+): Promise<RestoreWorkspaceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3997,12 +4035,12 @@ async function deserializeAws_json1_1RestoreWorkspaceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1RevokeIpRulesCommand(
+export const deserializeAws_json1_1RevokeIpRulesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RevokeIpRulesCommandOutput> {
+): Promise<RevokeIpRulesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1RevokeIpRulesCommandError(output, context);
   }
@@ -4015,12 +4053,12 @@ export async function deserializeAws_json1_1RevokeIpRulesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1RevokeIpRulesCommandError(
+const deserializeAws_json1_1RevokeIpRulesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RevokeIpRulesCommandOutput> {
+): Promise<RevokeIpRulesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4090,12 +4128,12 @@ async function deserializeAws_json1_1RevokeIpRulesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1StartWorkspacesCommand(
+export const deserializeAws_json1_1StartWorkspacesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartWorkspacesCommandOutput> {
+): Promise<StartWorkspacesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StartWorkspacesCommandError(output, context);
   }
@@ -4108,12 +4146,12 @@ export async function deserializeAws_json1_1StartWorkspacesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1StartWorkspacesCommandError(
+const deserializeAws_json1_1StartWorkspacesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartWorkspacesCommandOutput> {
+): Promise<StartWorkspacesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4139,12 +4177,12 @@ async function deserializeAws_json1_1StartWorkspacesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1StopWorkspacesCommand(
+export const deserializeAws_json1_1StopWorkspacesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StopWorkspacesCommandOutput> {
+): Promise<StopWorkspacesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StopWorkspacesCommandError(output, context);
   }
@@ -4157,12 +4195,12 @@ export async function deserializeAws_json1_1StopWorkspacesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1StopWorkspacesCommandError(
+const deserializeAws_json1_1StopWorkspacesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StopWorkspacesCommandOutput> {
+): Promise<StopWorkspacesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4188,12 +4226,12 @@ async function deserializeAws_json1_1StopWorkspacesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1TerminateWorkspacesCommand(
+export const deserializeAws_json1_1TerminateWorkspacesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TerminateWorkspacesCommandOutput> {
+): Promise<TerminateWorkspacesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1TerminateWorkspacesCommandError(
       output,
@@ -4209,12 +4247,12 @@ export async function deserializeAws_json1_1TerminateWorkspacesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1TerminateWorkspacesCommandError(
+const deserializeAws_json1_1TerminateWorkspacesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TerminateWorkspacesCommandOutput> {
+): Promise<TerminateWorkspacesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4240,12 +4278,12 @@ async function deserializeAws_json1_1TerminateWorkspacesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateRulesOfIpGroupCommand(
+export const deserializeAws_json1_1UpdateRulesOfIpGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateRulesOfIpGroupCommandOutput> {
+): Promise<UpdateRulesOfIpGroupCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateRulesOfIpGroupCommandError(
       output,
@@ -4261,12 +4299,12 @@ export async function deserializeAws_json1_1UpdateRulesOfIpGroupCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateRulesOfIpGroupCommandError(
+const deserializeAws_json1_1UpdateRulesOfIpGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateRulesOfIpGroupCommandOutput> {
+): Promise<UpdateRulesOfIpGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4347,7 +4385,7 @@ async function deserializeAws_json1_1UpdateRulesOfIpGroupCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
   parsedOutput: any,
@@ -4636,14 +4674,10 @@ const serializeAws_json1_1AuthorizeIpRulesRequest = (
 };
 
 const serializeAws_json1_1BundleIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1ClientProperties = (
@@ -4963,14 +4997,10 @@ const serializeAws_json1_1DescribeWorkspacesRequest = (
 };
 
 const serializeAws_json1_1DirectoryIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1DisassociateIpGroupsRequest = (
@@ -5014,25 +5044,17 @@ const serializeAws_json1_1ImportWorkspaceImageRequest = (
 };
 
 const serializeAws_json1_1IpGroupIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1IpRevokedRuleList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1IpRuleItem = (
@@ -5050,14 +5072,10 @@ const serializeAws_json1_1IpRuleItem = (
 };
 
 const serializeAws_json1_1IpRuleList = (
-  input: Array<IpRuleItem>,
+  input: IpRuleItem[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1IpRuleItem(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1IpRuleItem(entry, context));
 };
 
 const serializeAws_json1_1ListAvailableManagementCidrRangesRequest = (
@@ -5224,14 +5242,10 @@ const serializeAws_json1_1RebootRequest = (
 };
 
 const serializeAws_json1_1RebootWorkspaceRequests = (
-  input: Array<RebootRequest>,
+  input: RebootRequest[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1RebootRequest(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1RebootRequest(entry, context));
 };
 
 const serializeAws_json1_1RebootWorkspacesRequest = (
@@ -5262,14 +5276,10 @@ const serializeAws_json1_1RebuildRequest = (
 };
 
 const serializeAws_json1_1RebuildWorkspaceRequests = (
-  input: Array<RebuildRequest>,
+  input: RebuildRequest[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1RebuildRequest(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1RebuildRequest(entry, context));
 };
 
 const serializeAws_json1_1RebuildWorkspacesRequest = (
@@ -5318,14 +5328,10 @@ const serializeAws_json1_1RegisterWorkspaceDirectoryRequest = (
 };
 
 const serializeAws_json1_1ResourceIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1RestoreWorkspaceRequest = (
@@ -5391,14 +5397,10 @@ const serializeAws_json1_1StartRequest = (
 };
 
 const serializeAws_json1_1StartWorkspaceRequests = (
-  input: Array<StartRequest>,
+  input: StartRequest[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1StartRequest(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1StartRequest(entry, context));
 };
 
 const serializeAws_json1_1StartWorkspacesRequest = (
@@ -5429,14 +5431,10 @@ const serializeAws_json1_1StopRequest = (
 };
 
 const serializeAws_json1_1StopWorkspaceRequests = (
-  input: Array<StopRequest>,
+  input: StopRequest[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1StopRequest(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1StopRequest(entry, context));
 };
 
 const serializeAws_json1_1StopWorkspacesRequest = (
@@ -5456,14 +5454,10 @@ const serializeAws_json1_1StopWorkspacesRequest = (
 };
 
 const serializeAws_json1_1SubnetIds = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
@@ -5478,25 +5472,17 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_json1_1TagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1TagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1Tag(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1Tag(entry, context));
 };
 
 const serializeAws_json1_1TerminateRequest = (
@@ -5511,14 +5497,12 @@ const serializeAws_json1_1TerminateRequest = (
 };
 
 const serializeAws_json1_1TerminateWorkspaceRequests = (
-  input: Array<TerminateRequest>,
+  input: TerminateRequest[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1TerminateRequest(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1TerminateRequest(entry, context)
+  );
 };
 
 const serializeAws_json1_1TerminateWorkspacesRequest = (
@@ -5608,25 +5592,17 @@ const serializeAws_json1_1WorkspaceCreationProperties = (
 };
 
 const serializeAws_json1_1WorkspaceIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1WorkspaceImageIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1WorkspaceProperties = (
@@ -5691,14 +5667,12 @@ const serializeAws_json1_1WorkspaceRequest = (
 };
 
 const serializeAws_json1_1WorkspaceRequestList = (
-  input: Array<WorkspaceRequest>,
+  input: WorkspaceRequest[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1WorkspaceRequest(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1WorkspaceRequest(entry, context)
+  );
 };
 
 const deserializeAws_json1_1AccessDeniedException = (
@@ -5762,7 +5736,7 @@ const deserializeAws_json1_1AccountModification = (
 const deserializeAws_json1_1AccountModificationList = (
   output: any,
   context: __SerdeContext
-): Array<AccountModification> => {
+): AccountModification[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AccountModification(entry, context)
   );
@@ -5791,7 +5765,7 @@ const deserializeAws_json1_1AuthorizeIpRulesResult = (
 const deserializeAws_json1_1BundleList = (
   output: any,
   context: __SerdeContext
-): Array<WorkspaceBundle> => {
+): WorkspaceBundle[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1WorkspaceBundle(entry, context)
   );
@@ -5817,7 +5791,7 @@ const deserializeAws_json1_1ClientProperties = (
 const deserializeAws_json1_1ClientPropertiesList = (
   output: any,
   context: __SerdeContext
-): Array<ClientPropertiesResult> => {
+): ClientPropertiesResult[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ClientPropertiesResult(entry, context)
   );
@@ -5926,7 +5900,7 @@ const deserializeAws_json1_1CreateWorkspacesResult = (
 const deserializeAws_json1_1DedicatedTenancyCidrRangeList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -6262,7 +6236,7 @@ const deserializeAws_json1_1DescribeWorkspacesResult = (
 const deserializeAws_json1_1DirectoryList = (
   output: any,
   context: __SerdeContext
-): Array<WorkspaceDirectory> => {
+): WorkspaceDirectory[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1WorkspaceDirectory(entry, context)
   );
@@ -6281,7 +6255,7 @@ const deserializeAws_json1_1DisassociateIpGroupsResult = (
 const deserializeAws_json1_1DnsIpAddresses = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -6316,7 +6290,7 @@ const deserializeAws_json1_1FailedCreateWorkspaceRequest = (
 const deserializeAws_json1_1FailedCreateWorkspaceRequests = (
   output: any,
   context: __SerdeContext
-): Array<FailedCreateWorkspaceRequest> => {
+): FailedCreateWorkspaceRequest[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1FailedCreateWorkspaceRequest(entry, context)
   );
@@ -6325,7 +6299,7 @@ const deserializeAws_json1_1FailedCreateWorkspaceRequests = (
 const deserializeAws_json1_1FailedRebootWorkspaceRequests = (
   output: any,
   context: __SerdeContext
-): Array<FailedWorkspaceChangeRequest> => {
+): FailedWorkspaceChangeRequest[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1FailedWorkspaceChangeRequest(entry, context)
   );
@@ -6334,7 +6308,7 @@ const deserializeAws_json1_1FailedRebootWorkspaceRequests = (
 const deserializeAws_json1_1FailedRebuildWorkspaceRequests = (
   output: any,
   context: __SerdeContext
-): Array<FailedWorkspaceChangeRequest> => {
+): FailedWorkspaceChangeRequest[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1FailedWorkspaceChangeRequest(entry, context)
   );
@@ -6343,7 +6317,7 @@ const deserializeAws_json1_1FailedRebuildWorkspaceRequests = (
 const deserializeAws_json1_1FailedStartWorkspaceRequests = (
   output: any,
   context: __SerdeContext
-): Array<FailedWorkspaceChangeRequest> => {
+): FailedWorkspaceChangeRequest[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1FailedWorkspaceChangeRequest(entry, context)
   );
@@ -6352,7 +6326,7 @@ const deserializeAws_json1_1FailedStartWorkspaceRequests = (
 const deserializeAws_json1_1FailedStopWorkspaceRequests = (
   output: any,
   context: __SerdeContext
-): Array<FailedWorkspaceChangeRequest> => {
+): FailedWorkspaceChangeRequest[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1FailedWorkspaceChangeRequest(entry, context)
   );
@@ -6361,7 +6335,7 @@ const deserializeAws_json1_1FailedStopWorkspaceRequests = (
 const deserializeAws_json1_1FailedTerminateWorkspaceRequests = (
   output: any,
   context: __SerdeContext
-): Array<FailedWorkspaceChangeRequest> => {
+): FailedWorkspaceChangeRequest[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1FailedWorkspaceChangeRequest(entry, context)
   );
@@ -6434,7 +6408,7 @@ const deserializeAws_json1_1InvalidResourceStateException = (
 const deserializeAws_json1_1IpGroupIdList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -6459,7 +6433,7 @@ const deserializeAws_json1_1IpRuleItem = (
 const deserializeAws_json1_1IpRuleList = (
   output: any,
   context: __SerdeContext
-): Array<IpRuleItem> => {
+): IpRuleItem[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1IpRuleItem(entry, context)
   );
@@ -6534,7 +6508,7 @@ const deserializeAws_json1_1ModificationState = (
 const deserializeAws_json1_1ModificationStateList = (
   output: any,
   context: __SerdeContext
-): Array<ModificationState> => {
+): ModificationState[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ModificationState(entry, context)
   );
@@ -6884,7 +6858,7 @@ const deserializeAws_json1_1Snapshot = (
 const deserializeAws_json1_1SnapshotList = (
   output: any,
   context: __SerdeContext
-): Array<Snapshot> => {
+): Snapshot[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Snapshot(entry, context)
   );
@@ -6927,7 +6901,7 @@ const deserializeAws_json1_1StopWorkspacesResult = (
 const deserializeAws_json1_1SubnetIds = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -6952,7 +6926,7 @@ const deserializeAws_json1_1Tag = (
 const deserializeAws_json1_1TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );
@@ -7264,7 +7238,7 @@ const deserializeAws_json1_1WorkspaceConnectionStatus = (
 const deserializeAws_json1_1WorkspaceConnectionStatusList = (
   output: any,
   context: __SerdeContext
-): Array<WorkspaceConnectionStatus> => {
+): WorkspaceConnectionStatus[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1WorkspaceConnectionStatus(entry, context)
   );
@@ -7428,7 +7402,7 @@ const deserializeAws_json1_1WorkspaceImage = (
 const deserializeAws_json1_1WorkspaceImageList = (
   output: any,
   context: __SerdeContext
-): Array<WorkspaceImage> => {
+): WorkspaceImage[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1WorkspaceImage(entry, context)
   );
@@ -7437,7 +7411,7 @@ const deserializeAws_json1_1WorkspaceImageList = (
 const deserializeAws_json1_1WorkspaceList = (
   output: any,
   context: __SerdeContext
-): Array<Workspace> => {
+): Workspace[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Workspace(entry, context)
   );
@@ -7586,7 +7560,7 @@ const deserializeAws_json1_1WorkspacesIpGroup = (
 const deserializeAws_json1_1WorkspacesIpGroupsList = (
   output: any,
   context: __SerdeContext
-): Array<WorkspacesIpGroup> => {
+): WorkspacesIpGroup[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1WorkspacesIpGroup(entry, context)
   );
@@ -7600,7 +7574,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -7615,11 +7589,8 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
@@ -7646,11 +7617,10 @@ const buildHttpRpcRequest = async (
   return new __HttpRequest(contents);
 };
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};

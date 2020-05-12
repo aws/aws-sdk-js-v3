@@ -15,7 +15,7 @@ export interface BatchDescribeSimulationJobRequest {
   /**
    * <p>A list of Amazon Resource Names (ARNs) of simulation jobs to describe.</p>
    */
-  jobs: Array<string> | undefined;
+  jobs: string[] | undefined;
 }
 
 export namespace BatchDescribeSimulationJobRequest {
@@ -28,12 +28,12 @@ export interface BatchDescribeSimulationJobResponse {
   /**
    * <p>A list of simulation jobs.</p>
    */
-  jobs?: Array<SimulationJob>;
+  jobs?: SimulationJob[];
 
   /**
    * <p>A list of unprocessed simulation job Amazon Resource Names (ARNs).</p>
    */
-  unprocessedJobs?: Array<string>;
+  unprocessedJobs?: string[];
 }
 
 export namespace BatchDescribeSimulationJobResponse {
@@ -111,7 +111,7 @@ export interface CreateDeploymentJobRequest {
   /**
    * <p>The deployment application configuration.</p>
    */
-  deploymentApplicationConfigs: Array<DeploymentApplicationConfig> | undefined;
+  deploymentApplicationConfigs: DeploymentApplicationConfig[] | undefined;
 
   /**
    * <p>The requested deployment configuration.</p>
@@ -149,7 +149,7 @@ export interface CreateDeploymentJobResponse {
   /**
    * <p>The deployment application configuration.</p>
    */
-  deploymentApplicationConfigs?: Array<DeploymentApplicationConfig>;
+  deploymentApplicationConfigs?: DeploymentApplicationConfig[];
 
   /**
    * <p>The deployment configuration.</p>
@@ -309,7 +309,7 @@ export interface CreateRobotApplicationRequest {
   /**
    * <p>The sources of the robot application.</p>
    */
-  sources: Array<SourceConfig> | undefined;
+  sources: SourceConfig[] | undefined;
 
   /**
    * <p>A map that contains tag keys and tag values that are attached to the robot application.</p>
@@ -352,7 +352,7 @@ export interface CreateRobotApplicationResponse {
   /**
    * <p>The sources of the robot application.</p>
    */
-  sources?: Array<Source>;
+  sources?: Source[];
 
   /**
    * <p>The list of all tags added to the robot application.</p>
@@ -419,7 +419,7 @@ export interface CreateRobotApplicationVersionResponse {
   /**
    * <p>The sources of the robot application.</p>
    */
-  sources?: Array<Source>;
+  sources?: Source[];
 
   /**
    * <p>The version of the robot application.</p>
@@ -523,7 +523,7 @@ export interface CreateSimulationApplicationRequest {
   /**
    * <p>The sources of the simulation application.</p>
    */
-  sources: Array<SourceConfig> | undefined;
+  sources: SourceConfig[] | undefined;
 
   /**
    * <p>A map that contains tag keys and tag values that are attached to the simulation application.</p>
@@ -576,7 +576,7 @@ export interface CreateSimulationApplicationResponse {
   /**
    * <p>The sources of the simulation application.</p>
    */
-  sources?: Array<Source>;
+  sources?: Source[];
 
   /**
    * <p>The list of all tags added to the simulation application.</p>
@@ -653,7 +653,7 @@ export interface CreateSimulationApplicationVersionResponse {
   /**
    * <p>The sources of the simulation application.</p>
    */
-  sources?: Array<Source>;
+  sources?: Source[];
 
   /**
    * <p>The version of the simulation application.</p>
@@ -683,7 +683,7 @@ export interface CreateSimulationJobRequest {
    *          </p>
    *          </note>
    */
-  dataSources?: Array<DataSourceConfig>;
+  dataSources?: DataSourceConfig[];
 
   /**
    * <p>The failure behavior the simulation job.</p>
@@ -728,12 +728,12 @@ export interface CreateSimulationJobRequest {
   /**
    * <p>The robot application to use in the simulation job.</p>
    */
-  robotApplications?: Array<RobotApplicationConfig>;
+  robotApplications?: RobotApplicationConfig[];
 
   /**
    * <p>The simulation application to use in the simulation job.</p>
    */
-  simulationApplications?: Array<SimulationApplicationConfig>;
+  simulationApplications?: SimulationApplicationConfig[];
 
   /**
    * <p>A map that contains tag keys and tag values that are attached to the simulation job.</p>
@@ -767,7 +767,7 @@ export interface CreateSimulationJobResponse {
   /**
    * <p>The data sources for the simulation job.</p>
    */
-  dataSources?: Array<DataSource>;
+  dataSources?: DataSource[];
 
   /**
    * <p>the failure behavior for the simulation job.</p>
@@ -872,12 +872,12 @@ export interface CreateSimulationJobResponse {
   /**
    * <p>The robot application used by the simulation job.</p>
    */
-  robotApplications?: Array<RobotApplicationConfig>;
+  robotApplications?: RobotApplicationConfig[];
 
   /**
    * <p>The simulation application used by the simulation job.</p>
    */
-  simulationApplications?: Array<SimulationApplicationConfig>;
+  simulationApplications?: SimulationApplicationConfig[];
 
   /**
    * <p>The simulation job execution duration in milliseconds.</p>
@@ -923,7 +923,7 @@ export interface DataSource {
   /**
    * <p>The list of S3 keys identifying the data source files.</p>
    */
-  s3Keys?: Array<S3KeyOutput>;
+  s3Keys?: S3KeyOutput[];
 }
 
 export namespace DataSource {
@@ -948,7 +948,7 @@ export interface DataSourceConfig {
   /**
    * <p>The list of S3 keys identifying the data source files.</p>
    */
-  s3Keys: Array<string> | undefined;
+  s3Keys: string[] | undefined;
 }
 
 export namespace DataSourceConfig {
@@ -1130,7 +1130,7 @@ export interface DeploymentJob {
   /**
    * <p>The deployment application configuration.</p>
    */
-  deploymentApplicationConfigs?: Array<DeploymentApplicationConfig>;
+  deploymentApplicationConfigs?: DeploymentApplicationConfig[];
 
   /**
    * <p>The deployment configuration.</p>
@@ -1292,7 +1292,7 @@ export interface DescribeDeploymentJobResponse {
   /**
    * <p>The deployment application configuration.</p>
    */
-  deploymentApplicationConfigs?: Array<DeploymentApplicationConfig>;
+  deploymentApplicationConfigs?: DeploymentApplicationConfig[];
 
   /**
    * <p>The deployment configuration.</p>
@@ -1317,7 +1317,7 @@ export interface DescribeDeploymentJobResponse {
   /**
    * <p>A list of robot deployment summaries.</p>
    */
-  robotDeploymentSummary?: Array<RobotDeployment>;
+  robotDeploymentSummary?: RobotDeployment[];
 
   /**
    * <p>The status of the deployment job.</p>
@@ -1383,7 +1383,7 @@ export interface DescribeFleetResponse {
   /**
    * <p>A list of robots.</p>
    */
-  robots?: Array<Robot>;
+  robots?: Robot[];
 
   /**
    * <p>The list of all tags added to the specified fleet.</p>
@@ -1444,7 +1444,7 @@ export interface DescribeRobotApplicationResponse {
   /**
    * <p>The sources of the robot application.</p>
    */
-  sources?: Array<Source>;
+  sources?: Source[];
 
   /**
    * <p>The list of all tags added to the specified robot application.</p>
@@ -1591,7 +1591,7 @@ export interface DescribeSimulationApplicationResponse {
   /**
    * <p>The sources of the simulation application.</p>
    */
-  sources?: Array<Source>;
+  sources?: Source[];
 
   /**
    * <p>The list of all tags added to the specified simulation application.</p>
@@ -1637,7 +1637,7 @@ export interface DescribeSimulationJobResponse {
   /**
    * <p>The data sources for the simulation job.</p>
    */
-  dataSources?: Array<DataSource>;
+  dataSources?: DataSource[];
 
   /**
    * <p>The failure behavior for the simulation job.</p>
@@ -1757,12 +1757,12 @@ export interface DescribeSimulationJobResponse {
   /**
    * <p>A list of robot applications.</p>
    */
-  robotApplications?: Array<RobotApplicationConfig>;
+  robotApplications?: RobotApplicationConfig[];
 
   /**
    * <p>A list of simulation applications.</p>
    */
-  simulationApplications?: Array<SimulationApplicationConfig>;
+  simulationApplications?: SimulationApplicationConfig[];
 
   /**
    * <p>The simulation job execution duration in milliseconds.</p>
@@ -1808,7 +1808,7 @@ export interface Filter {
   /**
    * <p>A list of values.</p>
    */
-  values?: Array<string>;
+  values?: string[];
 }
 
 export namespace Filter {
@@ -1961,7 +1961,7 @@ export interface ListDeploymentJobsRequest {
    *          but they must be for the same named item. For example, if you are looking for items with the status
    *          <code>InProgress</code> or the status <code>Pending</code>.</p>
    */
-  filters?: Array<Filter>;
+  filters?: Filter[];
 
   /**
    * <p>The maximum number of deployment job results returned by <code>ListDeploymentJobs</code>
@@ -1999,7 +1999,7 @@ export interface ListDeploymentJobsResponse {
   /**
    * <p>A list of deployment jobs that meet the criteria of the request.</p>
    */
-  deploymentJobs?: Array<DeploymentJob>;
+  deploymentJobs?: DeploymentJob[];
 
   /**
    * <p>The <code>nextToken</code> value to include in a future <code>ListDeploymentJobs</code> request.
@@ -2022,7 +2022,7 @@ export interface ListFleetsRequest {
    *          <p>The filter name <code>name</code> is supported.
    *          When filtering, you must use the complete value of the filtered item. You can use up to three filters.</p>
    */
-  filters?: Array<Filter>;
+  filters?: Filter[];
 
   /**
    * <p>The maximum number of deployment job results returned by <code>ListFleets</code>
@@ -2060,7 +2060,7 @@ export interface ListFleetsResponse {
   /**
    * <p>A list of fleet details meeting the request criteria.</p>
    */
-  fleetDetails?: Array<Fleet>;
+  fleetDetails?: Fleet[];
 
   /**
    * <p>The <code>nextToken</code> value to include in a future <code>ListDeploymentJobs</code> request.
@@ -2083,7 +2083,7 @@ export interface ListRobotApplicationsRequest {
    *             <p>The filter name <code>name</code> is supported.
    *          When filtering, you must use the complete value of the filtered item. You can use up to three filters.</p>
    */
-  filters?: Array<Filter>;
+  filters?: Filter[];
 
   /**
    * <p>The maximum number of deployment job results returned by <code>ListRobotApplications</code>
@@ -2134,7 +2134,7 @@ export interface ListRobotApplicationsResponse {
   /**
    * <p>A list of robot application summaries that meet the criteria of the request.</p>
    */
-  robotApplicationSummaries?: Array<RobotApplicationSummary>;
+  robotApplicationSummaries?: RobotApplicationSummary[];
 }
 
 export namespace ListRobotApplicationsResponse {
@@ -2151,7 +2151,7 @@ export interface ListRobotsRequest {
    *          but they must be for the same named item. For example, if you are looking for items with the status
    *          <code>Registered</code> or the status <code>Available</code>.</p>
    */
-  filters?: Array<Filter>;
+  filters?: Filter[];
 
   /**
    * <p>The maximum number of deployment job results returned by <code>ListRobots</code>
@@ -2197,7 +2197,7 @@ export interface ListRobotsResponse {
   /**
    * <p>A list of robots that meet the criteria of the request.</p>
    */
-  robots?: Array<Robot>;
+  robots?: Robot[];
 }
 
 export namespace ListRobotsResponse {
@@ -2212,7 +2212,7 @@ export interface ListSimulationApplicationsRequest {
    *          <p>The filter name <code>name</code> is supported.  When filtering, you must use the complete
    *         value of the filtered item. You can use up to three filters.</p>
    */
-  filters?: Array<Filter>;
+  filters?: Filter[];
 
   /**
    * <p>The maximum number of deployment job results returned by <code>ListSimulationApplications</code>
@@ -2263,7 +2263,7 @@ export interface ListSimulationApplicationsResponse {
   /**
    * <p>A list of simulation application summaries that meet the criteria of the request.</p>
    */
-  simulationApplicationSummaries?: Array<SimulationApplicationSummary>;
+  simulationApplicationSummaries?: SimulationApplicationSummary[];
 }
 
 export namespace ListSimulationApplicationsResponse {
@@ -2281,7 +2281,7 @@ export interface ListSimulationJobsRequest {
    *          but they must be for the same named item. For example, if you are looking for items with the status
    *          <code>Preparing</code> or the status <code>Running</code>.</p>
    */
-  filters?: Array<Filter>;
+  filters?: Filter[];
 
   /**
    * <p>The maximum number of deployment job results returned by <code>ListSimulationJobs</code>
@@ -2327,7 +2327,7 @@ export interface ListSimulationJobsResponse {
   /**
    * <p>A list of simulation job summaries that meet the criteria of the request.</p>
    */
-  simulationJobSummaries: Array<SimulationJobSummary> | undefined;
+  simulationJobSummaries: SimulationJobSummary[] | undefined;
 }
 
 export namespace ListSimulationJobsResponse {
@@ -2431,7 +2431,7 @@ export interface PortForwardingConfig {
   /**
    * <p>The port mappings for the configuration.</p>
    */
-  portMappings?: Array<PortMapping>;
+  portMappings?: PortMapping[];
 }
 
 export namespace PortForwardingConfig {
@@ -2999,7 +2999,7 @@ export interface SimulationJob {
   /**
    * <p>The data sources for the simulation job.</p>
    */
-  dataSources?: Array<DataSource>;
+  dataSources?: DataSource[];
 
   /**
    * <p>The failure behavior the simulation job.</p>
@@ -3072,12 +3072,12 @@ export interface SimulationJob {
   /**
    * <p>A list of robot applications.</p>
    */
-  robotApplications?: Array<RobotApplicationConfig>;
+  robotApplications?: RobotApplicationConfig[];
 
   /**
    * <p>A list of simulation applications.</p>
    */
-  simulationApplications?: Array<SimulationApplicationConfig>;
+  simulationApplications?: SimulationApplicationConfig[];
 
   /**
    * <p>The simulation job execution duration in milliseconds.</p>
@@ -3156,7 +3156,7 @@ export interface SimulationJobSummary {
   /**
    * <p>The names of the data sources.</p>
    */
-  dataSourceNames?: Array<string>;
+  dataSourceNames?: string[];
 
   /**
    * <p>The time, in milliseconds since the epoch, when the simulation job was last updated.</p>
@@ -3171,12 +3171,12 @@ export interface SimulationJobSummary {
   /**
    * <p>A list of simulation job robot application names.</p>
    */
-  robotApplicationNames?: Array<string>;
+  robotApplicationNames?: string[];
 
   /**
    * <p>A list of simulation job simulation application names.</p>
    */
-  simulationApplicationNames?: Array<string>;
+  simulationApplicationNames?: string[];
 
   /**
    * <p>The status of the simulation job.</p>
@@ -3303,7 +3303,7 @@ export interface SyncDeploymentJobResponse {
   /**
    * <p>Information about the deployment application configurations.</p>
    */
-  deploymentApplicationConfigs?: Array<DeploymentApplicationConfig>;
+  deploymentApplicationConfigs?: DeploymentApplicationConfig[];
 
   /**
    * <p>Information about the deployment configuration.</p>
@@ -3447,7 +3447,7 @@ export interface UntagResourceRequest {
   /**
    * <p>A map that contains tag keys and tag values that will be unattached from the resource.</p>
    */
-  tagKeys: Array<string> | undefined;
+  tagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -3484,7 +3484,7 @@ export interface UpdateRobotApplicationRequest {
   /**
    * <p>The sources of the robot application.</p>
    */
-  sources: Array<SourceConfig> | undefined;
+  sources: SourceConfig[] | undefined;
 }
 
 export namespace UpdateRobotApplicationRequest {
@@ -3522,7 +3522,7 @@ export interface UpdateRobotApplicationResponse {
   /**
    * <p>The sources of the robot application.</p>
    */
-  sources?: Array<Source>;
+  sources?: Source[];
 
   /**
    * <p>The version of the robot application.</p>
@@ -3565,7 +3565,7 @@ export interface UpdateSimulationApplicationRequest {
   /**
    * <p>The sources of the simulation application.</p>
    */
-  sources: Array<SourceConfig> | undefined;
+  sources: SourceConfig[] | undefined;
 }
 
 export namespace UpdateSimulationApplicationRequest {
@@ -3613,7 +3613,7 @@ export interface UpdateSimulationApplicationResponse {
   /**
    * <p>The sources of the simulation application.</p>
    */
-  sources?: Array<Source>;
+  sources?: Source[];
 
   /**
    * <p>The version of the robot application.</p>
@@ -3641,12 +3641,12 @@ export interface VPCConfig {
   /**
    * <p>A list of one or more security groups IDs in your VPC.</p>
    */
-  securityGroups?: Array<string>;
+  securityGroups?: string[];
 
   /**
    * <p>A list of one or more subnet IDs in your VPC.</p>
    */
-  subnets: Array<string> | undefined;
+  subnets: string[] | undefined;
 }
 
 export namespace VPCConfig {
@@ -3666,12 +3666,12 @@ export interface VPCConfigResponse {
   /**
    * <p>A list of security group IDs associated with the simulation job.</p>
    */
-  securityGroups?: Array<string>;
+  securityGroups?: string[];
 
   /**
    * <p>A list of subnet IDs associated with the simulation job.</p>
    */
-  subnets?: Array<string>;
+  subnets?: string[];
 
   /**
    * <p>The VPC ID associated with your simulation job.</p>

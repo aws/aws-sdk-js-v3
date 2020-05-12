@@ -51,62 +51,66 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_json1_0DescribeStreamCommand(
+export const serializeAws_json1_0DescribeStreamCommand = async (
   input: DescribeStreamCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDBStreams_20120810.DescribeStream";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDBStreams_20120810.DescribeStream"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0DescribeStreamInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0GetRecordsCommand(
+export const serializeAws_json1_0GetRecordsCommand = async (
   input: GetRecordsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDBStreams_20120810.GetRecords";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDBStreams_20120810.GetRecords"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0GetRecordsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0GetShardIteratorCommand(
+export const serializeAws_json1_0GetShardIteratorCommand = async (
   input: GetShardIteratorCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDBStreams_20120810.GetShardIterator";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDBStreams_20120810.GetShardIterator"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_0GetShardIteratorInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_0ListStreamsCommand(
+export const serializeAws_json1_0ListStreamsCommand = async (
   input: ListStreamsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.0";
-  headers["X-Amz-Target"] = "DynamoDBStreams_20120810.ListStreams";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.0",
+    "X-Amz-Target": "DynamoDBStreams_20120810.ListStreams"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ListStreamsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_0DescribeStreamCommand(
+export const deserializeAws_json1_0DescribeStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeStreamCommandOutput> {
+): Promise<DescribeStreamCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0DescribeStreamCommandError(output, context);
   }
@@ -119,12 +123,12 @@ export async function deserializeAws_json1_0DescribeStreamCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0DescribeStreamCommandError(
+const deserializeAws_json1_0DescribeStreamCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeStreamCommandOutput> {
+): Promise<DescribeStreamCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -172,12 +176,12 @@ async function deserializeAws_json1_0DescribeStreamCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0GetRecordsCommand(
+export const deserializeAws_json1_0GetRecordsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetRecordsCommandOutput> {
+): Promise<GetRecordsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0GetRecordsCommandError(output, context);
   }
@@ -190,12 +194,12 @@ export async function deserializeAws_json1_0GetRecordsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0GetRecordsCommandError(
+const deserializeAws_json1_0GetRecordsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetRecordsCommandOutput> {
+): Promise<GetRecordsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -276,12 +280,12 @@ async function deserializeAws_json1_0GetRecordsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0GetShardIteratorCommand(
+export const deserializeAws_json1_0GetShardIteratorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetShardIteratorCommandOutput> {
+): Promise<GetShardIteratorCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0GetShardIteratorCommandError(output, context);
   }
@@ -294,12 +298,12 @@ export async function deserializeAws_json1_0GetShardIteratorCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0GetShardIteratorCommandError(
+const deserializeAws_json1_0GetShardIteratorCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetShardIteratorCommandOutput> {
+): Promise<GetShardIteratorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -358,12 +362,12 @@ async function deserializeAws_json1_0GetShardIteratorCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_0ListStreamsCommand(
+export const deserializeAws_json1_0ListStreamsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListStreamsCommandOutput> {
+): Promise<ListStreamsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0ListStreamsCommandError(output, context);
   }
@@ -376,12 +380,12 @@ export async function deserializeAws_json1_0ListStreamsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_0ListStreamsCommandError(
+const deserializeAws_json1_0ListStreamsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListStreamsCommandOutput> {
+): Promise<ListStreamsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -429,7 +433,7 @@ async function deserializeAws_json1_0ListStreamsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_0ExpiredIteratorExceptionResponse = async (
   parsedOutput: any,
@@ -750,7 +754,7 @@ const deserializeAws_json1_0_Record = (
 const deserializeAws_json1_0RecordList = (
   output: any,
   context: __SerdeContext
-): Array<_Record> => {
+): _Record[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0_Record(entry, context)
   );
@@ -811,7 +815,7 @@ const deserializeAws_json1_0Shard = (
 const deserializeAws_json1_0ShardDescriptionList = (
   output: any,
   context: __SerdeContext
-): Array<Shard> => {
+): Shard[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0Shard(entry, context)
   );
@@ -902,7 +906,7 @@ const deserializeAws_json1_0StreamDescription = (
 const deserializeAws_json1_0StreamList = (
   output: any,
   context: __SerdeContext
-): Array<_Stream> => {
+): _Stream[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0_Stream(entry, context)
   );
@@ -975,11 +979,10 @@ const deserializeAws_json1_0AttributeMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: AttributeValue } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_json1_0AttributeValue(output[key], context);
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = deserializeAws_json1_0AttributeValue(output[key], context);
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_0AttributeValue = (
@@ -1044,7 +1047,7 @@ const deserializeAws_json1_0AttributeValue = (
 const deserializeAws_json1_0BinarySetAttributeValue = (
   output: any,
   context: __SerdeContext
-): Array<Uint8Array> => {
+): Uint8Array[] => {
   return (output || []).map((entry: any) => context.base64Decoder(entry));
 };
 
@@ -1065,7 +1068,7 @@ const deserializeAws_json1_0InternalServerError = (
 const deserializeAws_json1_0KeySchema = (
   output: any,
   context: __SerdeContext
-): Array<KeySchemaElement> => {
+): KeySchemaElement[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0KeySchemaElement(entry, context)
   );
@@ -1106,7 +1109,7 @@ const deserializeAws_json1_0LimitExceededException = (
 const deserializeAws_json1_0ListAttributeValue = (
   output: any,
   context: __SerdeContext
-): Array<AttributeValue> => {
+): AttributeValue[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0AttributeValue(entry, context)
   );
@@ -1116,17 +1119,16 @@ const deserializeAws_json1_0MapAttributeValue = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: AttributeValue } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_json1_0AttributeValue(output[key], context);
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = deserializeAws_json1_0AttributeValue(output[key], context);
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_0NumberSetAttributeValue = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -1147,7 +1149,7 @@ const deserializeAws_json1_0ResourceNotFoundException = (
 const deserializeAws_json1_0StringSetAttributeValue = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -1159,7 +1161,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -1174,11 +1176,8 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
@@ -1205,11 +1204,10 @@ const buildHttpRpcRequest = async (
   return new __HttpRequest(contents);
 };
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};

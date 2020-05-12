@@ -742,7 +742,7 @@ export interface ListDatasetsResponse {
   /**
    * <p>A set of datasets.</p>
    */
-  Datasets?: Array<Dataset>;
+  Datasets?: Dataset[];
 
   /**
    * <p>A pagination token for obtaining the next page of results.</p>
@@ -789,7 +789,7 @@ export interface ListIdentityPoolUsageResponse {
   /**
    * <p>Usage information for the identity pools.</p>
    */
-  IdentityPoolUsages?: Array<IdentityPoolUsage>;
+  IdentityPoolUsages?: IdentityPoolUsage[];
 
   /**
    * <p>The maximum number of results to be returned.</p>
@@ -886,7 +886,7 @@ export interface ListRecordsResponse {
   /**
    * <p>Names of merged datasets.</p>
    */
-  MergedDatasetNames?: Array<string>;
+  MergedDatasetNames?: string[];
 
   /**
    * <p>A pagination token for obtaining the next page of results.</p>
@@ -896,7 +896,7 @@ export interface ListRecordsResponse {
   /**
    * <p>A list of all records.</p>
    */
-  Records?: Array<_Record>;
+  Records?: _Record[];
 
   /**
    * <p>A token containing a session ID, identity ID, and expiration.</p>
@@ -940,7 +940,7 @@ export interface PushSync {
   /**
    * <p>List of SNS platform application ARNs that could be used by clients.</p>
    */
-  ApplicationArns?: Array<string>;
+  ApplicationArns?: string[];
 
   /**
    * <p>A role configured to allow Cognito to call SNS on behalf of the developer.</p>
@@ -1325,7 +1325,7 @@ export interface UpdateRecordsRequest {
   /**
    * <p>A list of patch operations.</p>
    */
-  RecordPatches?: Array<RecordPatch>;
+  RecordPatches?: RecordPatch[];
 
   /**
    * <p>The SyncSessionToken returned by a previous call to ListRecords for this dataset and identity.</p>
@@ -1346,7 +1346,7 @@ export interface UpdateRecordsResponse {
   /**
    * <p>A list of records that have been updated.</p>
    */
-  Records?: Array<_Record>;
+  Records?: _Record[];
 }
 
 export namespace UpdateRecordsResponse {

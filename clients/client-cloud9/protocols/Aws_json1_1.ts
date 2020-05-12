@@ -84,160 +84,165 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_json1_1CreateEnvironmentEC2Command(
+export const serializeAws_json1_1CreateEnvironmentEC2Command = async (
   input: CreateEnvironmentEC2CommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCloud9WorkspaceManagementService.CreateEnvironmentEC2";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSCloud9WorkspaceManagementService.CreateEnvironmentEC2"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateEnvironmentEC2Request(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreateEnvironmentMembershipCommand(
+export const serializeAws_json1_1CreateEnvironmentMembershipCommand = async (
   input: CreateEnvironmentMembershipCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCloud9WorkspaceManagementService.CreateEnvironmentMembership";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "AWSCloud9WorkspaceManagementService.CreateEnvironmentMembership"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateEnvironmentMembershipRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteEnvironmentCommand(
+export const serializeAws_json1_1DeleteEnvironmentCommand = async (
   input: DeleteEnvironmentCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCloud9WorkspaceManagementService.DeleteEnvironment";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSCloud9WorkspaceManagementService.DeleteEnvironment"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteEnvironmentRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteEnvironmentMembershipCommand(
+export const serializeAws_json1_1DeleteEnvironmentMembershipCommand = async (
   input: DeleteEnvironmentMembershipCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCloud9WorkspaceManagementService.DeleteEnvironmentMembership";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "AWSCloud9WorkspaceManagementService.DeleteEnvironmentMembership"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteEnvironmentMembershipRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeEnvironmentMembershipsCommand(
+export const serializeAws_json1_1DescribeEnvironmentMembershipsCommand = async (
   input: DescribeEnvironmentMembershipsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCloud9WorkspaceManagementService.DescribeEnvironmentMemberships";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "AWSCloud9WorkspaceManagementService.DescribeEnvironmentMemberships"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEnvironmentMembershipsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeEnvironmentStatusCommand(
+export const serializeAws_json1_1DescribeEnvironmentStatusCommand = async (
   input: DescribeEnvironmentStatusCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCloud9WorkspaceManagementService.DescribeEnvironmentStatus";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "AWSCloud9WorkspaceManagementService.DescribeEnvironmentStatus"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEnvironmentStatusRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeEnvironmentsCommand(
+export const serializeAws_json1_1DescribeEnvironmentsCommand = async (
   input: DescribeEnvironmentsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCloud9WorkspaceManagementService.DescribeEnvironments";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSCloud9WorkspaceManagementService.DescribeEnvironments"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEnvironmentsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListEnvironmentsCommand(
+export const serializeAws_json1_1ListEnvironmentsCommand = async (
   input: ListEnvironmentsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCloud9WorkspaceManagementService.ListEnvironments";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSCloud9WorkspaceManagementService.ListEnvironments"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListEnvironmentsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateEnvironmentCommand(
+export const serializeAws_json1_1UpdateEnvironmentCommand = async (
   input: UpdateEnvironmentCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCloud9WorkspaceManagementService.UpdateEnvironment";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSCloud9WorkspaceManagementService.UpdateEnvironment"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateEnvironmentRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateEnvironmentMembershipCommand(
+export const serializeAws_json1_1UpdateEnvironmentMembershipCommand = async (
   input: UpdateEnvironmentMembershipCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCloud9WorkspaceManagementService.UpdateEnvironmentMembership";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "AWSCloud9WorkspaceManagementService.UpdateEnvironmentMembership"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateEnvironmentMembershipRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_1CreateEnvironmentEC2Command(
+export const deserializeAws_json1_1CreateEnvironmentEC2Command = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateEnvironmentEC2CommandOutput> {
+): Promise<CreateEnvironmentEC2CommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateEnvironmentEC2CommandError(
       output,
@@ -253,12 +258,12 @@ export async function deserializeAws_json1_1CreateEnvironmentEC2Command(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateEnvironmentEC2CommandError(
+const deserializeAws_json1_1CreateEnvironmentEC2CommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateEnvironmentEC2CommandOutput> {
+): Promise<CreateEnvironmentEC2CommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -361,12 +366,12 @@ async function deserializeAws_json1_1CreateEnvironmentEC2CommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreateEnvironmentMembershipCommand(
+export const deserializeAws_json1_1CreateEnvironmentMembershipCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateEnvironmentMembershipCommandOutput> {
+): Promise<CreateEnvironmentMembershipCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateEnvironmentMembershipCommandError(
       output,
@@ -385,12 +390,12 @@ export async function deserializeAws_json1_1CreateEnvironmentMembershipCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateEnvironmentMembershipCommandError(
+const deserializeAws_json1_1CreateEnvironmentMembershipCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateEnvironmentMembershipCommandOutput> {
+): Promise<CreateEnvironmentMembershipCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -493,12 +498,12 @@ async function deserializeAws_json1_1CreateEnvironmentMembershipCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteEnvironmentCommand(
+export const deserializeAws_json1_1DeleteEnvironmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteEnvironmentCommandOutput> {
+): Promise<DeleteEnvironmentCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteEnvironmentCommandError(output, context);
   }
@@ -511,12 +516,12 @@ export async function deserializeAws_json1_1DeleteEnvironmentCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteEnvironmentCommandError(
+const deserializeAws_json1_1DeleteEnvironmentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteEnvironmentCommandOutput> {
+): Promise<DeleteEnvironmentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -619,12 +624,12 @@ async function deserializeAws_json1_1DeleteEnvironmentCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteEnvironmentMembershipCommand(
+export const deserializeAws_json1_1DeleteEnvironmentMembershipCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteEnvironmentMembershipCommandOutput> {
+): Promise<DeleteEnvironmentMembershipCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteEnvironmentMembershipCommandError(
       output,
@@ -643,12 +648,12 @@ export async function deserializeAws_json1_1DeleteEnvironmentMembershipCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteEnvironmentMembershipCommandError(
+const deserializeAws_json1_1DeleteEnvironmentMembershipCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteEnvironmentMembershipCommandOutput> {
+): Promise<DeleteEnvironmentMembershipCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -751,12 +756,12 @@ async function deserializeAws_json1_1DeleteEnvironmentMembershipCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeEnvironmentMembershipsCommand(
+export const deserializeAws_json1_1DescribeEnvironmentMembershipsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeEnvironmentMembershipsCommandOutput> {
+): Promise<DescribeEnvironmentMembershipsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeEnvironmentMembershipsCommandError(
       output,
@@ -775,12 +780,12 @@ export async function deserializeAws_json1_1DescribeEnvironmentMembershipsComman
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeEnvironmentMembershipsCommandError(
+const deserializeAws_json1_1DescribeEnvironmentMembershipsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeEnvironmentMembershipsCommandOutput> {
+): Promise<DescribeEnvironmentMembershipsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -883,12 +888,12 @@ async function deserializeAws_json1_1DescribeEnvironmentMembershipsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeEnvironmentStatusCommand(
+export const deserializeAws_json1_1DescribeEnvironmentStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeEnvironmentStatusCommandOutput> {
+): Promise<DescribeEnvironmentStatusCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeEnvironmentStatusCommandError(
       output,
@@ -907,12 +912,12 @@ export async function deserializeAws_json1_1DescribeEnvironmentStatusCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeEnvironmentStatusCommandError(
+const deserializeAws_json1_1DescribeEnvironmentStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeEnvironmentStatusCommandOutput> {
+): Promise<DescribeEnvironmentStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1015,12 +1020,12 @@ async function deserializeAws_json1_1DescribeEnvironmentStatusCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeEnvironmentsCommand(
+export const deserializeAws_json1_1DescribeEnvironmentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeEnvironmentsCommandOutput> {
+): Promise<DescribeEnvironmentsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeEnvironmentsCommandError(
       output,
@@ -1036,12 +1041,12 @@ export async function deserializeAws_json1_1DescribeEnvironmentsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeEnvironmentsCommandError(
+const deserializeAws_json1_1DescribeEnvironmentsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeEnvironmentsCommandOutput> {
+): Promise<DescribeEnvironmentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1144,12 +1149,12 @@ async function deserializeAws_json1_1DescribeEnvironmentsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListEnvironmentsCommand(
+export const deserializeAws_json1_1ListEnvironmentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListEnvironmentsCommandOutput> {
+): Promise<ListEnvironmentsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListEnvironmentsCommandError(output, context);
   }
@@ -1162,12 +1167,12 @@ export async function deserializeAws_json1_1ListEnvironmentsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListEnvironmentsCommandError(
+const deserializeAws_json1_1ListEnvironmentsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListEnvironmentsCommandOutput> {
+): Promise<ListEnvironmentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1270,12 +1275,12 @@ async function deserializeAws_json1_1ListEnvironmentsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateEnvironmentCommand(
+export const deserializeAws_json1_1UpdateEnvironmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateEnvironmentCommandOutput> {
+): Promise<UpdateEnvironmentCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateEnvironmentCommandError(output, context);
   }
@@ -1288,12 +1293,12 @@ export async function deserializeAws_json1_1UpdateEnvironmentCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateEnvironmentCommandError(
+const deserializeAws_json1_1UpdateEnvironmentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateEnvironmentCommandOutput> {
+): Promise<UpdateEnvironmentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1396,12 +1401,12 @@ async function deserializeAws_json1_1UpdateEnvironmentCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateEnvironmentMembershipCommand(
+export const deserializeAws_json1_1UpdateEnvironmentMembershipCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateEnvironmentMembershipCommandOutput> {
+): Promise<UpdateEnvironmentMembershipCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateEnvironmentMembershipCommandError(
       output,
@@ -1420,12 +1425,12 @@ export async function deserializeAws_json1_1UpdateEnvironmentMembershipCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateEnvironmentMembershipCommandError(
+const deserializeAws_json1_1UpdateEnvironmentMembershipCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateEnvironmentMembershipCommandOutput> {
+): Promise<UpdateEnvironmentMembershipCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1528,7 +1533,7 @@ async function deserializeAws_json1_1UpdateEnvironmentMembershipCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_1BadRequestExceptionResponse = async (
   parsedOutput: any,
@@ -1657,14 +1662,10 @@ const deserializeAws_json1_1TooManyRequestsExceptionResponse = async (
 };
 
 const serializeAws_json1_1BoundedEnvironmentIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1CreateEnvironmentEC2Request = (
@@ -1804,14 +1805,10 @@ const serializeAws_json1_1ListEnvironmentsRequest = (
 };
 
 const serializeAws_json1_1PermissionsList = (
-  input: Array<Permissions | string>,
+  input: (Permissions | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1UpdateEnvironmentMembershipRequest = (
@@ -2043,7 +2040,7 @@ const deserializeAws_json1_1Environment = (
 const deserializeAws_json1_1EnvironmentIdList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -2072,7 +2069,7 @@ const deserializeAws_json1_1EnvironmentLifecycle = (
 const deserializeAws_json1_1EnvironmentList = (
   output: any,
   context: __SerdeContext
-): Array<Environment> => {
+): Environment[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Environment(entry, context)
   );
@@ -2111,7 +2108,7 @@ const deserializeAws_json1_1EnvironmentMember = (
 const deserializeAws_json1_1EnvironmentMembersList = (
   output: any,
   context: __SerdeContext
-): Array<EnvironmentMember> => {
+): EnvironmentMember[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EnvironmentMember(entry, context)
   );
@@ -2283,7 +2280,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -2298,11 +2295,8 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
@@ -2329,11 +2323,10 @@ const buildHttpRpcRequest = async (
   return new __HttpRequest(contents);
 };
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};

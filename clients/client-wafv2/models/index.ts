@@ -44,7 +44,7 @@ export interface AndStatement {
   /**
    * <p>The statements to combine with AND logic. You can use any statements that can be nested. </p>
    */
-  Statements: Array<Statement> | undefined;
+  Statements: Statement[] | undefined;
 }
 
 export namespace AndStatement {
@@ -218,7 +218,7 @@ export interface ByteMatchStatement {
    *          If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the
    *          content identified by <code>FieldToMatch</code>, starting from the lowest priority setting, before inspecting the content for a match.</p>
    */
-  TextTransformations: Array<TextTransformation> | undefined;
+  TextTransformations: TextTransformation[] | undefined;
 }
 
 export namespace ByteMatchStatement {
@@ -231,7 +231,7 @@ export interface CheckCapacityRequest {
   /**
    * <p>An array of <a>Rule</a> that you're configuring to use in a rule group or web ACL. </p>
    */
-  Rules: Array<Rule> | undefined;
+  Rules: Rule[] | undefined;
 
   /**
    * <p>Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>
@@ -564,7 +564,7 @@ export interface CreateIPSetRequest {
    *          <p>For more information about CIDR notation, see the Wikipedia entry <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Classless
    *          Inter-Domain Routing</a>.</p>
    */
-  Addresses: Array<string> | undefined;
+  Addresses: string[] | undefined;
 
   /**
    * <p>A friendly description of the IP set. You cannot change the description of an IP set after you create it.</p>
@@ -598,7 +598,7 @@ export interface CreateIPSetRequest {
   /**
    * <p>An array of key:value pairs to associate with the resource.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateIPSetRequest {
@@ -634,7 +634,7 @@ export interface CreateRegexPatternSetRequest {
   /**
    * <p>Array of regular expression strings. </p>
    */
-  RegularExpressionList: Array<Regex> | undefined;
+  RegularExpressionList: Regex[] | undefined;
 
   /**
    * <p>Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>
@@ -653,7 +653,7 @@ export interface CreateRegexPatternSetRequest {
   /**
    * <p>An array of key:value pairs to associate with the resource.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateRegexPatternSetRequest {
@@ -708,7 +708,7 @@ export interface CreateRuleGroupRequest {
    *          web requests, and parameters that govern how AWS WAF handles them.
    *       </p>
    */
-  Rules?: Array<Rule>;
+  Rules?: Rule[];
 
   /**
    * <p>Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>
@@ -727,7 +727,7 @@ export interface CreateRuleGroupRequest {
   /**
    * <p>An array of key:value pairs to associate with the resource.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>Defines and enables Amazon CloudWatch metrics and web request sample collection.  </p>
@@ -776,7 +776,7 @@ export interface CreateWebACLRequest {
    *          web requests, and parameters that govern how AWS WAF handles them.
    *       </p>
    */
-  Rules?: Array<Rule>;
+  Rules?: Rule[];
 
   /**
    * <p>Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>
@@ -795,7 +795,7 @@ export interface CreateWebACLRequest {
   /**
    * <p>An array of key:value pairs to associate with the resource.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>Defines and enables Amazon CloudWatch metrics and web request sample collection.  </p>
@@ -1099,7 +1099,7 @@ export interface DescribeManagedRuleGroupResponse {
   /**
    * <p></p>
    */
-  Rules?: Array<RuleSummary>;
+  Rules?: RuleSummary[];
 }
 
 export namespace DescribeManagedRuleGroupResponse {
@@ -1229,7 +1229,7 @@ export interface GeoMatchStatement {
   /**
    * <p>An array of two-character country codes, for example, <code>[ "US", "CN" ]</code>, from the alpha-2 country ISO codes of the ISO 3166 international standard. </p>
    */
-  CountryCodes?: Array<CountryCode | string>;
+  CountryCodes?: (CountryCode | string)[];
 }
 
 export namespace GeoMatchStatement {
@@ -1526,7 +1526,7 @@ export interface GetSampledRequestsResponse {
   /**
    * <p>A complex type that contains detailed information about each of the requests in the sample.</p>
    */
-  SampledRequests?: Array<SampledHTTPRequest>;
+  SampledRequests?: SampledHTTPRequest[];
 
   /**
    * <p>Usually, <code>TimeWindow</code> is the time range that you specified in the <code>GetSampledRequests</code> request. However,
@@ -1682,7 +1682,7 @@ export interface HTTPRequest {
   /**
    * <p>A complex type that contains the name and value for each header in the sampled web request.</p>
    */
-  Headers?: Array<HTTPHeader>;
+  Headers?: HTTPHeader[];
 
   /**
    * <p>The HTTP method specified in the sampled web request. </p>
@@ -1740,7 +1740,7 @@ export interface IPSet {
    *          <p>For more information about CIDR notation, see the Wikipedia entry <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Classless
    *          Inter-Domain Routing</a>.</p>
    */
-  Addresses: Array<string> | undefined;
+  Addresses: string[] | undefined;
 
   /**
    * <p>A friendly description of the IP set. You cannot change the description of an IP set after you create it.</p>
@@ -1866,7 +1866,7 @@ export interface ListAvailableManagedRuleGroupsResponse {
   /**
    * <p></p>
    */
-  ManagedRuleGroups?: Array<ManagedRuleGroupSummary>;
+  ManagedRuleGroups?: ManagedRuleGroupSummary[];
 
   /**
    * <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available
@@ -1922,7 +1922,7 @@ export interface ListIPSetsResponse {
   /**
    * <p>Array of IPSets. This may not be the full list of IPSets that you have defined. See the <code>Limit</code> specification for this request.</p>
    */
-  IPSets?: Array<IPSetSummary>;
+  IPSets?: IPSetSummary[];
 
   /**
    * <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available
@@ -1978,7 +1978,7 @@ export interface ListLoggingConfigurationsResponse {
   /**
    * <p></p>
    */
-  LoggingConfigurations?: Array<LoggingConfiguration>;
+  LoggingConfigurations?: LoggingConfiguration[];
 
   /**
    * <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available
@@ -2041,7 +2041,7 @@ export interface ListRegexPatternSetsResponse {
   /**
    * <p></p>
    */
-  RegexPatternSets?: Array<RegexPatternSetSummary>;
+  RegexPatternSets?: RegexPatternSetSummary[];
 }
 
 export namespace ListRegexPatternSetsResponse {
@@ -2072,7 +2072,7 @@ export interface ListResourcesForWebACLResponse {
   /**
    * <p>The array of Amazon Resource Names (ARNs) of the associated resources.</p>
    */
-  ResourceArns?: Array<string>;
+  ResourceArns?: string[];
 }
 
 export namespace ListResourcesForWebACLResponse {
@@ -2128,7 +2128,7 @@ export interface ListRuleGroupsResponse {
   /**
    * <p></p>
    */
-  RuleGroups?: Array<RuleGroupSummary>;
+  RuleGroups?: RuleGroupSummary[];
 }
 
 export namespace ListRuleGroupsResponse {
@@ -2231,7 +2231,7 @@ export interface ListWebACLsResponse {
   /**
    * <p></p>
    */
-  WebACLs?: Array<WebACLSummary>;
+  WebACLs?: WebACLSummary[];
 }
 
 export namespace ListWebACLsResponse {
@@ -2253,14 +2253,14 @@ export interface LoggingConfiguration {
   /**
    * <p>The Amazon Kinesis Data Firehose Amazon Resource Name (ARNs) that you want to associate with the web ACL.</p>
    */
-  LogDestinationConfigs: Array<string> | undefined;
+  LogDestinationConfigs: string[] | undefined;
 
   /**
    * <p>The parts of the request that you want to keep out of the logs. For
    *          example, if you redact the cookie field, the cookie field in the firehose will be
    *          <code>xxx</code>. </p>
    */
-  RedactedFields?: Array<FieldToMatch>;
+  RedactedFields?: FieldToMatch[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the web ACL that you want to associate with
@@ -2286,7 +2286,7 @@ export interface ManagedRuleGroupStatement {
   /**
    * <p>The rules whose actions are set to <code>COUNT</code> by the web ACL, regardless of the action that is set on the rule. This effectively excludes the rule from acting on web requests.  </p>
    */
-  ExcludedRules?: Array<ExcludedRule>;
+  ExcludedRules?: ExcludedRule[];
 
   /**
    * <p>The name of the managed rule group. You use this, along with the vendor name, to identify the rule group.</p>
@@ -2390,7 +2390,7 @@ export interface OrStatement {
   /**
    * <p>The statements to combine with OR logic. You can use any statements that can be nested.</p>
    */
-  Statements: Array<Statement> | undefined;
+  Statements: Statement[] | undefined;
 }
 
 export namespace OrStatement {
@@ -2564,7 +2564,7 @@ export interface RateBasedStatementManagedKeysIPSet {
   /**
    * <p>The IP addresses that are currently blocked.</p>
    */
-  Addresses?: Array<string>;
+  Addresses?: string[];
 
   IPAddressVersion?: IPAddressVersion | string;
 }
@@ -2624,7 +2624,7 @@ export interface RegexPatternSet {
   /**
    * <p>The regular expression patterns in the set.</p>
    */
-  RegularExpressionList?: Array<Regex>;
+  RegularExpressionList?: Regex[];
 }
 
 export namespace RegexPatternSet {
@@ -2656,7 +2656,7 @@ export interface RegexPatternSetReferenceStatement {
    *          If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the
    *          content identified by <code>FieldToMatch</code>, starting from the lowest priority setting, before inspecting the content for a match.</p>
    */
-  TextTransformations: Array<TextTransformation> | undefined;
+  TextTransformations: TextTransformation[] | undefined;
 }
 
 export namespace RegexPatternSetReferenceStatement {
@@ -2835,7 +2835,7 @@ export interface RuleGroup {
    *          web requests, and parameters that govern how AWS WAF handles them.
    *       </p>
    */
-  Rules?: Array<Rule>;
+  Rules?: Rule[];
 
   /**
    * <p>Defines and enables Amazon CloudWatch metrics and web request sample collection.  </p>
@@ -2864,7 +2864,7 @@ export interface RuleGroupReferenceStatement {
   /**
    * <p>The names of rules that are in the referenced rule group, but that you want AWS WAF to exclude from processing for this rule statement. </p>
    */
-  ExcludedRules?: Array<ExcludedRule>;
+  ExcludedRules?: ExcludedRule[];
 }
 
 export namespace RuleGroupReferenceStatement {
@@ -3055,7 +3055,7 @@ export interface SizeConstraintStatement {
    *          If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the
    *          content identified by <code>FieldToMatch</code>, starting from the lowest priority setting, before inspecting the content for a match.</p>
    */
-  TextTransformations: Array<TextTransformation> | undefined;
+  TextTransformations: TextTransformation[] | undefined;
 }
 
 export namespace SizeConstraintStatement {
@@ -3081,7 +3081,7 @@ export interface SqliMatchStatement {
    *          If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the
    *          content identified by <code>FieldToMatch</code>, starting from the lowest priority setting, before inspecting the content for a match.</p>
    */
-  TextTransformations: Array<TextTransformation> | undefined;
+  TextTransformations: TextTransformation[] | undefined;
 }
 
 export namespace SqliMatchStatement {
@@ -3228,7 +3228,7 @@ export interface TagInfoForResource {
   /**
    * <p>The array of <a>Tag</a> objects defined for the resource. </p>
    */
-  TagList?: Array<Tag>;
+  TagList?: Tag[];
 }
 
 export namespace TagInfoForResource {
@@ -3246,7 +3246,7 @@ export interface TagResourceRequest {
   /**
    * <p>An array of key:value pairs to associate with the resource.</p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -3429,7 +3429,7 @@ export interface UntagResourceRequest {
   /**
    * <p>An array of keys identifying the tags to disassociate from the resource.</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -3469,7 +3469,7 @@ export interface UpdateIPSetRequest {
    *          <p>For more information about CIDR notation, see the Wikipedia entry <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Classless
    *          Inter-Domain Routing</a>.</p>
    */
-  Addresses: Array<string> | undefined;
+  Addresses: string[] | undefined;
 
   /**
    * <p>A friendly description of the IP set. You cannot change the description of an IP set after you create it.</p>
@@ -3549,7 +3549,7 @@ export interface UpdateRegexPatternSetRequest {
   /**
    * <p></p>
    */
-  RegularExpressionList: Array<Regex> | undefined;
+  RegularExpressionList: Regex[] | undefined;
 
   /**
    * <p>Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>
@@ -3612,7 +3612,7 @@ export interface UpdateRuleGroupRequest {
    *          web requests, and parameters that govern how AWS WAF handles them.
    *       </p>
    */
-  Rules?: Array<Rule>;
+  Rules?: Rule[];
 
   /**
    * <p>Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>
@@ -3685,7 +3685,7 @@ export interface UpdateWebACLRequest {
    *          web requests, and parameters that govern how AWS WAF handles them.
    *       </p>
    */
-  Rules?: Array<Rule>;
+  Rules?: Rule[];
 
   /**
    * <p>Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>
@@ -4035,7 +4035,7 @@ export interface WebACL {
    *          web requests, and parameters that govern how AWS WAF handles them.
    *       </p>
    */
-  Rules?: Array<Rule>;
+  Rules?: Rule[];
 
   /**
    * <p>Defines and enables Amazon CloudWatch metrics and web request sample collection.  </p>
@@ -4107,7 +4107,7 @@ export interface XssMatchStatement {
    *          If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the
    *          content identified by <code>FieldToMatch</code>, starting from the lowest priority setting, before inspecting the content for a match.</p>
    */
-  TextTransformations: Array<TextTransformation> | undefined;
+  TextTransformations: TextTransformation[] | undefined;
 }
 
 export namespace XssMatchStatement {

@@ -40,13 +40,13 @@ export interface AwsVpcConfiguration {
    *             be in the same VPC. You can specify as many as five security groups. If you don't
    *             specify a security group, the default security group for the VPC is used.</p>
    */
-  SecurityGroups?: Array<string>;
+  SecurityGroups?: string[];
 
   /**
    * <p>Specifies the subnets associated with the task. These subnets must all be in the same
    *             VPC. You can specify as many as 16 subnets.</p>
    */
-  Subnets: Array<string> | undefined;
+  Subnets: string[] | undefined;
 }
 
 export namespace AwsVpcConfiguration {
@@ -803,7 +803,7 @@ export interface ListEventBusesResponse {
   /**
    * <p>This list of event buses.</p>
    */
-  EventBuses?: Array<EventBus>;
+  EventBuses?: EventBus[];
 
   /**
    * <p>A token you can use in a subsequent operation to retrieve the next set of results.</p>
@@ -847,7 +847,7 @@ export interface ListEventSourcesResponse {
   /**
    * <p>The list of event sources.</p>
    */
-  EventSources?: Array<EventSource>;
+  EventSources?: EventSource[];
 
   /**
    * <p>A token you can use in a subsequent operation to retrieve the next set of results.</p>
@@ -895,7 +895,7 @@ export interface ListPartnerEventSourceAccountsResponse {
   /**
    * <p>The list of partner event sources returned by the operation.</p>
    */
-  PartnerEventSourceAccounts?: Array<PartnerEventSourceAccount>;
+  PartnerEventSourceAccounts?: PartnerEventSourceAccount[];
 }
 
 export namespace ListPartnerEventSourceAccountsResponse {
@@ -939,7 +939,7 @@ export interface ListPartnerEventSourcesResponse {
   /**
    * <p>The list of partner event sources returned by the operation.</p>
    */
-  PartnerEventSources?: Array<PartnerEventSource>;
+  PartnerEventSources?: PartnerEventSource[];
 }
 
 export namespace ListPartnerEventSourcesResponse {
@@ -985,7 +985,7 @@ export interface ListRuleNamesByTargetResponse {
   /**
    * <p>The names of the rules that can invoke the given target.</p>
    */
-  RuleNames?: Array<string>;
+  RuleNames?: string[];
 }
 
 export namespace ListRuleNamesByTargetResponse {
@@ -1031,7 +1031,7 @@ export interface ListRulesResponse {
   /**
    * <p>The rules that match the specified criteria.</p>
    */
-  Rules?: Array<Rule>;
+  Rules?: Rule[];
 }
 
 export namespace ListRulesResponse {
@@ -1057,7 +1057,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>The list of tag keys and values associated with the rule that you specified.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace ListTagsForResourceResponse {
@@ -1103,7 +1103,7 @@ export interface ListTargetsByRuleResponse {
   /**
    * <p>The targets assigned to the rule.</p>
    */
-  Targets?: Array<Target>;
+  Targets?: Target[];
 }
 
 export namespace ListTargetsByRuleResponse {
@@ -1192,7 +1192,7 @@ export interface PutEventsRequest {
   /**
    * <p>The entry that defines an event in your system. You can specify several parameters for the entry such as the source and type of the event, resources associated with the event, and so on.</p>
    */
-  Entries: Array<PutEventsRequestEntry> | undefined;
+  Entries: PutEventsRequestEntry[] | undefined;
 }
 
 export namespace PutEventsRequest {
@@ -1228,7 +1228,7 @@ export interface PutEventsRequestEntry {
    * <p>AWS resources, identified by Amazon Resource Name (ARN), that the event primarily
    *             concerns. Any number, including zero, can be present.</p>
    */
-  Resources?: Array<string>;
+  Resources?: string[];
 
   /**
    * <p>The source of the event. This field is required.</p>
@@ -1254,7 +1254,7 @@ export interface PutEventsResponse {
    *             the entry has the event ID in it. Otherwise, you can use the error code and error message
    *             to identify the problem with the entry.</p>
    */
-  Entries?: Array<PutEventsResultEntry>;
+  Entries?: PutEventsResultEntry[];
 
   /**
    * <p>The number of failed entries.</p>
@@ -1298,7 +1298,7 @@ export interface PutPartnerEventsRequest {
   /**
    * <p>The list of events to write to the event bus.</p>
    */
-  Entries: Array<PutPartnerEventsRequestEntry> | undefined;
+  Entries: PutPartnerEventsRequestEntry[] | undefined;
 }
 
 export namespace PutPartnerEventsRequest {
@@ -1327,7 +1327,7 @@ export interface PutPartnerEventsRequestEntry {
    * <p>AWS resources, identified by Amazon Resource Name (ARN), that the event primarily
    *             concerns. Any number, including zero, can be present.</p>
    */
-  Resources?: Array<string>;
+  Resources?: string[];
 
   /**
    * <p>The event source that is generating the evntry. This field is required.</p>
@@ -1350,7 +1350,7 @@ export interface PutPartnerEventsResponse {
   /**
    * <p>The list of events from this operation that were successfully written to the partner event bus.</p>
    */
-  Entries?: Array<PutPartnerEventsResultEntry>;
+  Entries?: PutPartnerEventsResultEntry[];
 
   /**
    * <p>The number of events from this operation that couldn't be written to the partner
@@ -1486,7 +1486,7 @@ export interface PutRuleRequest {
   /**
    * <p>The list of key-value pairs to associate with the rule.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace PutRuleRequest {
@@ -1522,7 +1522,7 @@ export interface PutTargetsRequest {
   /**
    * <p>The targets to update or add to the rule.</p>
    */
-  Targets: Array<Target> | undefined;
+  Targets: Target[] | undefined;
 }
 
 export namespace PutTargetsRequest {
@@ -1535,7 +1535,7 @@ export interface PutTargetsResponse {
   /**
    * <p>The failed target entries.</p>
    */
-  FailedEntries?: Array<PutTargetsResultEntry>;
+  FailedEntries?: PutTargetsResultEntry[];
 
   /**
    * <p>The number of failed entries.</p>
@@ -1612,7 +1612,7 @@ export interface RemoveTargetsRequest {
   /**
    * <p>The IDs of the targets to remove from the rule.</p>
    */
-  Ids: Array<string> | undefined;
+  Ids: string[] | undefined;
 
   /**
    * <p>The name of the rule.</p>
@@ -1630,7 +1630,7 @@ export interface RemoveTargetsResponse {
   /**
    * <p>The failed target entries.</p>
    */
-  FailedEntries?: Array<RemoveTargetsResultEntry>;
+  FailedEntries?: RemoveTargetsResultEntry[];
 
   /**
    * <p>The number of failed entries.</p>
@@ -1742,7 +1742,7 @@ export interface RunCommandParameters {
    * <p>Currently, we support including only one <code>RunCommandTarget</code> block, which
    *             specifies either an array of <code>InstanceIds</code> or a tag.</p>
    */
-  RunCommandTargets: Array<RunCommandTarget> | undefined;
+  RunCommandTargets: RunCommandTarget[] | undefined;
 }
 
 export namespace RunCommandParameters {
@@ -1768,7 +1768,7 @@ export interface RunCommandTarget {
    *             <i>tag-key</i>, <code>Values</code> is a list of tag values.
    *             If <code>Key</code> is <code>InstanceIds</code>, <code>Values</code> is a list of Amazon EC2 instance IDs.</p>
    */
-  Values: Array<string> | undefined;
+  Values: string[] | undefined;
 }
 
 export namespace RunCommandTarget {
@@ -1822,7 +1822,7 @@ export interface TagResourceRequest {
   /**
    * <p>The list of key-value pairs to associate with the rule.</p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -1967,7 +1967,7 @@ export interface UntagResourceRequest {
   /**
    * <p>The list of tag keys to remove from the resource.</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {

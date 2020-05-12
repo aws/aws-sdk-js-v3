@@ -24,24 +24,25 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_json1_1GetEntitlementsCommand(
+export const serializeAws_json1_1GetEntitlementsCommand = async (
   input: GetEntitlementsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSMPEntitlementService.GetEntitlements";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSMPEntitlementService.GetEntitlements"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetEntitlementsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_1GetEntitlementsCommand(
+export const deserializeAws_json1_1GetEntitlementsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetEntitlementsCommandOutput> {
+): Promise<GetEntitlementsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetEntitlementsCommandError(output, context);
   }
@@ -54,12 +55,12 @@ export async function deserializeAws_json1_1GetEntitlementsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetEntitlementsCommandError(
+const deserializeAws_json1_1GetEntitlementsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetEntitlementsCommandOutput> {
+): Promise<GetEntitlementsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -118,7 +119,7 @@ async function deserializeAws_json1_1GetEntitlementsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_1InternalServiceErrorExceptionResponse = async (
   parsedOutput: any,
@@ -175,25 +176,20 @@ const deserializeAws_json1_1ThrottlingExceptionResponse = async (
 };
 
 const serializeAws_json1_1FilterValueList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1GetEntitlementFilters = (
-  input: { [key: string]: Array<string> },
+  input: { [key: string]: string[] },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = serializeAws_json1_1FilterValueList(input[key], context);
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = serializeAws_json1_1FilterValueList(input[key], context);
+    return acc;
+  }, {});
 };
 
 const serializeAws_json1_1GetEntitlementsRequest = (
@@ -260,7 +256,7 @@ const deserializeAws_json1_1Entitlement = (
 const deserializeAws_json1_1EntitlementList = (
   output: any,
   context: __SerdeContext
-): Array<Entitlement> => {
+): Entitlement[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Entitlement(entry, context)
   );
@@ -363,7 +359,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -378,11 +374,8 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
@@ -409,11 +402,10 @@ const buildHttpRpcRequest = async (
   return new __HttpRequest(contents);
 };
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};

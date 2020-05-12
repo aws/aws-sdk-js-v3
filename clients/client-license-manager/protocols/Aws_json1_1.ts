@@ -135,70 +135,74 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_json1_1CreateLicenseConfigurationCommand(
+export const serializeAws_json1_1CreateLicenseConfigurationCommand = async (
   input: CreateLicenseConfigurationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSLicenseManager.CreateLicenseConfiguration";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLicenseManager.CreateLicenseConfiguration"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateLicenseConfigurationRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteLicenseConfigurationCommand(
+export const serializeAws_json1_1DeleteLicenseConfigurationCommand = async (
   input: DeleteLicenseConfigurationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSLicenseManager.DeleteLicenseConfiguration";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLicenseManager.DeleteLicenseConfiguration"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteLicenseConfigurationRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetLicenseConfigurationCommand(
+export const serializeAws_json1_1GetLicenseConfigurationCommand = async (
   input: GetLicenseConfigurationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSLicenseManager.GetLicenseConfiguration";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLicenseManager.GetLicenseConfiguration"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetLicenseConfigurationRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetServiceSettingsCommand(
+export const serializeAws_json1_1GetServiceSettingsCommand = async (
   input: GetServiceSettingsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSLicenseManager.GetServiceSettings";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLicenseManager.GetServiceSettings"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetServiceSettingsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListAssociationsForLicenseConfigurationCommand(
+export const serializeAws_json1_1ListAssociationsForLicenseConfigurationCommand = async (
   input: ListAssociationsForLicenseConfigurationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSLicenseManager.ListAssociationsForLicenseConfiguration";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLicenseManager.ListAssociationsForLicenseConfiguration"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListAssociationsForLicenseConfigurationRequest(
@@ -207,16 +211,17 @@ export async function serializeAws_json1_1ListAssociationsForLicenseConfiguratio
     )
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommand(
+export const serializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommand = async (
   input: ListFailuresForLicenseConfigurationOperationsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSLicenseManager.ListFailuresForLicenseConfigurationOperations";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "AWSLicenseManager.ListFailuresForLicenseConfigurationOperations"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListFailuresForLicenseConfigurationOperationsRequest(
@@ -225,30 +230,31 @@ export async function serializeAws_json1_1ListFailuresForLicenseConfigurationOpe
     )
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListLicenseConfigurationsCommand(
+export const serializeAws_json1_1ListLicenseConfigurationsCommand = async (
   input: ListLicenseConfigurationsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSLicenseManager.ListLicenseConfigurations";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLicenseManager.ListLicenseConfigurations"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListLicenseConfigurationsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListLicenseSpecificationsForResourceCommand(
+export const serializeAws_json1_1ListLicenseSpecificationsForResourceCommand = async (
   input: ListLicenseSpecificationsForResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSLicenseManager.ListLicenseSpecificationsForResource";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLicenseManager.ListLicenseSpecificationsForResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListLicenseSpecificationsForResourceRequest(
@@ -257,99 +263,104 @@ export async function serializeAws_json1_1ListLicenseSpecificationsForResourceCo
     )
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListResourceInventoryCommand(
+export const serializeAws_json1_1ListResourceInventoryCommand = async (
   input: ListResourceInventoryCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSLicenseManager.ListResourceInventory";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLicenseManager.ListResourceInventory"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListResourceInventoryRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListTagsForResourceCommand(
+export const serializeAws_json1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSLicenseManager.ListTagsForResource";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLicenseManager.ListTagsForResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTagsForResourceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListUsageForLicenseConfigurationCommand(
+export const serializeAws_json1_1ListUsageForLicenseConfigurationCommand = async (
   input: ListUsageForLicenseConfigurationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSLicenseManager.ListUsageForLicenseConfiguration";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLicenseManager.ListUsageForLicenseConfiguration"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListUsageForLicenseConfigurationRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1TagResourceCommand(
+export const serializeAws_json1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSLicenseManager.TagResource";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLicenseManager.TagResource"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UntagResourceCommand(
+export const serializeAws_json1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSLicenseManager.UntagResource";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLicenseManager.UntagResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UntagResourceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateLicenseConfigurationCommand(
+export const serializeAws_json1_1UpdateLicenseConfigurationCommand = async (
   input: UpdateLicenseConfigurationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSLicenseManager.UpdateLicenseConfiguration";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLicenseManager.UpdateLicenseConfiguration"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateLicenseConfigurationRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateLicenseSpecificationsForResourceCommand(
+export const serializeAws_json1_1UpdateLicenseSpecificationsForResourceCommand = async (
   input: UpdateLicenseSpecificationsForResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSLicenseManager.UpdateLicenseSpecificationsForResource";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLicenseManager.UpdateLicenseSpecificationsForResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateLicenseSpecificationsForResourceRequest(
@@ -358,26 +369,27 @@ export async function serializeAws_json1_1UpdateLicenseSpecificationsForResource
     )
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateServiceSettingsCommand(
+export const serializeAws_json1_1UpdateServiceSettingsCommand = async (
   input: UpdateServiceSettingsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSLicenseManager.UpdateServiceSettings";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSLicenseManager.UpdateServiceSettings"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateServiceSettingsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_1CreateLicenseConfigurationCommand(
+export const deserializeAws_json1_1CreateLicenseConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateLicenseConfigurationCommandOutput> {
+): Promise<CreateLicenseConfigurationCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateLicenseConfigurationCommandError(
       output,
@@ -396,12 +408,12 @@ export async function deserializeAws_json1_1CreateLicenseConfigurationCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateLicenseConfigurationCommandError(
+const deserializeAws_json1_1CreateLicenseConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateLicenseConfigurationCommandOutput> {
+): Promise<CreateLicenseConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -493,12 +505,12 @@ async function deserializeAws_json1_1CreateLicenseConfigurationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteLicenseConfigurationCommand(
+export const deserializeAws_json1_1DeleteLicenseConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteLicenseConfigurationCommandOutput> {
+): Promise<DeleteLicenseConfigurationCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteLicenseConfigurationCommandError(
       output,
@@ -517,12 +529,12 @@ export async function deserializeAws_json1_1DeleteLicenseConfigurationCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteLicenseConfigurationCommandError(
+const deserializeAws_json1_1DeleteLicenseConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteLicenseConfigurationCommandOutput> {
+): Promise<DeleteLicenseConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -603,12 +615,12 @@ async function deserializeAws_json1_1DeleteLicenseConfigurationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetLicenseConfigurationCommand(
+export const deserializeAws_json1_1GetLicenseConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetLicenseConfigurationCommandOutput> {
+): Promise<GetLicenseConfigurationCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetLicenseConfigurationCommandError(
       output,
@@ -627,12 +639,12 @@ export async function deserializeAws_json1_1GetLicenseConfigurationCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetLicenseConfigurationCommandError(
+const deserializeAws_json1_1GetLicenseConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetLicenseConfigurationCommandOutput> {
+): Promise<GetLicenseConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -713,12 +725,12 @@ async function deserializeAws_json1_1GetLicenseConfigurationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetServiceSettingsCommand(
+export const deserializeAws_json1_1GetServiceSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetServiceSettingsCommandOutput> {
+): Promise<GetServiceSettingsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetServiceSettingsCommandError(
       output,
@@ -734,12 +746,12 @@ export async function deserializeAws_json1_1GetServiceSettingsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetServiceSettingsCommandError(
+const deserializeAws_json1_1GetServiceSettingsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetServiceSettingsCommandOutput> {
+): Promise<GetServiceSettingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -809,12 +821,12 @@ async function deserializeAws_json1_1GetServiceSettingsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListAssociationsForLicenseConfigurationCommand(
+export const deserializeAws_json1_1ListAssociationsForLicenseConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListAssociationsForLicenseConfigurationCommandOutput> {
+): Promise<ListAssociationsForLicenseConfigurationCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListAssociationsForLicenseConfigurationCommandError(
       output,
@@ -833,12 +845,12 @@ export async function deserializeAws_json1_1ListAssociationsForLicenseConfigurat
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListAssociationsForLicenseConfigurationCommandError(
+const deserializeAws_json1_1ListAssociationsForLicenseConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListAssociationsForLicenseConfigurationCommandOutput> {
+): Promise<ListAssociationsForLicenseConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -930,12 +942,12 @@ async function deserializeAws_json1_1ListAssociationsForLicenseConfigurationComm
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommand(
+export const deserializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListFailuresForLicenseConfigurationOperationsCommandOutput> {
+): Promise<ListFailuresForLicenseConfigurationOperationsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommandError(
       output,
@@ -954,12 +966,12 @@ export async function deserializeAws_json1_1ListFailuresForLicenseConfigurationO
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommandError(
+const deserializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListFailuresForLicenseConfigurationOperationsCommandOutput> {
+): Promise<ListFailuresForLicenseConfigurationOperationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1040,12 +1052,12 @@ async function deserializeAws_json1_1ListFailuresForLicenseConfigurationOperatio
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListLicenseConfigurationsCommand(
+export const deserializeAws_json1_1ListLicenseConfigurationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListLicenseConfigurationsCommandOutput> {
+): Promise<ListLicenseConfigurationsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListLicenseConfigurationsCommandError(
       output,
@@ -1064,12 +1076,12 @@ export async function deserializeAws_json1_1ListLicenseConfigurationsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListLicenseConfigurationsCommandError(
+const deserializeAws_json1_1ListLicenseConfigurationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListLicenseConfigurationsCommandOutput> {
+): Promise<ListLicenseConfigurationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1161,12 +1173,12 @@ async function deserializeAws_json1_1ListLicenseConfigurationsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListLicenseSpecificationsForResourceCommand(
+export const deserializeAws_json1_1ListLicenseSpecificationsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListLicenseSpecificationsForResourceCommandOutput> {
+): Promise<ListLicenseSpecificationsForResourceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListLicenseSpecificationsForResourceCommandError(
       output,
@@ -1185,12 +1197,12 @@ export async function deserializeAws_json1_1ListLicenseSpecificationsForResource
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListLicenseSpecificationsForResourceCommandError(
+const deserializeAws_json1_1ListLicenseSpecificationsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListLicenseSpecificationsForResourceCommandOutput> {
+): Promise<ListLicenseSpecificationsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1271,12 +1283,12 @@ async function deserializeAws_json1_1ListLicenseSpecificationsForResourceCommand
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListResourceInventoryCommand(
+export const deserializeAws_json1_1ListResourceInventoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListResourceInventoryCommandOutput> {
+): Promise<ListResourceInventoryCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListResourceInventoryCommandError(
       output,
@@ -1292,12 +1304,12 @@ export async function deserializeAws_json1_1ListResourceInventoryCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListResourceInventoryCommandError(
+const deserializeAws_json1_1ListResourceInventoryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListResourceInventoryCommandOutput> {
+): Promise<ListResourceInventoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1400,12 +1412,12 @@ async function deserializeAws_json1_1ListResourceInventoryCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListTagsForResourceCommand(
+export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListTagsForResourceCommandError(
       output,
@@ -1421,12 +1433,12 @@ export async function deserializeAws_json1_1ListTagsForResourceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListTagsForResourceCommandError(
+const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1507,12 +1519,12 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListUsageForLicenseConfigurationCommand(
+export const deserializeAws_json1_1ListUsageForLicenseConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListUsageForLicenseConfigurationCommandOutput> {
+): Promise<ListUsageForLicenseConfigurationCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListUsageForLicenseConfigurationCommandError(
       output,
@@ -1531,12 +1543,12 @@ export async function deserializeAws_json1_1ListUsageForLicenseConfigurationComm
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListUsageForLicenseConfigurationCommandError(
+const deserializeAws_json1_1ListUsageForLicenseConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListUsageForLicenseConfigurationCommandOutput> {
+): Promise<ListUsageForLicenseConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1628,12 +1640,12 @@ async function deserializeAws_json1_1ListUsageForLicenseConfigurationCommandErro
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1TagResourceCommand(
+export const deserializeAws_json1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1TagResourceCommandError(output, context);
   }
@@ -1646,12 +1658,12 @@ export async function deserializeAws_json1_1TagResourceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1TagResourceCommandError(
+const deserializeAws_json1_1TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1732,12 +1744,12 @@ async function deserializeAws_json1_1TagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UntagResourceCommand(
+export const deserializeAws_json1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UntagResourceCommandError(output, context);
   }
@@ -1750,12 +1762,12 @@ export async function deserializeAws_json1_1UntagResourceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UntagResourceCommandError(
+const deserializeAws_json1_1UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1836,12 +1848,12 @@ async function deserializeAws_json1_1UntagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateLicenseConfigurationCommand(
+export const deserializeAws_json1_1UpdateLicenseConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateLicenseConfigurationCommandOutput> {
+): Promise<UpdateLicenseConfigurationCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateLicenseConfigurationCommandError(
       output,
@@ -1860,12 +1872,12 @@ export async function deserializeAws_json1_1UpdateLicenseConfigurationCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateLicenseConfigurationCommandError(
+const deserializeAws_json1_1UpdateLicenseConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateLicenseConfigurationCommandOutput> {
+): Promise<UpdateLicenseConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1946,12 +1958,12 @@ async function deserializeAws_json1_1UpdateLicenseConfigurationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateLicenseSpecificationsForResourceCommand(
+export const deserializeAws_json1_1UpdateLicenseSpecificationsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateLicenseSpecificationsForResourceCommandOutput> {
+): Promise<UpdateLicenseSpecificationsForResourceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateLicenseSpecificationsForResourceCommandError(
       output,
@@ -1970,12 +1982,12 @@ export async function deserializeAws_json1_1UpdateLicenseSpecificationsForResour
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateLicenseSpecificationsForResourceCommandError(
+const deserializeAws_json1_1UpdateLicenseSpecificationsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateLicenseSpecificationsForResourceCommandOutput> {
+): Promise<UpdateLicenseSpecificationsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2078,12 +2090,12 @@ async function deserializeAws_json1_1UpdateLicenseSpecificationsForResourceComma
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateServiceSettingsCommand(
+export const deserializeAws_json1_1UpdateServiceSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateServiceSettingsCommandOutput> {
+): Promise<UpdateServiceSettingsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateServiceSettingsCommandError(
       output,
@@ -2099,12 +2111,12 @@ export async function deserializeAws_json1_1UpdateServiceSettingsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateServiceSettingsCommandError(
+const deserializeAws_json1_1UpdateServiceSettingsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateServiceSettingsCommandOutput> {
+): Promise<UpdateServiceSettingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2185,7 +2197,7 @@ async function deserializeAws_json1_1UpdateServiceSettingsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
   parsedOutput: any,
@@ -2436,25 +2448,17 @@ const serializeAws_json1_1Filter = (
 };
 
 const serializeAws_json1_1FilterValues = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1Filters = (
-  input: Array<Filter>,
+  input: Filter[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1Filter(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1Filter(entry, context));
 };
 
 const serializeAws_json1_1GetLicenseConfigurationRequest = (
@@ -2494,14 +2498,12 @@ const serializeAws_json1_1InventoryFilter = (
 };
 
 const serializeAws_json1_1InventoryFilterList = (
-  input: Array<InventoryFilter>,
+  input: InventoryFilter[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1InventoryFilter(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1InventoryFilter(entry, context)
+  );
 };
 
 const serializeAws_json1_1LicenseSpecification = (
@@ -2516,14 +2518,12 @@ const serializeAws_json1_1LicenseSpecification = (
 };
 
 const serializeAws_json1_1LicenseSpecifications = (
-  input: Array<LicenseSpecification>,
+  input: LicenseSpecification[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1LicenseSpecification(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1LicenseSpecification(entry, context)
+  );
 };
 
 const serializeAws_json1_1ListAssociationsForLicenseConfigurationRequest = (
@@ -2706,36 +2706,28 @@ const serializeAws_json1_1ProductInformationFilter = (
 };
 
 const serializeAws_json1_1ProductInformationFilterList = (
-  input: Array<ProductInformationFilter>,
+  input: ProductInformationFilter[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1ProductInformationFilter(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1ProductInformationFilter(entry, context)
+  );
 };
 
 const serializeAws_json1_1ProductInformationList = (
-  input: Array<ProductInformation>,
+  input: ProductInformation[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1ProductInformation(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1ProductInformation(entry, context)
+  );
 };
 
 const serializeAws_json1_1StringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
@@ -2750,25 +2742,17 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_json1_1TagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1TagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1Tag(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1Tag(entry, context));
 };
 
 const serializeAws_json1_1TagResourceRequest = (
@@ -2961,7 +2945,7 @@ const deserializeAws_json1_1ConsumedLicenseSummary = (
 const deserializeAws_json1_1ConsumedLicenseSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<ConsumedLicenseSummary> => {
+): ConsumedLicenseSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ConsumedLicenseSummary(entry, context)
   );
@@ -3352,7 +3336,7 @@ const deserializeAws_json1_1LicenseConfigurationAssociation = (
 const deserializeAws_json1_1LicenseConfigurationAssociations = (
   output: any,
   context: __SerdeContext
-): Array<LicenseConfigurationAssociation> => {
+): LicenseConfigurationAssociation[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1LicenseConfigurationAssociation(entry, context)
   );
@@ -3400,7 +3384,7 @@ const deserializeAws_json1_1LicenseConfigurationUsage = (
 const deserializeAws_json1_1LicenseConfigurationUsageList = (
   output: any,
   context: __SerdeContext
-): Array<LicenseConfigurationUsage> => {
+): LicenseConfigurationUsage[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1LicenseConfigurationUsage(entry, context)
   );
@@ -3409,7 +3393,7 @@ const deserializeAws_json1_1LicenseConfigurationUsageList = (
 const deserializeAws_json1_1LicenseConfigurations = (
   output: any,
   context: __SerdeContext
-): Array<LicenseConfiguration> => {
+): LicenseConfiguration[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1LicenseConfiguration(entry, context)
   );
@@ -3466,7 +3450,7 @@ const deserializeAws_json1_1LicenseOperationFailure = (
 const deserializeAws_json1_1LicenseOperationFailureList = (
   output: any,
   context: __SerdeContext
-): Array<LicenseOperationFailure> => {
+): LicenseOperationFailure[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1LicenseOperationFailure(entry, context)
   );
@@ -3492,7 +3476,7 @@ const deserializeAws_json1_1LicenseSpecification = (
 const deserializeAws_json1_1LicenseSpecifications = (
   output: any,
   context: __SerdeContext
-): Array<LicenseSpecification> => {
+): LicenseSpecification[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1LicenseSpecification(entry, context)
   );
@@ -3694,7 +3678,7 @@ const deserializeAws_json1_1ManagedResourceSummary = (
 const deserializeAws_json1_1ManagedResourceSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<ManagedResourceSummary> => {
+): ManagedResourceSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ManagedResourceSummary(entry, context)
   );
@@ -3721,7 +3705,7 @@ const deserializeAws_json1_1Metadata = (
 const deserializeAws_json1_1MetadataList = (
   output: any,
   context: __SerdeContext
-): Array<Metadata> => {
+): Metadata[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Metadata(entry, context)
   );
@@ -3806,7 +3790,7 @@ const deserializeAws_json1_1ProductInformationFilter = (
 const deserializeAws_json1_1ProductInformationFilterList = (
   output: any,
   context: __SerdeContext
-): Array<ProductInformationFilter> => {
+): ProductInformationFilter[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ProductInformationFilter(entry, context)
   );
@@ -3815,7 +3799,7 @@ const deserializeAws_json1_1ProductInformationFilterList = (
 const deserializeAws_json1_1ProductInformationList = (
   output: any,
   context: __SerdeContext
-): Array<ProductInformation> => {
+): ProductInformation[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ProductInformation(entry, context)
   );
@@ -3875,7 +3859,7 @@ const deserializeAws_json1_1ResourceInventory = (
 const deserializeAws_json1_1ResourceInventoryList = (
   output: any,
   context: __SerdeContext
-): Array<ResourceInventory> => {
+): ResourceInventory[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ResourceInventory(entry, context)
   );
@@ -3912,7 +3896,7 @@ const deserializeAws_json1_1ServerInternalException = (
 const deserializeAws_json1_1StringList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -3937,7 +3921,7 @@ const deserializeAws_json1_1Tag = (
 const deserializeAws_json1_1TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );
@@ -4001,7 +3985,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -4016,11 +4000,8 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
@@ -4047,11 +4028,10 @@ const buildHttpRpcRequest = async (
   return new __HttpRequest(contents);
 };
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};

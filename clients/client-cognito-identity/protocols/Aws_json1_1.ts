@@ -150,299 +150,318 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_json1_1CreateIdentityPoolCommand(
+export const serializeAws_json1_1CreateIdentityPoolCommand = async (
   input: CreateIdentityPoolCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSCognitoIdentityService.CreateIdentityPool";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSCognitoIdentityService.CreateIdentityPool"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateIdentityPoolInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteIdentitiesCommand(
+export const serializeAws_json1_1DeleteIdentitiesCommand = async (
   input: DeleteIdentitiesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSCognitoIdentityService.DeleteIdentities";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSCognitoIdentityService.DeleteIdentities"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteIdentitiesInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteIdentityPoolCommand(
+export const serializeAws_json1_1DeleteIdentityPoolCommand = async (
   input: DeleteIdentityPoolCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSCognitoIdentityService.DeleteIdentityPool";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSCognitoIdentityService.DeleteIdentityPool"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteIdentityPoolInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeIdentityCommand(
+export const serializeAws_json1_1DescribeIdentityCommand = async (
   input: DescribeIdentityCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSCognitoIdentityService.DescribeIdentity";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSCognitoIdentityService.DescribeIdentity"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeIdentityInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeIdentityPoolCommand(
+export const serializeAws_json1_1DescribeIdentityPoolCommand = async (
   input: DescribeIdentityPoolCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSCognitoIdentityService.DescribeIdentityPool";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSCognitoIdentityService.DescribeIdentityPool"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeIdentityPoolInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetCredentialsForIdentityCommand(
+export const serializeAws_json1_1GetCredentialsForIdentityCommand = async (
   input: GetCredentialsForIdentityCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityService.GetCredentialsForIdentity";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSCognitoIdentityService.GetCredentialsForIdentity"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetCredentialsForIdentityInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetIdCommand(
+export const serializeAws_json1_1GetIdCommand = async (
   input: GetIdCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSCognitoIdentityService.GetId";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSCognitoIdentityService.GetId"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetIdInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetIdentityPoolRolesCommand(
+export const serializeAws_json1_1GetIdentityPoolRolesCommand = async (
   input: GetIdentityPoolRolesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSCognitoIdentityService.GetIdentityPoolRoles";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSCognitoIdentityService.GetIdentityPoolRoles"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetIdentityPoolRolesInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetOpenIdTokenCommand(
+export const serializeAws_json1_1GetOpenIdTokenCommand = async (
   input: GetOpenIdTokenCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSCognitoIdentityService.GetOpenIdToken";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSCognitoIdentityService.GetOpenIdToken"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetOpenIdTokenInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetOpenIdTokenForDeveloperIdentityCommand(
+export const serializeAws_json1_1GetOpenIdTokenForDeveloperIdentityCommand = async (
   input: GetOpenIdTokenForDeveloperIdentityCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityService.GetOpenIdTokenForDeveloperIdentity";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "AWSCognitoIdentityService.GetOpenIdTokenForDeveloperIdentity"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetOpenIdTokenForDeveloperIdentityInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListIdentitiesCommand(
+export const serializeAws_json1_1ListIdentitiesCommand = async (
   input: ListIdentitiesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSCognitoIdentityService.ListIdentities";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSCognitoIdentityService.ListIdentities"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListIdentitiesInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListIdentityPoolsCommand(
+export const serializeAws_json1_1ListIdentityPoolsCommand = async (
   input: ListIdentityPoolsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSCognitoIdentityService.ListIdentityPools";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSCognitoIdentityService.ListIdentityPools"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListIdentityPoolsInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListTagsForResourceCommand(
+export const serializeAws_json1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSCognitoIdentityService.ListTagsForResource";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSCognitoIdentityService.ListTagsForResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTagsForResourceInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1LookupDeveloperIdentityCommand(
+export const serializeAws_json1_1LookupDeveloperIdentityCommand = async (
   input: LookupDeveloperIdentityCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSCognitoIdentityService.LookupDeveloperIdentity";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSCognitoIdentityService.LookupDeveloperIdentity"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1LookupDeveloperIdentityInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1MergeDeveloperIdentitiesCommand(
+export const serializeAws_json1_1MergeDeveloperIdentitiesCommand = async (
   input: MergeDeveloperIdentitiesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityService.MergeDeveloperIdentities";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSCognitoIdentityService.MergeDeveloperIdentities"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1MergeDeveloperIdentitiesInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1SetIdentityPoolRolesCommand(
+export const serializeAws_json1_1SetIdentityPoolRolesCommand = async (
   input: SetIdentityPoolRolesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSCognitoIdentityService.SetIdentityPoolRoles";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSCognitoIdentityService.SetIdentityPoolRoles"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1SetIdentityPoolRolesInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1TagResourceCommand(
+export const serializeAws_json1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSCognitoIdentityService.TagResource";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSCognitoIdentityService.TagResource"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UnlinkDeveloperIdentityCommand(
+export const serializeAws_json1_1UnlinkDeveloperIdentityCommand = async (
   input: UnlinkDeveloperIdentityCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSCognitoIdentityService.UnlinkDeveloperIdentity";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSCognitoIdentityService.UnlinkDeveloperIdentity"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UnlinkDeveloperIdentityInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UnlinkIdentityCommand(
+export const serializeAws_json1_1UnlinkIdentityCommand = async (
   input: UnlinkIdentityCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSCognitoIdentityService.UnlinkIdentity";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSCognitoIdentityService.UnlinkIdentity"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UnlinkIdentityInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UntagResourceCommand(
+export const serializeAws_json1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSCognitoIdentityService.UntagResource";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSCognitoIdentityService.UntagResource"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UntagResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateIdentityPoolCommand(
+export const serializeAws_json1_1UpdateIdentityPoolCommand = async (
   input: UpdateIdentityPoolCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSCognitoIdentityService.UpdateIdentityPool";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSCognitoIdentityService.UpdateIdentityPool"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1IdentityPool(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_1CreateIdentityPoolCommand(
+export const deserializeAws_json1_1CreateIdentityPoolCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateIdentityPoolCommandOutput> {
+): Promise<CreateIdentityPoolCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateIdentityPoolCommandError(
       output,
@@ -458,12 +477,12 @@ export async function deserializeAws_json1_1CreateIdentityPoolCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateIdentityPoolCommandError(
+const deserializeAws_json1_1CreateIdentityPoolCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateIdentityPoolCommandOutput> {
+): Promise<CreateIdentityPoolCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -555,12 +574,12 @@ async function deserializeAws_json1_1CreateIdentityPoolCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteIdentitiesCommand(
+export const deserializeAws_json1_1DeleteIdentitiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteIdentitiesCommandOutput> {
+): Promise<DeleteIdentitiesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteIdentitiesCommandError(output, context);
   }
@@ -573,12 +592,12 @@ export async function deserializeAws_json1_1DeleteIdentitiesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteIdentitiesCommandError(
+const deserializeAws_json1_1DeleteIdentitiesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteIdentitiesCommandOutput> {
+): Promise<DeleteIdentitiesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -637,12 +656,12 @@ async function deserializeAws_json1_1DeleteIdentitiesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteIdentityPoolCommand(
+export const deserializeAws_json1_1DeleteIdentityPoolCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteIdentityPoolCommandOutput> {
+): Promise<DeleteIdentityPoolCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteIdentityPoolCommandError(
       output,
@@ -654,12 +673,12 @@ export async function deserializeAws_json1_1DeleteIdentityPoolCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteIdentityPoolCommandError(
+const deserializeAws_json1_1DeleteIdentityPoolCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteIdentityPoolCommandOutput> {
+): Promise<DeleteIdentityPoolCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -740,12 +759,12 @@ async function deserializeAws_json1_1DeleteIdentityPoolCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeIdentityCommand(
+export const deserializeAws_json1_1DescribeIdentityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeIdentityCommandOutput> {
+): Promise<DescribeIdentityCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeIdentityCommandError(output, context);
   }
@@ -758,12 +777,12 @@ export async function deserializeAws_json1_1DescribeIdentityCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeIdentityCommandError(
+const deserializeAws_json1_1DescribeIdentityCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeIdentityCommandOutput> {
+): Promise<DescribeIdentityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -844,12 +863,12 @@ async function deserializeAws_json1_1DescribeIdentityCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeIdentityPoolCommand(
+export const deserializeAws_json1_1DescribeIdentityPoolCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeIdentityPoolCommandOutput> {
+): Promise<DescribeIdentityPoolCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeIdentityPoolCommandError(
       output,
@@ -865,12 +884,12 @@ export async function deserializeAws_json1_1DescribeIdentityPoolCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeIdentityPoolCommandError(
+const deserializeAws_json1_1DescribeIdentityPoolCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeIdentityPoolCommandOutput> {
+): Promise<DescribeIdentityPoolCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -951,12 +970,12 @@ async function deserializeAws_json1_1DescribeIdentityPoolCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetCredentialsForIdentityCommand(
+export const deserializeAws_json1_1GetCredentialsForIdentityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetCredentialsForIdentityCommandOutput> {
+): Promise<GetCredentialsForIdentityCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetCredentialsForIdentityCommandError(
       output,
@@ -975,12 +994,12 @@ export async function deserializeAws_json1_1GetCredentialsForIdentityCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetCredentialsForIdentityCommandError(
+const deserializeAws_json1_1GetCredentialsForIdentityCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetCredentialsForIdentityCommandOutput> {
+): Promise<GetCredentialsForIdentityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1094,12 +1113,12 @@ async function deserializeAws_json1_1GetCredentialsForIdentityCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetIdCommand(
+export const deserializeAws_json1_1GetIdCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetIdCommandOutput> {
+): Promise<GetIdCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetIdCommandError(output, context);
   }
@@ -1112,12 +1131,12 @@ export async function deserializeAws_json1_1GetIdCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetIdCommandError(
+const deserializeAws_json1_1GetIdCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetIdCommandOutput> {
+): Promise<GetIdCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1231,12 +1250,12 @@ async function deserializeAws_json1_1GetIdCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetIdentityPoolRolesCommand(
+export const deserializeAws_json1_1GetIdentityPoolRolesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetIdentityPoolRolesCommandOutput> {
+): Promise<GetIdentityPoolRolesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetIdentityPoolRolesCommandError(
       output,
@@ -1252,12 +1271,12 @@ export async function deserializeAws_json1_1GetIdentityPoolRolesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetIdentityPoolRolesCommandError(
+const deserializeAws_json1_1GetIdentityPoolRolesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetIdentityPoolRolesCommandOutput> {
+): Promise<GetIdentityPoolRolesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1349,12 +1368,12 @@ async function deserializeAws_json1_1GetIdentityPoolRolesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetOpenIdTokenCommand(
+export const deserializeAws_json1_1GetOpenIdTokenCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetOpenIdTokenCommandOutput> {
+): Promise<GetOpenIdTokenCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetOpenIdTokenCommandError(output, context);
   }
@@ -1367,12 +1386,12 @@ export async function deserializeAws_json1_1GetOpenIdTokenCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetOpenIdTokenCommandError(
+const deserializeAws_json1_1GetOpenIdTokenCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetOpenIdTokenCommandOutput> {
+): Promise<GetOpenIdTokenCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1475,12 +1494,12 @@ async function deserializeAws_json1_1GetOpenIdTokenCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetOpenIdTokenForDeveloperIdentityCommand(
+export const deserializeAws_json1_1GetOpenIdTokenForDeveloperIdentityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetOpenIdTokenForDeveloperIdentityCommandOutput> {
+): Promise<GetOpenIdTokenForDeveloperIdentityCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetOpenIdTokenForDeveloperIdentityCommandError(
       output,
@@ -1499,12 +1518,12 @@ export async function deserializeAws_json1_1GetOpenIdTokenForDeveloperIdentityCo
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetOpenIdTokenForDeveloperIdentityCommandError(
+const deserializeAws_json1_1GetOpenIdTokenForDeveloperIdentityCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetOpenIdTokenForDeveloperIdentityCommandOutput> {
+): Promise<GetOpenIdTokenForDeveloperIdentityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1607,12 +1626,12 @@ async function deserializeAws_json1_1GetOpenIdTokenForDeveloperIdentityCommandEr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListIdentitiesCommand(
+export const deserializeAws_json1_1ListIdentitiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListIdentitiesCommandOutput> {
+): Promise<ListIdentitiesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListIdentitiesCommandError(output, context);
   }
@@ -1625,12 +1644,12 @@ export async function deserializeAws_json1_1ListIdentitiesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListIdentitiesCommandError(
+const deserializeAws_json1_1ListIdentitiesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListIdentitiesCommandOutput> {
+): Promise<ListIdentitiesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1711,12 +1730,12 @@ async function deserializeAws_json1_1ListIdentitiesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListIdentityPoolsCommand(
+export const deserializeAws_json1_1ListIdentityPoolsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListIdentityPoolsCommandOutput> {
+): Promise<ListIdentityPoolsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListIdentityPoolsCommandError(output, context);
   }
@@ -1729,12 +1748,12 @@ export async function deserializeAws_json1_1ListIdentityPoolsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListIdentityPoolsCommandError(
+const deserializeAws_json1_1ListIdentityPoolsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListIdentityPoolsCommandOutput> {
+): Promise<ListIdentityPoolsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1815,12 +1834,12 @@ async function deserializeAws_json1_1ListIdentityPoolsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListTagsForResourceCommand(
+export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListTagsForResourceCommandError(
       output,
@@ -1836,12 +1855,12 @@ export async function deserializeAws_json1_1ListTagsForResourceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListTagsForResourceCommandError(
+const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1922,12 +1941,12 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1LookupDeveloperIdentityCommand(
+export const deserializeAws_json1_1LookupDeveloperIdentityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<LookupDeveloperIdentityCommandOutput> {
+): Promise<LookupDeveloperIdentityCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1LookupDeveloperIdentityCommandError(
       output,
@@ -1946,12 +1965,12 @@ export async function deserializeAws_json1_1LookupDeveloperIdentityCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1LookupDeveloperIdentityCommandError(
+const deserializeAws_json1_1LookupDeveloperIdentityCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<LookupDeveloperIdentityCommandOutput> {
+): Promise<LookupDeveloperIdentityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2043,12 +2062,12 @@ async function deserializeAws_json1_1LookupDeveloperIdentityCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1MergeDeveloperIdentitiesCommand(
+export const deserializeAws_json1_1MergeDeveloperIdentitiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<MergeDeveloperIdentitiesCommandOutput> {
+): Promise<MergeDeveloperIdentitiesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1MergeDeveloperIdentitiesCommandError(
       output,
@@ -2067,12 +2086,12 @@ export async function deserializeAws_json1_1MergeDeveloperIdentitiesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1MergeDeveloperIdentitiesCommandError(
+const deserializeAws_json1_1MergeDeveloperIdentitiesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<MergeDeveloperIdentitiesCommandOutput> {
+): Promise<MergeDeveloperIdentitiesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2164,12 +2183,12 @@ async function deserializeAws_json1_1MergeDeveloperIdentitiesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1SetIdentityPoolRolesCommand(
+export const deserializeAws_json1_1SetIdentityPoolRolesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SetIdentityPoolRolesCommandOutput> {
+): Promise<SetIdentityPoolRolesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1SetIdentityPoolRolesCommandError(
       output,
@@ -2181,12 +2200,12 @@ export async function deserializeAws_json1_1SetIdentityPoolRolesCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1SetIdentityPoolRolesCommandError(
+const deserializeAws_json1_1SetIdentityPoolRolesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SetIdentityPoolRolesCommandOutput> {
+): Promise<SetIdentityPoolRolesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2289,12 +2308,12 @@ async function deserializeAws_json1_1SetIdentityPoolRolesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1TagResourceCommand(
+export const deserializeAws_json1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1TagResourceCommandError(output, context);
   }
@@ -2307,12 +2326,12 @@ export async function deserializeAws_json1_1TagResourceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1TagResourceCommandError(
+const deserializeAws_json1_1TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2393,12 +2412,12 @@ async function deserializeAws_json1_1TagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UnlinkDeveloperIdentityCommand(
+export const deserializeAws_json1_1UnlinkDeveloperIdentityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UnlinkDeveloperIdentityCommandOutput> {
+): Promise<UnlinkDeveloperIdentityCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UnlinkDeveloperIdentityCommandError(
       output,
@@ -2410,12 +2429,12 @@ export async function deserializeAws_json1_1UnlinkDeveloperIdentityCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UnlinkDeveloperIdentityCommandError(
+const deserializeAws_json1_1UnlinkDeveloperIdentityCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UnlinkDeveloperIdentityCommandOutput> {
+): Promise<UnlinkDeveloperIdentityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2507,12 +2526,12 @@ async function deserializeAws_json1_1UnlinkDeveloperIdentityCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UnlinkIdentityCommand(
+export const deserializeAws_json1_1UnlinkIdentityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UnlinkIdentityCommandOutput> {
+): Promise<UnlinkIdentityCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UnlinkIdentityCommandError(output, context);
   }
@@ -2521,12 +2540,12 @@ export async function deserializeAws_json1_1UnlinkIdentityCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UnlinkIdentityCommandError(
+const deserializeAws_json1_1UnlinkIdentityCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UnlinkIdentityCommandOutput> {
+): Promise<UnlinkIdentityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2629,12 +2648,12 @@ async function deserializeAws_json1_1UnlinkIdentityCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UntagResourceCommand(
+export const deserializeAws_json1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UntagResourceCommandError(output, context);
   }
@@ -2647,12 +2666,12 @@ export async function deserializeAws_json1_1UntagResourceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UntagResourceCommandError(
+const deserializeAws_json1_1UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2733,12 +2752,12 @@ async function deserializeAws_json1_1UntagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateIdentityPoolCommand(
+export const deserializeAws_json1_1UpdateIdentityPoolCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateIdentityPoolCommandOutput> {
+): Promise<UpdateIdentityPoolCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateIdentityPoolCommandError(
       output,
@@ -2754,12 +2773,12 @@ export async function deserializeAws_json1_1UpdateIdentityPoolCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateIdentityPoolCommandError(
+const deserializeAws_json1_1UpdateIdentityPoolCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateIdentityPoolCommandOutput> {
+): Promise<UpdateIdentityPoolCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2873,7 +2892,7 @@ async function deserializeAws_json1_1UpdateIdentityPoolCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
   parsedOutput: any,
@@ -3091,14 +3110,12 @@ const serializeAws_json1_1CognitoIdentityProvider = (
 };
 
 const serializeAws_json1_1CognitoIdentityProviderList = (
-  input: Array<CognitoIdentityProvider>,
+  input: CognitoIdentityProvider[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1CognitoIdentityProvider(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1CognitoIdentityProvider(entry, context)
+  );
 };
 
 const serializeAws_json1_1CreateIdentityPoolInput = (
@@ -3285,14 +3302,10 @@ const serializeAws_json1_1GetOpenIdTokenInput = (
 };
 
 const serializeAws_json1_1IdentityIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1IdentityPool = (
@@ -3356,36 +3369,30 @@ const serializeAws_json1_1IdentityPool = (
 };
 
 const serializeAws_json1_1IdentityPoolTagsListType = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1IdentityPoolTagsType = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = input[key];
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = input[key];
+    return acc;
+  }, {});
 };
 
 const serializeAws_json1_1IdentityProviders = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = input[key];
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = input[key];
+    return acc;
+  }, {});
 };
 
 const serializeAws_json1_1ListIdentitiesInput = (
@@ -3434,25 +3441,20 @@ const serializeAws_json1_1ListTagsForResourceInput = (
 };
 
 const serializeAws_json1_1LoginsList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1LoginsMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = input[key];
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = input[key];
+    return acc;
+  }, {});
 };
 
 const serializeAws_json1_1LookupDeveloperIdentityInput = (
@@ -3499,14 +3501,10 @@ const serializeAws_json1_1MappingRule = (
 };
 
 const serializeAws_json1_1MappingRulesList = (
-  input: Array<MappingRule>,
+  input: MappingRule[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1MappingRule(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1MappingRule(entry, context));
 };
 
 const serializeAws_json1_1MergeDeveloperIdentitiesInput = (
@@ -3530,14 +3528,10 @@ const serializeAws_json1_1MergeDeveloperIdentitiesInput = (
 };
 
 const serializeAws_json1_1OIDCProviderList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1RoleMapping = (
@@ -3566,22 +3560,20 @@ const serializeAws_json1_1RoleMappingMap = (
   input: { [key: string]: RoleMapping },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = serializeAws_json1_1RoleMapping(input[key], context);
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = serializeAws_json1_1RoleMapping(input[key], context);
+    return acc;
+  }, {});
 };
 
 const serializeAws_json1_1RolesMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = input[key];
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = input[key];
+    return acc;
+  }, {});
 };
 
 const serializeAws_json1_1RulesConfigurationType = (
@@ -3599,14 +3591,10 @@ const serializeAws_json1_1RulesConfigurationType = (
 };
 
 const serializeAws_json1_1SAMLProviderList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1SetIdentityPoolRolesInput = (
@@ -3731,7 +3719,7 @@ const deserializeAws_json1_1CognitoIdentityProvider = (
 const deserializeAws_json1_1CognitoIdentityProviderList = (
   output: any,
   context: __SerdeContext
-): Array<CognitoIdentityProvider> => {
+): CognitoIdentityProvider[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1CognitoIdentityProvider(entry, context)
   );
@@ -3814,7 +3802,7 @@ const deserializeAws_json1_1DeveloperUserAlreadyRegisteredException = (
 const deserializeAws_json1_1DeveloperUserIdentifierList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -3931,7 +3919,7 @@ const deserializeAws_json1_1GetOpenIdTokenResponse = (
 const deserializeAws_json1_1IdentitiesList = (
   output: any,
   context: __SerdeContext
-): Array<IdentityDescription> => {
+): IdentityDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1IdentityDescription(entry, context)
   );
@@ -4086,17 +4074,16 @@ const deserializeAws_json1_1IdentityPoolTagsType = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = output[key];
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_1IdentityPoolsList = (
   output: any,
   context: __SerdeContext
-): Array<IdentityPoolShortDescription> => {
+): IdentityPoolShortDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1IdentityPoolShortDescription(entry, context)
   );
@@ -4106,11 +4093,10 @@ const deserializeAws_json1_1IdentityProviders = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = output[key];
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_1InternalErrorException = (
@@ -4235,7 +4221,7 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
 const deserializeAws_json1_1LoginsList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -4296,7 +4282,7 @@ const deserializeAws_json1_1MappingRule = (
 const deserializeAws_json1_1MappingRulesList = (
   output: any,
   context: __SerdeContext
-): Array<MappingRule> => {
+): MappingRule[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1MappingRule(entry, context)
   );
@@ -4333,7 +4319,7 @@ const deserializeAws_json1_1NotAuthorizedException = (
 const deserializeAws_json1_1OIDCProviderList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -4400,22 +4386,20 @@ const deserializeAws_json1_1RoleMappingMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: RoleMapping } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_json1_1RoleMapping(output[key], context);
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = deserializeAws_json1_1RoleMapping(output[key], context);
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_1RolesMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = output[key];
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_1RulesConfigurationType = (
@@ -4438,7 +4422,7 @@ const deserializeAws_json1_1RulesConfigurationType = (
 const deserializeAws_json1_1SAMLProviderList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -4487,7 +4471,7 @@ const deserializeAws_json1_1UnprocessedIdentityId = (
 const deserializeAws_json1_1UnprocessedIdentityIdList = (
   output: any,
   context: __SerdeContext
-): Array<UnprocessedIdentityId> => {
+): UnprocessedIdentityId[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1UnprocessedIdentityId(entry, context)
   );
@@ -4511,7 +4495,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -4526,11 +4510,8 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
@@ -4557,11 +4538,10 @@ const buildHttpRpcRequest = async (
   return new __HttpRequest(contents);
 };
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};

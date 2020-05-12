@@ -20,7 +20,7 @@ export interface BatchDetectDominantLanguageItemResult {
    * <p>One or more <a>DominantLanguage</a> objects describing the dominant
    *       languages in the document.</p>
    */
-  Languages?: Array<DominantLanguage>;
+  Languages?: DominantLanguage[];
 }
 
 export namespace BatchDetectDominantLanguageItemResult {
@@ -35,7 +35,7 @@ export interface BatchDetectDominantLanguageRequest {
    *       documents. Each document should contain at least 20 characters and must contain fewer than
    *       5,000 bytes of UTF-8 encoded characters.</p>
    */
-  TextList: Array<string> | undefined;
+  TextList: string[] | undefined;
 }
 
 export namespace BatchDetectDominantLanguageRequest {
@@ -51,7 +51,7 @@ export interface BatchDetectDominantLanguageResponse {
    *       field and match the order of the documents in the input list. If there are no errors in the
    *       batch, the <code>ErrorList</code> is empty.</p>
    */
-  ErrorList: Array<BatchItemError> | undefined;
+  ErrorList: BatchItemError[] | undefined;
 
   /**
    * <p>A list of  objects
@@ -59,7 +59,7 @@ export interface BatchDetectDominantLanguageResponse {
    *         <code>Index</code> field and match the order of the documents in the input list. If all of
    *       the documents contain an error, the <code>ResultList</code> is empty.</p>
    */
-  ResultList: Array<BatchDetectDominantLanguageItemResult> | undefined;
+  ResultList: BatchDetectDominantLanguageItemResult[] | undefined;
 }
 
 export namespace BatchDetectDominantLanguageResponse {
@@ -78,7 +78,7 @@ export interface BatchDetectEntitiesItemResult {
    * <p>One or more <a>Entity</a> objects, one for each entity detected in the
    *       document.</p>
    */
-  Entities?: Array<Entity>;
+  Entities?: Entity[];
 
   /**
    * <p>The zero-based index of the document in the input list.</p>
@@ -105,7 +105,7 @@ export interface BatchDetectEntitiesRequest {
    *       documents. Each document must contain fewer than 5,000 bytes of UTF-8 encoded
    *       characters.</p>
    */
-  TextList: Array<string> | undefined;
+  TextList: string[] | undefined;
 }
 
 export namespace BatchDetectEntitiesRequest {
@@ -121,7 +121,7 @@ export interface BatchDetectEntitiesResponse {
    *       field and match the order of the documents in the input list. If there are no errors in the
    *       batch, the <code>ErrorList</code> is empty.</p>
    */
-  ErrorList: Array<BatchItemError> | undefined;
+  ErrorList: BatchItemError[] | undefined;
 
   /**
    * <p>A list of  objects containing the
@@ -129,7 +129,7 @@ export interface BatchDetectEntitiesResponse {
    *       field and match the order of the documents in the input list. If all of the documents contain
    *       an error, the <code>ResultList</code> is empty.</p>
    */
-  ResultList: Array<BatchDetectEntitiesItemResult> | undefined;
+  ResultList: BatchDetectEntitiesItemResult[] | undefined;
 }
 
 export namespace BatchDetectEntitiesResponse {
@@ -153,7 +153,7 @@ export interface BatchDetectKeyPhrasesItemResult {
    * <p>One or more <a>KeyPhrase</a> objects, one for each key phrase detected in
    *       the document.</p>
    */
-  KeyPhrases?: Array<KeyPhrase>;
+  KeyPhrases?: KeyPhrase[];
 }
 
 export namespace BatchDetectKeyPhrasesItemResult {
@@ -175,7 +175,7 @@ export interface BatchDetectKeyPhrasesRequest {
    *       documents. Each document must contain fewer that 5,000 bytes of UTF-8 encoded
    *       characters.</p>
    */
-  TextList: Array<string> | undefined;
+  TextList: string[] | undefined;
 }
 
 export namespace BatchDetectKeyPhrasesRequest {
@@ -191,7 +191,7 @@ export interface BatchDetectKeyPhrasesResponse {
    *       field and match the order of the documents in the input list. If there are no errors in the
    *       batch, the <code>ErrorList</code> is empty.</p>
    */
-  ErrorList: Array<BatchItemError> | undefined;
+  ErrorList: BatchItemError[] | undefined;
 
   /**
    * <p>A list of  objects containing the
@@ -199,7 +199,7 @@ export interface BatchDetectKeyPhrasesResponse {
    *       field and match the order of the documents in the input list. If all of the documents contain
    *       an error, the <code>ResultList</code> is empty.</p>
    */
-  ResultList: Array<BatchDetectKeyPhrasesItemResult> | undefined;
+  ResultList: BatchDetectKeyPhrasesItemResult[] | undefined;
 }
 
 export namespace BatchDetectKeyPhrasesResponse {
@@ -250,7 +250,7 @@ export interface BatchDetectSentimentRequest {
    *       documents. Each document must contain fewer that 5,000 bytes of UTF-8 encoded
    *       characters.</p>
    */
-  TextList: Array<string> | undefined;
+  TextList: string[] | undefined;
 }
 
 export namespace BatchDetectSentimentRequest {
@@ -266,7 +266,7 @@ export interface BatchDetectSentimentResponse {
    *       field and match the order of the documents in the input list. If there are no errors in the
    *       batch, the <code>ErrorList</code> is empty.</p>
    */
-  ErrorList: Array<BatchItemError> | undefined;
+  ErrorList: BatchItemError[] | undefined;
 
   /**
    * <p>A list of  objects containing the
@@ -274,7 +274,7 @@ export interface BatchDetectSentimentResponse {
    *       field and match the order of the documents in the input list. If all of the documents contain
    *       an error, the <code>ResultList</code> is empty.</p>
    */
-  ResultList: Array<BatchDetectSentimentItemResult> | undefined;
+  ResultList: BatchDetectSentimentItemResult[] | undefined;
 }
 
 export namespace BatchDetectSentimentResponse {
@@ -296,7 +296,7 @@ export interface BatchDetectSyntaxItemResult {
   /**
    * <p>The syntax tokens for the words in the document, one token for each word.</p>
    */
-  SyntaxTokens?: Array<SyntaxToken>;
+  SyntaxTokens?: SyntaxToken[];
 }
 
 export namespace BatchDetectSyntaxItemResult {
@@ -318,7 +318,7 @@ export interface BatchDetectSyntaxRequest {
    *       documents. Each document must contain fewer that 5,000 bytes of UTF-8 encoded
    *       characters.</p>
    */
-  TextList: Array<string> | undefined;
+  TextList: string[] | undefined;
 }
 
 export namespace BatchDetectSyntaxRequest {
@@ -334,7 +334,7 @@ export interface BatchDetectSyntaxResponse {
    *       and match the order of the documents in the input list. If there are no errors in the batch,
    *       the <code>ErrorList</code> is empty.</p>
    */
-  ErrorList: Array<BatchItemError> | undefined;
+  ErrorList: BatchItemError[] | undefined;
 
   /**
    * <p>A list of  objects containing the results
@@ -342,7 +342,7 @@ export interface BatchDetectSyntaxResponse {
    *       and match the order of the documents in the input list. If all of the documents contain an
    *       error, the <code>ResultList</code> is empty.</p>
    */
-  ResultList: Array<BatchDetectSyntaxItemResult> | undefined;
+  ResultList: BatchDetectSyntaxItemResult[] | undefined;
 }
 
 export namespace BatchDetectSyntaxResponse {
@@ -517,14 +517,14 @@ export interface ClassifyDocumentResponse {
    * <p>The classes used by the document being analyzed. These are used for multi-class trained models. Individual classes are mutually exclusive and each document is expected
    *       to have only a single class assigned to it. For example, an animal can be a dog or a cat, but not both at the same time. </p>
    */
-  Classes?: Array<DocumentClass>;
+  Classes?: DocumentClass[];
 
   /**
    * <p>The labels used the document being analyzed. These are used for multi-label trained models. Individual labels represent different categories that are related in some manner
    *       and are not multually exclusive. For example, a movie can be just an action movie, or it can be an action movie, a science fiction movie, and
    *       a comedy, all at the same time. </p>
    */
-  Labels?: Array<DocumentLabel>;
+  Labels?: DocumentLabel[];
 }
 
 export namespace ClassifyDocumentResponse {
@@ -597,7 +597,7 @@ export interface CreateDocumentClassifierRequest {
    *       used by Amazon Comprehend. For example,
    *       a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department.   </p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that
@@ -669,7 +669,7 @@ export interface CreateEndpointRequest {
    *       to the endpoint. For example, a tag with "Sales" as the key might be added to an endpoint
    *       to indicate its use by the sales department. </p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateEndpointRequest {
@@ -725,7 +725,7 @@ export interface CreateEntityRecognizerRequest {
    *       resource used by Amazon Comprehend. For example,
    *       a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department.    </p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that
@@ -1103,7 +1103,7 @@ export interface DetectDominantLanguageResponse {
    *       of its inference. For more information about RFC 5646, see <a href="https://tools.ietf.org/html/rfc5646">Tags for Identifying Languages</a> on the
    *         <i>IETF Tools</i> web site.</p>
    */
-  Languages?: Array<DominantLanguage>;
+  Languages?: DominantLanguage[];
 }
 
 export namespace DetectDominantLanguageResponse {
@@ -1139,7 +1139,7 @@ export interface DetectEntitiesResponse {
    *       provides the entity text, entity type, where the entity text begins and ends, and the level of
    *       confidence that Amazon Comprehend has in the detection. For a list of entity types, see <a>how-entities</a>. </p>
    */
-  Entities?: Array<Entity>;
+  Entities?: Entity[];
 }
 
 export namespace DetectEntitiesResponse {
@@ -1175,7 +1175,7 @@ export interface DetectKeyPhrasesResponse {
    *       phrase, the response provides the text of the key phrase, where the key phrase begins and
    *       ends, and the level of confidence that Amazon Comprehend has in the accuracy of the detection. </p>
    */
-  KeyPhrases?: Array<KeyPhrase>;
+  KeyPhrases?: KeyPhrase[];
 }
 
 export namespace DetectKeyPhrasesResponse {
@@ -1250,7 +1250,7 @@ export interface DetectSyntaxResponse {
    *       the text, the token type, where the text begins and ends, and the level of confidence that
    *       Amazon Comprehend has that the token is correct. For a list of token types, see <a>how-syntax</a>.</p>
    */
-  SyntaxTokens?: Array<SyntaxToken>;
+  SyntaxTokens?: SyntaxToken[];
 }
 
 export namespace DetectSyntaxResponse {
@@ -2188,7 +2188,7 @@ export interface EntityRecognizerInputDataConfig {
   /**
    * <p>The entity types in the input data for an entity recognizer. A maximum of 12 entity types can be used at one time to train an entity recognizer.</p>
    */
-  EntityTypes: Array<EntityTypesListItem> | undefined;
+  EntityTypes: EntityTypesListItem[] | undefined;
 }
 
 export namespace EntityRecognizerInputDataConfig {
@@ -2204,7 +2204,7 @@ export interface EntityRecognizerMetadata {
   /**
    * <p>Entity types from the metadata of an entity recognizer.</p>
    */
-  EntityTypes?: Array<EntityRecognizerMetadataEntityTypesListItem>;
+  EntityTypes?: EntityRecognizerMetadataEntityTypesListItem[];
 
   /**
    * <p>Detailed information about the accuracy of an entity recognizer.</p>
@@ -2744,9 +2744,7 @@ export interface ListDocumentClassificationJobsResponse {
   /**
    * <p>A list containing the properties of each job returned.</p>
    */
-  DocumentClassificationJobPropertiesList?: Array<
-    DocumentClassificationJobProperties
-  >;
+  DocumentClassificationJobPropertiesList?: DocumentClassificationJobProperties[];
 
   /**
    * <p>Identifies the next page of results to return.</p>
@@ -2788,7 +2786,7 @@ export interface ListDocumentClassifiersResponse {
   /**
    * <p>A list containing the properties of each job returned.</p>
    */
-  DocumentClassifierPropertiesList?: Array<DocumentClassifierProperties>;
+  DocumentClassifierPropertiesList?: DocumentClassifierProperties[];
 
   /**
    * <p>Identifies the next page of results to return.</p>
@@ -2830,9 +2828,7 @@ export interface ListDominantLanguageDetectionJobsResponse {
   /**
    * <p>A list containing the properties of each job that is returned.</p>
    */
-  DominantLanguageDetectionJobPropertiesList?: Array<
-    DominantLanguageDetectionJobProperties
-  >;
+  DominantLanguageDetectionJobPropertiesList?: DominantLanguageDetectionJobProperties[];
 
   /**
    * <p>Identifies the next page of results to return.</p>
@@ -2874,7 +2870,7 @@ export interface ListEndpointsResponse {
   /**
    * <p>Displays a list of endpoint properties being retrieved by the service in response to the request.</p>
    */
-  EndpointPropertiesList?: Array<EndpointProperties>;
+  EndpointPropertiesList?: EndpointProperties[];
 
   /**
    * <p>Identifies the next page of results to return.</p>
@@ -2916,7 +2912,7 @@ export interface ListEntitiesDetectionJobsResponse {
   /**
    * <p>A list containing the properties of each job that is returned.</p>
    */
-  EntitiesDetectionJobPropertiesList?: Array<EntitiesDetectionJobProperties>;
+  EntitiesDetectionJobPropertiesList?: EntitiesDetectionJobProperties[];
 
   /**
    * <p>Identifies the next page of results to return.</p>
@@ -2957,7 +2953,7 @@ export interface ListEntityRecognizersResponse {
   /**
    * <p>The list of properties of an entity recognizer.</p>
    */
-  EntityRecognizerPropertiesList?: Array<EntityRecognizerProperties>;
+  EntityRecognizerPropertiesList?: EntityRecognizerProperties[];
 
   /**
    * <p>Identifies the next page of results to return.</p>
@@ -2999,9 +2995,7 @@ export interface ListKeyPhrasesDetectionJobsResponse {
   /**
    * <p>A list containing the properties of each job that is returned.</p>
    */
-  KeyPhrasesDetectionJobPropertiesList?: Array<
-    KeyPhrasesDetectionJobProperties
-  >;
+  KeyPhrasesDetectionJobPropertiesList?: KeyPhrasesDetectionJobProperties[];
 
   /**
    * <p>Identifies the next page of results to return.</p>
@@ -3048,7 +3042,7 @@ export interface ListSentimentDetectionJobsResponse {
   /**
    * <p>A list containing the properties of each job that is returned.</p>
    */
-  SentimentDetectionJobPropertiesList?: Array<SentimentDetectionJobProperties>;
+  SentimentDetectionJobPropertiesList?: SentimentDetectionJobProperties[];
 }
 
 export namespace ListSentimentDetectionJobsResponse {
@@ -3080,7 +3074,7 @@ export interface ListTagsForResourceResponse {
    * <p>Tags associated with the Amazon Comprehend resource being queried. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example,
    *       a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department.    </p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace ListTagsForResourceResponse {
@@ -3122,7 +3116,7 @@ export interface ListTopicsDetectionJobsResponse {
   /**
    * <p>A list containing the properties of each job that is returned.</p>
    */
-  TopicsDetectionJobPropertiesList?: Array<TopicsDetectionJobProperties>;
+  TopicsDetectionJobPropertiesList?: TopicsDetectionJobProperties[];
 }
 
 export namespace ListTopicsDetectionJobsResponse {
@@ -4311,7 +4305,7 @@ export interface TagResourceRequest {
   /**
    * <p>Tags being associated with a specific Amazon Comprehend resource. There can be a maximum of 50 tags (both existing and pending) associated with a specific resource. </p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -4547,7 +4541,7 @@ export interface UntagResourceRequest {
    *       For example,
    *       a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department. Keys must be unique and cannot be duplicated for a particular resource.    </p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -4603,14 +4597,14 @@ export interface VpcConfig {
    *       provides security for the resources that you’ll be accessing on the VPC. This ID number is preceded by "sg-", for instance: "sg-03b388029b0a285ea".
    *       For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html">Security Groups for your VPC</a>. </p>
    */
-  SecurityGroupIds: Array<string> | undefined;
+  SecurityGroupIds: string[] | undefined;
 
   /**
    * <p>The ID for each subnet being used in your private VPC. This subnet is a subset of the a range of IPv4 addresses used by the
    *       VPC and is specific to a given availability zone in the VPC’s region. This ID number is preceded by "subnet-", for instance: "subnet-04ccf456919e69055".
    *       For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">VPCs and Subnets</a>. </p>
    */
-  Subnets: Array<string> | undefined;
+  Subnets: string[] | undefined;
 }
 
 export namespace VpcConfig {

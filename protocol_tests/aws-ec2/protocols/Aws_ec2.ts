@@ -97,7 +97,9 @@ import {
 } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  getArrayIfSingleItem as __getArrayIfSingleItem,
+  getValueFromTextNode as __getValueFromTextNode
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -109,12 +111,13 @@ import {
 import { parse as xmlParse } from "fast-xml-parser";
 import { v4 as generateIdempotencyToken } from "uuid";
 
-export async function serializeAws_ec2EmptyInputAndEmptyOutputCommand(
+export const serializeAws_ec2EmptyInputAndEmptyOutputCommand = async (
   input: EmptyInputAndEmptyOutputCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2EmptyInputAndEmptyOutputInput(input, context);
   body = buildFormUrlencodedString({
@@ -123,40 +126,43 @@ export async function serializeAws_ec2EmptyInputAndEmptyOutputCommand(
     Version: "2020-01-08"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_ec2GreetingWithErrorsCommand(
+export const serializeAws_ec2GreetingWithErrorsCommand = async (
   input: GreetingWithErrorsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   const body = buildFormUrlencodedString({
     Action: "GreetingWithErrors",
     Version: "2020-01-08"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_ec2IgnoresWrappingXmlNameCommand(
+export const serializeAws_ec2IgnoresWrappingXmlNameCommand = async (
   input: IgnoresWrappingXmlNameCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   const body = buildFormUrlencodedString({
     Action: "IgnoresWrappingXmlName",
     Version: "2020-01-08"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_ec2NestedStructuresCommand(
+export const serializeAws_ec2NestedStructuresCommand = async (
   input: NestedStructuresCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2NestedStructuresInput(input, context);
   body = buildFormUrlencodedString({
@@ -165,27 +171,29 @@ export async function serializeAws_ec2NestedStructuresCommand(
     Version: "2020-01-08"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_ec2NoInputAndOutputCommand(
+export const serializeAws_ec2NoInputAndOutputCommand = async (
   input: NoInputAndOutputCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   const body = buildFormUrlencodedString({
     Action: "NoInputAndOutput",
     Version: "2020-01-08"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_ec2QueryIdempotencyTokenAutoFillCommand(
+export const serializeAws_ec2QueryIdempotencyTokenAutoFillCommand = async (
   input: QueryIdempotencyTokenAutoFillCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2QueryIdempotencyTokenAutoFillInput(
     input,
@@ -197,14 +205,15 @@ export async function serializeAws_ec2QueryIdempotencyTokenAutoFillCommand(
     Version: "2020-01-08"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_ec2QueryListsCommand(
+export const serializeAws_ec2QueryListsCommand = async (
   input: QueryListsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2QueryListsInput(input, context);
   body = buildFormUrlencodedString({
@@ -213,14 +222,15 @@ export async function serializeAws_ec2QueryListsCommand(
     Version: "2020-01-08"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_ec2QueryTimestampsCommand(
+export const serializeAws_ec2QueryTimestampsCommand = async (
   input: QueryTimestampsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2QueryTimestampsInput(input, context);
   body = buildFormUrlencodedString({
@@ -229,27 +239,29 @@ export async function serializeAws_ec2QueryTimestampsCommand(
     Version: "2020-01-08"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_ec2RecursiveXmlShapesCommand(
+export const serializeAws_ec2RecursiveXmlShapesCommand = async (
   input: RecursiveXmlShapesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   const body = buildFormUrlencodedString({
     Action: "RecursiveXmlShapes",
     Version: "2020-01-08"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_ec2SimpleInputParamsCommand(
+export const serializeAws_ec2SimpleInputParamsCommand = async (
   input: SimpleInputParamsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   let body: any;
   const entries = serializeAws_ec2SimpleInputParamsInput(input, context);
   body = buildFormUrlencodedString({
@@ -258,90 +270,96 @@ export async function serializeAws_ec2SimpleInputParamsCommand(
     Version: "2020-01-08"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_ec2SimpleScalarXmlPropertiesCommand(
+export const serializeAws_ec2SimpleScalarXmlPropertiesCommand = async (
   input: SimpleScalarXmlPropertiesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   const body = buildFormUrlencodedString({
     Action: "SimpleScalarXmlProperties",
     Version: "2020-01-08"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_ec2XmlBlobsCommand(
+export const serializeAws_ec2XmlBlobsCommand = async (
   input: XmlBlobsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   const body = buildFormUrlencodedString({
     Action: "XmlBlobs",
     Version: "2020-01-08"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_ec2XmlEnumsCommand(
+export const serializeAws_ec2XmlEnumsCommand = async (
   input: XmlEnumsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   const body = buildFormUrlencodedString({
     Action: "XmlEnums",
     Version: "2020-01-08"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_ec2XmlListsCommand(
+export const serializeAws_ec2XmlListsCommand = async (
   input: XmlListsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   const body = buildFormUrlencodedString({
     Action: "XmlLists",
     Version: "2020-01-08"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_ec2XmlNamespacesCommand(
+export const serializeAws_ec2XmlNamespacesCommand = async (
   input: XmlNamespacesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   const body = buildFormUrlencodedString({
     Action: "XmlNamespaces",
     Version: "2020-01-08"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_ec2XmlTimestampsCommand(
+export const serializeAws_ec2XmlTimestampsCommand = async (
   input: XmlTimestampsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-www-form-urlencoded";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded"
+  };
   const body = buildFormUrlencodedString({
     Action: "XmlTimestamps",
     Version: "2020-01-08"
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_ec2EmptyInputAndEmptyOutputCommand(
+export const deserializeAws_ec2EmptyInputAndEmptyOutputCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<EmptyInputAndEmptyOutputCommandOutput> {
+): Promise<EmptyInputAndEmptyOutputCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_ec2EmptyInputAndEmptyOutputCommandError(
       output,
@@ -357,12 +375,12 @@ export async function deserializeAws_ec2EmptyInputAndEmptyOutputCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_ec2EmptyInputAndEmptyOutputCommandError(
+const deserializeAws_ec2EmptyInputAndEmptyOutputCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<EmptyInputAndEmptyOutputCommandOutput> {
+): Promise<EmptyInputAndEmptyOutputCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -392,12 +410,12 @@ async function deserializeAws_ec2EmptyInputAndEmptyOutputCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_ec2GreetingWithErrorsCommand(
+export const deserializeAws_ec2GreetingWithErrorsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GreetingWithErrorsCommandOutput> {
+): Promise<GreetingWithErrorsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_ec2GreetingWithErrorsCommandError(output, context);
   }
@@ -410,12 +428,12 @@ export async function deserializeAws_ec2GreetingWithErrorsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_ec2GreetingWithErrorsCommandError(
+const deserializeAws_ec2GreetingWithErrorsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GreetingWithErrorsCommandOutput> {
+): Promise<GreetingWithErrorsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -467,12 +485,12 @@ async function deserializeAws_ec2GreetingWithErrorsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_ec2IgnoresWrappingXmlNameCommand(
+export const deserializeAws_ec2IgnoresWrappingXmlNameCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<IgnoresWrappingXmlNameCommandOutput> {
+): Promise<IgnoresWrappingXmlNameCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_ec2IgnoresWrappingXmlNameCommandError(
       output,
@@ -488,12 +506,12 @@ export async function deserializeAws_ec2IgnoresWrappingXmlNameCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_ec2IgnoresWrappingXmlNameCommandError(
+const deserializeAws_ec2IgnoresWrappingXmlNameCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<IgnoresWrappingXmlNameCommandOutput> {
+): Promise<IgnoresWrappingXmlNameCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -523,12 +541,12 @@ async function deserializeAws_ec2IgnoresWrappingXmlNameCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_ec2NestedStructuresCommand(
+export const deserializeAws_ec2NestedStructuresCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<NestedStructuresCommandOutput> {
+): Promise<NestedStructuresCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_ec2NestedStructuresCommandError(output, context);
   }
@@ -537,12 +555,12 @@ export async function deserializeAws_ec2NestedStructuresCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_ec2NestedStructuresCommandError(
+const deserializeAws_ec2NestedStructuresCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<NestedStructuresCommandOutput> {
+): Promise<NestedStructuresCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -572,12 +590,12 @@ async function deserializeAws_ec2NestedStructuresCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_ec2NoInputAndOutputCommand(
+export const deserializeAws_ec2NoInputAndOutputCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<NoInputAndOutputCommandOutput> {
+): Promise<NoInputAndOutputCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_ec2NoInputAndOutputCommandError(output, context);
   }
@@ -590,12 +608,12 @@ export async function deserializeAws_ec2NoInputAndOutputCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_ec2NoInputAndOutputCommandError(
+const deserializeAws_ec2NoInputAndOutputCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<NoInputAndOutputCommandOutput> {
+): Promise<NoInputAndOutputCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -625,12 +643,12 @@ async function deserializeAws_ec2NoInputAndOutputCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_ec2QueryIdempotencyTokenAutoFillCommand(
+export const deserializeAws_ec2QueryIdempotencyTokenAutoFillCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<QueryIdempotencyTokenAutoFillCommandOutput> {
+): Promise<QueryIdempotencyTokenAutoFillCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_ec2QueryIdempotencyTokenAutoFillCommandError(
       output,
@@ -642,12 +660,12 @@ export async function deserializeAws_ec2QueryIdempotencyTokenAutoFillCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_ec2QueryIdempotencyTokenAutoFillCommandError(
+const deserializeAws_ec2QueryIdempotencyTokenAutoFillCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<QueryIdempotencyTokenAutoFillCommandOutput> {
+): Promise<QueryIdempotencyTokenAutoFillCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -677,12 +695,12 @@ async function deserializeAws_ec2QueryIdempotencyTokenAutoFillCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_ec2QueryListsCommand(
+export const deserializeAws_ec2QueryListsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<QueryListsCommandOutput> {
+): Promise<QueryListsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_ec2QueryListsCommandError(output, context);
   }
@@ -691,12 +709,12 @@ export async function deserializeAws_ec2QueryListsCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_ec2QueryListsCommandError(
+const deserializeAws_ec2QueryListsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<QueryListsCommandOutput> {
+): Promise<QueryListsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -726,12 +744,12 @@ async function deserializeAws_ec2QueryListsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_ec2QueryTimestampsCommand(
+export const deserializeAws_ec2QueryTimestampsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<QueryTimestampsCommandOutput> {
+): Promise<QueryTimestampsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_ec2QueryTimestampsCommandError(output, context);
   }
@@ -740,12 +758,12 @@ export async function deserializeAws_ec2QueryTimestampsCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_ec2QueryTimestampsCommandError(
+const deserializeAws_ec2QueryTimestampsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<QueryTimestampsCommandOutput> {
+): Promise<QueryTimestampsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -775,12 +793,12 @@ async function deserializeAws_ec2QueryTimestampsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_ec2RecursiveXmlShapesCommand(
+export const deserializeAws_ec2RecursiveXmlShapesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RecursiveXmlShapesCommandOutput> {
+): Promise<RecursiveXmlShapesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_ec2RecursiveXmlShapesCommandError(output, context);
   }
@@ -793,12 +811,12 @@ export async function deserializeAws_ec2RecursiveXmlShapesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_ec2RecursiveXmlShapesCommandError(
+const deserializeAws_ec2RecursiveXmlShapesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RecursiveXmlShapesCommandOutput> {
+): Promise<RecursiveXmlShapesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -828,12 +846,12 @@ async function deserializeAws_ec2RecursiveXmlShapesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_ec2SimpleInputParamsCommand(
+export const deserializeAws_ec2SimpleInputParamsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SimpleInputParamsCommandOutput> {
+): Promise<SimpleInputParamsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_ec2SimpleInputParamsCommandError(output, context);
   }
@@ -842,12 +860,12 @@ export async function deserializeAws_ec2SimpleInputParamsCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_ec2SimpleInputParamsCommandError(
+const deserializeAws_ec2SimpleInputParamsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SimpleInputParamsCommandOutput> {
+): Promise<SimpleInputParamsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -877,12 +895,12 @@ async function deserializeAws_ec2SimpleInputParamsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_ec2SimpleScalarXmlPropertiesCommand(
+export const deserializeAws_ec2SimpleScalarXmlPropertiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SimpleScalarXmlPropertiesCommandOutput> {
+): Promise<SimpleScalarXmlPropertiesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_ec2SimpleScalarXmlPropertiesCommandError(
       output,
@@ -898,12 +916,12 @@ export async function deserializeAws_ec2SimpleScalarXmlPropertiesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_ec2SimpleScalarXmlPropertiesCommandError(
+const deserializeAws_ec2SimpleScalarXmlPropertiesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SimpleScalarXmlPropertiesCommandOutput> {
+): Promise<SimpleScalarXmlPropertiesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -933,12 +951,12 @@ async function deserializeAws_ec2SimpleScalarXmlPropertiesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_ec2XmlBlobsCommand(
+export const deserializeAws_ec2XmlBlobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<XmlBlobsCommandOutput> {
+): Promise<XmlBlobsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_ec2XmlBlobsCommandError(output, context);
   }
@@ -951,12 +969,12 @@ export async function deserializeAws_ec2XmlBlobsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_ec2XmlBlobsCommandError(
+const deserializeAws_ec2XmlBlobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<XmlBlobsCommandOutput> {
+): Promise<XmlBlobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -986,12 +1004,12 @@ async function deserializeAws_ec2XmlBlobsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_ec2XmlEnumsCommand(
+export const deserializeAws_ec2XmlEnumsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<XmlEnumsCommandOutput> {
+): Promise<XmlEnumsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_ec2XmlEnumsCommandError(output, context);
   }
@@ -1004,12 +1022,12 @@ export async function deserializeAws_ec2XmlEnumsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_ec2XmlEnumsCommandError(
+const deserializeAws_ec2XmlEnumsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<XmlEnumsCommandOutput> {
+): Promise<XmlEnumsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1039,12 +1057,12 @@ async function deserializeAws_ec2XmlEnumsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_ec2XmlListsCommand(
+export const deserializeAws_ec2XmlListsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<XmlListsCommandOutput> {
+): Promise<XmlListsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_ec2XmlListsCommandError(output, context);
   }
@@ -1057,12 +1075,12 @@ export async function deserializeAws_ec2XmlListsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_ec2XmlListsCommandError(
+const deserializeAws_ec2XmlListsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<XmlListsCommandOutput> {
+): Promise<XmlListsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1092,12 +1110,12 @@ async function deserializeAws_ec2XmlListsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_ec2XmlNamespacesCommand(
+export const deserializeAws_ec2XmlNamespacesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<XmlNamespacesCommandOutput> {
+): Promise<XmlNamespacesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_ec2XmlNamespacesCommandError(output, context);
   }
@@ -1110,12 +1128,12 @@ export async function deserializeAws_ec2XmlNamespacesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_ec2XmlNamespacesCommandError(
+const deserializeAws_ec2XmlNamespacesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<XmlNamespacesCommandOutput> {
+): Promise<XmlNamespacesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1145,12 +1163,12 @@ async function deserializeAws_ec2XmlNamespacesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_ec2XmlTimestampsCommand(
+export const deserializeAws_ec2XmlTimestampsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<XmlTimestampsCommandOutput> {
+): Promise<XmlTimestampsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_ec2XmlTimestampsCommandError(output, context);
   }
@@ -1163,12 +1181,12 @@ export async function deserializeAws_ec2XmlTimestampsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_ec2XmlTimestampsCommandError(
+const deserializeAws_ec2XmlTimestampsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<XmlTimestampsCommandOutput> {
+): Promise<XmlTimestampsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1198,7 +1216,7 @@ async function deserializeAws_ec2XmlTimestampsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_ec2ComplexErrorResponse = async (
   parsedOutput: any,
@@ -1245,7 +1263,7 @@ const serializeAws_ec2EmptyInputAndEmptyOutputInput = (
 };
 
 const serializeAws_ec2ListWithXmlName = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -1414,7 +1432,7 @@ const serializeAws_ec2StructArg = (
 };
 
 const serializeAws_ec2GreetingList = (
-  input: Array<GreetingStruct>,
+  input: GreetingStruct[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -1441,7 +1459,7 @@ const serializeAws_ec2GreetingStruct = (
 };
 
 const serializeAws_ec2StringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -1469,10 +1487,7 @@ const deserializeAws_ec2ComplexError = (
     );
   }
   if (output["TopLevel"] !== undefined) {
-    contents.TopLevel =
-      output["TopLevel"]["#text"] !== undefined
-        ? output["TopLevel"]["#text"]
-        : output["TopLevel"];
+    contents.TopLevel = output["TopLevel"];
   }
   return contents;
 };
@@ -1486,10 +1501,7 @@ const deserializeAws_ec2ComplexNestedErrorData = (
     Foo: undefined
   };
   if (output["Foo"] !== undefined) {
-    contents.Foo =
-      output["Foo"]["#text"] !== undefined
-        ? output["Foo"]["#text"]
-        : output["Foo"];
+    contents.Foo = output["Foo"];
   }
   return contents;
 };
@@ -1513,10 +1525,7 @@ const deserializeAws_ec2GreetingWithErrorsOutput = (
     greeting: undefined
   };
   if (output["greeting"] !== undefined) {
-    contents.greeting =
-      output["greeting"]["#text"] !== undefined
-        ? output["greeting"]["#text"]
-        : output["greeting"];
+    contents.greeting = output["greeting"];
   }
   return contents;
 };
@@ -1530,10 +1539,7 @@ const deserializeAws_ec2IgnoresWrappingXmlNameOutput = (
     foo: undefined
   };
   if (output["foo"] !== undefined) {
-    contents.foo =
-      output["foo"]["#text"] !== undefined
-        ? output["foo"]["#text"]
-        : output["foo"];
+    contents.foo = output["foo"];
   }
   return contents;
 };
@@ -1547,10 +1553,7 @@ const deserializeAws_ec2InvalidGreeting = (
     Message: undefined
   };
   if (output["Message"] !== undefined) {
-    contents.Message =
-      output["Message"]["#text"] !== undefined
-        ? output["Message"]["#text"]
-        : output["Message"];
+    contents.Message = output["Message"];
   }
   return contents;
 };
@@ -1592,10 +1595,7 @@ const deserializeAws_ec2RecursiveXmlShapesOutputNested1 = (
     nested: undefined
   };
   if (output["foo"] !== undefined) {
-    contents.foo =
-      output["foo"]["#text"] !== undefined
-        ? output["foo"]["#text"]
-        : output["foo"];
+    contents.foo = output["foo"];
   }
   if (output["nested"] !== undefined) {
     contents.nested = deserializeAws_ec2RecursiveXmlShapesOutputNested2(
@@ -1616,10 +1616,7 @@ const deserializeAws_ec2RecursiveXmlShapesOutputNested2 = (
     recursiveMember: undefined
   };
   if (output["bar"] !== undefined) {
-    contents.bar =
-      output["bar"]["#text"] !== undefined
-        ? output["bar"]["#text"]
-        : output["bar"];
+    contents.bar = output["bar"];
   }
   if (output["recursiveMember"] !== undefined) {
     contents.recursiveMember = deserializeAws_ec2RecursiveXmlShapesOutputNested1(
@@ -1633,12 +1630,8 @@ const deserializeAws_ec2RecursiveXmlShapesOutputNested2 = (
 const deserializeAws_ec2RenamedListMembers = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_ec2SimpleScalarXmlPropertiesOutput = (
@@ -1659,70 +1652,34 @@ const deserializeAws_ec2SimpleScalarXmlPropertiesOutput = (
     trueBooleanValue: undefined
   };
   if (output["byteValue"] !== undefined) {
-    contents.byteValue = parseInt(
-      output["byteValue"]["#text"] !== undefined
-        ? output["byteValue"]["#text"]
-        : output["byteValue"]
-    );
+    contents.byteValue = parseInt(output["byteValue"]);
   }
   if (output["DoubleDribble"] !== undefined) {
-    contents.doubleValue = parseFloat(
-      output["DoubleDribble"]["#text"] !== undefined
-        ? output["DoubleDribble"]["#text"]
-        : output["DoubleDribble"]
-    );
+    contents.doubleValue = parseFloat(output["DoubleDribble"]);
   }
   if (output["emptyStringValue"] !== undefined) {
-    contents.emptyStringValue =
-      output["emptyStringValue"]["#text"] !== undefined
-        ? output["emptyStringValue"]["#text"]
-        : output["emptyStringValue"];
+    contents.emptyStringValue = output["emptyStringValue"];
   }
   if (output["falseBooleanValue"] !== undefined) {
-    contents.falseBooleanValue =
-      (output["falseBooleanValue"]["#text"] !== undefined
-        ? output["falseBooleanValue"]["#text"]
-        : output["falseBooleanValue"]) == "true";
+    contents.falseBooleanValue = output["falseBooleanValue"] == "true";
   }
   if (output["floatValue"] !== undefined) {
-    contents.floatValue = parseFloat(
-      output["floatValue"]["#text"] !== undefined
-        ? output["floatValue"]["#text"]
-        : output["floatValue"]
-    );
+    contents.floatValue = parseFloat(output["floatValue"]);
   }
   if (output["integerValue"] !== undefined) {
-    contents.integerValue = parseInt(
-      output["integerValue"]["#text"] !== undefined
-        ? output["integerValue"]["#text"]
-        : output["integerValue"]
-    );
+    contents.integerValue = parseInt(output["integerValue"]);
   }
   if (output["longValue"] !== undefined) {
-    contents.longValue = parseInt(
-      output["longValue"]["#text"] !== undefined
-        ? output["longValue"]["#text"]
-        : output["longValue"]
-    );
+    contents.longValue = parseInt(output["longValue"]);
   }
   if (output["shortValue"] !== undefined) {
-    contents.shortValue = parseInt(
-      output["shortValue"]["#text"] !== undefined
-        ? output["shortValue"]["#text"]
-        : output["shortValue"]
-    );
+    contents.shortValue = parseInt(output["shortValue"]);
   }
   if (output["stringValue"] !== undefined) {
-    contents.stringValue =
-      output["stringValue"]["#text"] !== undefined
-        ? output["stringValue"]["#text"]
-        : output["stringValue"];
+    contents.stringValue = output["stringValue"];
   }
   if (output["trueBooleanValue"] !== undefined) {
-    contents.trueBooleanValue =
-      (output["trueBooleanValue"]["#text"] !== undefined
-        ? output["trueBooleanValue"]["#text"]
-        : output["trueBooleanValue"]) == "true";
+    contents.trueBooleanValue = output["trueBooleanValue"] == "true";
   }
   return contents;
 };
@@ -1730,12 +1687,10 @@ const deserializeAws_ec2SimpleScalarXmlPropertiesOutput = (
 const deserializeAws_ec2StructureList = (
   output: any,
   context: __SerdeContext
-): Array<StructureListMember> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_ec2StructureListMember(entry, context));
-  });
-  return contents;
+): StructureListMember[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_ec2StructureListMember(entry, context)
+  );
 };
 
 const deserializeAws_ec2StructureListMember = (
@@ -1748,16 +1703,10 @@ const deserializeAws_ec2StructureListMember = (
     b: undefined
   };
   if (output["value"] !== undefined) {
-    contents.a =
-      output["value"]["#text"] !== undefined
-        ? output["value"]["#text"]
-        : output["value"];
+    contents.a = output["value"];
   }
   if (output["other"] !== undefined) {
-    contents.b =
-      output["other"]["#text"] !== undefined
-        ? output["other"]["#text"]
-        : output["other"];
+    contents.b = output["other"];
   }
   return contents;
 };
@@ -1771,11 +1720,7 @@ const deserializeAws_ec2XmlBlobsOutput = (
     data: undefined
   };
   if (output["data"] !== undefined) {
-    contents.data = context.base64Decoder(
-      output["data"]["#text"] !== undefined
-        ? output["data"]["#text"]
-        : output["data"]
-    );
+    contents.data = context.base64Decoder(output["data"]);
   }
   return contents;
 };
@@ -1794,22 +1739,13 @@ const deserializeAws_ec2XmlEnumsOutput = (
     fooEnumSet: undefined
   };
   if (output["fooEnum1"] !== undefined) {
-    contents.fooEnum1 =
-      output["fooEnum1"]["#text"] !== undefined
-        ? output["fooEnum1"]["#text"]
-        : output["fooEnum1"];
+    contents.fooEnum1 = output["fooEnum1"];
   }
   if (output["fooEnum2"] !== undefined) {
-    contents.fooEnum2 =
-      output["fooEnum2"]["#text"] !== undefined
-        ? output["fooEnum2"]["#text"]
-        : output["fooEnum2"];
+    contents.fooEnum2 = output["fooEnum2"];
   }
   if (output["fooEnum3"] !== undefined) {
-    contents.fooEnum3 =
-      output["fooEnum3"]["#text"] !== undefined
-        ? output["fooEnum3"]["#text"]
-        : output["fooEnum3"];
+    contents.fooEnum3 = output["fooEnum3"];
   }
   if (output.fooEnumList === "") {
     contents.fooEnumList = [];
@@ -1818,11 +1754,10 @@ const deserializeAws_ec2XmlEnumsOutput = (
     output["fooEnumList"] !== undefined &&
     output["fooEnumList"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["fooEnumList"]["member"] instanceof Array
-        ? output["fooEnumList"]["member"]
-        : [output["fooEnumList"]["member"]];
-    contents.fooEnumList = deserializeAws_ec2FooEnumList(wrappedItem, context);
+    contents.fooEnumList = deserializeAws_ec2FooEnumList(
+      __getArrayIfSingleItem(output["fooEnumList"]["member"]),
+      context
+    );
   }
   if (output.fooEnumMap === "") {
     contents.fooEnumMap = {};
@@ -1831,24 +1766,22 @@ const deserializeAws_ec2XmlEnumsOutput = (
     output["fooEnumMap"] !== undefined &&
     output["fooEnumMap"]["entry"] !== undefined
   ) {
-    const wrappedItem =
-      output["fooEnumMap"]["entry"] instanceof Array
-        ? output["fooEnumMap"]["entry"]
-        : [output["fooEnumMap"]["entry"]];
-    contents.fooEnumMap = deserializeAws_ec2FooEnumMap(wrappedItem, context);
+    contents.fooEnumMap = deserializeAws_ec2FooEnumMap(
+      __getArrayIfSingleItem(output["fooEnumMap"]["entry"]),
+      context
+    );
   }
   if (output.fooEnumSet === "") {
-    contents.fooEnumSet = new Set([]);
+    contents.fooEnumSet = [];
   }
   if (
     output["fooEnumSet"] !== undefined &&
     output["fooEnumSet"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["fooEnumSet"]["member"] instanceof Array
-        ? output["fooEnumSet"]["member"]
-        : [output["fooEnumSet"]["member"]];
-    contents.fooEnumSet = deserializeAws_ec2FooEnumSet(wrappedItem, context);
+    contents.fooEnumSet = deserializeAws_ec2FooEnumSet(
+      __getArrayIfSingleItem(output["fooEnumSet"]["member"]),
+      context
+    );
   }
   return contents;
 };
@@ -1878,11 +1811,10 @@ const deserializeAws_ec2XmlListsOutput = (
     output["booleanList"] !== undefined &&
     output["booleanList"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["booleanList"]["member"] instanceof Array
-        ? output["booleanList"]["member"]
-        : [output["booleanList"]["member"]];
-    contents.booleanList = deserializeAws_ec2BooleanList(wrappedItem, context);
+    contents.booleanList = deserializeAws_ec2BooleanList(
+      __getArrayIfSingleItem(output["booleanList"]["member"]),
+      context
+    );
   }
   if (output.enumList === "") {
     contents.enumList = [];
@@ -1891,22 +1823,17 @@ const deserializeAws_ec2XmlListsOutput = (
     output["enumList"] !== undefined &&
     output["enumList"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["enumList"]["member"] instanceof Array
-        ? output["enumList"]["member"]
-        : [output["enumList"]["member"]];
-    contents.enumList = deserializeAws_ec2FooEnumList(wrappedItem, context);
+    contents.enumList = deserializeAws_ec2FooEnumList(
+      __getArrayIfSingleItem(output["enumList"]["member"]),
+      context
+    );
   }
   if (output.flattenedList === "") {
     contents.flattenedList = [];
   }
   if (output["flattenedList"] !== undefined) {
-    const wrappedItem =
-      output["flattenedList"] instanceof Array
-        ? output["flattenedList"]
-        : [output["flattenedList"]];
     contents.flattenedList = deserializeAws_ec2RenamedListMembers(
-      wrappedItem,
+      __getArrayIfSingleItem(output["flattenedList"]),
       context
     );
   }
@@ -1914,12 +1841,8 @@ const deserializeAws_ec2XmlListsOutput = (
     contents.flattenedList2 = [];
   }
   if (output["customName"] !== undefined) {
-    const wrappedItem =
-      output["customName"] instanceof Array
-        ? output["customName"]
-        : [output["customName"]];
     contents.flattenedList2 = deserializeAws_ec2RenamedListMembers(
-      wrappedItem,
+      __getArrayIfSingleItem(output["customName"]),
       context
     );
   }
@@ -1930,11 +1853,10 @@ const deserializeAws_ec2XmlListsOutput = (
     output["integerList"] !== undefined &&
     output["integerList"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["integerList"]["member"] instanceof Array
-        ? output["integerList"]["member"]
-        : [output["integerList"]["member"]];
-    contents.integerList = deserializeAws_ec2IntegerList(wrappedItem, context);
+    contents.integerList = deserializeAws_ec2IntegerList(
+      __getArrayIfSingleItem(output["integerList"]["member"]),
+      context
+    );
   }
   if (output.nestedStringList === "") {
     contents.nestedStringList = [];
@@ -1943,12 +1865,8 @@ const deserializeAws_ec2XmlListsOutput = (
     output["nestedStringList"] !== undefined &&
     output["nestedStringList"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["nestedStringList"]["member"] instanceof Array
-        ? output["nestedStringList"]["member"]
-        : [output["nestedStringList"]["member"]];
     contents.nestedStringList = deserializeAws_ec2NestedStringList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["nestedStringList"]["member"]),
       context
     );
   }
@@ -1959,12 +1877,8 @@ const deserializeAws_ec2XmlListsOutput = (
     output["renamed"] !== undefined &&
     output["renamed"]["item"] !== undefined
   ) {
-    const wrappedItem =
-      output["renamed"]["item"] instanceof Array
-        ? output["renamed"]["item"]
-        : [output["renamed"]["item"]];
     contents.renamedListMembers = deserializeAws_ec2RenamedListMembers(
-      wrappedItem,
+      __getArrayIfSingleItem(output["renamed"]["item"]),
       context
     );
   }
@@ -1975,24 +1889,22 @@ const deserializeAws_ec2XmlListsOutput = (
     output["stringList"] !== undefined &&
     output["stringList"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["stringList"]["member"] instanceof Array
-        ? output["stringList"]["member"]
-        : [output["stringList"]["member"]];
-    contents.stringList = deserializeAws_ec2StringList(wrappedItem, context);
+    contents.stringList = deserializeAws_ec2StringList(
+      __getArrayIfSingleItem(output["stringList"]["member"]),
+      context
+    );
   }
   if (output.stringSet === "") {
-    contents.stringSet = new Set([]);
+    contents.stringSet = [];
   }
   if (
     output["stringSet"] !== undefined &&
     output["stringSet"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["stringSet"]["member"] instanceof Array
-        ? output["stringSet"]["member"]
-        : [output["stringSet"]["member"]];
-    contents.stringSet = deserializeAws_ec2StringSet(wrappedItem, context);
+    contents.stringSet = deserializeAws_ec2StringSet(
+      __getArrayIfSingleItem(output["stringSet"]["member"]),
+      context
+    );
   }
   if (output.myStructureList === "") {
     contents.structureList = [];
@@ -2001,12 +1913,8 @@ const deserializeAws_ec2XmlListsOutput = (
     output["myStructureList"] !== undefined &&
     output["myStructureList"]["item"] !== undefined
   ) {
-    const wrappedItem =
-      output["myStructureList"]["item"] instanceof Array
-        ? output["myStructureList"]["item"]
-        : [output["myStructureList"]["item"]];
     contents.structureList = deserializeAws_ec2StructureList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["myStructureList"]["item"]),
       context
     );
   }
@@ -2017,12 +1925,8 @@ const deserializeAws_ec2XmlListsOutput = (
     output["timestampList"] !== undefined &&
     output["timestampList"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["timestampList"]["member"] instanceof Array
-        ? output["timestampList"]["member"]
-        : [output["timestampList"]["member"]];
     contents.timestampList = deserializeAws_ec2TimestampList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["timestampList"]["member"]),
       context
     );
   }
@@ -2039,10 +1943,7 @@ const deserializeAws_ec2XmlNamespaceNested = (
     values: undefined
   };
   if (output["foo"] !== undefined) {
-    contents.foo =
-      output["foo"]["#text"] !== undefined
-        ? output["foo"]["#text"]
-        : output["foo"];
+    contents.foo = output["foo"];
   }
   if (output.values === "") {
     contents.values = [];
@@ -2051,11 +1952,10 @@ const deserializeAws_ec2XmlNamespaceNested = (
     output["values"] !== undefined &&
     output["values"]["member"] !== undefined
   ) {
-    const wrappedItem =
-      output["values"]["member"] instanceof Array
-        ? output["values"]["member"]
-        : [output["values"]["member"]];
-    contents.values = deserializeAws_ec2XmlNamespacedList(wrappedItem, context);
+    contents.values = deserializeAws_ec2XmlNamespacedList(
+      __getArrayIfSingleItem(output["values"]["member"]),
+      context
+    );
   }
   return contents;
 };
@@ -2063,12 +1963,8 @@ const deserializeAws_ec2XmlNamespaceNested = (
 const deserializeAws_ec2XmlNamespacedList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_ec2XmlNamespacesOutput = (
@@ -2117,109 +2013,72 @@ const deserializeAws_ec2XmlTimestampsOutput = (
 const deserializeAws_ec2BooleanList = (
   output: any,
   context: __SerdeContext
-): Array<boolean> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      (entry["#text"] !== undefined ? entry["#text"] : entry) == "true"
-    );
-  });
-  return contents;
+): boolean[] => {
+  return (output || []).map((entry: any) => entry == "true");
 };
 
 const deserializeAws_ec2FooEnumList = (
   output: any,
   context: __SerdeContext
-): Array<FooEnum | string> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+): (FooEnum | string)[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_ec2FooEnumMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: FooEnum | string } => {
-  const mapParams: any = {};
-  output.forEach((pair: any) => {
-    mapParams[pair["key"]] =
-      pair["value"]["#text"] !== undefined
-        ? pair["value"]["#text"]
-        : pair["value"];
-  });
-  return mapParams;
+  return output.reduce((acc: any, pair: any) => {
+    acc[pair["key"]] = pair["value"];
+    return acc;
+  }, {});
 };
 
 const deserializeAws_ec2FooEnumSet = (
   output: any,
   context: __SerdeContext
-): Set<FooEnum | string> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+): (FooEnum | string)[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_ec2IntegerList = (
   output: any,
   context: __SerdeContext
-): Array<number> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      parseInt(entry["#text"] !== undefined ? entry["#text"] : entry)
-    );
-  });
-  return contents;
+): number[] => {
+  return (output || []).map((entry: any) => parseInt(entry));
 };
 
 const deserializeAws_ec2NestedStringList = (
   output: any,
   context: __SerdeContext
-): Array<Array<string>> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    const wrappedItem =
-      entry["member"] instanceof Array ? entry["member"] : [entry["member"]];
-    contents.push(deserializeAws_ec2StringList(wrappedItem, context));
-  });
-  return contents;
+): string[][] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_ec2StringList(
+      __getArrayIfSingleItem(entry["member"]),
+      context
+    )
+  );
 };
 
 const deserializeAws_ec2StringList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_ec2StringSet = (
   output: any,
   context: __SerdeContext
-): Set<string> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_ec2TimestampList = (
   output: any,
   context: __SerdeContext
-): Array<Date> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(new Date(entry));
-  });
-  return contents;
+): Date[] => {
+  return (output || []).map((entry: any) => new Date(entry));
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -2230,7 +2089,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -2245,25 +2104,24 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
-const buildHttpRpcRequest = (
+const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,
   path: string,
   resolvedHostname: string | undefined,
   body: any
-): __HttpRequest => {
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port } = await context.endpoint();
   const contents: any = {
-    ...context.endpoint,
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    path: path,
-    headers: headers
+    path,
+    headers
   };
   if (resolvedHostname !== undefined) {
     contents.hostname = resolvedHostname;
@@ -2274,17 +2132,16 @@ const buildHttpRpcRequest = (
   return new __HttpRequest(contents);
 };
 
-const decodeEscapedXML = (str: string) => {
-  return str
+const decodeEscapedXML = (str: string) =>
+  str
     .replace(/&amp;/g, "&")
     .replace(/&apos;/g, "'")
     .replace(/&quot;/g, '"')
     .replace(/&gt;/g, ">")
     .replace(/&lt;/g, "<");
-};
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       const parsedObj = xmlParse(encoded, {
         attributeNamePrefix: "",
@@ -2299,14 +2156,13 @@ const parseBody = (streamBody: any, context: __SerdeContext): any => {
         parsedObjToReturn[key] = parsedObjToReturn[textNodeName];
         delete parsedObjToReturn[textNodeName];
       }
-      return parsedObjToReturn;
+      return __getValueFromTextNode(parsedObjToReturn);
     }
     return {};
   });
-};
 
-const buildFormUrlencodedString = (entries: any): string => {
-  return Object.keys(entries)
+const buildFormUrlencodedString = (entries: any): string =>
+  Object.keys(entries)
     .map(
       key =>
         __extendedEncodeURIComponent(key) +
@@ -2314,7 +2170,6 @@ const buildFormUrlencodedString = (entries: any): string => {
         __extendedEncodeURIComponent(entries[key])
     )
     .join("&");
-};
 
 const loadEc2ErrorCode = (output: __HttpResponse, data: any): string => {
   if (data.Errors.Error.Code !== undefined) {

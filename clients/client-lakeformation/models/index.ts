@@ -14,7 +14,7 @@ export interface BatchGrantPermissionsRequest {
   /**
    * <p>A list of up to 20 entries for resource permissions to be granted by batch operation to the principal.</p>
    */
-  Entries: Array<BatchPermissionsRequestEntry> | undefined;
+  Entries: BatchPermissionsRequestEntry[] | undefined;
 }
 
 export namespace BatchGrantPermissionsRequest {
@@ -27,7 +27,7 @@ export interface BatchGrantPermissionsResponse {
   /**
    * <p>A list of failures to grant permissions to the resources.</p>
    */
-  Failures?: Array<BatchPermissionsFailureEntry>;
+  Failures?: BatchPermissionsFailureEntry[];
 }
 
 export namespace BatchGrantPermissionsResponse {
@@ -69,12 +69,12 @@ export interface BatchPermissionsRequestEntry {
   /**
    * <p>The permissions to be granted.</p>
    */
-  Permissions?: Array<Permission | string>;
+  Permissions?: (Permission | string)[];
 
   /**
    * <p>Indicates if the option to pass permissions is granted.</p>
    */
-  PermissionsWithGrantOption?: Array<Permission | string>;
+  PermissionsWithGrantOption?: (Permission | string)[];
 
   /**
    * <p>The principal to be granted a permission.</p>
@@ -102,7 +102,7 @@ export interface BatchRevokePermissionsRequest {
   /**
    * <p>A list of up to 20 entries for resource permissions to be revoked by batch operation to the principal.</p>
    */
-  Entries: Array<BatchPermissionsRequestEntry> | undefined;
+  Entries: BatchPermissionsRequestEntry[] | undefined;
 }
 
 export namespace BatchRevokePermissionsRequest {
@@ -115,7 +115,7 @@ export interface BatchRevokePermissionsResponse {
   /**
    * <p>A list of failures to revoke permissions to the resources.</p>
    */
-  Failures?: Array<BatchPermissionsFailureEntry>;
+  Failures?: BatchPermissionsFailureEntry[];
 }
 
 export namespace BatchRevokePermissionsResponse {
@@ -143,7 +143,7 @@ export interface ColumnWildcard {
   /**
    * <p>Excludes column names. Any column with this name will be excluded.</p>
    */
-  ExcludedColumnNames?: Array<string>;
+  ExcludedColumnNames?: string[];
 }
 
 export namespace ColumnWildcard {
@@ -182,17 +182,17 @@ export interface DataLakeSettings {
   /**
    * <p>A list of up to three principal permissions entries for default create database permissions.</p>
    */
-  CreateDatabaseDefaultPermissions?: Array<PrincipalPermissions>;
+  CreateDatabaseDefaultPermissions?: PrincipalPermissions[];
 
   /**
    * <p>A list of up to three principal permissions entries for default create table permissions.</p>
    */
-  CreateTableDefaultPermissions?: Array<PrincipalPermissions>;
+  CreateTableDefaultPermissions?: PrincipalPermissions[];
 
   /**
    * <p>A list of AWS Lake Formation principals.</p>
    */
-  DataLakeAdmins?: Array<DataLakePrincipal>;
+  DataLakeAdmins?: DataLakePrincipal[];
 }
 
 export namespace DataLakeSettings {
@@ -344,7 +344,7 @@ export interface GetEffectivePermissionsForPathResponse {
   /**
    * <p>A list of the permissions for the specified table or database resource located at the path in Amazon S3.</p>
    */
-  Permissions?: Array<PrincipalResourcePermissions>;
+  Permissions?: PrincipalResourcePermissions[];
 }
 
 export namespace GetEffectivePermissionsForPathResponse {
@@ -362,12 +362,12 @@ export interface GrantPermissionsRequest {
   /**
    * <p>The permissions granted to the principal on the resource. AWS Lake Formation defines privileges to grant and revoke access to metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3. AWS Lake Formation requires that each principal be authorized to perform a specific task on AWS Lake Formation resources. </p>
    */
-  Permissions: Array<Permission | string> | undefined;
+  Permissions: (Permission | string)[] | undefined;
 
   /**
    * <p>Indicates a list of the granted permissions that the principal may pass to other users. These permissions may only be a subset of the permissions granted in the <code>Privileges</code>.</p>
    */
-  PermissionsWithGrantOption?: Array<Permission | string>;
+  PermissionsWithGrantOption?: (Permission | string)[];
 
   /**
    * <p>The principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles, and they are defined by their principal type and their ARN.</p>
@@ -444,7 +444,7 @@ export interface ListPermissionsResponse {
   /**
    * <p>A list of principals and their permissions on the resource for the specified principal and resource types.</p>
    */
-  PrincipalResourcePermissions?: Array<PrincipalResourcePermissions>;
+  PrincipalResourcePermissions?: PrincipalResourcePermissions[];
 }
 
 export namespace ListPermissionsResponse {
@@ -457,7 +457,7 @@ export interface ListResourcesRequest {
   /**
    * <p>Any applicable row-level and/or column-level filtering conditions for the resources.</p>
    */
-  FilterConditionList?: Array<FilterCondition>;
+  FilterConditionList?: FilterCondition[];
 
   /**
    * <p>The maximum number of resource results.</p>
@@ -485,7 +485,7 @@ export interface ListResourcesResponse {
   /**
    * <p>A summary of the data lake resources.</p>
    */
-  ResourceInfoList?: Array<ResourceInfo>;
+  ResourceInfoList?: ResourceInfo[];
 }
 
 export namespace ListResourcesResponse {
@@ -513,7 +513,7 @@ export interface PrincipalPermissions {
   /**
    * <p>The permissions that are granted to the principal.</p>
    */
-  Permissions?: Array<Permission | string>;
+  Permissions?: (Permission | string)[];
 
   /**
    * <p>The principal who is granted permissions.</p>
@@ -534,12 +534,12 @@ export interface PrincipalResourcePermissions {
   /**
    * <p>The permissions to be granted or revoked on the resource.</p>
    */
-  Permissions?: Array<Permission | string>;
+  Permissions?: (Permission | string)[];
 
   /**
    * <p>Indicates whether to grant the ability to grant permissions (as a subset of permissions granted).</p>
    */
-  PermissionsWithGrantOption?: Array<Permission | string>;
+  PermissionsWithGrantOption?: (Permission | string)[];
 
   /**
    * <p>The Data Lake principal to be granted or revoked permissions.</p>
@@ -662,12 +662,12 @@ export interface RevokePermissionsRequest {
    * <p>The permissions revoked to the principal on the resource. For information about permissions, see <a href="https://docs-aws.amazon.com/michigan/latest/dg/security-data-access.html">Security
    *       and Access Control to Metadata and Data</a>.</p>
    */
-  Permissions: Array<Permission | string> | undefined;
+  Permissions: (Permission | string)[] | undefined;
 
   /**
    * <p>Indicates a list of permissions for which to revoke the grant option allowing the principal to pass permissions to other principals.</p>
    */
-  PermissionsWithGrantOption?: Array<Permission | string>;
+  PermissionsWithGrantOption?: (Permission | string)[];
 
   /**
    * <p>The principal to be revoked permissions on the resource.</p>
@@ -723,7 +723,7 @@ export interface TableWithColumnsResource {
   /**
    * <p>The list of column names for the table. At least one of <code>ColumnNames</code> or <code>ColumnWildcard</code> is required.</p>
    */
-  ColumnNames?: Array<string>;
+  ColumnNames?: string[];
 
   /**
    * <p>A wildcard specified by a <code>ColumnWildcard</code> object. At least one of <code>ColumnNames</code> or <code>ColumnWildcard</code> is required.</p>
@@ -945,7 +945,7 @@ export interface FilterCondition {
   /**
    * <p>A string with values used in evaluating the filter condition.</p>
    */
-  StringValueList?: Array<string>;
+  StringValueList?: string[];
 }
 
 export namespace FilterCondition {

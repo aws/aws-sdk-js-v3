@@ -351,7 +351,9 @@ import {
 } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  getArrayIfSingleItem as __getArrayIfSingleItem,
+  getValueFromTextNode as __getValueFromTextNode
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -365,12 +367,13 @@ import {
 } from "@aws-sdk/xml-builder";
 import { parse as xmlParse } from "fast-xml-parser";
 
-export async function serializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommand(
+export const serializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommand = async (
   input: CreateCloudFrontOriginAccessIdentityCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/2019-03-26/origin-access-identity/cloudfront";
   let body: any;
   let contents: any;
@@ -396,14 +399,15 @@ export async function serializeAws_restXmlCreateCloudFrontOriginAccessIdentityCo
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlCreateDistributionCommand(
+export const serializeAws_restXmlCreateDistributionCommand = async (
   input: CreateDistributionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/2019-03-26/distribution";
   let body: any;
   let contents: any;
@@ -429,14 +433,15 @@ export async function serializeAws_restXmlCreateDistributionCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlCreateDistributionWithTagsCommand(
+export const serializeAws_restXmlCreateDistributionWithTagsCommand = async (
   input: CreateDistributionWithTagsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/2019-03-26/distribution";
   const query: any = {
     WithTags: ""
@@ -466,14 +471,15 @@ export async function serializeAws_restXmlCreateDistributionWithTagsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlCreateFieldLevelEncryptionConfigCommand(
+export const serializeAws_restXmlCreateFieldLevelEncryptionConfigCommand = async (
   input: CreateFieldLevelEncryptionConfigCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/2019-03-26/field-level-encryption";
   let body: any;
   let contents: any;
@@ -499,14 +505,15 @@ export async function serializeAws_restXmlCreateFieldLevelEncryptionConfigComman
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlCreateFieldLevelEncryptionProfileCommand(
+export const serializeAws_restXmlCreateFieldLevelEncryptionProfileCommand = async (
   input: CreateFieldLevelEncryptionProfileCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/2019-03-26/field-level-encryption-profile";
   let body: any;
   let contents: any;
@@ -532,14 +539,15 @@ export async function serializeAws_restXmlCreateFieldLevelEncryptionProfileComma
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlCreateInvalidationCommand(
+export const serializeAws_restXmlCreateInvalidationCommand = async (
   input: CreateInvalidationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/2019-03-26/distribution/{DistributionId}/invalidation";
   if (input.DistributionId !== undefined) {
     const labelValue: string = input.DistributionId;
@@ -579,14 +587,15 @@ export async function serializeAws_restXmlCreateInvalidationCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlCreatePublicKeyCommand(
+export const serializeAws_restXmlCreatePublicKeyCommand = async (
   input: CreatePublicKeyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/2019-03-26/public-key";
   let body: any;
   let contents: any;
@@ -612,14 +621,15 @@ export async function serializeAws_restXmlCreatePublicKeyCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlCreateStreamingDistributionCommand(
+export const serializeAws_restXmlCreateStreamingDistributionCommand = async (
   input: CreateStreamingDistributionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/2019-03-26/streaming-distribution";
   let body: any;
   let contents: any;
@@ -645,14 +655,15 @@ export async function serializeAws_restXmlCreateStreamingDistributionCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlCreateStreamingDistributionWithTagsCommand(
+export const serializeAws_restXmlCreateStreamingDistributionWithTagsCommand = async (
   input: CreateStreamingDistributionWithTagsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/2019-03-26/streaming-distribution";
   const query: any = {
     WithTags: ""
@@ -682,17 +693,18 @@ export async function serializeAws_restXmlCreateStreamingDistributionWithTagsCom
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommand(
+export const serializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommand = async (
   input: DeleteCloudFrontOriginAccessIdentityCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.IfMatch)) {
-    headers["If-Match"] = input.IfMatch!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.IfMatch) && {
+      "If-Match": input.IfMatch!
+    })
+  };
   let resolvedPath = "/2019-03-26/origin-access-identity/cloudfront/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -717,17 +729,18 @@ export async function serializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCo
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlDeleteDistributionCommand(
+export const serializeAws_restXmlDeleteDistributionCommand = async (
   input: DeleteDistributionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.IfMatch)) {
-    headers["If-Match"] = input.IfMatch!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.IfMatch) && {
+      "If-Match": input.IfMatch!
+    })
+  };
   let resolvedPath = "/2019-03-26/distribution/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -752,17 +765,18 @@ export async function serializeAws_restXmlDeleteDistributionCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlDeleteFieldLevelEncryptionConfigCommand(
+export const serializeAws_restXmlDeleteFieldLevelEncryptionConfigCommand = async (
   input: DeleteFieldLevelEncryptionConfigCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.IfMatch)) {
-    headers["If-Match"] = input.IfMatch!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.IfMatch) && {
+      "If-Match": input.IfMatch!
+    })
+  };
   let resolvedPath = "/2019-03-26/field-level-encryption/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -787,17 +801,18 @@ export async function serializeAws_restXmlDeleteFieldLevelEncryptionConfigComman
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlDeleteFieldLevelEncryptionProfileCommand(
+export const serializeAws_restXmlDeleteFieldLevelEncryptionProfileCommand = async (
   input: DeleteFieldLevelEncryptionProfileCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.IfMatch)) {
-    headers["If-Match"] = input.IfMatch!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.IfMatch) && {
+      "If-Match": input.IfMatch!
+    })
+  };
   let resolvedPath = "/2019-03-26/field-level-encryption-profile/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -822,17 +837,18 @@ export async function serializeAws_restXmlDeleteFieldLevelEncryptionProfileComma
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlDeletePublicKeyCommand(
+export const serializeAws_restXmlDeletePublicKeyCommand = async (
   input: DeletePublicKeyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.IfMatch)) {
-    headers["If-Match"] = input.IfMatch!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.IfMatch) && {
+      "If-Match": input.IfMatch!
+    })
+  };
   let resolvedPath = "/2019-03-26/public-key/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -857,17 +873,18 @@ export async function serializeAws_restXmlDeletePublicKeyCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlDeleteStreamingDistributionCommand(
+export const serializeAws_restXmlDeleteStreamingDistributionCommand = async (
   input: DeleteStreamingDistributionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
-  if (isSerializableHeaderValue(input.IfMatch)) {
-    headers["If-Match"] = input.IfMatch!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+    ...(isSerializableHeaderValue(input.IfMatch) && {
+      "If-Match": input.IfMatch!
+    })
+  };
   let resolvedPath = "/2019-03-26/streaming-distribution/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -892,14 +909,15 @@ export async function serializeAws_restXmlDeleteStreamingDistributionCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetCloudFrontOriginAccessIdentityCommand(
+export const serializeAws_restXmlGetCloudFrontOriginAccessIdentityCommand = async (
   input: GetCloudFrontOriginAccessIdentityCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2019-03-26/origin-access-identity/cloudfront/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -924,14 +942,15 @@ export async function serializeAws_restXmlGetCloudFrontOriginAccessIdentityComma
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigCommand(
+export const serializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigCommand = async (
   input: GetCloudFrontOriginAccessIdentityConfigCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/2019-03-26/origin-access-identity/cloudfront/{Id}/config";
   if (input.Id !== undefined) {
@@ -957,14 +976,15 @@ export async function serializeAws_restXmlGetCloudFrontOriginAccessIdentityConfi
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetDistributionCommand(
+export const serializeAws_restXmlGetDistributionCommand = async (
   input: GetDistributionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2019-03-26/distribution/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -989,14 +1009,15 @@ export async function serializeAws_restXmlGetDistributionCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetDistributionConfigCommand(
+export const serializeAws_restXmlGetDistributionConfigCommand = async (
   input: GetDistributionConfigCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2019-03-26/distribution/{Id}/config";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1021,14 +1042,15 @@ export async function serializeAws_restXmlGetDistributionConfigCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetFieldLevelEncryptionCommand(
+export const serializeAws_restXmlGetFieldLevelEncryptionCommand = async (
   input: GetFieldLevelEncryptionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2019-03-26/field-level-encryption/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1053,14 +1075,15 @@ export async function serializeAws_restXmlGetFieldLevelEncryptionCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetFieldLevelEncryptionConfigCommand(
+export const serializeAws_restXmlGetFieldLevelEncryptionConfigCommand = async (
   input: GetFieldLevelEncryptionConfigCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2019-03-26/field-level-encryption/{Id}/config";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1085,14 +1108,15 @@ export async function serializeAws_restXmlGetFieldLevelEncryptionConfigCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetFieldLevelEncryptionProfileCommand(
+export const serializeAws_restXmlGetFieldLevelEncryptionProfileCommand = async (
   input: GetFieldLevelEncryptionProfileCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2019-03-26/field-level-encryption-profile/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1117,14 +1141,15 @@ export async function serializeAws_restXmlGetFieldLevelEncryptionProfileCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetFieldLevelEncryptionProfileConfigCommand(
+export const serializeAws_restXmlGetFieldLevelEncryptionProfileConfigCommand = async (
   input: GetFieldLevelEncryptionProfileConfigCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2019-03-26/field-level-encryption-profile/{Id}/config";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1149,14 +1174,15 @@ export async function serializeAws_restXmlGetFieldLevelEncryptionProfileConfigCo
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetInvalidationCommand(
+export const serializeAws_restXmlGetInvalidationCommand = async (
   input: GetInvalidationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/2019-03-26/distribution/{DistributionId}/invalidation/{Id}";
   if (input.DistributionId !== undefined) {
@@ -1196,14 +1222,15 @@ export async function serializeAws_restXmlGetInvalidationCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetPublicKeyCommand(
+export const serializeAws_restXmlGetPublicKeyCommand = async (
   input: GetPublicKeyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2019-03-26/public-key/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1228,14 +1255,15 @@ export async function serializeAws_restXmlGetPublicKeyCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetPublicKeyConfigCommand(
+export const serializeAws_restXmlGetPublicKeyConfigCommand = async (
   input: GetPublicKeyConfigCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2019-03-26/public-key/{Id}/config";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1260,14 +1288,15 @@ export async function serializeAws_restXmlGetPublicKeyConfigCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetStreamingDistributionCommand(
+export const serializeAws_restXmlGetStreamingDistributionCommand = async (
   input: GetStreamingDistributionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2019-03-26/streaming-distribution/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1292,14 +1321,15 @@ export async function serializeAws_restXmlGetStreamingDistributionCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlGetStreamingDistributionConfigCommand(
+export const serializeAws_restXmlGetStreamingDistributionConfigCommand = async (
   input: GetStreamingDistributionConfigCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2019-03-26/streaming-distribution/{Id}/config";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1324,22 +1354,20 @@ export async function serializeAws_restXmlGetStreamingDistributionConfigCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommand(
+export const serializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommand = async (
   input: ListCloudFrontOriginAccessIdentitiesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2019-03-26/origin-access-identity/cloudfront";
-  const query: any = {};
-  if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker;
-  }
-  if (input.MaxItems !== undefined) {
-    query["MaxItems"] = input.MaxItems;
-  }
+  const query: any = {
+    ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1352,22 +1380,20 @@ export async function serializeAws_restXmlListCloudFrontOriginAccessIdentitiesCo
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlListDistributionsCommand(
+export const serializeAws_restXmlListDistributionsCommand = async (
   input: ListDistributionsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2019-03-26/distribution";
-  const query: any = {};
-  if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker;
-  }
-  if (input.MaxItems !== undefined) {
-    query["MaxItems"] = input.MaxItems;
-  }
+  const query: any = {
+    ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1380,14 +1406,15 @@ export async function serializeAws_restXmlListDistributionsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlListDistributionsByWebACLIdCommand(
+export const serializeAws_restXmlListDistributionsByWebACLIdCommand = async (
   input: ListDistributionsByWebACLIdCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2019-03-26/distributionsByWebACLId/{WebACLId}";
   if (input.WebACLId !== undefined) {
     const labelValue: string = input.WebACLId;
@@ -1401,13 +1428,10 @@ export async function serializeAws_restXmlListDistributionsByWebACLIdCommand(
   } else {
     throw new Error("No value provided for input HTTP label: WebACLId.");
   }
-  const query: any = {};
-  if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker;
-  }
-  if (input.MaxItems !== undefined) {
-    query["MaxItems"] = input.MaxItems;
-  }
+  const query: any = {
+    ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1420,22 +1444,20 @@ export async function serializeAws_restXmlListDistributionsByWebACLIdCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlListFieldLevelEncryptionConfigsCommand(
+export const serializeAws_restXmlListFieldLevelEncryptionConfigsCommand = async (
   input: ListFieldLevelEncryptionConfigsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2019-03-26/field-level-encryption";
-  const query: any = {};
-  if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker;
-  }
-  if (input.MaxItems !== undefined) {
-    query["MaxItems"] = input.MaxItems;
-  }
+  const query: any = {
+    ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1448,22 +1470,20 @@ export async function serializeAws_restXmlListFieldLevelEncryptionConfigsCommand
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlListFieldLevelEncryptionProfilesCommand(
+export const serializeAws_restXmlListFieldLevelEncryptionProfilesCommand = async (
   input: ListFieldLevelEncryptionProfilesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2019-03-26/field-level-encryption-profile";
-  const query: any = {};
-  if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker;
-  }
-  if (input.MaxItems !== undefined) {
-    query["MaxItems"] = input.MaxItems;
-  }
+  const query: any = {
+    ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1476,14 +1496,15 @@ export async function serializeAws_restXmlListFieldLevelEncryptionProfilesComman
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlListInvalidationsCommand(
+export const serializeAws_restXmlListInvalidationsCommand = async (
   input: ListInvalidationsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2019-03-26/distribution/{DistributionId}/invalidation";
   if (input.DistributionId !== undefined) {
     const labelValue: string = input.DistributionId;
@@ -1499,13 +1520,10 @@ export async function serializeAws_restXmlListInvalidationsCommand(
   } else {
     throw new Error("No value provided for input HTTP label: DistributionId.");
   }
-  const query: any = {};
-  if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker;
-  }
-  if (input.MaxItems !== undefined) {
-    query["MaxItems"] = input.MaxItems;
-  }
+  const query: any = {
+    ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1518,22 +1536,20 @@ export async function serializeAws_restXmlListInvalidationsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlListPublicKeysCommand(
+export const serializeAws_restXmlListPublicKeysCommand = async (
   input: ListPublicKeysCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2019-03-26/public-key";
-  const query: any = {};
-  if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker;
-  }
-  if (input.MaxItems !== undefined) {
-    query["MaxItems"] = input.MaxItems;
-  }
+  const query: any = {
+    ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1546,22 +1562,20 @@ export async function serializeAws_restXmlListPublicKeysCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlListStreamingDistributionsCommand(
+export const serializeAws_restXmlListStreamingDistributionsCommand = async (
   input: ListStreamingDistributionsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2019-03-26/streaming-distribution";
-  const query: any = {};
-  if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker;
-  }
-  if (input.MaxItems !== undefined) {
-    query["MaxItems"] = input.MaxItems;
-  }
+  const query: any = {
+    ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1574,19 +1588,19 @@ export async function serializeAws_restXmlListStreamingDistributionsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlListTagsForResourceCommand(
+export const serializeAws_restXmlListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2019-03-26/tagging";
-  const query: any = {};
-  if (input.Resource !== undefined) {
-    query["Resource"] = input.Resource;
-  }
+  const query: any = {
+    ...(input.Resource !== undefined && { Resource: input.Resource })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1599,21 +1613,20 @@ export async function serializeAws_restXmlListTagsForResourceCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlTagResourceCommand(
+export const serializeAws_restXmlTagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/2019-03-26/tagging";
   const query: any = {
-    Operation: "Tag"
+    Operation: "Tag",
+    ...(input.Resource !== undefined && { Resource: input.Resource })
   };
-  if (input.Resource !== undefined) {
-    query["Resource"] = input.Resource;
-  }
   let body: any;
   let contents: any;
   if (input.Tags !== undefined) {
@@ -1636,21 +1649,20 @@ export async function serializeAws_restXmlTagResourceCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlUntagResourceCommand(
+export const serializeAws_restXmlUntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/xml"
+  };
   let resolvedPath = "/2019-03-26/tagging";
   const query: any = {
-    Operation: "Untag"
+    Operation: "Untag",
+    ...(input.Resource !== undefined && { Resource: input.Resource })
   };
-  if (input.Resource !== undefined) {
-    query["Resource"] = input.Resource;
-  }
   let body: any;
   let contents: any;
   if (input.TagKeys !== undefined) {
@@ -1673,17 +1685,18 @@ export async function serializeAws_restXmlUntagResourceCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommand(
+export const serializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommand = async (
   input: UpdateCloudFrontOriginAccessIdentityCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
-  if (isSerializableHeaderValue(input.IfMatch)) {
-    headers["If-Match"] = input.IfMatch!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/xml",
+    ...(isSerializableHeaderValue(input.IfMatch) && {
+      "If-Match": input.IfMatch!
+    })
+  };
   let resolvedPath =
     "/2019-03-26/origin-access-identity/cloudfront/{Id}/config";
   if (input.Id !== undefined) {
@@ -1722,17 +1735,18 @@ export async function serializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCo
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlUpdateDistributionCommand(
+export const serializeAws_restXmlUpdateDistributionCommand = async (
   input: UpdateDistributionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
-  if (isSerializableHeaderValue(input.IfMatch)) {
-    headers["If-Match"] = input.IfMatch!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/xml",
+    ...(isSerializableHeaderValue(input.IfMatch) && {
+      "If-Match": input.IfMatch!
+    })
+  };
   let resolvedPath = "/2019-03-26/distribution/{Id}/config";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1770,17 +1784,18 @@ export async function serializeAws_restXmlUpdateDistributionCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlUpdateFieldLevelEncryptionConfigCommand(
+export const serializeAws_restXmlUpdateFieldLevelEncryptionConfigCommand = async (
   input: UpdateFieldLevelEncryptionConfigCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
-  if (isSerializableHeaderValue(input.IfMatch)) {
-    headers["If-Match"] = input.IfMatch!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/xml",
+    ...(isSerializableHeaderValue(input.IfMatch) && {
+      "If-Match": input.IfMatch!
+    })
+  };
   let resolvedPath = "/2019-03-26/field-level-encryption/{Id}/config";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1818,17 +1833,18 @@ export async function serializeAws_restXmlUpdateFieldLevelEncryptionConfigComman
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlUpdateFieldLevelEncryptionProfileCommand(
+export const serializeAws_restXmlUpdateFieldLevelEncryptionProfileCommand = async (
   input: UpdateFieldLevelEncryptionProfileCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
-  if (isSerializableHeaderValue(input.IfMatch)) {
-    headers["If-Match"] = input.IfMatch!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/xml",
+    ...(isSerializableHeaderValue(input.IfMatch) && {
+      "If-Match": input.IfMatch!
+    })
+  };
   let resolvedPath = "/2019-03-26/field-level-encryption-profile/{Id}/config";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1866,17 +1882,18 @@ export async function serializeAws_restXmlUpdateFieldLevelEncryptionProfileComma
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlUpdatePublicKeyCommand(
+export const serializeAws_restXmlUpdatePublicKeyCommand = async (
   input: UpdatePublicKeyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
-  if (isSerializableHeaderValue(input.IfMatch)) {
-    headers["If-Match"] = input.IfMatch!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/xml",
+    ...(isSerializableHeaderValue(input.IfMatch) && {
+      "If-Match": input.IfMatch!
+    })
+  };
   let resolvedPath = "/2019-03-26/public-key/{Id}/config";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1914,17 +1931,18 @@ export async function serializeAws_restXmlUpdatePublicKeyCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restXmlUpdateStreamingDistributionCommand(
+export const serializeAws_restXmlUpdateStreamingDistributionCommand = async (
   input: UpdateStreamingDistributionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/xml";
-  if (isSerializableHeaderValue(input.IfMatch)) {
-    headers["If-Match"] = input.IfMatch!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/xml",
+    ...(isSerializableHeaderValue(input.IfMatch) && {
+      "If-Match": input.IfMatch!
+    })
+  };
   let resolvedPath = "/2019-03-26/streaming-distribution/{Id}/config";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1962,12 +1980,12 @@ export async function serializeAws_restXmlUpdateStreamingDistributionCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function deserializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommand(
+export const deserializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateCloudFrontOriginAccessIdentityCommandOutput> {
+): Promise<CreateCloudFrontOriginAccessIdentityCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommandError(
       output,
@@ -1993,12 +2011,12 @@ export async function deserializeAws_restXmlCreateCloudFrontOriginAccessIdentity
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommandError(
+const deserializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateCloudFrontOriginAccessIdentityCommandOutput> {
+): Promise<CreateCloudFrontOriginAccessIdentityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2078,12 +2096,12 @@ async function deserializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommand
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlCreateDistributionCommand(
+export const deserializeAws_restXmlCreateDistributionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateDistributionCommandOutput> {
+): Promise<CreateDistributionCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restXmlCreateDistributionCommandError(
       output,
@@ -2106,12 +2124,12 @@ export async function deserializeAws_restXmlCreateDistributionCommand(
   const data: any = await parseBody(output.body, context);
   contents.Distribution = deserializeAws_restXmlDistribution(data, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlCreateDistributionCommandError(
+const deserializeAws_restXmlCreateDistributionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateDistributionCommandOutput> {
+): Promise<CreateDistributionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2620,12 +2638,12 @@ async function deserializeAws_restXmlCreateDistributionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlCreateDistributionWithTagsCommand(
+export const deserializeAws_restXmlCreateDistributionWithTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateDistributionWithTagsCommandOutput> {
+): Promise<CreateDistributionWithTagsCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restXmlCreateDistributionWithTagsCommandError(
       output,
@@ -2648,12 +2666,12 @@ export async function deserializeAws_restXmlCreateDistributionWithTagsCommand(
   const data: any = await parseBody(output.body, context);
   contents.Distribution = deserializeAws_restXmlDistribution(data, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlCreateDistributionWithTagsCommandError(
+const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateDistributionWithTagsCommandOutput> {
+): Promise<CreateDistributionWithTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3173,12 +3191,12 @@ async function deserializeAws_restXmlCreateDistributionWithTagsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlCreateFieldLevelEncryptionConfigCommand(
+export const deserializeAws_restXmlCreateFieldLevelEncryptionConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateFieldLevelEncryptionConfigCommandOutput> {
+): Promise<CreateFieldLevelEncryptionConfigCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restXmlCreateFieldLevelEncryptionConfigCommandError(
       output,
@@ -3204,12 +3222,12 @@ export async function deserializeAws_restXmlCreateFieldLevelEncryptionConfigComm
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlCreateFieldLevelEncryptionConfigCommandError(
+const deserializeAws_restXmlCreateFieldLevelEncryptionConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateFieldLevelEncryptionConfigCommandOutput> {
+): Promise<CreateFieldLevelEncryptionConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3322,12 +3340,12 @@ async function deserializeAws_restXmlCreateFieldLevelEncryptionConfigCommandErro
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlCreateFieldLevelEncryptionProfileCommand(
+export const deserializeAws_restXmlCreateFieldLevelEncryptionProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateFieldLevelEncryptionProfileCommandOutput> {
+): Promise<CreateFieldLevelEncryptionProfileCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restXmlCreateFieldLevelEncryptionProfileCommandError(
       output,
@@ -3353,12 +3371,12 @@ export async function deserializeAws_restXmlCreateFieldLevelEncryptionProfileCom
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlCreateFieldLevelEncryptionProfileCommandError(
+const deserializeAws_restXmlCreateFieldLevelEncryptionProfileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateFieldLevelEncryptionProfileCommandOutput> {
+): Promise<CreateFieldLevelEncryptionProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3471,12 +3489,12 @@ async function deserializeAws_restXmlCreateFieldLevelEncryptionProfileCommandErr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlCreateInvalidationCommand(
+export const deserializeAws_restXmlCreateInvalidationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateInvalidationCommandOutput> {
+): Promise<CreateInvalidationCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restXmlCreateInvalidationCommandError(
       output,
@@ -3495,12 +3513,12 @@ export async function deserializeAws_restXmlCreateInvalidationCommand(
   const data: any = await parseBody(output.body, context);
   contents.Invalidation = deserializeAws_restXmlInvalidation(data, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlCreateInvalidationCommandError(
+const deserializeAws_restXmlCreateInvalidationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateInvalidationCommandOutput> {
+): Promise<CreateInvalidationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3602,12 +3620,12 @@ async function deserializeAws_restXmlCreateInvalidationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlCreatePublicKeyCommand(
+export const deserializeAws_restXmlCreatePublicKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreatePublicKeyCommandOutput> {
+): Promise<CreatePublicKeyCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restXmlCreatePublicKeyCommandError(output, context);
   }
@@ -3627,12 +3645,12 @@ export async function deserializeAws_restXmlCreatePublicKeyCommand(
   const data: any = await parseBody(output.body, context);
   contents.PublicKey = deserializeAws_restXmlPublicKey(data, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlCreatePublicKeyCommandError(
+const deserializeAws_restXmlCreatePublicKeyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreatePublicKeyCommandOutput> {
+): Promise<CreatePublicKeyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3690,12 +3708,12 @@ async function deserializeAws_restXmlCreatePublicKeyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlCreateStreamingDistributionCommand(
+export const deserializeAws_restXmlCreateStreamingDistributionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateStreamingDistributionCommandOutput> {
+): Promise<CreateStreamingDistributionCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restXmlCreateStreamingDistributionCommandError(
       output,
@@ -3721,12 +3739,12 @@ export async function deserializeAws_restXmlCreateStreamingDistributionCommand(
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlCreateStreamingDistributionCommandError(
+const deserializeAws_restXmlCreateStreamingDistributionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateStreamingDistributionCommandOutput> {
+): Promise<CreateStreamingDistributionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3883,12 +3901,12 @@ async function deserializeAws_restXmlCreateStreamingDistributionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlCreateStreamingDistributionWithTagsCommand(
+export const deserializeAws_restXmlCreateStreamingDistributionWithTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateStreamingDistributionWithTagsCommandOutput> {
+): Promise<CreateStreamingDistributionWithTagsCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restXmlCreateStreamingDistributionWithTagsCommandError(
       output,
@@ -3914,12 +3932,12 @@ export async function deserializeAws_restXmlCreateStreamingDistributionWithTagsC
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlCreateStreamingDistributionWithTagsCommandError(
+const deserializeAws_restXmlCreateStreamingDistributionWithTagsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateStreamingDistributionWithTagsCommandOutput> {
+): Promise<CreateStreamingDistributionWithTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4087,12 +4105,12 @@ async function deserializeAws_restXmlCreateStreamingDistributionWithTagsCommandE
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommand(
+export const deserializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteCloudFrontOriginAccessIdentityCommandOutput> {
+): Promise<DeleteCloudFrontOriginAccessIdentityCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommandError(
       output,
@@ -4104,12 +4122,12 @@ export async function deserializeAws_restXmlDeleteCloudFrontOriginAccessIdentity
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommandError(
+const deserializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteCloudFrontOriginAccessIdentityCommandOutput> {
+): Promise<DeleteCloudFrontOriginAccessIdentityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4189,12 +4207,12 @@ async function deserializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommand
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlDeleteDistributionCommand(
+export const deserializeAws_restXmlDeleteDistributionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteDistributionCommandOutput> {
+): Promise<DeleteDistributionCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restXmlDeleteDistributionCommandError(
       output,
@@ -4206,12 +4224,12 @@ export async function deserializeAws_restXmlDeleteDistributionCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlDeleteDistributionCommandError(
+const deserializeAws_restXmlDeleteDistributionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteDistributionCommandOutput> {
+): Promise<DeleteDistributionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4291,12 +4309,12 @@ async function deserializeAws_restXmlDeleteDistributionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlDeleteFieldLevelEncryptionConfigCommand(
+export const deserializeAws_restXmlDeleteFieldLevelEncryptionConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteFieldLevelEncryptionConfigCommandOutput> {
+): Promise<DeleteFieldLevelEncryptionConfigCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restXmlDeleteFieldLevelEncryptionConfigCommandError(
       output,
@@ -4308,12 +4326,12 @@ export async function deserializeAws_restXmlDeleteFieldLevelEncryptionConfigComm
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlDeleteFieldLevelEncryptionConfigCommandError(
+const deserializeAws_restXmlDeleteFieldLevelEncryptionConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteFieldLevelEncryptionConfigCommandOutput> {
+): Promise<DeleteFieldLevelEncryptionConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4393,12 +4411,12 @@ async function deserializeAws_restXmlDeleteFieldLevelEncryptionConfigCommandErro
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlDeleteFieldLevelEncryptionProfileCommand(
+export const deserializeAws_restXmlDeleteFieldLevelEncryptionProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteFieldLevelEncryptionProfileCommandOutput> {
+): Promise<DeleteFieldLevelEncryptionProfileCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restXmlDeleteFieldLevelEncryptionProfileCommandError(
       output,
@@ -4410,12 +4428,12 @@ export async function deserializeAws_restXmlDeleteFieldLevelEncryptionProfileCom
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlDeleteFieldLevelEncryptionProfileCommandError(
+const deserializeAws_restXmlDeleteFieldLevelEncryptionProfileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteFieldLevelEncryptionProfileCommandOutput> {
+): Promise<DeleteFieldLevelEncryptionProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4495,12 +4513,12 @@ async function deserializeAws_restXmlDeleteFieldLevelEncryptionProfileCommandErr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlDeletePublicKeyCommand(
+export const deserializeAws_restXmlDeletePublicKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeletePublicKeyCommandOutput> {
+): Promise<DeletePublicKeyCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restXmlDeletePublicKeyCommandError(output, context);
   }
@@ -4509,12 +4527,12 @@ export async function deserializeAws_restXmlDeletePublicKeyCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlDeletePublicKeyCommandError(
+const deserializeAws_restXmlDeletePublicKeyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeletePublicKeyCommandOutput> {
+): Promise<DeletePublicKeyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4594,12 +4612,12 @@ async function deserializeAws_restXmlDeletePublicKeyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlDeleteStreamingDistributionCommand(
+export const deserializeAws_restXmlDeleteStreamingDistributionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteStreamingDistributionCommandOutput> {
+): Promise<DeleteStreamingDistributionCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restXmlDeleteStreamingDistributionCommandError(
       output,
@@ -4611,12 +4629,12 @@ export async function deserializeAws_restXmlDeleteStreamingDistributionCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlDeleteStreamingDistributionCommandError(
+const deserializeAws_restXmlDeleteStreamingDistributionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteStreamingDistributionCommandOutput> {
+): Promise<DeleteStreamingDistributionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4696,12 +4714,12 @@ async function deserializeAws_restXmlDeleteStreamingDistributionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetCloudFrontOriginAccessIdentityCommand(
+export const deserializeAws_restXmlGetCloudFrontOriginAccessIdentityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetCloudFrontOriginAccessIdentityCommandOutput> {
+): Promise<GetCloudFrontOriginAccessIdentityCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetCloudFrontOriginAccessIdentityCommandError(
       output,
@@ -4723,12 +4741,12 @@ export async function deserializeAws_restXmlGetCloudFrontOriginAccessIdentityCom
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetCloudFrontOriginAccessIdentityCommandError(
+const deserializeAws_restXmlGetCloudFrontOriginAccessIdentityCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetCloudFrontOriginAccessIdentityCommandOutput> {
+): Promise<GetCloudFrontOriginAccessIdentityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4775,12 +4793,12 @@ async function deserializeAws_restXmlGetCloudFrontOriginAccessIdentityCommandErr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigCommand(
+export const deserializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetCloudFrontOriginAccessIdentityConfigCommandOutput> {
+): Promise<GetCloudFrontOriginAccessIdentityConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigCommandError(
       output,
@@ -4802,12 +4820,12 @@ export async function deserializeAws_restXmlGetCloudFrontOriginAccessIdentityCon
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigCommandError(
+const deserializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetCloudFrontOriginAccessIdentityConfigCommandOutput> {
+): Promise<GetCloudFrontOriginAccessIdentityConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4854,12 +4872,12 @@ async function deserializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigComm
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetDistributionCommand(
+export const deserializeAws_restXmlGetDistributionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetDistributionCommandOutput> {
+): Promise<GetDistributionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetDistributionCommandError(output, context);
   }
@@ -4875,12 +4893,12 @@ export async function deserializeAws_restXmlGetDistributionCommand(
   const data: any = await parseBody(output.body, context);
   contents.Distribution = deserializeAws_restXmlDistribution(data, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetDistributionCommandError(
+const deserializeAws_restXmlGetDistributionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetDistributionCommandOutput> {
+): Promise<GetDistributionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4927,12 +4945,12 @@ async function deserializeAws_restXmlGetDistributionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetDistributionConfigCommand(
+export const deserializeAws_restXmlGetDistributionConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetDistributionConfigCommandOutput> {
+): Promise<GetDistributionConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetDistributionConfigCommandError(
       output,
@@ -4954,12 +4972,12 @@ export async function deserializeAws_restXmlGetDistributionConfigCommand(
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetDistributionConfigCommandError(
+const deserializeAws_restXmlGetDistributionConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetDistributionConfigCommandOutput> {
+): Promise<GetDistributionConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5006,12 +5024,12 @@ async function deserializeAws_restXmlGetDistributionConfigCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetFieldLevelEncryptionCommand(
+export const deserializeAws_restXmlGetFieldLevelEncryptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetFieldLevelEncryptionCommandOutput> {
+): Promise<GetFieldLevelEncryptionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetFieldLevelEncryptionCommandError(
       output,
@@ -5033,12 +5051,12 @@ export async function deserializeAws_restXmlGetFieldLevelEncryptionCommand(
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetFieldLevelEncryptionCommandError(
+const deserializeAws_restXmlGetFieldLevelEncryptionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetFieldLevelEncryptionCommandOutput> {
+): Promise<GetFieldLevelEncryptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5085,12 +5103,12 @@ async function deserializeAws_restXmlGetFieldLevelEncryptionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetFieldLevelEncryptionConfigCommand(
+export const deserializeAws_restXmlGetFieldLevelEncryptionConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetFieldLevelEncryptionConfigCommandOutput> {
+): Promise<GetFieldLevelEncryptionConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetFieldLevelEncryptionConfigCommandError(
       output,
@@ -5112,12 +5130,12 @@ export async function deserializeAws_restXmlGetFieldLevelEncryptionConfigCommand
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetFieldLevelEncryptionConfigCommandError(
+const deserializeAws_restXmlGetFieldLevelEncryptionConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetFieldLevelEncryptionConfigCommandOutput> {
+): Promise<GetFieldLevelEncryptionConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5164,12 +5182,12 @@ async function deserializeAws_restXmlGetFieldLevelEncryptionConfigCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetFieldLevelEncryptionProfileCommand(
+export const deserializeAws_restXmlGetFieldLevelEncryptionProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetFieldLevelEncryptionProfileCommandOutput> {
+): Promise<GetFieldLevelEncryptionProfileCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetFieldLevelEncryptionProfileCommandError(
       output,
@@ -5191,12 +5209,12 @@ export async function deserializeAws_restXmlGetFieldLevelEncryptionProfileComman
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetFieldLevelEncryptionProfileCommandError(
+const deserializeAws_restXmlGetFieldLevelEncryptionProfileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetFieldLevelEncryptionProfileCommandOutput> {
+): Promise<GetFieldLevelEncryptionProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5243,12 +5261,12 @@ async function deserializeAws_restXmlGetFieldLevelEncryptionProfileCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetFieldLevelEncryptionProfileConfigCommand(
+export const deserializeAws_restXmlGetFieldLevelEncryptionProfileConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetFieldLevelEncryptionProfileConfigCommandOutput> {
+): Promise<GetFieldLevelEncryptionProfileConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetFieldLevelEncryptionProfileConfigCommandError(
       output,
@@ -5270,12 +5288,12 @@ export async function deserializeAws_restXmlGetFieldLevelEncryptionProfileConfig
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetFieldLevelEncryptionProfileConfigCommandError(
+const deserializeAws_restXmlGetFieldLevelEncryptionProfileConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetFieldLevelEncryptionProfileConfigCommandOutput> {
+): Promise<GetFieldLevelEncryptionProfileConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5322,12 +5340,12 @@ async function deserializeAws_restXmlGetFieldLevelEncryptionProfileConfigCommand
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetInvalidationCommand(
+export const deserializeAws_restXmlGetInvalidationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetInvalidationCommandOutput> {
+): Promise<GetInvalidationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetInvalidationCommandError(output, context);
   }
@@ -5339,12 +5357,12 @@ export async function deserializeAws_restXmlGetInvalidationCommand(
   const data: any = await parseBody(output.body, context);
   contents.Invalidation = deserializeAws_restXmlInvalidation(data, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetInvalidationCommandError(
+const deserializeAws_restXmlGetInvalidationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetInvalidationCommandOutput> {
+): Promise<GetInvalidationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5402,12 +5420,12 @@ async function deserializeAws_restXmlGetInvalidationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetPublicKeyCommand(
+export const deserializeAws_restXmlGetPublicKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetPublicKeyCommandOutput> {
+): Promise<GetPublicKeyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetPublicKeyCommandError(output, context);
   }
@@ -5423,12 +5441,12 @@ export async function deserializeAws_restXmlGetPublicKeyCommand(
   const data: any = await parseBody(output.body, context);
   contents.PublicKey = deserializeAws_restXmlPublicKey(data, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetPublicKeyCommandError(
+const deserializeAws_restXmlGetPublicKeyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetPublicKeyCommandOutput> {
+): Promise<GetPublicKeyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5475,12 +5493,12 @@ async function deserializeAws_restXmlGetPublicKeyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetPublicKeyConfigCommand(
+export const deserializeAws_restXmlGetPublicKeyConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetPublicKeyConfigCommandOutput> {
+): Promise<GetPublicKeyConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetPublicKeyConfigCommandError(
       output,
@@ -5502,12 +5520,12 @@ export async function deserializeAws_restXmlGetPublicKeyConfigCommand(
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetPublicKeyConfigCommandError(
+const deserializeAws_restXmlGetPublicKeyConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetPublicKeyConfigCommandOutput> {
+): Promise<GetPublicKeyConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5554,12 +5572,12 @@ async function deserializeAws_restXmlGetPublicKeyConfigCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetStreamingDistributionCommand(
+export const deserializeAws_restXmlGetStreamingDistributionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetStreamingDistributionCommandOutput> {
+): Promise<GetStreamingDistributionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetStreamingDistributionCommandError(
       output,
@@ -5581,12 +5599,12 @@ export async function deserializeAws_restXmlGetStreamingDistributionCommand(
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetStreamingDistributionCommandError(
+const deserializeAws_restXmlGetStreamingDistributionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetStreamingDistributionCommandOutput> {
+): Promise<GetStreamingDistributionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5633,12 +5651,12 @@ async function deserializeAws_restXmlGetStreamingDistributionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlGetStreamingDistributionConfigCommand(
+export const deserializeAws_restXmlGetStreamingDistributionConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetStreamingDistributionConfigCommandOutput> {
+): Promise<GetStreamingDistributionConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlGetStreamingDistributionConfigCommandError(
       output,
@@ -5660,12 +5678,12 @@ export async function deserializeAws_restXmlGetStreamingDistributionConfigComman
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlGetStreamingDistributionConfigCommandError(
+const deserializeAws_restXmlGetStreamingDistributionConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetStreamingDistributionConfigCommandOutput> {
+): Promise<GetStreamingDistributionConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5712,12 +5730,12 @@ async function deserializeAws_restXmlGetStreamingDistributionConfigCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommand(
+export const deserializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListCloudFrontOriginAccessIdentitiesCommandOutput> {
+): Promise<ListCloudFrontOriginAccessIdentitiesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommandError(
       output,
@@ -5735,12 +5753,12 @@ export async function deserializeAws_restXmlListCloudFrontOriginAccessIdentities
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommandError(
+const deserializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListCloudFrontOriginAccessIdentitiesCommandOutput> {
+): Promise<ListCloudFrontOriginAccessIdentitiesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5776,12 +5794,12 @@ async function deserializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommand
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlListDistributionsCommand(
+export const deserializeAws_restXmlListDistributionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListDistributionsCommandOutput> {
+): Promise<ListDistributionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlListDistributionsCommandError(output, context);
   }
@@ -5796,12 +5814,12 @@ export async function deserializeAws_restXmlListDistributionsCommand(
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlListDistributionsCommandError(
+const deserializeAws_restXmlListDistributionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListDistributionsCommandOutput> {
+): Promise<ListDistributionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5837,12 +5855,12 @@ async function deserializeAws_restXmlListDistributionsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlListDistributionsByWebACLIdCommand(
+export const deserializeAws_restXmlListDistributionsByWebACLIdCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListDistributionsByWebACLIdCommandOutput> {
+): Promise<ListDistributionsByWebACLIdCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlListDistributionsByWebACLIdCommandError(
       output,
@@ -5860,12 +5878,12 @@ export async function deserializeAws_restXmlListDistributionsByWebACLIdCommand(
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlListDistributionsByWebACLIdCommandError(
+const deserializeAws_restXmlListDistributionsByWebACLIdCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListDistributionsByWebACLIdCommandOutput> {
+): Promise<ListDistributionsByWebACLIdCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5912,12 +5930,12 @@ async function deserializeAws_restXmlListDistributionsByWebACLIdCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlListFieldLevelEncryptionConfigsCommand(
+export const deserializeAws_restXmlListFieldLevelEncryptionConfigsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListFieldLevelEncryptionConfigsCommandOutput> {
+): Promise<ListFieldLevelEncryptionConfigsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlListFieldLevelEncryptionConfigsCommandError(
       output,
@@ -5935,12 +5953,12 @@ export async function deserializeAws_restXmlListFieldLevelEncryptionConfigsComma
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlListFieldLevelEncryptionConfigsCommandError(
+const deserializeAws_restXmlListFieldLevelEncryptionConfigsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListFieldLevelEncryptionConfigsCommandOutput> {
+): Promise<ListFieldLevelEncryptionConfigsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5976,12 +5994,12 @@ async function deserializeAws_restXmlListFieldLevelEncryptionConfigsCommandError
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlListFieldLevelEncryptionProfilesCommand(
+export const deserializeAws_restXmlListFieldLevelEncryptionProfilesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListFieldLevelEncryptionProfilesCommandOutput> {
+): Promise<ListFieldLevelEncryptionProfilesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlListFieldLevelEncryptionProfilesCommandError(
       output,
@@ -5999,12 +6017,12 @@ export async function deserializeAws_restXmlListFieldLevelEncryptionProfilesComm
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlListFieldLevelEncryptionProfilesCommandError(
+const deserializeAws_restXmlListFieldLevelEncryptionProfilesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListFieldLevelEncryptionProfilesCommandOutput> {
+): Promise<ListFieldLevelEncryptionProfilesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6040,12 +6058,12 @@ async function deserializeAws_restXmlListFieldLevelEncryptionProfilesCommandErro
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlListInvalidationsCommand(
+export const deserializeAws_restXmlListInvalidationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListInvalidationsCommandOutput> {
+): Promise<ListInvalidationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlListInvalidationsCommandError(output, context);
   }
@@ -6060,12 +6078,12 @@ export async function deserializeAws_restXmlListInvalidationsCommand(
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlListInvalidationsCommandError(
+const deserializeAws_restXmlListInvalidationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListInvalidationsCommandOutput> {
+): Promise<ListInvalidationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6123,12 +6141,12 @@ async function deserializeAws_restXmlListInvalidationsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlListPublicKeysCommand(
+export const deserializeAws_restXmlListPublicKeysCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListPublicKeysCommandOutput> {
+): Promise<ListPublicKeysCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlListPublicKeysCommandError(output, context);
   }
@@ -6140,12 +6158,12 @@ export async function deserializeAws_restXmlListPublicKeysCommand(
   const data: any = await parseBody(output.body, context);
   contents.PublicKeyList = deserializeAws_restXmlPublicKeyList(data, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlListPublicKeysCommandError(
+const deserializeAws_restXmlListPublicKeysCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListPublicKeysCommandOutput> {
+): Promise<ListPublicKeysCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6181,12 +6199,12 @@ async function deserializeAws_restXmlListPublicKeysCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlListStreamingDistributionsCommand(
+export const deserializeAws_restXmlListStreamingDistributionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListStreamingDistributionsCommandOutput> {
+): Promise<ListStreamingDistributionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlListStreamingDistributionsCommandError(
       output,
@@ -6204,12 +6222,12 @@ export async function deserializeAws_restXmlListStreamingDistributionsCommand(
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlListStreamingDistributionsCommandError(
+const deserializeAws_restXmlListStreamingDistributionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListStreamingDistributionsCommandOutput> {
+): Promise<ListStreamingDistributionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6245,12 +6263,12 @@ async function deserializeAws_restXmlListStreamingDistributionsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlListTagsForResourceCommand(
+export const deserializeAws_restXmlListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlListTagsForResourceCommandError(
       output,
@@ -6265,12 +6283,12 @@ export async function deserializeAws_restXmlListTagsForResourceCommand(
   const data: any = await parseBody(output.body, context);
   contents.Tags = deserializeAws_restXmlTags(data, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlListTagsForResourceCommandError(
+const deserializeAws_restXmlListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6339,12 +6357,12 @@ async function deserializeAws_restXmlListTagsForResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlTagResourceCommand(
+export const deserializeAws_restXmlTagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restXmlTagResourceCommandError(output, context);
   }
@@ -6353,12 +6371,12 @@ export async function deserializeAws_restXmlTagResourceCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlTagResourceCommandError(
+const deserializeAws_restXmlTagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6427,12 +6445,12 @@ async function deserializeAws_restXmlTagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlUntagResourceCommand(
+export const deserializeAws_restXmlUntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restXmlUntagResourceCommandError(output, context);
   }
@@ -6441,12 +6459,12 @@ export async function deserializeAws_restXmlUntagResourceCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlUntagResourceCommandError(
+const deserializeAws_restXmlUntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6515,12 +6533,12 @@ async function deserializeAws_restXmlUntagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommand(
+export const deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateCloudFrontOriginAccessIdentityCommandOutput> {
+): Promise<UpdateCloudFrontOriginAccessIdentityCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommandError(
       output,
@@ -6542,12 +6560,12 @@ export async function deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentity
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommandError(
+const deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateCloudFrontOriginAccessIdentityCommandOutput> {
+): Promise<UpdateCloudFrontOriginAccessIdentityCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6660,12 +6678,12 @@ async function deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommand
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlUpdateDistributionCommand(
+export const deserializeAws_restXmlUpdateDistributionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateDistributionCommandOutput> {
+): Promise<UpdateDistributionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlUpdateDistributionCommandError(
       output,
@@ -6684,12 +6702,12 @@ export async function deserializeAws_restXmlUpdateDistributionCommand(
   const data: any = await parseBody(output.body, context);
   contents.Distribution = deserializeAws_restXmlDistribution(data, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlUpdateDistributionCommandError(
+const deserializeAws_restXmlUpdateDistributionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateDistributionCommandOutput> {
+): Promise<UpdateDistributionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -7198,12 +7216,12 @@ async function deserializeAws_restXmlUpdateDistributionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlUpdateFieldLevelEncryptionConfigCommand(
+export const deserializeAws_restXmlUpdateFieldLevelEncryptionConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateFieldLevelEncryptionConfigCommandOutput> {
+): Promise<UpdateFieldLevelEncryptionConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlUpdateFieldLevelEncryptionConfigCommandError(
       output,
@@ -7225,12 +7243,12 @@ export async function deserializeAws_restXmlUpdateFieldLevelEncryptionConfigComm
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlUpdateFieldLevelEncryptionConfigCommandError(
+const deserializeAws_restXmlUpdateFieldLevelEncryptionConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateFieldLevelEncryptionConfigCommandOutput> {
+): Promise<UpdateFieldLevelEncryptionConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -7376,12 +7394,12 @@ async function deserializeAws_restXmlUpdateFieldLevelEncryptionConfigCommandErro
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlUpdateFieldLevelEncryptionProfileCommand(
+export const deserializeAws_restXmlUpdateFieldLevelEncryptionProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateFieldLevelEncryptionProfileCommandOutput> {
+): Promise<UpdateFieldLevelEncryptionProfileCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlUpdateFieldLevelEncryptionProfileCommandError(
       output,
@@ -7403,12 +7421,12 @@ export async function deserializeAws_restXmlUpdateFieldLevelEncryptionProfileCom
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlUpdateFieldLevelEncryptionProfileCommandError(
+const deserializeAws_restXmlUpdateFieldLevelEncryptionProfileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateFieldLevelEncryptionProfileCommandOutput> {
+): Promise<UpdateFieldLevelEncryptionProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -7565,12 +7583,12 @@ async function deserializeAws_restXmlUpdateFieldLevelEncryptionProfileCommandErr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlUpdatePublicKeyCommand(
+export const deserializeAws_restXmlUpdatePublicKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdatePublicKeyCommandOutput> {
+): Promise<UpdatePublicKeyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlUpdatePublicKeyCommandError(output, context);
   }
@@ -7586,12 +7604,12 @@ export async function deserializeAws_restXmlUpdatePublicKeyCommand(
   const data: any = await parseBody(output.body, context);
   contents.PublicKey = deserializeAws_restXmlPublicKey(data, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlUpdatePublicKeyCommandError(
+const deserializeAws_restXmlUpdatePublicKeyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdatePublicKeyCommandOutput> {
+): Promise<UpdatePublicKeyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -7693,12 +7711,12 @@ async function deserializeAws_restXmlUpdatePublicKeyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restXmlUpdateStreamingDistributionCommand(
+export const deserializeAws_restXmlUpdateStreamingDistributionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateStreamingDistributionCommandOutput> {
+): Promise<UpdateStreamingDistributionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlUpdateStreamingDistributionCommandError(
       output,
@@ -7720,12 +7738,12 @@ export async function deserializeAws_restXmlUpdateStreamingDistributionCommand(
     context
   );
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restXmlUpdateStreamingDistributionCommandError(
+const deserializeAws_restXmlUpdateStreamingDistributionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateStreamingDistributionCommandOutput> {
+): Promise<UpdateStreamingDistributionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -7893,7 +7911,7 @@ async function deserializeAws_restXmlUpdateStreamingDistributionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restXmlAccessDeniedResponse = async (
   parsedOutput: any,
@@ -7907,10 +7925,7 @@ const deserializeAws_restXmlAccessDeniedResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -7927,10 +7942,7 @@ const deserializeAws_restXmlBatchTooLargeResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -7947,10 +7959,7 @@ const deserializeAws_restXmlCNAMEAlreadyExistsResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -7967,10 +7976,7 @@ const deserializeAws_restXmlCannotChangeImmutablePublicKeyFieldsResponse = async
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -7987,10 +7993,7 @@ const deserializeAws_restXmlCloudFrontOriginAccessIdentityAlreadyExistsResponse 
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8007,10 +8010,7 @@ const deserializeAws_restXmlCloudFrontOriginAccessIdentityInUseResponse = async 
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8027,10 +8027,7 @@ const deserializeAws_restXmlDistributionAlreadyExistsResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8047,10 +8044,7 @@ const deserializeAws_restXmlDistributionNotDisabledResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8067,10 +8061,7 @@ const deserializeAws_restXmlFieldLevelEncryptionConfigAlreadyExistsResponse = as
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8087,10 +8078,7 @@ const deserializeAws_restXmlFieldLevelEncryptionConfigInUseResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8107,10 +8095,7 @@ const deserializeAws_restXmlFieldLevelEncryptionProfileAlreadyExistsResponse = a
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8127,10 +8112,7 @@ const deserializeAws_restXmlFieldLevelEncryptionProfileInUseResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8147,10 +8129,7 @@ const deserializeAws_restXmlFieldLevelEncryptionProfileSizeExceededResponse = as
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8167,10 +8146,7 @@ const deserializeAws_restXmlIllegalFieldLevelEncryptionConfigAssociationWithCach
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8187,10 +8163,7 @@ const deserializeAws_restXmlIllegalUpdateResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8207,10 +8180,7 @@ const deserializeAws_restXmlInconsistentQuantitiesResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8227,10 +8197,7 @@ const deserializeAws_restXmlInvalidArgumentResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8247,10 +8214,7 @@ const deserializeAws_restXmlInvalidDefaultRootObjectResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8267,10 +8231,7 @@ const deserializeAws_restXmlInvalidErrorCodeResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8287,10 +8248,7 @@ const deserializeAws_restXmlInvalidForwardCookiesResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8307,10 +8265,7 @@ const deserializeAws_restXmlInvalidGeoRestrictionParameterResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8327,10 +8282,7 @@ const deserializeAws_restXmlInvalidHeadersForS3OriginResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8347,10 +8299,7 @@ const deserializeAws_restXmlInvalidIfMatchVersionResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8367,10 +8316,7 @@ const deserializeAws_restXmlInvalidLambdaFunctionAssociationResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8387,10 +8333,7 @@ const deserializeAws_restXmlInvalidLocationCodeResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8407,10 +8350,7 @@ const deserializeAws_restXmlInvalidMinimumProtocolVersionResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8427,10 +8367,7 @@ const deserializeAws_restXmlInvalidOriginResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8447,10 +8384,7 @@ const deserializeAws_restXmlInvalidOriginAccessIdentityResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8467,10 +8401,7 @@ const deserializeAws_restXmlInvalidOriginKeepaliveTimeoutResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8487,10 +8418,7 @@ const deserializeAws_restXmlInvalidOriginReadTimeoutResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8507,10 +8435,7 @@ const deserializeAws_restXmlInvalidProtocolSettingsResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8527,10 +8452,7 @@ const deserializeAws_restXmlInvalidQueryStringParametersResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8547,10 +8469,7 @@ const deserializeAws_restXmlInvalidRelativePathResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8567,10 +8486,7 @@ const deserializeAws_restXmlInvalidRequiredProtocolResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8587,10 +8503,7 @@ const deserializeAws_restXmlInvalidResponseCodeResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8607,10 +8520,7 @@ const deserializeAws_restXmlInvalidTTLOrderResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8627,10 +8537,7 @@ const deserializeAws_restXmlInvalidTaggingResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8647,10 +8554,7 @@ const deserializeAws_restXmlInvalidViewerCertificateResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8667,10 +8571,7 @@ const deserializeAws_restXmlInvalidWebACLIdResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8687,10 +8588,7 @@ const deserializeAws_restXmlMissingBodyResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8707,10 +8605,7 @@ const deserializeAws_restXmlNoSuchCloudFrontOriginAccessIdentityResponse = async
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8727,10 +8622,7 @@ const deserializeAws_restXmlNoSuchDistributionResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8747,10 +8639,7 @@ const deserializeAws_restXmlNoSuchFieldLevelEncryptionConfigResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8767,10 +8656,7 @@ const deserializeAws_restXmlNoSuchFieldLevelEncryptionProfileResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8787,10 +8673,7 @@ const deserializeAws_restXmlNoSuchInvalidationResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8807,10 +8690,7 @@ const deserializeAws_restXmlNoSuchOriginResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8827,10 +8707,7 @@ const deserializeAws_restXmlNoSuchPublicKeyResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8847,10 +8724,7 @@ const deserializeAws_restXmlNoSuchResourceResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8867,10 +8741,7 @@ const deserializeAws_restXmlNoSuchStreamingDistributionResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8887,10 +8758,7 @@ const deserializeAws_restXmlPreconditionFailedResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8907,10 +8775,7 @@ const deserializeAws_restXmlPublicKeyAlreadyExistsResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8927,10 +8792,7 @@ const deserializeAws_restXmlPublicKeyInUseResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8947,10 +8809,7 @@ const deserializeAws_restXmlQueryArgProfileEmptyResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8967,10 +8826,7 @@ const deserializeAws_restXmlStreamingDistributionAlreadyExistsResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -8987,10 +8843,7 @@ const deserializeAws_restXmlStreamingDistributionNotDisabledResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -9007,10 +8860,7 @@ const deserializeAws_restXmlTooManyCacheBehaviorsResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -9027,10 +8877,7 @@ const deserializeAws_restXmlTooManyCertificatesResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -9047,10 +8894,7 @@ const deserializeAws_restXmlTooManyCloudFrontOriginAccessIdentitiesResponse = as
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -9067,10 +8911,7 @@ const deserializeAws_restXmlTooManyCookieNamesInWhiteListResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -9087,10 +8928,7 @@ const deserializeAws_restXmlTooManyDistributionCNAMEsResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -9107,10 +8945,7 @@ const deserializeAws_restXmlTooManyDistributionsResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -9127,10 +8962,7 @@ const deserializeAws_restXmlTooManyDistributionsAssociatedToFieldLevelEncryption
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -9147,10 +8979,7 @@ const deserializeAws_restXmlTooManyDistributionsWithLambdaAssociationsResponse =
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -9167,10 +8996,7 @@ const deserializeAws_restXmlTooManyFieldLevelEncryptionConfigsResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -9187,10 +9013,7 @@ const deserializeAws_restXmlTooManyFieldLevelEncryptionContentTypeProfilesRespon
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -9207,10 +9030,7 @@ const deserializeAws_restXmlTooManyFieldLevelEncryptionEncryptionEntitiesRespons
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -9227,10 +9047,7 @@ const deserializeAws_restXmlTooManyFieldLevelEncryptionFieldPatternsResponse = a
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -9247,10 +9064,7 @@ const deserializeAws_restXmlTooManyFieldLevelEncryptionProfilesResponse = async 
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -9267,10 +9081,7 @@ const deserializeAws_restXmlTooManyFieldLevelEncryptionQueryArgProfilesResponse 
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -9287,10 +9098,7 @@ const deserializeAws_restXmlTooManyHeadersInForwardedValuesResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -9307,10 +9115,7 @@ const deserializeAws_restXmlTooManyInvalidationsInProgressResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -9327,10 +9132,7 @@ const deserializeAws_restXmlTooManyLambdaFunctionAssociationsResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -9347,10 +9149,7 @@ const deserializeAws_restXmlTooManyOriginCustomHeadersResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -9367,10 +9166,7 @@ const deserializeAws_restXmlTooManyOriginGroupsPerDistributionResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -9387,10 +9183,7 @@ const deserializeAws_restXmlTooManyOriginsResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -9407,10 +9200,7 @@ const deserializeAws_restXmlTooManyPublicKeysResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -9427,10 +9217,7 @@ const deserializeAws_restXmlTooManyQueryStringParametersResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -9447,10 +9234,7 @@ const deserializeAws_restXmlTooManyStreamingDistributionCNAMEsResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -9467,10 +9251,7 @@ const deserializeAws_restXmlTooManyStreamingDistributionsResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -9487,10 +9268,7 @@ const deserializeAws_restXmlTooManyTrustedSignersResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
@@ -9507,24 +9285,19 @@ const deserializeAws_restXmlTrustedSignerDoesNotExistResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message =
-      data["Message"]["#text"] !== undefined
-        ? data["Message"]["#text"]
-        : data["Message"];
+    contents.Message = data["Message"];
   }
   return contents;
 };
 
 const serializeAws_restXmlAliasList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const collectedNodes: any = [];
-  for (let entry of input) {
+  return input.map(entry => {
     const node = new __XmlNode("string").addChildNode(new __XmlText(entry));
-    collectedNodes.push(node.withName("CNAME"));
-  }
-  return collectedNodes;
+    return node.withName("CNAME");
+  });
 };
 
 const serializeAws_restXmlAliases = (
@@ -9579,15 +9352,13 @@ const serializeAws_restXmlAllowedMethods = (
 };
 
 const serializeAws_restXmlAwsAccountNumberList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const collectedNodes: any = [];
-  for (let entry of input) {
+  return input.map(entry => {
     const node = new __XmlNode("string").addChildNode(new __XmlText(entry));
-    collectedNodes.push(node.withName("AwsAccountNumber"));
-  }
-  return collectedNodes;
+    return node.withName("AwsAccountNumber");
+  });
 };
 
 const serializeAws_restXmlCacheBehavior = (
@@ -9681,15 +9452,13 @@ const serializeAws_restXmlCacheBehavior = (
 };
 
 const serializeAws_restXmlCacheBehaviorList = (
-  input: Array<CacheBehavior>,
+  input: CacheBehavior[],
   context: __SerdeContext
 ): any => {
-  const collectedNodes: any = [];
-  for (let entry of input) {
+  return input.map(entry => {
     const node = serializeAws_restXmlCacheBehavior(entry, context);
-    collectedNodes.push(node.withName("CacheBehavior"));
-  }
-  return collectedNodes;
+    return node.withName("CacheBehavior");
+  });
 };
 
 const serializeAws_restXmlCacheBehaviors = (
@@ -9806,15 +9575,13 @@ const serializeAws_restXmlContentTypeProfileConfig = (
 };
 
 const serializeAws_restXmlContentTypeProfileList = (
-  input: Array<ContentTypeProfile>,
+  input: ContentTypeProfile[],
   context: __SerdeContext
 ): any => {
-  const collectedNodes: any = [];
-  for (let entry of input) {
+  return input.map(entry => {
     const node = serializeAws_restXmlContentTypeProfile(entry, context);
-    collectedNodes.push(node.withName("ContentTypeProfile"));
-  }
-  return collectedNodes;
+    return node.withName("ContentTypeProfile");
+  });
 };
 
 const serializeAws_restXmlContentTypeProfiles = (
@@ -9843,15 +9610,13 @@ const serializeAws_restXmlContentTypeProfiles = (
 };
 
 const serializeAws_restXmlCookieNameList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const collectedNodes: any = [];
-  for (let entry of input) {
+  return input.map(entry => {
     const node = new __XmlNode("string").addChildNode(new __XmlText(entry));
-    collectedNodes.push(node.withName("Name"));
-  }
-  return collectedNodes;
+    return node.withName("Name");
+  });
 };
 
 const serializeAws_restXmlCookieNames = (
@@ -9930,15 +9695,13 @@ const serializeAws_restXmlCustomErrorResponse = (
 };
 
 const serializeAws_restXmlCustomErrorResponseList = (
-  input: Array<CustomErrorResponse>,
+  input: CustomErrorResponse[],
   context: __SerdeContext
 ): any => {
-  const collectedNodes: any = [];
-  for (let entry of input) {
+  return input.map(entry => {
     const node = serializeAws_restXmlCustomErrorResponse(entry, context);
-    collectedNodes.push(node.withName("CustomErrorResponse"));
-  }
-  return collectedNodes;
+    return node.withName("CustomErrorResponse");
+  });
 };
 
 const serializeAws_restXmlCustomErrorResponses = (
@@ -10309,15 +10072,13 @@ const serializeAws_restXmlEncryptionEntity = (
 };
 
 const serializeAws_restXmlEncryptionEntityList = (
-  input: Array<EncryptionEntity>,
+  input: EncryptionEntity[],
   context: __SerdeContext
 ): any => {
-  const collectedNodes: any = [];
-  for (let entry of input) {
+  return input.map(entry => {
     const node = serializeAws_restXmlEncryptionEntity(entry, context);
-    collectedNodes.push(node.withName("EncryptionEntity"));
-  }
-  return collectedNodes;
+    return node.withName("EncryptionEntity");
+  });
 };
 
 const serializeAws_restXmlFieldLevelEncryptionConfig = (
@@ -10388,15 +10149,13 @@ const serializeAws_restXmlFieldLevelEncryptionProfileConfig = (
 };
 
 const serializeAws_restXmlFieldPatternList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const collectedNodes: any = [];
-  for (let entry of input) {
+  return input.map(entry => {
     const node = new __XmlNode("string").addChildNode(new __XmlText(entry));
-    collectedNodes.push(node.withName("FieldPattern"));
-  }
-  return collectedNodes;
+    return node.withName("FieldPattern");
+  });
 };
 
 const serializeAws_restXmlFieldPatterns = (
@@ -10484,15 +10243,13 @@ const serializeAws_restXmlGeoRestriction = (
 };
 
 const serializeAws_restXmlHeaderList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const collectedNodes: any = [];
-  for (let entry of input) {
+  return input.map(entry => {
     const node = new __XmlNode("string").addChildNode(new __XmlText(entry));
-    collectedNodes.push(node.withName("Name"));
-  }
-  return collectedNodes;
+    return node.withName("Name");
+  });
 };
 
 const serializeAws_restXmlHeaders = (
@@ -10564,15 +10321,13 @@ const serializeAws_restXmlLambdaFunctionAssociation = (
 };
 
 const serializeAws_restXmlLambdaFunctionAssociationList = (
-  input: Array<LambdaFunctionAssociation>,
+  input: LambdaFunctionAssociation[],
   context: __SerdeContext
 ): any => {
-  const collectedNodes: any = [];
-  for (let entry of input) {
+  return input.map(entry => {
     const node = serializeAws_restXmlLambdaFunctionAssociation(entry, context);
-    collectedNodes.push(node.withName("LambdaFunctionAssociation"));
-  }
-  return collectedNodes;
+    return node.withName("LambdaFunctionAssociation");
+  });
 };
 
 const serializeAws_restXmlLambdaFunctionAssociations = (
@@ -10601,15 +10356,13 @@ const serializeAws_restXmlLambdaFunctionAssociations = (
 };
 
 const serializeAws_restXmlLocationList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const collectedNodes: any = [];
-  for (let entry of input) {
+  return input.map(entry => {
     const node = new __XmlNode("string").addChildNode(new __XmlText(entry));
-    collectedNodes.push(node.withName("Location"));
-  }
-  return collectedNodes;
+    return node.withName("Location");
+  });
 };
 
 const serializeAws_restXmlLoggingConfig = (
@@ -10645,15 +10398,13 @@ const serializeAws_restXmlLoggingConfig = (
 };
 
 const serializeAws_restXmlMethodsList = (
-  input: Array<Method | string>,
+  input: (Method | string)[],
   context: __SerdeContext
 ): any => {
-  const collectedNodes: any = [];
-  for (let entry of input) {
+  return input.map(entry => {
     const node = new __XmlNode("Method").addChildNode(new __XmlText(entry));
-    collectedNodes.push(node.withName("Method"));
-  }
-  return collectedNodes;
+    return node.withName("Method");
+  });
 };
 
 const serializeAws_restXmlOrigin = (
@@ -10724,15 +10475,13 @@ const serializeAws_restXmlOriginCustomHeader = (
 };
 
 const serializeAws_restXmlOriginCustomHeadersList = (
-  input: Array<OriginCustomHeader>,
+  input: OriginCustomHeader[],
   context: __SerdeContext
 ): any => {
-  const collectedNodes: any = [];
-  for (let entry of input) {
+  return input.map(entry => {
     const node = serializeAws_restXmlOriginCustomHeader(entry, context);
-    collectedNodes.push(node.withName("OriginCustomHeader"));
-  }
-  return collectedNodes;
+    return node.withName("OriginCustomHeader");
+  });
 };
 
 const serializeAws_restXmlOriginGroup = (
@@ -10779,15 +10528,13 @@ const serializeAws_restXmlOriginGroupFailoverCriteria = (
 };
 
 const serializeAws_restXmlOriginGroupList = (
-  input: Array<OriginGroup>,
+  input: OriginGroup[],
   context: __SerdeContext
 ): any => {
-  const collectedNodes: any = [];
-  for (let entry of input) {
+  return input.map(entry => {
     const node = serializeAws_restXmlOriginGroup(entry, context);
-    collectedNodes.push(node.withName("OriginGroup"));
-  }
-  return collectedNodes;
+    return node.withName("OriginGroup");
+  });
 };
 
 const serializeAws_restXmlOriginGroupMember = (
@@ -10805,15 +10552,13 @@ const serializeAws_restXmlOriginGroupMember = (
 };
 
 const serializeAws_restXmlOriginGroupMemberList = (
-  input: Array<OriginGroupMember>,
+  input: OriginGroupMember[],
   context: __SerdeContext
 ): any => {
-  const collectedNodes: any = [];
-  for (let entry of input) {
+  return input.map(entry => {
     const node = serializeAws_restXmlOriginGroupMember(entry, context);
-    collectedNodes.push(node.withName("OriginGroupMember"));
-  }
-  return collectedNodes;
+    return node.withName("OriginGroupMember");
+  });
 };
 
 const serializeAws_restXmlOriginGroupMembers = (
@@ -10864,15 +10609,13 @@ const serializeAws_restXmlOriginGroups = (
 };
 
 const serializeAws_restXmlOriginList = (
-  input: Array<Origin>,
+  input: Origin[],
   context: __SerdeContext
 ): any => {
-  const collectedNodes: any = [];
-  for (let entry of input) {
+  return input.map(entry => {
     const node = serializeAws_restXmlOrigin(entry, context);
-    collectedNodes.push(node.withName("Origin"));
-  }
-  return collectedNodes;
+    return node.withName("Origin");
+  });
 };
 
 const serializeAws_restXmlOriginSslProtocols = (
@@ -10920,15 +10663,13 @@ const serializeAws_restXmlOrigins = (
 };
 
 const serializeAws_restXmlPathList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const collectedNodes: any = [];
-  for (let entry of input) {
+  return input.map(entry => {
     const node = new __XmlNode("string").addChildNode(new __XmlText(entry));
-    collectedNodes.push(node.withName("Path"));
-  }
-  return collectedNodes;
+    return node.withName("Path");
+  });
 };
 
 const serializeAws_restXmlPaths = (
@@ -11029,15 +10770,13 @@ const serializeAws_restXmlQueryArgProfileConfig = (
 };
 
 const serializeAws_restXmlQueryArgProfileList = (
-  input: Array<QueryArgProfile>,
+  input: QueryArgProfile[],
   context: __SerdeContext
 ): any => {
-  const collectedNodes: any = [];
-  for (let entry of input) {
+  return input.map(entry => {
     const node = serializeAws_restXmlQueryArgProfile(entry, context);
-    collectedNodes.push(node.withName("QueryArgProfile"));
-  }
-  return collectedNodes;
+    return node.withName("QueryArgProfile");
+  });
 };
 
 const serializeAws_restXmlQueryArgProfiles = (
@@ -11088,15 +10827,13 @@ const serializeAws_restXmlQueryStringCacheKeys = (
 };
 
 const serializeAws_restXmlQueryStringCacheKeysList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const collectedNodes: any = [];
-  for (let entry of input) {
+  return input.map(entry => {
     const node = new __XmlNode("string").addChildNode(new __XmlText(entry));
-    collectedNodes.push(node.withName("Name"));
-  }
-  return collectedNodes;
+    return node.withName("Name");
+  });
 };
 
 const serializeAws_restXmlRestrictions = (
@@ -11149,31 +10886,27 @@ const serializeAws_restXmlS3OriginConfig = (
 };
 
 const serializeAws_restXmlSslProtocolsList = (
-  input: Array<SslProtocol | string>,
+  input: (SslProtocol | string)[],
   context: __SerdeContext
 ): any => {
-  const collectedNodes: any = [];
-  for (let entry of input) {
+  return input.map(entry => {
     const node = new __XmlNode("SslProtocol").addChildNode(
       new __XmlText(entry)
     );
-    collectedNodes.push(node.withName("SslProtocol"));
-  }
-  return collectedNodes;
+    return node.withName("SslProtocol");
+  });
 };
 
 const serializeAws_restXmlStatusCodeList = (
-  input: Array<number>,
+  input: number[],
   context: __SerdeContext
 ): any => {
-  const collectedNodes: any = [];
-  for (let entry of input) {
+  return input.map(entry => {
     const node = new __XmlNode("integer").addChildNode(
       new __XmlText(String(entry))
     );
-    collectedNodes.push(node.withName("StatusCode"));
-  }
-  return collectedNodes;
+    return node.withName("StatusCode");
+  });
 };
 
 const serializeAws_restXmlStatusCodes = (
@@ -11319,15 +11052,13 @@ const serializeAws_restXmlTag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_restXmlTagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const collectedNodes: any = [];
-  for (let entry of input) {
+  return input.map(entry => {
     const node = new __XmlNode("TagKey").addChildNode(new __XmlText(entry));
-    collectedNodes.push(node.withName("Key"));
-  }
-  return collectedNodes;
+    return node.withName("Key");
+  });
 };
 
 const serializeAws_restXmlTagKeys = (
@@ -11347,15 +11078,13 @@ const serializeAws_restXmlTagKeys = (
 };
 
 const serializeAws_restXmlTagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
-  const collectedNodes: any = [];
-  for (let entry of input) {
+  return input.map(entry => {
     const node = serializeAws_restXmlTag(entry, context);
-    collectedNodes.push(node.withName("Tag"));
-  }
-  return collectedNodes;
+    return node.withName("Tag");
+  });
 };
 
 const serializeAws_restXmlTags = (
@@ -11466,10 +11195,7 @@ const deserializeAws_restXmlActiveTrustedSigners = (
     Quantity: undefined
   };
   if (output["Enabled"] !== undefined) {
-    contents.Enabled =
-      (output["Enabled"]["#text"] !== undefined
-        ? output["Enabled"]["#text"]
-        : output["Enabled"]) == "true";
+    contents.Enabled = output["Enabled"] == "true";
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -11478,18 +11204,13 @@ const deserializeAws_restXmlActiveTrustedSigners = (
     output["Items"] !== undefined &&
     output["Items"]["Signer"] !== undefined
   ) {
-    const wrappedItem =
-      output["Items"]["Signer"] instanceof Array
-        ? output["Items"]["Signer"]
-        : [output["Items"]["Signer"]];
-    contents.Items = deserializeAws_restXmlSignerList(wrappedItem, context);
+    contents.Items = deserializeAws_restXmlSignerList(
+      __getArrayIfSingleItem(output["Items"]["Signer"]),
+      context
+    );
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -11504,16 +11225,10 @@ const deserializeAws_restXmlAliasICPRecordal = (
     ICPRecordalStatus: undefined
   };
   if (output["CNAME"] !== undefined) {
-    contents.CNAME =
-      output["CNAME"]["#text"] !== undefined
-        ? output["CNAME"]["#text"]
-        : output["CNAME"];
+    contents.CNAME = output["CNAME"];
   }
   if (output["ICPRecordalStatus"] !== undefined) {
-    contents.ICPRecordalStatus =
-      output["ICPRecordalStatus"]["#text"] !== undefined
-        ? output["ICPRecordalStatus"]["#text"]
-        : output["ICPRecordalStatus"];
+    contents.ICPRecordalStatus = output["ICPRecordalStatus"];
   }
   return contents;
 };
@@ -11521,23 +11236,17 @@ const deserializeAws_restXmlAliasICPRecordal = (
 const deserializeAws_restXmlAliasICPRecordals = (
   output: any,
   context: __SerdeContext
-): Array<AliasICPRecordal> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_restXmlAliasICPRecordal(entry, context));
-  });
-  return contents;
+): AliasICPRecordal[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restXmlAliasICPRecordal(entry, context)
+  );
 };
 
 const deserializeAws_restXmlAliasList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restXmlAliases = (
@@ -11553,18 +11262,13 @@ const deserializeAws_restXmlAliases = (
     contents.Items = [];
   }
   if (output["Items"] !== undefined && output["Items"]["CNAME"] !== undefined) {
-    const wrappedItem =
-      output["Items"]["CNAME"] instanceof Array
-        ? output["Items"]["CNAME"]
-        : [output["Items"]["CNAME"]];
-    contents.Items = deserializeAws_restXmlAliasList(wrappedItem, context);
+    contents.Items = deserializeAws_restXmlAliasList(
+      __getArrayIfSingleItem(output["Items"]["CNAME"]),
+      context
+    );
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -11592,18 +11296,13 @@ const deserializeAws_restXmlAllowedMethods = (
     output["Items"] !== undefined &&
     output["Items"]["Method"] !== undefined
   ) {
-    const wrappedItem =
-      output["Items"]["Method"] instanceof Array
-        ? output["Items"]["Method"]
-        : [output["Items"]["Method"]];
-    contents.Items = deserializeAws_restXmlMethodsList(wrappedItem, context);
+    contents.Items = deserializeAws_restXmlMethodsList(
+      __getArrayIfSingleItem(output["Items"]["Method"]),
+      context
+    );
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -11611,12 +11310,8 @@ const deserializeAws_restXmlAllowedMethods = (
 const deserializeAws_restXmlAwsAccountNumberList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restXmlCacheBehavior = (
@@ -11646,23 +11341,13 @@ const deserializeAws_restXmlCacheBehavior = (
     );
   }
   if (output["Compress"] !== undefined) {
-    contents.Compress =
-      (output["Compress"]["#text"] !== undefined
-        ? output["Compress"]["#text"]
-        : output["Compress"]) == "true";
+    contents.Compress = output["Compress"] == "true";
   }
   if (output["DefaultTTL"] !== undefined) {
-    contents.DefaultTTL = parseInt(
-      output["DefaultTTL"]["#text"] !== undefined
-        ? output["DefaultTTL"]["#text"]
-        : output["DefaultTTL"]
-    );
+    contents.DefaultTTL = parseInt(output["DefaultTTL"]);
   }
   if (output["FieldLevelEncryptionId"] !== undefined) {
-    contents.FieldLevelEncryptionId =
-      output["FieldLevelEncryptionId"]["#text"] !== undefined
-        ? output["FieldLevelEncryptionId"]["#text"]
-        : output["FieldLevelEncryptionId"];
+    contents.FieldLevelEncryptionId = output["FieldLevelEncryptionId"];
   }
   if (output["ForwardedValues"] !== undefined) {
     contents.ForwardedValues = deserializeAws_restXmlForwardedValues(
@@ -11677,36 +11362,19 @@ const deserializeAws_restXmlCacheBehavior = (
     );
   }
   if (output["MaxTTL"] !== undefined) {
-    contents.MaxTTL = parseInt(
-      output["MaxTTL"]["#text"] !== undefined
-        ? output["MaxTTL"]["#text"]
-        : output["MaxTTL"]
-    );
+    contents.MaxTTL = parseInt(output["MaxTTL"]);
   }
   if (output["MinTTL"] !== undefined) {
-    contents.MinTTL = parseInt(
-      output["MinTTL"]["#text"] !== undefined
-        ? output["MinTTL"]["#text"]
-        : output["MinTTL"]
-    );
+    contents.MinTTL = parseInt(output["MinTTL"]);
   }
   if (output["PathPattern"] !== undefined) {
-    contents.PathPattern =
-      output["PathPattern"]["#text"] !== undefined
-        ? output["PathPattern"]["#text"]
-        : output["PathPattern"];
+    contents.PathPattern = output["PathPattern"];
   }
   if (output["SmoothStreaming"] !== undefined) {
-    contents.SmoothStreaming =
-      (output["SmoothStreaming"]["#text"] !== undefined
-        ? output["SmoothStreaming"]["#text"]
-        : output["SmoothStreaming"]) == "true";
+    contents.SmoothStreaming = output["SmoothStreaming"] == "true";
   }
   if (output["TargetOriginId"] !== undefined) {
-    contents.TargetOriginId =
-      output["TargetOriginId"]["#text"] !== undefined
-        ? output["TargetOriginId"]["#text"]
-        : output["TargetOriginId"];
+    contents.TargetOriginId = output["TargetOriginId"];
   }
   if (output["TrustedSigners"] !== undefined) {
     contents.TrustedSigners = deserializeAws_restXmlTrustedSigners(
@@ -11715,10 +11383,7 @@ const deserializeAws_restXmlCacheBehavior = (
     );
   }
   if (output["ViewerProtocolPolicy"] !== undefined) {
-    contents.ViewerProtocolPolicy =
-      output["ViewerProtocolPolicy"]["#text"] !== undefined
-        ? output["ViewerProtocolPolicy"]["#text"]
-        : output["ViewerProtocolPolicy"];
+    contents.ViewerProtocolPolicy = output["ViewerProtocolPolicy"];
   }
   return contents;
 };
@@ -11726,12 +11391,10 @@ const deserializeAws_restXmlCacheBehavior = (
 const deserializeAws_restXmlCacheBehaviorList = (
   output: any,
   context: __SerdeContext
-): Array<CacheBehavior> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_restXmlCacheBehavior(entry, context));
-  });
-  return contents;
+): CacheBehavior[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restXmlCacheBehavior(entry, context)
+  );
 };
 
 const deserializeAws_restXmlCacheBehaviors = (
@@ -11750,21 +11413,13 @@ const deserializeAws_restXmlCacheBehaviors = (
     output["Items"] !== undefined &&
     output["Items"]["CacheBehavior"] !== undefined
   ) {
-    const wrappedItem =
-      output["Items"]["CacheBehavior"] instanceof Array
-        ? output["Items"]["CacheBehavior"]
-        : [output["Items"]["CacheBehavior"]];
     contents.Items = deserializeAws_restXmlCacheBehaviorList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Items"]["CacheBehavior"]),
       context
     );
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -11785,18 +11440,13 @@ const deserializeAws_restXmlCachedMethods = (
     output["Items"] !== undefined &&
     output["Items"]["Method"] !== undefined
   ) {
-    const wrappedItem =
-      output["Items"]["Method"] instanceof Array
-        ? output["Items"]["Method"]
-        : [output["Items"]["Method"]];
-    contents.Items = deserializeAws_restXmlMethodsList(wrappedItem, context);
+    contents.Items = deserializeAws_restXmlMethodsList(
+      __getArrayIfSingleItem(output["Items"]["Method"]),
+      context
+    );
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -11818,16 +11468,10 @@ const deserializeAws_restXmlCloudFrontOriginAccessIdentity = (
     );
   }
   if (output["Id"] !== undefined) {
-    contents.Id =
-      output["Id"]["#text"] !== undefined
-        ? output["Id"]["#text"]
-        : output["Id"];
+    contents.Id = output["Id"];
   }
   if (output["S3CanonicalUserId"] !== undefined) {
-    contents.S3CanonicalUserId =
-      output["S3CanonicalUserId"]["#text"] !== undefined
-        ? output["S3CanonicalUserId"]["#text"]
-        : output["S3CanonicalUserId"];
+    contents.S3CanonicalUserId = output["S3CanonicalUserId"];
   }
   return contents;
 };
@@ -11842,16 +11486,10 @@ const deserializeAws_restXmlCloudFrontOriginAccessIdentityConfig = (
     Comment: undefined
   };
   if (output["CallerReference"] !== undefined) {
-    contents.CallerReference =
-      output["CallerReference"]["#text"] !== undefined
-        ? output["CallerReference"]["#text"]
-        : output["CallerReference"];
+    contents.CallerReference = output["CallerReference"];
   }
   if (output["Comment"] !== undefined) {
-    contents.Comment =
-      output["Comment"]["#text"] !== undefined
-        ? output["Comment"]["#text"]
-        : output["Comment"];
+    contents.Comment = output["Comment"];
   }
   return contents;
 };
@@ -11870,10 +11508,7 @@ const deserializeAws_restXmlCloudFrontOriginAccessIdentityList = (
     Quantity: undefined
   };
   if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated =
-      (output["IsTruncated"]["#text"] !== undefined
-        ? output["IsTruncated"]["#text"]
-        : output["IsTruncated"]) == "true";
+    contents.IsTruncated = output["IsTruncated"] == "true";
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -11882,40 +11517,24 @@ const deserializeAws_restXmlCloudFrontOriginAccessIdentityList = (
     output["Items"] !== undefined &&
     output["Items"]["CloudFrontOriginAccessIdentitySummary"] !== undefined
   ) {
-    const wrappedItem =
-      output["Items"]["CloudFrontOriginAccessIdentitySummary"] instanceof Array
-        ? output["Items"]["CloudFrontOriginAccessIdentitySummary"]
-        : [output["Items"]["CloudFrontOriginAccessIdentitySummary"]];
     contents.Items = deserializeAws_restXmlCloudFrontOriginAccessIdentitySummaryList(
-      wrappedItem,
+      __getArrayIfSingleItem(
+        output["Items"]["CloudFrontOriginAccessIdentitySummary"]
+      ),
       context
     );
   }
   if (output["Marker"] !== undefined) {
-    contents.Marker =
-      output["Marker"]["#text"] !== undefined
-        ? output["Marker"]["#text"]
-        : output["Marker"];
+    contents.Marker = output["Marker"];
   }
   if (output["MaxItems"] !== undefined) {
-    contents.MaxItems = parseInt(
-      output["MaxItems"]["#text"] !== undefined
-        ? output["MaxItems"]["#text"]
-        : output["MaxItems"]
-    );
+    contents.MaxItems = parseInt(output["MaxItems"]);
   }
   if (output["NextMarker"] !== undefined) {
-    contents.NextMarker =
-      output["NextMarker"]["#text"] !== undefined
-        ? output["NextMarker"]["#text"]
-        : output["NextMarker"];
+    contents.NextMarker = output["NextMarker"];
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -11931,22 +11550,13 @@ const deserializeAws_restXmlCloudFrontOriginAccessIdentitySummary = (
     S3CanonicalUserId: undefined
   };
   if (output["Comment"] !== undefined) {
-    contents.Comment =
-      output["Comment"]["#text"] !== undefined
-        ? output["Comment"]["#text"]
-        : output["Comment"];
+    contents.Comment = output["Comment"];
   }
   if (output["Id"] !== undefined) {
-    contents.Id =
-      output["Id"]["#text"] !== undefined
-        ? output["Id"]["#text"]
-        : output["Id"];
+    contents.Id = output["Id"];
   }
   if (output["S3CanonicalUserId"] !== undefined) {
-    contents.S3CanonicalUserId =
-      output["S3CanonicalUserId"]["#text"] !== undefined
-        ? output["S3CanonicalUserId"]["#text"]
-        : output["S3CanonicalUserId"];
+    contents.S3CanonicalUserId = output["S3CanonicalUserId"];
   }
   return contents;
 };
@@ -11954,17 +11564,10 @@ const deserializeAws_restXmlCloudFrontOriginAccessIdentitySummary = (
 const deserializeAws_restXmlCloudFrontOriginAccessIdentitySummaryList = (
   output: any,
   context: __SerdeContext
-): Array<CloudFrontOriginAccessIdentitySummary> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      deserializeAws_restXmlCloudFrontOriginAccessIdentitySummary(
-        entry,
-        context
-      )
-    );
-  });
-  return contents;
+): CloudFrontOriginAccessIdentitySummary[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restXmlCloudFrontOriginAccessIdentitySummary(entry, context)
+  );
 };
 
 const deserializeAws_restXmlContentTypeProfile = (
@@ -11978,22 +11581,13 @@ const deserializeAws_restXmlContentTypeProfile = (
     ProfileId: undefined
   };
   if (output["ContentType"] !== undefined) {
-    contents.ContentType =
-      output["ContentType"]["#text"] !== undefined
-        ? output["ContentType"]["#text"]
-        : output["ContentType"];
+    contents.ContentType = output["ContentType"];
   }
   if (output["Format"] !== undefined) {
-    contents.Format =
-      output["Format"]["#text"] !== undefined
-        ? output["Format"]["#text"]
-        : output["Format"];
+    contents.Format = output["Format"];
   }
   if (output["ProfileId"] !== undefined) {
-    contents.ProfileId =
-      output["ProfileId"]["#text"] !== undefined
-        ? output["ProfileId"]["#text"]
-        : output["ProfileId"];
+    contents.ProfileId = output["ProfileId"];
   }
   return contents;
 };
@@ -12015,9 +11609,7 @@ const deserializeAws_restXmlContentTypeProfileConfig = (
   }
   if (output["ForwardWhenContentTypeIsUnknown"] !== undefined) {
     contents.ForwardWhenContentTypeIsUnknown =
-      (output["ForwardWhenContentTypeIsUnknown"]["#text"] !== undefined
-        ? output["ForwardWhenContentTypeIsUnknown"]["#text"]
-        : output["ForwardWhenContentTypeIsUnknown"]) == "true";
+      output["ForwardWhenContentTypeIsUnknown"] == "true";
   }
   return contents;
 };
@@ -12025,12 +11617,10 @@ const deserializeAws_restXmlContentTypeProfileConfig = (
 const deserializeAws_restXmlContentTypeProfileList = (
   output: any,
   context: __SerdeContext
-): Array<ContentTypeProfile> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_restXmlContentTypeProfile(entry, context));
-  });
-  return contents;
+): ContentTypeProfile[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restXmlContentTypeProfile(entry, context)
+  );
 };
 
 const deserializeAws_restXmlContentTypeProfiles = (
@@ -12049,21 +11639,13 @@ const deserializeAws_restXmlContentTypeProfiles = (
     output["Items"] !== undefined &&
     output["Items"]["ContentTypeProfile"] !== undefined
   ) {
-    const wrappedItem =
-      output["Items"]["ContentTypeProfile"] instanceof Array
-        ? output["Items"]["ContentTypeProfile"]
-        : [output["Items"]["ContentTypeProfile"]];
     contents.Items = deserializeAws_restXmlContentTypeProfileList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Items"]["ContentTypeProfile"]),
       context
     );
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -12071,12 +11653,8 @@ const deserializeAws_restXmlContentTypeProfiles = (
 const deserializeAws_restXmlCookieNameList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restXmlCookieNames = (
@@ -12092,18 +11670,13 @@ const deserializeAws_restXmlCookieNames = (
     contents.Items = [];
   }
   if (output["Items"] !== undefined && output["Items"]["Name"] !== undefined) {
-    const wrappedItem =
-      output["Items"]["Name"] instanceof Array
-        ? output["Items"]["Name"]
-        : [output["Items"]["Name"]];
-    contents.Items = deserializeAws_restXmlCookieNameList(wrappedItem, context);
+    contents.Items = deserializeAws_restXmlCookieNameList(
+      __getArrayIfSingleItem(output["Items"]["Name"]),
+      context
+    );
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -12118,10 +11691,7 @@ const deserializeAws_restXmlCookiePreference = (
     WhitelistedNames: undefined
   };
   if (output["Forward"] !== undefined) {
-    contents.Forward =
-      output["Forward"]["#text"] !== undefined
-        ? output["Forward"]["#text"]
-        : output["Forward"];
+    contents.Forward = output["Forward"];
   }
   if (output["WhitelistedNames"] !== undefined) {
     contents.WhitelistedNames = deserializeAws_restXmlCookieNames(
@@ -12144,30 +11714,16 @@ const deserializeAws_restXmlCustomErrorResponse = (
     ResponsePagePath: undefined
   };
   if (output["ErrorCachingMinTTL"] !== undefined) {
-    contents.ErrorCachingMinTTL = parseInt(
-      output["ErrorCachingMinTTL"]["#text"] !== undefined
-        ? output["ErrorCachingMinTTL"]["#text"]
-        : output["ErrorCachingMinTTL"]
-    );
+    contents.ErrorCachingMinTTL = parseInt(output["ErrorCachingMinTTL"]);
   }
   if (output["ErrorCode"] !== undefined) {
-    contents.ErrorCode = parseInt(
-      output["ErrorCode"]["#text"] !== undefined
-        ? output["ErrorCode"]["#text"]
-        : output["ErrorCode"]
-    );
+    contents.ErrorCode = parseInt(output["ErrorCode"]);
   }
   if (output["ResponseCode"] !== undefined) {
-    contents.ResponseCode =
-      output["ResponseCode"]["#text"] !== undefined
-        ? output["ResponseCode"]["#text"]
-        : output["ResponseCode"];
+    contents.ResponseCode = output["ResponseCode"];
   }
   if (output["ResponsePagePath"] !== undefined) {
-    contents.ResponsePagePath =
-      output["ResponsePagePath"]["#text"] !== undefined
-        ? output["ResponsePagePath"]["#text"]
-        : output["ResponsePagePath"];
+    contents.ResponsePagePath = output["ResponsePagePath"];
   }
   return contents;
 };
@@ -12175,12 +11731,10 @@ const deserializeAws_restXmlCustomErrorResponse = (
 const deserializeAws_restXmlCustomErrorResponseList = (
   output: any,
   context: __SerdeContext
-): Array<CustomErrorResponse> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_restXmlCustomErrorResponse(entry, context));
-  });
-  return contents;
+): CustomErrorResponse[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restXmlCustomErrorResponse(entry, context)
+  );
 };
 
 const deserializeAws_restXmlCustomErrorResponses = (
@@ -12199,21 +11753,13 @@ const deserializeAws_restXmlCustomErrorResponses = (
     output["Items"] !== undefined &&
     output["Items"]["CustomErrorResponse"] !== undefined
   ) {
-    const wrappedItem =
-      output["Items"]["CustomErrorResponse"] instanceof Array
-        ? output["Items"]["CustomErrorResponse"]
-        : [output["Items"]["CustomErrorResponse"]];
     contents.Items = deserializeAws_restXmlCustomErrorResponseList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Items"]["CustomErrorResponse"]),
       context
     );
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -12234,21 +11780,13 @@ const deserializeAws_restXmlCustomHeaders = (
     output["Items"] !== undefined &&
     output["Items"]["OriginCustomHeader"] !== undefined
   ) {
-    const wrappedItem =
-      output["Items"]["OriginCustomHeader"] instanceof Array
-        ? output["Items"]["OriginCustomHeader"]
-        : [output["Items"]["OriginCustomHeader"]];
     contents.Items = deserializeAws_restXmlOriginCustomHeadersList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Items"]["OriginCustomHeader"]),
       context
     );
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -12267,38 +11805,21 @@ const deserializeAws_restXmlCustomOriginConfig = (
     OriginSslProtocols: undefined
   };
   if (output["HTTPPort"] !== undefined) {
-    contents.HTTPPort = parseInt(
-      output["HTTPPort"]["#text"] !== undefined
-        ? output["HTTPPort"]["#text"]
-        : output["HTTPPort"]
-    );
+    contents.HTTPPort = parseInt(output["HTTPPort"]);
   }
   if (output["HTTPSPort"] !== undefined) {
-    contents.HTTPSPort = parseInt(
-      output["HTTPSPort"]["#text"] !== undefined
-        ? output["HTTPSPort"]["#text"]
-        : output["HTTPSPort"]
-    );
+    contents.HTTPSPort = parseInt(output["HTTPSPort"]);
   }
   if (output["OriginKeepaliveTimeout"] !== undefined) {
     contents.OriginKeepaliveTimeout = parseInt(
-      output["OriginKeepaliveTimeout"]["#text"] !== undefined
-        ? output["OriginKeepaliveTimeout"]["#text"]
-        : output["OriginKeepaliveTimeout"]
+      output["OriginKeepaliveTimeout"]
     );
   }
   if (output["OriginProtocolPolicy"] !== undefined) {
-    contents.OriginProtocolPolicy =
-      output["OriginProtocolPolicy"]["#text"] !== undefined
-        ? output["OriginProtocolPolicy"]["#text"]
-        : output["OriginProtocolPolicy"];
+    contents.OriginProtocolPolicy = output["OriginProtocolPolicy"];
   }
   if (output["OriginReadTimeout"] !== undefined) {
-    contents.OriginReadTimeout = parseInt(
-      output["OriginReadTimeout"]["#text"] !== undefined
-        ? output["OriginReadTimeout"]["#text"]
-        : output["OriginReadTimeout"]
-    );
+    contents.OriginReadTimeout = parseInt(output["OriginReadTimeout"]);
   }
   if (output["OriginSslProtocols"] !== undefined) {
     contents.OriginSslProtocols = deserializeAws_restXmlOriginSslProtocols(
@@ -12335,23 +11856,13 @@ const deserializeAws_restXmlDefaultCacheBehavior = (
     );
   }
   if (output["Compress"] !== undefined) {
-    contents.Compress =
-      (output["Compress"]["#text"] !== undefined
-        ? output["Compress"]["#text"]
-        : output["Compress"]) == "true";
+    contents.Compress = output["Compress"] == "true";
   }
   if (output["DefaultTTL"] !== undefined) {
-    contents.DefaultTTL = parseInt(
-      output["DefaultTTL"]["#text"] !== undefined
-        ? output["DefaultTTL"]["#text"]
-        : output["DefaultTTL"]
-    );
+    contents.DefaultTTL = parseInt(output["DefaultTTL"]);
   }
   if (output["FieldLevelEncryptionId"] !== undefined) {
-    contents.FieldLevelEncryptionId =
-      output["FieldLevelEncryptionId"]["#text"] !== undefined
-        ? output["FieldLevelEncryptionId"]["#text"]
-        : output["FieldLevelEncryptionId"];
+    contents.FieldLevelEncryptionId = output["FieldLevelEncryptionId"];
   }
   if (output["ForwardedValues"] !== undefined) {
     contents.ForwardedValues = deserializeAws_restXmlForwardedValues(
@@ -12366,30 +11877,16 @@ const deserializeAws_restXmlDefaultCacheBehavior = (
     );
   }
   if (output["MaxTTL"] !== undefined) {
-    contents.MaxTTL = parseInt(
-      output["MaxTTL"]["#text"] !== undefined
-        ? output["MaxTTL"]["#text"]
-        : output["MaxTTL"]
-    );
+    contents.MaxTTL = parseInt(output["MaxTTL"]);
   }
   if (output["MinTTL"] !== undefined) {
-    contents.MinTTL = parseInt(
-      output["MinTTL"]["#text"] !== undefined
-        ? output["MinTTL"]["#text"]
-        : output["MinTTL"]
-    );
+    contents.MinTTL = parseInt(output["MinTTL"]);
   }
   if (output["SmoothStreaming"] !== undefined) {
-    contents.SmoothStreaming =
-      (output["SmoothStreaming"]["#text"] !== undefined
-        ? output["SmoothStreaming"]["#text"]
-        : output["SmoothStreaming"]) == "true";
+    contents.SmoothStreaming = output["SmoothStreaming"] == "true";
   }
   if (output["TargetOriginId"] !== undefined) {
-    contents.TargetOriginId =
-      output["TargetOriginId"]["#text"] !== undefined
-        ? output["TargetOriginId"]["#text"]
-        : output["TargetOriginId"];
+    contents.TargetOriginId = output["TargetOriginId"];
   }
   if (output["TrustedSigners"] !== undefined) {
     contents.TrustedSigners = deserializeAws_restXmlTrustedSigners(
@@ -12398,10 +11895,7 @@ const deserializeAws_restXmlDefaultCacheBehavior = (
     );
   }
   if (output["ViewerProtocolPolicy"] !== undefined) {
-    contents.ViewerProtocolPolicy =
-      output["ViewerProtocolPolicy"]["#text"] !== undefined
-        ? output["ViewerProtocolPolicy"]["#text"]
-        : output["ViewerProtocolPolicy"];
+    contents.ViewerProtocolPolicy = output["ViewerProtocolPolicy"];
   }
   return contents;
 };
@@ -12423,10 +11917,7 @@ const deserializeAws_restXmlDistribution = (
     Status: undefined
   };
   if (output["ARN"] !== undefined) {
-    contents.ARN =
-      output["ARN"]["#text"] !== undefined
-        ? output["ARN"]["#text"]
-        : output["ARN"];
+    contents.ARN = output["ARN"];
   }
   if (output["ActiveTrustedSigners"] !== undefined) {
     contents.ActiveTrustedSigners = deserializeAws_restXmlActiveTrustedSigners(
@@ -12441,12 +11932,8 @@ const deserializeAws_restXmlDistribution = (
     output["AliasICPRecordals"] !== undefined &&
     output["AliasICPRecordals"]["AliasICPRecordal"] !== undefined
   ) {
-    const wrappedItem =
-      output["AliasICPRecordals"]["AliasICPRecordal"] instanceof Array
-        ? output["AliasICPRecordals"]["AliasICPRecordal"]
-        : [output["AliasICPRecordals"]["AliasICPRecordal"]];
     contents.AliasICPRecordals = deserializeAws_restXmlAliasICPRecordals(
-      wrappedItem,
+      __getArrayIfSingleItem(output["AliasICPRecordals"]["AliasICPRecordal"]),
       context
     );
   }
@@ -12457,32 +11944,21 @@ const deserializeAws_restXmlDistribution = (
     );
   }
   if (output["DomainName"] !== undefined) {
-    contents.DomainName =
-      output["DomainName"]["#text"] !== undefined
-        ? output["DomainName"]["#text"]
-        : output["DomainName"];
+    contents.DomainName = output["DomainName"];
   }
   if (output["Id"] !== undefined) {
-    contents.Id =
-      output["Id"]["#text"] !== undefined
-        ? output["Id"]["#text"]
-        : output["Id"];
+    contents.Id = output["Id"];
   }
   if (output["InProgressInvalidationBatches"] !== undefined) {
     contents.InProgressInvalidationBatches = parseInt(
-      output["InProgressInvalidationBatches"]["#text"] !== undefined
-        ? output["InProgressInvalidationBatches"]["#text"]
-        : output["InProgressInvalidationBatches"]
+      output["InProgressInvalidationBatches"]
     );
   }
   if (output["LastModifiedTime"] !== undefined) {
     contents.LastModifiedTime = new Date(output["LastModifiedTime"]);
   }
   if (output["Status"] !== undefined) {
-    contents.Status =
-      output["Status"]["#text"] !== undefined
-        ? output["Status"]["#text"]
-        : output["Status"];
+    contents.Status = output["Status"];
   }
   return contents;
 };
@@ -12524,16 +12000,10 @@ const deserializeAws_restXmlDistributionConfig = (
     );
   }
   if (output["CallerReference"] !== undefined) {
-    contents.CallerReference =
-      output["CallerReference"]["#text"] !== undefined
-        ? output["CallerReference"]["#text"]
-        : output["CallerReference"];
+    contents.CallerReference = output["CallerReference"];
   }
   if (output["Comment"] !== undefined) {
-    contents.Comment =
-      output["Comment"]["#text"] !== undefined
-        ? output["Comment"]["#text"]
-        : output["Comment"];
+    contents.Comment = output["Comment"];
   }
   if (output["CustomErrorResponses"] !== undefined) {
     contents.CustomErrorResponses = deserializeAws_restXmlCustomErrorResponses(
@@ -12548,28 +12018,16 @@ const deserializeAws_restXmlDistributionConfig = (
     );
   }
   if (output["DefaultRootObject"] !== undefined) {
-    contents.DefaultRootObject =
-      output["DefaultRootObject"]["#text"] !== undefined
-        ? output["DefaultRootObject"]["#text"]
-        : output["DefaultRootObject"];
+    contents.DefaultRootObject = output["DefaultRootObject"];
   }
   if (output["Enabled"] !== undefined) {
-    contents.Enabled =
-      (output["Enabled"]["#text"] !== undefined
-        ? output["Enabled"]["#text"]
-        : output["Enabled"]) == "true";
+    contents.Enabled = output["Enabled"] == "true";
   }
   if (output["HttpVersion"] !== undefined) {
-    contents.HttpVersion =
-      output["HttpVersion"]["#text"] !== undefined
-        ? output["HttpVersion"]["#text"]
-        : output["HttpVersion"];
+    contents.HttpVersion = output["HttpVersion"];
   }
   if (output["IsIPV6Enabled"] !== undefined) {
-    contents.IsIPV6Enabled =
-      (output["IsIPV6Enabled"]["#text"] !== undefined
-        ? output["IsIPV6Enabled"]["#text"]
-        : output["IsIPV6Enabled"]) == "true";
+    contents.IsIPV6Enabled = output["IsIPV6Enabled"] == "true";
   }
   if (output["Logging"] !== undefined) {
     contents.Logging = deserializeAws_restXmlLoggingConfig(
@@ -12590,10 +12048,7 @@ const deserializeAws_restXmlDistributionConfig = (
     );
   }
   if (output["PriceClass"] !== undefined) {
-    contents.PriceClass =
-      output["PriceClass"]["#text"] !== undefined
-        ? output["PriceClass"]["#text"]
-        : output["PriceClass"];
+    contents.PriceClass = output["PriceClass"];
   }
   if (output["Restrictions"] !== undefined) {
     contents.Restrictions = deserializeAws_restXmlRestrictions(
@@ -12608,10 +12063,7 @@ const deserializeAws_restXmlDistributionConfig = (
     );
   }
   if (output["WebACLId"] !== undefined) {
-    contents.WebACLId =
-      output["WebACLId"]["#text"] !== undefined
-        ? output["WebACLId"]["#text"]
-        : output["WebACLId"];
+    contents.WebACLId = output["WebACLId"];
   }
   return contents;
 };
@@ -12630,10 +12082,7 @@ const deserializeAws_restXmlDistributionList = (
     Quantity: undefined
   };
   if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated =
-      (output["IsTruncated"]["#text"] !== undefined
-        ? output["IsTruncated"]["#text"]
-        : output["IsTruncated"]) == "true";
+    contents.IsTruncated = output["IsTruncated"] == "true";
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -12642,40 +12091,22 @@ const deserializeAws_restXmlDistributionList = (
     output["Items"] !== undefined &&
     output["Items"]["DistributionSummary"] !== undefined
   ) {
-    const wrappedItem =
-      output["Items"]["DistributionSummary"] instanceof Array
-        ? output["Items"]["DistributionSummary"]
-        : [output["Items"]["DistributionSummary"]];
     contents.Items = deserializeAws_restXmlDistributionSummaryList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Items"]["DistributionSummary"]),
       context
     );
   }
   if (output["Marker"] !== undefined) {
-    contents.Marker =
-      output["Marker"]["#text"] !== undefined
-        ? output["Marker"]["#text"]
-        : output["Marker"];
+    contents.Marker = output["Marker"];
   }
   if (output["MaxItems"] !== undefined) {
-    contents.MaxItems = parseInt(
-      output["MaxItems"]["#text"] !== undefined
-        ? output["MaxItems"]["#text"]
-        : output["MaxItems"]
-    );
+    contents.MaxItems = parseInt(output["MaxItems"]);
   }
   if (output["NextMarker"] !== undefined) {
-    contents.NextMarker =
-      output["NextMarker"]["#text"] !== undefined
-        ? output["NextMarker"]["#text"]
-        : output["NextMarker"];
+    contents.NextMarker = output["NextMarker"];
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -12708,10 +12139,7 @@ const deserializeAws_restXmlDistributionSummary = (
     WebACLId: undefined
   };
   if (output["ARN"] !== undefined) {
-    contents.ARN =
-      output["ARN"]["#text"] !== undefined
-        ? output["ARN"]["#text"]
-        : output["ARN"];
+    contents.ARN = output["ARN"];
   }
   if (output.AliasICPRecordals === "") {
     contents.AliasICPRecordals = [];
@@ -12720,12 +12148,8 @@ const deserializeAws_restXmlDistributionSummary = (
     output["AliasICPRecordals"] !== undefined &&
     output["AliasICPRecordals"]["AliasICPRecordal"] !== undefined
   ) {
-    const wrappedItem =
-      output["AliasICPRecordals"]["AliasICPRecordal"] instanceof Array
-        ? output["AliasICPRecordals"]["AliasICPRecordal"]
-        : [output["AliasICPRecordals"]["AliasICPRecordal"]];
     contents.AliasICPRecordals = deserializeAws_restXmlAliasICPRecordals(
-      wrappedItem,
+      __getArrayIfSingleItem(output["AliasICPRecordals"]["AliasICPRecordal"]),
       context
     );
   }
@@ -12742,10 +12166,7 @@ const deserializeAws_restXmlDistributionSummary = (
     );
   }
   if (output["Comment"] !== undefined) {
-    contents.Comment =
-      output["Comment"]["#text"] !== undefined
-        ? output["Comment"]["#text"]
-        : output["Comment"];
+    contents.Comment = output["Comment"];
   }
   if (output["CustomErrorResponses"] !== undefined) {
     contents.CustomErrorResponses = deserializeAws_restXmlCustomErrorResponses(
@@ -12760,34 +12181,19 @@ const deserializeAws_restXmlDistributionSummary = (
     );
   }
   if (output["DomainName"] !== undefined) {
-    contents.DomainName =
-      output["DomainName"]["#text"] !== undefined
-        ? output["DomainName"]["#text"]
-        : output["DomainName"];
+    contents.DomainName = output["DomainName"];
   }
   if (output["Enabled"] !== undefined) {
-    contents.Enabled =
-      (output["Enabled"]["#text"] !== undefined
-        ? output["Enabled"]["#text"]
-        : output["Enabled"]) == "true";
+    contents.Enabled = output["Enabled"] == "true";
   }
   if (output["HttpVersion"] !== undefined) {
-    contents.HttpVersion =
-      output["HttpVersion"]["#text"] !== undefined
-        ? output["HttpVersion"]["#text"]
-        : output["HttpVersion"];
+    contents.HttpVersion = output["HttpVersion"];
   }
   if (output["Id"] !== undefined) {
-    contents.Id =
-      output["Id"]["#text"] !== undefined
-        ? output["Id"]["#text"]
-        : output["Id"];
+    contents.Id = output["Id"];
   }
   if (output["IsIPV6Enabled"] !== undefined) {
-    contents.IsIPV6Enabled =
-      (output["IsIPV6Enabled"]["#text"] !== undefined
-        ? output["IsIPV6Enabled"]["#text"]
-        : output["IsIPV6Enabled"]) == "true";
+    contents.IsIPV6Enabled = output["IsIPV6Enabled"] == "true";
   }
   if (output["LastModifiedTime"] !== undefined) {
     contents.LastModifiedTime = new Date(output["LastModifiedTime"]);
@@ -12805,10 +12211,7 @@ const deserializeAws_restXmlDistributionSummary = (
     );
   }
   if (output["PriceClass"] !== undefined) {
-    contents.PriceClass =
-      output["PriceClass"]["#text"] !== undefined
-        ? output["PriceClass"]["#text"]
-        : output["PriceClass"];
+    contents.PriceClass = output["PriceClass"];
   }
   if (output["Restrictions"] !== undefined) {
     contents.Restrictions = deserializeAws_restXmlRestrictions(
@@ -12817,10 +12220,7 @@ const deserializeAws_restXmlDistributionSummary = (
     );
   }
   if (output["Status"] !== undefined) {
-    contents.Status =
-      output["Status"]["#text"] !== undefined
-        ? output["Status"]["#text"]
-        : output["Status"];
+    contents.Status = output["Status"];
   }
   if (output["ViewerCertificate"] !== undefined) {
     contents.ViewerCertificate = deserializeAws_restXmlViewerCertificate(
@@ -12829,10 +12229,7 @@ const deserializeAws_restXmlDistributionSummary = (
     );
   }
   if (output["WebACLId"] !== undefined) {
-    contents.WebACLId =
-      output["WebACLId"]["#text"] !== undefined
-        ? output["WebACLId"]["#text"]
-        : output["WebACLId"];
+    contents.WebACLId = output["WebACLId"];
   }
   return contents;
 };
@@ -12840,12 +12237,10 @@ const deserializeAws_restXmlDistributionSummary = (
 const deserializeAws_restXmlDistributionSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<DistributionSummary> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_restXmlDistributionSummary(entry, context));
-  });
-  return contents;
+): DistributionSummary[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restXmlDistributionSummary(entry, context)
+  );
 };
 
 const deserializeAws_restXmlEncryptionEntities = (
@@ -12864,21 +12259,13 @@ const deserializeAws_restXmlEncryptionEntities = (
     output["Items"] !== undefined &&
     output["Items"]["EncryptionEntity"] !== undefined
   ) {
-    const wrappedItem =
-      output["Items"]["EncryptionEntity"] instanceof Array
-        ? output["Items"]["EncryptionEntity"]
-        : [output["Items"]["EncryptionEntity"]];
     contents.Items = deserializeAws_restXmlEncryptionEntityList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Items"]["EncryptionEntity"]),
       context
     );
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -12900,16 +12287,10 @@ const deserializeAws_restXmlEncryptionEntity = (
     );
   }
   if (output["ProviderId"] !== undefined) {
-    contents.ProviderId =
-      output["ProviderId"]["#text"] !== undefined
-        ? output["ProviderId"]["#text"]
-        : output["ProviderId"];
+    contents.ProviderId = output["ProviderId"];
   }
   if (output["PublicKeyId"] !== undefined) {
-    contents.PublicKeyId =
-      output["PublicKeyId"]["#text"] !== undefined
-        ? output["PublicKeyId"]["#text"]
-        : output["PublicKeyId"];
+    contents.PublicKeyId = output["PublicKeyId"];
   }
   return contents;
 };
@@ -12917,12 +12298,10 @@ const deserializeAws_restXmlEncryptionEntity = (
 const deserializeAws_restXmlEncryptionEntityList = (
   output: any,
   context: __SerdeContext
-): Array<EncryptionEntity> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_restXmlEncryptionEntity(entry, context));
-  });
-  return contents;
+): EncryptionEntity[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restXmlEncryptionEntity(entry, context)
+  );
 };
 
 const deserializeAws_restXmlFieldLevelEncryption = (
@@ -12942,10 +12321,7 @@ const deserializeAws_restXmlFieldLevelEncryption = (
     );
   }
   if (output["Id"] !== undefined) {
-    contents.Id =
-      output["Id"]["#text"] !== undefined
-        ? output["Id"]["#text"]
-        : output["Id"];
+    contents.Id = output["Id"];
   }
   if (output["LastModifiedTime"] !== undefined) {
     contents.LastModifiedTime = new Date(output["LastModifiedTime"]);
@@ -12965,16 +12341,10 @@ const deserializeAws_restXmlFieldLevelEncryptionConfig = (
     QueryArgProfileConfig: undefined
   };
   if (output["CallerReference"] !== undefined) {
-    contents.CallerReference =
-      output["CallerReference"]["#text"] !== undefined
-        ? output["CallerReference"]["#text"]
-        : output["CallerReference"];
+    contents.CallerReference = output["CallerReference"];
   }
   if (output["Comment"] !== undefined) {
-    contents.Comment =
-      output["Comment"]["#text"] !== undefined
-        ? output["Comment"]["#text"]
-        : output["Comment"];
+    contents.Comment = output["Comment"];
   }
   if (output["ContentTypeProfileConfig"] !== undefined) {
     contents.ContentTypeProfileConfig = deserializeAws_restXmlContentTypeProfileConfig(
@@ -13009,34 +12379,19 @@ const deserializeAws_restXmlFieldLevelEncryptionList = (
     output["Items"] !== undefined &&
     output["Items"]["FieldLevelEncryptionSummary"] !== undefined
   ) {
-    const wrappedItem =
-      output["Items"]["FieldLevelEncryptionSummary"] instanceof Array
-        ? output["Items"]["FieldLevelEncryptionSummary"]
-        : [output["Items"]["FieldLevelEncryptionSummary"]];
     contents.Items = deserializeAws_restXmlFieldLevelEncryptionSummaryList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Items"]["FieldLevelEncryptionSummary"]),
       context
     );
   }
   if (output["MaxItems"] !== undefined) {
-    contents.MaxItems = parseInt(
-      output["MaxItems"]["#text"] !== undefined
-        ? output["MaxItems"]["#text"]
-        : output["MaxItems"]
-    );
+    contents.MaxItems = parseInt(output["MaxItems"]);
   }
   if (output["NextMarker"] !== undefined) {
-    contents.NextMarker =
-      output["NextMarker"]["#text"] !== undefined
-        ? output["NextMarker"]["#text"]
-        : output["NextMarker"];
+    contents.NextMarker = output["NextMarker"];
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -13058,10 +12413,7 @@ const deserializeAws_restXmlFieldLevelEncryptionProfile = (
     );
   }
   if (output["Id"] !== undefined) {
-    contents.Id =
-      output["Id"]["#text"] !== undefined
-        ? output["Id"]["#text"]
-        : output["Id"];
+    contents.Id = output["Id"];
   }
   if (output["LastModifiedTime"] !== undefined) {
     contents.LastModifiedTime = new Date(output["LastModifiedTime"]);
@@ -13081,16 +12433,10 @@ const deserializeAws_restXmlFieldLevelEncryptionProfileConfig = (
     Name: undefined
   };
   if (output["CallerReference"] !== undefined) {
-    contents.CallerReference =
-      output["CallerReference"]["#text"] !== undefined
-        ? output["CallerReference"]["#text"]
-        : output["CallerReference"];
+    contents.CallerReference = output["CallerReference"];
   }
   if (output["Comment"] !== undefined) {
-    contents.Comment =
-      output["Comment"]["#text"] !== undefined
-        ? output["Comment"]["#text"]
-        : output["Comment"];
+    contents.Comment = output["Comment"];
   }
   if (output["EncryptionEntities"] !== undefined) {
     contents.EncryptionEntities = deserializeAws_restXmlEncryptionEntities(
@@ -13099,10 +12445,7 @@ const deserializeAws_restXmlFieldLevelEncryptionProfileConfig = (
     );
   }
   if (output["Name"] !== undefined) {
-    contents.Name =
-      output["Name"]["#text"] !== undefined
-        ? output["Name"]["#text"]
-        : output["Name"];
+    contents.Name = output["Name"];
   }
   return contents;
 };
@@ -13125,34 +12468,21 @@ const deserializeAws_restXmlFieldLevelEncryptionProfileList = (
     output["Items"] !== undefined &&
     output["Items"]["FieldLevelEncryptionProfileSummary"] !== undefined
   ) {
-    const wrappedItem =
-      output["Items"]["FieldLevelEncryptionProfileSummary"] instanceof Array
-        ? output["Items"]["FieldLevelEncryptionProfileSummary"]
-        : [output["Items"]["FieldLevelEncryptionProfileSummary"]];
     contents.Items = deserializeAws_restXmlFieldLevelEncryptionProfileSummaryList(
-      wrappedItem,
+      __getArrayIfSingleItem(
+        output["Items"]["FieldLevelEncryptionProfileSummary"]
+      ),
       context
     );
   }
   if (output["MaxItems"] !== undefined) {
-    contents.MaxItems = parseInt(
-      output["MaxItems"]["#text"] !== undefined
-        ? output["MaxItems"]["#text"]
-        : output["MaxItems"]
-    );
+    contents.MaxItems = parseInt(output["MaxItems"]);
   }
   if (output["NextMarker"] !== undefined) {
-    contents.NextMarker =
-      output["NextMarker"]["#text"] !== undefined
-        ? output["NextMarker"]["#text"]
-        : output["NextMarker"];
+    contents.NextMarker = output["NextMarker"];
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -13170,10 +12500,7 @@ const deserializeAws_restXmlFieldLevelEncryptionProfileSummary = (
     Name: undefined
   };
   if (output["Comment"] !== undefined) {
-    contents.Comment =
-      output["Comment"]["#text"] !== undefined
-        ? output["Comment"]["#text"]
-        : output["Comment"];
+    contents.Comment = output["Comment"];
   }
   if (output["EncryptionEntities"] !== undefined) {
     contents.EncryptionEntities = deserializeAws_restXmlEncryptionEntities(
@@ -13182,19 +12509,13 @@ const deserializeAws_restXmlFieldLevelEncryptionProfileSummary = (
     );
   }
   if (output["Id"] !== undefined) {
-    contents.Id =
-      output["Id"]["#text"] !== undefined
-        ? output["Id"]["#text"]
-        : output["Id"];
+    contents.Id = output["Id"];
   }
   if (output["LastModifiedTime"] !== undefined) {
     contents.LastModifiedTime = new Date(output["LastModifiedTime"]);
   }
   if (output["Name"] !== undefined) {
-    contents.Name =
-      output["Name"]["#text"] !== undefined
-        ? output["Name"]["#text"]
-        : output["Name"];
+    contents.Name = output["Name"];
   }
   return contents;
 };
@@ -13202,14 +12523,10 @@ const deserializeAws_restXmlFieldLevelEncryptionProfileSummary = (
 const deserializeAws_restXmlFieldLevelEncryptionProfileSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<FieldLevelEncryptionProfileSummary> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      deserializeAws_restXmlFieldLevelEncryptionProfileSummary(entry, context)
-    );
-  });
-  return contents;
+): FieldLevelEncryptionProfileSummary[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restXmlFieldLevelEncryptionProfileSummary(entry, context)
+  );
 };
 
 const deserializeAws_restXmlFieldLevelEncryptionSummary = (
@@ -13225,10 +12542,7 @@ const deserializeAws_restXmlFieldLevelEncryptionSummary = (
     QueryArgProfileConfig: undefined
   };
   if (output["Comment"] !== undefined) {
-    contents.Comment =
-      output["Comment"]["#text"] !== undefined
-        ? output["Comment"]["#text"]
-        : output["Comment"];
+    contents.Comment = output["Comment"];
   }
   if (output["ContentTypeProfileConfig"] !== undefined) {
     contents.ContentTypeProfileConfig = deserializeAws_restXmlContentTypeProfileConfig(
@@ -13237,10 +12551,7 @@ const deserializeAws_restXmlFieldLevelEncryptionSummary = (
     );
   }
   if (output["Id"] !== undefined) {
-    contents.Id =
-      output["Id"]["#text"] !== undefined
-        ? output["Id"]["#text"]
-        : output["Id"];
+    contents.Id = output["Id"];
   }
   if (output["LastModifiedTime"] !== undefined) {
     contents.LastModifiedTime = new Date(output["LastModifiedTime"]);
@@ -13257,25 +12568,17 @@ const deserializeAws_restXmlFieldLevelEncryptionSummary = (
 const deserializeAws_restXmlFieldLevelEncryptionSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<FieldLevelEncryptionSummary> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      deserializeAws_restXmlFieldLevelEncryptionSummary(entry, context)
-    );
-  });
-  return contents;
+): FieldLevelEncryptionSummary[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restXmlFieldLevelEncryptionSummary(entry, context)
+  );
 };
 
 const deserializeAws_restXmlFieldPatternList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restXmlFieldPatterns = (
@@ -13294,21 +12597,13 @@ const deserializeAws_restXmlFieldPatterns = (
     output["Items"] !== undefined &&
     output["Items"]["FieldPattern"] !== undefined
   ) {
-    const wrappedItem =
-      output["Items"]["FieldPattern"] instanceof Array
-        ? output["Items"]["FieldPattern"]
-        : [output["Items"]["FieldPattern"]];
     contents.Items = deserializeAws_restXmlFieldPatternList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Items"]["FieldPattern"]),
       context
     );
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -13337,10 +12632,7 @@ const deserializeAws_restXmlForwardedValues = (
     );
   }
   if (output["QueryString"] !== undefined) {
-    contents.QueryString =
-      (output["QueryString"]["#text"] !== undefined
-        ? output["QueryString"]["#text"]
-        : output["QueryString"]) == "true";
+    contents.QueryString = output["QueryString"] == "true";
   }
   if (output["QueryStringCacheKeys"] !== undefined) {
     contents.QueryStringCacheKeys = deserializeAws_restXmlQueryStringCacheKeys(
@@ -13368,24 +12660,16 @@ const deserializeAws_restXmlGeoRestriction = (
     output["Items"] !== undefined &&
     output["Items"]["Location"] !== undefined
   ) {
-    const wrappedItem =
-      output["Items"]["Location"] instanceof Array
-        ? output["Items"]["Location"]
-        : [output["Items"]["Location"]];
-    contents.Items = deserializeAws_restXmlLocationList(wrappedItem, context);
-  }
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
+    contents.Items = deserializeAws_restXmlLocationList(
+      __getArrayIfSingleItem(output["Items"]["Location"]),
+      context
     );
   }
+  if (output["Quantity"] !== undefined) {
+    contents.Quantity = parseInt(output["Quantity"]);
+  }
   if (output["RestrictionType"] !== undefined) {
-    contents.RestrictionType =
-      output["RestrictionType"]["#text"] !== undefined
-        ? output["RestrictionType"]["#text"]
-        : output["RestrictionType"];
+    contents.RestrictionType = output["RestrictionType"];
   }
   return contents;
 };
@@ -13393,12 +12677,8 @@ const deserializeAws_restXmlGeoRestriction = (
 const deserializeAws_restXmlHeaderList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restXmlHeaders = (
@@ -13414,18 +12694,13 @@ const deserializeAws_restXmlHeaders = (
     contents.Items = [];
   }
   if (output["Items"] !== undefined && output["Items"]["Name"] !== undefined) {
-    const wrappedItem =
-      output["Items"]["Name"] instanceof Array
-        ? output["Items"]["Name"]
-        : [output["Items"]["Name"]];
-    contents.Items = deserializeAws_restXmlHeaderList(wrappedItem, context);
+    contents.Items = deserializeAws_restXmlHeaderList(
+      __getArrayIfSingleItem(output["Items"]["Name"]),
+      context
+    );
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -13445,10 +12720,7 @@ const deserializeAws_restXmlInvalidation = (
     contents.CreateTime = new Date(output["CreateTime"]);
   }
   if (output["Id"] !== undefined) {
-    contents.Id =
-      output["Id"]["#text"] !== undefined
-        ? output["Id"]["#text"]
-        : output["Id"];
+    contents.Id = output["Id"];
   }
   if (output["InvalidationBatch"] !== undefined) {
     contents.InvalidationBatch = deserializeAws_restXmlInvalidationBatch(
@@ -13457,10 +12729,7 @@ const deserializeAws_restXmlInvalidation = (
     );
   }
   if (output["Status"] !== undefined) {
-    contents.Status =
-      output["Status"]["#text"] !== undefined
-        ? output["Status"]["#text"]
-        : output["Status"];
+    contents.Status = output["Status"];
   }
   return contents;
 };
@@ -13475,10 +12744,7 @@ const deserializeAws_restXmlInvalidationBatch = (
     Paths: undefined
   };
   if (output["CallerReference"] !== undefined) {
-    contents.CallerReference =
-      output["CallerReference"]["#text"] !== undefined
-        ? output["CallerReference"]["#text"]
-        : output["CallerReference"];
+    contents.CallerReference = output["CallerReference"];
   }
   if (output["Paths"] !== undefined) {
     contents.Paths = deserializeAws_restXmlPaths(output["Paths"], context);
@@ -13500,10 +12766,7 @@ const deserializeAws_restXmlInvalidationList = (
     Quantity: undefined
   };
   if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated =
-      (output["IsTruncated"]["#text"] !== undefined
-        ? output["IsTruncated"]["#text"]
-        : output["IsTruncated"]) == "true";
+    contents.IsTruncated = output["IsTruncated"] == "true";
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -13512,40 +12775,22 @@ const deserializeAws_restXmlInvalidationList = (
     output["Items"] !== undefined &&
     output["Items"]["InvalidationSummary"] !== undefined
   ) {
-    const wrappedItem =
-      output["Items"]["InvalidationSummary"] instanceof Array
-        ? output["Items"]["InvalidationSummary"]
-        : [output["Items"]["InvalidationSummary"]];
     contents.Items = deserializeAws_restXmlInvalidationSummaryList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Items"]["InvalidationSummary"]),
       context
     );
   }
   if (output["Marker"] !== undefined) {
-    contents.Marker =
-      output["Marker"]["#text"] !== undefined
-        ? output["Marker"]["#text"]
-        : output["Marker"];
+    contents.Marker = output["Marker"];
   }
   if (output["MaxItems"] !== undefined) {
-    contents.MaxItems = parseInt(
-      output["MaxItems"]["#text"] !== undefined
-        ? output["MaxItems"]["#text"]
-        : output["MaxItems"]
-    );
+    contents.MaxItems = parseInt(output["MaxItems"]);
   }
   if (output["NextMarker"] !== undefined) {
-    contents.NextMarker =
-      output["NextMarker"]["#text"] !== undefined
-        ? output["NextMarker"]["#text"]
-        : output["NextMarker"];
+    contents.NextMarker = output["NextMarker"];
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -13564,16 +12809,10 @@ const deserializeAws_restXmlInvalidationSummary = (
     contents.CreateTime = new Date(output["CreateTime"]);
   }
   if (output["Id"] !== undefined) {
-    contents.Id =
-      output["Id"]["#text"] !== undefined
-        ? output["Id"]["#text"]
-        : output["Id"];
+    contents.Id = output["Id"];
   }
   if (output["Status"] !== undefined) {
-    contents.Status =
-      output["Status"]["#text"] !== undefined
-        ? output["Status"]["#text"]
-        : output["Status"];
+    contents.Status = output["Status"];
   }
   return contents;
 };
@@ -13581,23 +12820,17 @@ const deserializeAws_restXmlInvalidationSummary = (
 const deserializeAws_restXmlInvalidationSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<InvalidationSummary> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_restXmlInvalidationSummary(entry, context));
-  });
-  return contents;
+): InvalidationSummary[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restXmlInvalidationSummary(entry, context)
+  );
 };
 
 const deserializeAws_restXmlKeyPairIdList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restXmlKeyPairIds = (
@@ -13616,18 +12849,13 @@ const deserializeAws_restXmlKeyPairIds = (
     output["Items"] !== undefined &&
     output["Items"]["KeyPairId"] !== undefined
   ) {
-    const wrappedItem =
-      output["Items"]["KeyPairId"] instanceof Array
-        ? output["Items"]["KeyPairId"]
-        : [output["Items"]["KeyPairId"]];
-    contents.Items = deserializeAws_restXmlKeyPairIdList(wrappedItem, context);
+    contents.Items = deserializeAws_restXmlKeyPairIdList(
+      __getArrayIfSingleItem(output["Items"]["KeyPairId"]),
+      context
+    );
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -13643,22 +12871,13 @@ const deserializeAws_restXmlLambdaFunctionAssociation = (
     LambdaFunctionARN: undefined
   };
   if (output["EventType"] !== undefined) {
-    contents.EventType =
-      output["EventType"]["#text"] !== undefined
-        ? output["EventType"]["#text"]
-        : output["EventType"];
+    contents.EventType = output["EventType"];
   }
   if (output["IncludeBody"] !== undefined) {
-    contents.IncludeBody =
-      (output["IncludeBody"]["#text"] !== undefined
-        ? output["IncludeBody"]["#text"]
-        : output["IncludeBody"]) == "true";
+    contents.IncludeBody = output["IncludeBody"] == "true";
   }
   if (output["LambdaFunctionARN"] !== undefined) {
-    contents.LambdaFunctionARN =
-      output["LambdaFunctionARN"]["#text"] !== undefined
-        ? output["LambdaFunctionARN"]["#text"]
-        : output["LambdaFunctionARN"];
+    contents.LambdaFunctionARN = output["LambdaFunctionARN"];
   }
   return contents;
 };
@@ -13666,14 +12885,10 @@ const deserializeAws_restXmlLambdaFunctionAssociation = (
 const deserializeAws_restXmlLambdaFunctionAssociationList = (
   output: any,
   context: __SerdeContext
-): Array<LambdaFunctionAssociation> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      deserializeAws_restXmlLambdaFunctionAssociation(entry, context)
-    );
-  });
-  return contents;
+): LambdaFunctionAssociation[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restXmlLambdaFunctionAssociation(entry, context)
+  );
 };
 
 const deserializeAws_restXmlLambdaFunctionAssociations = (
@@ -13692,21 +12907,13 @@ const deserializeAws_restXmlLambdaFunctionAssociations = (
     output["Items"] !== undefined &&
     output["Items"]["LambdaFunctionAssociation"] !== undefined
   ) {
-    const wrappedItem =
-      output["Items"]["LambdaFunctionAssociation"] instanceof Array
-        ? output["Items"]["LambdaFunctionAssociation"]
-        : [output["Items"]["LambdaFunctionAssociation"]];
     contents.Items = deserializeAws_restXmlLambdaFunctionAssociationList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Items"]["LambdaFunctionAssociation"]),
       context
     );
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -13714,12 +12921,8 @@ const deserializeAws_restXmlLambdaFunctionAssociations = (
 const deserializeAws_restXmlLocationList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restXmlLoggingConfig = (
@@ -13734,28 +12937,16 @@ const deserializeAws_restXmlLoggingConfig = (
     Prefix: undefined
   };
   if (output["Bucket"] !== undefined) {
-    contents.Bucket =
-      output["Bucket"]["#text"] !== undefined
-        ? output["Bucket"]["#text"]
-        : output["Bucket"];
+    contents.Bucket = output["Bucket"];
   }
   if (output["Enabled"] !== undefined) {
-    contents.Enabled =
-      (output["Enabled"]["#text"] !== undefined
-        ? output["Enabled"]["#text"]
-        : output["Enabled"]) == "true";
+    contents.Enabled = output["Enabled"] == "true";
   }
   if (output["IncludeCookies"] !== undefined) {
-    contents.IncludeCookies =
-      (output["IncludeCookies"]["#text"] !== undefined
-        ? output["IncludeCookies"]["#text"]
-        : output["IncludeCookies"]) == "true";
+    contents.IncludeCookies = output["IncludeCookies"] == "true";
   }
   if (output["Prefix"] !== undefined) {
-    contents.Prefix =
-      output["Prefix"]["#text"] !== undefined
-        ? output["Prefix"]["#text"]
-        : output["Prefix"];
+    contents.Prefix = output["Prefix"];
   }
   return contents;
 };
@@ -13763,12 +12954,8 @@ const deserializeAws_restXmlLoggingConfig = (
 const deserializeAws_restXmlMethodsList = (
   output: any,
   context: __SerdeContext
-): Array<Method | string> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+): (Method | string)[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restXmlOrigin = (
@@ -13797,22 +12984,13 @@ const deserializeAws_restXmlOrigin = (
     );
   }
   if (output["DomainName"] !== undefined) {
-    contents.DomainName =
-      output["DomainName"]["#text"] !== undefined
-        ? output["DomainName"]["#text"]
-        : output["DomainName"];
+    contents.DomainName = output["DomainName"];
   }
   if (output["Id"] !== undefined) {
-    contents.Id =
-      output["Id"]["#text"] !== undefined
-        ? output["Id"]["#text"]
-        : output["Id"];
+    contents.Id = output["Id"];
   }
   if (output["OriginPath"] !== undefined) {
-    contents.OriginPath =
-      output["OriginPath"]["#text"] !== undefined
-        ? output["OriginPath"]["#text"]
-        : output["OriginPath"];
+    contents.OriginPath = output["OriginPath"];
   }
   if (output["S3OriginConfig"] !== undefined) {
     contents.S3OriginConfig = deserializeAws_restXmlS3OriginConfig(
@@ -13833,16 +13011,10 @@ const deserializeAws_restXmlOriginCustomHeader = (
     HeaderValue: undefined
   };
   if (output["HeaderName"] !== undefined) {
-    contents.HeaderName =
-      output["HeaderName"]["#text"] !== undefined
-        ? output["HeaderName"]["#text"]
-        : output["HeaderName"];
+    contents.HeaderName = output["HeaderName"];
   }
   if (output["HeaderValue"] !== undefined) {
-    contents.HeaderValue =
-      output["HeaderValue"]["#text"] !== undefined
-        ? output["HeaderValue"]["#text"]
-        : output["HeaderValue"];
+    contents.HeaderValue = output["HeaderValue"];
   }
   return contents;
 };
@@ -13850,12 +13022,10 @@ const deserializeAws_restXmlOriginCustomHeader = (
 const deserializeAws_restXmlOriginCustomHeadersList = (
   output: any,
   context: __SerdeContext
-): Array<OriginCustomHeader> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_restXmlOriginCustomHeader(entry, context));
-  });
-  return contents;
+): OriginCustomHeader[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restXmlOriginCustomHeader(entry, context)
+  );
 };
 
 const deserializeAws_restXmlOriginGroup = (
@@ -13875,10 +13045,7 @@ const deserializeAws_restXmlOriginGroup = (
     );
   }
   if (output["Id"] !== undefined) {
-    contents.Id =
-      output["Id"]["#text"] !== undefined
-        ? output["Id"]["#text"]
-        : output["Id"];
+    contents.Id = output["Id"];
   }
   if (output["Members"] !== undefined) {
     contents.Members = deserializeAws_restXmlOriginGroupMembers(
@@ -13909,12 +13076,10 @@ const deserializeAws_restXmlOriginGroupFailoverCriteria = (
 const deserializeAws_restXmlOriginGroupList = (
   output: any,
   context: __SerdeContext
-): Array<OriginGroup> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_restXmlOriginGroup(entry, context));
-  });
-  return contents;
+): OriginGroup[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restXmlOriginGroup(entry, context)
+  );
 };
 
 const deserializeAws_restXmlOriginGroupMember = (
@@ -13926,10 +13091,7 @@ const deserializeAws_restXmlOriginGroupMember = (
     OriginId: undefined
   };
   if (output["OriginId"] !== undefined) {
-    contents.OriginId =
-      output["OriginId"]["#text"] !== undefined
-        ? output["OriginId"]["#text"]
-        : output["OriginId"];
+    contents.OriginId = output["OriginId"];
   }
   return contents;
 };
@@ -13937,12 +13099,10 @@ const deserializeAws_restXmlOriginGroupMember = (
 const deserializeAws_restXmlOriginGroupMemberList = (
   output: any,
   context: __SerdeContext
-): Array<OriginGroupMember> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_restXmlOriginGroupMember(entry, context));
-  });
-  return contents;
+): OriginGroupMember[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restXmlOriginGroupMember(entry, context)
+  );
 };
 
 const deserializeAws_restXmlOriginGroupMembers = (
@@ -13961,21 +13121,13 @@ const deserializeAws_restXmlOriginGroupMembers = (
     output["Items"] !== undefined &&
     output["Items"]["OriginGroupMember"] !== undefined
   ) {
-    const wrappedItem =
-      output["Items"]["OriginGroupMember"] instanceof Array
-        ? output["Items"]["OriginGroupMember"]
-        : [output["Items"]["OriginGroupMember"]];
     contents.Items = deserializeAws_restXmlOriginGroupMemberList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Items"]["OriginGroupMember"]),
       context
     );
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -13996,21 +13148,13 @@ const deserializeAws_restXmlOriginGroups = (
     output["Items"] !== undefined &&
     output["Items"]["OriginGroup"] !== undefined
   ) {
-    const wrappedItem =
-      output["Items"]["OriginGroup"] instanceof Array
-        ? output["Items"]["OriginGroup"]
-        : [output["Items"]["OriginGroup"]];
     contents.Items = deserializeAws_restXmlOriginGroupList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Items"]["OriginGroup"]),
       context
     );
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -14018,12 +13162,10 @@ const deserializeAws_restXmlOriginGroups = (
 const deserializeAws_restXmlOriginList = (
   output: any,
   context: __SerdeContext
-): Array<Origin> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_restXmlOrigin(entry, context));
-  });
-  return contents;
+): Origin[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restXmlOrigin(entry, context)
+  );
 };
 
 const deserializeAws_restXmlOriginSslProtocols = (
@@ -14042,21 +13184,13 @@ const deserializeAws_restXmlOriginSslProtocols = (
     output["Items"] !== undefined &&
     output["Items"]["SslProtocol"] !== undefined
   ) {
-    const wrappedItem =
-      output["Items"]["SslProtocol"] instanceof Array
-        ? output["Items"]["SslProtocol"]
-        : [output["Items"]["SslProtocol"]];
     contents.Items = deserializeAws_restXmlSslProtocolsList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Items"]["SslProtocol"]),
       context
     );
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -14077,18 +13211,13 @@ const deserializeAws_restXmlOrigins = (
     output["Items"] !== undefined &&
     output["Items"]["Origin"] !== undefined
   ) {
-    const wrappedItem =
-      output["Items"]["Origin"] instanceof Array
-        ? output["Items"]["Origin"]
-        : [output["Items"]["Origin"]];
-    contents.Items = deserializeAws_restXmlOriginList(wrappedItem, context);
+    contents.Items = deserializeAws_restXmlOriginList(
+      __getArrayIfSingleItem(output["Items"]["Origin"]),
+      context
+    );
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -14096,12 +13225,8 @@ const deserializeAws_restXmlOrigins = (
 const deserializeAws_restXmlPathList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restXmlPaths = (
@@ -14117,18 +13242,13 @@ const deserializeAws_restXmlPaths = (
     contents.Items = [];
   }
   if (output["Items"] !== undefined && output["Items"]["Path"] !== undefined) {
-    const wrappedItem =
-      output["Items"]["Path"] instanceof Array
-        ? output["Items"]["Path"]
-        : [output["Items"]["Path"]];
-    contents.Items = deserializeAws_restXmlPathList(wrappedItem, context);
+    contents.Items = deserializeAws_restXmlPathList(
+      __getArrayIfSingleItem(output["Items"]["Path"]),
+      context
+    );
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -14147,10 +13267,7 @@ const deserializeAws_restXmlPublicKey = (
     contents.CreatedTime = new Date(output["CreatedTime"]);
   }
   if (output["Id"] !== undefined) {
-    contents.Id =
-      output["Id"]["#text"] !== undefined
-        ? output["Id"]["#text"]
-        : output["Id"];
+    contents.Id = output["Id"];
   }
   if (output["PublicKeyConfig"] !== undefined) {
     contents.PublicKeyConfig = deserializeAws_restXmlPublicKeyConfig(
@@ -14173,28 +13290,16 @@ const deserializeAws_restXmlPublicKeyConfig = (
     Name: undefined
   };
   if (output["CallerReference"] !== undefined) {
-    contents.CallerReference =
-      output["CallerReference"]["#text"] !== undefined
-        ? output["CallerReference"]["#text"]
-        : output["CallerReference"];
+    contents.CallerReference = output["CallerReference"];
   }
   if (output["Comment"] !== undefined) {
-    contents.Comment =
-      output["Comment"]["#text"] !== undefined
-        ? output["Comment"]["#text"]
-        : output["Comment"];
+    contents.Comment = output["Comment"];
   }
   if (output["EncodedKey"] !== undefined) {
-    contents.EncodedKey =
-      output["EncodedKey"]["#text"] !== undefined
-        ? output["EncodedKey"]["#text"]
-        : output["EncodedKey"];
+    contents.EncodedKey = output["EncodedKey"];
   }
   if (output["Name"] !== undefined) {
-    contents.Name =
-      output["Name"]["#text"] !== undefined
-        ? output["Name"]["#text"]
-        : output["Name"];
+    contents.Name = output["Name"];
   }
   return contents;
 };
@@ -14217,34 +13322,19 @@ const deserializeAws_restXmlPublicKeyList = (
     output["Items"] !== undefined &&
     output["Items"]["PublicKeySummary"] !== undefined
   ) {
-    const wrappedItem =
-      output["Items"]["PublicKeySummary"] instanceof Array
-        ? output["Items"]["PublicKeySummary"]
-        : [output["Items"]["PublicKeySummary"]];
     contents.Items = deserializeAws_restXmlPublicKeySummaryList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Items"]["PublicKeySummary"]),
       context
     );
   }
   if (output["MaxItems"] !== undefined) {
-    contents.MaxItems = parseInt(
-      output["MaxItems"]["#text"] !== undefined
-        ? output["MaxItems"]["#text"]
-        : output["MaxItems"]
-    );
+    contents.MaxItems = parseInt(output["MaxItems"]);
   }
   if (output["NextMarker"] !== undefined) {
-    contents.NextMarker =
-      output["NextMarker"]["#text"] !== undefined
-        ? output["NextMarker"]["#text"]
-        : output["NextMarker"];
+    contents.NextMarker = output["NextMarker"];
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -14262,31 +13352,19 @@ const deserializeAws_restXmlPublicKeySummary = (
     Name: undefined
   };
   if (output["Comment"] !== undefined) {
-    contents.Comment =
-      output["Comment"]["#text"] !== undefined
-        ? output["Comment"]["#text"]
-        : output["Comment"];
+    contents.Comment = output["Comment"];
   }
   if (output["CreatedTime"] !== undefined) {
     contents.CreatedTime = new Date(output["CreatedTime"]);
   }
   if (output["EncodedKey"] !== undefined) {
-    contents.EncodedKey =
-      output["EncodedKey"]["#text"] !== undefined
-        ? output["EncodedKey"]["#text"]
-        : output["EncodedKey"];
+    contents.EncodedKey = output["EncodedKey"];
   }
   if (output["Id"] !== undefined) {
-    contents.Id =
-      output["Id"]["#text"] !== undefined
-        ? output["Id"]["#text"]
-        : output["Id"];
+    contents.Id = output["Id"];
   }
   if (output["Name"] !== undefined) {
-    contents.Name =
-      output["Name"]["#text"] !== undefined
-        ? output["Name"]["#text"]
-        : output["Name"];
+    contents.Name = output["Name"];
   }
   return contents;
 };
@@ -14294,12 +13372,10 @@ const deserializeAws_restXmlPublicKeySummary = (
 const deserializeAws_restXmlPublicKeySummaryList = (
   output: any,
   context: __SerdeContext
-): Array<PublicKeySummary> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_restXmlPublicKeySummary(entry, context));
-  });
-  return contents;
+): PublicKeySummary[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restXmlPublicKeySummary(entry, context)
+  );
 };
 
 const deserializeAws_restXmlQueryArgProfile = (
@@ -14312,16 +13388,10 @@ const deserializeAws_restXmlQueryArgProfile = (
     QueryArg: undefined
   };
   if (output["ProfileId"] !== undefined) {
-    contents.ProfileId =
-      output["ProfileId"]["#text"] !== undefined
-        ? output["ProfileId"]["#text"]
-        : output["ProfileId"];
+    contents.ProfileId = output["ProfileId"];
   }
   if (output["QueryArg"] !== undefined) {
-    contents.QueryArg =
-      output["QueryArg"]["#text"] !== undefined
-        ? output["QueryArg"]["#text"]
-        : output["QueryArg"];
+    contents.QueryArg = output["QueryArg"];
   }
   return contents;
 };
@@ -14337,9 +13407,7 @@ const deserializeAws_restXmlQueryArgProfileConfig = (
   };
   if (output["ForwardWhenQueryArgProfileIsUnknown"] !== undefined) {
     contents.ForwardWhenQueryArgProfileIsUnknown =
-      (output["ForwardWhenQueryArgProfileIsUnknown"]["#text"] !== undefined
-        ? output["ForwardWhenQueryArgProfileIsUnknown"]["#text"]
-        : output["ForwardWhenQueryArgProfileIsUnknown"]) == "true";
+      output["ForwardWhenQueryArgProfileIsUnknown"] == "true";
   }
   if (output["QueryArgProfiles"] !== undefined) {
     contents.QueryArgProfiles = deserializeAws_restXmlQueryArgProfiles(
@@ -14353,12 +13421,10 @@ const deserializeAws_restXmlQueryArgProfileConfig = (
 const deserializeAws_restXmlQueryArgProfileList = (
   output: any,
   context: __SerdeContext
-): Array<QueryArgProfile> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_restXmlQueryArgProfile(entry, context));
-  });
-  return contents;
+): QueryArgProfile[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restXmlQueryArgProfile(entry, context)
+  );
 };
 
 const deserializeAws_restXmlQueryArgProfiles = (
@@ -14377,21 +13443,13 @@ const deserializeAws_restXmlQueryArgProfiles = (
     output["Items"] !== undefined &&
     output["Items"]["QueryArgProfile"] !== undefined
   ) {
-    const wrappedItem =
-      output["Items"]["QueryArgProfile"] instanceof Array
-        ? output["Items"]["QueryArgProfile"]
-        : [output["Items"]["QueryArgProfile"]];
     contents.Items = deserializeAws_restXmlQueryArgProfileList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Items"]["QueryArgProfile"]),
       context
     );
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -14409,21 +13467,13 @@ const deserializeAws_restXmlQueryStringCacheKeys = (
     contents.Items = [];
   }
   if (output["Items"] !== undefined && output["Items"]["Name"] !== undefined) {
-    const wrappedItem =
-      output["Items"]["Name"] instanceof Array
-        ? output["Items"]["Name"]
-        : [output["Items"]["Name"]];
     contents.Items = deserializeAws_restXmlQueryStringCacheKeysList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Items"]["Name"]),
       context
     );
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -14431,12 +13481,8 @@ const deserializeAws_restXmlQueryStringCacheKeys = (
 const deserializeAws_restXmlQueryStringCacheKeysList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restXmlRestrictions = (
@@ -14466,16 +13512,10 @@ const deserializeAws_restXmlS3Origin = (
     OriginAccessIdentity: undefined
   };
   if (output["DomainName"] !== undefined) {
-    contents.DomainName =
-      output["DomainName"]["#text"] !== undefined
-        ? output["DomainName"]["#text"]
-        : output["DomainName"];
+    contents.DomainName = output["DomainName"];
   }
   if (output["OriginAccessIdentity"] !== undefined) {
-    contents.OriginAccessIdentity =
-      output["OriginAccessIdentity"]["#text"] !== undefined
-        ? output["OriginAccessIdentity"]["#text"]
-        : output["OriginAccessIdentity"];
+    contents.OriginAccessIdentity = output["OriginAccessIdentity"];
   }
   return contents;
 };
@@ -14489,10 +13529,7 @@ const deserializeAws_restXmlS3OriginConfig = (
     OriginAccessIdentity: undefined
   };
   if (output["OriginAccessIdentity"] !== undefined) {
-    contents.OriginAccessIdentity =
-      output["OriginAccessIdentity"]["#text"] !== undefined
-        ? output["OriginAccessIdentity"]["#text"]
-        : output["OriginAccessIdentity"];
+    contents.OriginAccessIdentity = output["OriginAccessIdentity"];
   }
   return contents;
 };
@@ -14507,10 +13544,7 @@ const deserializeAws_restXmlSigner = (
     KeyPairIds: undefined
   };
   if (output["AwsAccountNumber"] !== undefined) {
-    contents.AwsAccountNumber =
-      output["AwsAccountNumber"]["#text"] !== undefined
-        ? output["AwsAccountNumber"]["#text"]
-        : output["AwsAccountNumber"];
+    contents.AwsAccountNumber = output["AwsAccountNumber"];
   }
   if (output["KeyPairIds"] !== undefined) {
     contents.KeyPairIds = deserializeAws_restXmlKeyPairIds(
@@ -14524,36 +13558,24 @@ const deserializeAws_restXmlSigner = (
 const deserializeAws_restXmlSignerList = (
   output: any,
   context: __SerdeContext
-): Array<Signer> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_restXmlSigner(entry, context));
-  });
-  return contents;
+): Signer[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restXmlSigner(entry, context)
+  );
 };
 
 const deserializeAws_restXmlSslProtocolsList = (
   output: any,
   context: __SerdeContext
-): Array<SslProtocol | string> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
-  });
-  return contents;
+): (SslProtocol | string)[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restXmlStatusCodeList = (
   output: any,
   context: __SerdeContext
-): Array<number> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      parseInt(entry["#text"] !== undefined ? entry["#text"] : entry)
-    );
-  });
-  return contents;
+): number[] => {
+  return (output || []).map((entry: any) => parseInt(entry));
 };
 
 const deserializeAws_restXmlStatusCodes = (
@@ -14572,18 +13594,13 @@ const deserializeAws_restXmlStatusCodes = (
     output["Items"] !== undefined &&
     output["Items"]["StatusCode"] !== undefined
   ) {
-    const wrappedItem =
-      output["Items"]["StatusCode"] instanceof Array
-        ? output["Items"]["StatusCode"]
-        : [output["Items"]["StatusCode"]];
-    contents.Items = deserializeAws_restXmlStatusCodeList(wrappedItem, context);
+    contents.Items = deserializeAws_restXmlStatusCodeList(
+      __getArrayIfSingleItem(output["Items"]["StatusCode"]),
+      context
+    );
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -14603,10 +13620,7 @@ const deserializeAws_restXmlStreamingDistribution = (
     StreamingDistributionConfig: undefined
   };
   if (output["ARN"] !== undefined) {
-    contents.ARN =
-      output["ARN"]["#text"] !== undefined
-        ? output["ARN"]["#text"]
-        : output["ARN"];
+    contents.ARN = output["ARN"];
   }
   if (output["ActiveTrustedSigners"] !== undefined) {
     contents.ActiveTrustedSigners = deserializeAws_restXmlActiveTrustedSigners(
@@ -14615,25 +13629,16 @@ const deserializeAws_restXmlStreamingDistribution = (
     );
   }
   if (output["DomainName"] !== undefined) {
-    contents.DomainName =
-      output["DomainName"]["#text"] !== undefined
-        ? output["DomainName"]["#text"]
-        : output["DomainName"];
+    contents.DomainName = output["DomainName"];
   }
   if (output["Id"] !== undefined) {
-    contents.Id =
-      output["Id"]["#text"] !== undefined
-        ? output["Id"]["#text"]
-        : output["Id"];
+    contents.Id = output["Id"];
   }
   if (output["LastModifiedTime"] !== undefined) {
     contents.LastModifiedTime = new Date(output["LastModifiedTime"]);
   }
   if (output["Status"] !== undefined) {
-    contents.Status =
-      output["Status"]["#text"] !== undefined
-        ? output["Status"]["#text"]
-        : output["Status"];
+    contents.Status = output["Status"];
   }
   if (output["StreamingDistributionConfig"] !== undefined) {
     contents.StreamingDistributionConfig = deserializeAws_restXmlStreamingDistributionConfig(
@@ -14666,22 +13671,13 @@ const deserializeAws_restXmlStreamingDistributionConfig = (
     );
   }
   if (output["CallerReference"] !== undefined) {
-    contents.CallerReference =
-      output["CallerReference"]["#text"] !== undefined
-        ? output["CallerReference"]["#text"]
-        : output["CallerReference"];
+    contents.CallerReference = output["CallerReference"];
   }
   if (output["Comment"] !== undefined) {
-    contents.Comment =
-      output["Comment"]["#text"] !== undefined
-        ? output["Comment"]["#text"]
-        : output["Comment"];
+    contents.Comment = output["Comment"];
   }
   if (output["Enabled"] !== undefined) {
-    contents.Enabled =
-      (output["Enabled"]["#text"] !== undefined
-        ? output["Enabled"]["#text"]
-        : output["Enabled"]) == "true";
+    contents.Enabled = output["Enabled"] == "true";
   }
   if (output["Logging"] !== undefined) {
     contents.Logging = deserializeAws_restXmlStreamingLoggingConfig(
@@ -14690,10 +13686,7 @@ const deserializeAws_restXmlStreamingDistributionConfig = (
     );
   }
   if (output["PriceClass"] !== undefined) {
-    contents.PriceClass =
-      output["PriceClass"]["#text"] !== undefined
-        ? output["PriceClass"]["#text"]
-        : output["PriceClass"];
+    contents.PriceClass = output["PriceClass"];
   }
   if (output["S3Origin"] !== undefined) {
     contents.S3Origin = deserializeAws_restXmlS3Origin(
@@ -14724,10 +13717,7 @@ const deserializeAws_restXmlStreamingDistributionList = (
     Quantity: undefined
   };
   if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated =
-      (output["IsTruncated"]["#text"] !== undefined
-        ? output["IsTruncated"]["#text"]
-        : output["IsTruncated"]) == "true";
+    contents.IsTruncated = output["IsTruncated"] == "true";
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -14736,40 +13726,22 @@ const deserializeAws_restXmlStreamingDistributionList = (
     output["Items"] !== undefined &&
     output["Items"]["StreamingDistributionSummary"] !== undefined
   ) {
-    const wrappedItem =
-      output["Items"]["StreamingDistributionSummary"] instanceof Array
-        ? output["Items"]["StreamingDistributionSummary"]
-        : [output["Items"]["StreamingDistributionSummary"]];
     contents.Items = deserializeAws_restXmlStreamingDistributionSummaryList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Items"]["StreamingDistributionSummary"]),
       context
     );
   }
   if (output["Marker"] !== undefined) {
-    contents.Marker =
-      output["Marker"]["#text"] !== undefined
-        ? output["Marker"]["#text"]
-        : output["Marker"];
+    contents.Marker = output["Marker"];
   }
   if (output["MaxItems"] !== undefined) {
-    contents.MaxItems = parseInt(
-      output["MaxItems"]["#text"] !== undefined
-        ? output["MaxItems"]["#text"]
-        : output["MaxItems"]
-    );
+    contents.MaxItems = parseInt(output["MaxItems"]);
   }
   if (output["NextMarker"] !== undefined) {
-    contents.NextMarker =
-      output["NextMarker"]["#text"] !== undefined
-        ? output["NextMarker"]["#text"]
-        : output["NextMarker"];
+    contents.NextMarker = output["NextMarker"];
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -14793,10 +13765,7 @@ const deserializeAws_restXmlStreamingDistributionSummary = (
     TrustedSigners: undefined
   };
   if (output["ARN"] !== undefined) {
-    contents.ARN =
-      output["ARN"]["#text"] !== undefined
-        ? output["ARN"]["#text"]
-        : output["ARN"];
+    contents.ARN = output["ARN"];
   }
   if (output["Aliases"] !== undefined) {
     contents.Aliases = deserializeAws_restXmlAliases(
@@ -14805,37 +13774,22 @@ const deserializeAws_restXmlStreamingDistributionSummary = (
     );
   }
   if (output["Comment"] !== undefined) {
-    contents.Comment =
-      output["Comment"]["#text"] !== undefined
-        ? output["Comment"]["#text"]
-        : output["Comment"];
+    contents.Comment = output["Comment"];
   }
   if (output["DomainName"] !== undefined) {
-    contents.DomainName =
-      output["DomainName"]["#text"] !== undefined
-        ? output["DomainName"]["#text"]
-        : output["DomainName"];
+    contents.DomainName = output["DomainName"];
   }
   if (output["Enabled"] !== undefined) {
-    contents.Enabled =
-      (output["Enabled"]["#text"] !== undefined
-        ? output["Enabled"]["#text"]
-        : output["Enabled"]) == "true";
+    contents.Enabled = output["Enabled"] == "true";
   }
   if (output["Id"] !== undefined) {
-    contents.Id =
-      output["Id"]["#text"] !== undefined
-        ? output["Id"]["#text"]
-        : output["Id"];
+    contents.Id = output["Id"];
   }
   if (output["LastModifiedTime"] !== undefined) {
     contents.LastModifiedTime = new Date(output["LastModifiedTime"]);
   }
   if (output["PriceClass"] !== undefined) {
-    contents.PriceClass =
-      output["PriceClass"]["#text"] !== undefined
-        ? output["PriceClass"]["#text"]
-        : output["PriceClass"];
+    contents.PriceClass = output["PriceClass"];
   }
   if (output["S3Origin"] !== undefined) {
     contents.S3Origin = deserializeAws_restXmlS3Origin(
@@ -14844,10 +13798,7 @@ const deserializeAws_restXmlStreamingDistributionSummary = (
     );
   }
   if (output["Status"] !== undefined) {
-    contents.Status =
-      output["Status"]["#text"] !== undefined
-        ? output["Status"]["#text"]
-        : output["Status"];
+    contents.Status = output["Status"];
   }
   if (output["TrustedSigners"] !== undefined) {
     contents.TrustedSigners = deserializeAws_restXmlTrustedSigners(
@@ -14861,14 +13812,10 @@ const deserializeAws_restXmlStreamingDistributionSummary = (
 const deserializeAws_restXmlStreamingDistributionSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<StreamingDistributionSummary> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(
-      deserializeAws_restXmlStreamingDistributionSummary(entry, context)
-    );
-  });
-  return contents;
+): StreamingDistributionSummary[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restXmlStreamingDistributionSummary(entry, context)
+  );
 };
 
 const deserializeAws_restXmlStreamingLoggingConfig = (
@@ -14882,22 +13829,13 @@ const deserializeAws_restXmlStreamingLoggingConfig = (
     Prefix: undefined
   };
   if (output["Bucket"] !== undefined) {
-    contents.Bucket =
-      output["Bucket"]["#text"] !== undefined
-        ? output["Bucket"]["#text"]
-        : output["Bucket"];
+    contents.Bucket = output["Bucket"];
   }
   if (output["Enabled"] !== undefined) {
-    contents.Enabled =
-      (output["Enabled"]["#text"] !== undefined
-        ? output["Enabled"]["#text"]
-        : output["Enabled"]) == "true";
+    contents.Enabled = output["Enabled"] == "true";
   }
   if (output["Prefix"] !== undefined) {
-    contents.Prefix =
-      output["Prefix"]["#text"] !== undefined
-        ? output["Prefix"]["#text"]
-        : output["Prefix"];
+    contents.Prefix = output["Prefix"];
   }
   return contents;
 };
@@ -14912,16 +13850,10 @@ const deserializeAws_restXmlTag = (
     Value: undefined
   };
   if (output["Key"] !== undefined) {
-    contents.Key =
-      output["Key"]["#text"] !== undefined
-        ? output["Key"]["#text"]
-        : output["Key"];
+    contents.Key = output["Key"];
   }
   if (output["Value"] !== undefined) {
-    contents.Value =
-      output["Value"]["#text"] !== undefined
-        ? output["Value"]["#text"]
-        : output["Value"];
+    contents.Value = output["Value"];
   }
   return contents;
 };
@@ -14929,12 +13861,10 @@ const deserializeAws_restXmlTag = (
 const deserializeAws_restXmlTagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
-  const contents: any = [];
-  (output || []).map((entry: any) => {
-    contents.push(deserializeAws_restXmlTag(entry, context));
-  });
-  return contents;
+): Tag[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restXmlTag(entry, context)
+  );
 };
 
 const deserializeAws_restXmlTags = (
@@ -14949,11 +13879,10 @@ const deserializeAws_restXmlTags = (
     contents.Items = [];
   }
   if (output["Items"] !== undefined && output["Items"]["Tag"] !== undefined) {
-    const wrappedItem =
-      output["Items"]["Tag"] instanceof Array
-        ? output["Items"]["Tag"]
-        : [output["Items"]["Tag"]];
-    contents.Items = deserializeAws_restXmlTagList(wrappedItem, context);
+    contents.Items = deserializeAws_restXmlTagList(
+      __getArrayIfSingleItem(output["Items"]["Tag"]),
+      context
+    );
   }
   return contents;
 };
@@ -14969,10 +13898,7 @@ const deserializeAws_restXmlTrustedSigners = (
     Quantity: undefined
   };
   if (output["Enabled"] !== undefined) {
-    contents.Enabled =
-      (output["Enabled"]["#text"] !== undefined
-        ? output["Enabled"]["#text"]
-        : output["Enabled"]) == "true";
+    contents.Enabled = output["Enabled"] == "true";
   }
   if (output.Items === "") {
     contents.Items = [];
@@ -14981,21 +13907,13 @@ const deserializeAws_restXmlTrustedSigners = (
     output["Items"] !== undefined &&
     output["Items"]["AwsAccountNumber"] !== undefined
   ) {
-    const wrappedItem =
-      output["Items"]["AwsAccountNumber"] instanceof Array
-        ? output["Items"]["AwsAccountNumber"]
-        : [output["Items"]["AwsAccountNumber"]];
     contents.Items = deserializeAws_restXmlAwsAccountNumberList(
-      wrappedItem,
+      __getArrayIfSingleItem(output["Items"]["AwsAccountNumber"]),
       context
     );
   }
   if (output["Quantity"] !== undefined) {
-    contents.Quantity = parseInt(
-      output["Quantity"]["#text"] !== undefined
-        ? output["Quantity"]["#text"]
-        : output["Quantity"]
-    );
+    contents.Quantity = parseInt(output["Quantity"]);
   }
   return contents;
 };
@@ -15015,46 +13933,26 @@ const deserializeAws_restXmlViewerCertificate = (
     SSLSupportMethod: undefined
   };
   if (output["ACMCertificateArn"] !== undefined) {
-    contents.ACMCertificateArn =
-      output["ACMCertificateArn"]["#text"] !== undefined
-        ? output["ACMCertificateArn"]["#text"]
-        : output["ACMCertificateArn"];
+    contents.ACMCertificateArn = output["ACMCertificateArn"];
   }
   if (output["Certificate"] !== undefined) {
-    contents.Certificate =
-      output["Certificate"]["#text"] !== undefined
-        ? output["Certificate"]["#text"]
-        : output["Certificate"];
+    contents.Certificate = output["Certificate"];
   }
   if (output["CertificateSource"] !== undefined) {
-    contents.CertificateSource =
-      output["CertificateSource"]["#text"] !== undefined
-        ? output["CertificateSource"]["#text"]
-        : output["CertificateSource"];
+    contents.CertificateSource = output["CertificateSource"];
   }
   if (output["CloudFrontDefaultCertificate"] !== undefined) {
     contents.CloudFrontDefaultCertificate =
-      (output["CloudFrontDefaultCertificate"]["#text"] !== undefined
-        ? output["CloudFrontDefaultCertificate"]["#text"]
-        : output["CloudFrontDefaultCertificate"]) == "true";
+      output["CloudFrontDefaultCertificate"] == "true";
   }
   if (output["IAMCertificateId"] !== undefined) {
-    contents.IAMCertificateId =
-      output["IAMCertificateId"]["#text"] !== undefined
-        ? output["IAMCertificateId"]["#text"]
-        : output["IAMCertificateId"];
+    contents.IAMCertificateId = output["IAMCertificateId"];
   }
   if (output["MinimumProtocolVersion"] !== undefined) {
-    contents.MinimumProtocolVersion =
-      output["MinimumProtocolVersion"]["#text"] !== undefined
-        ? output["MinimumProtocolVersion"]["#text"]
-        : output["MinimumProtocolVersion"];
+    contents.MinimumProtocolVersion = output["MinimumProtocolVersion"];
   }
   if (output["SSLSupportMethod"] !== undefined) {
-    contents.SSLSupportMethod =
-      output["SSLSupportMethod"]["#text"] !== undefined
-        ? output["SSLSupportMethod"]["#text"]
-        : output["SSLSupportMethod"];
+    contents.SSLSupportMethod = output["SSLSupportMethod"];
   }
   return contents;
 };
@@ -15067,7 +13965,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -15082,33 +13980,26 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
-function isSerializableHeaderValue(value: any): boolean {
-  return (
-    value !== undefined &&
-    value !== "" &&
-    (!Object.getOwnPropertyNames(value).includes("length") ||
-      value.length != 0) &&
-    (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0)
-  );
-}
+const isSerializableHeaderValue = (value: any): boolean =>
+  value !== undefined &&
+  value !== "" &&
+  (!Object.getOwnPropertyNames(value).includes("length") ||
+    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
-const decodeEscapedXML = (str: string) => {
-  return str
+const decodeEscapedXML = (str: string) =>
+  str
     .replace(/&amp;/g, "&")
     .replace(/&apos;/g, "'")
     .replace(/&quot;/g, '"')
     .replace(/&gt;/g, ">")
     .replace(/&lt;/g, "<");
-};
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       const parsedObj = xmlParse(encoded, {
         attributeNamePrefix: "",
@@ -15123,11 +14014,10 @@ const parseBody = (streamBody: any, context: __SerdeContext): any => {
         parsedObjToReturn[key] = parsedObjToReturn[textNodeName];
         delete parsedObjToReturn[textNodeName];
       }
-      return parsedObjToReturn;
+      return __getValueFromTextNode(parsedObjToReturn);
     }
     return {};
   });
-};
 
 const loadRestXmlErrorCode = (output: __HttpResponse, data: any): string => {
   if (data.Error.Code !== undefined) {

@@ -79,7 +79,7 @@ export interface CreateNotificationRuleRequest {
    * <p>A list of event types associated with this notification rule. For a list of allowed
    *             events, see <a>EventTypeSummary</a>.</p>
    */
-  EventTypeIds: Array<string> | undefined;
+  EventTypeIds: string[] | undefined;
 
   /**
    * <p>The name for the notification rule. Notifictaion rule names must be unique in your AWS
@@ -108,7 +108,7 @@ export interface CreateNotificationRuleRequest {
    * <p>A list of Amazon Resource Names (ARNs) of SNS topics to associate with the
    *       notification rule.</p>
    */
-  Targets: Array<Target> | undefined;
+  Targets: Target[] | undefined;
 }
 
 export namespace CreateNotificationRuleRequest {
@@ -224,7 +224,7 @@ export interface DescribeNotificationRuleResult {
   /**
    * <p>A list of the event types associated with the notification rule.</p>
    */
-  EventTypes?: Array<EventTypeSummary>;
+  EventTypes?: EventTypeSummary[];
 
   /**
    * <p>The date and time the notification rule was most recently updated, in timestamp
@@ -257,7 +257,7 @@ export interface DescribeNotificationRuleResult {
   /**
    * <p>A list of the SNS topics associated with the notification rule.</p>
    */
-  Targets?: Array<TargetSummary>;
+  Targets?: TargetSummary[];
 }
 
 export namespace DescribeNotificationRuleResult {
@@ -368,7 +368,7 @@ export interface ListEventTypesRequest {
   /**
    * <p>The filters to use to return information by service or resource type.</p>
    */
-  Filters?: Array<ListEventTypesFilter>;
+  Filters?: ListEventTypesFilter[];
 
   /**
    * <p>A non-negative integer used to limit the number of returned results. The default number is 50. The maximum number of
@@ -394,7 +394,7 @@ export interface ListEventTypesResult {
    * <p>Information about each event, including service name, resource type, event ID, and event
    *       name.</p>
    */
-  EventTypes?: Array<EventTypeSummary>;
+  EventTypes?: EventTypeSummary[];
 
   /**
    * <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
@@ -446,7 +446,7 @@ export interface ListNotificationRulesRequest {
    *             <p>A filter with the same name can appear more than once when used with OR statements. Filters with different names should be applied with AND statements.</p>
    *          </note>
    */
-  Filters?: Array<ListNotificationRulesFilter>;
+  Filters?: ListNotificationRulesFilter[];
 
   /**
    * <p>A non-negative integer used to limit the number of returned results. The maximum number of
@@ -476,7 +476,7 @@ export interface ListNotificationRulesResult {
   /**
    * <p>The list of notification rules for the AWS account, by Amazon Resource Name (ARN) and ID. </p>
    */
-  NotificationRules?: Array<NotificationRuleSummary>;
+  NotificationRules?: NotificationRuleSummary[];
 }
 
 export namespace ListNotificationRulesResult {
@@ -552,7 +552,7 @@ export interface ListTargetsRequest {
    *             <p>A filter with the same name can appear more than once when used with OR statements. Filters with different names should be applied with AND statements.</p>
    *          </note>
    */
-  Filters?: Array<ListTargetsFilter>;
+  Filters?: ListTargetsFilter[];
 
   /**
    * <p>A non-negative integer used to limit the number of returned results. The maximum number of
@@ -583,7 +583,7 @@ export interface ListTargetsResult {
   /**
    * <p>The list of notification rule targets. </p>
    */
-  Targets?: Array<TargetSummary>;
+  Targets?: TargetSummary[];
 }
 
 export namespace ListTargetsResult {
@@ -813,7 +813,7 @@ export interface UntagResourceRequest {
   /**
    * <p>The key names of the tags to remove.</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -847,7 +847,7 @@ export interface UpdateNotificationRuleRequest {
   /**
    * <p>A list of event types associated with this notification rule.</p>
    */
-  EventTypeIds?: Array<string>;
+  EventTypeIds?: string[];
 
   /**
    * <p>The name of the notification rule.</p>
@@ -864,7 +864,7 @@ export interface UpdateNotificationRuleRequest {
    * <p>The address and type of the targets to receive notifications from this notification
    *       rule.</p>
    */
-  Targets?: Array<Target>;
+  Targets?: Target[];
 }
 
 export namespace UpdateNotificationRuleRequest {

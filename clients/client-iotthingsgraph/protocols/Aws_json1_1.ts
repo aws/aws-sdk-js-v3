@@ -249,515 +249,531 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_json1_1AssociateEntityToThingCommand(
+export const serializeAws_json1_1AssociateEntityToThingCommand = async (
   input: AssociateEntityToThingCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "IotThingsGraphFrontEndService.AssociateEntityToThing";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "IotThingsGraphFrontEndService.AssociateEntityToThing"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1AssociateEntityToThingRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreateFlowTemplateCommand(
+export const serializeAws_json1_1CreateFlowTemplateCommand = async (
   input: CreateFlowTemplateCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "IotThingsGraphFrontEndService.CreateFlowTemplate";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "IotThingsGraphFrontEndService.CreateFlowTemplate"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateFlowTemplateRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreateSystemInstanceCommand(
+export const serializeAws_json1_1CreateSystemInstanceCommand = async (
   input: CreateSystemInstanceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "IotThingsGraphFrontEndService.CreateSystemInstance";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "IotThingsGraphFrontEndService.CreateSystemInstance"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateSystemInstanceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreateSystemTemplateCommand(
+export const serializeAws_json1_1CreateSystemTemplateCommand = async (
   input: CreateSystemTemplateCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "IotThingsGraphFrontEndService.CreateSystemTemplate";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "IotThingsGraphFrontEndService.CreateSystemTemplate"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateSystemTemplateRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteFlowTemplateCommand(
+export const serializeAws_json1_1DeleteFlowTemplateCommand = async (
   input: DeleteFlowTemplateCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "IotThingsGraphFrontEndService.DeleteFlowTemplate";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "IotThingsGraphFrontEndService.DeleteFlowTemplate"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteFlowTemplateRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteNamespaceCommand(
+export const serializeAws_json1_1DeleteNamespaceCommand = async (
   input: DeleteNamespaceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "IotThingsGraphFrontEndService.DeleteNamespace";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "IotThingsGraphFrontEndService.DeleteNamespace"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteNamespaceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteSystemInstanceCommand(
+export const serializeAws_json1_1DeleteSystemInstanceCommand = async (
   input: DeleteSystemInstanceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "IotThingsGraphFrontEndService.DeleteSystemInstance";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "IotThingsGraphFrontEndService.DeleteSystemInstance"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteSystemInstanceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteSystemTemplateCommand(
+export const serializeAws_json1_1DeleteSystemTemplateCommand = async (
   input: DeleteSystemTemplateCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "IotThingsGraphFrontEndService.DeleteSystemTemplate";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "IotThingsGraphFrontEndService.DeleteSystemTemplate"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteSystemTemplateRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeploySystemInstanceCommand(
+export const serializeAws_json1_1DeploySystemInstanceCommand = async (
   input: DeploySystemInstanceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "IotThingsGraphFrontEndService.DeploySystemInstance";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "IotThingsGraphFrontEndService.DeploySystemInstance"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeploySystemInstanceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeprecateFlowTemplateCommand(
+export const serializeAws_json1_1DeprecateFlowTemplateCommand = async (
   input: DeprecateFlowTemplateCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "IotThingsGraphFrontEndService.DeprecateFlowTemplate";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "IotThingsGraphFrontEndService.DeprecateFlowTemplate"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeprecateFlowTemplateRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeprecateSystemTemplateCommand(
+export const serializeAws_json1_1DeprecateSystemTemplateCommand = async (
   input: DeprecateSystemTemplateCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "IotThingsGraphFrontEndService.DeprecateSystemTemplate";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "IotThingsGraphFrontEndService.DeprecateSystemTemplate"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeprecateSystemTemplateRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeNamespaceCommand(
+export const serializeAws_json1_1DescribeNamespaceCommand = async (
   input: DescribeNamespaceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "IotThingsGraphFrontEndService.DescribeNamespace";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "IotThingsGraphFrontEndService.DescribeNamespace"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeNamespaceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DissociateEntityFromThingCommand(
+export const serializeAws_json1_1DissociateEntityFromThingCommand = async (
   input: DissociateEntityFromThingCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "IotThingsGraphFrontEndService.DissociateEntityFromThing";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "IotThingsGraphFrontEndService.DissociateEntityFromThing"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DissociateEntityFromThingRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetEntitiesCommand(
+export const serializeAws_json1_1GetEntitiesCommand = async (
   input: GetEntitiesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "IotThingsGraphFrontEndService.GetEntities";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "IotThingsGraphFrontEndService.GetEntities"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetEntitiesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetFlowTemplateCommand(
+export const serializeAws_json1_1GetFlowTemplateCommand = async (
   input: GetFlowTemplateCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "IotThingsGraphFrontEndService.GetFlowTemplate";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "IotThingsGraphFrontEndService.GetFlowTemplate"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetFlowTemplateRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetFlowTemplateRevisionsCommand(
+export const serializeAws_json1_1GetFlowTemplateRevisionsCommand = async (
   input: GetFlowTemplateRevisionsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "IotThingsGraphFrontEndService.GetFlowTemplateRevisions";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "IotThingsGraphFrontEndService.GetFlowTemplateRevisions"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetFlowTemplateRevisionsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetNamespaceDeletionStatusCommand(
+export const serializeAws_json1_1GetNamespaceDeletionStatusCommand = async (
   input: GetNamespaceDeletionStatusCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "IotThingsGraphFrontEndService.GetNamespaceDeletionStatus";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "IotThingsGraphFrontEndService.GetNamespaceDeletionStatus"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetNamespaceDeletionStatusRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetSystemInstanceCommand(
+export const serializeAws_json1_1GetSystemInstanceCommand = async (
   input: GetSystemInstanceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "IotThingsGraphFrontEndService.GetSystemInstance";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "IotThingsGraphFrontEndService.GetSystemInstance"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetSystemInstanceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetSystemTemplateCommand(
+export const serializeAws_json1_1GetSystemTemplateCommand = async (
   input: GetSystemTemplateCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "IotThingsGraphFrontEndService.GetSystemTemplate";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "IotThingsGraphFrontEndService.GetSystemTemplate"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetSystemTemplateRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetSystemTemplateRevisionsCommand(
+export const serializeAws_json1_1GetSystemTemplateRevisionsCommand = async (
   input: GetSystemTemplateRevisionsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "IotThingsGraphFrontEndService.GetSystemTemplateRevisions";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "IotThingsGraphFrontEndService.GetSystemTemplateRevisions"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetSystemTemplateRevisionsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetUploadStatusCommand(
+export const serializeAws_json1_1GetUploadStatusCommand = async (
   input: GetUploadStatusCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "IotThingsGraphFrontEndService.GetUploadStatus";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "IotThingsGraphFrontEndService.GetUploadStatus"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetUploadStatusRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListFlowExecutionMessagesCommand(
+export const serializeAws_json1_1ListFlowExecutionMessagesCommand = async (
   input: ListFlowExecutionMessagesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "IotThingsGraphFrontEndService.ListFlowExecutionMessages";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "IotThingsGraphFrontEndService.ListFlowExecutionMessages"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListFlowExecutionMessagesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListTagsForResourceCommand(
+export const serializeAws_json1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "IotThingsGraphFrontEndService.ListTagsForResource";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "IotThingsGraphFrontEndService.ListTagsForResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTagsForResourceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1SearchEntitiesCommand(
+export const serializeAws_json1_1SearchEntitiesCommand = async (
   input: SearchEntitiesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "IotThingsGraphFrontEndService.SearchEntities";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "IotThingsGraphFrontEndService.SearchEntities"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1SearchEntitiesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1SearchFlowExecutionsCommand(
+export const serializeAws_json1_1SearchFlowExecutionsCommand = async (
   input: SearchFlowExecutionsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "IotThingsGraphFrontEndService.SearchFlowExecutions";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "IotThingsGraphFrontEndService.SearchFlowExecutions"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1SearchFlowExecutionsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1SearchFlowTemplatesCommand(
+export const serializeAws_json1_1SearchFlowTemplatesCommand = async (
   input: SearchFlowTemplatesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "IotThingsGraphFrontEndService.SearchFlowTemplates";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "IotThingsGraphFrontEndService.SearchFlowTemplates"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1SearchFlowTemplatesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1SearchSystemInstancesCommand(
+export const serializeAws_json1_1SearchSystemInstancesCommand = async (
   input: SearchSystemInstancesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "IotThingsGraphFrontEndService.SearchSystemInstances";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "IotThingsGraphFrontEndService.SearchSystemInstances"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1SearchSystemInstancesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1SearchSystemTemplatesCommand(
+export const serializeAws_json1_1SearchSystemTemplatesCommand = async (
   input: SearchSystemTemplatesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "IotThingsGraphFrontEndService.SearchSystemTemplates";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "IotThingsGraphFrontEndService.SearchSystemTemplates"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1SearchSystemTemplatesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1SearchThingsCommand(
+export const serializeAws_json1_1SearchThingsCommand = async (
   input: SearchThingsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "IotThingsGraphFrontEndService.SearchThings";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "IotThingsGraphFrontEndService.SearchThings"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1SearchThingsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1TagResourceCommand(
+export const serializeAws_json1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "IotThingsGraphFrontEndService.TagResource";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "IotThingsGraphFrontEndService.TagResource"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UndeploySystemInstanceCommand(
+export const serializeAws_json1_1UndeploySystemInstanceCommand = async (
   input: UndeploySystemInstanceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "IotThingsGraphFrontEndService.UndeploySystemInstance";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "IotThingsGraphFrontEndService.UndeploySystemInstance"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UndeploySystemInstanceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UntagResourceCommand(
+export const serializeAws_json1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "IotThingsGraphFrontEndService.UntagResource";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "IotThingsGraphFrontEndService.UntagResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UntagResourceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateFlowTemplateCommand(
+export const serializeAws_json1_1UpdateFlowTemplateCommand = async (
   input: UpdateFlowTemplateCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "IotThingsGraphFrontEndService.UpdateFlowTemplate";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "IotThingsGraphFrontEndService.UpdateFlowTemplate"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateFlowTemplateRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateSystemTemplateCommand(
+export const serializeAws_json1_1UpdateSystemTemplateCommand = async (
   input: UpdateSystemTemplateCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "IotThingsGraphFrontEndService.UpdateSystemTemplate";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "IotThingsGraphFrontEndService.UpdateSystemTemplate"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateSystemTemplateRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UploadEntityDefinitionsCommand(
+export const serializeAws_json1_1UploadEntityDefinitionsCommand = async (
   input: UploadEntityDefinitionsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "IotThingsGraphFrontEndService.UploadEntityDefinitions";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "IotThingsGraphFrontEndService.UploadEntityDefinitions"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UploadEntityDefinitionsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_1AssociateEntityToThingCommand(
+export const deserializeAws_json1_1AssociateEntityToThingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AssociateEntityToThingCommandOutput> {
+): Promise<AssociateEntityToThingCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1AssociateEntityToThingCommandError(
       output,
@@ -776,12 +792,12 @@ export async function deserializeAws_json1_1AssociateEntityToThingCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1AssociateEntityToThingCommandError(
+const deserializeAws_json1_1AssociateEntityToThingCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AssociateEntityToThingCommandOutput> {
+): Promise<AssociateEntityToThingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -851,12 +867,12 @@ async function deserializeAws_json1_1AssociateEntityToThingCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreateFlowTemplateCommand(
+export const deserializeAws_json1_1CreateFlowTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateFlowTemplateCommandOutput> {
+): Promise<CreateFlowTemplateCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateFlowTemplateCommandError(
       output,
@@ -872,12 +888,12 @@ export async function deserializeAws_json1_1CreateFlowTemplateCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateFlowTemplateCommandError(
+const deserializeAws_json1_1CreateFlowTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateFlowTemplateCommandOutput> {
+): Promise<CreateFlowTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -958,12 +974,12 @@ async function deserializeAws_json1_1CreateFlowTemplateCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreateSystemInstanceCommand(
+export const deserializeAws_json1_1CreateSystemInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateSystemInstanceCommandOutput> {
+): Promise<CreateSystemInstanceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateSystemInstanceCommandError(
       output,
@@ -979,12 +995,12 @@ export async function deserializeAws_json1_1CreateSystemInstanceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateSystemInstanceCommandError(
+const deserializeAws_json1_1CreateSystemInstanceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateSystemInstanceCommandOutput> {
+): Promise<CreateSystemInstanceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1065,12 +1081,12 @@ async function deserializeAws_json1_1CreateSystemInstanceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreateSystemTemplateCommand(
+export const deserializeAws_json1_1CreateSystemTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateSystemTemplateCommandOutput> {
+): Promise<CreateSystemTemplateCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateSystemTemplateCommandError(
       output,
@@ -1086,12 +1102,12 @@ export async function deserializeAws_json1_1CreateSystemTemplateCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateSystemTemplateCommandError(
+const deserializeAws_json1_1CreateSystemTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateSystemTemplateCommandOutput> {
+): Promise<CreateSystemTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1161,12 +1177,12 @@ async function deserializeAws_json1_1CreateSystemTemplateCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteFlowTemplateCommand(
+export const deserializeAws_json1_1DeleteFlowTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteFlowTemplateCommandOutput> {
+): Promise<DeleteFlowTemplateCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteFlowTemplateCommandError(
       output,
@@ -1182,12 +1198,12 @@ export async function deserializeAws_json1_1DeleteFlowTemplateCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteFlowTemplateCommandError(
+const deserializeAws_json1_1DeleteFlowTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteFlowTemplateCommandOutput> {
+): Promise<DeleteFlowTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1257,12 +1273,12 @@ async function deserializeAws_json1_1DeleteFlowTemplateCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteNamespaceCommand(
+export const deserializeAws_json1_1DeleteNamespaceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteNamespaceCommandOutput> {
+): Promise<DeleteNamespaceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteNamespaceCommandError(output, context);
   }
@@ -1275,12 +1291,12 @@ export async function deserializeAws_json1_1DeleteNamespaceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteNamespaceCommandError(
+const deserializeAws_json1_1DeleteNamespaceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteNamespaceCommandOutput> {
+): Promise<DeleteNamespaceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1328,12 +1344,12 @@ async function deserializeAws_json1_1DeleteNamespaceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteSystemInstanceCommand(
+export const deserializeAws_json1_1DeleteSystemInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteSystemInstanceCommandOutput> {
+): Promise<DeleteSystemInstanceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteSystemInstanceCommandError(
       output,
@@ -1349,12 +1365,12 @@ export async function deserializeAws_json1_1DeleteSystemInstanceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteSystemInstanceCommandError(
+const deserializeAws_json1_1DeleteSystemInstanceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteSystemInstanceCommandOutput> {
+): Promise<DeleteSystemInstanceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1424,12 +1440,12 @@ async function deserializeAws_json1_1DeleteSystemInstanceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteSystemTemplateCommand(
+export const deserializeAws_json1_1DeleteSystemTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteSystemTemplateCommandOutput> {
+): Promise<DeleteSystemTemplateCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteSystemTemplateCommandError(
       output,
@@ -1445,12 +1461,12 @@ export async function deserializeAws_json1_1DeleteSystemTemplateCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteSystemTemplateCommandError(
+const deserializeAws_json1_1DeleteSystemTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteSystemTemplateCommandOutput> {
+): Promise<DeleteSystemTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1520,12 +1536,12 @@ async function deserializeAws_json1_1DeleteSystemTemplateCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeploySystemInstanceCommand(
+export const deserializeAws_json1_1DeploySystemInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeploySystemInstanceCommandOutput> {
+): Promise<DeploySystemInstanceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeploySystemInstanceCommandError(
       output,
@@ -1541,12 +1557,12 @@ export async function deserializeAws_json1_1DeploySystemInstanceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeploySystemInstanceCommandError(
+const deserializeAws_json1_1DeploySystemInstanceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeploySystemInstanceCommandOutput> {
+): Promise<DeploySystemInstanceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1627,12 +1643,12 @@ async function deserializeAws_json1_1DeploySystemInstanceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeprecateFlowTemplateCommand(
+export const deserializeAws_json1_1DeprecateFlowTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeprecateFlowTemplateCommandOutput> {
+): Promise<DeprecateFlowTemplateCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeprecateFlowTemplateCommandError(
       output,
@@ -1648,12 +1664,12 @@ export async function deserializeAws_json1_1DeprecateFlowTemplateCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeprecateFlowTemplateCommandError(
+const deserializeAws_json1_1DeprecateFlowTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeprecateFlowTemplateCommandOutput> {
+): Promise<DeprecateFlowTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1723,12 +1739,12 @@ async function deserializeAws_json1_1DeprecateFlowTemplateCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeprecateSystemTemplateCommand(
+export const deserializeAws_json1_1DeprecateSystemTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeprecateSystemTemplateCommandOutput> {
+): Promise<DeprecateSystemTemplateCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeprecateSystemTemplateCommandError(
       output,
@@ -1747,12 +1763,12 @@ export async function deserializeAws_json1_1DeprecateSystemTemplateCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeprecateSystemTemplateCommandError(
+const deserializeAws_json1_1DeprecateSystemTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeprecateSystemTemplateCommandOutput> {
+): Promise<DeprecateSystemTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1822,12 +1838,12 @@ async function deserializeAws_json1_1DeprecateSystemTemplateCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeNamespaceCommand(
+export const deserializeAws_json1_1DescribeNamespaceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeNamespaceCommandOutput> {
+): Promise<DescribeNamespaceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeNamespaceCommandError(output, context);
   }
@@ -1840,12 +1856,12 @@ export async function deserializeAws_json1_1DescribeNamespaceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeNamespaceCommandError(
+const deserializeAws_json1_1DescribeNamespaceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeNamespaceCommandOutput> {
+): Promise<DescribeNamespaceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1915,12 +1931,12 @@ async function deserializeAws_json1_1DescribeNamespaceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DissociateEntityFromThingCommand(
+export const deserializeAws_json1_1DissociateEntityFromThingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DissociateEntityFromThingCommandOutput> {
+): Promise<DissociateEntityFromThingCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DissociateEntityFromThingCommandError(
       output,
@@ -1939,12 +1955,12 @@ export async function deserializeAws_json1_1DissociateEntityFromThingCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DissociateEntityFromThingCommandError(
+const deserializeAws_json1_1DissociateEntityFromThingCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DissociateEntityFromThingCommandOutput> {
+): Promise<DissociateEntityFromThingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2014,12 +2030,12 @@ async function deserializeAws_json1_1DissociateEntityFromThingCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetEntitiesCommand(
+export const deserializeAws_json1_1GetEntitiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetEntitiesCommandOutput> {
+): Promise<GetEntitiesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetEntitiesCommandError(output, context);
   }
@@ -2032,12 +2048,12 @@ export async function deserializeAws_json1_1GetEntitiesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetEntitiesCommandError(
+const deserializeAws_json1_1GetEntitiesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetEntitiesCommandOutput> {
+): Promise<GetEntitiesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2107,12 +2123,12 @@ async function deserializeAws_json1_1GetEntitiesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetFlowTemplateCommand(
+export const deserializeAws_json1_1GetFlowTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetFlowTemplateCommandOutput> {
+): Promise<GetFlowTemplateCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetFlowTemplateCommandError(output, context);
   }
@@ -2125,12 +2141,12 @@ export async function deserializeAws_json1_1GetFlowTemplateCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetFlowTemplateCommandError(
+const deserializeAws_json1_1GetFlowTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetFlowTemplateCommandOutput> {
+): Promise<GetFlowTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2200,12 +2216,12 @@ async function deserializeAws_json1_1GetFlowTemplateCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetFlowTemplateRevisionsCommand(
+export const deserializeAws_json1_1GetFlowTemplateRevisionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetFlowTemplateRevisionsCommandOutput> {
+): Promise<GetFlowTemplateRevisionsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetFlowTemplateRevisionsCommandError(
       output,
@@ -2224,12 +2240,12 @@ export async function deserializeAws_json1_1GetFlowTemplateRevisionsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetFlowTemplateRevisionsCommandError(
+const deserializeAws_json1_1GetFlowTemplateRevisionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetFlowTemplateRevisionsCommandOutput> {
+): Promise<GetFlowTemplateRevisionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2299,12 +2315,12 @@ async function deserializeAws_json1_1GetFlowTemplateRevisionsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetNamespaceDeletionStatusCommand(
+export const deserializeAws_json1_1GetNamespaceDeletionStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetNamespaceDeletionStatusCommandOutput> {
+): Promise<GetNamespaceDeletionStatusCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetNamespaceDeletionStatusCommandError(
       output,
@@ -2323,12 +2339,12 @@ export async function deserializeAws_json1_1GetNamespaceDeletionStatusCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetNamespaceDeletionStatusCommandError(
+const deserializeAws_json1_1GetNamespaceDeletionStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetNamespaceDeletionStatusCommandOutput> {
+): Promise<GetNamespaceDeletionStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2387,12 +2403,12 @@ async function deserializeAws_json1_1GetNamespaceDeletionStatusCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetSystemInstanceCommand(
+export const deserializeAws_json1_1GetSystemInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetSystemInstanceCommandOutput> {
+): Promise<GetSystemInstanceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetSystemInstanceCommandError(output, context);
   }
@@ -2405,12 +2421,12 @@ export async function deserializeAws_json1_1GetSystemInstanceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetSystemInstanceCommandError(
+const deserializeAws_json1_1GetSystemInstanceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetSystemInstanceCommandOutput> {
+): Promise<GetSystemInstanceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2480,12 +2496,12 @@ async function deserializeAws_json1_1GetSystemInstanceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetSystemTemplateCommand(
+export const deserializeAws_json1_1GetSystemTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetSystemTemplateCommandOutput> {
+): Promise<GetSystemTemplateCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetSystemTemplateCommandError(output, context);
   }
@@ -2498,12 +2514,12 @@ export async function deserializeAws_json1_1GetSystemTemplateCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetSystemTemplateCommandError(
+const deserializeAws_json1_1GetSystemTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetSystemTemplateCommandOutput> {
+): Promise<GetSystemTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2573,12 +2589,12 @@ async function deserializeAws_json1_1GetSystemTemplateCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetSystemTemplateRevisionsCommand(
+export const deserializeAws_json1_1GetSystemTemplateRevisionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetSystemTemplateRevisionsCommandOutput> {
+): Promise<GetSystemTemplateRevisionsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetSystemTemplateRevisionsCommandError(
       output,
@@ -2597,12 +2613,12 @@ export async function deserializeAws_json1_1GetSystemTemplateRevisionsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetSystemTemplateRevisionsCommandError(
+const deserializeAws_json1_1GetSystemTemplateRevisionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetSystemTemplateRevisionsCommandOutput> {
+): Promise<GetSystemTemplateRevisionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2672,12 +2688,12 @@ async function deserializeAws_json1_1GetSystemTemplateRevisionsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetUploadStatusCommand(
+export const deserializeAws_json1_1GetUploadStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetUploadStatusCommandOutput> {
+): Promise<GetUploadStatusCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetUploadStatusCommandError(output, context);
   }
@@ -2690,12 +2706,12 @@ export async function deserializeAws_json1_1GetUploadStatusCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetUploadStatusCommandError(
+const deserializeAws_json1_1GetUploadStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetUploadStatusCommandOutput> {
+): Promise<GetUploadStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2765,12 +2781,12 @@ async function deserializeAws_json1_1GetUploadStatusCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListFlowExecutionMessagesCommand(
+export const deserializeAws_json1_1ListFlowExecutionMessagesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListFlowExecutionMessagesCommandOutput> {
+): Promise<ListFlowExecutionMessagesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListFlowExecutionMessagesCommandError(
       output,
@@ -2789,12 +2805,12 @@ export async function deserializeAws_json1_1ListFlowExecutionMessagesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListFlowExecutionMessagesCommandError(
+const deserializeAws_json1_1ListFlowExecutionMessagesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListFlowExecutionMessagesCommandOutput> {
+): Promise<ListFlowExecutionMessagesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2864,12 +2880,12 @@ async function deserializeAws_json1_1ListFlowExecutionMessagesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListTagsForResourceCommand(
+export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListTagsForResourceCommandError(
       output,
@@ -2885,12 +2901,12 @@ export async function deserializeAws_json1_1ListTagsForResourceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListTagsForResourceCommandError(
+const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2960,12 +2976,12 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1SearchEntitiesCommand(
+export const deserializeAws_json1_1SearchEntitiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SearchEntitiesCommandOutput> {
+): Promise<SearchEntitiesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1SearchEntitiesCommandError(output, context);
   }
@@ -2978,12 +2994,12 @@ export async function deserializeAws_json1_1SearchEntitiesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1SearchEntitiesCommandError(
+const deserializeAws_json1_1SearchEntitiesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SearchEntitiesCommandOutput> {
+): Promise<SearchEntitiesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3042,12 +3058,12 @@ async function deserializeAws_json1_1SearchEntitiesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1SearchFlowExecutionsCommand(
+export const deserializeAws_json1_1SearchFlowExecutionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SearchFlowExecutionsCommandOutput> {
+): Promise<SearchFlowExecutionsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1SearchFlowExecutionsCommandError(
       output,
@@ -3063,12 +3079,12 @@ export async function deserializeAws_json1_1SearchFlowExecutionsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1SearchFlowExecutionsCommandError(
+const deserializeAws_json1_1SearchFlowExecutionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SearchFlowExecutionsCommandOutput> {
+): Promise<SearchFlowExecutionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3138,12 +3154,12 @@ async function deserializeAws_json1_1SearchFlowExecutionsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1SearchFlowTemplatesCommand(
+export const deserializeAws_json1_1SearchFlowTemplatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SearchFlowTemplatesCommandOutput> {
+): Promise<SearchFlowTemplatesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1SearchFlowTemplatesCommandError(
       output,
@@ -3159,12 +3175,12 @@ export async function deserializeAws_json1_1SearchFlowTemplatesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1SearchFlowTemplatesCommandError(
+const deserializeAws_json1_1SearchFlowTemplatesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SearchFlowTemplatesCommandOutput> {
+): Promise<SearchFlowTemplatesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3223,12 +3239,12 @@ async function deserializeAws_json1_1SearchFlowTemplatesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1SearchSystemInstancesCommand(
+export const deserializeAws_json1_1SearchSystemInstancesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SearchSystemInstancesCommandOutput> {
+): Promise<SearchSystemInstancesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1SearchSystemInstancesCommandError(
       output,
@@ -3244,12 +3260,12 @@ export async function deserializeAws_json1_1SearchSystemInstancesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1SearchSystemInstancesCommandError(
+const deserializeAws_json1_1SearchSystemInstancesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SearchSystemInstancesCommandOutput> {
+): Promise<SearchSystemInstancesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3308,12 +3324,12 @@ async function deserializeAws_json1_1SearchSystemInstancesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1SearchSystemTemplatesCommand(
+export const deserializeAws_json1_1SearchSystemTemplatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SearchSystemTemplatesCommandOutput> {
+): Promise<SearchSystemTemplatesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1SearchSystemTemplatesCommandError(
       output,
@@ -3329,12 +3345,12 @@ export async function deserializeAws_json1_1SearchSystemTemplatesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1SearchSystemTemplatesCommandError(
+const deserializeAws_json1_1SearchSystemTemplatesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SearchSystemTemplatesCommandOutput> {
+): Promise<SearchSystemTemplatesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3393,12 +3409,12 @@ async function deserializeAws_json1_1SearchSystemTemplatesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1SearchThingsCommand(
+export const deserializeAws_json1_1SearchThingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SearchThingsCommandOutput> {
+): Promise<SearchThingsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1SearchThingsCommandError(output, context);
   }
@@ -3411,12 +3427,12 @@ export async function deserializeAws_json1_1SearchThingsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1SearchThingsCommandError(
+const deserializeAws_json1_1SearchThingsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SearchThingsCommandOutput> {
+): Promise<SearchThingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3486,12 +3502,12 @@ async function deserializeAws_json1_1SearchThingsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1TagResourceCommand(
+export const deserializeAws_json1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1TagResourceCommandError(output, context);
   }
@@ -3504,12 +3520,12 @@ export async function deserializeAws_json1_1TagResourceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1TagResourceCommandError(
+const deserializeAws_json1_1TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3579,12 +3595,12 @@ async function deserializeAws_json1_1TagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UndeploySystemInstanceCommand(
+export const deserializeAws_json1_1UndeploySystemInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UndeploySystemInstanceCommandOutput> {
+): Promise<UndeploySystemInstanceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UndeploySystemInstanceCommandError(
       output,
@@ -3603,12 +3619,12 @@ export async function deserializeAws_json1_1UndeploySystemInstanceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UndeploySystemInstanceCommandError(
+const deserializeAws_json1_1UndeploySystemInstanceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UndeploySystemInstanceCommandOutput> {
+): Promise<UndeploySystemInstanceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3689,12 +3705,12 @@ async function deserializeAws_json1_1UndeploySystemInstanceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UntagResourceCommand(
+export const deserializeAws_json1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UntagResourceCommandError(output, context);
   }
@@ -3707,12 +3723,12 @@ export async function deserializeAws_json1_1UntagResourceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UntagResourceCommandError(
+const deserializeAws_json1_1UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3782,12 +3798,12 @@ async function deserializeAws_json1_1UntagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateFlowTemplateCommand(
+export const deserializeAws_json1_1UpdateFlowTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateFlowTemplateCommandOutput> {
+): Promise<UpdateFlowTemplateCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateFlowTemplateCommandError(
       output,
@@ -3803,12 +3819,12 @@ export async function deserializeAws_json1_1UpdateFlowTemplateCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateFlowTemplateCommandError(
+const deserializeAws_json1_1UpdateFlowTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateFlowTemplateCommandOutput> {
+): Promise<UpdateFlowTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3878,12 +3894,12 @@ async function deserializeAws_json1_1UpdateFlowTemplateCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateSystemTemplateCommand(
+export const deserializeAws_json1_1UpdateSystemTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateSystemTemplateCommandOutput> {
+): Promise<UpdateSystemTemplateCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateSystemTemplateCommandError(
       output,
@@ -3899,12 +3915,12 @@ export async function deserializeAws_json1_1UpdateSystemTemplateCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateSystemTemplateCommandError(
+const deserializeAws_json1_1UpdateSystemTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateSystemTemplateCommandOutput> {
+): Promise<UpdateSystemTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3974,12 +3990,12 @@ async function deserializeAws_json1_1UpdateSystemTemplateCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UploadEntityDefinitionsCommand(
+export const deserializeAws_json1_1UploadEntityDefinitionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UploadEntityDefinitionsCommandOutput> {
+): Promise<UploadEntityDefinitionsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UploadEntityDefinitionsCommandError(
       output,
@@ -3998,12 +4014,12 @@ export async function deserializeAws_json1_1UploadEntityDefinitionsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UploadEntityDefinitionsCommandError(
+const deserializeAws_json1_1UploadEntityDefinitionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UploadEntityDefinitionsCommandOutput> {
+): Promise<UploadEntityDefinitionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4062,7 +4078,7 @@ async function deserializeAws_json1_1UploadEntityDefinitionsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_1InternalFailureExceptionResponse = async (
   parsedOutput: any,
@@ -4766,25 +4782,17 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_json1_1TagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1TagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1Tag(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1Tag(entry, context));
 };
 
 const serializeAws_json1_1DefinitionDocument = (
@@ -4802,14 +4810,10 @@ const serializeAws_json1_1DefinitionDocument = (
 };
 
 const serializeAws_json1_1Urns = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1EntityFilter = (
@@ -4830,36 +4834,24 @@ const serializeAws_json1_1EntityFilter = (
 };
 
 const serializeAws_json1_1EntityFilterValues = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1EntityFilters = (
-  input: Array<EntityFilter>,
+  input: EntityFilter[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1EntityFilter(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1EntityFilter(entry, context));
 };
 
 const serializeAws_json1_1EntityTypes = (
-  input: Array<EntityType | string>,
+  input: (EntityType | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1FlowTemplateFilter = (
@@ -4880,25 +4872,19 @@ const serializeAws_json1_1FlowTemplateFilter = (
 };
 
 const serializeAws_json1_1FlowTemplateFilterValues = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1FlowTemplateFilters = (
-  input: Array<FlowTemplateFilter>,
+  input: FlowTemplateFilter[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1FlowTemplateFilter(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1FlowTemplateFilter(entry, context)
+  );
 };
 
 const serializeAws_json1_1MetricsConfiguration = (
@@ -4933,25 +4919,19 @@ const serializeAws_json1_1SystemInstanceFilter = (
 };
 
 const serializeAws_json1_1SystemInstanceFilterValues = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1SystemInstanceFilters = (
-  input: Array<SystemInstanceFilter>,
+  input: SystemInstanceFilter[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1SystemInstanceFilter(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1SystemInstanceFilter(entry, context)
+  );
 };
 
 const serializeAws_json1_1SystemTemplateFilter = (
@@ -4972,25 +4952,19 @@ const serializeAws_json1_1SystemTemplateFilter = (
 };
 
 const serializeAws_json1_1SystemTemplateFilterValues = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1SystemTemplateFilters = (
-  input: Array<SystemTemplateFilter>,
+  input: SystemTemplateFilter[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1SystemTemplateFilter(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1SystemTemplateFilter(entry, context)
+  );
 };
 
 const deserializeAws_json1_1AssociateEntityToThingResponse = (
@@ -5647,7 +5621,7 @@ const deserializeAws_json1_1Tag = (
 const deserializeAws_json1_1TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );
@@ -5758,7 +5732,7 @@ const deserializeAws_json1_1ResourceNotFoundException = (
 const deserializeAws_json1_1StringList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -5812,7 +5786,7 @@ const deserializeAws_json1_1EntityDescription = (
 const deserializeAws_json1_1EntityDescriptions = (
   output: any,
   context: __SerdeContext
-): Array<EntityDescription> => {
+): EntityDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EntityDescription(entry, context)
   );
@@ -5839,7 +5813,7 @@ const deserializeAws_json1_1Thing = (
 const deserializeAws_json1_1Things = (
   output: any,
   context: __SerdeContext
-): Array<Thing> => {
+): Thing[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Thing(entry, context)
   );
@@ -5866,7 +5840,7 @@ const deserializeAws_json1_1DependencyRevision = (
 const deserializeAws_json1_1DependencyRevisions = (
   output: any,
   context: __SerdeContext
-): Array<DependencyRevision> => {
+): DependencyRevision[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DependencyRevision(entry, context)
   );
@@ -5901,7 +5875,7 @@ const deserializeAws_json1_1FlowExecutionMessage = (
 const deserializeAws_json1_1FlowExecutionMessages = (
   output: any,
   context: __SerdeContext
-): Array<FlowExecutionMessage> => {
+): FlowExecutionMessage[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1FlowExecutionMessage(entry, context)
   );
@@ -5910,7 +5884,7 @@ const deserializeAws_json1_1FlowExecutionMessages = (
 const deserializeAws_json1_1FlowExecutionSummaries = (
   output: any,
   context: __SerdeContext
-): Array<FlowExecutionSummary> => {
+): FlowExecutionSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1FlowExecutionSummary(entry, context)
   );
@@ -5987,7 +5961,7 @@ const deserializeAws_json1_1FlowTemplateDescription = (
 const deserializeAws_json1_1FlowTemplateSummaries = (
   output: any,
   context: __SerdeContext
-): Array<FlowTemplateSummary> => {
+): FlowTemplateSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1FlowTemplateSummary(entry, context)
   );
@@ -6108,7 +6082,7 @@ const deserializeAws_json1_1SystemInstanceDescription = (
 const deserializeAws_json1_1SystemInstanceSummaries = (
   output: any,
   context: __SerdeContext
-): Array<SystemInstanceSummary> => {
+): SystemInstanceSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SystemInstanceSummary(entry, context)
   );
@@ -6203,7 +6177,7 @@ const deserializeAws_json1_1SystemTemplateDescription = (
 const deserializeAws_json1_1SystemTemplateSummaries = (
   output: any,
   context: __SerdeContext
-): Array<SystemTemplateSummary> => {
+): SystemTemplateSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SystemTemplateSummary(entry, context)
   );
@@ -6243,7 +6217,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -6258,11 +6232,8 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
@@ -6289,11 +6260,10 @@ const buildHttpRpcRequest = async (
   return new __HttpRequest(contents);
 };
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};

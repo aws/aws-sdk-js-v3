@@ -67,7 +67,7 @@ export interface BrokerNodeGroupInfo {
   /**
    * <p>The list of subnets to connect to in the client virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets. Client applications use elastic network interfaces to produce and consume data. Client subnets can't be in Availability Zone us-east-1e.</p>
    */
-  ClientSubnets: Array<string> | undefined;
+  ClientSubnets: string[] | undefined;
 
   /**
    * <p>The type of Amazon EC2 instances to use for Kafka brokers. The following instance types are allowed: kafka.m5.large, kafka.m5.xlarge, kafka.m5.2xlarge,
@@ -78,7 +78,7 @@ export interface BrokerNodeGroupInfo {
   /**
    * <p>The AWS security groups to associate with the elastic network interfaces in order to specify who can connect to and communicate with the Amazon MSK cluster. If you don't specify a security group, Amazon MSK uses the default security group associated with the VPC.</p>
    */
-  SecurityGroups?: Array<string>;
+  SecurityGroups?: string[];
 
   /**
    * <p>Contains information about storage volumes attached to MSK broker nodes.</p>
@@ -124,7 +124,7 @@ export interface BrokerNodeInfo {
   /**
    * <p>Endpoints for accessing the broker.</p>
    */
-  Endpoints?: Array<string>;
+  Endpoints?: string[];
 }
 
 export namespace BrokerNodeInfo {
@@ -357,7 +357,7 @@ export interface Configuration {
   /**
    * <p>An array of the versions of Apache Kafka with which you can use this MSK configuration. You can use this configuration for an MSK cluster only if the Apache Kafka version specified for the cluster appears in this array.</p>
    */
-  KafkaVersions: Array<string> | undefined;
+  KafkaVersions: string[] | undefined;
 
   /**
    * <p>Latest revision of the configuration.</p>
@@ -534,7 +534,7 @@ export interface CreateConfigurationRequest {
   /**
    * <p>The versions of Apache Kafka with which you can use this MSK configuration.</p>
    */
-  KafkaVersions: Array<string> | undefined;
+  KafkaVersions: string[] | undefined;
 
   /**
    * <p>The name of the configuration.</p>
@@ -702,7 +702,7 @@ export interface DescribeConfigurationResponse {
   /**
    * <p>The versions of Apache Kafka with which you can use this MSK configuration.</p>
    */
-  KafkaVersions?: Array<string>;
+  KafkaVersions?: string[];
 
   /**
    * <p>Latest revision of the configuration.</p>
@@ -1017,7 +1017,7 @@ export interface ListClusterOperationsResponse {
   /**
    * <p>An array of cluster operation information objects.</p>
    */
-  ClusterOperationInfoList?: Array<ClusterOperationInfo>;
+  ClusterOperationInfoList?: ClusterOperationInfo[];
 
   /**
    * <p>If the response of ListClusterOperations is truncated, it returns a NextToken in the response. This Nexttoken should be sent in the subsequent request to ListClusterOperations.</p>
@@ -1059,7 +1059,7 @@ export interface ListClustersResponse {
   /**
    * <p>Information on each of the MSK clusters in the response.</p>
    */
-  ClusterInfoList?: Array<ClusterInfo>;
+  ClusterInfoList?: ClusterInfo[];
 
   /**
    * <p>The paginated results marker. When the result of a ListClusters operation is truncated, the call returns NextToken in the response.
@@ -1107,7 +1107,7 @@ export interface ListConfigurationRevisionsResponse {
   /**
    * <p>List of ConfigurationRevision objects.</p>
    */
-  Revisions?: Array<ConfigurationRevision>;
+  Revisions?: ConfigurationRevision[];
 }
 
 export namespace ListConfigurationRevisionsResponse {
@@ -1139,7 +1139,7 @@ export interface ListConfigurationsResponse {
   /**
    * <p>An array of MSK configurations.</p>
    */
-  Configurations?: Array<Configuration>;
+  Configurations?: Configuration[];
 
   /**
    * <p>The paginated results marker. When the result of a ListConfigurations operation is truncated, the call returns NextToken in the response.
@@ -1188,7 +1188,7 @@ export interface ListNodesResponse {
   /**
    * <p>List containing a NodeInfo object.</p>
    */
-  NodeInfoList?: Array<NodeInfo>;
+  NodeInfoList?: NodeInfo[];
 }
 
 export namespace ListNodesResponse {
@@ -1230,7 +1230,7 @@ export interface MutableClusterInfo {
   /**
    * <p>Specifies the size of the EBS volume and the ID of the associated broker.</p>
    */
-  BrokerEBSVolumeInfo?: Array<BrokerEBSVolumeInfo>;
+  BrokerEBSVolumeInfo?: BrokerEBSVolumeInfo[];
 
   /**
    * <p>Information about the changes in the configuration of the brokers.</p>
@@ -1493,7 +1493,7 @@ export interface Tls {
   /**
    * <p>List of ACM Certificate Authority ARNs.</p>
    */
-  CertificateAuthorityArnList?: Array<string>;
+  CertificateAuthorityArnList?: string[];
 }
 
 export namespace Tls {
@@ -1577,7 +1577,7 @@ export interface UntagResourceRequest {
    *                </li>
    *             </ul>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -1641,7 +1641,7 @@ export interface UpdateBrokerStorageRequest {
   /**
    * <p>Describes the target volume size and the ID of the broker to apply the update to.</p>
    */
-  TargetBrokerEBSVolumeInfo: Array<BrokerEBSVolumeInfo> | undefined;
+  TargetBrokerEBSVolumeInfo: BrokerEBSVolumeInfo[] | undefined;
 }
 
 export namespace UpdateBrokerStorageRequest {
@@ -1775,7 +1775,7 @@ export interface ZookeeperNodeInfo {
   /**
    * <p>Endpoints for accessing the ZooKeeper.</p>
    */
-  Endpoints?: Array<string>;
+  Endpoints?: string[];
 
   /**
    * <p>The role-specific ID for Zookeeper.</p>

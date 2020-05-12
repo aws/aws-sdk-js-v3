@@ -26,40 +26,41 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_json1_1GenerateDataSetCommand(
+export const serializeAws_json1_1GenerateDataSetCommand = async (
   input: GenerateDataSetCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "MarketplaceCommerceAnalytics20150701.GenerateDataSet";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "MarketplaceCommerceAnalytics20150701.GenerateDataSet"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GenerateDataSetRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1StartSupportDataExportCommand(
+export const serializeAws_json1_1StartSupportDataExportCommand = async (
   input: StartSupportDataExportCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "MarketplaceCommerceAnalytics20150701.StartSupportDataExport";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target":
+      "MarketplaceCommerceAnalytics20150701.StartSupportDataExport"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartSupportDataExportRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_1GenerateDataSetCommand(
+export const deserializeAws_json1_1GenerateDataSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GenerateDataSetCommandOutput> {
+): Promise<GenerateDataSetCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GenerateDataSetCommandError(output, context);
   }
@@ -72,12 +73,12 @@ export async function deserializeAws_json1_1GenerateDataSetCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GenerateDataSetCommandError(
+const deserializeAws_json1_1GenerateDataSetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GenerateDataSetCommandOutput> {
+): Promise<GenerateDataSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -114,12 +115,12 @@ async function deserializeAws_json1_1GenerateDataSetCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1StartSupportDataExportCommand(
+export const deserializeAws_json1_1StartSupportDataExportCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartSupportDataExportCommandOutput> {
+): Promise<StartSupportDataExportCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StartSupportDataExportCommandError(
       output,
@@ -135,12 +136,12 @@ export async function deserializeAws_json1_1StartSupportDataExportCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1StartSupportDataExportCommandError(
+const deserializeAws_json1_1StartSupportDataExportCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartSupportDataExportCommandOutput> {
+): Promise<StartSupportDataExportCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -177,7 +178,7 @@ async function deserializeAws_json1_1StartSupportDataExportCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_1MarketplaceCommerceAnalyticsExceptionResponse = async (
   parsedOutput: any,
@@ -201,11 +202,10 @@ const serializeAws_json1_1CustomerDefinedValues = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = input[key];
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = input[key];
+    return acc;
+  }, {});
 };
 
 const serializeAws_json1_1GenerateDataSetRequest = (
@@ -334,7 +334,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -349,11 +349,8 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
@@ -380,11 +377,10 @@ const buildHttpRpcRequest = async (
   return new __HttpRequest(contents);
 };
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};

@@ -82,7 +82,7 @@ export interface Activation {
   /**
    * <p>Tags assigned to the activation.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace Activation {
@@ -123,7 +123,7 @@ export interface AddTagsToResourceRequest {
    *             <p>Do not enter personally identifiable information in this field.</p>
    *          </important>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace AddTagsToResourceRequest {
@@ -226,7 +226,7 @@ export interface Association {
   /**
    * <p>The instances targeted by the request to create an association. </p>
    */
-  Targets?: Array<Target>;
+  Targets?: Target[];
 }
 
 export namespace Association {
@@ -361,7 +361,7 @@ export interface AssociationDescription {
   /**
    * <p>A description of the parameters for a document. </p>
    */
-  Parameters?: { [key: string]: Array<string> };
+  Parameters?: { [key: string]: string[] };
 
   /**
    * <p>A cron expression that specifies a schedule when the association runs.</p>
@@ -376,7 +376,7 @@ export interface AssociationDescription {
   /**
    * <p>The instances targeted by the request. </p>
    */
-  Targets?: Array<Target>;
+  Targets?: Target[];
 }
 
 export namespace AssociationDescription {
@@ -775,7 +775,7 @@ export interface AssociationVersionInfo {
   /**
    * <p>Parameters specified when the association version was created.</p>
    */
-  Parameters?: { [key: string]: Array<string> };
+  Parameters?: { [key: string]: string[] };
 
   /**
    * <p>The cron or rate schedule specified for the association when the association version was
@@ -786,7 +786,7 @@ export interface AssociationVersionInfo {
   /**
    * <p>The targets specified for the association when the association version was created. </p>
    */
-  Targets?: Array<Target>;
+  Targets?: Target[];
 }
 
 export namespace AssociationVersionInfo {
@@ -920,7 +920,7 @@ export interface AttachmentsSource {
    *             </li>
    *          </ul>
    */
-  Values?: Array<string>;
+  Values?: string[];
 }
 
 export namespace AttachmentsSource {
@@ -1041,13 +1041,13 @@ export interface AutomationExecution {
   /**
    * <p>The list of execution outputs as defined in the automation document.</p>
    */
-  Outputs?: { [key: string]: Array<string> };
+  Outputs?: { [key: string]: string[] };
 
   /**
    * <p>The key-value map of execution parameters, which were supplied when calling
    *    StartAutomationExecution.</p>
    */
-  Parameters?: { [key: string]: Array<string> };
+  Parameters?: { [key: string]: string[] };
 
   /**
    * <p>The AutomationExecutionId of the parent automation.</p>
@@ -1069,7 +1069,7 @@ export interface AutomationExecution {
    * <p>A list of details about the current state of all steps that comprise an execution. An
    *    Automation document contains a list of steps that are run in order.</p>
    */
-  StepExecutions?: Array<StepExecution>;
+  StepExecutions?: StepExecution[];
 
   /**
    * <p>A boolean value that indicates if the response contains the full list of the Automation step
@@ -1087,12 +1087,12 @@ export interface AutomationExecution {
    * <p>The combination of AWS Regions and/or AWS accounts where you want to run the
    *    Automation.</p>
    */
-  TargetLocations?: Array<TargetLocation>;
+  TargetLocations?: TargetLocation[];
 
   /**
    * <p>The specified key-value mapping of document parameters to target resources.</p>
    */
-  TargetMaps?: Array<{ [key: string]: Array<string> }>;
+  TargetMaps?: { [key: string]: string[] }[];
 
   /**
    * <p>The parameter name.</p>
@@ -1102,7 +1102,7 @@ export interface AutomationExecution {
   /**
    * <p>The specified targets.</p>
    */
-  Targets?: Array<Target>;
+  Targets?: Target[];
 }
 
 export namespace AutomationExecution {
@@ -1126,7 +1126,7 @@ export interface AutomationExecutionFilter {
   /**
    * <p>The values used to limit the execution information associated with the filter's key.</p>
    */
-  Values: Array<string> | undefined;
+  Values: string[] | undefined;
 }
 
 export namespace AutomationExecutionFilter {
@@ -1251,7 +1251,7 @@ export interface AutomationExecutionMetadata {
   /**
    * <p>The list of execution outputs as defined in the Automation document.</p>
    */
-  Outputs?: { [key: string]: Array<string> };
+  Outputs?: { [key: string]: string[] };
 
   /**
    * <p>The ExecutionId of the parent Automation.</p>
@@ -1271,7 +1271,7 @@ export interface AutomationExecutionMetadata {
   /**
    * <p>The specified key-value mapping of document parameters to target resources.</p>
    */
-  TargetMaps?: Array<{ [key: string]: Array<string> }>;
+  TargetMaps?: { [key: string]: string[] }[];
 
   /**
    * <p>The list of execution outputs as defined in the Automation document.</p>
@@ -1281,7 +1281,7 @@ export interface AutomationExecutionMetadata {
   /**
    * <p>The targets defined by the user when starting the Automation.</p>
    */
-  Targets?: Array<Target>;
+  Targets?: Target[];
 }
 
 export namespace AutomationExecutionMetadata {
@@ -1358,7 +1358,7 @@ export interface CancelCommandRequest {
    * <p>(Optional) A list of instance IDs on which you want to cancel the command. If not provided,
    *    the command is canceled on every instance on which it was requested.</p>
    */
-  InstanceIds?: Array<string>;
+  InstanceIds?: string[];
 }
 
 export namespace CancelCommandRequest {
@@ -1485,7 +1485,7 @@ export interface Command {
   /**
    * <p>The instance IDs against which this command was requested.</p>
    */
-  InstanceIds?: Array<string>;
+  InstanceIds?: string[];
 
   /**
    * <p>The maximum number of instances that are allowed to run the command at the same time. You
@@ -1529,7 +1529,7 @@ export interface Command {
   /**
    * <p>The parameter values to be inserted in the document when running the command.</p>
    */
-  Parameters?: { [key: string]: Array<string> };
+  Parameters?: { [key: string]: string[] };
 
   /**
    * <p>The date and time the command was requested.</p>
@@ -1604,7 +1604,7 @@ export interface Command {
    * <p>An array of search criteria that targets instances using a Key,Value combination that you
    *    specify. Targets is required if you don't provide one or more instance IDs in the call.</p>
    */
-  Targets?: Array<Target>;
+  Targets?: Target[];
 }
 
 export namespace Command {
@@ -1738,7 +1738,7 @@ export interface CommandInvocation {
    */
   CommandId?: string;
 
-  CommandPlugins?: Array<CommandPlugin>;
+  CommandPlugins?: CommandPlugin[];
   /**
    * <p>User-specified information about the command, such as a brief description of what the
    *    command should do.</p>
@@ -2210,7 +2210,7 @@ export interface ComplianceStringFilter {
   /**
    * <p>The value for which to search.</p>
    */
-  Values?: Array<string>;
+  Values?: string[];
 }
 
 export namespace ComplianceStringFilter {
@@ -2358,7 +2358,7 @@ export interface CreateActivationRequest {
    *    prefixed with "mi-". For information about how to add tags to your managed instances, see <a>AddTagsToResource</a>. For information about how to remove tags from your managed
    *    instances, see <a>RemoveTagsFromResource</a>.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateActivationRequest {
@@ -2391,7 +2391,7 @@ export interface CreateAssociationBatchRequest {
   /**
    * <p>One or more associations.</p>
    */
-  Entries: Array<CreateAssociationBatchRequestEntry> | undefined;
+  Entries: CreateAssociationBatchRequestEntry[] | undefined;
 }
 
 export namespace CreateAssociationBatchRequest {
@@ -2485,7 +2485,7 @@ export interface CreateAssociationBatchRequestEntry {
   /**
    * <p>A description of the parameters for a document. </p>
    */
-  Parameters?: { [key: string]: Array<string> };
+  Parameters?: { [key: string]: string[] };
 
   /**
    * <p>A cron expression that specifies a schedule when the association runs.</p>
@@ -2495,7 +2495,7 @@ export interface CreateAssociationBatchRequestEntry {
   /**
    * <p>The instances targeted by the request.</p>
    */
-  Targets?: Array<Target>;
+  Targets?: Target[];
 }
 
 export namespace CreateAssociationBatchRequestEntry {
@@ -2508,12 +2508,12 @@ export interface CreateAssociationBatchResult {
   /**
    * <p>Information about the associations that failed.</p>
    */
-  Failed?: Array<FailedCreateAssociation>;
+  Failed?: FailedCreateAssociation[];
 
   /**
    * <p>Information about the associations that succeeded.</p>
    */
-  Successful?: Array<AssociationDescription>;
+  Successful?: AssociationDescription[];
 }
 
 export namespace CreateAssociationBatchResult {
@@ -2616,7 +2616,7 @@ export interface CreateAssociationRequest {
   /**
    * <p>The parameters for the runtime configuration of the document.</p>
    */
-  Parameters?: { [key: string]: Array<string> };
+  Parameters?: { [key: string]: string[] };
 
   /**
    * <p>A cron expression when the association will be applied to the target(s).</p>
@@ -2627,7 +2627,7 @@ export interface CreateAssociationRequest {
    * <p>The targets (either instances or tags) for the association. You must specify a value for
    *     <code>Targets</code> if you don't specify a value for <code>InstanceId</code>.</p>
    */
-  Targets?: Array<Target>;
+  Targets?: Target[];
 }
 
 export namespace CreateAssociationRequest {
@@ -2653,7 +2653,7 @@ export interface CreateDocumentRequest {
   /**
    * <p>A list of key and value pairs that describe attachments to a version of a document.</p>
    */
-  Attachments?: Array<AttachmentsSource>;
+  Attachments?: AttachmentsSource[];
 
   /**
    * <p>A valid JSON or YAML string.</p>
@@ -2702,7 +2702,7 @@ export interface CreateDocumentRequest {
    *     <code>ApplicationConfiguration</code> document requires an
    *     <code>ApplicationConfigurationSchema</code> document.</p>
    */
-  Requires?: Array<DocumentRequires>;
+  Requires?: DocumentRequires[];
 
   /**
    * <p>Optional metadata that you assign to a resource. Tags enable you to categorize a resource in
@@ -2727,7 +2727,7 @@ export interface CreateDocumentRequest {
    *     action.</p>
    *          </note>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>Specify a target type to define the kinds of resources the document can run on. For example,
@@ -2857,7 +2857,7 @@ export interface CreateMaintenanceWindowRequest {
    *     action.</p>
    *          </note>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateMaintenanceWindowRequest {
@@ -2894,7 +2894,7 @@ export interface CreateOpsItemRequest {
    * <p>The Amazon Resource Name (ARN) of an SNS topic where notifications are sent when this
    *    OpsItem is edited or changed.</p>
    */
-  Notifications?: Array<OpsItemNotification>;
+  Notifications?: OpsItemNotification[];
 
   /**
    * <p>Operational data is custom data that provides useful reference details about the OpsItem.
@@ -2928,7 +2928,7 @@ export interface CreateOpsItemRequest {
    *    related OpsItems can include OpsItems with similar error messages, impacted resources, or
    *    statuses for the impacted resource.</p>
    */
-  RelatedOpsItems?: Array<RelatedOpsItem>;
+  RelatedOpsItems?: RelatedOpsItem[];
 
   /**
    * <p>Specify a severity to assign to an OpsItem.</p>
@@ -2954,7 +2954,7 @@ export interface CreateOpsItemRequest {
    *     action.</p>
    *          </note>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>A short heading that describes the nature of the OpsItem and the impacted resource.</p>
@@ -2993,7 +2993,7 @@ export interface CreatePatchBaselineRequest {
    *                         see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html">Package Name Formats
    *                         for Approved and Rejected Patch Lists</a> in the <i>AWS Systems Manager User Guide</i>.</p>
    */
-  ApprovedPatches?: Array<string>;
+  ApprovedPatches?: string[];
 
   /**
    * <p>Defines the compliance level for approved patches. This means that if an approved patch is
@@ -3040,7 +3040,7 @@ export interface CreatePatchBaselineRequest {
    *                         see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html">Package Name Formats
    *                         for Approved and Rejected Patch Lists</a> in the <i>AWS Systems Manager User Guide</i>.</p>
    */
-  RejectedPatches?: Array<string>;
+  RejectedPatches?: string[];
 
   /**
    * <p>The action for Patch Manager to take on patches included in the RejectedPackages
@@ -3069,7 +3069,7 @@ export interface CreatePatchBaselineRequest {
    * <p>Information about the patches to use to update the instances, including target operating
    *    systems and source repositories. Applies to Linux instances only.</p>
    */
-  Sources?: Array<PatchSource>;
+  Sources?: PatchSource[];
 
   /**
    * <p>Optional metadata that you assign to a resource. Tags enable you to categorize a resource in
@@ -3093,7 +3093,7 @@ export interface CreatePatchBaselineRequest {
    *     action.</p>
    *          </note>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreatePatchBaselineRequest {
@@ -3384,7 +3384,7 @@ export interface DeleteParametersRequest {
   /**
    * <p>The names of the parameters to delete.</p>
    */
-  Names: Array<string> | undefined;
+  Names: string[] | undefined;
 }
 
 export namespace DeleteParametersRequest {
@@ -3397,12 +3397,12 @@ export interface DeleteParametersResult {
   /**
    * <p>The names of the deleted parameters.</p>
    */
-  DeletedParameters?: Array<string>;
+  DeletedParameters?: string[];
 
   /**
    * <p>The names of parameters that weren't deleted because the parameters are not valid.</p>
    */
-  InvalidParameters?: Array<string>;
+  InvalidParameters?: string[];
 }
 
 export namespace DeleteParametersResult {
@@ -3624,7 +3624,7 @@ export interface DescribeActivationsFilter {
   /**
    * <p>The filter values.</p>
    */
-  FilterValues?: Array<string>;
+  FilterValues?: string[];
 }
 
 export namespace DescribeActivationsFilter {
@@ -3643,7 +3643,7 @@ export interface DescribeActivationsRequest {
   /**
    * <p>A filter to view information about your activations.</p>
    */
-  Filters?: Array<DescribeActivationsFilter>;
+  Filters?: DescribeActivationsFilter[];
 
   /**
    * <p>The maximum number of items to return for this call. The call also returns a token that you
@@ -3667,7 +3667,7 @@ export interface DescribeActivationsResult {
   /**
    * <p>A list of activations for your AWS account.</p>
    */
-  ActivationList?: Array<Activation>;
+  ActivationList?: Activation[];
 
   /**
    * <p>The token for the next set of items to return. Use this token to get the next set of
@@ -3699,7 +3699,7 @@ export interface DescribeAssociationExecutionTargetsRequest {
    *          <p>ResourceId (EQUAL)</p>
    *          <p>ResourceType (EQUAL)</p>
    */
-  Filters?: Array<AssociationExecutionTargetsFilter>;
+  Filters?: AssociationExecutionTargetsFilter[];
 
   /**
    * <p>The maximum number of items to return for this call. The call also returns a token that you
@@ -3725,7 +3725,7 @@ export interface DescribeAssociationExecutionTargetsResult {
   /**
    * <p>Information about the execution.</p>
    */
-  AssociationExecutionTargets?: Array<AssociationExecutionTarget>;
+  AssociationExecutionTargets?: AssociationExecutionTarget[];
 
   /**
    * <p>The token for the next set of items to return. Use this token to get the next set of
@@ -3752,7 +3752,7 @@ export interface DescribeAssociationExecutionsRequest {
    *          <p>Status (EQUAL)</p>
    *          <p>CreatedTime (EQUAL, GREATER_THAN, LESS_THAN)</p>
    */
-  Filters?: Array<AssociationExecutionFilter>;
+  Filters?: AssociationExecutionFilter[];
 
   /**
    * <p>The maximum number of items to return for this call. The call also returns a token that you
@@ -3776,7 +3776,7 @@ export interface DescribeAssociationExecutionsResult {
   /**
    * <p>A list of the executions for the specified association ID.</p>
    */
-  AssociationExecutions?: Array<AssociationExecution>;
+  AssociationExecutions?: AssociationExecution[];
 
   /**
    * <p>The token for the next set of items to return. Use this token to get the next set of
@@ -3839,7 +3839,7 @@ export interface DescribeAutomationExecutionsRequest {
   /**
    * <p>Filters used to limit the scope of executions that are requested.</p>
    */
-  Filters?: Array<AutomationExecutionFilter>;
+  Filters?: AutomationExecutionFilter[];
 
   /**
    * <p>The maximum number of items to return for this call. The call also returns a token that you
@@ -3865,7 +3865,7 @@ export interface DescribeAutomationExecutionsResult {
    * <p>The list of details about each automation execution which has occurred which matches the
    *    filter specification, if any.</p>
    */
-  AutomationExecutionMetadataList?: Array<AutomationExecutionMetadata>;
+  AutomationExecutionMetadataList?: AutomationExecutionMetadata[];
 
   /**
    * <p>The token to use when requesting the next set of items. If there are no additional items to
@@ -3889,7 +3889,7 @@ export interface DescribeAutomationStepExecutionsRequest {
   /**
    * <p>One or more filters to limit the number of step executions returned by the request.</p>
    */
-  Filters?: Array<StepExecutionFilter>;
+  Filters?: StepExecutionFilter[];
 
   /**
    * <p>The maximum number of items to return for this call. The call also returns a token that you
@@ -3926,7 +3926,7 @@ export interface DescribeAutomationStepExecutionsResult {
   /**
    * <p>A list of details about the current state of all steps that make up an execution.</p>
    */
-  StepExecutions?: Array<StepExecution>;
+  StepExecutions?: StepExecution[];
 }
 
 export namespace DescribeAutomationStepExecutionsResult {
@@ -3939,7 +3939,7 @@ export interface DescribeAvailablePatchesRequest {
   /**
    * <p>Filters used to scope down the returned patches.</p>
    */
-  Filters?: Array<PatchOrchestratorFilter>;
+  Filters?: PatchOrchestratorFilter[];
 
   /**
    * <p>The maximum number of patches to return (per page).</p>
@@ -3969,7 +3969,7 @@ export interface DescribeAvailablePatchesResult {
   /**
    * <p>An array of patches. Each entry in the array is a patch structure.</p>
    */
-  Patches?: Array<Patch>;
+  Patches?: Patch[];
 }
 
 export namespace DescribeAvailablePatchesResult {
@@ -4002,13 +4002,13 @@ export interface DescribeDocumentPermissionResponse {
    * <p>The account IDs that have permission to use this document. The ID can be either an AWS
    *    account or <i>All</i>.</p>
    */
-  AccountIds?: Array<string>;
+  AccountIds?: string[];
 
   /**
    * <p>A list of of AWS accounts where the current document is shared and the version shared with
    *    each account.</p>
    */
-  AccountSharingInfoList?: Array<AccountSharingInfo>;
+  AccountSharingInfoList?: AccountSharingInfo[];
 }
 
 export namespace DescribeDocumentPermissionResponse {
@@ -4087,7 +4087,7 @@ export interface DescribeEffectiveInstanceAssociationsResult {
   /**
    * <p>The associations for the requested instance.</p>
    */
-  Associations?: Array<InstanceAssociation>;
+  Associations?: InstanceAssociation[];
 
   /**
    * <p>The token to use when requesting the next set of items. If there are no additional items to
@@ -4134,7 +4134,7 @@ export interface DescribeEffectivePatchesForPatchBaselineResult {
   /**
    * <p>An array of patches and patch status.</p>
    */
-  EffectivePatches?: Array<EffectivePatch>;
+  EffectivePatches?: EffectivePatch[];
 
   /**
    * <p>The token to use when requesting the next set of items. If there are no additional items to
@@ -4180,7 +4180,7 @@ export interface DescribeInstanceAssociationsStatusResult {
   /**
    * <p>Status information about the association.</p>
    */
-  InstanceAssociationStatusInfos?: Array<InstanceAssociationStatusInfo>;
+  InstanceAssociationStatusInfos?: InstanceAssociationStatusInfo[];
 
   /**
    * <p>The token to use when requesting the next set of items. If there are no additional items to
@@ -4200,7 +4200,7 @@ export interface DescribeInstanceInformationRequest {
    * <p>One or more filters. Use a filter to return a more specific list of instances. You can
    *    filter on Amazon EC2 tag. Specify tags by using a key-value mapping.</p>
    */
-  Filters?: Array<InstanceInformationStringFilter>;
+  Filters?: InstanceInformationStringFilter[];
 
   /**
    * <p>This is a legacy method. We recommend that you don't use this method. Instead, use the <a>InstanceInformationFilter</a> action. The <code>InstanceInformationFilter</code> action
@@ -4210,7 +4210,7 @@ export interface DescribeInstanceInformationRequest {
    *    action. Using this method and the <code>InstanceInformationFilter</code> action causes an
    *    exception error. </p>
    */
-  InstanceInformationFilterList?: Array<InstanceInformationFilter>;
+  InstanceInformationFilterList?: InstanceInformationFilter[];
 
   /**
    * <p>The maximum number of items to return for this call. The call also returns a token that you
@@ -4235,7 +4235,7 @@ export interface DescribeInstanceInformationResult {
   /**
    * <p>The instance information list.</p>
    */
-  InstanceInformationList?: Array<InstanceInformation>;
+  InstanceInformationList?: InstanceInformation[];
 
   /**
    * <p>The token to use when requesting the next set of items. If there are no additional items to
@@ -4257,7 +4257,7 @@ export interface DescribeInstancePatchStatesForPatchGroupRequest {
    *          <p> Values (array containing a single string)</p>
    *          <p> Type (string "Equal", "NotEqual", "LessThan", "GreaterThan")</p>
    */
-  Filters?: Array<InstancePatchStateFilter>;
+  Filters?: InstancePatchStateFilter[];
 
   /**
    * <p>The maximum number of patches to return (per page).</p>
@@ -4289,7 +4289,7 @@ export interface DescribeInstancePatchStatesForPatchGroupResult {
   /**
    * <p>The high-level patch state for the requested instances. </p>
    */
-  InstancePatchStates?: Array<InstancePatchState>;
+  InstancePatchStates?: InstancePatchState[];
 
   /**
    * <p>The token to use when requesting the next set of items. If there are no additional items to
@@ -4310,7 +4310,7 @@ export interface DescribeInstancePatchStatesRequest {
   /**
    * <p>The ID of the instance whose patch state information should be retrieved.</p>
    */
-  InstanceIds: Array<string> | undefined;
+  InstanceIds: string[] | undefined;
 
   /**
    * <p>The maximum number of instances to return (per page).</p>
@@ -4334,7 +4334,7 @@ export interface DescribeInstancePatchStatesResult {
   /**
    * <p>The high-level patch state for the requested instances.</p>
    */
-  InstancePatchStates?: Array<InstancePatchState>;
+  InstancePatchStates?: InstancePatchState[];
 
   /**
    * <p>The token to use when requesting the next set of items. If there are no additional items to
@@ -4355,7 +4355,7 @@ export interface DescribeInstancePatchesRequest {
    *    combination. Valid values for Key are <code>Classification</code> | <code>KBId</code> |
    *     <code>Severity</code> | <code>State</code>.</p>
    */
-  Filters?: Array<PatchOrchestratorFilter>;
+  Filters?: PatchOrchestratorFilter[];
 
   /**
    * <p>The ID of the instance whose patch state information should be retrieved.</p>
@@ -4397,7 +4397,7 @@ export interface DescribeInstancePatchesResult {
    *          <p>InstalledTime (DateTime)</p>
    *          <p>InstalledBy (string)</p>
    */
-  Patches?: Array<PatchComplianceData>;
+  Patches?: PatchComplianceData[];
 }
 
 export namespace DescribeInstancePatchesResult {
@@ -4435,7 +4435,7 @@ export interface DescribeInventoryDeletionsResult {
   /**
    * <p>A list of status items for deleted inventory.</p>
    */
-  InventoryDeletions?: Array<InventoryDeletionStatusItem>;
+  InventoryDeletions?: InventoryDeletionStatusItem[];
 
   /**
    * <p>The token for the next set of items to return. Use this token to get the next set of
@@ -4456,7 +4456,7 @@ export interface DescribeMaintenanceWindowExecutionTaskInvocationsRequest {
    *    is STATUS with the corresponding values PENDING, IN_PROGRESS, SUCCESS, FAILED, TIMED_OUT,
    *    CANCELLING, and CANCELLED.</p>
    */
-  Filters?: Array<MaintenanceWindowFilter>;
+  Filters?: MaintenanceWindowFilter[];
 
   /**
    * <p>The maximum number of items to return for this call. The call also returns a token that you
@@ -4499,9 +4499,7 @@ export interface DescribeMaintenanceWindowExecutionTaskInvocationsResult {
   /**
    * <p>Information about the task invocation results per invocation.</p>
    */
-  WindowExecutionTaskInvocationIdentities?: Array<
-    MaintenanceWindowExecutionTaskInvocationIdentity
-  >;
+  WindowExecutionTaskInvocationIdentities?: MaintenanceWindowExecutionTaskInvocationIdentity[];
 }
 
 export namespace DescribeMaintenanceWindowExecutionTaskInvocationsResult {
@@ -4518,7 +4516,7 @@ export interface DescribeMaintenanceWindowExecutionTasksRequest {
    *    with the corresponding values PENDING, IN_PROGRESS, SUCCESS, FAILED, TIMED_OUT, CANCELLING, and
    *    CANCELLED. </p>
    */
-  Filters?: Array<MaintenanceWindowFilter>;
+  Filters?: MaintenanceWindowFilter[];
 
   /**
    * <p>The maximum number of items to return for this call. The call also returns a token that you
@@ -4556,7 +4554,7 @@ export interface DescribeMaintenanceWindowExecutionTasksResult {
   /**
    * <p>Information about the task executions.</p>
    */
-  WindowExecutionTaskIdentities?: Array<MaintenanceWindowExecutionTaskIdentity>;
+  WindowExecutionTaskIdentities?: MaintenanceWindowExecutionTaskIdentity[];
 }
 
 export namespace DescribeMaintenanceWindowExecutionTasksResult {
@@ -4575,7 +4573,7 @@ export interface DescribeMaintenanceWindowExecutionsRequest {
    *          <p>The supported Keys are ExecutedBefore and ExecutedAfter with the value being a date/time
    *    string such as 2016-11-04T05:00:00Z.</p>
    */
-  Filters?: Array<MaintenanceWindowFilter>;
+  Filters?: MaintenanceWindowFilter[];
 
   /**
    * <p>The maximum number of items to return for this call. The call also returns a token that you
@@ -4613,7 +4611,7 @@ export interface DescribeMaintenanceWindowExecutionsResult {
   /**
    * <p>Information about the maintenance window executions.</p>
    */
-  WindowExecutions?: Array<MaintenanceWindowExecution>;
+  WindowExecutions?: MaintenanceWindowExecution[];
 }
 
 export namespace DescribeMaintenanceWindowExecutionsResult {
@@ -4627,7 +4625,7 @@ export interface DescribeMaintenanceWindowScheduleRequest {
    * <p>Filters used to limit the range of results. For example, you can limit maintenance window
    *    executions to only those scheduled before or after a certain date and time.</p>
    */
-  Filters?: Array<PatchOrchestratorFilter>;
+  Filters?: PatchOrchestratorFilter[];
 
   /**
    * <p>The maximum number of items to return for this call. The call also returns a token that you
@@ -4649,7 +4647,7 @@ export interface DescribeMaintenanceWindowScheduleRequest {
   /**
    * <p>The instance ID or key/value pair to retrieve information about.</p>
    */
-  Targets?: Array<Target>;
+  Targets?: Target[];
 
   /**
    * <p>The ID of the maintenance window to retrieve information about.</p>
@@ -4673,7 +4671,7 @@ export interface DescribeMaintenanceWindowScheduleResult {
    * <p>Information about maintenance window executions scheduled for the specified time
    *    range.</p>
    */
-  ScheduledWindowExecutions?: Array<ScheduledWindowExecution>;
+  ScheduledWindowExecutions?: ScheduledWindowExecution[];
 }
 
 export namespace DescribeMaintenanceWindowScheduleResult {
@@ -4687,7 +4685,7 @@ export interface DescribeMaintenanceWindowTargetsRequest {
    * <p>Optional filters that can be used to narrow down the scope of the returned window targets.
    *    The supported filter keys are Type, WindowTargetId and OwnerInformation.</p>
    */
-  Filters?: Array<MaintenanceWindowFilter>;
+  Filters?: MaintenanceWindowFilter[];
 
   /**
    * <p>The maximum number of items to return for this call. The call also returns a token that you
@@ -4723,7 +4721,7 @@ export interface DescribeMaintenanceWindowTargetsResult {
   /**
    * <p>Information about the targets in the maintenance window.</p>
    */
-  Targets?: Array<MaintenanceWindowTarget>;
+  Targets?: MaintenanceWindowTarget[];
 }
 
 export namespace DescribeMaintenanceWindowTargetsResult {
@@ -4737,7 +4735,7 @@ export interface DescribeMaintenanceWindowTasksRequest {
    * <p>Optional filters used to narrow down the scope of the returned tasks. The supported filter
    *    keys are WindowTaskId, TaskArn, Priority, and TaskType.</p>
    */
-  Filters?: Array<MaintenanceWindowFilter>;
+  Filters?: MaintenanceWindowFilter[];
 
   /**
    * <p>The maximum number of items to return for this call. The call also returns a token that you
@@ -4773,7 +4771,7 @@ export interface DescribeMaintenanceWindowTasksResult {
   /**
    * <p>Information about the tasks in the maintenance window.</p>
    */
-  Tasks?: Array<MaintenanceWindowTask>;
+  Tasks?: MaintenanceWindowTask[];
 }
 
 export namespace DescribeMaintenanceWindowTasksResult {
@@ -4803,7 +4801,7 @@ export interface DescribeMaintenanceWindowsForTargetRequest {
   /**
    * <p>The instance ID or key/value pair to retrieve information about.</p>
    */
-  Targets: Array<Target> | undefined;
+  Targets: Target[] | undefined;
 }
 
 export namespace DescribeMaintenanceWindowsForTargetRequest {
@@ -4824,7 +4822,7 @@ export interface DescribeMaintenanceWindowsForTargetResult {
    * <p>Information about the maintenance window targets and tasks an instance is associated
    *    with.</p>
    */
-  WindowIdentities?: Array<MaintenanceWindowIdentityForTarget>;
+  WindowIdentities?: MaintenanceWindowIdentityForTarget[];
 }
 
 export namespace DescribeMaintenanceWindowsForTargetResult {
@@ -4838,7 +4836,7 @@ export interface DescribeMaintenanceWindowsRequest {
    * <p>Optional filters used to narrow down the scope of the returned maintenance windows.
    *    Supported filter keys are <b>Name</b> and <b>Enabled</b>.</p>
    */
-  Filters?: Array<MaintenanceWindowFilter>;
+  Filters?: MaintenanceWindowFilter[];
 
   /**
    * <p>The maximum number of items to return for this call. The call also returns a token that you
@@ -4869,7 +4867,7 @@ export interface DescribeMaintenanceWindowsResult {
   /**
    * <p>Information about the maintenance windows.</p>
    */
-  WindowIdentities?: Array<MaintenanceWindowIdentity>;
+  WindowIdentities?: MaintenanceWindowIdentity[];
 }
 
 export namespace DescribeMaintenanceWindowsResult {
@@ -4949,7 +4947,7 @@ export interface DescribeOpsItemsRequest {
    *          <p>*If you filter the response by using the OperationalData operator, specify a key-value pair
    *    by using the following JSON format: {"key":"key_name","value":"a_value"}</p>
    */
-  OpsItemFilters?: Array<OpsItemFilter>;
+  OpsItemFilters?: OpsItemFilter[];
 }
 
 export namespace DescribeOpsItemsRequest {
@@ -4968,7 +4966,7 @@ export interface DescribeOpsItemsResponse {
   /**
    * <p>A list of OpsItems.</p>
    */
-  OpsItemSummaries?: Array<OpsItemSummary>;
+  OpsItemSummaries?: OpsItemSummary[];
 }
 
 export namespace DescribeOpsItemsResponse {
@@ -4981,7 +4979,7 @@ export interface DescribeParametersRequest {
   /**
    * <p>This data type is deprecated. Instead, use <code>ParameterFilters</code>.</p>
    */
-  Filters?: Array<ParametersFilter>;
+  Filters?: ParametersFilter[];
 
   /**
    * <p>The maximum number of items to return for this call. The call also returns a token that you
@@ -4998,7 +4996,7 @@ export interface DescribeParametersRequest {
   /**
    * <p>Filters to limit the request results.</p>
    */
-  ParameterFilters?: Array<ParameterStringFilter>;
+  ParameterFilters?: ParameterStringFilter[];
 }
 
 export namespace DescribeParametersRequest {
@@ -5017,7 +5015,7 @@ export interface DescribeParametersResult {
   /**
    * <p>Parameters returned by the request.</p>
    */
-  Parameters?: Array<ParameterMetadata>;
+  Parameters?: ParameterMetadata[];
 }
 
 export namespace DescribeParametersResult {
@@ -5032,7 +5030,7 @@ export interface DescribePatchBaselinesRequest {
    *          <p>Key: (string, "NAME_PREFIX" or "OWNER")</p>
    *          <p>Value: (array of strings, exactly 1 entry, between 1 and 255 characters)</p>
    */
-  Filters?: Array<PatchOrchestratorFilter>;
+  Filters?: PatchOrchestratorFilter[];
 
   /**
    * <p>The maximum number of patch baselines to return (per page).</p>
@@ -5056,7 +5054,7 @@ export interface DescribePatchBaselinesResult {
   /**
    * <p>An array of PatchBaselineIdentity elements.</p>
    */
-  BaselineIdentities?: Array<PatchBaselineIdentity>;
+  BaselineIdentities?: PatchBaselineIdentity[];
 
   /**
    * <p>The token to use when requesting the next set of items. If there are no additional items to
@@ -5150,7 +5148,7 @@ export interface DescribePatchGroupsRequest {
   /**
    * <p>One or more filters. Use a filter to return a more specific list of results.</p>
    */
-  Filters?: Array<PatchOrchestratorFilter>;
+  Filters?: PatchOrchestratorFilter[];
 
   /**
    * <p>The maximum number of patch groups to return (per page).</p>
@@ -5177,7 +5175,7 @@ export interface DescribePatchGroupsResult {
    *    ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$)</p>
    *          <p>PatchBaselineIdentity: A PatchBaselineIdentity element. </p>
    */
-  Mappings?: Array<PatchGroupPatchBaselineMapping>;
+  Mappings?: PatchGroupPatchBaselineMapping[];
 
   /**
    * <p>The token to use when requesting the next set of items. If there are no additional items to
@@ -5237,7 +5235,7 @@ export interface DescribePatchPropertiesResult {
   /**
    * <p>A list of the properties for patches matching the filter request parameters.</p>
    */
-  Properties?: Array<{ [key: string]: string }>;
+  Properties?: { [key: string]: string }[];
 }
 
 export namespace DescribePatchPropertiesResult {
@@ -5250,7 +5248,7 @@ export interface DescribeSessionsRequest {
   /**
    * <p>One or more filters to limit the type of sessions returned by the request.</p>
    */
-  Filters?: Array<SessionFilter>;
+  Filters?: SessionFilter[];
 
   /**
    * <p>The maximum number of items to return for this call. The call also returns a token that you
@@ -5286,7 +5284,7 @@ export interface DescribeSessionsResponse {
   /**
    * <p>A list of sessions meeting the request parameters.</p>
    */
-  Sessions?: Array<Session>;
+  Sessions?: Session[];
 }
 
 export namespace DescribeSessionsResponse {
@@ -5344,7 +5342,7 @@ export interface DocumentDescription {
   /**
    * <p>Details about the document attachments, including names, locations, sizes, etc.</p>
    */
-  AttachmentsInformation?: Array<AttachmentInformation>;
+  AttachmentsInformation?: AttachmentInformation[];
 
   /**
    * <p>The date when the document was created.</p>
@@ -5411,19 +5409,19 @@ export interface DocumentDescription {
   /**
    * <p>A description of the parameters for a document.</p>
    */
-  Parameters?: Array<DocumentParameter>;
+  Parameters?: DocumentParameter[];
 
   /**
    * <p>The list of OS platforms compatible with this Systems Manager document. </p>
    */
-  PlatformTypes?: Array<PlatformType | string>;
+  PlatformTypes?: (PlatformType | string)[];
 
   /**
    * <p>A list of SSM documents required by a document. For example, an
    *     <code>ApplicationConfiguration</code> document requires an
    *     <code>ApplicationConfigurationSchema</code> document.</p>
    */
-  Requires?: Array<DocumentRequires>;
+  Requires?: DocumentRequires[];
 
   /**
    * <p>The schema version.</p>
@@ -5450,7 +5448,7 @@ export interface DocumentDescription {
   /**
    * <p>The tags, or metadata, that have been applied to the document.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The target type which defines the kinds of resources the document can run on. For example,
@@ -5542,14 +5540,14 @@ export interface DocumentIdentifier {
   /**
    * <p>The operating system platform. </p>
    */
-  PlatformTypes?: Array<PlatformType | string>;
+  PlatformTypes?: (PlatformType | string)[];
 
   /**
    * <p>A list of SSM documents required by a document. For example, an
    *     <code>ApplicationConfiguration</code> document requires an
    *     <code>ApplicationConfigurationSchema</code> document.</p>
    */
-  Requires?: Array<DocumentRequires>;
+  Requires?: DocumentRequires[];
 
   /**
    * <p>The schema version.</p>
@@ -5559,7 +5557,7 @@ export interface DocumentIdentifier {
   /**
    * <p>The tags, or metadata, that have been applied to the document.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The target type which defines the kinds of resources the document can run on. For example,
@@ -5615,7 +5613,7 @@ export interface DocumentKeyValuesFilter {
   /**
    * <p>The value for the filter key.</p>
    */
-  Values?: Array<string>;
+  Values?: string[];
 }
 
 export namespace DocumentKeyValuesFilter {
@@ -5944,7 +5942,7 @@ export interface FailureDetails {
   /**
    * <p>Detailed information about the Automation step failure.</p>
    */
-  Details?: { [key: string]: Array<string> };
+  Details?: { [key: string]: string[] };
 
   /**
    * <p>The stage of the Automation execution when the failure occurred. The stages include the
@@ -6023,7 +6021,7 @@ export interface GetCalendarStateRequest {
    * <p>The names or Amazon Resource Names (ARNs) of the Systems Manager documents that represent the calendar
    *    entries for which you want to get the state.</p>
    */
-  CalendarNames: Array<string> | undefined;
+  CalendarNames: string[] | undefined;
 }
 
 export namespace GetCalendarStateRequest {
@@ -6404,7 +6402,7 @@ export interface GetDocumentResult {
   /**
    * <p>A description of the document attachments, including names, locations, sizes, etc.</p>
    */
-  AttachmentsContent?: Array<AttachmentContent>;
+  AttachmentsContent?: AttachmentContent[];
 
   /**
    * <p>The contents of the Systems Manager document.</p>
@@ -6436,7 +6434,7 @@ export interface GetDocumentResult {
    *     <code>ApplicationConfiguration</code> document requires an
    *     <code>ApplicationConfigurationSchema</code> document.</p>
    */
-  Requires?: Array<DocumentRequires>;
+  Requires?: DocumentRequires[];
 
   /**
    * <p>The status of the Systems Manager document, such as <code>Creating</code>, <code>Active</code>,
@@ -6471,12 +6469,12 @@ export interface GetInventoryRequest {
    *    type, you can see a count of how many Windows and Linux instances exist in your inventoried
    *    fleet.</p>
    */
-  Aggregators?: Array<InventoryAggregator>;
+  Aggregators?: InventoryAggregator[];
 
   /**
    * <p>One or more filters. Use a filter to return a more specific list of results.</p>
    */
-  Filters?: Array<InventoryFilter>;
+  Filters?: InventoryFilter[];
 
   /**
    * <p>The maximum number of items to return for this call. The call also returns a token that you
@@ -6493,7 +6491,7 @@ export interface GetInventoryRequest {
   /**
    * <p>The list of inventory item types to return.</p>
    */
-  ResultAttributes?: Array<ResultAttribute>;
+  ResultAttributes?: ResultAttribute[];
 }
 
 export namespace GetInventoryRequest {
@@ -6506,7 +6504,7 @@ export interface GetInventoryResult {
   /**
    * <p>Collection of inventory entities such as a collection of instance inventory. </p>
    */
-  Entities?: Array<InventoryResultEntity>;
+  Entities?: InventoryResultEntity[];
 
   /**
    * <p>The token to use when requesting the next set of items. If there are no additional items to
@@ -6569,7 +6567,7 @@ export interface GetInventorySchemaResult {
   /**
    * <p>Inventory schemas returned by the request.</p>
    */
-  Schemas?: Array<InventoryItemSchema>;
+  Schemas?: InventoryItemSchema[];
 }
 
 export namespace GetInventorySchemaResult {
@@ -6615,7 +6613,7 @@ export interface GetMaintenanceWindowExecutionResult {
   /**
    * <p>The ID of the task executions from the maintenance window execution.</p>
    */
-  TaskIds?: Array<string>;
+  TaskIds?: string[];
 
   /**
    * <p>The ID of the maintenance window execution.</p>
@@ -6812,9 +6810,9 @@ export interface GetMaintenanceWindowExecutionTaskResult {
    *          <p>Key: string, between 1 and 255 characters</p>
    *          <p>Value: an array of strings, each string is between 1 and 255 characters</p>
    */
-  TaskParameters?: Array<{
+  TaskParameters?: {
     [key: string]: MaintenanceWindowTaskParameterValueExpression;
-  }>;
+  }[];
 
   /**
    * <p>The type of task that was run.</p>
@@ -6998,7 +6996,7 @@ export interface GetMaintenanceWindowTaskResult {
   /**
    * <p>The targets where the task should run.</p>
    */
-  Targets?: Array<Target>;
+  Targets?: Target[];
 
   /**
    * <p>The resource that the task used during execution. For RUN_COMMAND and AUTOMATION task types,
@@ -7078,12 +7076,12 @@ export interface GetOpsSummaryRequest {
   /**
    * <p>Optional aggregators that return counts of OpsItems based on one or more expressions.</p>
    */
-  Aggregators?: Array<OpsAggregator>;
+  Aggregators?: OpsAggregator[];
 
   /**
    * <p>Optional filters used to scope down the returned OpsItems. </p>
    */
-  Filters?: Array<OpsFilter>;
+  Filters?: OpsFilter[];
 
   /**
    * <p>The maximum number of items to return for this call. The call also returns a token that you
@@ -7099,7 +7097,7 @@ export interface GetOpsSummaryRequest {
   /**
    * <p>The OpsItem data type to return.</p>
    */
-  ResultAttributes?: Array<OpsResultAttribute>;
+  ResultAttributes?: OpsResultAttribute[];
 
   /**
    * <p>Specify the name of a resource data sync to get.</p>
@@ -7117,7 +7115,7 @@ export interface GetOpsSummaryResult {
   /**
    * <p>The list of aggregated and filtered OpsItems.</p>
    */
-  Entities?: Array<OpsEntity>;
+  Entities?: OpsEntity[];
 
   /**
    * <p>The token for the next set of items to return. Use this token to get the next set of
@@ -7173,7 +7171,7 @@ export interface GetParameterHistoryResult {
   /**
    * <p>A list of parameters returned by the request.</p>
    */
-  Parameters?: Array<ParameterHistory>;
+  Parameters?: ParameterHistory[];
 }
 
 export namespace GetParameterHistoryResult {
@@ -7229,7 +7227,7 @@ export interface GetParametersByPathRequest {
   /**
    * <p>Filters to limit the request results.</p>
    */
-  ParameterFilters?: Array<ParameterStringFilter>;
+  ParameterFilters?: ParameterStringFilter[];
 
   /**
    * <p>The hierarchy for the parameter. Hierarchies start with a forward slash (/) and end with the
@@ -7273,7 +7271,7 @@ export interface GetParametersByPathResult {
   /**
    * <p>A list of parameters found in the specified hierarchy.</p>
    */
-  Parameters?: Array<Parameter>;
+  Parameters?: Parameter[];
 }
 
 export namespace GetParametersByPathResult {
@@ -7286,7 +7284,7 @@ export interface GetParametersRequest {
   /**
    * <p>Names of the parameters for which you want to query information.</p>
    */
-  Names: Array<string> | undefined;
+  Names: string[] | undefined;
 
   /**
    * <p>Return decrypted secure string value. Return decrypted values for secure string parameters.
@@ -7306,12 +7304,12 @@ export interface GetParametersResult {
    * <p>A list of parameters that are not formatted correctly or do not run during an
    *    execution.</p>
    */
-  InvalidParameters?: Array<string>;
+  InvalidParameters?: string[];
 
   /**
    * <p>A list of details for a parameter.</p>
    */
-  Parameters?: Array<Parameter>;
+  Parameters?: Parameter[];
 }
 
 export namespace GetParametersResult {
@@ -7383,7 +7381,7 @@ export interface GetPatchBaselineResult {
   /**
    * <p>A list of explicitly approved patches for the baseline.</p>
    */
-  ApprovedPatches?: Array<string>;
+  ApprovedPatches?: string[];
 
   /**
    * <p>Returns the specified compliance severity level for approved patches in the patch
@@ -7435,12 +7433,12 @@ export interface GetPatchBaselineResult {
   /**
    * <p>Patch groups included in the patch baseline.</p>
    */
-  PatchGroups?: Array<string>;
+  PatchGroups?: string[];
 
   /**
    * <p>A list of explicitly rejected patches for the baseline.</p>
    */
-  RejectedPatches?: Array<string>;
+  RejectedPatches?: string[];
 
   /**
    * <p>The action specified to take on patches included in the RejectedPatches list. A patch can be
@@ -7453,7 +7451,7 @@ export interface GetPatchBaselineResult {
    * <p>Information about the patches to use to update the instances, including target operating
    *    systems and source repositories. Applies to Linux instances only.</p>
    */
-  Sources?: Array<PatchSource>;
+  Sources?: PatchSource[];
 }
 
 export namespace GetPatchBaselineResult {
@@ -7853,7 +7851,7 @@ export interface InstanceInformationFilter {
   /**
    * <p>The filter values.</p>
    */
-  valueSet: Array<string> | undefined;
+  valueSet: string[] | undefined;
 }
 
 export namespace InstanceInformationFilter {
@@ -7887,7 +7885,7 @@ export interface InstanceInformationStringFilter {
   /**
    * <p>The filter values.</p>
    */
-  Values: Array<string> | undefined;
+  Values: string[] | undefined;
 }
 
 export namespace InstanceInformationStringFilter {
@@ -8067,7 +8065,7 @@ export interface InstancePatchStateFilter {
   /**
    * <p>The value for the filter, must be an integer greater than or equal to 0.</p>
    */
-  Values: Array<string> | undefined;
+  Values: string[] | undefined;
 }
 
 export namespace InstancePatchStateFilter {
@@ -8856,7 +8854,7 @@ export interface InventoryAggregator {
   /**
    * <p>Nested aggregators to further refine aggregation for an inventory type.</p>
    */
-  Aggregators?: Array<InventoryAggregator>;
+  Aggregators?: InventoryAggregator[];
 
   /**
    * <p>The inventory type and attribute name for aggregation.</p>
@@ -8867,7 +8865,7 @@ export interface InventoryAggregator {
    * <p>A user-defined set of one or more filters on which to aggregate inventory data. Groups
    *    return a count of resources that match and don't match the specified criteria.</p>
    */
-  Groups?: Array<InventoryGroup>;
+  Groups?: InventoryGroup[];
 }
 
 export namespace InventoryAggregator {
@@ -8945,7 +8943,7 @@ export interface InventoryDeletionSummary {
   /**
    * <p>A list of counts and versions for deleted items.</p>
    */
-  SummaryItems?: Array<InventoryDeletionSummaryItem>;
+  SummaryItems?: InventoryDeletionSummaryItem[];
 
   /**
    * <p>The total number of items to delete. This count does not change during the delete
@@ -9005,7 +9003,7 @@ export interface InventoryFilter {
    *    values Key=AWS:InstanceInformation.InstanceId,Values= i-a12b3c4d5e6g, i-1a2b3c4d5e6,Type=Equal
    *   </p>
    */
-  Values: Array<string> | undefined;
+  Values: string[] | undefined;
 }
 
 export namespace InventoryFilter {
@@ -9024,7 +9022,7 @@ export interface InventoryGroup {
    *    number of resources that match the criteria. The <code>notMatchingCount</code> field displays the
    *    number of resources that don't match the criteria. </p>
    */
-  Filters: Array<InventoryFilter> | undefined;
+  Filters: InventoryFilter[] | undefined;
 
   /**
    * <p>The name of the group.</p>
@@ -9050,7 +9048,7 @@ export interface InventoryItem {
   /**
    * <p>The inventory data of the inventory type.</p>
    */
-  Content?: Array<{ [key: string]: string }>;
+  Content?: { [key: string]: string }[];
 
   /**
    * <p>MD5 hash of the inventory item type contents. The content hash is used to determine whether
@@ -9115,7 +9113,7 @@ export interface InventoryItemSchema {
   /**
    * <p>The schema attributes for inventory. This contains data type and attribute name.</p>
    */
-  Attributes: Array<InventoryItemAttribute> | undefined;
+  Attributes: InventoryItemAttribute[] | undefined;
 
   /**
    * <p>The alias name of the inventory type. The alias name is used for display purposes.</p>
@@ -9187,7 +9185,7 @@ export interface InventoryResultItem {
    * <p>Contains all the inventory data of the item type. Results include attribute names and
    *    values. </p>
    */
-  Content: Array<{ [key: string]: string }> | undefined;
+  Content: { [key: string]: string }[] | undefined;
 
   /**
    * <p>MD5 hash of the inventory item type contents. The content hash is used to determine whether
@@ -9272,7 +9270,7 @@ export interface LabelParameterVersionRequest {
   /**
    * <p>One or more labels to attach to the specified parameter version.</p>
    */
-  Labels: Array<string> | undefined;
+  Labels: string[] | undefined;
 
   /**
    * <p>The parameter name on which you want to attach one or more labels.</p>
@@ -9298,7 +9296,7 @@ export interface LabelParameterVersionResult {
    *    requirements, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-labels.html">Labeling
    *     Parameters</a> in the <i>AWS Systems Manager User Guide</i>.</p>
    */
-  InvalidLabels?: Array<string>;
+  InvalidLabels?: string[];
 
   /**
    * <p>The version of the parameter that has been labeled.</p>
@@ -9346,7 +9344,7 @@ export interface ListAssociationVersionsResult {
   /**
    * <p>Information about all versions of the association for the specified association ID.</p>
    */
-  AssociationVersions?: Array<AssociationVersionInfo>;
+  AssociationVersions?: AssociationVersionInfo[];
 
   /**
    * <p>The token for the next set of items to return. Use this token to get the next set of
@@ -9365,7 +9363,7 @@ export interface ListAssociationsRequest {
   /**
    * <p>One or more filters. Use a filter to return a more specific list of results.</p>
    */
-  AssociationFilterList?: Array<AssociationFilter>;
+  AssociationFilterList?: AssociationFilter[];
 
   /**
    * <p>The maximum number of items to return for this call. The call also returns a token that you
@@ -9390,7 +9388,7 @@ export interface ListAssociationsResult {
   /**
    * <p>The associations.</p>
    */
-  Associations?: Array<Association>;
+  Associations?: Association[];
 
   /**
    * <p>The token to use when requesting the next set of items. If there are no additional items to
@@ -9421,7 +9419,7 @@ export interface ListCommandInvocationsRequest {
    * <p>(Optional) One or more filters. Use a filter to return a more specific list of results. Note
    *    that the <code>DocumentName</code> filter is not supported for ListCommandInvocations.</p>
    */
-  Filters?: Array<CommandFilter>;
+  Filters?: CommandFilter[];
 
   /**
    * <p>(Optional) The command execution details for a specific instance ID.</p>
@@ -9451,7 +9449,7 @@ export interface ListCommandInvocationsResult {
   /**
    * <p>(Optional) A list of all invocations. </p>
    */
-  CommandInvocations?: Array<CommandInvocation>;
+  CommandInvocations?: CommandInvocation[];
 
   /**
    * <p>(Optional) The token for the next set of items to return. (You received this token from a
@@ -9476,7 +9474,7 @@ export interface ListCommandsRequest {
    * <p>(Optional) One or more filters. Use a filter to return a more specific list of results.
    *   </p>
    */
-  Filters?: Array<CommandFilter>;
+  Filters?: CommandFilter[];
 
   /**
    * <p>(Optional) Lists commands issued against this instance ID.</p>
@@ -9506,7 +9504,7 @@ export interface ListCommandsResult {
   /**
    * <p>(Optional) The list of commands requested by the user. </p>
    */
-  Commands?: Array<Command>;
+  Commands?: Command[];
 
   /**
    * <p>(Optional) The token for the next set of items to return. (You received this token from a
@@ -9526,7 +9524,7 @@ export interface ListComplianceItemsRequest {
    * <p>One or more compliance filters. Use a filter to return a more specific list of
    *    results.</p>
    */
-  Filters?: Array<ComplianceStringFilter>;
+  Filters?: ComplianceStringFilter[];
 
   /**
    * <p>The maximum number of items to return for this call. The call also returns a token that you
@@ -9543,13 +9541,13 @@ export interface ListComplianceItemsRequest {
    * <p>The ID for the resources from which to get compliance information. Currently, you can only
    *    specify one resource ID.</p>
    */
-  ResourceIds?: Array<string>;
+  ResourceIds?: string[];
 
   /**
    * <p>The type of resource from which to get compliance information. Currently, the only supported
    *    resource type is <code>ManagedInstance</code>.</p>
    */
-  ResourceTypes?: Array<string>;
+  ResourceTypes?: string[];
 }
 
 export namespace ListComplianceItemsRequest {
@@ -9562,7 +9560,7 @@ export interface ListComplianceItemsResult {
   /**
    * <p>A list of compliance information for the specified resource ID. </p>
    */
-  ComplianceItems?: Array<ComplianceItem>;
+  ComplianceItems?: ComplianceItem[];
 
   /**
    * <p>The token for the next set of items to return. Use this token to get the next set of
@@ -9582,7 +9580,7 @@ export interface ListComplianceSummariesRequest {
    * <p>One or more compliance or inventory filters. Use a filter to return a more specific list of
    *    results.</p>
    */
-  Filters?: Array<ComplianceStringFilter>;
+  Filters?: ComplianceStringFilter[];
 
   /**
    * <p>The maximum number of items to return for this call. Currently, you can specify null or 50.
@@ -9609,7 +9607,7 @@ export interface ListComplianceSummariesResult {
    *    this call returns State Manager associations, patches, or custom compliance types according to
    *    the filter criteria that you specified.</p>
    */
-  ComplianceSummaryItems?: Array<ComplianceSummaryItem>;
+  ComplianceSummaryItems?: ComplianceSummaryItem[];
 
   /**
    * <p>The token for the next set of items to return. Use this token to get the next set of
@@ -9653,7 +9651,7 @@ export interface ListDocumentVersionsResult {
   /**
    * <p>The document versions.</p>
    */
-  DocumentVersions?: Array<DocumentVersionInfo>;
+  DocumentVersions?: DocumentVersionInfo[];
 
   /**
    * <p>The token to use when requesting the next set of items. If there are no additional items to
@@ -9672,12 +9670,12 @@ export interface ListDocumentsRequest {
   /**
    * <p>One or more filters. Use a filter to return a more specific list of results.</p>
    */
-  DocumentFilterList?: Array<DocumentFilter>;
+  DocumentFilterList?: DocumentFilter[];
 
   /**
    * <p>One or more filters. Use a filter to return a more specific list of results.</p>
    */
-  Filters?: Array<DocumentKeyValuesFilter>;
+  Filters?: DocumentKeyValuesFilter[];
 
   /**
    * <p>The maximum number of items to return for this call. The call also returns a token that you
@@ -9702,7 +9700,7 @@ export interface ListDocumentsResult {
   /**
    * <p>The names of the Systems Manager documents.</p>
    */
-  DocumentIdentifiers?: Array<DocumentIdentifier>;
+  DocumentIdentifiers?: DocumentIdentifier[];
 
   /**
    * <p>The token to use when requesting the next set of items. If there are no additional items to
@@ -9721,7 +9719,7 @@ export interface ListInventoryEntriesRequest {
   /**
    * <p>One or more filters. Use a filter to return a more specific list of results.</p>
    */
-  Filters?: Array<InventoryFilter>;
+  Filters?: InventoryFilter[];
 
   /**
    * <p>The instance ID for which you want inventory information.</p>
@@ -9761,7 +9759,7 @@ export interface ListInventoryEntriesResult {
   /**
    * <p>A list of inventory items on the instance(s).</p>
    */
-  Entries?: Array<{ [key: string]: string }>;
+  Entries?: { [key: string]: string }[];
 
   /**
    * <p>The instance ID targeted by the request to query inventory information.</p>
@@ -9795,7 +9793,7 @@ export interface ListResourceComplianceSummariesRequest {
   /**
    * <p>One or more filters. Use a filter to return a more specific list of results.</p>
    */
-  Filters?: Array<ComplianceStringFilter>;
+  Filters?: ComplianceStringFilter[];
 
   /**
    * <p>The maximum number of items to return for this call. The call also returns a token that you
@@ -9827,7 +9825,7 @@ export interface ListResourceComplianceSummariesResult {
    *    information about compliant and non-compliant State Manager associations, patch status, or custom
    *    items according to the filter criteria that you specify. </p>
    */
-  ResourceComplianceSummaryItems?: Array<ResourceComplianceSummaryItem>;
+  ResourceComplianceSummaryItems?: ResourceComplianceSummaryItem[];
 }
 
 export namespace ListResourceComplianceSummariesResult {
@@ -9873,7 +9871,7 @@ export interface ListResourceDataSyncResult {
   /**
    * <p>A list of your current Resource Data Sync configurations and their statuses.</p>
    */
-  ResourceDataSyncItems?: Array<ResourceDataSyncItem>;
+  ResourceDataSyncItems?: ResourceDataSyncItem[];
 }
 
 export namespace ListResourceDataSyncResult {
@@ -9904,7 +9902,7 @@ export interface ListTagsForResourceResult {
   /**
    * <p>A list of tags.</p>
    */
-  TagList?: Array<Tag>;
+  TagList?: Tag[];
 }
 
 export namespace ListTagsForResourceResult {
@@ -9973,7 +9971,7 @@ export interface MaintenanceWindowAutomationParameters {
    *     Systems Manager ignores any values specified for these parameters.</p>
    *          </note>
    */
-  Parameters?: { [key: string]: Array<string> };
+  Parameters?: { [key: string]: string[] };
 }
 
 export namespace MaintenanceWindowAutomationParameters {
@@ -10177,7 +10175,7 @@ export interface MaintenanceWindowFilter {
   /**
    * <p>The filter values.</p>
    */
-  Values?: Array<string>;
+  Values?: string[];
 }
 
 export namespace MaintenanceWindowFilter {
@@ -10400,7 +10398,7 @@ export interface MaintenanceWindowRunCommandParameters {
   /**
    * <p>The parameters for the RUN_COMMAND task execution.</p>
    */
-  Parameters?: { [key: string]: Array<string> };
+  Parameters?: { [key: string]: string[] };
 
   /**
    * <p>The ARN of the IAM service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for
@@ -10493,7 +10491,7 @@ export interface MaintenanceWindowTarget {
    *          <p>
    *             <code>Key=<tag name>,Values=<tag value></code>.</p>
    */
-  Targets?: Array<Target>;
+  Targets?: Target[];
 
   /**
    * <p>The ID of the maintenance window to register the target with.</p>
@@ -10565,7 +10563,7 @@ export interface MaintenanceWindowTask {
    *    Key=instanceids,Values=<instanceid1>,<instanceid2>. Tags are specified using
    *    Key=<tag name>,Values=<tag value>.</p>
    */
-  Targets?: Array<Target>;
+  Targets?: Target[];
 
   /**
    * <p>The resource that the task uses during execution. For RUN_COMMAND and AUTOMATION task types,
@@ -10650,7 +10648,7 @@ export interface MaintenanceWindowTaskParameterValueExpression {
    * <p>This field contains an array of 0 or more strings, each 1 to 255 characters in
    *    length.</p>
    */
-  Values?: Array<string>;
+  Values?: string[];
 }
 
 export namespace MaintenanceWindowTaskParameterValueExpression {
@@ -10689,7 +10687,7 @@ export interface ModifyDocumentPermissionRequest {
    * <p>The AWS user accounts that should have access to the document. The account IDs can either be
    *    a group of account IDs or <i>All</i>.</p>
    */
-  AccountIdsToAdd?: Array<string>;
+  AccountIdsToAdd?: string[];
 
   /**
    * <p>The AWS user accounts that should no longer have access to the document. The AWS user
@@ -10697,7 +10695,7 @@ export interface ModifyDocumentPermissionRequest {
    *    higher priority than <i>AccountIdsToAdd</i>. If you specify an account ID to add
    *    and the same ID to remove, the system removes access to the document.</p>
    */
-  AccountIdsToRemove?: Array<string>;
+  AccountIdsToRemove?: string[];
 
   /**
    * <p>The name of the document that you want to share.</p>
@@ -10770,7 +10768,7 @@ export interface NotificationConfig {
    *    these events, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html">Configuring Amazon
    *     SNS Notifications for AWS Systems Manager</a> in the <i>AWS Systems Manager User Guide</i>.</p>
    */
-  NotificationEvents?: Array<NotificationEvent | string>;
+  NotificationEvents?: (NotificationEvent | string)[];
 
   /**
    * <p>Command: Receive notification when the status of a command changes. Invocation: For commands
@@ -10824,7 +10822,7 @@ export interface OpsAggregator {
   /**
    * <p>A nested aggregator for viewing counts of OpsItems.</p>
    */
-  Aggregators?: Array<OpsAggregator>;
+  Aggregators?: OpsAggregator[];
 
   /**
    * <p>The name of an OpsItem attribute on which to limit the count of OpsItems.</p>
@@ -10834,7 +10832,7 @@ export interface OpsAggregator {
   /**
    * <p>The aggregator filters.</p>
    */
-  Filters?: Array<OpsFilter>;
+  Filters?: OpsFilter[];
 
   /**
    * <p>The data type name to use for viewing counts of OpsItems.</p>
@@ -10884,7 +10882,7 @@ export interface OpsEntityItem {
   /**
    * <p>The detailed data content for an OpsItem summaries result item.</p>
    */
-  Content?: Array<{ [key: string]: string }>;
+  Content?: { [key: string]: string }[];
 }
 
 export namespace OpsEntityItem {
@@ -10909,7 +10907,7 @@ export interface OpsFilter {
   /**
    * <p>The filter value.</p>
    */
-  Values: Array<string> | undefined;
+  Values: string[] | undefined;
 }
 
 export namespace OpsFilter {
@@ -10968,7 +10966,7 @@ export interface OpsItem {
    * <p>The Amazon Resource Name (ARN) of an SNS topic where notifications are sent when this
    *    OpsItem is edited or changed.</p>
    */
-  Notifications?: Array<OpsItemNotification>;
+  Notifications?: OpsItemNotification[];
 
   /**
    * <p>Operational data is custom data that provides useful reference details about the OpsItem.
@@ -11007,7 +11005,7 @@ export interface OpsItem {
    *    related OpsItems can include OpsItems with similar error messages, impacted resources, or
    *    statuses for the impacted resource.</p>
    */
-  RelatedOpsItems?: Array<RelatedOpsItem>;
+  RelatedOpsItems?: RelatedOpsItem[];
 
   /**
    * <p>The severity of the OpsItem. Severity options range from 1 to 4.</p>
@@ -11105,7 +11103,7 @@ export interface OpsItemFilter {
   /**
    * <p>The filter value.</p>
    */
-  Values: Array<string> | undefined;
+  Values: string[] | undefined;
 }
 
 export namespace OpsItemFilter {
@@ -11147,7 +11145,7 @@ export interface OpsItemInvalidParameterException
   name: "OpsItemInvalidParameterException";
   $fault: "client";
   Message?: string;
-  ParameterNames?: Array<string>;
+  ParameterNames?: string[];
 }
 
 export namespace OpsItemInvalidParameterException {
@@ -11168,7 +11166,7 @@ export interface OpsItemLimitExceededException
   Limit?: number;
   LimitType?: string;
   Message?: string;
-  ResourceTypes?: Array<string>;
+  ResourceTypes?: string[];
 }
 
 export namespace OpsItemLimitExceededException {
@@ -11421,7 +11419,7 @@ export interface ParameterHistory {
   /**
    * <p>Labels assigned to the parameter version.</p>
    */
-  Labels?: Array<string>;
+  Labels?: string[];
 
   /**
    * <p>Date the parameter was last changed or updated.</p>
@@ -11444,7 +11442,7 @@ export interface ParameterHistory {
    *             <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-policies.html">Working with Parameter
    *     Policies</a> in the <i>AWS Systems Manager User Guide</i>.</p>
    */
-  Policies?: Array<ParameterInlinePolicy>;
+  Policies?: ParameterInlinePolicy[];
 
   /**
    * <p>The parameter tier.</p>
@@ -11574,7 +11572,7 @@ export interface ParameterMetadata {
   /**
    * <p>A list of policies associated with a parameter.</p>
    */
-  Policies?: Array<ParameterInlinePolicy>;
+  Policies?: ParameterInlinePolicy[];
 
   /**
    * <p>The parameter tier.</p>
@@ -11666,7 +11664,7 @@ export interface ParameterStringFilter {
   /**
    * <p>The value you want to search for.</p>
    */
-  Values?: Array<string>;
+  Values?: string[];
 }
 
 export namespace ParameterStringFilter {
@@ -11732,7 +11730,7 @@ export interface ParametersFilter {
   /**
    * <p>The filter values.</p>
    */
-  Values: Array<string> | undefined;
+  Values: string[] | undefined;
 }
 
 export namespace ParametersFilter {
@@ -11965,7 +11963,7 @@ export interface PatchFilter {
    *          <p>Run the <a>DescribePatchProperties</a> command to view lists of valid values for
    *    each key based on operating system type.</p>
    */
-  Values: Array<string> | undefined;
+  Values: string[] | undefined;
 }
 
 export namespace PatchFilter {
@@ -11980,7 +11978,7 @@ export interface PatchFilterGroup {
   /**
    * <p>The set of patch filters that make up the group.</p>
    */
-  PatchFilters: Array<PatchFilter> | undefined;
+  PatchFilters: PatchFilter[] | undefined;
 }
 
 export namespace PatchFilterGroup {
@@ -12040,7 +12038,7 @@ export interface PatchOrchestratorFilter {
   /**
    * <p>The value for the filter.</p>
    */
-  Values?: Array<string>;
+  Values?: string[];
 }
 
 export namespace PatchOrchestratorFilter {
@@ -12101,7 +12099,7 @@ export interface PatchRuleGroup {
   /**
    * <p>The rules that make up the rule group.</p>
    */
-  PatchRules: Array<PatchRule> | undefined;
+  PatchRules: PatchRule[] | undefined;
 }
 
 export namespace PatchRuleGroup {
@@ -12147,7 +12145,7 @@ export interface PatchSource {
    *    "AmazonLinux2016.09", "RedhatEnterpriseLinux7.2" or "Suse12.7". For lists of supported product
    *    values, see <a>PatchFilter</a>.</p>
    */
-  Products: Array<string> | undefined;
+  Products: string[] | undefined;
 }
 
 export namespace PatchSource {
@@ -12278,7 +12276,7 @@ export interface PutComplianceItemsRequest {
    *    compliance type, <code>Items</code> includes information about the PatchSeverity, Classification,
    *    etc.</p>
    */
-  Items: Array<ComplianceItemEntry> | undefined;
+  Items: ComplianceItemEntry[] | undefined;
 
   /**
    * <p>Specify an ID for this resource. For a managed instance, this is the instance ID.</p>
@@ -12316,7 +12314,7 @@ export interface PutInventoryRequest {
   /**
    * <p>The inventory items that you want to add or update on instances.</p>
    */
-  Items: Array<InventoryItem> | undefined;
+  Items: InventoryItem[] | undefined;
 }
 
 export namespace PutInventoryRequest {
@@ -12473,7 +12471,7 @@ export interface PutParameterRequest {
    *     action.</p>
    *          </note>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The parameter tier to assign to a parameter.</p>
@@ -12729,7 +12727,7 @@ export interface RegisterTargetWithMaintenanceWindowRequest {
    *    see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html">Examples: Register
    *     Targets with a Maintenance Window</a> in the <i>AWS Systems Manager User Guide</i>.</p>
    */
-  Targets: Array<Target> | undefined;
+  Targets: Target[] | undefined;
 
   /**
    * <p>The ID of the maintenance window the target should be registered with.</p>
@@ -12837,7 +12835,7 @@ export interface RegisterTaskWithMaintenanceWindowRequest {
    *             <code>Key=WindowTargetIds;,Values=<window-target-id-1>,<window-target-id-2></code>
    *          </p>
    */
-  Targets: Array<Target> | undefined;
+  Targets: Target[] | undefined;
 
   /**
    * <p>The ARN of the task to run.</p>
@@ -12940,7 +12938,7 @@ export interface RemoveTagsFromResourceRequest {
   /**
    * <p>Tag keys that you want to remove from the specified resource.</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace RemoveTagsFromResourceRequest {
@@ -12999,7 +12997,7 @@ export interface ResolvedTargets {
    * <p>A list of parameter values sent to targets that resolved during the Automation
    *    execution.</p>
    */
-  ParameterValues?: Array<string>;
+  ParameterValues?: string[];
 
   /**
    * <p>A boolean value indicating whether the resolved target list is truncated.</p>
@@ -13098,7 +13096,7 @@ export interface ResourceDataSyncAwsOrganizationsSource {
   /**
    * <p>The AWS Organizations organization units included in the sync.</p>
    */
-  OrganizationalUnits?: Array<ResourceDataSyncOrganizationalUnit>;
+  OrganizationalUnits?: ResourceDataSyncOrganizationalUnit[];
 }
 
 export namespace ResourceDataSyncAwsOrganizationsSource {
@@ -13317,7 +13315,7 @@ export interface ResourceDataSyncSource {
   /**
    * <p>The <code>SyncSource</code> AWS Regions included in the resource data sync.</p>
    */
-  SourceRegions: Array<string> | undefined;
+  SourceRegions: string[] | undefined;
 
   /**
    * <p>The type of data source for the resource data sync. <code>SourceType</code> is either
@@ -13365,7 +13363,7 @@ export interface ResourceDataSyncSourceWithState {
   /**
    * <p>The <code>SyncSource</code> AWS Regions included in the resource data sync.</p>
    */
-  SourceRegions?: Array<string>;
+  SourceRegions?: string[];
 
   /**
    * <p>The type of data source for the resource data sync. <code>SourceType</code> is either
@@ -13608,7 +13606,7 @@ export interface SendAutomationSignalRequest {
    *             <code>StepExecutionId="97fff367-fc5a-4299-aed8-0123456789ab"</code>
    *          </p>
    */
-  Payload?: { [key: string]: Array<string> };
+  Payload?: { [key: string]: string[] };
 
   /**
    * <p>The type of signal to send to an Automation execution. </p>
@@ -13683,7 +13681,7 @@ export interface SendCommandRequest {
    *    targets, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html">Sending Commands to a
    *     Fleet</a> in the <i>AWS Systems Manager User Guide</i>.</p>
    */
-  InstanceIds?: Array<string>;
+  InstanceIds?: string[];
 
   /**
    * <p>(Optional) The maximum number of instances that are allowed to run the command at the same
@@ -13726,7 +13724,7 @@ export interface SendCommandRequest {
   /**
    * <p>The required and optional parameters specified in the document being run.</p>
    */
-  Parameters?: { [key: string]: Array<string> };
+  Parameters?: { [key: string]: string[] };
 
   /**
    * <p>The ARN of the IAM service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for Run
@@ -13740,7 +13738,7 @@ export interface SendCommandRequest {
    *    For more information about how to use targets, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html">Sending Commands to a Fleet</a> in the
    *     <i>AWS Systems Manager User Guide</i>.</p>
    */
-  Targets?: Array<Target>;
+  Targets?: Target[];
 
   /**
    * <p>If this time is reached and the command has not already started running, it will not
@@ -14076,7 +14074,7 @@ export interface StartAssociationsOnceRequest {
   /**
    * <p>The association IDs that you want to run immediately and only one time.</p>
    */
-  AssociationIds: Array<string> | undefined;
+  AssociationIds: string[] | undefined;
 }
 
 export namespace StartAssociationsOnceRequest {
@@ -14142,7 +14140,7 @@ export interface StartAutomationExecutionRequest {
    * <p>A key-value map of execution parameters, which match the declared parameters in the
    *    Automation document.</p>
    */
-  Parameters?: { [key: string]: Array<string> };
+  Parameters?: { [key: string]: string[] };
 
   /**
    * <p>Optional metadata that you assign to a resource. You can specify a maximum of five tags for
@@ -14167,7 +14165,7 @@ export interface StartAutomationExecutionRequest {
    *     action.</p>
    *          </note>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>A location is a combination of AWS Regions and/or AWS accounts where you want to run the
@@ -14176,13 +14174,13 @@ export interface StartAutomationExecutionRequest {
    *     Automations in Multiple AWS Regions and Accounts</a> in the
    *     <i>AWS Systems Manager User Guide</i>. </p>
    */
-  TargetLocations?: Array<TargetLocation>;
+  TargetLocations?: TargetLocation[];
 
   /**
    * <p>A key-value mapping of document parameters to target resources. Both Targets and TargetMaps
    *    cannot be specified together.</p>
    */
-  TargetMaps?: Array<{ [key: string]: Array<string> }>;
+  TargetMaps?: { [key: string]: string[] }[];
 
   /**
    * <p>The name of the parameter used as the target resource for the rate-controlled execution.
@@ -14193,7 +14191,7 @@ export interface StartAutomationExecutionRequest {
   /**
    * <p>A key-value mapping to target resources. Required if you specify TargetParameterName.</p>
    */
-  Targets?: Array<Target>;
+  Targets?: Target[];
 }
 
 export namespace StartAutomationExecutionRequest {
@@ -14226,7 +14224,7 @@ export interface StartSessionRequest {
   /**
    * <p>Reserved for future use.</p>
    */
-  Parameters?: { [key: string]: Array<string> };
+  Parameters?: { [key: string]: string[] };
 
   /**
    * <p>The instance to connect to for the session.</p>
@@ -14353,12 +14351,12 @@ export interface StepExecution {
   /**
    * <p>Returned values from the execution of the step.</p>
    */
-  Outputs?: { [key: string]: Array<string> };
+  Outputs?: { [key: string]: string[] };
 
   /**
    * <p>A user-specified list of parameters to override when running a step.</p>
    */
-  OverriddenParameters?: { [key: string]: Array<string> };
+  OverriddenParameters?: { [key: string]: string[] };
 
   /**
    * <p>A message associated with the response code for an execution.</p>
@@ -14394,7 +14392,7 @@ export interface StepExecution {
   /**
    * <p>The targets for the step execution.</p>
    */
-  Targets?: Array<Target>;
+  Targets?: Target[];
 
   /**
    * <p>The timeout seconds of the step.</p>
@@ -14407,7 +14405,7 @@ export interface StepExecution {
    *    automation to run the next step. With conditional branching, we add step:stepName to support the
    *    automation to go to another specific step.</p>
    */
-  ValidNextSteps?: Array<string>;
+  ValidNextSteps?: string[];
 }
 
 export namespace StepExecution {
@@ -14428,7 +14426,7 @@ export interface StepExecutionFilter {
   /**
    * <p>The values of the filter key.</p>
    */
-  Values: Array<string> | undefined;
+  Values: string[] | undefined;
 }
 
 export namespace StepExecutionFilter {
@@ -14612,7 +14610,7 @@ export interface Target {
    *     <code>tag:ServerRole</code>, you could specify <code>value:WebServer</code> to run a command on
    *    instances that include Amazon EC2 tags of <code>ServerRole,WebServer</code>. </p>
    */
-  Values?: Array<string>;
+  Values?: string[];
 }
 
 export namespace Target {
@@ -14645,7 +14643,7 @@ export interface TargetLocation {
   /**
    * <p>The AWS accounts targeted by the current Automation execution.</p>
    */
-  Accounts?: Array<string>;
+  Accounts?: string[];
 
   /**
    * <p>The Automation execution role used by the currently running Automation.</p>
@@ -14655,7 +14653,7 @@ export interface TargetLocation {
   /**
    * <p>The AWS Regions targeted by the current Automation execution.</p>
    */
-  Regions?: Array<string>;
+  Regions?: string[];
 
   /**
    * <p>The maximum number of AWS accounts and AWS regions allowed to run the Automation
@@ -14976,7 +14974,7 @@ export interface UpdateAssociationRequest {
    * <p>The parameters you want to update for the association. If you create a parameter using
    *    Parameter Store, you can reference the parameter using {{ssm:parameter-name}}</p>
    */
-  Parameters?: { [key: string]: Array<string> };
+  Parameters?: { [key: string]: string[] };
 
   /**
    * <p>The cron expression used to schedule the association that you want to update.</p>
@@ -14986,7 +14984,7 @@ export interface UpdateAssociationRequest {
   /**
    * <p>The targets of the association.</p>
    */
-  Targets?: Array<Target>;
+  Targets?: Target[];
 }
 
 export namespace UpdateAssociationRequest {
@@ -15079,7 +15077,7 @@ export interface UpdateDocumentRequest {
   /**
    * <p>A list of key and value pairs that describe attachments to a version of a document.</p>
    */
-  Attachments?: Array<AttachmentsSource>;
+  Attachments?: AttachmentsSource[];
 
   /**
    * <p>A valid JSON or YAML string.</p>
@@ -15310,7 +15308,7 @@ export interface UpdateMaintenanceWindowTargetRequest {
   /**
    * <p>The targets to add or replace.</p>
    */
-  Targets?: Array<Target>;
+  Targets?: Target[];
 
   /**
    * <p>The maintenance window ID with which to modify the target.</p>
@@ -15348,7 +15346,7 @@ export interface UpdateMaintenanceWindowTargetResult {
   /**
    * <p>The updated targets.</p>
    */
-  Targets?: Array<Target>;
+  Targets?: Target[];
 
   /**
    * <p>The maintenance window ID specified in the update request.</p>
@@ -15443,7 +15441,7 @@ export interface UpdateMaintenanceWindowTaskRequest {
    *    Key=instanceids,Values=instanceID_1,instanceID_2. Tags are specified using
    *    Key=tag_name,Values=tag_value. </p>
    */
-  Targets?: Array<Target>;
+  Targets?: Target[];
 
   /**
    * <p>The task ARN to modify.</p>
@@ -15537,7 +15535,7 @@ export interface UpdateMaintenanceWindowTaskResult {
   /**
    * <p>The updated target values.</p>
    */
-  Targets?: Array<Target>;
+  Targets?: Target[];
 
   /**
    * <p>The updated task ARN value.</p>
@@ -15623,7 +15621,7 @@ export interface UpdateOpsItemRequest {
    * <p>The Amazon Resource Name (ARN) of an SNS topic where notifications are sent when this
    *    OpsItem is edited or changed.</p>
    */
-  Notifications?: Array<OpsItemNotification>;
+  Notifications?: OpsItemNotification[];
 
   /**
    * <p>Add new keys or edit existing key-value pairs of the OperationalData map in the OpsItem
@@ -15654,7 +15652,7 @@ export interface UpdateOpsItemRequest {
   /**
    * <p>Keys that you want to remove from the OperationalData map.</p>
    */
-  OperationalDataToDelete?: Array<string>;
+  OperationalDataToDelete?: string[];
 
   /**
    * <p>The ID of the OpsItem.</p>
@@ -15671,7 +15669,7 @@ export interface UpdateOpsItemRequest {
    *    related OpsItems can include OpsItems with similar error messages, impacted resources, or
    *    statuses for the impacted resource.</p>
    */
-  RelatedOpsItems?: Array<RelatedOpsItem>;
+  RelatedOpsItems?: RelatedOpsItem[];
 
   /**
    * <p>Specify a new severity for an OpsItem.</p>
@@ -15718,7 +15716,7 @@ export interface UpdatePatchBaselineRequest {
    *                         see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html">Package Name Formats
    *                         for Approved and Rejected Patch Lists</a> in the <i>AWS Systems Manager User Guide</i>.</p>
    */
-  ApprovedPatches?: Array<string>;
+  ApprovedPatches?: string[];
 
   /**
    * <p>Assigns a new compliance severity level to an existing patch baseline.</p>
@@ -15757,7 +15755,7 @@ export interface UpdatePatchBaselineRequest {
    *                         see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html">Package Name Formats
    *                         for Approved and Rejected Patch Lists</a> in the <i>AWS Systems Manager User Guide</i>.</p>
    */
-  RejectedPatches?: Array<string>;
+  RejectedPatches?: string[];
 
   /**
    * <p>The action for Patch Manager to take on patches included in the RejectedPackages
@@ -15792,7 +15790,7 @@ export interface UpdatePatchBaselineRequest {
    * <p>Information about the patches to use to update the instances, including target operating
    *    systems and source repositories. Applies to Linux instances only.</p>
    */
-  Sources?: Array<PatchSource>;
+  Sources?: PatchSource[];
 }
 
 export namespace UpdatePatchBaselineRequest {
@@ -15810,7 +15808,7 @@ export interface UpdatePatchBaselineResult {
   /**
    * <p>A list of explicitly approved patches for the baseline.</p>
    */
-  ApprovedPatches?: Array<string>;
+  ApprovedPatches?: string[];
 
   /**
    * <p>The compliance severity level assigned to the patch baseline after the update
@@ -15862,7 +15860,7 @@ export interface UpdatePatchBaselineResult {
   /**
    * <p>A list of explicitly rejected patches for the baseline.</p>
    */
-  RejectedPatches?: Array<string>;
+  RejectedPatches?: string[];
 
   /**
    * <p>The action specified to take on patches included in the RejectedPatches list. A patch can be
@@ -15875,7 +15873,7 @@ export interface UpdatePatchBaselineResult {
    * <p>Information about the patches to use to update the instances, including target operating
    *    systems and source repositories. Applies to Linux instances only.</p>
    */
-  Sources?: Array<PatchSource>;
+  Sources?: PatchSource[];
 }
 
 export namespace UpdatePatchBaselineResult {

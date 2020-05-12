@@ -157,12 +157,13 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_restJson1_1AddTagsCommand(
+export const serializeAws_restJson1_1AddTagsCommand = async (
   input: AddTagsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/2015-01-01/tags";
   let body: any;
   const bodyParams: any = {};
@@ -186,14 +187,15 @@ export async function serializeAws_restJson1_1AddTagsCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1CancelElasticsearchServiceSoftwareUpdateCommand(
+export const serializeAws_restJson1_1CancelElasticsearchServiceSoftwareUpdateCommand = async (
   input: CancelElasticsearchServiceSoftwareUpdateCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/2015-01-01/es/serviceSoftwareUpdate/cancel";
   let body: any;
   const bodyParams: any = {};
@@ -211,14 +213,15 @@ export async function serializeAws_restJson1_1CancelElasticsearchServiceSoftware
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1CreateElasticsearchDomainCommand(
+export const serializeAws_restJson1_1CreateElasticsearchDomainCommand = async (
   input: CreateElasticsearchDomainCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/2015-01-01/es/domain";
   let body: any;
   const bodyParams: any = {};
@@ -312,14 +315,15 @@ export async function serializeAws_restJson1_1CreateElasticsearchDomainCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeleteElasticsearchDomainCommand(
+export const serializeAws_restJson1_1DeleteElasticsearchDomainCommand = async (
   input: DeleteElasticsearchDomainCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2015-01-01/es/domain/{DomainName}";
   if (input.DomainName !== undefined) {
     const labelValue: string = input.DomainName;
@@ -344,14 +348,15 @@ export async function serializeAws_restJson1_1DeleteElasticsearchDomainCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeleteElasticsearchServiceRoleCommand(
+export const serializeAws_restJson1_1DeleteElasticsearchServiceRoleCommand = async (
   input: DeleteElasticsearchServiceRoleCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2015-01-01/es/role";
   let body: any;
   body = "{}";
@@ -365,14 +370,15 @@ export async function serializeAws_restJson1_1DeleteElasticsearchServiceRoleComm
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribeElasticsearchDomainCommand(
+export const serializeAws_restJson1_1DescribeElasticsearchDomainCommand = async (
   input: DescribeElasticsearchDomainCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2015-01-01/es/domain/{DomainName}";
   if (input.DomainName !== undefined) {
     const labelValue: string = input.DomainName;
@@ -397,14 +403,15 @@ export async function serializeAws_restJson1_1DescribeElasticsearchDomainCommand
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribeElasticsearchDomainConfigCommand(
+export const serializeAws_restJson1_1DescribeElasticsearchDomainConfigCommand = async (
   input: DescribeElasticsearchDomainConfigCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2015-01-01/es/domain/{DomainName}/config";
   if (input.DomainName !== undefined) {
     const labelValue: string = input.DomainName;
@@ -429,14 +436,15 @@ export async function serializeAws_restJson1_1DescribeElasticsearchDomainConfigC
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribeElasticsearchDomainsCommand(
+export const serializeAws_restJson1_1DescribeElasticsearchDomainsCommand = async (
   input: DescribeElasticsearchDomainsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/2015-01-01/es/domain-info";
   let body: any;
   const bodyParams: any = {};
@@ -457,14 +465,15 @@ export async function serializeAws_restJson1_1DescribeElasticsearchDomainsComman
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribeElasticsearchInstanceTypeLimitsCommand(
+export const serializeAws_restJson1_1DescribeElasticsearchInstanceTypeLimitsCommand = async (
   input: DescribeElasticsearchInstanceTypeLimitsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/2015-01-01/es/instanceTypeLimits/{ElasticsearchVersion}/{InstanceType}";
   if (input.ElasticsearchVersion !== undefined) {
@@ -497,10 +506,9 @@ export async function serializeAws_restJson1_1DescribeElasticsearchInstanceTypeL
   } else {
     throw new Error("No value provided for input HTTP label: InstanceType.");
   }
-  const query: any = {};
-  if (input.DomainName !== undefined) {
-    query["domainName"] = input.DomainName;
-  }
+  const query: any = {
+    ...(input.DomainName !== undefined && { domainName: input.DomainName })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -513,25 +521,25 @@ export async function serializeAws_restJson1_1DescribeElasticsearchInstanceTypeL
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribeReservedElasticsearchInstanceOfferingsCommand(
+export const serializeAws_restJson1_1DescribeReservedElasticsearchInstanceOfferingsCommand = async (
   input: DescribeReservedElasticsearchInstanceOfferingsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2015-01-01/es/reservedInstanceOfferings";
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
-  if (input.ReservedElasticsearchInstanceOfferingId !== undefined) {
-    query["offeringId"] = input.ReservedElasticsearchInstanceOfferingId;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.ReservedElasticsearchInstanceOfferingId !== undefined && {
+      offeringId: input.ReservedElasticsearchInstanceOfferingId
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -544,25 +552,25 @@ export async function serializeAws_restJson1_1DescribeReservedElasticsearchInsta
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribeReservedElasticsearchInstancesCommand(
+export const serializeAws_restJson1_1DescribeReservedElasticsearchInstancesCommand = async (
   input: DescribeReservedElasticsearchInstancesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2015-01-01/es/reservedInstances";
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
-  if (input.ReservedElasticsearchInstanceId !== undefined) {
-    query["reservationId"] = input.ReservedElasticsearchInstanceId;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.ReservedElasticsearchInstanceId !== undefined && {
+      reservationId: input.ReservedElasticsearchInstanceId
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -575,19 +583,19 @@ export async function serializeAws_restJson1_1DescribeReservedElasticsearchInsta
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetCompatibleElasticsearchVersionsCommand(
+export const serializeAws_restJson1_1GetCompatibleElasticsearchVersionsCommand = async (
   input: GetCompatibleElasticsearchVersionsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2015-01-01/es/compatibleVersions";
-  const query: any = {};
-  if (input.DomainName !== undefined) {
-    query["domainName"] = input.DomainName;
-  }
+  const query: any = {
+    ...(input.DomainName !== undefined && { domainName: input.DomainName })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -600,14 +608,15 @@ export async function serializeAws_restJson1_1GetCompatibleElasticsearchVersions
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetUpgradeHistoryCommand(
+export const serializeAws_restJson1_1GetUpgradeHistoryCommand = async (
   input: GetUpgradeHistoryCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2015-01-01/es/upgradeDomain/{DomainName}/history";
   if (input.DomainName !== undefined) {
     const labelValue: string = input.DomainName;
@@ -621,13 +630,12 @@ export async function serializeAws_restJson1_1GetUpgradeHistoryCommand(
   } else {
     throw new Error("No value provided for input HTTP label: DomainName.");
   }
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -640,14 +648,15 @@ export async function serializeAws_restJson1_1GetUpgradeHistoryCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetUpgradeStatusCommand(
+export const serializeAws_restJson1_1GetUpgradeStatusCommand = async (
   input: GetUpgradeStatusCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2015-01-01/es/upgradeDomain/{DomainName}/status";
   if (input.DomainName !== undefined) {
     const labelValue: string = input.DomainName;
@@ -672,14 +681,15 @@ export async function serializeAws_restJson1_1GetUpgradeStatusCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListDomainNamesCommand(
+export const serializeAws_restJson1_1ListDomainNamesCommand = async (
   input: ListDomainNamesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2015-01-01/domain";
   let body: any;
   body = "{}";
@@ -693,14 +703,15 @@ export async function serializeAws_restJson1_1ListDomainNamesCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListElasticsearchInstanceTypesCommand(
+export const serializeAws_restJson1_1ListElasticsearchInstanceTypesCommand = async (
   input: ListElasticsearchInstanceTypesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2015-01-01/es/instanceTypes/{ElasticsearchVersion}";
   if (input.ElasticsearchVersion !== undefined) {
     const labelValue: string = input.ElasticsearchVersion;
@@ -718,16 +729,13 @@ export async function serializeAws_restJson1_1ListElasticsearchInstanceTypesComm
       "No value provided for input HTTP label: ElasticsearchVersion."
     );
   }
-  const query: any = {};
-  if (input.DomainName !== undefined) {
-    query["domainName"] = input.DomainName;
-  }
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.DomainName !== undefined && { domainName: input.DomainName }),
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -740,22 +748,22 @@ export async function serializeAws_restJson1_1ListElasticsearchInstanceTypesComm
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListElasticsearchVersionsCommand(
+export const serializeAws_restJson1_1ListElasticsearchVersionsCommand = async (
   input: ListElasticsearchVersionsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2015-01-01/es/versions";
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -768,19 +776,19 @@ export async function serializeAws_restJson1_1ListElasticsearchVersionsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListTagsCommand(
+export const serializeAws_restJson1_1ListTagsCommand = async (
   input: ListTagsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/2015-01-01/tags";
-  const query: any = {};
-  if (input.ARN !== undefined) {
-    query["arn"] = input.ARN;
-  }
+  const query: any = {
+    ...(input.ARN !== undefined && { arn: input.ARN })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -793,14 +801,15 @@ export async function serializeAws_restJson1_1ListTagsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1PurchaseReservedElasticsearchInstanceOfferingCommand(
+export const serializeAws_restJson1_1PurchaseReservedElasticsearchInstanceOfferingCommand = async (
   input: PurchaseReservedElasticsearchInstanceOfferingCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/2015-01-01/es/purchaseReservedInstanceOffering";
   let body: any;
   const bodyParams: any = {};
@@ -825,14 +834,15 @@ export async function serializeAws_restJson1_1PurchaseReservedElasticsearchInsta
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1RemoveTagsCommand(
+export const serializeAws_restJson1_1RemoveTagsCommand = async (
   input: RemoveTagsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/2015-01-01/tags-removal";
   let body: any;
   const bodyParams: any = {};
@@ -856,14 +866,15 @@ export async function serializeAws_restJson1_1RemoveTagsCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1StartElasticsearchServiceSoftwareUpdateCommand(
+export const serializeAws_restJson1_1StartElasticsearchServiceSoftwareUpdateCommand = async (
   input: StartElasticsearchServiceSoftwareUpdateCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/2015-01-01/es/serviceSoftwareUpdate/start";
   let body: any;
   const bodyParams: any = {};
@@ -881,14 +892,15 @@ export async function serializeAws_restJson1_1StartElasticsearchServiceSoftwareU
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UpdateElasticsearchDomainConfigCommand(
+export const serializeAws_restJson1_1UpdateElasticsearchDomainConfigCommand = async (
   input: UpdateElasticsearchDomainConfigCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/2015-01-01/es/domain/{DomainName}/config";
   if (input.DomainName !== undefined) {
     const labelValue: string = input.DomainName;
@@ -972,14 +984,15 @@ export async function serializeAws_restJson1_1UpdateElasticsearchDomainConfigCom
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UpgradeElasticsearchDomainCommand(
+export const serializeAws_restJson1_1UpgradeElasticsearchDomainCommand = async (
   input: UpgradeElasticsearchDomainCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/2015-01-01/es/upgradeDomain";
   let body: any;
   const bodyParams: any = {};
@@ -1003,12 +1016,12 @@ export async function serializeAws_restJson1_1UpgradeElasticsearchDomainCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1AddTagsCommand(
+export const deserializeAws_restJson1_1AddTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AddTagsCommandOutput> {
+): Promise<AddTagsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1AddTagsCommandError(output, context);
   }
@@ -1017,12 +1030,12 @@ export async function deserializeAws_restJson1_1AddTagsCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1AddTagsCommandError(
+const deserializeAws_restJson1_1AddTagsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AddTagsCommandOutput> {
+): Promise<AddTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1090,12 +1103,12 @@ async function deserializeAws_restJson1_1AddTagsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1CancelElasticsearchServiceSoftwareUpdateCommand(
+export const deserializeAws_restJson1_1CancelElasticsearchServiceSoftwareUpdateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CancelElasticsearchServiceSoftwareUpdateCommandOutput> {
+): Promise<CancelElasticsearchServiceSoftwareUpdateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CancelElasticsearchServiceSoftwareUpdateCommandError(
       output,
@@ -1118,12 +1131,12 @@ export async function deserializeAws_restJson1_1CancelElasticsearchServiceSoftwa
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CancelElasticsearchServiceSoftwareUpdateCommandError(
+const deserializeAws_restJson1_1CancelElasticsearchServiceSoftwareUpdateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CancelElasticsearchServiceSoftwareUpdateCommandOutput> {
+): Promise<CancelElasticsearchServiceSoftwareUpdateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1191,12 +1204,12 @@ async function deserializeAws_restJson1_1CancelElasticsearchServiceSoftwareUpdat
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1CreateElasticsearchDomainCommand(
+export const deserializeAws_restJson1_1CreateElasticsearchDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateElasticsearchDomainCommandOutput> {
+): Promise<CreateElasticsearchDomainCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateElasticsearchDomainCommandError(
       output,
@@ -1216,12 +1229,12 @@ export async function deserializeAws_restJson1_1CreateElasticsearchDomainCommand
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreateElasticsearchDomainCommandError(
+const deserializeAws_restJson1_1CreateElasticsearchDomainCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateElasticsearchDomainCommandOutput> {
+): Promise<CreateElasticsearchDomainCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1322,12 +1335,12 @@ async function deserializeAws_restJson1_1CreateElasticsearchDomainCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteElasticsearchDomainCommand(
+export const deserializeAws_restJson1_1DeleteElasticsearchDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteElasticsearchDomainCommandOutput> {
+): Promise<DeleteElasticsearchDomainCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteElasticsearchDomainCommandError(
       output,
@@ -1347,12 +1360,12 @@ export async function deserializeAws_restJson1_1DeleteElasticsearchDomainCommand
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteElasticsearchDomainCommandError(
+const deserializeAws_restJson1_1DeleteElasticsearchDomainCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteElasticsearchDomainCommandOutput> {
+): Promise<DeleteElasticsearchDomainCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1420,12 +1433,12 @@ async function deserializeAws_restJson1_1DeleteElasticsearchDomainCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteElasticsearchServiceRoleCommand(
+export const deserializeAws_restJson1_1DeleteElasticsearchServiceRoleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteElasticsearchServiceRoleCommandOutput> {
+): Promise<DeleteElasticsearchServiceRoleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteElasticsearchServiceRoleCommandError(
       output,
@@ -1437,12 +1450,12 @@ export async function deserializeAws_restJson1_1DeleteElasticsearchServiceRoleCo
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteElasticsearchServiceRoleCommandError(
+const deserializeAws_restJson1_1DeleteElasticsearchServiceRoleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteElasticsearchServiceRoleCommandOutput> {
+): Promise<DeleteElasticsearchServiceRoleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1499,12 +1512,12 @@ async function deserializeAws_restJson1_1DeleteElasticsearchServiceRoleCommandEr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeElasticsearchDomainCommand(
+export const deserializeAws_restJson1_1DescribeElasticsearchDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeElasticsearchDomainCommandOutput> {
+): Promise<DescribeElasticsearchDomainCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeElasticsearchDomainCommandError(
       output,
@@ -1524,12 +1537,12 @@ export async function deserializeAws_restJson1_1DescribeElasticsearchDomainComma
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeElasticsearchDomainCommandError(
+const deserializeAws_restJson1_1DescribeElasticsearchDomainCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeElasticsearchDomainCommandOutput> {
+): Promise<DescribeElasticsearchDomainCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1597,12 +1610,12 @@ async function deserializeAws_restJson1_1DescribeElasticsearchDomainCommandError
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeElasticsearchDomainConfigCommand(
+export const deserializeAws_restJson1_1DescribeElasticsearchDomainConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeElasticsearchDomainConfigCommandOutput> {
+): Promise<DescribeElasticsearchDomainConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeElasticsearchDomainConfigCommandError(
       output,
@@ -1622,12 +1635,12 @@ export async function deserializeAws_restJson1_1DescribeElasticsearchDomainConfi
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeElasticsearchDomainConfigCommandError(
+const deserializeAws_restJson1_1DescribeElasticsearchDomainConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeElasticsearchDomainConfigCommandOutput> {
+): Promise<DescribeElasticsearchDomainConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1695,12 +1708,12 @@ async function deserializeAws_restJson1_1DescribeElasticsearchDomainConfigComman
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeElasticsearchDomainsCommand(
+export const deserializeAws_restJson1_1DescribeElasticsearchDomainsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeElasticsearchDomainsCommandOutput> {
+): Promise<DescribeElasticsearchDomainsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeElasticsearchDomainsCommandError(
       output,
@@ -1720,12 +1733,12 @@ export async function deserializeAws_restJson1_1DescribeElasticsearchDomainsComm
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeElasticsearchDomainsCommandError(
+const deserializeAws_restJson1_1DescribeElasticsearchDomainsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeElasticsearchDomainsCommandOutput> {
+): Promise<DescribeElasticsearchDomainsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1782,12 +1795,12 @@ async function deserializeAws_restJson1_1DescribeElasticsearchDomainsCommandErro
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeElasticsearchInstanceTypeLimitsCommand(
+export const deserializeAws_restJson1_1DescribeElasticsearchInstanceTypeLimitsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeElasticsearchInstanceTypeLimitsCommandOutput> {
+): Promise<DescribeElasticsearchInstanceTypeLimitsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeElasticsearchInstanceTypeLimitsCommandError(
       output,
@@ -1807,12 +1820,12 @@ export async function deserializeAws_restJson1_1DescribeElasticsearchInstanceTyp
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeElasticsearchInstanceTypeLimitsCommandError(
+const deserializeAws_restJson1_1DescribeElasticsearchInstanceTypeLimitsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeElasticsearchInstanceTypeLimitsCommandOutput> {
+): Promise<DescribeElasticsearchInstanceTypeLimitsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1902,12 +1915,12 @@ async function deserializeAws_restJson1_1DescribeElasticsearchInstanceTypeLimits
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeReservedElasticsearchInstanceOfferingsCommand(
+export const deserializeAws_restJson1_1DescribeReservedElasticsearchInstanceOfferingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeReservedElasticsearchInstanceOfferingsCommandOutput> {
+): Promise<DescribeReservedElasticsearchInstanceOfferingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeReservedElasticsearchInstanceOfferingsCommandError(
       output,
@@ -1934,12 +1947,12 @@ export async function deserializeAws_restJson1_1DescribeReservedElasticsearchIns
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeReservedElasticsearchInstanceOfferingsCommandError(
+const deserializeAws_restJson1_1DescribeReservedElasticsearchInstanceOfferingsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeReservedElasticsearchInstanceOfferingsCommandOutput> {
+): Promise<DescribeReservedElasticsearchInstanceOfferingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2007,12 +2020,12 @@ async function deserializeAws_restJson1_1DescribeReservedElasticsearchInstanceOf
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeReservedElasticsearchInstancesCommand(
+export const deserializeAws_restJson1_1DescribeReservedElasticsearchInstancesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeReservedElasticsearchInstancesCommandOutput> {
+): Promise<DescribeReservedElasticsearchInstancesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeReservedElasticsearchInstancesCommandError(
       output,
@@ -2039,12 +2052,12 @@ export async function deserializeAws_restJson1_1DescribeReservedElasticsearchIns
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeReservedElasticsearchInstancesCommandError(
+const deserializeAws_restJson1_1DescribeReservedElasticsearchInstancesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeReservedElasticsearchInstancesCommandOutput> {
+): Promise<DescribeReservedElasticsearchInstancesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2112,12 +2125,12 @@ async function deserializeAws_restJson1_1DescribeReservedElasticsearchInstancesC
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetCompatibleElasticsearchVersionsCommand(
+export const deserializeAws_restJson1_1GetCompatibleElasticsearchVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetCompatibleElasticsearchVersionsCommandOutput> {
+): Promise<GetCompatibleElasticsearchVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetCompatibleElasticsearchVersionsCommandError(
       output,
@@ -2140,12 +2153,12 @@ export async function deserializeAws_restJson1_1GetCompatibleElasticsearchVersio
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetCompatibleElasticsearchVersionsCommandError(
+const deserializeAws_restJson1_1GetCompatibleElasticsearchVersionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetCompatibleElasticsearchVersionsCommandOutput> {
+): Promise<GetCompatibleElasticsearchVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2224,12 +2237,12 @@ async function deserializeAws_restJson1_1GetCompatibleElasticsearchVersionsComma
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetUpgradeHistoryCommand(
+export const deserializeAws_restJson1_1GetUpgradeHistoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetUpgradeHistoryCommandOutput> {
+): Promise<GetUpgradeHistoryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetUpgradeHistoryCommandError(
       output,
@@ -2253,12 +2266,12 @@ export async function deserializeAws_restJson1_1GetUpgradeHistoryCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetUpgradeHistoryCommandError(
+const deserializeAws_restJson1_1GetUpgradeHistoryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetUpgradeHistoryCommandOutput> {
+): Promise<GetUpgradeHistoryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2337,12 +2350,12 @@ async function deserializeAws_restJson1_1GetUpgradeHistoryCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetUpgradeStatusCommand(
+export const deserializeAws_restJson1_1GetUpgradeStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetUpgradeStatusCommandOutput> {
+): Promise<GetUpgradeStatusCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetUpgradeStatusCommandError(
       output,
@@ -2367,12 +2380,12 @@ export async function deserializeAws_restJson1_1GetUpgradeStatusCommand(
     contents.UpgradeStep = data.UpgradeStep;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetUpgradeStatusCommandError(
+const deserializeAws_restJson1_1GetUpgradeStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetUpgradeStatusCommandOutput> {
+): Promise<GetUpgradeStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2451,12 +2464,12 @@ async function deserializeAws_restJson1_1GetUpgradeStatusCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListDomainNamesCommand(
+export const deserializeAws_restJson1_1ListDomainNamesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListDomainNamesCommandOutput> {
+): Promise<ListDomainNamesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListDomainNamesCommandError(
       output,
@@ -2476,12 +2489,12 @@ export async function deserializeAws_restJson1_1ListDomainNamesCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListDomainNamesCommandError(
+const deserializeAws_restJson1_1ListDomainNamesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListDomainNamesCommandOutput> {
+): Promise<ListDomainNamesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2527,12 +2540,12 @@ async function deserializeAws_restJson1_1ListDomainNamesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListElasticsearchInstanceTypesCommand(
+export const deserializeAws_restJson1_1ListElasticsearchInstanceTypesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListElasticsearchInstanceTypesCommandOutput> {
+): Promise<ListElasticsearchInstanceTypesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListElasticsearchInstanceTypesCommandError(
       output,
@@ -2559,12 +2572,12 @@ export async function deserializeAws_restJson1_1ListElasticsearchInstanceTypesCo
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListElasticsearchInstanceTypesCommandError(
+const deserializeAws_restJson1_1ListElasticsearchInstanceTypesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListElasticsearchInstanceTypesCommandOutput> {
+): Promise<ListElasticsearchInstanceTypesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2632,12 +2645,12 @@ async function deserializeAws_restJson1_1ListElasticsearchInstanceTypesCommandEr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListElasticsearchVersionsCommand(
+export const deserializeAws_restJson1_1ListElasticsearchVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListElasticsearchVersionsCommandOutput> {
+): Promise<ListElasticsearchVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListElasticsearchVersionsCommandError(
       output,
@@ -2664,12 +2677,12 @@ export async function deserializeAws_restJson1_1ListElasticsearchVersionsCommand
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListElasticsearchVersionsCommandError(
+const deserializeAws_restJson1_1ListElasticsearchVersionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListElasticsearchVersionsCommandOutput> {
+): Promise<ListElasticsearchVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2737,12 +2750,12 @@ async function deserializeAws_restJson1_1ListElasticsearchVersionsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListTagsCommand(
+export const deserializeAws_restJson1_1ListTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsCommandOutput> {
+): Promise<ListTagsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListTagsCommandError(output, context);
   }
@@ -2756,12 +2769,12 @@ export async function deserializeAws_restJson1_1ListTagsCommand(
     contents.TagList = deserializeAws_restJson1_1TagList(data.TagList, context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListTagsCommandError(
+const deserializeAws_restJson1_1ListTagsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsCommandOutput> {
+): Promise<ListTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2829,12 +2842,12 @@ async function deserializeAws_restJson1_1ListTagsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1PurchaseReservedElasticsearchInstanceOfferingCommand(
+export const deserializeAws_restJson1_1PurchaseReservedElasticsearchInstanceOfferingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PurchaseReservedElasticsearchInstanceOfferingCommandOutput> {
+): Promise<PurchaseReservedElasticsearchInstanceOfferingCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1PurchaseReservedElasticsearchInstanceOfferingCommandError(
       output,
@@ -2859,12 +2872,12 @@ export async function deserializeAws_restJson1_1PurchaseReservedElasticsearchIns
       data.ReservedElasticsearchInstanceId;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1PurchaseReservedElasticsearchInstanceOfferingCommandError(
+const deserializeAws_restJson1_1PurchaseReservedElasticsearchInstanceOfferingCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PurchaseReservedElasticsearchInstanceOfferingCommandOutput> {
+): Promise<PurchaseReservedElasticsearchInstanceOfferingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2954,12 +2967,12 @@ async function deserializeAws_restJson1_1PurchaseReservedElasticsearchInstanceOf
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1RemoveTagsCommand(
+export const deserializeAws_restJson1_1RemoveTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RemoveTagsCommandOutput> {
+): Promise<RemoveTagsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1RemoveTagsCommandError(output, context);
   }
@@ -2968,12 +2981,12 @@ export async function deserializeAws_restJson1_1RemoveTagsCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1RemoveTagsCommandError(
+const deserializeAws_restJson1_1RemoveTagsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RemoveTagsCommandOutput> {
+): Promise<RemoveTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3030,12 +3043,12 @@ async function deserializeAws_restJson1_1RemoveTagsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1StartElasticsearchServiceSoftwareUpdateCommand(
+export const deserializeAws_restJson1_1StartElasticsearchServiceSoftwareUpdateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartElasticsearchServiceSoftwareUpdateCommandOutput> {
+): Promise<StartElasticsearchServiceSoftwareUpdateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1StartElasticsearchServiceSoftwareUpdateCommandError(
       output,
@@ -3058,12 +3071,12 @@ export async function deserializeAws_restJson1_1StartElasticsearchServiceSoftwar
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1StartElasticsearchServiceSoftwareUpdateCommandError(
+const deserializeAws_restJson1_1StartElasticsearchServiceSoftwareUpdateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartElasticsearchServiceSoftwareUpdateCommandOutput> {
+): Promise<StartElasticsearchServiceSoftwareUpdateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3131,12 +3144,12 @@ async function deserializeAws_restJson1_1StartElasticsearchServiceSoftwareUpdate
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UpdateElasticsearchDomainConfigCommand(
+export const deserializeAws_restJson1_1UpdateElasticsearchDomainConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateElasticsearchDomainConfigCommandOutput> {
+): Promise<UpdateElasticsearchDomainConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateElasticsearchDomainConfigCommandError(
       output,
@@ -3156,12 +3169,12 @@ export async function deserializeAws_restJson1_1UpdateElasticsearchDomainConfigC
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UpdateElasticsearchDomainConfigCommandError(
+const deserializeAws_restJson1_1UpdateElasticsearchDomainConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateElasticsearchDomainConfigCommandOutput> {
+): Promise<UpdateElasticsearchDomainConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3251,12 +3264,12 @@ async function deserializeAws_restJson1_1UpdateElasticsearchDomainConfigCommandE
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UpgradeElasticsearchDomainCommand(
+export const deserializeAws_restJson1_1UpgradeElasticsearchDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpgradeElasticsearchDomainCommandOutput> {
+): Promise<UpgradeElasticsearchDomainCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpgradeElasticsearchDomainCommandError(
       output,
@@ -3281,12 +3294,12 @@ export async function deserializeAws_restJson1_1UpgradeElasticsearchDomainComman
     contents.TargetVersion = data.TargetVersion;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UpgradeElasticsearchDomainCommandError(
+const deserializeAws_restJson1_1UpgradeElasticsearchDomainCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpgradeElasticsearchDomainCommandOutput> {
+): Promise<UpgradeElasticsearchDomainCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3376,7 +3389,7 @@ async function deserializeAws_restJson1_1UpgradeElasticsearchDomainCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1BaseExceptionResponse = async (
   parsedOutput: any,
@@ -3518,11 +3531,10 @@ const serializeAws_restJson1_1AdvancedOptions = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = input[key];
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = input[key];
+    return acc;
+  }, {});
 };
 
 const serializeAws_restJson1_1CognitoOptions = (
@@ -3560,14 +3572,10 @@ const serializeAws_restJson1_1DomainEndpointOptions = (
 };
 
 const serializeAws_restJson1_1DomainNameList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1EBSOptions = (
@@ -3665,14 +3673,10 @@ const serializeAws_restJson1_1LogPublishingOptions = (
   input: { [key: string]: LogPublishingOption },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = serializeAws_restJson1_1LogPublishingOption(
-      input[key],
-      context
-    );
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = serializeAws_restJson1_1LogPublishingOption(input[key], context);
+    return acc;
+  }, {});
 };
 
 const serializeAws_restJson1_1NodeToNodeEncryptionOptions = (
@@ -3698,14 +3702,10 @@ const serializeAws_restJson1_1SnapshotOptions = (
 };
 
 const serializeAws_restJson1_1StringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1Tag = (
@@ -3723,14 +3723,10 @@ const serializeAws_restJson1_1Tag = (
 };
 
 const serializeAws_restJson1_1TagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1Tag(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_restJson1_1Tag(entry, context));
 };
 
 const serializeAws_restJson1_1VPCOptions = (
@@ -3809,7 +3805,7 @@ const deserializeAws_restJson1_1AdditionalLimit = (
 const deserializeAws_restJson1_1AdditionalLimitList = (
   output: any,
   context: __SerdeContext
-): Array<AdditionalLimit> => {
+): AdditionalLimit[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1AdditionalLimit(entry, context)
   );
@@ -3819,11 +3815,10 @@ const deserializeAws_restJson1_1AdvancedOptions = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = output[key];
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1_1AdvancedOptionsStatus = (
@@ -3903,7 +3898,7 @@ const deserializeAws_restJson1_1CognitoOptionsStatus = (
 const deserializeAws_restJson1_1CompatibleElasticsearchVersionsList = (
   output: any,
   context: __SerdeContext
-): Array<CompatibleVersionsMap> => {
+): CompatibleVersionsMap[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1CompatibleVersionsMap(entry, context)
   );
@@ -3992,7 +3987,7 @@ const deserializeAws_restJson1_1DomainInfo = (
 const deserializeAws_restJson1_1DomainInfoList = (
   output: any,
   context: __SerdeContext
-): Array<DomainInfo> => {
+): DomainInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DomainInfo(entry, context)
   );
@@ -4413,7 +4408,7 @@ const deserializeAws_restJson1_1ElasticsearchDomainStatus = (
 const deserializeAws_restJson1_1ElasticsearchDomainStatusList = (
   output: any,
   context: __SerdeContext
-): Array<ElasticsearchDomainStatus> => {
+): ElasticsearchDomainStatus[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ElasticsearchDomainStatus(entry, context)
   );
@@ -4422,14 +4417,14 @@ const deserializeAws_restJson1_1ElasticsearchDomainStatusList = (
 const deserializeAws_restJson1_1ElasticsearchInstanceTypeList = (
   output: any,
   context: __SerdeContext
-): Array<ESPartitionInstanceType | string> => {
+): (ESPartitionInstanceType | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1ElasticsearchVersionList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -4500,11 +4495,10 @@ const deserializeAws_restJson1_1EndpointsMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = output[key];
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1_1InstanceCountLimits = (
@@ -4554,14 +4548,14 @@ const deserializeAws_restJson1_1InstanceLimits = (
 const deserializeAws_restJson1_1Issues = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1LimitValueList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -4603,11 +4597,10 @@ const deserializeAws_restJson1_1LimitsByRole = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: Limits } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_restJson1_1Limits(output[key], context);
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = deserializeAws_restJson1_1Limits(output[key], context);
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1_1LogPublishingOption = (
@@ -4635,14 +4628,13 @@ const deserializeAws_restJson1_1LogPublishingOptions = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: LogPublishingOption } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_restJson1_1LogPublishingOption(
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = deserializeAws_restJson1_1LogPublishingOption(
       output[key],
       context
     );
-  });
-  return mapParams;
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1_1LogPublishingOptionsStatus = (
@@ -4764,7 +4756,7 @@ const deserializeAws_restJson1_1RecurringCharge = (
 const deserializeAws_restJson1_1RecurringChargeList = (
   output: any,
   context: __SerdeContext
-): Array<RecurringCharge> => {
+): RecurringCharge[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1RecurringCharge(entry, context)
   );
@@ -4855,7 +4847,7 @@ const deserializeAws_restJson1_1ReservedElasticsearchInstance = (
 const deserializeAws_restJson1_1ReservedElasticsearchInstanceList = (
   output: any,
   context: __SerdeContext
-): Array<ReservedElasticsearchInstance> => {
+): ReservedElasticsearchInstance[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ReservedElasticsearchInstance(entry, context)
   );
@@ -4919,7 +4911,7 @@ const deserializeAws_restJson1_1ReservedElasticsearchInstanceOffering = (
 const deserializeAws_restJson1_1ReservedElasticsearchInstanceOfferingList = (
   output: any,
   context: __SerdeContext
-): Array<ReservedElasticsearchInstanceOffering> => {
+): ReservedElasticsearchInstanceOffering[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ReservedElasticsearchInstanceOffering(
       entry,
@@ -5067,7 +5059,7 @@ const deserializeAws_restJson1_1StorageTypeLimit = (
 const deserializeAws_restJson1_1StorageTypeLimitList = (
   output: any,
   context: __SerdeContext
-): Array<StorageTypeLimit> => {
+): StorageTypeLimit[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1StorageTypeLimit(entry, context)
   );
@@ -5076,7 +5068,7 @@ const deserializeAws_restJson1_1StorageTypeLimitList = (
 const deserializeAws_restJson1_1StorageTypeList = (
   output: any,
   context: __SerdeContext
-): Array<StorageType> => {
+): StorageType[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1StorageType(entry, context)
   );
@@ -5085,7 +5077,7 @@ const deserializeAws_restJson1_1StorageTypeList = (
 const deserializeAws_restJson1_1StringList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -5110,7 +5102,7 @@ const deserializeAws_restJson1_1Tag = (
 const deserializeAws_restJson1_1TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Tag(entry, context)
   );
@@ -5150,7 +5142,7 @@ const deserializeAws_restJson1_1UpgradeHistory = (
 const deserializeAws_restJson1_1UpgradeHistoryList = (
   output: any,
   context: __SerdeContext
-): Array<UpgradeHistory> => {
+): UpgradeHistory[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1UpgradeHistory(entry, context)
   );
@@ -5188,7 +5180,7 @@ const deserializeAws_restJson1_1UpgradeStepItem = (
 const deserializeAws_restJson1_1UpgradeStepsList = (
   output: any,
   context: __SerdeContext
-): Array<UpgradeStepItem> => {
+): UpgradeStepItem[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1UpgradeStepItem(entry, context)
   );
@@ -5284,7 +5276,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -5299,30 +5291,23 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
-function isSerializableHeaderValue(value: any): boolean {
-  return (
-    value !== undefined &&
-    value !== "" &&
-    (!Object.getOwnPropertyNames(value).includes("length") ||
-      value.length != 0) &&
-    (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0)
-  );
-}
+const isSerializableHeaderValue = (value: any): boolean =>
+  value !== undefined &&
+  value !== "" &&
+  (!Object.getOwnPropertyNames(value).includes("length") ||
+    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};
 
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.

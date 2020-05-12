@@ -167,7 +167,7 @@ export interface Celebrity {
    * <p>An array of URLs pointing to additional information about the celebrity. If there is no
    *       additional information about the celebrity, this list is empty.</p>
    */
-  Urls?: Array<string>;
+  Urls?: string[];
 }
 
 export namespace Celebrity {
@@ -207,7 +207,7 @@ export interface CelebrityDetail {
   /**
    * <p>An array of URLs pointing to additional celebrity information. </p>
    */
-  Urls?: Array<string>;
+  Urls?: string[];
 }
 
 export namespace CelebrityDetail {
@@ -326,7 +326,7 @@ export interface CompareFacesResponse {
    *       the bounding box contains a face, and the similarity score for the face in the bounding box
    *       and the face in the source image.</p>
    */
-  FaceMatches?: Array<CompareFacesMatch>;
+  FaceMatches?: CompareFacesMatch[];
 
   /**
    * <p>The face in the source image that was used for comparison.</p>
@@ -365,7 +365,7 @@ export interface CompareFacesResponse {
    * <p>An array of faces in the target image that did not match the source image
    *       face.</p>
    */
-  UnmatchedFaces?: Array<ComparedFace>;
+  UnmatchedFaces?: ComparedFace[];
 }
 
 export namespace CompareFacesResponse {
@@ -392,7 +392,7 @@ export interface ComparedFace {
   /**
    * <p>An array of facial landmarks.</p>
    */
-  Landmarks?: Array<Landmark>;
+  Landmarks?: Landmark[];
 
   /**
    * <p>Indicates the pose of the face as determined by its pitch, roll, and yaw.</p>
@@ -690,7 +690,7 @@ export interface DeleteFacesRequest {
   /**
    * <p>An array of face IDs to delete.</p>
    */
-  FaceIds: Array<string> | undefined;
+  FaceIds: string[] | undefined;
 }
 
 export namespace DeleteFacesRequest {
@@ -703,7 +703,7 @@ export interface DeleteFacesResponse {
   /**
    * <p>An array of strings (face IDs) of the faces that were deleted.</p>
    */
-  DeletedFaces?: Array<string>;
+  DeletedFaces?: string[];
 }
 
 export namespace DeleteFacesResponse {
@@ -804,7 +804,7 @@ export interface DescribeProjectVersionsRequest {
    * <p>A list of model version names that you want to describe. You can add up to 10 model version names
    *          to the list. If you don't specify a value, all model descriptions are returned.</p>
    */
-  VersionNames?: Array<string>;
+  VersionNames?: string[];
 }
 
 export namespace DescribeProjectVersionsRequest {
@@ -825,7 +825,7 @@ export interface DescribeProjectVersionsResponse {
    * <p>A list of model descriptions. The list is sorted by the creation date and time of
    *          the model versions, latest to earliest.</p>
    */
-  ProjectVersionDescriptions?: Array<ProjectVersionDescription>;
+  ProjectVersionDescriptions?: ProjectVersionDescription[];
 }
 
 export namespace DescribeProjectVersionsResponse {
@@ -867,7 +867,7 @@ export interface DescribeProjectsResponse {
   /**
    * <p>A list of project descriptions. The list is sorted by the date and time the projects are created.</p>
    */
-  ProjectDescriptions?: Array<ProjectDescription>;
+  ProjectDescriptions?: ProjectDescription[];
 }
 
 export namespace DescribeProjectsResponse {
@@ -1008,7 +1008,7 @@ export interface DetectCustomLabelsResponse {
   /**
    * <p>An array of custom labels detected in the input image.</p>
    */
-  CustomLabels?: Array<CustomLabel>;
+  CustomLabels?: CustomLabel[];
 }
 
 export namespace DetectCustomLabelsResponse {
@@ -1028,7 +1028,7 @@ export interface DetectFacesRequest {
    *          <p>If you provide both, <code>["ALL", "DEFAULT"]</code>, the service uses a logical AND
    *       operator to determine which attributes to return (in this case, all attributes). </p>
    */
-  Attributes?: Array<Attribute | string>;
+  Attributes?: (Attribute | string)[];
 
   /**
    * <p>The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call
@@ -1050,7 +1050,7 @@ export interface DetectFacesResponse {
   /**
    * <p>Details of each face found in the image. </p>
    */
-  FaceDetails?: Array<FaceDetail>;
+  FaceDetails?: FaceDetail[];
 
   /**
    * <p>The value of <code>OrientationCorrection</code> is always null.</p>
@@ -1114,7 +1114,7 @@ export interface DetectLabelsResponse {
   /**
    * <p>An array of labels for the real-world objects detected. </p>
    */
-  Labels?: Array<Label>;
+  Labels?: Label[];
 
   /**
    * <p>The value of <code>OrientationCorrection</code> is always null.</p>
@@ -1179,7 +1179,7 @@ export interface DetectModerationLabelsResponse {
    * <p>Array of detected Moderation labels and the time, in milliseconds from the
    *       start of the video, they were detected.</p>
    */
-  ModerationLabels?: Array<ModerationLabel>;
+  ModerationLabels?: ModerationLabel[];
 
   /**
    * <p>Version number of the moderation detection model that was used to detect unsafe content.</p>
@@ -1214,7 +1214,7 @@ export interface DetectTextResponse {
   /**
    * <p>An array of text that was detected in the input image.</p>
    */
-  TextDetections?: Array<TextDetection>;
+  TextDetections?: TextDetection[];
 }
 
 export namespace DetectTextResponse {
@@ -1421,7 +1421,7 @@ export interface FaceDetail {
    *       of the person’s internal emotional state and should not be used in such a way. For example, a person pretending to have
    *       a sad face might not be sad emotionally.</p>
    */
-  Emotions?: Array<Emotion>;
+  Emotions?: Emotion[];
 
   /**
    * <p>Indicates whether or not the face is wearing eye glasses, and the confidence level in
@@ -1444,7 +1444,7 @@ export interface FaceDetail {
   /**
    * <p>Indicates the location of landmarks on the face. Default attribute.</p>
    */
-  Landmarks?: Array<Landmark>;
+  Landmarks?: Landmark[];
 
   /**
    * <p>Indicates whether or not the mouth on the face is open, and the confidence level in the
@@ -1629,7 +1629,7 @@ export interface Geometry {
   /**
    * <p>Within the bounding box, a fine-grained polygon around the detected item.</p>
    */
-  Polygon?: Array<Point>;
+  Polygon?: Point[];
 }
 
 export namespace Geometry {
@@ -1660,7 +1660,7 @@ export interface GetCelebrityInfoResponse {
   /**
    * <p>An array of URLs pointing to additional celebrity information. </p>
    */
-  Urls?: Array<string>;
+  Urls?: string[];
 }
 
 export namespace GetCelebrityInfoResponse {
@@ -1706,7 +1706,7 @@ export interface GetCelebrityRecognitionResponse {
   /**
    * <p>Array of celebrities recognized in the video.</p>
    */
-  Celebrities?: Array<CelebrityRecognition>;
+  Celebrities?: CelebrityRecognition[];
 
   /**
    * <p>The current status of the celebrity recognition job.</p>
@@ -1783,7 +1783,7 @@ export interface GetContentModerationResponse {
   /**
    * <p>The detected unsafe content labels and the time(s) they were detected.</p>
    */
-  ModerationLabels?: Array<ContentModerationDetection>;
+  ModerationLabels?: ContentModerationDetection[];
 
   /**
    * <p>Version number of the moderation detection model that was used to detect unsafe content.</p>
@@ -1845,7 +1845,7 @@ export interface GetFaceDetectionResponse {
    * <p>An array of faces detected in the video. Each element contains a detected face's details and the time,
    *        in milliseconds from the start of the video, the face was detected. </p>
    */
-  Faces?: Array<FaceDetection>;
+  Faces?: FaceDetection[];
 
   /**
    * <p>The current status of the face detection job.</p>
@@ -1927,7 +1927,7 @@ export interface GetFaceSearchResponse {
    *       face match details (<code>FaceMatches</code>) for matching faces in the collection,
    *        and person information (<code>Person</code>) for the matched person. </p>
    */
-  Persons?: Array<PersonMatch>;
+  Persons?: PersonMatch[];
 
   /**
    * <p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>
@@ -1998,7 +1998,7 @@ export interface GetLabelDetectionResponse {
    * <p>An array of labels detected in the video. Each element contains the detected label and the time,
    *         in milliseconds from the start of the video, that the label was detected. </p>
    */
-  Labels?: Array<LabelDetection>;
+  Labels?: LabelDetection[];
 
   /**
    * <p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request
@@ -2074,7 +2074,7 @@ export interface GetPersonTrackingResponse {
    * <p>An array of the persons detected in the video and the time(s) their path was tracked throughout the video.
    *         An array element will exist for each time a person's path is tracked. </p>
    */
-  Persons?: Array<PersonDetection>;
+  Persons?: PersonDetection[];
 
   /**
    * <p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>
@@ -2130,7 +2130,7 @@ export interface HumanLoopActivationOutput {
   /**
    * <p>Shows if and why human review was needed.</p>
    */
-  HumanLoopActivationReasons?: Array<string>;
+  HumanLoopActivationReasons?: string[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the HumanLoop created.</p>
@@ -2179,7 +2179,7 @@ export interface HumanLoopDataAttributes {
   /**
    * <p>Sets whether the input image is free of personally identifiable information.</p>
    */
-  ContentClassifiers?: Array<ContentClassifier | string>;
+  ContentClassifiers?: (ContentClassifier | string)[];
 }
 
 export namespace HumanLoopDataAttributes {
@@ -2328,7 +2328,7 @@ export interface IndexFacesRequest {
    *          <p>If you provide both, <code>["ALL", "DEFAULT"]</code>, the service uses a logical AND
    *       operator to determine which attributes to return (in this case, all attributes). </p>
    */
-  DetectionAttributes?: Array<Attribute | string>;
+  DetectionAttributes?: (Attribute | string)[];
 
   /**
    * <p>The ID you want to assign to all the faces detected in the image.</p>
@@ -2397,7 +2397,7 @@ export interface IndexFacesResponse {
    *       For more information, see Searching Faces in a Collection in the Amazon Rekognition Developer Guide.
    *     </p>
    */
-  FaceRecords?: Array<FaceRecord>;
+  FaceRecords?: FaceRecord[];
 
   /**
    * <p>If your collection is associated with a face detection model that's later
@@ -2436,7 +2436,7 @@ export interface IndexFacesResponse {
    *         <code>MaxFaces</code> request parameter filtered them out. To use the quality filter, you
    *       specify the <code>QualityFilter</code> request parameter.</p>
    */
-  UnindexedFaces?: Array<UnindexedFace>;
+  UnindexedFaces?: UnindexedFace[];
 }
 
 export namespace IndexFacesResponse {
@@ -2607,7 +2607,7 @@ export interface Label {
    * <p>If <code>Label</code> represents an object, <code>Instances</code> contains the bounding boxes for each instance of the detected object.
    *       Bounding boxes are returned for common object labels such as people, cars, furniture, apparel or pets.</p>
    */
-  Instances?: Array<Instance>;
+  Instances?: Instance[];
 
   /**
    * <p>The name (label) of the object or scene.</p>
@@ -2617,7 +2617,7 @@ export interface Label {
   /**
    * <p>The parent labels for a label. The response includes all ancestor labels.</p>
    */
-  Parents?: Array<Parent>;
+  Parents?: Parent[];
 }
 
 export namespace Label {
@@ -2755,14 +2755,14 @@ export interface ListCollectionsResponse {
   /**
    * <p>An array of collection IDs.</p>
    */
-  CollectionIds?: Array<string>;
+  CollectionIds?: string[];
 
   /**
    * <p>Version numbers of the face detection models associated with the collections in the array <code>CollectionIds</code>.
    *     For example, the value of <code>FaceModelVersions[2]</code> is the version number for the face detection model used
    *       by the collection in <code>CollectionId[2]</code>.</p>
    */
-  FaceModelVersions?: Array<string>;
+  FaceModelVersions?: string[];
 
   /**
    * <p>If the result is truncated, the response provides a <code>NextToken</code> that you can
@@ -2811,7 +2811,7 @@ export interface ListFacesResponse {
   /**
    * <p>An array of <code>Face</code> objects. </p>
    */
-  Faces?: Array<Face>;
+  Faces?: Face[];
 
   /**
    * <p>If the response is truncated, Amazon Rekognition returns this token that you can use in the
@@ -2855,7 +2855,7 @@ export interface ListStreamProcessorsResponse {
   /**
    * <p>List of stream processors that you have created.</p>
    */
-  StreamProcessors?: Array<StreamProcessor>;
+  StreamProcessors?: StreamProcessor[];
 }
 
 export namespace ListStreamProcessorsResponse {
@@ -3063,7 +3063,7 @@ export interface PersonMatch {
   /**
    * <p>Information about the faces in the input collection that match the face of a person in the video.</p>
    */
-  FaceMatches?: Array<FaceMatch>;
+  FaceMatches?: FaceMatch[];
 
   /**
    * <p>Information about the matched person.</p>
@@ -3309,7 +3309,7 @@ export interface RecognizeCelebritiesResponse {
    * <p>Details about each celebrity found in the image. Amazon Rekognition can detect a maximum of 15
    *       celebrities in an image.</p>
    */
-  CelebrityFaces?: Array<Celebrity>;
+  CelebrityFaces?: Celebrity[];
 
   /**
    * <p>The orientation of the input image (counterclockwise direction). If your application
@@ -3330,7 +3330,7 @@ export interface RecognizeCelebritiesResponse {
   /**
    * <p>Details about each unrecognized face in the image.</p>
    */
-  UnrecognizedFaces?: Array<ComparedFace>;
+  UnrecognizedFaces?: ComparedFace[];
 }
 
 export namespace RecognizeCelebritiesResponse {
@@ -3502,7 +3502,7 @@ export interface SearchFacesByImageResponse {
    * <p>An array of faces that match the input face, along with the confidence in the
    *       match.</p>
    */
-  FaceMatches?: Array<FaceMatch>;
+  FaceMatches?: FaceMatch[];
 
   /**
    * <p>Version number of the face detection model associated with the input collection (<code>CollectionId</code>).</p>
@@ -3565,7 +3565,7 @@ export interface SearchFacesResponse {
    * <p>An array of faces that matched the input face, along with the confidence in the
    *       match.</p>
    */
-  FaceMatches?: Array<FaceMatch>;
+  FaceMatches?: FaceMatch[];
 
   /**
    * <p>Version number of the face detection model associated with the input collection (<code>CollectionId</code>).</p>
@@ -4164,7 +4164,7 @@ export interface TestingData {
   /**
    * <p>The assets used for testing.</p>
    */
-  Assets?: Array<Asset>;
+  Assets?: Asset[];
 
   /**
    * <p>If specified, Amazon Rekognition Custom Labels creates a testing dataset with an 80/20 split of the training dataset.</p>
@@ -4283,7 +4283,7 @@ export interface TrainingData {
   /**
    * <p>A Sagemaker GroundTruth manifest file that contains the training images (assets).</p>
    */
-  Assets?: Array<Asset>;
+  Assets?: Asset[];
 }
 
 export namespace TrainingData {
@@ -4349,7 +4349,7 @@ export interface UnindexedFace {
    *             </li>
    *          </ul>
    */
-  Reasons?: Array<Reason | string>;
+  Reasons?: (Reason | string)[];
 }
 
 export namespace UnindexedFace {

@@ -74,7 +74,7 @@ export interface CreateVocabularyFilterRequest {
    *         <p>If you provide a list of words in the <code>Words</code> parameter, you can't use the
    *                 <code>VocabularyFilterFileUri</code> parameter.</p>
    */
-  Words?: Array<string>;
+  Words?: string[];
 }
 
 export namespace CreateVocabularyFilterRequest {
@@ -115,7 +115,7 @@ export interface CreateVocabularyRequest {
   /**
    * <p>An array of strings that contains the vocabulary entries. </p>
    */
-  Phrases?: Array<string>;
+  Phrases?: string[];
 
   /**
    * <p>The S3 location of the text file that contains the definition of the custom
@@ -496,7 +496,7 @@ export interface ListTranscriptionJobsResponse {
   /**
    * <p>A list of objects containing summary information for a transcription job.</p>
    */
-  TranscriptionJobSummaries?: Array<TranscriptionJobSummary>;
+  TranscriptionJobSummaries?: TranscriptionJobSummary[];
 }
 
 export namespace ListTranscriptionJobsResponse {
@@ -558,7 +558,7 @@ export interface ListVocabulariesResponse {
    * <p>A list of objects that describe the vocabularies that match the search criteria in the
    *             request.</p>
    */
-  Vocabularies?: Array<VocabularyInfo>;
+  Vocabularies?: VocabularyInfo[];
 }
 
 export namespace ListVocabulariesResponse {
@@ -611,7 +611,7 @@ export interface ListVocabularyFiltersResponse {
    *             operation again with the <code>NextToken</code> parameter in the request set to the
    *             value of the <code>NextToken</code> field in the response.</p>
    */
-  VocabularyFilters?: Array<VocabularyFilterInfo>;
+  VocabularyFilters?: VocabularyFilterInfo[];
 }
 
 export namespace ListVocabularyFiltersResponse {
@@ -1099,7 +1099,7 @@ export interface UpdateVocabularyFilterRequest {
    *         <p>If you provide a list of words in the <code>Words</code> parameter, you can't use the
    *                 <code>VocabularyFilterFileUri</code> parameter.</p>
    */
-  Words?: Array<string>;
+  Words?: string[];
 }
 
 export namespace UpdateVocabularyFilterRequest {
@@ -1140,7 +1140,7 @@ export interface UpdateVocabularyRequest {
   /**
    * <p>An array of strings containing the vocabulary entries.</p>
    */
-  Phrases?: Array<string>;
+  Phrases?: string[];
 
   /**
    * <p>The S3 location of the text file that contains the definition of the custom

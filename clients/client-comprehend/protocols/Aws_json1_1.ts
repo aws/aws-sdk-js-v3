@@ -385,211 +385,224 @@ import {
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
-export async function serializeAws_json1_1BatchDetectDominantLanguageCommand(
+export const serializeAws_json1_1BatchDetectDominantLanguageCommand = async (
   input: BatchDetectDominantLanguageCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.BatchDetectDominantLanguage";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.BatchDetectDominantLanguage"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchDetectDominantLanguageRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1BatchDetectEntitiesCommand(
+export const serializeAws_json1_1BatchDetectEntitiesCommand = async (
   input: BatchDetectEntitiesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.BatchDetectEntities";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.BatchDetectEntities"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchDetectEntitiesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1BatchDetectKeyPhrasesCommand(
+export const serializeAws_json1_1BatchDetectKeyPhrasesCommand = async (
   input: BatchDetectKeyPhrasesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.BatchDetectKeyPhrases";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.BatchDetectKeyPhrases"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchDetectKeyPhrasesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1BatchDetectSentimentCommand(
+export const serializeAws_json1_1BatchDetectSentimentCommand = async (
   input: BatchDetectSentimentCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.BatchDetectSentiment";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.BatchDetectSentiment"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchDetectSentimentRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1BatchDetectSyntaxCommand(
+export const serializeAws_json1_1BatchDetectSyntaxCommand = async (
   input: BatchDetectSyntaxCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.BatchDetectSyntax";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.BatchDetectSyntax"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1BatchDetectSyntaxRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ClassifyDocumentCommand(
+export const serializeAws_json1_1ClassifyDocumentCommand = async (
   input: ClassifyDocumentCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.ClassifyDocument";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.ClassifyDocument"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ClassifyDocumentRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreateDocumentClassifierCommand(
+export const serializeAws_json1_1CreateDocumentClassifierCommand = async (
   input: CreateDocumentClassifierCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.CreateDocumentClassifier";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.CreateDocumentClassifier"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateDocumentClassifierRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreateEndpointCommand(
+export const serializeAws_json1_1CreateEndpointCommand = async (
   input: CreateEndpointCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.CreateEndpoint";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.CreateEndpoint"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateEndpointRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreateEntityRecognizerCommand(
+export const serializeAws_json1_1CreateEntityRecognizerCommand = async (
   input: CreateEntityRecognizerCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.CreateEntityRecognizer";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.CreateEntityRecognizer"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateEntityRecognizerRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteDocumentClassifierCommand(
+export const serializeAws_json1_1DeleteDocumentClassifierCommand = async (
   input: DeleteDocumentClassifierCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.DeleteDocumentClassifier";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.DeleteDocumentClassifier"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteDocumentClassifierRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteEndpointCommand(
+export const serializeAws_json1_1DeleteEndpointCommand = async (
   input: DeleteEndpointCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.DeleteEndpoint";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.DeleteEndpoint"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteEndpointRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteEntityRecognizerCommand(
+export const serializeAws_json1_1DeleteEntityRecognizerCommand = async (
   input: DeleteEntityRecognizerCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.DeleteEntityRecognizer";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.DeleteEntityRecognizer"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteEntityRecognizerRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeDocumentClassificationJobCommand(
+export const serializeAws_json1_1DescribeDocumentClassificationJobCommand = async (
   input: DescribeDocumentClassificationJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "Comprehend_20171127.DescribeDocumentClassificationJob";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.DescribeDocumentClassificationJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeDocumentClassificationJobRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeDocumentClassifierCommand(
+export const serializeAws_json1_1DescribeDocumentClassifierCommand = async (
   input: DescribeDocumentClassifierCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.DescribeDocumentClassifier";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.DescribeDocumentClassifier"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeDocumentClassifierRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeDominantLanguageDetectionJobCommand(
+export const serializeAws_json1_1DescribeDominantLanguageDetectionJobCommand = async (
   input: DescribeDominantLanguageDetectionJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "Comprehend_20171127.DescribeDominantLanguageDetectionJob";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.DescribeDominantLanguageDetectionJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeDominantLanguageDetectionJobRequest(
@@ -598,521 +611,550 @@ export async function serializeAws_json1_1DescribeDominantLanguageDetectionJobCo
     )
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeEndpointCommand(
+export const serializeAws_json1_1DescribeEndpointCommand = async (
   input: DescribeEndpointCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.DescribeEndpoint";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.DescribeEndpoint"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEndpointRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeEntitiesDetectionJobCommand(
+export const serializeAws_json1_1DescribeEntitiesDetectionJobCommand = async (
   input: DescribeEntitiesDetectionJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.DescribeEntitiesDetectionJob";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.DescribeEntitiesDetectionJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEntitiesDetectionJobRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeEntityRecognizerCommand(
+export const serializeAws_json1_1DescribeEntityRecognizerCommand = async (
   input: DescribeEntityRecognizerCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.DescribeEntityRecognizer";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.DescribeEntityRecognizer"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeEntityRecognizerRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeKeyPhrasesDetectionJobCommand(
+export const serializeAws_json1_1DescribeKeyPhrasesDetectionJobCommand = async (
   input: DescribeKeyPhrasesDetectionJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "Comprehend_20171127.DescribeKeyPhrasesDetectionJob";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.DescribeKeyPhrasesDetectionJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeKeyPhrasesDetectionJobRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeSentimentDetectionJobCommand(
+export const serializeAws_json1_1DescribeSentimentDetectionJobCommand = async (
   input: DescribeSentimentDetectionJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.DescribeSentimentDetectionJob";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.DescribeSentimentDetectionJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeSentimentDetectionJobRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeTopicsDetectionJobCommand(
+export const serializeAws_json1_1DescribeTopicsDetectionJobCommand = async (
   input: DescribeTopicsDetectionJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.DescribeTopicsDetectionJob";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.DescribeTopicsDetectionJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeTopicsDetectionJobRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DetectDominantLanguageCommand(
+export const serializeAws_json1_1DetectDominantLanguageCommand = async (
   input: DetectDominantLanguageCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.DetectDominantLanguage";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.DetectDominantLanguage"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DetectDominantLanguageRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DetectEntitiesCommand(
+export const serializeAws_json1_1DetectEntitiesCommand = async (
   input: DetectEntitiesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.DetectEntities";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.DetectEntities"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DetectEntitiesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DetectKeyPhrasesCommand(
+export const serializeAws_json1_1DetectKeyPhrasesCommand = async (
   input: DetectKeyPhrasesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.DetectKeyPhrases";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.DetectKeyPhrases"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DetectKeyPhrasesRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DetectSentimentCommand(
+export const serializeAws_json1_1DetectSentimentCommand = async (
   input: DetectSentimentCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.DetectSentiment";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.DetectSentiment"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DetectSentimentRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DetectSyntaxCommand(
+export const serializeAws_json1_1DetectSyntaxCommand = async (
   input: DetectSyntaxCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.DetectSyntax";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.DetectSyntax"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DetectSyntaxRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListDocumentClassificationJobsCommand(
+export const serializeAws_json1_1ListDocumentClassificationJobsCommand = async (
   input: ListDocumentClassificationJobsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "Comprehend_20171127.ListDocumentClassificationJobs";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.ListDocumentClassificationJobs"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListDocumentClassificationJobsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListDocumentClassifiersCommand(
+export const serializeAws_json1_1ListDocumentClassifiersCommand = async (
   input: ListDocumentClassifiersCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.ListDocumentClassifiers";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.ListDocumentClassifiers"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListDocumentClassifiersRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListDominantLanguageDetectionJobsCommand(
+export const serializeAws_json1_1ListDominantLanguageDetectionJobsCommand = async (
   input: ListDominantLanguageDetectionJobsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "Comprehend_20171127.ListDominantLanguageDetectionJobs";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.ListDominantLanguageDetectionJobs"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListDominantLanguageDetectionJobsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListEndpointsCommand(
+export const serializeAws_json1_1ListEndpointsCommand = async (
   input: ListEndpointsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.ListEndpoints";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.ListEndpoints"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListEndpointsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListEntitiesDetectionJobsCommand(
+export const serializeAws_json1_1ListEntitiesDetectionJobsCommand = async (
   input: ListEntitiesDetectionJobsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.ListEntitiesDetectionJobs";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.ListEntitiesDetectionJobs"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListEntitiesDetectionJobsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListEntityRecognizersCommand(
+export const serializeAws_json1_1ListEntityRecognizersCommand = async (
   input: ListEntityRecognizersCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.ListEntityRecognizers";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.ListEntityRecognizers"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListEntityRecognizersRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListKeyPhrasesDetectionJobsCommand(
+export const serializeAws_json1_1ListKeyPhrasesDetectionJobsCommand = async (
   input: ListKeyPhrasesDetectionJobsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.ListKeyPhrasesDetectionJobs";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.ListKeyPhrasesDetectionJobs"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListKeyPhrasesDetectionJobsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListSentimentDetectionJobsCommand(
+export const serializeAws_json1_1ListSentimentDetectionJobsCommand = async (
   input: ListSentimentDetectionJobsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.ListSentimentDetectionJobs";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.ListSentimentDetectionJobs"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListSentimentDetectionJobsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListTagsForResourceCommand(
+export const serializeAws_json1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.ListTagsForResource";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.ListTagsForResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTagsForResourceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListTopicsDetectionJobsCommand(
+export const serializeAws_json1_1ListTopicsDetectionJobsCommand = async (
   input: ListTopicsDetectionJobsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.ListTopicsDetectionJobs";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.ListTopicsDetectionJobs"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListTopicsDetectionJobsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1StartDocumentClassificationJobCommand(
+export const serializeAws_json1_1StartDocumentClassificationJobCommand = async (
   input: StartDocumentClassificationJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "Comprehend_20171127.StartDocumentClassificationJob";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.StartDocumentClassificationJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartDocumentClassificationJobRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1StartDominantLanguageDetectionJobCommand(
+export const serializeAws_json1_1StartDominantLanguageDetectionJobCommand = async (
   input: StartDominantLanguageDetectionJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "Comprehend_20171127.StartDominantLanguageDetectionJob";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.StartDominantLanguageDetectionJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartDominantLanguageDetectionJobRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1StartEntitiesDetectionJobCommand(
+export const serializeAws_json1_1StartEntitiesDetectionJobCommand = async (
   input: StartEntitiesDetectionJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.StartEntitiesDetectionJob";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.StartEntitiesDetectionJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartEntitiesDetectionJobRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1StartKeyPhrasesDetectionJobCommand(
+export const serializeAws_json1_1StartKeyPhrasesDetectionJobCommand = async (
   input: StartKeyPhrasesDetectionJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.StartKeyPhrasesDetectionJob";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.StartKeyPhrasesDetectionJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartKeyPhrasesDetectionJobRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1StartSentimentDetectionJobCommand(
+export const serializeAws_json1_1StartSentimentDetectionJobCommand = async (
   input: StartSentimentDetectionJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.StartSentimentDetectionJob";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.StartSentimentDetectionJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartSentimentDetectionJobRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1StartTopicsDetectionJobCommand(
+export const serializeAws_json1_1StartTopicsDetectionJobCommand = async (
   input: StartTopicsDetectionJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.StartTopicsDetectionJob";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.StartTopicsDetectionJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartTopicsDetectionJobRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1StopDominantLanguageDetectionJobCommand(
+export const serializeAws_json1_1StopDominantLanguageDetectionJobCommand = async (
   input: StopDominantLanguageDetectionJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "Comprehend_20171127.StopDominantLanguageDetectionJob";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.StopDominantLanguageDetectionJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StopDominantLanguageDetectionJobRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1StopEntitiesDetectionJobCommand(
+export const serializeAws_json1_1StopEntitiesDetectionJobCommand = async (
   input: StopEntitiesDetectionJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.StopEntitiesDetectionJob";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.StopEntitiesDetectionJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StopEntitiesDetectionJobRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1StopKeyPhrasesDetectionJobCommand(
+export const serializeAws_json1_1StopKeyPhrasesDetectionJobCommand = async (
   input: StopKeyPhrasesDetectionJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.StopKeyPhrasesDetectionJob";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.StopKeyPhrasesDetectionJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StopKeyPhrasesDetectionJobRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1StopSentimentDetectionJobCommand(
+export const serializeAws_json1_1StopSentimentDetectionJobCommand = async (
   input: StopSentimentDetectionJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.StopSentimentDetectionJob";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.StopSentimentDetectionJob"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StopSentimentDetectionJobRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1StopTrainingDocumentClassifierCommand(
+export const serializeAws_json1_1StopTrainingDocumentClassifierCommand = async (
   input: StopTrainingDocumentClassifierCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "Comprehend_20171127.StopTrainingDocumentClassifier";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.StopTrainingDocumentClassifier"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StopTrainingDocumentClassifierRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1StopTrainingEntityRecognizerCommand(
+export const serializeAws_json1_1StopTrainingEntityRecognizerCommand = async (
   input: StopTrainingEntityRecognizerCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.StopTrainingEntityRecognizer";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.StopTrainingEntityRecognizer"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StopTrainingEntityRecognizerRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1TagResourceCommand(
+export const serializeAws_json1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.TagResource";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.TagResource"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UntagResourceCommand(
+export const serializeAws_json1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.UntagResource";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.UntagResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UntagResourceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateEndpointCommand(
+export const serializeAws_json1_1UpdateEndpointCommand = async (
   input: UpdateEndpointCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Comprehend_20171127.UpdateEndpoint";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Comprehend_20171127.UpdateEndpoint"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateEndpointRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_1BatchDetectDominantLanguageCommand(
+export const deserializeAws_json1_1BatchDetectDominantLanguageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchDetectDominantLanguageCommandOutput> {
+): Promise<BatchDetectDominantLanguageCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1BatchDetectDominantLanguageCommandError(
       output,
@@ -1131,12 +1173,12 @@ export async function deserializeAws_json1_1BatchDetectDominantLanguageCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1BatchDetectDominantLanguageCommandError(
+const deserializeAws_json1_1BatchDetectDominantLanguageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchDetectDominantLanguageCommandOutput> {
+): Promise<BatchDetectDominantLanguageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1206,12 +1248,12 @@ async function deserializeAws_json1_1BatchDetectDominantLanguageCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1BatchDetectEntitiesCommand(
+export const deserializeAws_json1_1BatchDetectEntitiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchDetectEntitiesCommandOutput> {
+): Promise<BatchDetectEntitiesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1BatchDetectEntitiesCommandError(
       output,
@@ -1227,12 +1269,12 @@ export async function deserializeAws_json1_1BatchDetectEntitiesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1BatchDetectEntitiesCommandError(
+const deserializeAws_json1_1BatchDetectEntitiesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchDetectEntitiesCommandOutput> {
+): Promise<BatchDetectEntitiesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1313,12 +1355,12 @@ async function deserializeAws_json1_1BatchDetectEntitiesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1BatchDetectKeyPhrasesCommand(
+export const deserializeAws_json1_1BatchDetectKeyPhrasesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchDetectKeyPhrasesCommandOutput> {
+): Promise<BatchDetectKeyPhrasesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1BatchDetectKeyPhrasesCommandError(
       output,
@@ -1334,12 +1376,12 @@ export async function deserializeAws_json1_1BatchDetectKeyPhrasesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1BatchDetectKeyPhrasesCommandError(
+const deserializeAws_json1_1BatchDetectKeyPhrasesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchDetectKeyPhrasesCommandOutput> {
+): Promise<BatchDetectKeyPhrasesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1420,12 +1462,12 @@ async function deserializeAws_json1_1BatchDetectKeyPhrasesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1BatchDetectSentimentCommand(
+export const deserializeAws_json1_1BatchDetectSentimentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchDetectSentimentCommandOutput> {
+): Promise<BatchDetectSentimentCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1BatchDetectSentimentCommandError(
       output,
@@ -1441,12 +1483,12 @@ export async function deserializeAws_json1_1BatchDetectSentimentCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1BatchDetectSentimentCommandError(
+const deserializeAws_json1_1BatchDetectSentimentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchDetectSentimentCommandOutput> {
+): Promise<BatchDetectSentimentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1527,12 +1569,12 @@ async function deserializeAws_json1_1BatchDetectSentimentCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1BatchDetectSyntaxCommand(
+export const deserializeAws_json1_1BatchDetectSyntaxCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchDetectSyntaxCommandOutput> {
+): Promise<BatchDetectSyntaxCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1BatchDetectSyntaxCommandError(output, context);
   }
@@ -1545,12 +1587,12 @@ export async function deserializeAws_json1_1BatchDetectSyntaxCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1BatchDetectSyntaxCommandError(
+const deserializeAws_json1_1BatchDetectSyntaxCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchDetectSyntaxCommandOutput> {
+): Promise<BatchDetectSyntaxCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1631,12 +1673,12 @@ async function deserializeAws_json1_1BatchDetectSyntaxCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ClassifyDocumentCommand(
+export const deserializeAws_json1_1ClassifyDocumentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ClassifyDocumentCommandOutput> {
+): Promise<ClassifyDocumentCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ClassifyDocumentCommandError(output, context);
   }
@@ -1649,12 +1691,12 @@ export async function deserializeAws_json1_1ClassifyDocumentCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ClassifyDocumentCommandError(
+const deserializeAws_json1_1ClassifyDocumentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ClassifyDocumentCommandOutput> {
+): Promise<ClassifyDocumentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1724,12 +1766,12 @@ async function deserializeAws_json1_1ClassifyDocumentCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreateDocumentClassifierCommand(
+export const deserializeAws_json1_1CreateDocumentClassifierCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateDocumentClassifierCommandOutput> {
+): Promise<CreateDocumentClassifierCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateDocumentClassifierCommandError(
       output,
@@ -1748,12 +1790,12 @@ export async function deserializeAws_json1_1CreateDocumentClassifierCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateDocumentClassifierCommandError(
+const deserializeAws_json1_1CreateDocumentClassifierCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateDocumentClassifierCommandOutput> {
+): Promise<CreateDocumentClassifierCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1867,12 +1909,12 @@ async function deserializeAws_json1_1CreateDocumentClassifierCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreateEndpointCommand(
+export const deserializeAws_json1_1CreateEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateEndpointCommandOutput> {
+): Promise<CreateEndpointCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateEndpointCommandError(output, context);
   }
@@ -1885,12 +1927,12 @@ export async function deserializeAws_json1_1CreateEndpointCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateEndpointCommandError(
+const deserializeAws_json1_1CreateEndpointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateEndpointCommandOutput> {
+): Promise<CreateEndpointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2004,12 +2046,12 @@ async function deserializeAws_json1_1CreateEndpointCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreateEntityRecognizerCommand(
+export const deserializeAws_json1_1CreateEntityRecognizerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateEntityRecognizerCommandOutput> {
+): Promise<CreateEntityRecognizerCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateEntityRecognizerCommandError(
       output,
@@ -2028,12 +2070,12 @@ export async function deserializeAws_json1_1CreateEntityRecognizerCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateEntityRecognizerCommandError(
+const deserializeAws_json1_1CreateEntityRecognizerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateEntityRecognizerCommandOutput> {
+): Promise<CreateEntityRecognizerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2147,12 +2189,12 @@ async function deserializeAws_json1_1CreateEntityRecognizerCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteDocumentClassifierCommand(
+export const deserializeAws_json1_1DeleteDocumentClassifierCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteDocumentClassifierCommandOutput> {
+): Promise<DeleteDocumentClassifierCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteDocumentClassifierCommandError(
       output,
@@ -2171,12 +2213,12 @@ export async function deserializeAws_json1_1DeleteDocumentClassifierCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteDocumentClassifierCommandError(
+const deserializeAws_json1_1DeleteDocumentClassifierCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteDocumentClassifierCommandOutput> {
+): Promise<DeleteDocumentClassifierCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2268,12 +2310,12 @@ async function deserializeAws_json1_1DeleteDocumentClassifierCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteEndpointCommand(
+export const deserializeAws_json1_1DeleteEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteEndpointCommandOutput> {
+): Promise<DeleteEndpointCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteEndpointCommandError(output, context);
   }
@@ -2286,12 +2328,12 @@ export async function deserializeAws_json1_1DeleteEndpointCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteEndpointCommandError(
+const deserializeAws_json1_1DeleteEndpointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteEndpointCommandOutput> {
+): Promise<DeleteEndpointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2372,12 +2414,12 @@ async function deserializeAws_json1_1DeleteEndpointCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteEntityRecognizerCommand(
+export const deserializeAws_json1_1DeleteEntityRecognizerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteEntityRecognizerCommandOutput> {
+): Promise<DeleteEntityRecognizerCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteEntityRecognizerCommandError(
       output,
@@ -2396,12 +2438,12 @@ export async function deserializeAws_json1_1DeleteEntityRecognizerCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteEntityRecognizerCommandError(
+const deserializeAws_json1_1DeleteEntityRecognizerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteEntityRecognizerCommandOutput> {
+): Promise<DeleteEntityRecognizerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2493,12 +2535,12 @@ async function deserializeAws_json1_1DeleteEntityRecognizerCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeDocumentClassificationJobCommand(
+export const deserializeAws_json1_1DescribeDocumentClassificationJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeDocumentClassificationJobCommandOutput> {
+): Promise<DescribeDocumentClassificationJobCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeDocumentClassificationJobCommandError(
       output,
@@ -2517,12 +2559,12 @@ export async function deserializeAws_json1_1DescribeDocumentClassificationJobCom
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeDocumentClassificationJobCommandError(
+const deserializeAws_json1_1DescribeDocumentClassificationJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeDocumentClassificationJobCommandOutput> {
+): Promise<DescribeDocumentClassificationJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2592,12 +2634,12 @@ async function deserializeAws_json1_1DescribeDocumentClassificationJobCommandErr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeDocumentClassifierCommand(
+export const deserializeAws_json1_1DescribeDocumentClassifierCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeDocumentClassifierCommandOutput> {
+): Promise<DescribeDocumentClassifierCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeDocumentClassifierCommandError(
       output,
@@ -2616,12 +2658,12 @@ export async function deserializeAws_json1_1DescribeDocumentClassifierCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeDocumentClassifierCommandError(
+const deserializeAws_json1_1DescribeDocumentClassifierCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeDocumentClassifierCommandOutput> {
+): Promise<DescribeDocumentClassifierCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2691,12 +2733,12 @@ async function deserializeAws_json1_1DescribeDocumentClassifierCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeDominantLanguageDetectionJobCommand(
+export const deserializeAws_json1_1DescribeDominantLanguageDetectionJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeDominantLanguageDetectionJobCommandOutput> {
+): Promise<DescribeDominantLanguageDetectionJobCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeDominantLanguageDetectionJobCommandError(
       output,
@@ -2715,12 +2757,12 @@ export async function deserializeAws_json1_1DescribeDominantLanguageDetectionJob
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeDominantLanguageDetectionJobCommandError(
+const deserializeAws_json1_1DescribeDominantLanguageDetectionJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeDominantLanguageDetectionJobCommandOutput> {
+): Promise<DescribeDominantLanguageDetectionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2790,12 +2832,12 @@ async function deserializeAws_json1_1DescribeDominantLanguageDetectionJobCommand
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeEndpointCommand(
+export const deserializeAws_json1_1DescribeEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeEndpointCommandOutput> {
+): Promise<DescribeEndpointCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeEndpointCommandError(output, context);
   }
@@ -2808,12 +2850,12 @@ export async function deserializeAws_json1_1DescribeEndpointCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeEndpointCommandError(
+const deserializeAws_json1_1DescribeEndpointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeEndpointCommandOutput> {
+): Promise<DescribeEndpointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2883,12 +2925,12 @@ async function deserializeAws_json1_1DescribeEndpointCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeEntitiesDetectionJobCommand(
+export const deserializeAws_json1_1DescribeEntitiesDetectionJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeEntitiesDetectionJobCommandOutput> {
+): Promise<DescribeEntitiesDetectionJobCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeEntitiesDetectionJobCommandError(
       output,
@@ -2907,12 +2949,12 @@ export async function deserializeAws_json1_1DescribeEntitiesDetectionJobCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeEntitiesDetectionJobCommandError(
+const deserializeAws_json1_1DescribeEntitiesDetectionJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeEntitiesDetectionJobCommandOutput> {
+): Promise<DescribeEntitiesDetectionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2982,12 +3024,12 @@ async function deserializeAws_json1_1DescribeEntitiesDetectionJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeEntityRecognizerCommand(
+export const deserializeAws_json1_1DescribeEntityRecognizerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeEntityRecognizerCommandOutput> {
+): Promise<DescribeEntityRecognizerCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeEntityRecognizerCommandError(
       output,
@@ -3006,12 +3048,12 @@ export async function deserializeAws_json1_1DescribeEntityRecognizerCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeEntityRecognizerCommandError(
+const deserializeAws_json1_1DescribeEntityRecognizerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeEntityRecognizerCommandOutput> {
+): Promise<DescribeEntityRecognizerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3081,12 +3123,12 @@ async function deserializeAws_json1_1DescribeEntityRecognizerCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeKeyPhrasesDetectionJobCommand(
+export const deserializeAws_json1_1DescribeKeyPhrasesDetectionJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeKeyPhrasesDetectionJobCommandOutput> {
+): Promise<DescribeKeyPhrasesDetectionJobCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeKeyPhrasesDetectionJobCommandError(
       output,
@@ -3105,12 +3147,12 @@ export async function deserializeAws_json1_1DescribeKeyPhrasesDetectionJobComman
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeKeyPhrasesDetectionJobCommandError(
+const deserializeAws_json1_1DescribeKeyPhrasesDetectionJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeKeyPhrasesDetectionJobCommandOutput> {
+): Promise<DescribeKeyPhrasesDetectionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3180,12 +3222,12 @@ async function deserializeAws_json1_1DescribeKeyPhrasesDetectionJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeSentimentDetectionJobCommand(
+export const deserializeAws_json1_1DescribeSentimentDetectionJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeSentimentDetectionJobCommandOutput> {
+): Promise<DescribeSentimentDetectionJobCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeSentimentDetectionJobCommandError(
       output,
@@ -3204,12 +3246,12 @@ export async function deserializeAws_json1_1DescribeSentimentDetectionJobCommand
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeSentimentDetectionJobCommandError(
+const deserializeAws_json1_1DescribeSentimentDetectionJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeSentimentDetectionJobCommandOutput> {
+): Promise<DescribeSentimentDetectionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3279,12 +3321,12 @@ async function deserializeAws_json1_1DescribeSentimentDetectionJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeTopicsDetectionJobCommand(
+export const deserializeAws_json1_1DescribeTopicsDetectionJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeTopicsDetectionJobCommandOutput> {
+): Promise<DescribeTopicsDetectionJobCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeTopicsDetectionJobCommandError(
       output,
@@ -3303,12 +3345,12 @@ export async function deserializeAws_json1_1DescribeTopicsDetectionJobCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeTopicsDetectionJobCommandError(
+const deserializeAws_json1_1DescribeTopicsDetectionJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeTopicsDetectionJobCommandOutput> {
+): Promise<DescribeTopicsDetectionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3378,12 +3420,12 @@ async function deserializeAws_json1_1DescribeTopicsDetectionJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DetectDominantLanguageCommand(
+export const deserializeAws_json1_1DetectDominantLanguageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DetectDominantLanguageCommandOutput> {
+): Promise<DetectDominantLanguageCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DetectDominantLanguageCommandError(
       output,
@@ -3402,12 +3444,12 @@ export async function deserializeAws_json1_1DetectDominantLanguageCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DetectDominantLanguageCommandError(
+const deserializeAws_json1_1DetectDominantLanguageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DetectDominantLanguageCommandOutput> {
+): Promise<DetectDominantLanguageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3466,12 +3508,12 @@ async function deserializeAws_json1_1DetectDominantLanguageCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DetectEntitiesCommand(
+export const deserializeAws_json1_1DetectEntitiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DetectEntitiesCommandOutput> {
+): Promise<DetectEntitiesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DetectEntitiesCommandError(output, context);
   }
@@ -3484,12 +3526,12 @@ export async function deserializeAws_json1_1DetectEntitiesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DetectEntitiesCommandError(
+const deserializeAws_json1_1DetectEntitiesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DetectEntitiesCommandOutput> {
+): Promise<DetectEntitiesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3559,12 +3601,12 @@ async function deserializeAws_json1_1DetectEntitiesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DetectKeyPhrasesCommand(
+export const deserializeAws_json1_1DetectKeyPhrasesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DetectKeyPhrasesCommandOutput> {
+): Promise<DetectKeyPhrasesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DetectKeyPhrasesCommandError(output, context);
   }
@@ -3577,12 +3619,12 @@ export async function deserializeAws_json1_1DetectKeyPhrasesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DetectKeyPhrasesCommandError(
+const deserializeAws_json1_1DetectKeyPhrasesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DetectKeyPhrasesCommandOutput> {
+): Promise<DetectKeyPhrasesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3652,12 +3694,12 @@ async function deserializeAws_json1_1DetectKeyPhrasesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DetectSentimentCommand(
+export const deserializeAws_json1_1DetectSentimentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DetectSentimentCommandOutput> {
+): Promise<DetectSentimentCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DetectSentimentCommandError(output, context);
   }
@@ -3670,12 +3712,12 @@ export async function deserializeAws_json1_1DetectSentimentCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DetectSentimentCommandError(
+const deserializeAws_json1_1DetectSentimentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DetectSentimentCommandOutput> {
+): Promise<DetectSentimentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3745,12 +3787,12 @@ async function deserializeAws_json1_1DetectSentimentCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DetectSyntaxCommand(
+export const deserializeAws_json1_1DetectSyntaxCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DetectSyntaxCommandOutput> {
+): Promise<DetectSyntaxCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DetectSyntaxCommandError(output, context);
   }
@@ -3763,12 +3805,12 @@ export async function deserializeAws_json1_1DetectSyntaxCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DetectSyntaxCommandError(
+const deserializeAws_json1_1DetectSyntaxCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DetectSyntaxCommandOutput> {
+): Promise<DetectSyntaxCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3838,12 +3880,12 @@ async function deserializeAws_json1_1DetectSyntaxCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListDocumentClassificationJobsCommand(
+export const deserializeAws_json1_1ListDocumentClassificationJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListDocumentClassificationJobsCommandOutput> {
+): Promise<ListDocumentClassificationJobsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListDocumentClassificationJobsCommandError(
       output,
@@ -3862,12 +3904,12 @@ export async function deserializeAws_json1_1ListDocumentClassificationJobsComman
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListDocumentClassificationJobsCommandError(
+const deserializeAws_json1_1ListDocumentClassificationJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListDocumentClassificationJobsCommandOutput> {
+): Promise<ListDocumentClassificationJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3937,12 +3979,12 @@ async function deserializeAws_json1_1ListDocumentClassificationJobsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListDocumentClassifiersCommand(
+export const deserializeAws_json1_1ListDocumentClassifiersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListDocumentClassifiersCommandOutput> {
+): Promise<ListDocumentClassifiersCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListDocumentClassifiersCommandError(
       output,
@@ -3961,12 +4003,12 @@ export async function deserializeAws_json1_1ListDocumentClassifiersCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListDocumentClassifiersCommandError(
+const deserializeAws_json1_1ListDocumentClassifiersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListDocumentClassifiersCommandOutput> {
+): Promise<ListDocumentClassifiersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4036,12 +4078,12 @@ async function deserializeAws_json1_1ListDocumentClassifiersCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListDominantLanguageDetectionJobsCommand(
+export const deserializeAws_json1_1ListDominantLanguageDetectionJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListDominantLanguageDetectionJobsCommandOutput> {
+): Promise<ListDominantLanguageDetectionJobsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListDominantLanguageDetectionJobsCommandError(
       output,
@@ -4060,12 +4102,12 @@ export async function deserializeAws_json1_1ListDominantLanguageDetectionJobsCom
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListDominantLanguageDetectionJobsCommandError(
+const deserializeAws_json1_1ListDominantLanguageDetectionJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListDominantLanguageDetectionJobsCommandOutput> {
+): Promise<ListDominantLanguageDetectionJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4135,12 +4177,12 @@ async function deserializeAws_json1_1ListDominantLanguageDetectionJobsCommandErr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListEndpointsCommand(
+export const deserializeAws_json1_1ListEndpointsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListEndpointsCommandOutput> {
+): Promise<ListEndpointsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListEndpointsCommandError(output, context);
   }
@@ -4153,12 +4195,12 @@ export async function deserializeAws_json1_1ListEndpointsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListEndpointsCommandError(
+const deserializeAws_json1_1ListEndpointsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListEndpointsCommandOutput> {
+): Promise<ListEndpointsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4217,12 +4259,12 @@ async function deserializeAws_json1_1ListEndpointsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListEntitiesDetectionJobsCommand(
+export const deserializeAws_json1_1ListEntitiesDetectionJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListEntitiesDetectionJobsCommandOutput> {
+): Promise<ListEntitiesDetectionJobsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListEntitiesDetectionJobsCommandError(
       output,
@@ -4241,12 +4283,12 @@ export async function deserializeAws_json1_1ListEntitiesDetectionJobsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListEntitiesDetectionJobsCommandError(
+const deserializeAws_json1_1ListEntitiesDetectionJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListEntitiesDetectionJobsCommandOutput> {
+): Promise<ListEntitiesDetectionJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4316,12 +4358,12 @@ async function deserializeAws_json1_1ListEntitiesDetectionJobsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListEntityRecognizersCommand(
+export const deserializeAws_json1_1ListEntityRecognizersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListEntityRecognizersCommandOutput> {
+): Promise<ListEntityRecognizersCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListEntityRecognizersCommandError(
       output,
@@ -4337,12 +4379,12 @@ export async function deserializeAws_json1_1ListEntityRecognizersCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListEntityRecognizersCommandError(
+const deserializeAws_json1_1ListEntityRecognizersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListEntityRecognizersCommandOutput> {
+): Promise<ListEntityRecognizersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4412,12 +4454,12 @@ async function deserializeAws_json1_1ListEntityRecognizersCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListKeyPhrasesDetectionJobsCommand(
+export const deserializeAws_json1_1ListKeyPhrasesDetectionJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListKeyPhrasesDetectionJobsCommandOutput> {
+): Promise<ListKeyPhrasesDetectionJobsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListKeyPhrasesDetectionJobsCommandError(
       output,
@@ -4436,12 +4478,12 @@ export async function deserializeAws_json1_1ListKeyPhrasesDetectionJobsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListKeyPhrasesDetectionJobsCommandError(
+const deserializeAws_json1_1ListKeyPhrasesDetectionJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListKeyPhrasesDetectionJobsCommandOutput> {
+): Promise<ListKeyPhrasesDetectionJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4511,12 +4553,12 @@ async function deserializeAws_json1_1ListKeyPhrasesDetectionJobsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListSentimentDetectionJobsCommand(
+export const deserializeAws_json1_1ListSentimentDetectionJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListSentimentDetectionJobsCommandOutput> {
+): Promise<ListSentimentDetectionJobsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListSentimentDetectionJobsCommandError(
       output,
@@ -4535,12 +4577,12 @@ export async function deserializeAws_json1_1ListSentimentDetectionJobsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListSentimentDetectionJobsCommandError(
+const deserializeAws_json1_1ListSentimentDetectionJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListSentimentDetectionJobsCommandOutput> {
+): Promise<ListSentimentDetectionJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4610,12 +4652,12 @@ async function deserializeAws_json1_1ListSentimentDetectionJobsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListTagsForResourceCommand(
+export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListTagsForResourceCommandError(
       output,
@@ -4631,12 +4673,12 @@ export async function deserializeAws_json1_1ListTagsForResourceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListTagsForResourceCommandError(
+const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4695,12 +4737,12 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListTopicsDetectionJobsCommand(
+export const deserializeAws_json1_1ListTopicsDetectionJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTopicsDetectionJobsCommandOutput> {
+): Promise<ListTopicsDetectionJobsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListTopicsDetectionJobsCommandError(
       output,
@@ -4719,12 +4761,12 @@ export async function deserializeAws_json1_1ListTopicsDetectionJobsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListTopicsDetectionJobsCommandError(
+const deserializeAws_json1_1ListTopicsDetectionJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTopicsDetectionJobsCommandOutput> {
+): Promise<ListTopicsDetectionJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4794,12 +4836,12 @@ async function deserializeAws_json1_1ListTopicsDetectionJobsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1StartDocumentClassificationJobCommand(
+export const deserializeAws_json1_1StartDocumentClassificationJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartDocumentClassificationJobCommandOutput> {
+): Promise<StartDocumentClassificationJobCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StartDocumentClassificationJobCommandError(
       output,
@@ -4818,12 +4860,12 @@ export async function deserializeAws_json1_1StartDocumentClassificationJobComman
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1StartDocumentClassificationJobCommandError(
+const deserializeAws_json1_1StartDocumentClassificationJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartDocumentClassificationJobCommandOutput> {
+): Promise<StartDocumentClassificationJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4915,12 +4957,12 @@ async function deserializeAws_json1_1StartDocumentClassificationJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1StartDominantLanguageDetectionJobCommand(
+export const deserializeAws_json1_1StartDominantLanguageDetectionJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartDominantLanguageDetectionJobCommandOutput> {
+): Promise<StartDominantLanguageDetectionJobCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StartDominantLanguageDetectionJobCommandError(
       output,
@@ -4939,12 +4981,12 @@ export async function deserializeAws_json1_1StartDominantLanguageDetectionJobCom
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1StartDominantLanguageDetectionJobCommandError(
+const deserializeAws_json1_1StartDominantLanguageDetectionJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartDominantLanguageDetectionJobCommandOutput> {
+): Promise<StartDominantLanguageDetectionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5014,12 +5056,12 @@ async function deserializeAws_json1_1StartDominantLanguageDetectionJobCommandErr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1StartEntitiesDetectionJobCommand(
+export const deserializeAws_json1_1StartEntitiesDetectionJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartEntitiesDetectionJobCommandOutput> {
+): Promise<StartEntitiesDetectionJobCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StartEntitiesDetectionJobCommandError(
       output,
@@ -5038,12 +5080,12 @@ export async function deserializeAws_json1_1StartEntitiesDetectionJobCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1StartEntitiesDetectionJobCommandError(
+const deserializeAws_json1_1StartEntitiesDetectionJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartEntitiesDetectionJobCommandOutput> {
+): Promise<StartEntitiesDetectionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5135,12 +5177,12 @@ async function deserializeAws_json1_1StartEntitiesDetectionJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1StartKeyPhrasesDetectionJobCommand(
+export const deserializeAws_json1_1StartKeyPhrasesDetectionJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartKeyPhrasesDetectionJobCommandOutput> {
+): Promise<StartKeyPhrasesDetectionJobCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StartKeyPhrasesDetectionJobCommandError(
       output,
@@ -5159,12 +5201,12 @@ export async function deserializeAws_json1_1StartKeyPhrasesDetectionJobCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1StartKeyPhrasesDetectionJobCommandError(
+const deserializeAws_json1_1StartKeyPhrasesDetectionJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartKeyPhrasesDetectionJobCommandOutput> {
+): Promise<StartKeyPhrasesDetectionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5234,12 +5276,12 @@ async function deserializeAws_json1_1StartKeyPhrasesDetectionJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1StartSentimentDetectionJobCommand(
+export const deserializeAws_json1_1StartSentimentDetectionJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartSentimentDetectionJobCommandOutput> {
+): Promise<StartSentimentDetectionJobCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StartSentimentDetectionJobCommandError(
       output,
@@ -5258,12 +5300,12 @@ export async function deserializeAws_json1_1StartSentimentDetectionJobCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1StartSentimentDetectionJobCommandError(
+const deserializeAws_json1_1StartSentimentDetectionJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartSentimentDetectionJobCommandOutput> {
+): Promise<StartSentimentDetectionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5333,12 +5375,12 @@ async function deserializeAws_json1_1StartSentimentDetectionJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1StartTopicsDetectionJobCommand(
+export const deserializeAws_json1_1StartTopicsDetectionJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartTopicsDetectionJobCommandOutput> {
+): Promise<StartTopicsDetectionJobCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StartTopicsDetectionJobCommandError(
       output,
@@ -5357,12 +5399,12 @@ export async function deserializeAws_json1_1StartTopicsDetectionJobCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1StartTopicsDetectionJobCommandError(
+const deserializeAws_json1_1StartTopicsDetectionJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartTopicsDetectionJobCommandOutput> {
+): Promise<StartTopicsDetectionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5432,12 +5474,12 @@ async function deserializeAws_json1_1StartTopicsDetectionJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1StopDominantLanguageDetectionJobCommand(
+export const deserializeAws_json1_1StopDominantLanguageDetectionJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StopDominantLanguageDetectionJobCommandOutput> {
+): Promise<StopDominantLanguageDetectionJobCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StopDominantLanguageDetectionJobCommandError(
       output,
@@ -5456,12 +5498,12 @@ export async function deserializeAws_json1_1StopDominantLanguageDetectionJobComm
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1StopDominantLanguageDetectionJobCommandError(
+const deserializeAws_json1_1StopDominantLanguageDetectionJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StopDominantLanguageDetectionJobCommandOutput> {
+): Promise<StopDominantLanguageDetectionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5520,12 +5562,12 @@ async function deserializeAws_json1_1StopDominantLanguageDetectionJobCommandErro
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1StopEntitiesDetectionJobCommand(
+export const deserializeAws_json1_1StopEntitiesDetectionJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StopEntitiesDetectionJobCommandOutput> {
+): Promise<StopEntitiesDetectionJobCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StopEntitiesDetectionJobCommandError(
       output,
@@ -5544,12 +5586,12 @@ export async function deserializeAws_json1_1StopEntitiesDetectionJobCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1StopEntitiesDetectionJobCommandError(
+const deserializeAws_json1_1StopEntitiesDetectionJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StopEntitiesDetectionJobCommandOutput> {
+): Promise<StopEntitiesDetectionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5608,12 +5650,12 @@ async function deserializeAws_json1_1StopEntitiesDetectionJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1StopKeyPhrasesDetectionJobCommand(
+export const deserializeAws_json1_1StopKeyPhrasesDetectionJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StopKeyPhrasesDetectionJobCommandOutput> {
+): Promise<StopKeyPhrasesDetectionJobCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StopKeyPhrasesDetectionJobCommandError(
       output,
@@ -5632,12 +5674,12 @@ export async function deserializeAws_json1_1StopKeyPhrasesDetectionJobCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1StopKeyPhrasesDetectionJobCommandError(
+const deserializeAws_json1_1StopKeyPhrasesDetectionJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StopKeyPhrasesDetectionJobCommandOutput> {
+): Promise<StopKeyPhrasesDetectionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5696,12 +5738,12 @@ async function deserializeAws_json1_1StopKeyPhrasesDetectionJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1StopSentimentDetectionJobCommand(
+export const deserializeAws_json1_1StopSentimentDetectionJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StopSentimentDetectionJobCommandOutput> {
+): Promise<StopSentimentDetectionJobCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StopSentimentDetectionJobCommandError(
       output,
@@ -5720,12 +5762,12 @@ export async function deserializeAws_json1_1StopSentimentDetectionJobCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1StopSentimentDetectionJobCommandError(
+const deserializeAws_json1_1StopSentimentDetectionJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StopSentimentDetectionJobCommandOutput> {
+): Promise<StopSentimentDetectionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5784,12 +5826,12 @@ async function deserializeAws_json1_1StopSentimentDetectionJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1StopTrainingDocumentClassifierCommand(
+export const deserializeAws_json1_1StopTrainingDocumentClassifierCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StopTrainingDocumentClassifierCommandOutput> {
+): Promise<StopTrainingDocumentClassifierCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StopTrainingDocumentClassifierCommandError(
       output,
@@ -5808,12 +5850,12 @@ export async function deserializeAws_json1_1StopTrainingDocumentClassifierComman
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1StopTrainingDocumentClassifierCommandError(
+const deserializeAws_json1_1StopTrainingDocumentClassifierCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StopTrainingDocumentClassifierCommandOutput> {
+): Promise<StopTrainingDocumentClassifierCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5883,12 +5925,12 @@ async function deserializeAws_json1_1StopTrainingDocumentClassifierCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1StopTrainingEntityRecognizerCommand(
+export const deserializeAws_json1_1StopTrainingEntityRecognizerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StopTrainingEntityRecognizerCommandOutput> {
+): Promise<StopTrainingEntityRecognizerCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StopTrainingEntityRecognizerCommandError(
       output,
@@ -5907,12 +5949,12 @@ export async function deserializeAws_json1_1StopTrainingEntityRecognizerCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1StopTrainingEntityRecognizerCommandError(
+const deserializeAws_json1_1StopTrainingEntityRecognizerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StopTrainingEntityRecognizerCommandOutput> {
+): Promise<StopTrainingEntityRecognizerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5982,12 +6024,12 @@ async function deserializeAws_json1_1StopTrainingEntityRecognizerCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1TagResourceCommand(
+export const deserializeAws_json1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1TagResourceCommandError(output, context);
   }
@@ -6000,12 +6042,12 @@ export async function deserializeAws_json1_1TagResourceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1TagResourceCommandError(
+const deserializeAws_json1_1TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6086,12 +6128,12 @@ async function deserializeAws_json1_1TagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UntagResourceCommand(
+export const deserializeAws_json1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UntagResourceCommandError(output, context);
   }
@@ -6104,12 +6146,12 @@ export async function deserializeAws_json1_1UntagResourceCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UntagResourceCommandError(
+const deserializeAws_json1_1UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6190,12 +6232,12 @@ async function deserializeAws_json1_1UntagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateEndpointCommand(
+export const deserializeAws_json1_1UpdateEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateEndpointCommandOutput> {
+): Promise<UpdateEndpointCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateEndpointCommandError(output, context);
   }
@@ -6208,12 +6250,12 @@ export async function deserializeAws_json1_1UpdateEndpointCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateEndpointCommandError(
+const deserializeAws_json1_1UpdateEndpointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateEndpointCommandOutput> {
+): Promise<UpdateEndpointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6316,7 +6358,7 @@ async function deserializeAws_json1_1UpdateEndpointCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_1BatchSizeLimitExceededExceptionResponse = async (
   parsedOutput: any,
@@ -7256,14 +7298,12 @@ const serializeAws_json1_1EntityRecognizerInputDataConfig = (
 };
 
 const serializeAws_json1_1EntityTypesList = (
-  input: Array<EntityTypesListItem>,
+  input: EntityTypesListItem[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1EntityTypesListItem(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1EntityTypesListItem(entry, context)
+  );
 };
 
 const serializeAws_json1_1EntityTypesListItem = (
@@ -7523,14 +7563,10 @@ const serializeAws_json1_1OutputDataConfig = (
 };
 
 const serializeAws_json1_1SecurityGroupIds = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1SentimentDetectionJobFilter = (
@@ -7888,25 +7924,17 @@ const serializeAws_json1_1StopTrainingEntityRecognizerRequest = (
 };
 
 const serializeAws_json1_1StringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1Subnets = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
@@ -7921,25 +7949,17 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_json1_1TagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1TagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1Tag(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1Tag(entry, context));
 };
 
 const serializeAws_json1_1TagResourceRequest = (
@@ -8282,7 +8302,7 @@ const deserializeAws_json1_1BatchItemError = (
 const deserializeAws_json1_1BatchItemErrorList = (
   output: any,
   context: __SerdeContext
-): Array<BatchItemError> => {
+): BatchItemError[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1BatchItemError(entry, context)
   );
@@ -8864,7 +8884,7 @@ const deserializeAws_json1_1DocumentClassificationJobProperties = (
 const deserializeAws_json1_1DocumentClassificationJobPropertiesList = (
   output: any,
   context: __SerdeContext
-): Array<DocumentClassificationJobProperties> => {
+): DocumentClassificationJobProperties[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DocumentClassificationJobProperties(entry, context)
   );
@@ -9010,7 +9030,7 @@ const deserializeAws_json1_1DocumentClassifierProperties = (
 const deserializeAws_json1_1DocumentClassifierPropertiesList = (
   output: any,
   context: __SerdeContext
-): Array<DocumentClassifierProperties> => {
+): DocumentClassifierProperties[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DocumentClassifierProperties(entry, context)
   );
@@ -9124,7 +9144,7 @@ const deserializeAws_json1_1DominantLanguageDetectionJobProperties = (
 const deserializeAws_json1_1DominantLanguageDetectionJobPropertiesList = (
   output: any,
   context: __SerdeContext
-): Array<DominantLanguageDetectionJobProperties> => {
+): DominantLanguageDetectionJobProperties[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DominantLanguageDetectionJobProperties(entry, context)
   );
@@ -9186,7 +9206,7 @@ const deserializeAws_json1_1EndpointProperties = (
 const deserializeAws_json1_1EndpointPropertiesList = (
   output: any,
   context: __SerdeContext
-): Array<EndpointProperties> => {
+): EndpointProperties[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EndpointProperties(entry, context)
   );
@@ -9275,7 +9295,7 @@ const deserializeAws_json1_1EntitiesDetectionJobProperties = (
 const deserializeAws_json1_1EntitiesDetectionJobPropertiesList = (
   output: any,
   context: __SerdeContext
-): Array<EntitiesDetectionJobProperties> => {
+): EntitiesDetectionJobProperties[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EntitiesDetectionJobProperties(entry, context)
   );
@@ -9457,7 +9477,7 @@ const deserializeAws_json1_1EntityRecognizerMetadata = (
 const deserializeAws_json1_1EntityRecognizerMetadataEntityTypesList = (
   output: any,
   context: __SerdeContext
-): Array<EntityRecognizerMetadataEntityTypesListItem> => {
+): EntityRecognizerMetadataEntityTypesListItem[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EntityRecognizerMetadataEntityTypesListItem(
       entry,
@@ -9587,7 +9607,7 @@ const deserializeAws_json1_1EntityRecognizerProperties = (
 const deserializeAws_json1_1EntityRecognizerPropertiesList = (
   output: any,
   context: __SerdeContext
-): Array<EntityRecognizerProperties> => {
+): EntityRecognizerProperties[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EntityRecognizerProperties(entry, context)
   );
@@ -9618,7 +9638,7 @@ const deserializeAws_json1_1EntityTypesEvaluationMetrics = (
 const deserializeAws_json1_1EntityTypesList = (
   output: any,
   context: __SerdeContext
-): Array<EntityTypesListItem> => {
+): EntityTypesListItem[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EntityTypesListItem(entry, context)
   );
@@ -9814,7 +9834,7 @@ const deserializeAws_json1_1KeyPhrasesDetectionJobProperties = (
 const deserializeAws_json1_1KeyPhrasesDetectionJobPropertiesList = (
   output: any,
   context: __SerdeContext
-): Array<KeyPhrasesDetectionJobProperties> => {
+): KeyPhrasesDetectionJobProperties[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1KeyPhrasesDetectionJobProperties(entry, context)
   );
@@ -10005,7 +10025,7 @@ const deserializeAws_json1_1ListKeyPhrasesDetectionJobsResponse = (
 const deserializeAws_json1_1ListOfClasses = (
   output: any,
   context: __SerdeContext
-): Array<DocumentClass> => {
+): DocumentClass[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DocumentClass(entry, context)
   );
@@ -10014,7 +10034,7 @@ const deserializeAws_json1_1ListOfClasses = (
 const deserializeAws_json1_1ListOfDetectDominantLanguageResult = (
   output: any,
   context: __SerdeContext
-): Array<BatchDetectDominantLanguageItemResult> => {
+): BatchDetectDominantLanguageItemResult[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1BatchDetectDominantLanguageItemResult(entry, context)
   );
@@ -10023,7 +10043,7 @@ const deserializeAws_json1_1ListOfDetectDominantLanguageResult = (
 const deserializeAws_json1_1ListOfDetectEntitiesResult = (
   output: any,
   context: __SerdeContext
-): Array<BatchDetectEntitiesItemResult> => {
+): BatchDetectEntitiesItemResult[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1BatchDetectEntitiesItemResult(entry, context)
   );
@@ -10032,7 +10052,7 @@ const deserializeAws_json1_1ListOfDetectEntitiesResult = (
 const deserializeAws_json1_1ListOfDetectKeyPhrasesResult = (
   output: any,
   context: __SerdeContext
-): Array<BatchDetectKeyPhrasesItemResult> => {
+): BatchDetectKeyPhrasesItemResult[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1BatchDetectKeyPhrasesItemResult(entry, context)
   );
@@ -10041,7 +10061,7 @@ const deserializeAws_json1_1ListOfDetectKeyPhrasesResult = (
 const deserializeAws_json1_1ListOfDetectSentimentResult = (
   output: any,
   context: __SerdeContext
-): Array<BatchDetectSentimentItemResult> => {
+): BatchDetectSentimentItemResult[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1BatchDetectSentimentItemResult(entry, context)
   );
@@ -10050,7 +10070,7 @@ const deserializeAws_json1_1ListOfDetectSentimentResult = (
 const deserializeAws_json1_1ListOfDetectSyntaxResult = (
   output: any,
   context: __SerdeContext
-): Array<BatchDetectSyntaxItemResult> => {
+): BatchDetectSyntaxItemResult[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1BatchDetectSyntaxItemResult(entry, context)
   );
@@ -10059,7 +10079,7 @@ const deserializeAws_json1_1ListOfDetectSyntaxResult = (
 const deserializeAws_json1_1ListOfDominantLanguages = (
   output: any,
   context: __SerdeContext
-): Array<DominantLanguage> => {
+): DominantLanguage[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DominantLanguage(entry, context)
   );
@@ -10068,7 +10088,7 @@ const deserializeAws_json1_1ListOfDominantLanguages = (
 const deserializeAws_json1_1ListOfEntities = (
   output: any,
   context: __SerdeContext
-): Array<Entity> => {
+): Entity[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Entity(entry, context)
   );
@@ -10077,7 +10097,7 @@ const deserializeAws_json1_1ListOfEntities = (
 const deserializeAws_json1_1ListOfKeyPhrases = (
   output: any,
   context: __SerdeContext
-): Array<KeyPhrase> => {
+): KeyPhrase[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1KeyPhrase(entry, context)
   );
@@ -10086,7 +10106,7 @@ const deserializeAws_json1_1ListOfKeyPhrases = (
 const deserializeAws_json1_1ListOfLabels = (
   output: any,
   context: __SerdeContext
-): Array<DocumentLabel> => {
+): DocumentLabel[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DocumentLabel(entry, context)
   );
@@ -10095,7 +10115,7 @@ const deserializeAws_json1_1ListOfLabels = (
 const deserializeAws_json1_1ListOfSyntaxTokens = (
   output: any,
   context: __SerdeContext
-): Array<SyntaxToken> => {
+): SyntaxToken[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SyntaxToken(entry, context)
   );
@@ -10262,7 +10282,7 @@ const deserializeAws_json1_1ResourceUnavailableException = (
 const deserializeAws_json1_1SecurityGroupIds = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -10342,7 +10362,7 @@ const deserializeAws_json1_1SentimentDetectionJobProperties = (
 const deserializeAws_json1_1SentimentDetectionJobPropertiesList = (
   output: any,
   context: __SerdeContext
-): Array<SentimentDetectionJobProperties> => {
+): SentimentDetectionJobProperties[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SentimentDetectionJobProperties(entry, context)
   );
@@ -10577,7 +10597,7 @@ const deserializeAws_json1_1StopTrainingEntityRecognizerResponse = (
 const deserializeAws_json1_1Subnets = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -10635,7 +10655,7 @@ const deserializeAws_json1_1Tag = (
 const deserializeAws_json1_1TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );
@@ -10783,7 +10803,7 @@ const deserializeAws_json1_1TopicsDetectionJobProperties = (
 const deserializeAws_json1_1TopicsDetectionJobPropertiesList = (
   output: any,
   context: __SerdeContext
-): Array<TopicsDetectionJobProperties> => {
+): TopicsDetectionJobProperties[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1TopicsDetectionJobProperties(entry, context)
   );
@@ -10855,7 +10875,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -10870,11 +10890,8 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
@@ -10901,11 +10918,10 @@ const buildHttpRpcRequest = async (
   return new __HttpRequest(contents);
 };
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};

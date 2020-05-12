@@ -135,258 +135,276 @@ import {
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
-export async function serializeAws_json1_1CancelRotateSecretCommand(
+export const serializeAws_json1_1CancelRotateSecretCommand = async (
   input: CancelRotateSecretCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "secretsmanager.CancelRotateSecret";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "secretsmanager.CancelRotateSecret"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CancelRotateSecretRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1CreateSecretCommand(
+export const serializeAws_json1_1CreateSecretCommand = async (
   input: CreateSecretCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "secretsmanager.CreateSecret";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "secretsmanager.CreateSecret"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1CreateSecretRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteResourcePolicyCommand(
+export const serializeAws_json1_1DeleteResourcePolicyCommand = async (
   input: DeleteResourcePolicyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "secretsmanager.DeleteResourcePolicy";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "secretsmanager.DeleteResourcePolicy"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteResourcePolicyRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DeleteSecretCommand(
+export const serializeAws_json1_1DeleteSecretCommand = async (
   input: DeleteSecretCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "secretsmanager.DeleteSecret";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "secretsmanager.DeleteSecret"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DeleteSecretRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1DescribeSecretCommand(
+export const serializeAws_json1_1DescribeSecretCommand = async (
   input: DescribeSecretCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "secretsmanager.DescribeSecret";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "secretsmanager.DescribeSecret"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeSecretRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetRandomPasswordCommand(
+export const serializeAws_json1_1GetRandomPasswordCommand = async (
   input: GetRandomPasswordCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "secretsmanager.GetRandomPassword";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "secretsmanager.GetRandomPassword"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetRandomPasswordRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetResourcePolicyCommand(
+export const serializeAws_json1_1GetResourcePolicyCommand = async (
   input: GetResourcePolicyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "secretsmanager.GetResourcePolicy";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "secretsmanager.GetResourcePolicy"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetResourcePolicyRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetSecretValueCommand(
+export const serializeAws_json1_1GetSecretValueCommand = async (
   input: GetSecretValueCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "secretsmanager.GetSecretValue";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "secretsmanager.GetSecretValue"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetSecretValueRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListSecretVersionIdsCommand(
+export const serializeAws_json1_1ListSecretVersionIdsCommand = async (
   input: ListSecretVersionIdsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "secretsmanager.ListSecretVersionIds";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "secretsmanager.ListSecretVersionIds"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1ListSecretVersionIdsRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1ListSecretsCommand(
+export const serializeAws_json1_1ListSecretsCommand = async (
   input: ListSecretsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "secretsmanager.ListSecrets";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "secretsmanager.ListSecrets"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListSecretsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1PutResourcePolicyCommand(
+export const serializeAws_json1_1PutResourcePolicyCommand = async (
   input: PutResourcePolicyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "secretsmanager.PutResourcePolicy";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "secretsmanager.PutResourcePolicy"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutResourcePolicyRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1PutSecretValueCommand(
+export const serializeAws_json1_1PutSecretValueCommand = async (
   input: PutSecretValueCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "secretsmanager.PutSecretValue";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "secretsmanager.PutSecretValue"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1PutSecretValueRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1RestoreSecretCommand(
+export const serializeAws_json1_1RestoreSecretCommand = async (
   input: RestoreSecretCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "secretsmanager.RestoreSecret";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "secretsmanager.RestoreSecret"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RestoreSecretRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1RotateSecretCommand(
+export const serializeAws_json1_1RotateSecretCommand = async (
   input: RotateSecretCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "secretsmanager.RotateSecret";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "secretsmanager.RotateSecret"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1RotateSecretRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1TagResourceCommand(
+export const serializeAws_json1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "secretsmanager.TagResource";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "secretsmanager.TagResource"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UntagResourceCommand(
+export const serializeAws_json1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "secretsmanager.UntagResource";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "secretsmanager.UntagResource"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UntagResourceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateSecretCommand(
+export const serializeAws_json1_1UpdateSecretCommand = async (
   input: UpdateSecretCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "secretsmanager.UpdateSecret";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "secretsmanager.UpdateSecret"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateSecretRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UpdateSecretVersionStageCommand(
+export const serializeAws_json1_1UpdateSecretVersionStageCommand = async (
   input: UpdateSecretVersionStageCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "secretsmanager.UpdateSecretVersionStage";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "secretsmanager.UpdateSecretVersionStage"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UpdateSecretVersionStageRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_1CancelRotateSecretCommand(
+export const deserializeAws_json1_1CancelRotateSecretCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CancelRotateSecretCommandOutput> {
+): Promise<CancelRotateSecretCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CancelRotateSecretCommandError(
       output,
@@ -402,12 +420,12 @@ export async function deserializeAws_json1_1CancelRotateSecretCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CancelRotateSecretCommandError(
+const deserializeAws_json1_1CancelRotateSecretCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CancelRotateSecretCommandOutput> {
+): Promise<CancelRotateSecretCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -477,12 +495,12 @@ async function deserializeAws_json1_1CancelRotateSecretCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1CreateSecretCommand(
+export const deserializeAws_json1_1CreateSecretCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateSecretCommandOutput> {
+): Promise<CreateSecretCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateSecretCommandError(output, context);
   }
@@ -495,12 +513,12 @@ export async function deserializeAws_json1_1CreateSecretCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1CreateSecretCommandError(
+const deserializeAws_json1_1CreateSecretCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateSecretCommandOutput> {
+): Promise<CreateSecretCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -625,12 +643,12 @@ async function deserializeAws_json1_1CreateSecretCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteResourcePolicyCommand(
+export const deserializeAws_json1_1DeleteResourcePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteResourcePolicyCommandOutput> {
+): Promise<DeleteResourcePolicyCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteResourcePolicyCommandError(
       output,
@@ -646,12 +664,12 @@ export async function deserializeAws_json1_1DeleteResourcePolicyCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteResourcePolicyCommandError(
+const deserializeAws_json1_1DeleteResourcePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteResourcePolicyCommandOutput> {
+): Promise<DeleteResourcePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -710,12 +728,12 @@ async function deserializeAws_json1_1DeleteResourcePolicyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DeleteSecretCommand(
+export const deserializeAws_json1_1DeleteSecretCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteSecretCommandOutput> {
+): Promise<DeleteSecretCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteSecretCommandError(output, context);
   }
@@ -728,12 +746,12 @@ export async function deserializeAws_json1_1DeleteSecretCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DeleteSecretCommandError(
+const deserializeAws_json1_1DeleteSecretCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteSecretCommandOutput> {
+): Promise<DeleteSecretCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -803,12 +821,12 @@ async function deserializeAws_json1_1DeleteSecretCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1DescribeSecretCommand(
+export const deserializeAws_json1_1DescribeSecretCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeSecretCommandOutput> {
+): Promise<DescribeSecretCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeSecretCommandError(output, context);
   }
@@ -821,12 +839,12 @@ export async function deserializeAws_json1_1DescribeSecretCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeSecretCommandError(
+const deserializeAws_json1_1DescribeSecretCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeSecretCommandOutput> {
+): Promise<DescribeSecretCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -874,12 +892,12 @@ async function deserializeAws_json1_1DescribeSecretCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetRandomPasswordCommand(
+export const deserializeAws_json1_1GetRandomPasswordCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetRandomPasswordCommandOutput> {
+): Promise<GetRandomPasswordCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetRandomPasswordCommandError(output, context);
   }
@@ -892,12 +910,12 @@ export async function deserializeAws_json1_1GetRandomPasswordCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetRandomPasswordCommandError(
+const deserializeAws_json1_1GetRandomPasswordCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetRandomPasswordCommandOutput> {
+): Promise<GetRandomPasswordCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -956,12 +974,12 @@ async function deserializeAws_json1_1GetRandomPasswordCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetResourcePolicyCommand(
+export const deserializeAws_json1_1GetResourcePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetResourcePolicyCommandOutput> {
+): Promise<GetResourcePolicyCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetResourcePolicyCommandError(output, context);
   }
@@ -974,12 +992,12 @@ export async function deserializeAws_json1_1GetResourcePolicyCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetResourcePolicyCommandError(
+const deserializeAws_json1_1GetResourcePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetResourcePolicyCommandOutput> {
+): Promise<GetResourcePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1038,12 +1056,12 @@ async function deserializeAws_json1_1GetResourcePolicyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetSecretValueCommand(
+export const deserializeAws_json1_1GetSecretValueCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetSecretValueCommandOutput> {
+): Promise<GetSecretValueCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetSecretValueCommandError(output, context);
   }
@@ -1056,12 +1074,12 @@ export async function deserializeAws_json1_1GetSecretValueCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetSecretValueCommandError(
+const deserializeAws_json1_1GetSecretValueCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetSecretValueCommandOutput> {
+): Promise<GetSecretValueCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1142,12 +1160,12 @@ async function deserializeAws_json1_1GetSecretValueCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListSecretVersionIdsCommand(
+export const deserializeAws_json1_1ListSecretVersionIdsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListSecretVersionIdsCommandOutput> {
+): Promise<ListSecretVersionIdsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListSecretVersionIdsCommandError(
       output,
@@ -1163,12 +1181,12 @@ export async function deserializeAws_json1_1ListSecretVersionIdsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListSecretVersionIdsCommandError(
+const deserializeAws_json1_1ListSecretVersionIdsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListSecretVersionIdsCommandOutput> {
+): Promise<ListSecretVersionIdsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1227,12 +1245,12 @@ async function deserializeAws_json1_1ListSecretVersionIdsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1ListSecretsCommand(
+export const deserializeAws_json1_1ListSecretsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListSecretsCommandOutput> {
+): Promise<ListSecretsCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListSecretsCommandError(output, context);
   }
@@ -1245,12 +1263,12 @@ export async function deserializeAws_json1_1ListSecretsCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1ListSecretsCommandError(
+const deserializeAws_json1_1ListSecretsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListSecretsCommandOutput> {
+): Promise<ListSecretsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1309,12 +1327,12 @@ async function deserializeAws_json1_1ListSecretsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1PutResourcePolicyCommand(
+export const deserializeAws_json1_1PutResourcePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutResourcePolicyCommandOutput> {
+): Promise<PutResourcePolicyCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1PutResourcePolicyCommandError(output, context);
   }
@@ -1327,12 +1345,12 @@ export async function deserializeAws_json1_1PutResourcePolicyCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1PutResourcePolicyCommandError(
+const deserializeAws_json1_1PutResourcePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutResourcePolicyCommandOutput> {
+): Promise<PutResourcePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1413,12 +1431,12 @@ async function deserializeAws_json1_1PutResourcePolicyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1PutSecretValueCommand(
+export const deserializeAws_json1_1PutSecretValueCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutSecretValueCommandOutput> {
+): Promise<PutSecretValueCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1PutSecretValueCommandError(output, context);
   }
@@ -1431,12 +1449,12 @@ export async function deserializeAws_json1_1PutSecretValueCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1PutSecretValueCommandError(
+const deserializeAws_json1_1PutSecretValueCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutSecretValueCommandOutput> {
+): Promise<PutSecretValueCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1539,12 +1557,12 @@ async function deserializeAws_json1_1PutSecretValueCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1RestoreSecretCommand(
+export const deserializeAws_json1_1RestoreSecretCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RestoreSecretCommandOutput> {
+): Promise<RestoreSecretCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1RestoreSecretCommandError(output, context);
   }
@@ -1557,12 +1575,12 @@ export async function deserializeAws_json1_1RestoreSecretCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1RestoreSecretCommandError(
+const deserializeAws_json1_1RestoreSecretCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RestoreSecretCommandOutput> {
+): Promise<RestoreSecretCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1632,12 +1650,12 @@ async function deserializeAws_json1_1RestoreSecretCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1RotateSecretCommand(
+export const deserializeAws_json1_1RotateSecretCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RotateSecretCommandOutput> {
+): Promise<RotateSecretCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1RotateSecretCommandError(output, context);
   }
@@ -1650,12 +1668,12 @@ export async function deserializeAws_json1_1RotateSecretCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1RotateSecretCommandError(
+const deserializeAws_json1_1RotateSecretCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RotateSecretCommandOutput> {
+): Promise<RotateSecretCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1725,12 +1743,12 @@ async function deserializeAws_json1_1RotateSecretCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1TagResourceCommand(
+export const deserializeAws_json1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1TagResourceCommandError(output, context);
   }
@@ -1739,12 +1757,12 @@ export async function deserializeAws_json1_1TagResourceCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1TagResourceCommandError(
+const deserializeAws_json1_1TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1814,12 +1832,12 @@ async function deserializeAws_json1_1TagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UntagResourceCommand(
+export const deserializeAws_json1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UntagResourceCommandError(output, context);
   }
@@ -1828,12 +1846,12 @@ export async function deserializeAws_json1_1UntagResourceCommand(
     $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UntagResourceCommandError(
+const deserializeAws_json1_1UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1903,12 +1921,12 @@ async function deserializeAws_json1_1UntagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateSecretCommand(
+export const deserializeAws_json1_1UpdateSecretCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateSecretCommandOutput> {
+): Promise<UpdateSecretCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateSecretCommandError(output, context);
   }
@@ -1921,12 +1939,12 @@ export async function deserializeAws_json1_1UpdateSecretCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateSecretCommandError(
+const deserializeAws_json1_1UpdateSecretCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateSecretCommandOutput> {
+): Promise<UpdateSecretCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2051,12 +2069,12 @@ async function deserializeAws_json1_1UpdateSecretCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UpdateSecretVersionStageCommand(
+export const deserializeAws_json1_1UpdateSecretVersionStageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateSecretVersionStageCommandOutput> {
+): Promise<UpdateSecretVersionStageCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateSecretVersionStageCommandError(
       output,
@@ -2075,12 +2093,12 @@ export async function deserializeAws_json1_1UpdateSecretVersionStageCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UpdateSecretVersionStageCommandError(
+const deserializeAws_json1_1UpdateSecretVersionStageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateSecretVersionStageCommandOutput> {
+): Promise<UpdateSecretVersionStageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2161,7 +2179,7 @@ async function deserializeAws_json1_1UpdateSecretVersionStageCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_1DecryptionFailureResponse = async (
   parsedOutput: any,
@@ -2629,14 +2647,10 @@ const serializeAws_json1_1RotationRulesType = (
 };
 
 const serializeAws_json1_1SecretVersionStagesType = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
@@ -2651,25 +2665,17 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_json1_1TagKeyListType = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1TagListType = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1Tag(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1Tag(entry, context));
 };
 
 const serializeAws_json1_1TagResourceRequest = (
@@ -3398,7 +3404,7 @@ const deserializeAws_json1_1SecretListEntry = (
 const deserializeAws_json1_1SecretListType = (
   output: any,
   context: __SerdeContext
-): Array<SecretListEntry> => {
+): SecretListEntry[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SecretListEntry(entry, context)
   );
@@ -3407,7 +3413,7 @@ const deserializeAws_json1_1SecretListType = (
 const deserializeAws_json1_1SecretVersionStagesType = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -3448,7 +3454,7 @@ const deserializeAws_json1_1SecretVersionsListEntry = (
 const deserializeAws_json1_1SecretVersionsListType = (
   output: any,
   context: __SerdeContext
-): Array<SecretVersionsListEntry> => {
+): SecretVersionsListEntry[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SecretVersionsListEntry(entry, context)
   );
@@ -3457,15 +3463,14 @@ const deserializeAws_json1_1SecretVersionsListType = (
 const deserializeAws_json1_1SecretVersionsToStagesMapType = (
   output: any,
   context: __SerdeContext
-): { [key: string]: Array<string> } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_json1_1SecretVersionStagesType(
+): { [key: string]: string[] } => {
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = deserializeAws_json1_1SecretVersionStagesType(
       output[key],
       context
     );
-  });
-  return mapParams;
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_1Tag = (
@@ -3489,7 +3494,7 @@ const deserializeAws_json1_1Tag = (
 const deserializeAws_json1_1TagListType = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );
@@ -3543,7 +3548,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -3558,11 +3563,8 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
@@ -3589,11 +3591,10 @@ const buildHttpRpcRequest = async (
   return new __HttpRequest(contents);
 };
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};

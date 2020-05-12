@@ -381,7 +381,7 @@ export interface CurrentMetricResult {
   /**
    * <p>The set of metrics.</p>
    */
-  Collections?: Array<CurrentMetricData>;
+  Collections?: CurrentMetricData[];
 
   /**
    * <p>The dimensions for the metrics.</p>
@@ -422,13 +422,13 @@ export interface Filters {
   /**
    * <p>The channel to use to filter the metrics.</p>
    */
-  Channels?: Array<Channel | string>;
+  Channels?: (Channel | string)[];
 
   /**
    * <p>The queues to use to filter the metrics. You can specify up to 100 queues per
    *    request.</p>
    */
-  Queues?: Array<string>;
+  Queues?: string[];
 }
 
 export namespace Filters {
@@ -528,7 +528,7 @@ export interface HistoricalMetricResult {
   /**
    * <p>The set of metrics.</p>
    */
-  Collections?: Array<HistoricalMetricData>;
+  Collections?: HistoricalMetricData[];
 
   /**
    * <p>The dimension for the metrics.</p>
@@ -691,7 +691,7 @@ export interface CreateUserRequest {
   /**
    * <p>The identifier of the security profile for the user.</p>
    */
-  SecurityProfileIds: Array<string> | undefined;
+  SecurityProfileIds: string[] | undefined;
 
   /**
    * <p>One or more tags.</p>
@@ -992,7 +992,7 @@ export interface GetCurrentMetricDataRequest {
    *             </dd>
    *          </dl>
    */
-  CurrentMetrics: Array<CurrentMetric> | undefined;
+  CurrentMetrics: CurrentMetric[] | undefined;
 
   /**
    * <p>The queues, up to 100, or channels, to use to filter the metrics returned. Metric data is
@@ -1010,7 +1010,7 @@ export interface GetCurrentMetricDataRequest {
    *          <p>If no <code>Grouping</code> is included in the request, a summary of metrics is
    *    returned.</p>
    */
-  Groupings?: Array<Grouping | string>;
+  Groupings?: (Grouping | string)[];
 
   /**
    * <p>The identifier of the Amazon Connect instance.</p>
@@ -1046,7 +1046,7 @@ export interface GetCurrentMetricDataResponse {
   /**
    * <p>Information about the real-time metrics.</p>
    */
-  MetricResults?: Array<CurrentMetricResult>;
+  MetricResults?: CurrentMetricResult[];
 
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
@@ -1112,7 +1112,7 @@ export interface GetMetricDataRequest {
    *          <p>The only supported grouping is <code>QUEUE</code>.</p>
    *          <p>If no grouping is specified, a summary of metrics for all queues is returned.</p>
    */
-  Groupings?: Array<Grouping | string>;
+  Groupings?: (Grouping | string)[];
 
   /**
    * <p>The metrics to retrieve. Specify the name, unit, and statistic for each metric. The
@@ -1247,7 +1247,7 @@ export interface GetMetricDataRequest {
    *             </dd>
    *          </dl>
    */
-  HistoricalMetrics: Array<HistoricalMetric> | undefined;
+  HistoricalMetrics: HistoricalMetric[] | undefined;
 
   /**
    * <p>The identifier of the Amazon Connect instance.</p>
@@ -1286,7 +1286,7 @@ export interface GetMetricDataResponse {
    * <p>Information about the historical metrics.</p>
    *          <p>If no grouping is specified, a summary of metric data is returned.</p>
    */
-  MetricResults?: Array<HistoricalMetricResult>;
+  MetricResults?: HistoricalMetricResult[];
 
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
@@ -1567,7 +1567,7 @@ export interface ListContactFlowsRequest {
   /**
    * <p>The type of contact flow.</p>
    */
-  ContactFlowTypes?: Array<ContactFlowType | string>;
+  ContactFlowTypes?: (ContactFlowType | string)[];
 
   /**
    * <p>The identifier of the Amazon Connect instance.</p>
@@ -1596,7 +1596,7 @@ export interface ListContactFlowsResponse {
   /**
    * <p>Information about the contact flows.</p>
    */
-  ContactFlowSummaryList?: Array<ContactFlowSummary>;
+  ContactFlowSummaryList?: ContactFlowSummary[];
 
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
@@ -1638,7 +1638,7 @@ export interface ListHoursOfOperationsResponse {
   /**
    * <p>Information about the hours of operation.</p>
    */
-  HoursOfOperationSummaryList?: Array<HoursOfOperationSummary>;
+  HoursOfOperationSummaryList?: HoursOfOperationSummary[];
 
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
@@ -1672,12 +1672,12 @@ export interface ListPhoneNumbersRequest {
   /**
    * <p>The ISO country code.</p>
    */
-  PhoneNumberCountryCodes?: Array<PhoneNumberCountryCode | string>;
+  PhoneNumberCountryCodes?: (PhoneNumberCountryCode | string)[];
 
   /**
    * <p>The type of phone number.</p>
    */
-  PhoneNumberTypes?: Array<PhoneNumberType | string>;
+  PhoneNumberTypes?: (PhoneNumberType | string)[];
 }
 
 export namespace ListPhoneNumbersRequest {
@@ -1695,7 +1695,7 @@ export interface ListPhoneNumbersResponse {
   /**
    * <p>Information about the phone numbers.</p>
    */
-  PhoneNumberSummaryList?: Array<PhoneNumberSummary>;
+  PhoneNumberSummaryList?: PhoneNumberSummary[];
 }
 
 export namespace ListPhoneNumbersResponse {
@@ -1724,7 +1724,7 @@ export interface ListQueuesRequest {
   /**
    * <p>The type of queue.</p>
    */
-  QueueTypes?: Array<QueueType | string>;
+  QueueTypes?: (QueueType | string)[];
 }
 
 export namespace ListQueuesRequest {
@@ -1742,7 +1742,7 @@ export interface ListQueuesResponse {
   /**
    * <p>Information about the queues.</p>
    */
-  QueueSummaryList?: Array<QueueSummary>;
+  QueueSummaryList?: QueueSummary[];
 }
 
 export namespace ListQueuesResponse {
@@ -1784,7 +1784,7 @@ export interface ListRoutingProfilesResponse {
   /**
    * <p>Information about the routing profiles.</p>
    */
-  RoutingProfileSummaryList?: Array<RoutingProfileSummary>;
+  RoutingProfileSummaryList?: RoutingProfileSummary[];
 }
 
 export namespace ListRoutingProfilesResponse {
@@ -1826,7 +1826,7 @@ export interface ListSecurityProfilesResponse {
   /**
    * <p>Information about the security profiles.</p>
    */
-  SecurityProfileSummaryList?: Array<SecurityProfileSummary>;
+  SecurityProfileSummaryList?: SecurityProfileSummary[];
 }
 
 export namespace ListSecurityProfilesResponse {
@@ -1894,7 +1894,7 @@ export interface ListUserHierarchyGroupsResponse {
   /**
    * <p>Information about the hierarchy groups.</p>
    */
-  UserHierarchyGroupSummaryList?: Array<HierarchyGroupSummary>;
+  UserHierarchyGroupSummaryList?: HierarchyGroupSummary[];
 }
 
 export namespace ListUserHierarchyGroupsResponse {
@@ -1936,7 +1936,7 @@ export interface ListUsersResponse {
   /**
    * <p>Information about the users.</p>
    */
-  UserSummaryList?: Array<UserSummary>;
+  UserSummaryList?: UserSummary[];
 }
 
 export namespace ListUsersResponse {
@@ -2303,7 +2303,7 @@ export interface UntagResourceRequest {
   /**
    * <p>The tag keys.</p>
    */
-  tagKeys: Array<string> | undefined;
+  tagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -2449,7 +2449,7 @@ export interface UpdateUserSecurityProfilesRequest {
   /**
    * <p>The identifiers of the security profiles for the user.</p>
    */
-  SecurityProfileIds: Array<string> | undefined;
+  SecurityProfileIds: string[] | undefined;
 
   /**
    * <p>The identifier of the user account.</p>
@@ -2505,7 +2505,7 @@ export interface User {
   /**
    * <p>The identifiers of the security profiles for the user.</p>
    */
-  SecurityProfileIds?: Array<string>;
+  SecurityProfileIds?: string[];
 
   /**
    * <p>The tags.</p>

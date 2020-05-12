@@ -42,15 +42,16 @@ import {
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
-export async function serializeAws_restJson1_1CreateParticipantConnectionCommand(
+export const serializeAws_restJson1_1CreateParticipantConnectionCommand = async (
   input: CreateParticipantConnectionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.ParticipantToken)) {
-    headers["X-Amz-Bearer"] = input.ParticipantToken!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.ParticipantToken) && {
+      "X-Amz-Bearer": input.ParticipantToken!
+    })
+  };
   let resolvedPath = "/participant/connection";
   let body: any;
   const bodyParams: any = {};
@@ -71,17 +72,18 @@ export async function serializeAws_restJson1_1CreateParticipantConnectionCommand
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DisconnectParticipantCommand(
+export const serializeAws_restJson1_1DisconnectParticipantCommand = async (
   input: DisconnectParticipantCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.ConnectionToken)) {
-    headers["X-Amz-Bearer"] = input.ConnectionToken!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.ConnectionToken) && {
+      "X-Amz-Bearer": input.ConnectionToken!
+    })
+  };
   let resolvedPath = "/participant/disconnect";
   let body: any;
   const bodyParams: any = {};
@@ -102,17 +104,18 @@ export async function serializeAws_restJson1_1DisconnectParticipantCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetTranscriptCommand(
+export const serializeAws_restJson1_1GetTranscriptCommand = async (
   input: GetTranscriptCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.ConnectionToken)) {
-    headers["X-Amz-Bearer"] = input.ConnectionToken!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.ConnectionToken) && {
+      "X-Amz-Bearer": input.ConnectionToken!
+    })
+  };
   let resolvedPath = "/participant/transcript";
   let body: any;
   const bodyParams: any = {};
@@ -148,17 +151,18 @@ export async function serializeAws_restJson1_1GetTranscriptCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1SendEventCommand(
+export const serializeAws_restJson1_1SendEventCommand = async (
   input: SendEventCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.ConnectionToken)) {
-    headers["X-Amz-Bearer"] = input.ConnectionToken!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.ConnectionToken) && {
+      "X-Amz-Bearer": input.ConnectionToken!
+    })
+  };
   let resolvedPath = "/participant/event";
   let body: any;
   const bodyParams: any = {};
@@ -185,17 +189,18 @@ export async function serializeAws_restJson1_1SendEventCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1SendMessageCommand(
+export const serializeAws_restJson1_1SendMessageCommand = async (
   input: SendMessageCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  if (isSerializableHeaderValue(input.ConnectionToken)) {
-    headers["X-Amz-Bearer"] = input.ConnectionToken!;
-  }
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+    ...(isSerializableHeaderValue(input.ConnectionToken) && {
+      "X-Amz-Bearer": input.ConnectionToken!
+    })
+  };
   let resolvedPath = "/participant/message";
   let body: any;
   const bodyParams: any = {};
@@ -222,12 +227,12 @@ export async function serializeAws_restJson1_1SendMessageCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1CreateParticipantConnectionCommand(
+export const deserializeAws_restJson1_1CreateParticipantConnectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateParticipantConnectionCommandOutput> {
+): Promise<CreateParticipantConnectionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateParticipantConnectionCommandError(
       output,
@@ -257,12 +262,12 @@ export async function deserializeAws_restJson1_1CreateParticipantConnectionComma
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreateParticipantConnectionCommandError(
+const deserializeAws_restJson1_1CreateParticipantConnectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateParticipantConnectionCommandOutput> {
+): Promise<CreateParticipantConnectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -330,12 +335,12 @@ async function deserializeAws_restJson1_1CreateParticipantConnectionCommandError
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DisconnectParticipantCommand(
+export const deserializeAws_restJson1_1DisconnectParticipantCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisconnectParticipantCommandOutput> {
+): Promise<DisconnectParticipantCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DisconnectParticipantCommandError(
       output,
@@ -348,12 +353,12 @@ export async function deserializeAws_restJson1_1DisconnectParticipantCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DisconnectParticipantCommandError(
+const deserializeAws_restJson1_1DisconnectParticipantCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisconnectParticipantCommandOutput> {
+): Promise<DisconnectParticipantCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -421,12 +426,12 @@ async function deserializeAws_restJson1_1DisconnectParticipantCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetTranscriptCommand(
+export const deserializeAws_restJson1_1GetTranscriptCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetTranscriptCommandOutput> {
+): Promise<GetTranscriptCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetTranscriptCommandError(output, context);
   }
@@ -451,12 +456,12 @@ export async function deserializeAws_restJson1_1GetTranscriptCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetTranscriptCommandError(
+const deserializeAws_restJson1_1GetTranscriptCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetTranscriptCommandOutput> {
+): Promise<GetTranscriptCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -524,12 +529,12 @@ async function deserializeAws_restJson1_1GetTranscriptCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1SendEventCommand(
+export const deserializeAws_restJson1_1SendEventCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SendEventCommandOutput> {
+): Promise<SendEventCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1SendEventCommandError(output, context);
   }
@@ -547,12 +552,12 @@ export async function deserializeAws_restJson1_1SendEventCommand(
     contents.Id = data.Id;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1SendEventCommandError(
+const deserializeAws_restJson1_1SendEventCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SendEventCommandOutput> {
+): Promise<SendEventCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -620,12 +625,12 @@ async function deserializeAws_restJson1_1SendEventCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1SendMessageCommand(
+export const deserializeAws_restJson1_1SendMessageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SendMessageCommandOutput> {
+): Promise<SendMessageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1SendMessageCommandError(output, context);
   }
@@ -643,12 +648,12 @@ export async function deserializeAws_restJson1_1SendMessageCommand(
     contents.Id = data.Id;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1SendMessageCommandError(
+const deserializeAws_restJson1_1SendMessageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SendMessageCommandOutput> {
+): Promise<SendMessageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -716,7 +721,7 @@ async function deserializeAws_restJson1_1SendMessageCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
   parsedOutput: any,
@@ -787,14 +792,10 @@ const deserializeAws_restJson1_1ValidationExceptionResponse = async (
 };
 
 const serializeAws_restJson1_1ConnectionTypeList = (
-  input: Array<ConnectionType | string>,
+  input: (ConnectionType | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1StartPosition = (
@@ -859,7 +860,7 @@ const deserializeAws_restJson1_1Item = (
 const deserializeAws_restJson1_1Transcript = (
   output: any,
   context: __SerdeContext
-): Array<Item> => {
+): Item[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Item(entry, context)
   );
@@ -912,7 +913,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -927,30 +928,23 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
-function isSerializableHeaderValue(value: any): boolean {
-  return (
-    value !== undefined &&
-    value !== "" &&
-    (!Object.getOwnPropertyNames(value).includes("length") ||
-      value.length != 0) &&
-    (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0)
-  );
-}
+const isSerializableHeaderValue = (value: any): boolean =>
+  value !== undefined &&
+  value !== "" &&
+  (!Object.getOwnPropertyNames(value).includes("length") ||
+    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};
 
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.

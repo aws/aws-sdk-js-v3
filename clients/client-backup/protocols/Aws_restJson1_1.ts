@@ -228,12 +228,13 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_restJson1_1CreateBackupPlanCommand(
+export const serializeAws_restJson1_1CreateBackupPlanCommand = async (
   input: CreateBackupPlanCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/backup/plans";
   let body: any;
   const bodyParams: any = {};
@@ -263,14 +264,15 @@ export async function serializeAws_restJson1_1CreateBackupPlanCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1CreateBackupSelectionCommand(
+export const serializeAws_restJson1_1CreateBackupSelectionCommand = async (
   input: CreateBackupSelectionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/backup/plans/{BackupPlanId}/selections";
   if (input.BackupPlanId !== undefined) {
     const labelValue: string = input.BackupPlanId;
@@ -308,14 +310,15 @@ export async function serializeAws_restJson1_1CreateBackupSelectionCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1CreateBackupVaultCommand(
+export const serializeAws_restJson1_1CreateBackupVaultCommand = async (
   input: CreateBackupVaultCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/backup-vaults/{BackupVaultName}";
   if (input.BackupVaultName !== undefined) {
     const labelValue: string = input.BackupVaultName;
@@ -356,14 +359,15 @@ export async function serializeAws_restJson1_1CreateBackupVaultCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeleteBackupPlanCommand(
+export const serializeAws_restJson1_1DeleteBackupPlanCommand = async (
   input: DeleteBackupPlanCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/backup/plans/{BackupPlanId}";
   if (input.BackupPlanId !== undefined) {
     const labelValue: string = input.BackupPlanId;
@@ -390,14 +394,15 @@ export async function serializeAws_restJson1_1DeleteBackupPlanCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeleteBackupSelectionCommand(
+export const serializeAws_restJson1_1DeleteBackupSelectionCommand = async (
   input: DeleteBackupSelectionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/backup/plans/{BackupPlanId}/selections/{SelectionId}";
   if (input.BackupPlanId !== undefined) {
     const labelValue: string = input.BackupPlanId;
@@ -438,14 +443,15 @@ export async function serializeAws_restJson1_1DeleteBackupSelectionCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeleteBackupVaultCommand(
+export const serializeAws_restJson1_1DeleteBackupVaultCommand = async (
   input: DeleteBackupVaultCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/backup-vaults/{BackupVaultName}";
   if (input.BackupVaultName !== undefined) {
     const labelValue: string = input.BackupVaultName;
@@ -472,14 +478,15 @@ export async function serializeAws_restJson1_1DeleteBackupVaultCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeleteBackupVaultAccessPolicyCommand(
+export const serializeAws_restJson1_1DeleteBackupVaultAccessPolicyCommand = async (
   input: DeleteBackupVaultAccessPolicyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/backup-vaults/{BackupVaultName}/access-policy";
   if (input.BackupVaultName !== undefined) {
     const labelValue: string = input.BackupVaultName;
@@ -506,14 +513,15 @@ export async function serializeAws_restJson1_1DeleteBackupVaultAccessPolicyComma
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeleteBackupVaultNotificationsCommand(
+export const serializeAws_restJson1_1DeleteBackupVaultNotificationsCommand = async (
   input: DeleteBackupVaultNotificationsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/backup-vaults/{BackupVaultName}/notification-configuration";
   if (input.BackupVaultName !== undefined) {
@@ -541,14 +549,15 @@ export async function serializeAws_restJson1_1DeleteBackupVaultNotificationsComm
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeleteRecoveryPointCommand(
+export const serializeAws_restJson1_1DeleteRecoveryPointCommand = async (
   input: DeleteRecoveryPointCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}";
   if (input.BackupVaultName !== undefined) {
@@ -592,14 +601,15 @@ export async function serializeAws_restJson1_1DeleteRecoveryPointCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribeBackupJobCommand(
+export const serializeAws_restJson1_1DescribeBackupJobCommand = async (
   input: DescribeBackupJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/backup-jobs/{BackupJobId}";
   if (input.BackupJobId !== undefined) {
     const labelValue: string = input.BackupJobId;
@@ -626,14 +636,15 @@ export async function serializeAws_restJson1_1DescribeBackupJobCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribeBackupVaultCommand(
+export const serializeAws_restJson1_1DescribeBackupVaultCommand = async (
   input: DescribeBackupVaultCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/backup-vaults/{BackupVaultName}";
   if (input.BackupVaultName !== undefined) {
     const labelValue: string = input.BackupVaultName;
@@ -660,14 +671,15 @@ export async function serializeAws_restJson1_1DescribeBackupVaultCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribeCopyJobCommand(
+export const serializeAws_restJson1_1DescribeCopyJobCommand = async (
   input: DescribeCopyJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/copy-jobs/{CopyJobId}";
   if (input.CopyJobId !== undefined) {
     const labelValue: string = input.CopyJobId;
@@ -692,14 +704,15 @@ export async function serializeAws_restJson1_1DescribeCopyJobCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribeProtectedResourceCommand(
+export const serializeAws_restJson1_1DescribeProtectedResourceCommand = async (
   input: DescribeProtectedResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/resources/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -726,14 +739,15 @@ export async function serializeAws_restJson1_1DescribeProtectedResourceCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribeRecoveryPointCommand(
+export const serializeAws_restJson1_1DescribeRecoveryPointCommand = async (
   input: DescribeRecoveryPointCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}";
   if (input.BackupVaultName !== undefined) {
@@ -777,14 +791,15 @@ export async function serializeAws_restJson1_1DescribeRecoveryPointCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribeRestoreJobCommand(
+export const serializeAws_restJson1_1DescribeRestoreJobCommand = async (
   input: DescribeRestoreJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/restore-jobs/{RestoreJobId}";
   if (input.RestoreJobId !== undefined) {
     const labelValue: string = input.RestoreJobId;
@@ -811,14 +826,15 @@ export async function serializeAws_restJson1_1DescribeRestoreJobCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ExportBackupPlanTemplateCommand(
+export const serializeAws_restJson1_1ExportBackupPlanTemplateCommand = async (
   input: ExportBackupPlanTemplateCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/backup/plans/{BackupPlanId}/toTemplate";
   if (input.BackupPlanId !== undefined) {
     const labelValue: string = input.BackupPlanId;
@@ -845,14 +861,15 @@ export async function serializeAws_restJson1_1ExportBackupPlanTemplateCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetBackupPlanCommand(
+export const serializeAws_restJson1_1GetBackupPlanCommand = async (
   input: GetBackupPlanCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/backup/plans/{BackupPlanId}";
   if (input.BackupPlanId !== undefined) {
     const labelValue: string = input.BackupPlanId;
@@ -868,10 +885,9 @@ export async function serializeAws_restJson1_1GetBackupPlanCommand(
   } else {
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
   }
-  const query: any = {};
-  if (input.VersionId !== undefined) {
-    query["versionId"] = input.VersionId;
-  }
+  const query: any = {
+    ...(input.VersionId !== undefined && { versionId: input.VersionId })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -884,14 +900,15 @@ export async function serializeAws_restJson1_1GetBackupPlanCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetBackupPlanFromJSONCommand(
+export const serializeAws_restJson1_1GetBackupPlanFromJSONCommand = async (
   input: GetBackupPlanFromJSONCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/backup/template/json/toPlan";
   let body: any;
   const bodyParams: any = {};
@@ -909,14 +926,15 @@ export async function serializeAws_restJson1_1GetBackupPlanFromJSONCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetBackupPlanFromTemplateCommand(
+export const serializeAws_restJson1_1GetBackupPlanFromTemplateCommand = async (
   input: GetBackupPlanFromTemplateCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/backup/template/plans/{BackupPlanTemplateId}/toPlan";
   if (input.BackupPlanTemplateId !== undefined) {
     const labelValue: string = input.BackupPlanTemplateId;
@@ -945,14 +963,15 @@ export async function serializeAws_restJson1_1GetBackupPlanFromTemplateCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetBackupSelectionCommand(
+export const serializeAws_restJson1_1GetBackupSelectionCommand = async (
   input: GetBackupSelectionCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/backup/plans/{BackupPlanId}/selections/{SelectionId}";
   if (input.BackupPlanId !== undefined) {
     const labelValue: string = input.BackupPlanId;
@@ -993,14 +1012,15 @@ export async function serializeAws_restJson1_1GetBackupSelectionCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetBackupVaultAccessPolicyCommand(
+export const serializeAws_restJson1_1GetBackupVaultAccessPolicyCommand = async (
   input: GetBackupVaultAccessPolicyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/backup-vaults/{BackupVaultName}/access-policy";
   if (input.BackupVaultName !== undefined) {
     const labelValue: string = input.BackupVaultName;
@@ -1027,14 +1047,15 @@ export async function serializeAws_restJson1_1GetBackupVaultAccessPolicyCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetBackupVaultNotificationsCommand(
+export const serializeAws_restJson1_1GetBackupVaultNotificationsCommand = async (
   input: GetBackupVaultNotificationsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/backup-vaults/{BackupVaultName}/notification-configuration";
   if (input.BackupVaultName !== undefined) {
@@ -1062,14 +1083,15 @@ export async function serializeAws_restJson1_1GetBackupVaultNotificationsCommand
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetRecoveryPointRestoreMetadataCommand(
+export const serializeAws_restJson1_1GetRecoveryPointRestoreMetadataCommand = async (
   input: GetRecoveryPointRestoreMetadataCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}/restore-metadata";
   if (input.BackupVaultName !== undefined) {
@@ -1113,14 +1135,15 @@ export async function serializeAws_restJson1_1GetRecoveryPointRestoreMetadataCom
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetSupportedResourceTypesCommand(
+export const serializeAws_restJson1_1GetSupportedResourceTypesCommand = async (
   input: GetSupportedResourceTypesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/supported-resource-types";
   let body: any;
   body = "{}";
@@ -1134,44 +1157,42 @@ export async function serializeAws_restJson1_1GetSupportedResourceTypesCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListBackupJobsCommand(
+export const serializeAws_restJson1_1ListBackupJobsCommand = async (
   input: ListBackupJobsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/backup-jobs";
-  const query: any = {};
-  if (input.ByBackupVaultName !== undefined) {
-    query["backupVaultName"] = input.ByBackupVaultName;
-  }
-  if (input.ByCreatedAfter !== undefined) {
-    query["createdAfter"] = (
-      input.ByCreatedAfter.toISOString().split(".")[0] + "Z"
-    ).toString();
-  }
-  if (input.ByCreatedBefore !== undefined) {
-    query["createdBefore"] = (
-      input.ByCreatedBefore.toISOString().split(".")[0] + "Z"
-    ).toString();
-  }
-  if (input.ByResourceArn !== undefined) {
-    query["resourceArn"] = input.ByResourceArn;
-  }
-  if (input.ByResourceType !== undefined) {
-    query["resourceType"] = input.ByResourceType;
-  }
-  if (input.ByState !== undefined) {
-    query["state"] = input.ByState;
-  }
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.ByBackupVaultName !== undefined && {
+      backupVaultName: input.ByBackupVaultName
+    }),
+    ...(input.ByCreatedAfter !== undefined && {
+      createdAfter: (
+        input.ByCreatedAfter.toISOString().split(".")[0] + "Z"
+      ).toString()
+    }),
+    ...(input.ByCreatedBefore !== undefined && {
+      createdBefore: (
+        input.ByCreatedBefore.toISOString().split(".")[0] + "Z"
+      ).toString()
+    }),
+    ...(input.ByResourceArn !== undefined && {
+      resourceArn: input.ByResourceArn
+    }),
+    ...(input.ByResourceType !== undefined && {
+      resourceType: input.ByResourceType
+    }),
+    ...(input.ByState !== undefined && { state: input.ByState }),
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1184,22 +1205,22 @@ export async function serializeAws_restJson1_1ListBackupJobsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListBackupPlanTemplatesCommand(
+export const serializeAws_restJson1_1ListBackupPlanTemplatesCommand = async (
   input: ListBackupPlanTemplatesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/backup/template/plans";
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1212,14 +1233,15 @@ export async function serializeAws_restJson1_1ListBackupPlanTemplatesCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListBackupPlanVersionsCommand(
+export const serializeAws_restJson1_1ListBackupPlanVersionsCommand = async (
   input: ListBackupPlanVersionsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/backup/plans/{BackupPlanId}/versions";
   if (input.BackupPlanId !== undefined) {
     const labelValue: string = input.BackupPlanId;
@@ -1235,13 +1257,12 @@ export async function serializeAws_restJson1_1ListBackupPlanVersionsCommand(
   } else {
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
   }
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1254,25 +1275,25 @@ export async function serializeAws_restJson1_1ListBackupPlanVersionsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListBackupPlansCommand(
+export const serializeAws_restJson1_1ListBackupPlansCommand = async (
   input: ListBackupPlansCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/backup/plans";
-  const query: any = {};
-  if (input.IncludeDeleted !== undefined) {
-    query["includeDeleted"] = input.IncludeDeleted.toString();
-  }
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.IncludeDeleted !== undefined && {
+      includeDeleted: input.IncludeDeleted.toString()
+    }),
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1285,14 +1306,15 @@ export async function serializeAws_restJson1_1ListBackupPlansCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListBackupSelectionsCommand(
+export const serializeAws_restJson1_1ListBackupSelectionsCommand = async (
   input: ListBackupSelectionsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/backup/plans/{BackupPlanId}/selections";
   if (input.BackupPlanId !== undefined) {
     const labelValue: string = input.BackupPlanId;
@@ -1308,13 +1330,12 @@ export async function serializeAws_restJson1_1ListBackupSelectionsCommand(
   } else {
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
   }
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1327,22 +1348,22 @@ export async function serializeAws_restJson1_1ListBackupSelectionsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListBackupVaultsCommand(
+export const serializeAws_restJson1_1ListBackupVaultsCommand = async (
   input: ListBackupVaultsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/backup-vaults";
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1355,44 +1376,42 @@ export async function serializeAws_restJson1_1ListBackupVaultsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListCopyJobsCommand(
+export const serializeAws_restJson1_1ListCopyJobsCommand = async (
   input: ListCopyJobsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/copy-jobs";
-  const query: any = {};
-  if (input.ByCreatedAfter !== undefined) {
-    query["createdAfter"] = (
-      input.ByCreatedAfter.toISOString().split(".")[0] + "Z"
-    ).toString();
-  }
-  if (input.ByCreatedBefore !== undefined) {
-    query["createdBefore"] = (
-      input.ByCreatedBefore.toISOString().split(".")[0] + "Z"
-    ).toString();
-  }
-  if (input.ByDestinationVaultArn !== undefined) {
-    query["destinationVaultArn"] = input.ByDestinationVaultArn;
-  }
-  if (input.ByResourceArn !== undefined) {
-    query["resourceArn"] = input.ByResourceArn;
-  }
-  if (input.ByResourceType !== undefined) {
-    query["resourceType"] = input.ByResourceType;
-  }
-  if (input.ByState !== undefined) {
-    query["state"] = input.ByState;
-  }
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.ByCreatedAfter !== undefined && {
+      createdAfter: (
+        input.ByCreatedAfter.toISOString().split(".")[0] + "Z"
+      ).toString()
+    }),
+    ...(input.ByCreatedBefore !== undefined && {
+      createdBefore: (
+        input.ByCreatedBefore.toISOString().split(".")[0] + "Z"
+      ).toString()
+    }),
+    ...(input.ByDestinationVaultArn !== undefined && {
+      destinationVaultArn: input.ByDestinationVaultArn
+    }),
+    ...(input.ByResourceArn !== undefined && {
+      resourceArn: input.ByResourceArn
+    }),
+    ...(input.ByResourceType !== undefined && {
+      resourceType: input.ByResourceType
+    }),
+    ...(input.ByState !== undefined && { state: input.ByState }),
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1405,22 +1424,22 @@ export async function serializeAws_restJson1_1ListCopyJobsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListProtectedResourcesCommand(
+export const serializeAws_restJson1_1ListProtectedResourcesCommand = async (
   input: ListProtectedResourcesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/resources";
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1433,14 +1452,15 @@ export async function serializeAws_restJson1_1ListProtectedResourcesCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListRecoveryPointsByBackupVaultCommand(
+export const serializeAws_restJson1_1ListRecoveryPointsByBackupVaultCommand = async (
   input: ListRecoveryPointsByBackupVaultCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/backup-vaults/{BackupVaultName}/recovery-points";
   if (input.BackupVaultName !== undefined) {
     const labelValue: string = input.BackupVaultName;
@@ -1456,32 +1476,31 @@ export async function serializeAws_restJson1_1ListRecoveryPointsByBackupVaultCom
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
   }
-  const query: any = {};
-  if (input.ByBackupPlanId !== undefined) {
-    query["backupPlanId"] = input.ByBackupPlanId;
-  }
-  if (input.ByCreatedAfter !== undefined) {
-    query["createdAfter"] = (
-      input.ByCreatedAfter.toISOString().split(".")[0] + "Z"
-    ).toString();
-  }
-  if (input.ByCreatedBefore !== undefined) {
-    query["createdBefore"] = (
-      input.ByCreatedBefore.toISOString().split(".")[0] + "Z"
-    ).toString();
-  }
-  if (input.ByResourceArn !== undefined) {
-    query["resourceArn"] = input.ByResourceArn;
-  }
-  if (input.ByResourceType !== undefined) {
-    query["resourceType"] = input.ByResourceType;
-  }
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.ByBackupPlanId !== undefined && {
+      backupPlanId: input.ByBackupPlanId
+    }),
+    ...(input.ByCreatedAfter !== undefined && {
+      createdAfter: (
+        input.ByCreatedAfter.toISOString().split(".")[0] + "Z"
+      ).toString()
+    }),
+    ...(input.ByCreatedBefore !== undefined && {
+      createdBefore: (
+        input.ByCreatedBefore.toISOString().split(".")[0] + "Z"
+      ).toString()
+    }),
+    ...(input.ByResourceArn !== undefined && {
+      resourceArn: input.ByResourceArn
+    }),
+    ...(input.ByResourceType !== undefined && {
+      resourceType: input.ByResourceType
+    }),
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1494,14 +1513,15 @@ export async function serializeAws_restJson1_1ListRecoveryPointsByBackupVaultCom
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListRecoveryPointsByResourceCommand(
+export const serializeAws_restJson1_1ListRecoveryPointsByResourceCommand = async (
   input: ListRecoveryPointsByResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/resources/{ResourceArn}/recovery-points";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -1517,13 +1537,12 @@ export async function serializeAws_restJson1_1ListRecoveryPointsByResourceComman
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1536,22 +1555,22 @@ export async function serializeAws_restJson1_1ListRecoveryPointsByResourceComman
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListRestoreJobsCommand(
+export const serializeAws_restJson1_1ListRestoreJobsCommand = async (
   input: ListRestoreJobsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/restore-jobs";
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1564,14 +1583,15 @@ export async function serializeAws_restJson1_1ListRestoreJobsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListTagsCommand(
+export const serializeAws_restJson1_1ListTagsCommand = async (
   input: ListTagsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -1587,13 +1607,12 @@ export async function serializeAws_restJson1_1ListTagsCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1606,14 +1625,15 @@ export async function serializeAws_restJson1_1ListTagsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1PutBackupVaultAccessPolicyCommand(
+export const serializeAws_restJson1_1PutBackupVaultAccessPolicyCommand = async (
   input: PutBackupVaultAccessPolicyCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/backup-vaults/{BackupVaultName}/access-policy";
   if (input.BackupVaultName !== undefined) {
     const labelValue: string = input.BackupVaultName;
@@ -1645,14 +1665,15 @@ export async function serializeAws_restJson1_1PutBackupVaultAccessPolicyCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1PutBackupVaultNotificationsCommand(
+export const serializeAws_restJson1_1PutBackupVaultNotificationsCommand = async (
   input: PutBackupVaultNotificationsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath =
     "/backup-vaults/{BackupVaultName}/notification-configuration";
   if (input.BackupVaultName !== undefined) {
@@ -1691,14 +1712,15 @@ export async function serializeAws_restJson1_1PutBackupVaultNotificationsCommand
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1StartBackupJobCommand(
+export const serializeAws_restJson1_1StartBackupJobCommand = async (
   input: StartBackupJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/backup-jobs";
   let body: any;
   const bodyParams: any = {};
@@ -1743,14 +1765,15 @@ export async function serializeAws_restJson1_1StartBackupJobCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1StartCopyJobCommand(
+export const serializeAws_restJson1_1StartCopyJobCommand = async (
   input: StartCopyJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/copy-jobs";
   let body: any;
   const bodyParams: any = {};
@@ -1786,14 +1809,15 @@ export async function serializeAws_restJson1_1StartCopyJobCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1StartRestoreJobCommand(
+export const serializeAws_restJson1_1StartRestoreJobCommand = async (
   input: StartRestoreJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/restore-jobs";
   let body: any;
   const bodyParams: any = {};
@@ -1826,14 +1850,15 @@ export async function serializeAws_restJson1_1StartRestoreJobCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1StopBackupJobCommand(
+export const serializeAws_restJson1_1StopBackupJobCommand = async (
   input: StopBackupJobCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/backup-jobs/{BackupJobId}";
   if (input.BackupJobId !== undefined) {
     const labelValue: string = input.BackupJobId;
@@ -1860,14 +1885,15 @@ export async function serializeAws_restJson1_1StopBackupJobCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1TagResourceCommand(
+export const serializeAws_restJson1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -1899,14 +1925,15 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UntagResourceCommand(
+export const serializeAws_restJson1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/untag/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -1941,14 +1968,15 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UpdateBackupPlanCommand(
+export const serializeAws_restJson1_1UpdateBackupPlanCommand = async (
   input: UpdateBackupPlanCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/backup/plans/{BackupPlanId}";
   if (input.BackupPlanId !== undefined) {
     const labelValue: string = input.BackupPlanId;
@@ -1983,14 +2011,15 @@ export async function serializeAws_restJson1_1UpdateBackupPlanCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UpdateRecoveryPointLifecycleCommand(
+export const serializeAws_restJson1_1UpdateRecoveryPointLifecycleCommand = async (
   input: UpdateRecoveryPointLifecycleCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath =
     "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}";
   if (input.BackupVaultName !== undefined) {
@@ -2042,12 +2071,12 @@ export async function serializeAws_restJson1_1UpdateRecoveryPointLifecycleComman
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1CreateBackupPlanCommand(
+export const deserializeAws_restJson1_1CreateBackupPlanCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateBackupPlanCommandOutput> {
+): Promise<CreateBackupPlanCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateBackupPlanCommandError(
       output,
@@ -2076,12 +2105,12 @@ export async function deserializeAws_restJson1_1CreateBackupPlanCommand(
     contents.VersionId = data.VersionId;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreateBackupPlanCommandError(
+const deserializeAws_restJson1_1CreateBackupPlanCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateBackupPlanCommandOutput> {
+): Promise<CreateBackupPlanCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2160,12 +2189,12 @@ async function deserializeAws_restJson1_1CreateBackupPlanCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1CreateBackupSelectionCommand(
+export const deserializeAws_restJson1_1CreateBackupSelectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateBackupSelectionCommandOutput> {
+): Promise<CreateBackupSelectionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateBackupSelectionCommandError(
       output,
@@ -2190,12 +2219,12 @@ export async function deserializeAws_restJson1_1CreateBackupSelectionCommand(
     contents.SelectionId = data.SelectionId;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreateBackupSelectionCommandError(
+const deserializeAws_restJson1_1CreateBackupSelectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateBackupSelectionCommandOutput> {
+): Promise<CreateBackupSelectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2274,12 +2303,12 @@ async function deserializeAws_restJson1_1CreateBackupSelectionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1CreateBackupVaultCommand(
+export const deserializeAws_restJson1_1CreateBackupVaultCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateBackupVaultCommandOutput> {
+): Promise<CreateBackupVaultCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateBackupVaultCommandError(
       output,
@@ -2304,12 +2333,12 @@ export async function deserializeAws_restJson1_1CreateBackupVaultCommand(
     contents.CreationDate = new Date(Math.round(data.CreationDate * 1000));
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreateBackupVaultCommandError(
+const deserializeAws_restJson1_1CreateBackupVaultCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateBackupVaultCommandOutput> {
+): Promise<CreateBackupVaultCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2388,12 +2417,12 @@ async function deserializeAws_restJson1_1CreateBackupVaultCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteBackupPlanCommand(
+export const deserializeAws_restJson1_1DeleteBackupPlanCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteBackupPlanCommandOutput> {
+): Promise<DeleteBackupPlanCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteBackupPlanCommandError(
       output,
@@ -2422,12 +2451,12 @@ export async function deserializeAws_restJson1_1DeleteBackupPlanCommand(
     contents.VersionId = data.VersionId;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteBackupPlanCommandError(
+const deserializeAws_restJson1_1DeleteBackupPlanCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteBackupPlanCommandOutput> {
+): Promise<DeleteBackupPlanCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2506,12 +2535,12 @@ async function deserializeAws_restJson1_1DeleteBackupPlanCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteBackupSelectionCommand(
+export const deserializeAws_restJson1_1DeleteBackupSelectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteBackupSelectionCommandOutput> {
+): Promise<DeleteBackupSelectionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteBackupSelectionCommandError(
       output,
@@ -2523,12 +2552,12 @@ export async function deserializeAws_restJson1_1DeleteBackupSelectionCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteBackupSelectionCommandError(
+const deserializeAws_restJson1_1DeleteBackupSelectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteBackupSelectionCommandOutput> {
+): Promise<DeleteBackupSelectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2596,12 +2625,12 @@ async function deserializeAws_restJson1_1DeleteBackupSelectionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteBackupVaultCommand(
+export const deserializeAws_restJson1_1DeleteBackupVaultCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteBackupVaultCommandOutput> {
+): Promise<DeleteBackupVaultCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteBackupVaultCommandError(
       output,
@@ -2613,12 +2642,12 @@ export async function deserializeAws_restJson1_1DeleteBackupVaultCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteBackupVaultCommandError(
+const deserializeAws_restJson1_1DeleteBackupVaultCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteBackupVaultCommandOutput> {
+): Promise<DeleteBackupVaultCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2697,12 +2726,12 @@ async function deserializeAws_restJson1_1DeleteBackupVaultCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteBackupVaultAccessPolicyCommand(
+export const deserializeAws_restJson1_1DeleteBackupVaultAccessPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteBackupVaultAccessPolicyCommandOutput> {
+): Promise<DeleteBackupVaultAccessPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteBackupVaultAccessPolicyCommandError(
       output,
@@ -2714,12 +2743,12 @@ export async function deserializeAws_restJson1_1DeleteBackupVaultAccessPolicyCom
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteBackupVaultAccessPolicyCommandError(
+const deserializeAws_restJson1_1DeleteBackupVaultAccessPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteBackupVaultAccessPolicyCommandOutput> {
+): Promise<DeleteBackupVaultAccessPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2787,12 +2816,12 @@ async function deserializeAws_restJson1_1DeleteBackupVaultAccessPolicyCommandErr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteBackupVaultNotificationsCommand(
+export const deserializeAws_restJson1_1DeleteBackupVaultNotificationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteBackupVaultNotificationsCommandOutput> {
+): Promise<DeleteBackupVaultNotificationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteBackupVaultNotificationsCommandError(
       output,
@@ -2804,12 +2833,12 @@ export async function deserializeAws_restJson1_1DeleteBackupVaultNotificationsCo
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteBackupVaultNotificationsCommandError(
+const deserializeAws_restJson1_1DeleteBackupVaultNotificationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteBackupVaultNotificationsCommandOutput> {
+): Promise<DeleteBackupVaultNotificationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2877,12 +2906,12 @@ async function deserializeAws_restJson1_1DeleteBackupVaultNotificationsCommandEr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteRecoveryPointCommand(
+export const deserializeAws_restJson1_1DeleteRecoveryPointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteRecoveryPointCommandOutput> {
+): Promise<DeleteRecoveryPointCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteRecoveryPointCommandError(
       output,
@@ -2894,12 +2923,12 @@ export async function deserializeAws_restJson1_1DeleteRecoveryPointCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteRecoveryPointCommandError(
+const deserializeAws_restJson1_1DeleteRecoveryPointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteRecoveryPointCommandOutput> {
+): Promise<DeleteRecoveryPointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2978,12 +3007,12 @@ async function deserializeAws_restJson1_1DeleteRecoveryPointCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeBackupJobCommand(
+export const deserializeAws_restJson1_1DescribeBackupJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeBackupJobCommandOutput> {
+): Promise<DescribeBackupJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeBackupJobCommandError(
       output,
@@ -3072,12 +3101,12 @@ export async function deserializeAws_restJson1_1DescribeBackupJobCommand(
     contents.StatusMessage = data.StatusMessage;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeBackupJobCommandError(
+const deserializeAws_restJson1_1DescribeBackupJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeBackupJobCommandOutput> {
+): Promise<DescribeBackupJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3156,12 +3185,12 @@ async function deserializeAws_restJson1_1DescribeBackupJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeBackupVaultCommand(
+export const deserializeAws_restJson1_1DescribeBackupVaultCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeBackupVaultCommandOutput> {
+): Promise<DescribeBackupVaultCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeBackupVaultCommandError(
       output,
@@ -3201,12 +3230,12 @@ export async function deserializeAws_restJson1_1DescribeBackupVaultCommand(
     contents.NumberOfRecoveryPoints = data.NumberOfRecoveryPoints;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeBackupVaultCommandError(
+const deserializeAws_restJson1_1DescribeBackupVaultCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeBackupVaultCommandOutput> {
+): Promise<DescribeBackupVaultCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3274,12 +3303,12 @@ async function deserializeAws_restJson1_1DescribeBackupVaultCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeCopyJobCommand(
+export const deserializeAws_restJson1_1DescribeCopyJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeCopyJobCommandOutput> {
+): Promise<DescribeCopyJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeCopyJobCommandError(
       output,
@@ -3296,12 +3325,12 @@ export async function deserializeAws_restJson1_1DescribeCopyJobCommand(
     contents.CopyJob = deserializeAws_restJson1_1CopyJob(data.CopyJob, context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeCopyJobCommandError(
+const deserializeAws_restJson1_1DescribeCopyJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeCopyJobCommandOutput> {
+): Promise<DescribeCopyJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3369,12 +3398,12 @@ async function deserializeAws_restJson1_1DescribeCopyJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeProtectedResourceCommand(
+export const deserializeAws_restJson1_1DescribeProtectedResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeProtectedResourceCommandOutput> {
+): Promise<DescribeProtectedResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeProtectedResourceCommandError(
       output,
@@ -3399,12 +3428,12 @@ export async function deserializeAws_restJson1_1DescribeProtectedResourceCommand
     contents.ResourceType = data.ResourceType;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeProtectedResourceCommandError(
+const deserializeAws_restJson1_1DescribeProtectedResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeProtectedResourceCommandOutput> {
+): Promise<DescribeProtectedResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3472,12 +3501,12 @@ async function deserializeAws_restJson1_1DescribeProtectedResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeRecoveryPointCommand(
+export const deserializeAws_restJson1_1DescribeRecoveryPointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeRecoveryPointCommandOutput> {
+): Promise<DescribeRecoveryPointCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeRecoveryPointCommandError(
       output,
@@ -3572,12 +3601,12 @@ export async function deserializeAws_restJson1_1DescribeRecoveryPointCommand(
     contents.StorageClass = data.StorageClass;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeRecoveryPointCommandError(
+const deserializeAws_restJson1_1DescribeRecoveryPointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeRecoveryPointCommandOutput> {
+): Promise<DescribeRecoveryPointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3645,12 +3674,12 @@ async function deserializeAws_restJson1_1DescribeRecoveryPointCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeRestoreJobCommand(
+export const deserializeAws_restJson1_1DescribeRestoreJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeRestoreJobCommandOutput> {
+): Promise<DescribeRestoreJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeRestoreJobCommandError(
       output,
@@ -3713,12 +3742,12 @@ export async function deserializeAws_restJson1_1DescribeRestoreJobCommand(
     contents.StatusMessage = data.StatusMessage;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeRestoreJobCommandError(
+const deserializeAws_restJson1_1DescribeRestoreJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeRestoreJobCommandOutput> {
+): Promise<DescribeRestoreJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3797,12 +3826,12 @@ async function deserializeAws_restJson1_1DescribeRestoreJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ExportBackupPlanTemplateCommand(
+export const deserializeAws_restJson1_1ExportBackupPlanTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ExportBackupPlanTemplateCommandOutput> {
+): Promise<ExportBackupPlanTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ExportBackupPlanTemplateCommandError(
       output,
@@ -3822,12 +3851,12 @@ export async function deserializeAws_restJson1_1ExportBackupPlanTemplateCommand(
     contents.BackupPlanTemplateJson = data.BackupPlanTemplateJson;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ExportBackupPlanTemplateCommandError(
+const deserializeAws_restJson1_1ExportBackupPlanTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ExportBackupPlanTemplateCommandOutput> {
+): Promise<ExportBackupPlanTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3895,12 +3924,12 @@ async function deserializeAws_restJson1_1ExportBackupPlanTemplateCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetBackupPlanCommand(
+export const deserializeAws_restJson1_1GetBackupPlanCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBackupPlanCommandOutput> {
+): Promise<GetBackupPlanCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetBackupPlanCommandError(output, context);
   }
@@ -3947,12 +3976,12 @@ export async function deserializeAws_restJson1_1GetBackupPlanCommand(
     contents.VersionId = data.VersionId;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetBackupPlanCommandError(
+const deserializeAws_restJson1_1GetBackupPlanCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBackupPlanCommandOutput> {
+): Promise<GetBackupPlanCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4020,12 +4049,12 @@ async function deserializeAws_restJson1_1GetBackupPlanCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetBackupPlanFromJSONCommand(
+export const deserializeAws_restJson1_1GetBackupPlanFromJSONCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBackupPlanFromJSONCommandOutput> {
+): Promise<GetBackupPlanFromJSONCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetBackupPlanFromJSONCommandError(
       output,
@@ -4045,12 +4074,12 @@ export async function deserializeAws_restJson1_1GetBackupPlanFromJSONCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetBackupPlanFromJSONCommandError(
+const deserializeAws_restJson1_1GetBackupPlanFromJSONCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBackupPlanFromJSONCommandOutput> {
+): Promise<GetBackupPlanFromJSONCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4129,12 +4158,12 @@ async function deserializeAws_restJson1_1GetBackupPlanFromJSONCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetBackupPlanFromTemplateCommand(
+export const deserializeAws_restJson1_1GetBackupPlanFromTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBackupPlanFromTemplateCommandOutput> {
+): Promise<GetBackupPlanFromTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetBackupPlanFromTemplateCommandError(
       output,
@@ -4157,12 +4186,12 @@ export async function deserializeAws_restJson1_1GetBackupPlanFromTemplateCommand
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetBackupPlanFromTemplateCommandError(
+const deserializeAws_restJson1_1GetBackupPlanFromTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBackupPlanFromTemplateCommandOutput> {
+): Promise<GetBackupPlanFromTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4230,12 +4259,12 @@ async function deserializeAws_restJson1_1GetBackupPlanFromTemplateCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetBackupSelectionCommand(
+export const deserializeAws_restJson1_1GetBackupSelectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBackupSelectionCommandOutput> {
+): Promise<GetBackupSelectionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetBackupSelectionCommandError(
       output,
@@ -4271,12 +4300,12 @@ export async function deserializeAws_restJson1_1GetBackupSelectionCommand(
     contents.SelectionId = data.SelectionId;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetBackupSelectionCommandError(
+const deserializeAws_restJson1_1GetBackupSelectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBackupSelectionCommandOutput> {
+): Promise<GetBackupSelectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4344,12 +4373,12 @@ async function deserializeAws_restJson1_1GetBackupSelectionCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetBackupVaultAccessPolicyCommand(
+export const deserializeAws_restJson1_1GetBackupVaultAccessPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBackupVaultAccessPolicyCommandOutput> {
+): Promise<GetBackupVaultAccessPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetBackupVaultAccessPolicyCommandError(
       output,
@@ -4374,12 +4403,12 @@ export async function deserializeAws_restJson1_1GetBackupVaultAccessPolicyComman
     contents.Policy = data.Policy;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetBackupVaultAccessPolicyCommandError(
+const deserializeAws_restJson1_1GetBackupVaultAccessPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBackupVaultAccessPolicyCommandOutput> {
+): Promise<GetBackupVaultAccessPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4447,12 +4476,12 @@ async function deserializeAws_restJson1_1GetBackupVaultAccessPolicyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetBackupVaultNotificationsCommand(
+export const deserializeAws_restJson1_1GetBackupVaultNotificationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBackupVaultNotificationsCommandOutput> {
+): Promise<GetBackupVaultNotificationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetBackupVaultNotificationsCommandError(
       output,
@@ -4484,12 +4513,12 @@ export async function deserializeAws_restJson1_1GetBackupVaultNotificationsComma
     contents.SNSTopicArn = data.SNSTopicArn;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetBackupVaultNotificationsCommandError(
+const deserializeAws_restJson1_1GetBackupVaultNotificationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetBackupVaultNotificationsCommandOutput> {
+): Promise<GetBackupVaultNotificationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4557,12 +4586,12 @@ async function deserializeAws_restJson1_1GetBackupVaultNotificationsCommandError
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetRecoveryPointRestoreMetadataCommand(
+export const deserializeAws_restJson1_1GetRecoveryPointRestoreMetadataCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetRecoveryPointRestoreMetadataCommandOutput> {
+): Promise<GetRecoveryPointRestoreMetadataCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetRecoveryPointRestoreMetadataCommandError(
       output,
@@ -4590,12 +4619,12 @@ export async function deserializeAws_restJson1_1GetRecoveryPointRestoreMetadataC
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetRecoveryPointRestoreMetadataCommandError(
+const deserializeAws_restJson1_1GetRecoveryPointRestoreMetadataCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetRecoveryPointRestoreMetadataCommandOutput> {
+): Promise<GetRecoveryPointRestoreMetadataCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4663,12 +4692,12 @@ async function deserializeAws_restJson1_1GetRecoveryPointRestoreMetadataCommandE
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetSupportedResourceTypesCommand(
+export const deserializeAws_restJson1_1GetSupportedResourceTypesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetSupportedResourceTypesCommandOutput> {
+): Promise<GetSupportedResourceTypesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetSupportedResourceTypesCommandError(
       output,
@@ -4688,12 +4717,12 @@ export async function deserializeAws_restJson1_1GetSupportedResourceTypesCommand
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetSupportedResourceTypesCommandError(
+const deserializeAws_restJson1_1GetSupportedResourceTypesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetSupportedResourceTypesCommandOutput> {
+): Promise<GetSupportedResourceTypesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4728,12 +4757,12 @@ async function deserializeAws_restJson1_1GetSupportedResourceTypesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListBackupJobsCommand(
+export const deserializeAws_restJson1_1ListBackupJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListBackupJobsCommandOutput> {
+): Promise<ListBackupJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListBackupJobsCommandError(
       output,
@@ -4757,12 +4786,12 @@ export async function deserializeAws_restJson1_1ListBackupJobsCommand(
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListBackupJobsCommandError(
+const deserializeAws_restJson1_1ListBackupJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListBackupJobsCommandOutput> {
+): Promise<ListBackupJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4819,12 +4848,12 @@ async function deserializeAws_restJson1_1ListBackupJobsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListBackupPlanTemplatesCommand(
+export const deserializeAws_restJson1_1ListBackupPlanTemplatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListBackupPlanTemplatesCommandOutput> {
+): Promise<ListBackupPlanTemplatesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListBackupPlanTemplatesCommandError(
       output,
@@ -4851,12 +4880,12 @@ export async function deserializeAws_restJson1_1ListBackupPlanTemplatesCommand(
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListBackupPlanTemplatesCommandError(
+const deserializeAws_restJson1_1ListBackupPlanTemplatesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListBackupPlanTemplatesCommandOutput> {
+): Promise<ListBackupPlanTemplatesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4924,12 +4953,12 @@ async function deserializeAws_restJson1_1ListBackupPlanTemplatesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListBackupPlanVersionsCommand(
+export const deserializeAws_restJson1_1ListBackupPlanVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListBackupPlanVersionsCommandOutput> {
+): Promise<ListBackupPlanVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListBackupPlanVersionsCommandError(
       output,
@@ -4956,12 +4985,12 @@ export async function deserializeAws_restJson1_1ListBackupPlanVersionsCommand(
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListBackupPlanVersionsCommandError(
+const deserializeAws_restJson1_1ListBackupPlanVersionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListBackupPlanVersionsCommandOutput> {
+): Promise<ListBackupPlanVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5029,12 +5058,12 @@ async function deserializeAws_restJson1_1ListBackupPlanVersionsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListBackupPlansCommand(
+export const deserializeAws_restJson1_1ListBackupPlansCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListBackupPlansCommandOutput> {
+): Promise<ListBackupPlansCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListBackupPlansCommandError(
       output,
@@ -5058,12 +5087,12 @@ export async function deserializeAws_restJson1_1ListBackupPlansCommand(
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListBackupPlansCommandError(
+const deserializeAws_restJson1_1ListBackupPlansCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListBackupPlansCommandOutput> {
+): Promise<ListBackupPlansCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5131,12 +5160,12 @@ async function deserializeAws_restJson1_1ListBackupPlansCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListBackupSelectionsCommand(
+export const deserializeAws_restJson1_1ListBackupSelectionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListBackupSelectionsCommandOutput> {
+): Promise<ListBackupSelectionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListBackupSelectionsCommandError(
       output,
@@ -5163,12 +5192,12 @@ export async function deserializeAws_restJson1_1ListBackupSelectionsCommand(
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListBackupSelectionsCommandError(
+const deserializeAws_restJson1_1ListBackupSelectionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListBackupSelectionsCommandOutput> {
+): Promise<ListBackupSelectionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5236,12 +5265,12 @@ async function deserializeAws_restJson1_1ListBackupSelectionsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListBackupVaultsCommand(
+export const deserializeAws_restJson1_1ListBackupVaultsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListBackupVaultsCommandOutput> {
+): Promise<ListBackupVaultsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListBackupVaultsCommandError(
       output,
@@ -5265,12 +5294,12 @@ export async function deserializeAws_restJson1_1ListBackupVaultsCommand(
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListBackupVaultsCommandError(
+const deserializeAws_restJson1_1ListBackupVaultsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListBackupVaultsCommandOutput> {
+): Promise<ListBackupVaultsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5338,12 +5367,12 @@ async function deserializeAws_restJson1_1ListBackupVaultsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListCopyJobsCommand(
+export const deserializeAws_restJson1_1ListCopyJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListCopyJobsCommandOutput> {
+): Promise<ListCopyJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListCopyJobsCommandError(output, context);
   }
@@ -5364,12 +5393,12 @@ export async function deserializeAws_restJson1_1ListCopyJobsCommand(
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListCopyJobsCommandError(
+const deserializeAws_restJson1_1ListCopyJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListCopyJobsCommandOutput> {
+): Promise<ListCopyJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5415,12 +5444,12 @@ async function deserializeAws_restJson1_1ListCopyJobsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListProtectedResourcesCommand(
+export const deserializeAws_restJson1_1ListProtectedResourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListProtectedResourcesCommandOutput> {
+): Promise<ListProtectedResourcesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListProtectedResourcesCommandError(
       output,
@@ -5444,12 +5473,12 @@ export async function deserializeAws_restJson1_1ListProtectedResourcesCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListProtectedResourcesCommandError(
+const deserializeAws_restJson1_1ListProtectedResourcesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListProtectedResourcesCommandOutput> {
+): Promise<ListProtectedResourcesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5495,12 +5524,12 @@ async function deserializeAws_restJson1_1ListProtectedResourcesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListRecoveryPointsByBackupVaultCommand(
+export const deserializeAws_restJson1_1ListRecoveryPointsByBackupVaultCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListRecoveryPointsByBackupVaultCommandOutput> {
+): Promise<ListRecoveryPointsByBackupVaultCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListRecoveryPointsByBackupVaultCommandError(
       output,
@@ -5524,12 +5553,12 @@ export async function deserializeAws_restJson1_1ListRecoveryPointsByBackupVaultC
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListRecoveryPointsByBackupVaultCommandError(
+const deserializeAws_restJson1_1ListRecoveryPointsByBackupVaultCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListRecoveryPointsByBackupVaultCommandOutput> {
+): Promise<ListRecoveryPointsByBackupVaultCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5597,12 +5626,12 @@ async function deserializeAws_restJson1_1ListRecoveryPointsByBackupVaultCommandE
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListRecoveryPointsByResourceCommand(
+export const deserializeAws_restJson1_1ListRecoveryPointsByResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListRecoveryPointsByResourceCommandOutput> {
+): Promise<ListRecoveryPointsByResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListRecoveryPointsByResourceCommandError(
       output,
@@ -5626,12 +5655,12 @@ export async function deserializeAws_restJson1_1ListRecoveryPointsByResourceComm
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListRecoveryPointsByResourceCommandError(
+const deserializeAws_restJson1_1ListRecoveryPointsByResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListRecoveryPointsByResourceCommandOutput> {
+): Promise<ListRecoveryPointsByResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5699,12 +5728,12 @@ async function deserializeAws_restJson1_1ListRecoveryPointsByResourceCommandErro
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListRestoreJobsCommand(
+export const deserializeAws_restJson1_1ListRestoreJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListRestoreJobsCommandOutput> {
+): Promise<ListRestoreJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListRestoreJobsCommandError(
       output,
@@ -5728,12 +5757,12 @@ export async function deserializeAws_restJson1_1ListRestoreJobsCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListRestoreJobsCommandError(
+const deserializeAws_restJson1_1ListRestoreJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListRestoreJobsCommandOutput> {
+): Promise<ListRestoreJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5801,12 +5830,12 @@ async function deserializeAws_restJson1_1ListRestoreJobsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListTagsCommand(
+export const deserializeAws_restJson1_1ListTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsCommandOutput> {
+): Promise<ListTagsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListTagsCommandError(output, context);
   }
@@ -5824,12 +5853,12 @@ export async function deserializeAws_restJson1_1ListTagsCommand(
     contents.Tags = deserializeAws_restJson1_1Tags(data.Tags, context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListTagsCommandError(
+const deserializeAws_restJson1_1ListTagsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsCommandOutput> {
+): Promise<ListTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5897,12 +5926,12 @@ async function deserializeAws_restJson1_1ListTagsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1PutBackupVaultAccessPolicyCommand(
+export const deserializeAws_restJson1_1PutBackupVaultAccessPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutBackupVaultAccessPolicyCommandOutput> {
+): Promise<PutBackupVaultAccessPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1PutBackupVaultAccessPolicyCommandError(
       output,
@@ -5914,12 +5943,12 @@ export async function deserializeAws_restJson1_1PutBackupVaultAccessPolicyComman
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1PutBackupVaultAccessPolicyCommandError(
+const deserializeAws_restJson1_1PutBackupVaultAccessPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutBackupVaultAccessPolicyCommandOutput> {
+): Promise<PutBackupVaultAccessPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -5987,12 +6016,12 @@ async function deserializeAws_restJson1_1PutBackupVaultAccessPolicyCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1PutBackupVaultNotificationsCommand(
+export const deserializeAws_restJson1_1PutBackupVaultNotificationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutBackupVaultNotificationsCommandOutput> {
+): Promise<PutBackupVaultNotificationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1PutBackupVaultNotificationsCommandError(
       output,
@@ -6004,12 +6033,12 @@ export async function deserializeAws_restJson1_1PutBackupVaultNotificationsComma
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1PutBackupVaultNotificationsCommandError(
+const deserializeAws_restJson1_1PutBackupVaultNotificationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutBackupVaultNotificationsCommandOutput> {
+): Promise<PutBackupVaultNotificationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6077,12 +6106,12 @@ async function deserializeAws_restJson1_1PutBackupVaultNotificationsCommandError
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1StartBackupJobCommand(
+export const deserializeAws_restJson1_1StartBackupJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartBackupJobCommandOutput> {
+): Promise<StartBackupJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1StartBackupJobCommandError(
       output,
@@ -6107,12 +6136,12 @@ export async function deserializeAws_restJson1_1StartBackupJobCommand(
     contents.RecoveryPointArn = data.RecoveryPointArn;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1StartBackupJobCommandError(
+const deserializeAws_restJson1_1StartBackupJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartBackupJobCommandOutput> {
+): Promise<StartBackupJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6191,12 +6220,12 @@ async function deserializeAws_restJson1_1StartBackupJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1StartCopyJobCommand(
+export const deserializeAws_restJson1_1StartCopyJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartCopyJobCommandOutput> {
+): Promise<StartCopyJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1StartCopyJobCommandError(output, context);
   }
@@ -6214,12 +6243,12 @@ export async function deserializeAws_restJson1_1StartCopyJobCommand(
     contents.CreationDate = new Date(Math.round(data.CreationDate * 1000));
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1StartCopyJobCommandError(
+const deserializeAws_restJson1_1StartCopyJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartCopyJobCommandOutput> {
+): Promise<StartCopyJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6298,12 +6327,12 @@ async function deserializeAws_restJson1_1StartCopyJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1StartRestoreJobCommand(
+export const deserializeAws_restJson1_1StartRestoreJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartRestoreJobCommandOutput> {
+): Promise<StartRestoreJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1StartRestoreJobCommandError(
       output,
@@ -6320,12 +6349,12 @@ export async function deserializeAws_restJson1_1StartRestoreJobCommand(
     contents.RestoreJobId = data.RestoreJobId;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1StartRestoreJobCommandError(
+const deserializeAws_restJson1_1StartRestoreJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartRestoreJobCommandOutput> {
+): Promise<StartRestoreJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6393,12 +6422,12 @@ async function deserializeAws_restJson1_1StartRestoreJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1StopBackupJobCommand(
+export const deserializeAws_restJson1_1StopBackupJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StopBackupJobCommandOutput> {
+): Promise<StopBackupJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1StopBackupJobCommandError(output, context);
   }
@@ -6407,12 +6436,12 @@ export async function deserializeAws_restJson1_1StopBackupJobCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1StopBackupJobCommandError(
+const deserializeAws_restJson1_1StopBackupJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StopBackupJobCommandOutput> {
+): Promise<StopBackupJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6491,12 +6520,12 @@ async function deserializeAws_restJson1_1StopBackupJobCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1TagResourceCommand(
+export const deserializeAws_restJson1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1TagResourceCommandError(output, context);
   }
@@ -6505,12 +6534,12 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1TagResourceCommandError(
+const deserializeAws_restJson1_1TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6589,12 +6618,12 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UntagResourceCommand(
+export const deserializeAws_restJson1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UntagResourceCommandError(output, context);
   }
@@ -6603,12 +6632,12 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UntagResourceCommandError(
+const deserializeAws_restJson1_1UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6676,12 +6705,12 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UpdateBackupPlanCommand(
+export const deserializeAws_restJson1_1UpdateBackupPlanCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateBackupPlanCommandOutput> {
+): Promise<UpdateBackupPlanCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateBackupPlanCommandError(
       output,
@@ -6710,12 +6739,12 @@ export async function deserializeAws_restJson1_1UpdateBackupPlanCommand(
     contents.VersionId = data.VersionId;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UpdateBackupPlanCommandError(
+const deserializeAws_restJson1_1UpdateBackupPlanCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateBackupPlanCommandOutput> {
+): Promise<UpdateBackupPlanCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6783,12 +6812,12 @@ async function deserializeAws_restJson1_1UpdateBackupPlanCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UpdateRecoveryPointLifecycleCommand(
+export const deserializeAws_restJson1_1UpdateRecoveryPointLifecycleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateRecoveryPointLifecycleCommandOutput> {
+): Promise<UpdateRecoveryPointLifecycleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateRecoveryPointLifecycleCommandError(
       output,
@@ -6826,12 +6855,12 @@ export async function deserializeAws_restJson1_1UpdateRecoveryPointLifecycleComm
     contents.RecoveryPointArn = data.RecoveryPointArn;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UpdateRecoveryPointLifecycleCommandError(
+const deserializeAws_restJson1_1UpdateRecoveryPointLifecycleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateRecoveryPointLifecycleCommandOutput> {
+): Promise<UpdateRecoveryPointLifecycleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -6899,7 +6928,7 @@ async function deserializeAws_restJson1_1UpdateRecoveryPointLifecycleCommandErro
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1AlreadyExistsExceptionResponse = async (
   parsedOutput: any,
@@ -7200,14 +7229,12 @@ const serializeAws_restJson1_1BackupRuleInput = (
 };
 
 const serializeAws_restJson1_1BackupRulesInput = (
-  input: Array<BackupRuleInput>,
+  input: BackupRuleInput[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1BackupRuleInput(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1BackupRuleInput(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1BackupSelection = (
@@ -7237,14 +7264,10 @@ const serializeAws_restJson1_1BackupSelection = (
 };
 
 const serializeAws_restJson1_1BackupVaultEvents = (
-  input: Array<BackupVaultEvent | string>,
+  input: (BackupVaultEvent | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1Condition = (
@@ -7282,14 +7305,10 @@ const serializeAws_restJson1_1CopyAction = (
 };
 
 const serializeAws_restJson1_1CopyActions = (
-  input: Array<CopyAction>,
+  input: CopyAction[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1CopyAction(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_restJson1_1CopyAction(entry, context));
 };
 
 const serializeAws_restJson1_1Lifecycle = (
@@ -7307,58 +7326,44 @@ const serializeAws_restJson1_1Lifecycle = (
 };
 
 const serializeAws_restJson1_1ListOfTags = (
-  input: Array<Condition>,
+  input: Condition[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1Condition(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_restJson1_1Condition(entry, context));
 };
 
 const serializeAws_restJson1_1Metadata = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = input[key];
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = input[key];
+    return acc;
+  }, {});
 };
 
 const serializeAws_restJson1_1ResourceArns = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1TagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1Tags = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = input[key];
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = input[key];
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1_1BackupJob = (
@@ -7461,7 +7466,7 @@ const deserializeAws_restJson1_1BackupJob = (
 const deserializeAws_restJson1_1BackupJobsList = (
   output: any,
   context: __SerdeContext
-): Array<BackupJob> => {
+): BackupJob[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1BackupJob(entry, context)
   );
@@ -7491,7 +7496,7 @@ const deserializeAws_restJson1_1BackupPlan = (
 const deserializeAws_restJson1_1BackupPlanTemplatesList = (
   output: any,
   context: __SerdeContext
-): Array<BackupPlanTemplatesListMember> => {
+): BackupPlanTemplatesListMember[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1BackupPlanTemplatesListMember(entry, context)
   );
@@ -7524,7 +7529,7 @@ const deserializeAws_restJson1_1BackupPlanTemplatesListMember = (
 const deserializeAws_restJson1_1BackupPlanVersionsList = (
   output: any,
   context: __SerdeContext
-): Array<BackupPlansListMember> => {
+): BackupPlansListMember[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1BackupPlansListMember(entry, context)
   );
@@ -7533,7 +7538,7 @@ const deserializeAws_restJson1_1BackupPlanVersionsList = (
 const deserializeAws_restJson1_1BackupPlansList = (
   output: any,
   context: __SerdeContext
-): Array<BackupPlansListMember> => {
+): BackupPlansListMember[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1BackupPlansListMember(entry, context)
   );
@@ -7662,7 +7667,7 @@ const deserializeAws_restJson1_1BackupRule = (
 const deserializeAws_restJson1_1BackupRules = (
   output: any,
   context: __SerdeContext
-): Array<BackupRule> => {
+): BackupRule[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1BackupRule(entry, context)
   );
@@ -7703,7 +7708,7 @@ const deserializeAws_restJson1_1BackupSelection = (
 const deserializeAws_restJson1_1BackupSelectionsList = (
   output: any,
   context: __SerdeContext
-): Array<BackupSelectionsListMember> => {
+): BackupSelectionsListMember[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1BackupSelectionsListMember(entry, context)
   );
@@ -7749,14 +7754,14 @@ const deserializeAws_restJson1_1BackupSelectionsListMember = (
 const deserializeAws_restJson1_1BackupVaultEvents = (
   output: any,
   context: __SerdeContext
-): Array<BackupVaultEvent | string> => {
+): (BackupVaultEvent | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1BackupVaultList = (
   output: any,
   context: __SerdeContext
-): Array<BackupVaultListMember> => {
+): BackupVaultListMember[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1BackupVaultListMember(entry, context)
   );
@@ -7877,7 +7882,7 @@ const deserializeAws_restJson1_1CopyAction = (
 const deserializeAws_restJson1_1CopyActions = (
   output: any,
   context: __SerdeContext
-): Array<CopyAction> => {
+): CopyAction[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1CopyAction(entry, context)
   );
@@ -7972,7 +7977,7 @@ const deserializeAws_restJson1_1CopyJob = (
 const deserializeAws_restJson1_1CopyJobsList = (
   output: any,
   context: __SerdeContext
-): Array<CopyJob> => {
+): CopyJob[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1CopyJob(entry, context)
   );
@@ -8002,7 +8007,7 @@ const deserializeAws_restJson1_1Lifecycle = (
 const deserializeAws_restJson1_1ListOfTags = (
   output: any,
   context: __SerdeContext
-): Array<Condition> => {
+): Condition[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Condition(entry, context)
   );
@@ -8012,11 +8017,10 @@ const deserializeAws_restJson1_1Metadata = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = output[key];
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1_1ProtectedResource = (
@@ -8046,7 +8050,7 @@ const deserializeAws_restJson1_1ProtectedResource = (
 const deserializeAws_restJson1_1ProtectedResourcesList = (
   output: any,
   context: __SerdeContext
-): Array<ProtectedResource> => {
+): ProtectedResource[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ProtectedResource(entry, context)
   );
@@ -8154,7 +8158,7 @@ const deserializeAws_restJson1_1RecoveryPointByBackupVault = (
 const deserializeAws_restJson1_1RecoveryPointByBackupVaultList = (
   output: any,
   context: __SerdeContext
-): Array<RecoveryPointByBackupVault> => {
+): RecoveryPointByBackupVault[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1RecoveryPointByBackupVault(entry, context)
   );
@@ -8203,7 +8207,7 @@ const deserializeAws_restJson1_1RecoveryPointByResource = (
 const deserializeAws_restJson1_1RecoveryPointByResourceList = (
   output: any,
   context: __SerdeContext
-): Array<RecoveryPointByResource> => {
+): RecoveryPointByResource[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1RecoveryPointByResource(entry, context)
   );
@@ -8241,21 +8245,21 @@ const deserializeAws_restJson1_1RecoveryPointCreator = (
 const deserializeAws_restJson1_1ResourceArns = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1ResourceTypes = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1RestoreJobsList = (
   output: any,
   context: __SerdeContext
-): Array<RestoreJobsListMember> => {
+): RestoreJobsListMember[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1RestoreJobsListMember(entry, context)
   );
@@ -8334,11 +8338,10 @@ const deserializeAws_restJson1_1Tags = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = output[key];
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = output[key];
+    return acc;
+  }, {});
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -8349,7 +8352,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -8364,30 +8367,23 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
-function isSerializableHeaderValue(value: any): boolean {
-  return (
-    value !== undefined &&
-    value !== "" &&
-    (!Object.getOwnPropertyNames(value).includes("length") ||
-      value.length != 0) &&
-    (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0)
-  );
-}
+const isSerializableHeaderValue = (value: any): boolean =>
+  value !== undefined &&
+  value !== "" &&
+  (!Object.getOwnPropertyNames(value).includes("length") ||
+    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};
 
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.

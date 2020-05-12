@@ -121,12 +121,12 @@ export interface AutoScalingGroupRecommendation {
    * <p>An array of objects that describe the recommendation options for the Auto Scaling
    *             group.</p>
    */
-  recommendationOptions?: Array<AutoScalingGroupRecommendationOption>;
+  recommendationOptions?: AutoScalingGroupRecommendationOption[];
 
   /**
    * <p>An array of objects that describe the utilization metrics of the Auto Scaling group.</p>
    */
-  utilizationMetrics?: Array<UtilizationMetric>;
+  utilizationMetrics?: UtilizationMetric[];
 }
 
 export namespace AutoScalingGroupRecommendation {
@@ -157,7 +157,7 @@ export interface AutoScalingGroupRecommendationOption {
    * <p>An array of objects that describe the projected utilization metrics of the Auto Scaling group
    *             recommendation option.</p>
    */
-  projectedUtilizationMetrics?: Array<UtilizationMetric>;
+  projectedUtilizationMetrics?: UtilizationMetric[];
 
   /**
    * <p>The rank of the Auto Scaling group recommendation option.</p>
@@ -198,7 +198,7 @@ export interface Filter {
    *                 <code>RecommendationSourceType</code>, then the valid values are
    *                 <code>EC2Instance</code>, or <code>AutoScalingGroup</code>.</p>
    */
-  values?: Array<string>;
+  values?: string[];
 }
 
 export namespace Filter {
@@ -223,19 +223,19 @@ export interface GetAutoScalingGroupRecommendationsRequest {
    * <p>The AWS account IDs for which to return Auto Scaling group recommendations.</p>
    *         <p>Only one account ID can be specified per request.</p>
    */
-  accountIds?: Array<string>;
+  accountIds?: string[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Auto Scaling groups for which to return
    *             recommendations.</p>
    */
-  autoScalingGroupArns?: Array<string>;
+  autoScalingGroupArns?: string[];
 
   /**
    * <p>An array of objects that describe a filter that returns a more specific list of Auto Scaling
    *             group recommendations.</p>
    */
-  filters?: Array<Filter>;
+  filters?: Filter[];
 
   /**
    * <p>The maximum number of Auto Scaling group recommendations to return with a single call.</p>
@@ -260,14 +260,14 @@ export interface GetAutoScalingGroupRecommendationsResponse {
   /**
    * <p>An array of objects that describe Auto Scaling group recommendations.</p>
    */
-  autoScalingGroupRecommendations?: Array<AutoScalingGroupRecommendation>;
+  autoScalingGroupRecommendations?: AutoScalingGroupRecommendation[];
 
   /**
    * <p>An array of objects that describe errors of the request.</p>
    *         <p>For example, an error is returned if you request recommendations for an unsupported
    *             Auto Scaling group.</p>
    */
-  errors?: Array<GetRecommendationError>;
+  errors?: GetRecommendationError[];
 
   /**
    * <p>The token to use to advance to the next page of Auto Scaling group recommendations.</p>
@@ -290,19 +290,19 @@ export interface GetEC2InstanceRecommendationsRequest {
    * <p>The AWS account IDs for which to return instance recommendations.</p>
    *         <p>Only one account ID can be specified per request.</p>
    */
-  accountIds?: Array<string>;
+  accountIds?: string[];
 
   /**
    * <p>An array of objects that describe a filter that returns a more specific list of
    *             instance recommendations.</p>
    */
-  filters?: Array<Filter>;
+  filters?: Filter[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the instances for which to return
    *             recommendations.</p>
    */
-  instanceArns?: Array<string>;
+  instanceArns?: string[];
 
   /**
    * <p>The maximum number of instance recommendations to return with a single call.</p>
@@ -329,12 +329,12 @@ export interface GetEC2InstanceRecommendationsResponse {
    *         <p>For example, an error is returned if you request recommendations for an instance of an
    *             unsupported instance family.</p>
    */
-  errors?: Array<GetRecommendationError>;
+  errors?: GetRecommendationError[];
 
   /**
    * <p>An array of objects that describe instance recommendations.</p>
    */
-  instanceRecommendations?: Array<InstanceRecommendation>;
+  instanceRecommendations?: InstanceRecommendation[];
 
   /**
    * <p>The token to use to advance to the next page of instance recommendations.</p>
@@ -390,7 +390,7 @@ export interface GetEC2RecommendationProjectedMetricsResponse {
   /**
    * <p>An array of objects that describe a projected metrics.</p>
    */
-  recommendedOptionProjectedMetrics?: Array<RecommendedOptionProjectedMetric>;
+  recommendedOptionProjectedMetrics?: RecommendedOptionProjectedMetric[];
 }
 
 export namespace GetEC2RecommendationProjectedMetricsResponse {
@@ -470,7 +470,7 @@ export interface GetRecommendationSummariesRequest {
    * <p>The AWS account IDs for which to return recommendation summaries.</p>
    *         <p>Only one account ID can be specified per request.</p>
    */
-  accountIds?: Array<string>;
+  accountIds?: string[];
 
   /**
    * <p>The maximum number of recommendation summaries to return with a single call.</p>
@@ -502,7 +502,7 @@ export interface GetRecommendationSummariesResponse {
   /**
    * <p>An array of objects that summarize a recommendation.</p>
    */
-  recommendationSummaries?: Array<RecommendationSummary>;
+  recommendationSummaries?: RecommendationSummary[];
 }
 
 export namespace GetRecommendationSummariesResponse {
@@ -593,17 +593,17 @@ export interface InstanceRecommendation {
   /**
    * <p>An array of objects that describe the recommendation options for the instance.</p>
    */
-  recommendationOptions?: Array<InstanceRecommendationOption>;
+  recommendationOptions?: InstanceRecommendationOption[];
 
   /**
    * <p>An array of objects that describe the source resource of the recommendation.</p>
    */
-  recommendationSources?: Array<RecommendationSource>;
+  recommendationSources?: RecommendationSource[];
 
   /**
    * <p>An array of objects that describe the utilization metrics of the instance.</p>
    */
-  utilizationMetrics?: Array<UtilizationMetric>;
+  utilizationMetrics?: UtilizationMetric[];
 }
 
 export namespace InstanceRecommendation {
@@ -634,7 +634,7 @@ export interface InstanceRecommendationOption {
    * <p>An array of objects that describe the projected utilization metrics of the instance
    *             recommendation option.</p>
    */
-  projectedUtilizationMetrics?: Array<UtilizationMetric>;
+  projectedUtilizationMetrics?: UtilizationMetric[];
 
   /**
    * <p>The rank of the instance recommendation option.</p>
@@ -742,12 +742,12 @@ export interface ProjectedMetric {
   /**
    * <p>The time stamps of the projected utilization metric.</p>
    */
-  timestamps?: Array<Date>;
+  timestamps?: Date[];
 
   /**
    * <p>The values of the projected utilization metrics.</p>
    */
-  values?: Array<number>;
+  values?: number[];
 }
 
 export namespace ProjectedMetric {
@@ -800,7 +800,7 @@ export interface RecommendationSummary {
   /**
    * <p>An array of objects that describe a recommendation summary.</p>
    */
-  summaries?: Array<Summary>;
+  summaries?: Summary[];
 }
 
 export namespace RecommendationSummary {
@@ -816,7 +816,7 @@ export interface RecommendedOptionProjectedMetric {
   /**
    * <p>An array of objects that describe a projected utilization metric.</p>
    */
-  projectedMetrics?: Array<ProjectedMetric>;
+  projectedMetrics?: ProjectedMetric[];
 
   /**
    * <p>The rank of the recommendation option projected metric.</p>

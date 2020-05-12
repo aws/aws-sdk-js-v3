@@ -74,117 +74,122 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_json1_1DescribeReportCreationCommand(
+export const serializeAws_json1_1DescribeReportCreationCommand = async (
   input: DescribeReportCreationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "ResourceGroupsTaggingAPI_20170126.DescribeReportCreation";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ResourceGroupsTaggingAPI_20170126.DescribeReportCreation"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1DescribeReportCreationInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetComplianceSummaryCommand(
+export const serializeAws_json1_1GetComplianceSummaryCommand = async (
   input: GetComplianceSummaryCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "ResourceGroupsTaggingAPI_20170126.GetComplianceSummary";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ResourceGroupsTaggingAPI_20170126.GetComplianceSummary"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1GetComplianceSummaryInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetResourcesCommand(
+export const serializeAws_json1_1GetResourcesCommand = async (
   input: GetResourcesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "ResourceGroupsTaggingAPI_20170126.GetResources";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ResourceGroupsTaggingAPI_20170126.GetResources"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetResourcesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetTagKeysCommand(
+export const serializeAws_json1_1GetTagKeysCommand = async (
   input: GetTagKeysCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "ResourceGroupsTaggingAPI_20170126.GetTagKeys";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ResourceGroupsTaggingAPI_20170126.GetTagKeys"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetTagKeysInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1GetTagValuesCommand(
+export const serializeAws_json1_1GetTagValuesCommand = async (
   input: GetTagValuesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "ResourceGroupsTaggingAPI_20170126.GetTagValues";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ResourceGroupsTaggingAPI_20170126.GetTagValues"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetTagValuesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1StartReportCreationCommand(
+export const serializeAws_json1_1StartReportCreationCommand = async (
   input: StartReportCreationCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "ResourceGroupsTaggingAPI_20170126.StartReportCreation";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ResourceGroupsTaggingAPI_20170126.StartReportCreation"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1StartReportCreationInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1TagResourcesCommand(
+export const serializeAws_json1_1TagResourcesCommand = async (
   input: TagResourcesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "ResourceGroupsTaggingAPI_20170126.TagResources";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ResourceGroupsTaggingAPI_20170126.TagResources"
+  };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourcesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function serializeAws_json1_1UntagResourcesCommand(
+export const serializeAws_json1_1UntagResourcesCommand = async (
   input: UntagResourcesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: __HeaderBag = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "ResourceGroupsTaggingAPI_20170126.UntagResources";
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ResourceGroupsTaggingAPI_20170126.UntagResources"
+  };
   let body: any;
   body = JSON.stringify(
     serializeAws_json1_1UntagResourcesInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
-}
+};
 
-export async function deserializeAws_json1_1DescribeReportCreationCommand(
+export const deserializeAws_json1_1DescribeReportCreationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeReportCreationCommandOutput> {
+): Promise<DescribeReportCreationCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeReportCreationCommandError(
       output,
@@ -200,12 +205,12 @@ export async function deserializeAws_json1_1DescribeReportCreationCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1DescribeReportCreationCommandError(
+const deserializeAws_json1_1DescribeReportCreationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeReportCreationCommandOutput> {
+): Promise<DescribeReportCreationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -275,12 +280,12 @@ async function deserializeAws_json1_1DescribeReportCreationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetComplianceSummaryCommand(
+export const deserializeAws_json1_1GetComplianceSummaryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetComplianceSummaryCommandOutput> {
+): Promise<GetComplianceSummaryCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetComplianceSummaryCommandError(
       output,
@@ -296,12 +301,12 @@ export async function deserializeAws_json1_1GetComplianceSummaryCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetComplianceSummaryCommandError(
+const deserializeAws_json1_1GetComplianceSummaryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetComplianceSummaryCommandOutput> {
+): Promise<GetComplianceSummaryCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -371,12 +376,12 @@ async function deserializeAws_json1_1GetComplianceSummaryCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetResourcesCommand(
+export const deserializeAws_json1_1GetResourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetResourcesCommandOutput> {
+): Promise<GetResourcesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetResourcesCommandError(output, context);
   }
@@ -389,12 +394,12 @@ export async function deserializeAws_json1_1GetResourcesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetResourcesCommandError(
+const deserializeAws_json1_1GetResourcesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetResourcesCommandOutput> {
+): Promise<GetResourcesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -464,12 +469,12 @@ async function deserializeAws_json1_1GetResourcesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetTagKeysCommand(
+export const deserializeAws_json1_1GetTagKeysCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetTagKeysCommandOutput> {
+): Promise<GetTagKeysCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetTagKeysCommandError(output, context);
   }
@@ -482,12 +487,12 @@ export async function deserializeAws_json1_1GetTagKeysCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetTagKeysCommandError(
+const deserializeAws_json1_1GetTagKeysCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetTagKeysCommandOutput> {
+): Promise<GetTagKeysCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -557,12 +562,12 @@ async function deserializeAws_json1_1GetTagKeysCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1GetTagValuesCommand(
+export const deserializeAws_json1_1GetTagValuesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetTagValuesCommandOutput> {
+): Promise<GetTagValuesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetTagValuesCommandError(output, context);
   }
@@ -575,12 +580,12 @@ export async function deserializeAws_json1_1GetTagValuesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1GetTagValuesCommandError(
+const deserializeAws_json1_1GetTagValuesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetTagValuesCommandOutput> {
+): Promise<GetTagValuesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -650,12 +655,12 @@ async function deserializeAws_json1_1GetTagValuesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1StartReportCreationCommand(
+export const deserializeAws_json1_1StartReportCreationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartReportCreationCommandOutput> {
+): Promise<StartReportCreationCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StartReportCreationCommandError(
       output,
@@ -671,12 +676,12 @@ export async function deserializeAws_json1_1StartReportCreationCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1StartReportCreationCommandError(
+const deserializeAws_json1_1StartReportCreationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartReportCreationCommandOutput> {
+): Promise<StartReportCreationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -757,12 +762,12 @@ async function deserializeAws_json1_1StartReportCreationCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1TagResourcesCommand(
+export const deserializeAws_json1_1TagResourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourcesCommandOutput> {
+): Promise<TagResourcesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1TagResourcesCommandError(output, context);
   }
@@ -775,12 +780,12 @@ export async function deserializeAws_json1_1TagResourcesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1TagResourcesCommandError(
+const deserializeAws_json1_1TagResourcesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourcesCommandOutput> {
+): Promise<TagResourcesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -839,12 +844,12 @@ async function deserializeAws_json1_1TagResourcesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_json1_1UntagResourcesCommand(
+export const deserializeAws_json1_1UntagResourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourcesCommandOutput> {
+): Promise<UntagResourcesCommandOutput> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UntagResourcesCommandError(output, context);
   }
@@ -857,12 +862,12 @@ export async function deserializeAws_json1_1UntagResourcesCommand(
     ...contents
   };
   return Promise.resolve(response);
-}
+};
 
-async function deserializeAws_json1_1UntagResourcesCommandError(
+const deserializeAws_json1_1UntagResourcesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourcesCommandOutput> {
+): Promise<UntagResourcesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -921,7 +926,7 @@ async function deserializeAws_json1_1UntagResourcesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
   parsedOutput: any,
@@ -1151,47 +1156,31 @@ const serializeAws_json1_1GetTagValuesInput = (
 };
 
 const serializeAws_json1_1GroupBy = (
-  input: Array<GroupByAttribute | string>,
+  input: (GroupByAttribute | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1RegionFilterList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1ResourceARNList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1ResourceTypeFilterList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1StartReportCreationInput = (
@@ -1223,47 +1212,34 @@ const serializeAws_json1_1TagFilter = (
 };
 
 const serializeAws_json1_1TagFilterList = (
-  input: Array<TagFilter>,
+  input: TagFilter[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1TagFilter(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1TagFilter(entry, context));
 };
 
 const serializeAws_json1_1TagKeyFilterList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1TagKeyListForUntag = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1TagMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  const mapParams: any = {};
-  Object.keys(input).forEach(key => {
-    mapParams[key] = input[key];
-  });
-  return mapParams;
+  return Object.keys(input).reduce((acc: any, key: string) => {
+    acc[key] = input[key];
+    return acc;
+  }, {});
 };
 
 const serializeAws_json1_1TagResourcesInput = (
@@ -1284,25 +1260,17 @@ const serializeAws_json1_1TagResourcesInput = (
 };
 
 const serializeAws_json1_1TagValueList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1TargetIdFilterList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1UntagResourcesInput = (
@@ -1420,11 +1388,10 @@ const deserializeAws_json1_1FailedResourcesMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: FailureInfo } => {
-  const mapParams: any = {};
-  Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_json1_1FailureInfo(output[key], context);
-  });
-  return mapParams;
+  return Object.keys(output).reduce((acc: any, key: string) => {
+    acc[key] = deserializeAws_json1_1FailureInfo(output[key], context);
+    return acc;
+  }, {});
 };
 
 const deserializeAws_json1_1FailureInfo = (
@@ -1609,7 +1576,7 @@ const deserializeAws_json1_1ResourceTagMapping = (
 const deserializeAws_json1_1ResourceTagMappingList = (
   output: any,
   context: __SerdeContext
-): Array<ResourceTagMapping> => {
+): ResourceTagMapping[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ResourceTagMapping(entry, context)
   );
@@ -1665,7 +1632,7 @@ const deserializeAws_json1_1Summary = (
 const deserializeAws_json1_1SummaryList = (
   output: any,
   context: __SerdeContext
-): Array<Summary> => {
+): Summary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Summary(entry, context)
   );
@@ -1692,14 +1659,14 @@ const deserializeAws_json1_1Tag = (
 const deserializeAws_json1_1TagKeyList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );
@@ -1728,7 +1695,7 @@ const deserializeAws_json1_1TagResourcesOutput = (
 const deserializeAws_json1_1TagValuesOutputList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -1774,7 +1741,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -1789,11 +1756,8 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
@@ -1820,11 +1784,10 @@ const buildHttpRpcRequest = async (
   return new __HttpRequest(contents);
 };
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};

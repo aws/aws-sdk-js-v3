@@ -146,12 +146,13 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export async function serializeAws_restJson1_1AssociateCustomerGatewayCommand(
+export const serializeAws_restJson1_1AssociateCustomerGatewayCommand = async (
   input: AssociateCustomerGatewayCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath =
     "/global-networks/{GlobalNetworkId}/customer-gateway-associations";
   if (input.GlobalNetworkId !== undefined) {
@@ -190,14 +191,15 @@ export async function serializeAws_restJson1_1AssociateCustomerGatewayCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1AssociateLinkCommand(
+export const serializeAws_restJson1_1AssociateLinkCommand = async (
   input: AssociateLinkCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/global-networks/{GlobalNetworkId}/link-associations";
   if (input.GlobalNetworkId !== undefined) {
     const labelValue: string = input.GlobalNetworkId;
@@ -232,14 +234,15 @@ export async function serializeAws_restJson1_1AssociateLinkCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1CreateDeviceCommand(
+export const serializeAws_restJson1_1CreateDeviceCommand = async (
   input: CreateDeviceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/global-networks/{GlobalNetworkId}/devices";
   if (input.GlobalNetworkId !== undefined) {
     const labelValue: string = input.GlobalNetworkId;
@@ -295,14 +298,15 @@ export async function serializeAws_restJson1_1CreateDeviceCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1CreateGlobalNetworkCommand(
+export const serializeAws_restJson1_1CreateGlobalNetworkCommand = async (
   input: CreateGlobalNetworkCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/global-networks";
   let body: any;
   const bodyParams: any = {};
@@ -323,14 +327,15 @@ export async function serializeAws_restJson1_1CreateGlobalNetworkCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1CreateLinkCommand(
+export const serializeAws_restJson1_1CreateLinkCommand = async (
   input: CreateLinkCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/global-networks/{GlobalNetworkId}/links";
   if (input.GlobalNetworkId !== undefined) {
     const labelValue: string = input.GlobalNetworkId;
@@ -380,14 +385,15 @@ export async function serializeAws_restJson1_1CreateLinkCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1CreateSiteCommand(
+export const serializeAws_restJson1_1CreateSiteCommand = async (
   input: CreateSiteCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/global-networks/{GlobalNetworkId}/sites";
   if (input.GlobalNetworkId !== undefined) {
     const labelValue: string = input.GlobalNetworkId;
@@ -428,14 +434,15 @@ export async function serializeAws_restJson1_1CreateSiteCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeleteDeviceCommand(
+export const serializeAws_restJson1_1DeleteDeviceCommand = async (
   input: DeleteDeviceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/global-networks/{GlobalNetworkId}/devices/{DeviceId}";
   if (input.DeviceId !== undefined) {
     const labelValue: string = input.DeviceId;
@@ -474,14 +481,15 @@ export async function serializeAws_restJson1_1DeleteDeviceCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeleteGlobalNetworkCommand(
+export const serializeAws_restJson1_1DeleteGlobalNetworkCommand = async (
   input: DeleteGlobalNetworkCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/global-networks/{GlobalNetworkId}";
   if (input.GlobalNetworkId !== undefined) {
     const labelValue: string = input.GlobalNetworkId;
@@ -508,14 +516,15 @@ export async function serializeAws_restJson1_1DeleteGlobalNetworkCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeleteLinkCommand(
+export const serializeAws_restJson1_1DeleteLinkCommand = async (
   input: DeleteLinkCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/global-networks/{GlobalNetworkId}/links/{LinkId}";
   if (input.GlobalNetworkId !== undefined) {
     const labelValue: string = input.GlobalNetworkId;
@@ -554,14 +563,15 @@ export async function serializeAws_restJson1_1DeleteLinkCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeleteSiteCommand(
+export const serializeAws_restJson1_1DeleteSiteCommand = async (
   input: DeleteSiteCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/global-networks/{GlobalNetworkId}/sites/{SiteId}";
   if (input.GlobalNetworkId !== undefined) {
     const labelValue: string = input.GlobalNetworkId;
@@ -600,14 +610,15 @@ export async function serializeAws_restJson1_1DeleteSiteCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DeregisterTransitGatewayCommand(
+export const serializeAws_restJson1_1DeregisterTransitGatewayCommand = async (
   input: DeregisterTransitGatewayCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/global-networks/{GlobalNetworkId}/transit-gateway-registrations/{TransitGatewayArn}";
   if (input.GlobalNetworkId !== undefined) {
@@ -651,27 +662,25 @@ export async function serializeAws_restJson1_1DeregisterTransitGatewayCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DescribeGlobalNetworksCommand(
+export const serializeAws_restJson1_1DescribeGlobalNetworksCommand = async (
   input: DescribeGlobalNetworksCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/global-networks";
-  const query: any = {};
-  if (input.GlobalNetworkIds !== undefined) {
-    query["globalNetworkIds"] = (input.GlobalNetworkIds || []).map(
-      _entry => _entry
-    );
-  }
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.GlobalNetworkIds !== undefined && {
+      globalNetworkIds: (input.GlobalNetworkIds || []).map(_entry => _entry)
+    }),
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -684,14 +693,15 @@ export async function serializeAws_restJson1_1DescribeGlobalNetworksCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DisassociateCustomerGatewayCommand(
+export const serializeAws_restJson1_1DisassociateCustomerGatewayCommand = async (
   input: DisassociateCustomerGatewayCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/global-networks/{GlobalNetworkId}/customer-gateway-associations/{CustomerGatewayArn}";
   if (input.CustomerGatewayArn !== undefined) {
@@ -735,14 +745,15 @@ export async function serializeAws_restJson1_1DisassociateCustomerGatewayCommand
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1DisassociateLinkCommand(
+export const serializeAws_restJson1_1DisassociateLinkCommand = async (
   input: DisassociateLinkCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/global-networks/{GlobalNetworkId}/link-associations";
   if (input.GlobalNetworkId !== undefined) {
     const labelValue: string = input.GlobalNetworkId;
@@ -758,13 +769,10 @@ export async function serializeAws_restJson1_1DisassociateLinkCommand(
   } else {
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
   }
-  const query: any = {};
-  if (input.DeviceId !== undefined) {
-    query["deviceId"] = input.DeviceId;
-  }
-  if (input.LinkId !== undefined) {
-    query["linkId"] = input.LinkId;
-  }
+  const query: any = {
+    ...(input.DeviceId !== undefined && { deviceId: input.DeviceId }),
+    ...(input.LinkId !== undefined && { linkId: input.LinkId })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -777,14 +785,15 @@ export async function serializeAws_restJson1_1DisassociateLinkCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetCustomerGatewayAssociationsCommand(
+export const serializeAws_restJson1_1GetCustomerGatewayAssociationsCommand = async (
   input: GetCustomerGatewayAssociationsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/global-networks/{GlobalNetworkId}/customer-gateway-associations";
   if (input.GlobalNetworkId !== undefined) {
@@ -801,18 +810,17 @@ export async function serializeAws_restJson1_1GetCustomerGatewayAssociationsComm
   } else {
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
   }
-  const query: any = {};
-  if (input.CustomerGatewayArns !== undefined) {
-    query["customerGatewayArns"] = (input.CustomerGatewayArns || []).map(
-      _entry => _entry
-    );
-  }
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.CustomerGatewayArns !== undefined && {
+      customerGatewayArns: (input.CustomerGatewayArns || []).map(
+        _entry => _entry
+      )
+    }),
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -825,14 +833,15 @@ export async function serializeAws_restJson1_1GetCustomerGatewayAssociationsComm
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetDevicesCommand(
+export const serializeAws_restJson1_1GetDevicesCommand = async (
   input: GetDevicesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/global-networks/{GlobalNetworkId}/devices";
   if (input.GlobalNetworkId !== undefined) {
     const labelValue: string = input.GlobalNetworkId;
@@ -848,19 +857,16 @@ export async function serializeAws_restJson1_1GetDevicesCommand(
   } else {
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
   }
-  const query: any = {};
-  if (input.DeviceIds !== undefined) {
-    query["deviceIds"] = (input.DeviceIds || []).map(_entry => _entry);
-  }
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
-  if (input.SiteId !== undefined) {
-    query["siteId"] = input.SiteId;
-  }
+  const query: any = {
+    ...(input.DeviceIds !== undefined && {
+      deviceIds: (input.DeviceIds || []).map(_entry => _entry)
+    }),
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.SiteId !== undefined && { siteId: input.SiteId })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -873,14 +879,15 @@ export async function serializeAws_restJson1_1GetDevicesCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetLinkAssociationsCommand(
+export const serializeAws_restJson1_1GetLinkAssociationsCommand = async (
   input: GetLinkAssociationsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/global-networks/{GlobalNetworkId}/link-associations";
   if (input.GlobalNetworkId !== undefined) {
     const labelValue: string = input.GlobalNetworkId;
@@ -896,19 +903,14 @@ export async function serializeAws_restJson1_1GetLinkAssociationsCommand(
   } else {
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
   }
-  const query: any = {};
-  if (input.DeviceId !== undefined) {
-    query["deviceId"] = input.DeviceId;
-  }
-  if (input.LinkId !== undefined) {
-    query["linkId"] = input.LinkId;
-  }
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
+  const query: any = {
+    ...(input.DeviceId !== undefined && { deviceId: input.DeviceId }),
+    ...(input.LinkId !== undefined && { linkId: input.LinkId }),
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -921,14 +923,15 @@ export async function serializeAws_restJson1_1GetLinkAssociationsCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetLinksCommand(
+export const serializeAws_restJson1_1GetLinksCommand = async (
   input: GetLinksCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/global-networks/{GlobalNetworkId}/links";
   if (input.GlobalNetworkId !== undefined) {
     const labelValue: string = input.GlobalNetworkId;
@@ -944,25 +947,18 @@ export async function serializeAws_restJson1_1GetLinksCommand(
   } else {
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
   }
-  const query: any = {};
-  if (input.LinkIds !== undefined) {
-    query["linkIds"] = (input.LinkIds || []).map(_entry => _entry);
-  }
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
-  if (input.Provider !== undefined) {
-    query["provider"] = input.Provider;
-  }
-  if (input.SiteId !== undefined) {
-    query["siteId"] = input.SiteId;
-  }
-  if (input.Type !== undefined) {
-    query["type"] = input.Type;
-  }
+  const query: any = {
+    ...(input.LinkIds !== undefined && {
+      linkIds: (input.LinkIds || []).map(_entry => _entry)
+    }),
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.Provider !== undefined && { provider: input.Provider }),
+    ...(input.SiteId !== undefined && { siteId: input.SiteId }),
+    ...(input.Type !== undefined && { type: input.Type })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -975,14 +971,15 @@ export async function serializeAws_restJson1_1GetLinksCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetSitesCommand(
+export const serializeAws_restJson1_1GetSitesCommand = async (
   input: GetSitesCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/global-networks/{GlobalNetworkId}/sites";
   if (input.GlobalNetworkId !== undefined) {
     const labelValue: string = input.GlobalNetworkId;
@@ -998,16 +995,15 @@ export async function serializeAws_restJson1_1GetSitesCommand(
   } else {
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
   }
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
-  if (input.SiteIds !== undefined) {
-    query["siteIds"] = (input.SiteIds || []).map(_entry => _entry);
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.SiteIds !== undefined && {
+      siteIds: (input.SiteIds || []).map(_entry => _entry)
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1020,14 +1016,15 @@ export async function serializeAws_restJson1_1GetSitesCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1GetTransitGatewayRegistrationsCommand(
+export const serializeAws_restJson1_1GetTransitGatewayRegistrationsCommand = async (
   input: GetTransitGatewayRegistrationsCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath =
     "/global-networks/{GlobalNetworkId}/transit-gateway-registrations";
   if (input.GlobalNetworkId !== undefined) {
@@ -1044,18 +1041,15 @@ export async function serializeAws_restJson1_1GetTransitGatewayRegistrationsComm
   } else {
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
   }
-  const query: any = {};
-  if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
-  }
-  if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken;
-  }
-  if (input.TransitGatewayArns !== undefined) {
-    query["transitGatewayArns"] = (input.TransitGatewayArns || []).map(
-      _entry => _entry
-    );
-  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && {
+      maxResults: input.MaxResults.toString()
+    }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.TransitGatewayArns !== undefined && {
+      transitGatewayArns: (input.TransitGatewayArns || []).map(_entry => _entry)
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1068,14 +1062,15 @@ export async function serializeAws_restJson1_1GetTransitGatewayRegistrationsComm
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1ListTagsForResourceCommand(
+export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -1102,14 +1097,15 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1RegisterTransitGatewayCommand(
+export const serializeAws_restJson1_1RegisterTransitGatewayCommand = async (
   input: RegisterTransitGatewayCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath =
     "/global-networks/{GlobalNetworkId}/transit-gateway-registrations";
   if (input.GlobalNetworkId !== undefined) {
@@ -1142,14 +1138,15 @@ export async function serializeAws_restJson1_1RegisterTransitGatewayCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1TagResourceCommand(
+export const serializeAws_restJson1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -1181,14 +1178,15 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UntagResourceCommand(
+export const serializeAws_restJson1_1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": ""
+  };
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -1204,10 +1202,11 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
-  const query: any = {};
-  if (input.TagKeys !== undefined) {
-    query["tagKeys"] = (input.TagKeys || []).map(_entry => _entry);
-  }
+  const query: any = {
+    ...(input.TagKeys !== undefined && {
+      tagKeys: (input.TagKeys || []).map(_entry => _entry)
+    })
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1220,14 +1219,15 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     query,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UpdateDeviceCommand(
+export const serializeAws_restJson1_1UpdateDeviceCommand = async (
   input: UpdateDeviceCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/global-networks/{GlobalNetworkId}/devices/{DeviceId}";
   if (input.DeviceId !== undefined) {
     const labelValue: string = input.DeviceId;
@@ -1292,14 +1292,15 @@ export async function serializeAws_restJson1_1UpdateDeviceCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UpdateGlobalNetworkCommand(
+export const serializeAws_restJson1_1UpdateGlobalNetworkCommand = async (
   input: UpdateGlobalNetworkCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/global-networks/{GlobalNetworkId}";
   if (input.GlobalNetworkId !== undefined) {
     const labelValue: string = input.GlobalNetworkId;
@@ -1331,14 +1332,15 @@ export async function serializeAws_restJson1_1UpdateGlobalNetworkCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UpdateLinkCommand(
+export const serializeAws_restJson1_1UpdateLinkCommand = async (
   input: UpdateLinkCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/global-networks/{GlobalNetworkId}/links/{LinkId}";
   if (input.GlobalNetworkId !== undefined) {
     const labelValue: string = input.GlobalNetworkId;
@@ -1394,14 +1396,15 @@ export async function serializeAws_restJson1_1UpdateLinkCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function serializeAws_restJson1_1UpdateSiteCommand(
+export const serializeAws_restJson1_1UpdateSiteCommand = async (
   input: UpdateSiteCommandInput,
   context: __SerdeContext
-): Promise<__HttpRequest> {
-  const headers: any = {};
-  headers["Content-Type"] = "application/json";
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json"
+  };
   let resolvedPath = "/global-networks/{GlobalNetworkId}/sites/{SiteId}";
   if (input.GlobalNetworkId !== undefined) {
     const labelValue: string = input.GlobalNetworkId;
@@ -1451,12 +1454,12 @@ export async function serializeAws_restJson1_1UpdateSiteCommand(
     path: resolvedPath,
     body
   });
-}
+};
 
-export async function deserializeAws_restJson1_1AssociateCustomerGatewayCommand(
+export const deserializeAws_restJson1_1AssociateCustomerGatewayCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AssociateCustomerGatewayCommandOutput> {
+): Promise<AssociateCustomerGatewayCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1AssociateCustomerGatewayCommandError(
       output,
@@ -1479,12 +1482,12 @@ export async function deserializeAws_restJson1_1AssociateCustomerGatewayCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1AssociateCustomerGatewayCommandError(
+const deserializeAws_restJson1_1AssociateCustomerGatewayCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AssociateCustomerGatewayCommandOutput> {
+): Promise<AssociateCustomerGatewayCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1585,12 +1588,12 @@ async function deserializeAws_restJson1_1AssociateCustomerGatewayCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1AssociateLinkCommand(
+export const deserializeAws_restJson1_1AssociateLinkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AssociateLinkCommandOutput> {
+): Promise<AssociateLinkCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1AssociateLinkCommandError(output, context);
   }
@@ -1607,12 +1610,12 @@ export async function deserializeAws_restJson1_1AssociateLinkCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1AssociateLinkCommandError(
+const deserializeAws_restJson1_1AssociateLinkCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AssociateLinkCommandOutput> {
+): Promise<AssociateLinkCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1713,12 +1716,12 @@ async function deserializeAws_restJson1_1AssociateLinkCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1CreateDeviceCommand(
+export const deserializeAws_restJson1_1CreateDeviceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateDeviceCommandOutput> {
+): Promise<CreateDeviceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateDeviceCommandError(output, context);
   }
@@ -1732,12 +1735,12 @@ export async function deserializeAws_restJson1_1CreateDeviceCommand(
     contents.Device = deserializeAws_restJson1_1Device(data.Device, context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreateDeviceCommandError(
+const deserializeAws_restJson1_1CreateDeviceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateDeviceCommandOutput> {
+): Promise<CreateDeviceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1838,12 +1841,12 @@ async function deserializeAws_restJson1_1CreateDeviceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1CreateGlobalNetworkCommand(
+export const deserializeAws_restJson1_1CreateGlobalNetworkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateGlobalNetworkCommandOutput> {
+): Promise<CreateGlobalNetworkCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateGlobalNetworkCommandError(
       output,
@@ -1863,12 +1866,12 @@ export async function deserializeAws_restJson1_1CreateGlobalNetworkCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreateGlobalNetworkCommandError(
+const deserializeAws_restJson1_1CreateGlobalNetworkCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateGlobalNetworkCommandOutput> {
+): Promise<CreateGlobalNetworkCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1958,12 +1961,12 @@ async function deserializeAws_restJson1_1CreateGlobalNetworkCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1CreateLinkCommand(
+export const deserializeAws_restJson1_1CreateLinkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateLinkCommandOutput> {
+): Promise<CreateLinkCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateLinkCommandError(output, context);
   }
@@ -1977,12 +1980,12 @@ export async function deserializeAws_restJson1_1CreateLinkCommand(
     contents.Link = deserializeAws_restJson1_1Link(data.Link, context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreateLinkCommandError(
+const deserializeAws_restJson1_1CreateLinkCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateLinkCommandOutput> {
+): Promise<CreateLinkCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2083,12 +2086,12 @@ async function deserializeAws_restJson1_1CreateLinkCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1CreateSiteCommand(
+export const deserializeAws_restJson1_1CreateSiteCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateSiteCommandOutput> {
+): Promise<CreateSiteCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateSiteCommandError(output, context);
   }
@@ -2102,12 +2105,12 @@ export async function deserializeAws_restJson1_1CreateSiteCommand(
     contents.Site = deserializeAws_restJson1_1Site(data.Site, context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1CreateSiteCommandError(
+const deserializeAws_restJson1_1CreateSiteCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateSiteCommandOutput> {
+): Promise<CreateSiteCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2208,12 +2211,12 @@ async function deserializeAws_restJson1_1CreateSiteCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteDeviceCommand(
+export const deserializeAws_restJson1_1DeleteDeviceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteDeviceCommandOutput> {
+): Promise<DeleteDeviceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteDeviceCommandError(output, context);
   }
@@ -2227,12 +2230,12 @@ export async function deserializeAws_restJson1_1DeleteDeviceCommand(
     contents.Device = deserializeAws_restJson1_1Device(data.Device, context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteDeviceCommandError(
+const deserializeAws_restJson1_1DeleteDeviceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteDeviceCommandOutput> {
+): Promise<DeleteDeviceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2322,12 +2325,12 @@ async function deserializeAws_restJson1_1DeleteDeviceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteGlobalNetworkCommand(
+export const deserializeAws_restJson1_1DeleteGlobalNetworkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteGlobalNetworkCommandOutput> {
+): Promise<DeleteGlobalNetworkCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteGlobalNetworkCommandError(
       output,
@@ -2347,12 +2350,12 @@ export async function deserializeAws_restJson1_1DeleteGlobalNetworkCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteGlobalNetworkCommandError(
+const deserializeAws_restJson1_1DeleteGlobalNetworkCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteGlobalNetworkCommandOutput> {
+): Promise<DeleteGlobalNetworkCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2442,12 +2445,12 @@ async function deserializeAws_restJson1_1DeleteGlobalNetworkCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteLinkCommand(
+export const deserializeAws_restJson1_1DeleteLinkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteLinkCommandOutput> {
+): Promise<DeleteLinkCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteLinkCommandError(output, context);
   }
@@ -2461,12 +2464,12 @@ export async function deserializeAws_restJson1_1DeleteLinkCommand(
     contents.Link = deserializeAws_restJson1_1Link(data.Link, context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteLinkCommandError(
+const deserializeAws_restJson1_1DeleteLinkCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteLinkCommandOutput> {
+): Promise<DeleteLinkCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2556,12 +2559,12 @@ async function deserializeAws_restJson1_1DeleteLinkCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeleteSiteCommand(
+export const deserializeAws_restJson1_1DeleteSiteCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteSiteCommandOutput> {
+): Promise<DeleteSiteCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteSiteCommandError(output, context);
   }
@@ -2575,12 +2578,12 @@ export async function deserializeAws_restJson1_1DeleteSiteCommand(
     contents.Site = deserializeAws_restJson1_1Site(data.Site, context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeleteSiteCommandError(
+const deserializeAws_restJson1_1DeleteSiteCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteSiteCommandOutput> {
+): Promise<DeleteSiteCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2670,12 +2673,12 @@ async function deserializeAws_restJson1_1DeleteSiteCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DeregisterTransitGatewayCommand(
+export const deserializeAws_restJson1_1DeregisterTransitGatewayCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeregisterTransitGatewayCommandOutput> {
+): Promise<DeregisterTransitGatewayCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeregisterTransitGatewayCommandError(
       output,
@@ -2698,12 +2701,12 @@ export async function deserializeAws_restJson1_1DeregisterTransitGatewayCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DeregisterTransitGatewayCommandError(
+const deserializeAws_restJson1_1DeregisterTransitGatewayCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeregisterTransitGatewayCommandOutput> {
+): Promise<DeregisterTransitGatewayCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2793,12 +2796,12 @@ async function deserializeAws_restJson1_1DeregisterTransitGatewayCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DescribeGlobalNetworksCommand(
+export const deserializeAws_restJson1_1DescribeGlobalNetworksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeGlobalNetworksCommandOutput> {
+): Promise<DescribeGlobalNetworksCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeGlobalNetworksCommandError(
       output,
@@ -2822,12 +2825,12 @@ export async function deserializeAws_restJson1_1DescribeGlobalNetworksCommand(
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DescribeGlobalNetworksCommandError(
+const deserializeAws_restJson1_1DescribeGlobalNetworksCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DescribeGlobalNetworksCommandOutput> {
+): Promise<DescribeGlobalNetworksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2906,12 +2909,12 @@ async function deserializeAws_restJson1_1DescribeGlobalNetworksCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DisassociateCustomerGatewayCommand(
+export const deserializeAws_restJson1_1DisassociateCustomerGatewayCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisassociateCustomerGatewayCommandOutput> {
+): Promise<DisassociateCustomerGatewayCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DisassociateCustomerGatewayCommandError(
       output,
@@ -2934,12 +2937,12 @@ export async function deserializeAws_restJson1_1DisassociateCustomerGatewayComma
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DisassociateCustomerGatewayCommandError(
+const deserializeAws_restJson1_1DisassociateCustomerGatewayCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisassociateCustomerGatewayCommandOutput> {
+): Promise<DisassociateCustomerGatewayCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3029,12 +3032,12 @@ async function deserializeAws_restJson1_1DisassociateCustomerGatewayCommandError
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1DisassociateLinkCommand(
+export const deserializeAws_restJson1_1DisassociateLinkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisassociateLinkCommandOutput> {
+): Promise<DisassociateLinkCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DisassociateLinkCommandError(
       output,
@@ -3054,12 +3057,12 @@ export async function deserializeAws_restJson1_1DisassociateLinkCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1DisassociateLinkCommandError(
+const deserializeAws_restJson1_1DisassociateLinkCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisassociateLinkCommandOutput> {
+): Promise<DisassociateLinkCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3149,12 +3152,12 @@ async function deserializeAws_restJson1_1DisassociateLinkCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetCustomerGatewayAssociationsCommand(
+export const deserializeAws_restJson1_1GetCustomerGatewayAssociationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetCustomerGatewayAssociationsCommandOutput> {
+): Promise<GetCustomerGatewayAssociationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetCustomerGatewayAssociationsCommandError(
       output,
@@ -3181,12 +3184,12 @@ export async function deserializeAws_restJson1_1GetCustomerGatewayAssociationsCo
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetCustomerGatewayAssociationsCommandError(
+const deserializeAws_restJson1_1GetCustomerGatewayAssociationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetCustomerGatewayAssociationsCommandOutput> {
+): Promise<GetCustomerGatewayAssociationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3276,12 +3279,12 @@ async function deserializeAws_restJson1_1GetCustomerGatewayAssociationsCommandEr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetDevicesCommand(
+export const deserializeAws_restJson1_1GetDevicesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetDevicesCommandOutput> {
+): Promise<GetDevicesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetDevicesCommandError(output, context);
   }
@@ -3302,12 +3305,12 @@ export async function deserializeAws_restJson1_1GetDevicesCommand(
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetDevicesCommandError(
+const deserializeAws_restJson1_1GetDevicesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetDevicesCommandOutput> {
+): Promise<GetDevicesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3386,12 +3389,12 @@ async function deserializeAws_restJson1_1GetDevicesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetLinkAssociationsCommand(
+export const deserializeAws_restJson1_1GetLinkAssociationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetLinkAssociationsCommandOutput> {
+): Promise<GetLinkAssociationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetLinkAssociationsCommandError(
       output,
@@ -3415,12 +3418,12 @@ export async function deserializeAws_restJson1_1GetLinkAssociationsCommand(
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetLinkAssociationsCommandError(
+const deserializeAws_restJson1_1GetLinkAssociationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetLinkAssociationsCommandOutput> {
+): Promise<GetLinkAssociationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3499,12 +3502,12 @@ async function deserializeAws_restJson1_1GetLinkAssociationsCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetLinksCommand(
+export const deserializeAws_restJson1_1GetLinksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetLinksCommandOutput> {
+): Promise<GetLinksCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetLinksCommandError(output, context);
   }
@@ -3522,12 +3525,12 @@ export async function deserializeAws_restJson1_1GetLinksCommand(
     contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetLinksCommandError(
+const deserializeAws_restJson1_1GetLinksCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetLinksCommandOutput> {
+): Promise<GetLinksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3606,12 +3609,12 @@ async function deserializeAws_restJson1_1GetLinksCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetSitesCommand(
+export const deserializeAws_restJson1_1GetSitesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetSitesCommandOutput> {
+): Promise<GetSitesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetSitesCommandError(output, context);
   }
@@ -3629,12 +3632,12 @@ export async function deserializeAws_restJson1_1GetSitesCommand(
     contents.Sites = deserializeAws_restJson1_1SiteList(data.Sites, context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetSitesCommandError(
+const deserializeAws_restJson1_1GetSitesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetSitesCommandOutput> {
+): Promise<GetSitesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3713,12 +3716,12 @@ async function deserializeAws_restJson1_1GetSitesCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1GetTransitGatewayRegistrationsCommand(
+export const deserializeAws_restJson1_1GetTransitGatewayRegistrationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetTransitGatewayRegistrationsCommandOutput> {
+): Promise<GetTransitGatewayRegistrationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetTransitGatewayRegistrationsCommandError(
       output,
@@ -3745,12 +3748,12 @@ export async function deserializeAws_restJson1_1GetTransitGatewayRegistrationsCo
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1GetTransitGatewayRegistrationsCommandError(
+const deserializeAws_restJson1_1GetTransitGatewayRegistrationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetTransitGatewayRegistrationsCommandOutput> {
+): Promise<GetTransitGatewayRegistrationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3829,12 +3832,12 @@ async function deserializeAws_restJson1_1GetTransitGatewayRegistrationsCommandEr
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
+export const deserializeAws_restJson1_1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListTagsForResourceCommandError(
       output,
@@ -3851,12 +3854,12 @@ export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
     contents.TagList = deserializeAws_restJson1_1TagList(data.TagList, context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
+const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> {
+): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -3935,12 +3938,12 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1RegisterTransitGatewayCommand(
+export const deserializeAws_restJson1_1RegisterTransitGatewayCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RegisterTransitGatewayCommandOutput> {
+): Promise<RegisterTransitGatewayCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1RegisterTransitGatewayCommandError(
       output,
@@ -3963,12 +3966,12 @@ export async function deserializeAws_restJson1_1RegisterTransitGatewayCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1RegisterTransitGatewayCommandError(
+const deserializeAws_restJson1_1RegisterTransitGatewayCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RegisterTransitGatewayCommandOutput> {
+): Promise<RegisterTransitGatewayCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4058,12 +4061,12 @@ async function deserializeAws_restJson1_1RegisterTransitGatewayCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1TagResourceCommand(
+export const deserializeAws_restJson1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1TagResourceCommandError(output, context);
   }
@@ -4073,12 +4076,12 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1TagResourceCommandError(
+const deserializeAws_restJson1_1TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> {
+): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4179,12 +4182,12 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UntagResourceCommand(
+export const deserializeAws_restJson1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UntagResourceCommandError(output, context);
   }
@@ -4194,12 +4197,12 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UntagResourceCommandError(
+const deserializeAws_restJson1_1UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UntagResourceCommandOutput> {
+): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4289,12 +4292,12 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UpdateDeviceCommand(
+export const deserializeAws_restJson1_1UpdateDeviceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateDeviceCommandOutput> {
+): Promise<UpdateDeviceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateDeviceCommandError(output, context);
   }
@@ -4308,12 +4311,12 @@ export async function deserializeAws_restJson1_1UpdateDeviceCommand(
     contents.Device = deserializeAws_restJson1_1Device(data.Device, context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UpdateDeviceCommandError(
+const deserializeAws_restJson1_1UpdateDeviceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateDeviceCommandOutput> {
+): Promise<UpdateDeviceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4403,12 +4406,12 @@ async function deserializeAws_restJson1_1UpdateDeviceCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UpdateGlobalNetworkCommand(
+export const deserializeAws_restJson1_1UpdateGlobalNetworkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateGlobalNetworkCommandOutput> {
+): Promise<UpdateGlobalNetworkCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateGlobalNetworkCommandError(
       output,
@@ -4428,12 +4431,12 @@ export async function deserializeAws_restJson1_1UpdateGlobalNetworkCommand(
     );
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UpdateGlobalNetworkCommandError(
+const deserializeAws_restJson1_1UpdateGlobalNetworkCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateGlobalNetworkCommandOutput> {
+): Promise<UpdateGlobalNetworkCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4523,12 +4526,12 @@ async function deserializeAws_restJson1_1UpdateGlobalNetworkCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UpdateLinkCommand(
+export const deserializeAws_restJson1_1UpdateLinkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateLinkCommandOutput> {
+): Promise<UpdateLinkCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateLinkCommandError(output, context);
   }
@@ -4542,12 +4545,12 @@ export async function deserializeAws_restJson1_1UpdateLinkCommand(
     contents.Link = deserializeAws_restJson1_1Link(data.Link, context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UpdateLinkCommandError(
+const deserializeAws_restJson1_1UpdateLinkCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateLinkCommandOutput> {
+): Promise<UpdateLinkCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4648,12 +4651,12 @@ async function deserializeAws_restJson1_1UpdateLinkCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
-export async function deserializeAws_restJson1_1UpdateSiteCommand(
+export const deserializeAws_restJson1_1UpdateSiteCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateSiteCommandOutput> {
+): Promise<UpdateSiteCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateSiteCommandError(output, context);
   }
@@ -4667,12 +4670,12 @@ export async function deserializeAws_restJson1_1UpdateSiteCommand(
     contents.Site = deserializeAws_restJson1_1Site(data.Site, context);
   }
   return Promise.resolve(contents);
-}
+};
 
-async function deserializeAws_restJson1_1UpdateSiteCommandError(
+const deserializeAws_restJson1_1UpdateSiteCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateSiteCommandOutput> {
+): Promise<UpdateSiteCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -4762,7 +4765,7 @@ async function deserializeAws_restJson1_1UpdateSiteCommandError(
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-}
+};
 
 const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
   parsedOutput: any,
@@ -4986,14 +4989,10 @@ const serializeAws_restJson1_1Tag = (
 };
 
 const serializeAws_restJson1_1TagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1Tag(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_restJson1_1Tag(entry, context));
 };
 
 const deserializeAws_restJson1_1Bandwidth = (
@@ -5050,7 +5049,7 @@ const deserializeAws_restJson1_1CustomerGatewayAssociation = (
 const deserializeAws_restJson1_1CustomerGatewayAssociationList = (
   output: any,
   context: __SerdeContext
-): Array<CustomerGatewayAssociation> => {
+): CustomerGatewayAssociation[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1CustomerGatewayAssociation(entry, context)
   );
@@ -5124,7 +5123,7 @@ const deserializeAws_restJson1_1Device = (
 const deserializeAws_restJson1_1DeviceList = (
   output: any,
   context: __SerdeContext
-): Array<Device> => {
+): Device[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Device(entry, context)
   );
@@ -5170,7 +5169,7 @@ const deserializeAws_restJson1_1GlobalNetwork = (
 const deserializeAws_restJson1_1GlobalNetworkList = (
   output: any,
   context: __SerdeContext
-): Array<GlobalNetwork> => {
+): GlobalNetwork[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1GlobalNetwork(entry, context)
   );
@@ -5265,7 +5264,7 @@ const deserializeAws_restJson1_1LinkAssociation = (
 const deserializeAws_restJson1_1LinkAssociationList = (
   output: any,
   context: __SerdeContext
-): Array<LinkAssociation> => {
+): LinkAssociation[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1LinkAssociation(entry, context)
   );
@@ -5274,7 +5273,7 @@ const deserializeAws_restJson1_1LinkAssociationList = (
 const deserializeAws_restJson1_1LinkList = (
   output: any,
   context: __SerdeContext
-): Array<Link> => {
+): Link[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Link(entry, context)
   );
@@ -5350,7 +5349,7 @@ const deserializeAws_restJson1_1Site = (
 const deserializeAws_restJson1_1SiteList = (
   output: any,
   context: __SerdeContext
-): Array<Site> => {
+): Site[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Site(entry, context)
   );
@@ -5377,7 +5376,7 @@ const deserializeAws_restJson1_1Tag = (
 const deserializeAws_restJson1_1TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Tag(entry, context)
   );
@@ -5414,7 +5413,7 @@ const deserializeAws_restJson1_1TransitGatewayRegistration = (
 const deserializeAws_restJson1_1TransitGatewayRegistrationList = (
   output: any,
   context: __SerdeContext
-): Array<TransitGatewayRegistration> => {
+): TransitGatewayRegistration[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1TransitGatewayRegistration(entry, context)
   );
@@ -5459,7 +5458,7 @@ const deserializeAws_restJson1_1ValidationExceptionField = (
 const deserializeAws_restJson1_1ValidationExceptionFieldList = (
   output: any,
   context: __SerdeContext
-): Array<ValidationExceptionField> => {
+): ValidationExceptionField[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ValidationExceptionField(entry, context)
   );
@@ -5473,7 +5472,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
@@ -5488,30 +5487,23 @@ const collectBody = (
 const collectBodyString = (
   streamBody: any,
   context: __SerdeContext
-): Promise<string> => {
-  return collectBody(streamBody, context).then(body =>
-    context.utf8Encoder(body)
-  );
-};
+): Promise<string> =>
+  collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
-function isSerializableHeaderValue(value: any): boolean {
-  return (
-    value !== undefined &&
-    value !== "" &&
-    (!Object.getOwnPropertyNames(value).includes("length") ||
-      value.length != 0) &&
-    (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0)
-  );
-}
+const isSerializableHeaderValue = (value: any): boolean =>
+  value !== undefined &&
+  value !== "" &&
+  (!Object.getOwnPropertyNames(value).includes("length") ||
+    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
-const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return collectBodyString(streamBody, context).then(encoded => {
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
     return {};
   });
-};
 
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.

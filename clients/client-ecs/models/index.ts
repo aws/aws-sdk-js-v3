@@ -43,7 +43,7 @@ export interface Attachment {
    * <p>Details of the attachment. For elastic network interfaces, this includes the network
    *             interface ID, the MAC address, the subnet ID, and the private IPv4 address.</p>
    */
-  details?: Array<KeyValuePair>;
+  details?: KeyValuePair[];
 
   /**
    * <p>The unique identifier for the attachment.</p>
@@ -201,7 +201,7 @@ export interface AwsVpcConfiguration {
    *             <p>All specified security groups must be from the same VPC.</p>
    *         </note>
    */
-  securityGroups?: Array<string>;
+  securityGroups?: string[];
 
   /**
    * <p>The subnets associated with the task or service. There is a limit of 16 subnets that
@@ -211,7 +211,7 @@ export interface AwsVpcConfiguration {
    *             <p>All specified subnets must be from the same VPC.</p>
    *         </note>
    */
-  subnets: Array<string> | undefined;
+  subnets: string[] | undefined;
 }
 
 export namespace AwsVpcConfiguration {
@@ -295,7 +295,7 @@ export interface CapacityProvider {
    *             </li>
    *          </ul>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace CapacityProvider {
@@ -381,7 +381,7 @@ export interface Cluster {
    * <p>The resources attached to a cluster. When using a capacity provider with a cluster,
    *             the Auto Scaling plan that is created will be returned as a cluster attachment.</p>
    */
-  attachments?: Array<Attachment>;
+  attachments?: Attachment[];
 
   /**
    * <p>The status of the capacity providers associated with the cluster. The following are
@@ -407,7 +407,7 @@ export interface Cluster {
   /**
    * <p>The capacity providers associated with the cluster.</p>
    */
-  capacityProviders?: Array<string>;
+  capacityProviders?: string[];
 
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the cluster. The ARN contains the <code>arn:aws:ecs</code> namespace, followed by the Region of the cluster, the AWS account ID of the cluster owner, the <code>cluster</code> namespace, and then the cluster name. For example, <code>arn:aws:ecs:region:012345678910:cluster/test</code>.</p>
@@ -424,7 +424,7 @@ export interface Cluster {
    *             in the cluster with no launch type or capacity provider strategy specified, the default
    *             capacity provider strategy is used.</p>
    */
-  defaultCapacityProviderStrategy?: Array<CapacityProviderStrategyItem>;
+  defaultCapacityProviderStrategy?: CapacityProviderStrategyItem[];
 
   /**
    * <p>The number of tasks in the cluster that are in the <code>PENDING</code> state.</p>
@@ -446,7 +446,7 @@ export interface Cluster {
    * <p>The settings for the cluster. This parameter indicates whether CloudWatch Container Insights
    *             is enabled or disabled for a cluster.</p>
    */
-  settings?: Array<ClusterSetting>;
+  settings?: ClusterSetting[];
 
   /**
    * <p>Additional information about your clusters that are separated by launch type,
@@ -478,7 +478,7 @@ export interface Cluster {
    *             </li>
    *          </ul>
    */
-  statistics?: Array<KeyValuePair>;
+  statistics?: KeyValuePair[];
 
   /**
    * <p>The status of the cluster. The following are the possible states that will be
@@ -550,7 +550,7 @@ export interface Cluster {
    *             </li>
    *          </ul>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace Cluster {
@@ -702,7 +702,7 @@ export interface Container {
   /**
    * <p>The IDs of each GPU assigned to the container.</p>
    */
-  gpuIds?: Array<string>;
+  gpuIds?: string[];
 
   /**
    * <p>The health status of the container. If health checks are not configured for this
@@ -748,12 +748,12 @@ export interface Container {
   /**
    * <p>The network bindings associated with the container.</p>
    */
-  networkBindings?: Array<NetworkBinding>;
+  networkBindings?: NetworkBinding[];
 
   /**
    * <p>The network interfaces associated with the container.</p>
    */
-  networkInterfaces?: Array<NetworkInterface>;
+  networkInterfaces?: NetworkInterface[];
 
   /**
    * <p>A short (255 max characters) human-readable string to provide additional details about
@@ -796,7 +796,7 @@ export interface ContainerDefinition {
    *                 run</a>. For more information, see <a href="https://docs.docker.com/engine/reference/builder/#cmd">https://docs.docker.com/engine/reference/builder/#cmd</a>. If there are multiple arguments, each
    *             argument should be a separated string in the array.</p>
    */
-  command?: Array<string>;
+  command?: string[];
 
   /**
    * <p>The number of <code>cpu</code> units reserved for the container. This parameter maps
@@ -863,7 +863,7 @@ export interface ContainerDefinition {
    *         <p>For tasks using the Fargate launch type, the task or service requires
    *             platform version <code>1.3.0</code> or later.</p>
    */
-  dependsOn?: Array<ContainerDependency>;
+  dependsOn?: ContainerDependency[];
 
   /**
    * <p>When this parameter is true, networking is disabled within the container. This
@@ -883,7 +883,7 @@ export interface ContainerDefinition {
    *                         <p>This parameter is not supported for Windows containers.</p>
    *                      </note>
    */
-  dnsSearchDomains?: Array<string>;
+  dnsSearchDomains?: string[];
 
   /**
    * <p>A list of DNS servers that are presented to the container. This parameter maps to
@@ -893,7 +893,7 @@ export interface ContainerDefinition {
    *                         <p>This parameter is not supported for Windows containers.</p>
    *                      </note>
    */
-  dnsServers?: Array<string>;
+  dnsServers?: string[];
 
   /**
    * <p>A key/value map of labels to add to the container. This parameter maps to
@@ -923,7 +923,7 @@ export interface ContainerDefinition {
    *                     Agent Configuration</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    *         </note>
    */
-  dockerSecurityOptions?: Array<string>;
+  dockerSecurityOptions?: string[];
 
   /**
    * <important>
@@ -936,7 +936,7 @@ export interface ContainerDefinition {
    *                 <code>Entrypoint</code> in the <a href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a container</a> section of the
    *             <a href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the <code>--entrypoint</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker run</a>. For more information, see <a href="https://docs.docker.com/engine/reference/builder/#entrypoint">https://docs.docker.com/engine/reference/builder/#entrypoint</a>.</p>
    */
-  entryPoint?: Array<string>;
+  entryPoint?: string[];
 
   /**
    * <p>The environment variables to pass to a container. This parameter maps to
@@ -947,7 +947,7 @@ export interface ContainerDefinition {
    *                 information, such as credential data.</p>
    *         </important>
    */
-  environment?: Array<KeyValuePair>;
+  environment?: KeyValuePair[];
 
   /**
    * <p>If the <code>essential</code> parameter of a container is marked as <code>true</code>,
@@ -974,7 +974,7 @@ export interface ContainerDefinition {
    *                     <code>awsvpc</code> network mode.</p>
    *         </note>
    */
-  extraHosts?: Array<HostEntry>;
+  extraHosts?: HostEntry[];
 
   /**
    * <p>The FireLens configuration for the container. This is used to specify and configure a
@@ -1076,7 +1076,7 @@ export interface ContainerDefinition {
    *                 settings.</p>
    *         </important>
    */
-  links?: Array<string>;
+  links?: string[];
 
   /**
    * <p>Linux-specific modifications that are applied to the container, such as Linux kernel
@@ -1172,7 +1172,7 @@ export interface ContainerDefinition {
    *                 <code>$env:ProgramData</code>. Windows containers cannot mount directories on a
    *             different drive, and mount point cannot be across drives.</p>
    */
-  mountPoints?: Array<MountPoint>;
+  mountPoints?: MountPoint[];
 
   /**
    * <p>The name of a container. If you are linking multiple containers together in a task
@@ -1210,7 +1210,7 @@ export interface ContainerDefinition {
    *                 responses.</p>
    *         </note>
    */
-  portMappings?: Array<PortMapping>;
+  portMappings?: PortMapping[];
 
   /**
    * <p>When this parameter is true, the container is given elevated privileges on the host
@@ -1251,13 +1251,13 @@ export interface ContainerDefinition {
    * <p>The type and amount of a resource to assign to a container. The only supported
    *             resource is a GPU.</p>
    */
-  resourceRequirements?: Array<ResourceRequirement>;
+  resourceRequirements?: ResourceRequirement[];
 
   /**
    * <p>The secrets to pass to the container. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html">Specifying
    *                 Sensitive Data</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
-  secrets?: Array<Secret>;
+  secrets?: Secret[];
 
   /**
    * <p>Time duration (in seconds) to wait before giving up on resolving dependencies for a
@@ -1316,7 +1316,7 @@ export interface ContainerDefinition {
    *                 kernel parameters as well as the containers.</p>
    *         </note>
    */
-  systemControls?: Array<SystemControl>;
+  systemControls?: SystemControl[];
 
   /**
    * <p>A list of <code>ulimits</code> to set in the container. This parameter maps to
@@ -1328,7 +1328,7 @@ export interface ContainerDefinition {
    *                         <p>This parameter is not supported for Windows containers.</p>
    *                      </note>
    */
-  ulimits?: Array<Ulimit>;
+  ulimits?: Ulimit[];
 
   /**
    * <p>The user name to use inside the container. This parameter maps to <code>User</code> in
@@ -1380,7 +1380,7 @@ export interface ContainerDefinition {
    *                 <code>VolumesFrom</code> in the <a href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a container</a> section of the
    *             <a href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the <code>--volumes-from</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker run</a>.</p>
    */
-  volumesFrom?: Array<VolumeFrom>;
+  volumesFrom?: VolumeFrom[];
 
   /**
    * <p>The working directory in which to run commands inside the container. This parameter
@@ -1484,14 +1484,14 @@ export interface ContainerInstance {
    * <p>The resources attached to a container instance, such as elastic network
    *             interfaces.</p>
    */
-  attachments?: Array<Attachment>;
+  attachments?: Attachment[];
 
   /**
    * <p>The attributes set for the container instance, either by the Amazon ECS container agent at
    *             instance registration or manually with the <a>PutAttributes</a>
    *             operation.</p>
    */
-  attributes?: Array<Attribute>;
+  attributes?: Attribute[];
 
   /**
    * <p>The capacity provider associated with the container instance.</p>
@@ -1527,7 +1527,7 @@ export interface ContainerInstance {
    *             parameter describes the ports that were reserved by the Amazon ECS container agent when it
    *             registered the container instance with Amazon ECS.</p>
    */
-  registeredResources?: Array<Resource>;
+  registeredResources?: Resource[];
 
   /**
    * <p>For CPU and memory resource types, this parameter describes the remaining CPU and
@@ -1538,7 +1538,7 @@ export interface ContainerInstance {
    *                 <code>bridge</code> network mode). Any port that is not specified here is available
    *             for new tasks.</p>
    */
-  remainingResources?: Array<Resource>;
+  remainingResources?: Resource[];
 
   /**
    * <p>The number of tasks on the container instance that are in the <code>RUNNING</code>
@@ -1608,7 +1608,7 @@ export interface ContainerInstance {
    *             </li>
    *          </ul>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 
   /**
    * <p>The version counter for the container instance. Every time a container instance
@@ -1657,7 +1657,7 @@ export interface ContainerOverride {
    * <p>The command to send to the container that overrides the default command from the
    *             Docker image or the task definition. You must also specify a container name.</p>
    */
-  command?: Array<string>;
+  command?: string[];
 
   /**
    * <p>The number of <code>cpu</code> units reserved for the container, instead of the
@@ -1671,7 +1671,7 @@ export interface ContainerOverride {
    *             environment variables from the Docker image or the task definition. You must also
    *             specify a container name.</p>
    */
-  environment?: Array<KeyValuePair>;
+  environment?: KeyValuePair[];
 
   /**
    * <p>The hard limit (in MiB) of memory to present to the container, instead of the default
@@ -1696,7 +1696,7 @@ export interface ContainerOverride {
    * <p>The type and amount of a resource to assign to a container, instead of the default
    *             value from the task definition. The only supported resource is a GPU.</p>
    */
-  resourceRequirements?: Array<ResourceRequirement>;
+  resourceRequirements?: ResourceRequirement[];
 }
 
 export namespace ContainerOverride {
@@ -1728,7 +1728,7 @@ export interface ContainerStateChange {
   /**
    * <p>Any network bindings associated with the container.</p>
    */
-  networkBindings?: Array<NetworkBinding>;
+  networkBindings?: NetworkBinding[];
 
   /**
    * <p>The reason for the state change.</p>
@@ -1801,7 +1801,7 @@ export interface CreateCapacityProviderRequest {
    *             </li>
    *          </ul>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace CreateCapacityProviderRequest {
@@ -1838,7 +1838,7 @@ export interface CreateClusterRequest {
    *         <p>The <a>PutClusterCapacityProviders</a> API operation is used to update the
    *             list of available capacity providers for a cluster after the cluster is created.</p>
    */
-  capacityProviders?: Array<string>;
+  capacityProviders?: string[];
 
   /**
    * <p>The name of your cluster. If you do not specify a name for your cluster, you create a
@@ -1867,7 +1867,7 @@ export interface CreateClusterRequest {
    *             it can be defined later with the <a>PutClusterCapacityProviders</a> API
    *             operation.</p>
    */
-  defaultCapacityProviderStrategy?: Array<CapacityProviderStrategyItem>;
+  defaultCapacityProviderStrategy?: CapacityProviderStrategyItem[];
 
   /**
    * <p>The setting to use when creating a cluster. This parameter is used to enable CloudWatch
@@ -1875,7 +1875,7 @@ export interface CreateClusterRequest {
    *                 <code>containerInsights</code> value set with <a>PutAccountSetting</a> or
    *                 <a>PutAccountSettingDefault</a>.</p>
    */
-  settings?: Array<ClusterSetting>;
+  settings?: ClusterSetting[];
 
   /**
    * <p>The metadata that you apply to the cluster to help you categorize and organize them.
@@ -1912,7 +1912,7 @@ export interface CreateClusterRequest {
    *             </li>
    *          </ul>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace CreateClusterRequest {
@@ -1956,7 +1956,7 @@ export interface CreateServiceRequest {
    *         <p>The <a>PutClusterCapacityProviders</a> API operation is used to update the
    *             list of available capacity providers for a cluster after the cluster is created.</p>
    */
-  capacityProviderStrategy?: Array<CapacityProviderStrategyItem>;
+  capacityProviderStrategy?: CapacityProviderStrategyItem[];
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -2055,7 +2055,7 @@ export interface CreateServiceRequest {
    *             use the <code>awsvpc</code> network mode are associated with an elastic network
    *             interface, not an Amazon EC2 instance.</p>
    */
-  loadBalancers?: Array<LoadBalancer>;
+  loadBalancers?: LoadBalancer[];
 
   /**
    * <p>The network configuration for the service. This parameter is required for task
@@ -2071,13 +2071,13 @@ export interface CreateServiceRequest {
    *             specify a maximum of 10 constraints per task (this limit includes constraints in the
    *             task definition and those specified at runtime). </p>
    */
-  placementConstraints?: Array<PlacementConstraint>;
+  placementConstraints?: PlacementConstraint[];
 
   /**
    * <p>The placement strategy objects to use for tasks in your service. You can specify a
    *             maximum of five strategy rules per service.</p>
    */
-  placementStrategy?: Array<PlacementStrategy>;
+  placementStrategy?: PlacementStrategy[];
 
   /**
    * <p>The platform version that your tasks in the service are running on. A platform version
@@ -2169,7 +2169,7 @@ export interface CreateServiceRequest {
    *                     Versions</a>.</p>
    *         </note>
    */
-  serviceRegistries?: Array<ServiceRegistry>;
+  serviceRegistries?: ServiceRegistry[];
 
   /**
    * <p>The metadata that you apply to the service to help you categorize and organize them.
@@ -2207,7 +2207,7 @@ export interface CreateServiceRequest {
    *             </li>
    *          </ul>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 
   /**
    * <p>The <code>family</code> and <code>revision</code> (<code>family:revision</code>) or
@@ -2267,7 +2267,7 @@ export interface CreateTaskSetRequest {
    *         <p>The <a>PutClusterCapacityProviders</a> API operation is used to update the
    *             list of available capacity providers for a cluster after the cluster is created.</p>
    */
-  capacityProviderStrategy?: Array<CapacityProviderStrategyItem>;
+  capacityProviderStrategy?: CapacityProviderStrategyItem[];
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -2301,7 +2301,7 @@ export interface CreateTaskSetRequest {
    * <p>A load balancer object representing the load balancer to use with the task set. The
    *             supported load balancer types are either an Application Load Balancer or a Network Load Balancer.</p>
    */
-  loadBalancers?: Array<LoadBalancer>;
+  loadBalancers?: LoadBalancer[];
 
   /**
    * <p>An object representing the network configuration for a task or service.</p>
@@ -2331,7 +2331,7 @@ export interface CreateTaskSetRequest {
    *             information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html">Service
    *                 Discovery</a>.</p>
    */
-  serviceRegistries?: Array<ServiceRegistry>;
+  serviceRegistries?: ServiceRegistry[];
 
   /**
    * <p>The task definition for the tasks in the task set to use.</p>
@@ -2408,7 +2408,7 @@ export interface DeleteAttributesRequest {
    *             specify the value. If you specify the target ID using the short form, you must also
    *             specify the target type.</p>
    */
-  attributes: Array<Attribute> | undefined;
+  attributes: Attribute[] | undefined;
 
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the cluster that contains the resource to delete
@@ -2427,7 +2427,7 @@ export interface DeleteAttributesResponse {
   /**
    * <p>A list of attribute objects that were successfully deleted from your resource.</p>
    */
-  attributes?: Array<Attribute>;
+  attributes?: Attribute[];
 }
 
 export namespace DeleteAttributesResponse {
@@ -2555,7 +2555,7 @@ export interface Deployment {
   /**
    * <p>The capacity provider strategy that the deployment is using.</p>
    */
-  capacityProviderStrategy?: Array<CapacityProviderStrategyItem>;
+  capacityProviderStrategy?: CapacityProviderStrategyItem[];
 
   /**
    * <p>The Unix timestamp for when the service deployment was created.</p>
@@ -2829,14 +2829,14 @@ export interface DescribeCapacityProvidersRequest {
    * <p>The short name or full Amazon Resource Name (ARN) of one or more capacity providers. Up to
    *                 <code>100</code> capacity providers can be described in an action.</p>
    */
-  capacityProviders?: Array<string>;
+  capacityProviders?: string[];
 
   /**
    * <p>Specifies whether or not you want to see the resource tags for the capacity provider.
    *             If <code>TAGS</code> is specified, the tags are included in the response. If this field
    *             is omitted, tags are not included in the response.</p>
    */
-  include?: Array<CapacityProviderField | string>;
+  include?: (CapacityProviderField | string)[];
 
   /**
    * <p>The maximum number of account setting results returned by
@@ -2876,12 +2876,12 @@ export interface DescribeCapacityProvidersResponse {
   /**
    * <p>The list of capacity providers.</p>
    */
-  capacityProviders?: Array<CapacityProvider>;
+  capacityProviders?: CapacityProvider[];
 
   /**
    * <p>Any failures associated with the call.</p>
    */
-  failures?: Array<Failure>;
+  failures?: Failure[];
 
   /**
    * <p>The <code>nextToken</code> value to include in a future
@@ -2904,7 +2904,7 @@ export interface DescribeClustersRequest {
    * <p>A list of up to 100 cluster names or full cluster Amazon Resource Name (ARN) entries.
    *             If you do not specify a cluster, the default cluster is assumed.</p>
    */
-  clusters?: Array<string>;
+  clusters?: string[];
 
   /**
    * <p>Whether to include additional information about your clusters in the response. If this
@@ -2944,7 +2944,7 @@ export interface DescribeClustersRequest {
    *         <p>If <code>TAGS</code> is specified, the metadata tags associated with the cluster are
    *             included.</p>
    */
-  include?: Array<ClusterField | string>;
+  include?: (ClusterField | string)[];
 }
 
 export namespace DescribeClustersRequest {
@@ -2957,12 +2957,12 @@ export interface DescribeClustersResponse {
   /**
    * <p>The list of clusters.</p>
    */
-  clusters?: Array<Cluster>;
+  clusters?: Cluster[];
 
   /**
    * <p>Any failures associated with the call.</p>
    */
-  failures?: Array<Failure>;
+  failures?: Failure[];
 }
 
 export namespace DescribeClustersResponse {
@@ -2983,14 +2983,14 @@ export interface DescribeContainerInstancesRequest {
   /**
    * <p>A list of up to 100 container instance IDs or full Amazon Resource Name (ARN) entries.</p>
    */
-  containerInstances: Array<string> | undefined;
+  containerInstances: string[] | undefined;
 
   /**
    * <p>Specifies whether you want to see the resource tags for the container instance. If
    *                 <code>TAGS</code> is specified, the tags are included in the response. If this field
    *             is omitted, tags are not included in the response.</p>
    */
-  include?: Array<ContainerInstanceField | string>;
+  include?: (ContainerInstanceField | string)[];
 }
 
 export namespace DescribeContainerInstancesRequest {
@@ -3003,12 +3003,12 @@ export interface DescribeContainerInstancesResponse {
   /**
    * <p>The list of container instances.</p>
    */
-  containerInstances?: Array<ContainerInstance>;
+  containerInstances?: ContainerInstance[];
 
   /**
    * <p>Any failures associated with the call.</p>
    */
-  failures?: Array<Failure>;
+  failures?: Failure[];
 }
 
 export namespace DescribeContainerInstancesResponse {
@@ -3030,13 +3030,13 @@ export interface DescribeServicesRequest {
    *                 <code>TAGS</code> is specified, the tags are included in the response. If this field
    *             is omitted, tags are not included in the response.</p>
    */
-  include?: Array<ServiceField | string>;
+  include?: (ServiceField | string)[];
 
   /**
    * <p>A list of services to describe. You may specify up to 10 services to describe in a
    *             single operation.</p>
    */
-  services: Array<string> | undefined;
+  services: string[] | undefined;
 }
 
 export namespace DescribeServicesRequest {
@@ -3049,12 +3049,12 @@ export interface DescribeServicesResponse {
   /**
    * <p>Any failures associated with the call.</p>
    */
-  failures?: Array<Failure>;
+  failures?: Failure[];
 
   /**
    * <p>The list of services described.</p>
    */
-  services?: Array<Service>;
+  services?: Service[];
 }
 
 export namespace DescribeServicesResponse {
@@ -3069,7 +3069,7 @@ export interface DescribeTaskDefinitionRequest {
    *                 <code>TAGS</code> is specified, the tags are included in the response. If this field
    *             is omitted, tags are not included in the response.</p>
    */
-  include?: Array<TaskDefinitionField | string>;
+  include?: (TaskDefinitionField | string)[];
 
   /**
    * <p>The <code>family</code> for the latest <code>ACTIVE</code> revision,
@@ -3123,7 +3123,7 @@ export interface DescribeTaskDefinitionResponse {
    *             </li>
    *          </ul>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 
   /**
    * <p>The full task definition description.</p>
@@ -3153,7 +3153,7 @@ export interface DescribeTaskSetsRequest {
    * <p>The ID or full Amazon Resource Name (ARN) of task sets to
    *             describe.</p>
    */
-  taskSets?: Array<string>;
+  taskSets?: string[];
 }
 
 export namespace DescribeTaskSetsRequest {
@@ -3166,12 +3166,12 @@ export interface DescribeTaskSetsResponse {
   /**
    * <p>Any failures associated with the call.</p>
    */
-  failures?: Array<Failure>;
+  failures?: Failure[];
 
   /**
    * <p>The list of task sets described.</p>
    */
-  taskSets?: Array<TaskSet>;
+  taskSets?: TaskSet[];
 }
 
 export namespace DescribeTaskSetsResponse {
@@ -3193,12 +3193,12 @@ export interface DescribeTasksRequest {
    *             is specified, the tags are included in the response. If this field is omitted, tags are
    *             not included in the response.</p>
    */
-  include?: Array<TaskField | string>;
+  include?: (TaskField | string)[];
 
   /**
    * <p>A list of up to 100 task IDs or full ARN entries.</p>
    */
-  tasks: Array<string> | undefined;
+  tasks: string[] | undefined;
 }
 
 export namespace DescribeTasksRequest {
@@ -3211,12 +3211,12 @@ export interface DescribeTasksResponse {
   /**
    * <p>Any failures associated with the call.</p>
    */
-  failures?: Array<Failure>;
+  failures?: Failure[];
 
   /**
    * <p>The list of tasks.</p>
    */
-  tasks?: Array<Task>;
+  tasks?: Task[];
 }
 
 export namespace DescribeTasksResponse {
@@ -3250,7 +3250,7 @@ export interface Device {
    *             container has permissions for <code>read</code>, <code>write</code>, and
    *                 <code>mknod</code> for the device.</p>
    */
-  permissions?: Array<DeviceCgroupPermission | string>;
+  permissions?: (DeviceCgroupPermission | string)[];
 }
 
 export namespace Device {
@@ -3491,7 +3491,7 @@ export interface HealthCheck {
    *             more information, see <code>HealthCheck</code> in the <a href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a container</a>
    *             section of the <a href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a>.</p>
    */
-  command: Array<string> | undefined;
+  command: string[] | undefined;
 
   /**
    * <p>The time period in seconds between each health check execution. You may specify
@@ -3682,7 +3682,7 @@ export interface KernelCapabilities {
    *             "WAKE_ALARM"</code>
    *          </p>
    */
-  add?: Array<string>;
+  add?: string[];
 
   /**
    * <p>The Linux capabilities for the container that have been removed from the default
@@ -3700,7 +3700,7 @@ export interface KernelCapabilities {
    *             "WAKE_ALARM"</code>
    *          </p>
    */
-  drop?: Array<string>;
+  drop?: string[];
 }
 
 export namespace KernelCapabilities {
@@ -3776,7 +3776,7 @@ export interface LinuxParameters {
    *                     <code>devices</code> parameter is not supported.</p>
    *         </note>
    */
-  devices?: Array<Device>;
+  devices?: Device[];
 
   /**
    * <p>Run an <code>init</code> process inside the container that forwards signals and reaps
@@ -3836,7 +3836,7 @@ export interface LinuxParameters {
    *                     <code>tmpfs</code> parameter is not supported.</p>
    *         </note>
    */
-  tmpfs?: Array<Tmpfs>;
+  tmpfs?: Tmpfs[];
 }
 
 export namespace LinuxParameters {
@@ -3918,7 +3918,7 @@ export interface ListAccountSettingsResponse {
   /**
    * <p>The account settings for the resource.</p>
    */
-  settings?: Array<Setting>;
+  settings?: Setting[];
 }
 
 export namespace ListAccountSettingsResponse {
@@ -3985,7 +3985,7 @@ export interface ListAttributesResponse {
   /**
    * <p>A list of attribute objects that meet the criteria of the request.</p>
    */
-  attributes?: Array<Attribute>;
+  attributes?: Attribute[];
 
   /**
    * <p>The <code>nextToken</code> value to include in a future <code>ListAttributes</code>
@@ -4040,7 +4040,7 @@ export interface ListClustersResponse {
    * <p>The list of full Amazon Resource Name (ARN) entries for each cluster associated with your
    *             account.</p>
    */
-  clusterArns?: Array<string>;
+  clusterArns?: string[];
 
   /**
    * <p>The <code>nextToken</code> value to include in a future <code>ListClusters</code>
@@ -4118,7 +4118,7 @@ export interface ListContainerInstancesResponse {
    * <p>The list of container instances with full ARN entries for each container instance
    *             associated with the specified cluster.</p>
    */
-  containerInstanceArns?: Array<string>;
+  containerInstanceArns?: string[];
 
   /**
    * <p>The <code>nextToken</code> value to include in a future
@@ -4199,7 +4199,7 @@ export interface ListServicesResponse {
    * <p>The list of full ARN entries for each service associated with the specified
    *             cluster.</p>
    */
-  serviceArns?: Array<string>;
+  serviceArns?: string[];
 }
 
 export namespace ListServicesResponse {
@@ -4227,7 +4227,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>The tags for the resource.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace ListTagsForResourceResponse {
@@ -4297,7 +4297,7 @@ export interface ListTaskDefinitionFamiliesResponse {
    * <p>The list of task definition family names that match the
    *                 <code>ListTaskDefinitionFamilies</code> request.</p>
    */
-  families?: Array<string>;
+  families?: string[];
 
   /**
    * <p>The <code>nextToken</code> value to include in a future
@@ -4389,7 +4389,7 @@ export interface ListTaskDefinitionsResponse {
    * <p>The list of task definition Amazon Resource Name (ARN) entries for the <code>ListTaskDefinitions</code>
    *             request.</p>
    */
-  taskDefinitionArns?: Array<string>;
+  taskDefinitionArns?: string[];
 }
 
 export namespace ListTaskDefinitionsResponse {
@@ -4498,7 +4498,7 @@ export interface ListTasksResponse {
   /**
    * <p>The list of task ARN entries for the <code>ListTasks</code> request.</p>
    */
-  taskArns?: Array<string>;
+  taskArns?: string[];
 }
 
 export namespace ListTasksResponse {
@@ -4640,7 +4640,7 @@ export interface LogConfiguration {
    * <p>The secrets to pass to the log configuration. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html">Specifying
    *                 Sensitive Data</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
-  secretOptions?: Array<Secret>;
+  secretOptions?: Secret[];
 }
 
 export namespace LogConfiguration {
@@ -5158,7 +5158,7 @@ export interface ProxyConfiguration {
    *             </li>
    *          </ul>
    */
-  properties?: Array<KeyValuePair>;
+  properties?: KeyValuePair[];
 
   /**
    * <p>The proxy type. The only supported value is <code>APPMESH</code>.</p>
@@ -5269,7 +5269,7 @@ export interface PutAttributesRequest {
    * <p>The attributes to apply to your resource. You can specify up to 10 custom attributes
    *             per resource. You can specify up to 10 attributes in a single call.</p>
    */
-  attributes: Array<Attribute> | undefined;
+  attributes: Attribute[] | undefined;
 
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the cluster that contains the resource to apply
@@ -5288,7 +5288,7 @@ export interface PutAttributesResponse {
   /**
    * <p>The attributes applied to your resource.</p>
    */
-  attributes?: Array<Attribute>;
+  attributes?: Attribute[];
 }
 
 export namespace PutAttributesResponse {
@@ -5307,7 +5307,7 @@ export interface PutClusterCapacityProvidersRequest {
    *             available to all accounts and only need to be associated with a cluster to be
    *             used.</p>
    */
-  capacityProviders: Array<string> | undefined;
+  capacityProviders: string[] | undefined;
 
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the cluster to modify the capacity provider
@@ -5333,9 +5333,7 @@ export interface PutClusterCapacityProvidersRequest {
    *             available to all accounts and only need to be associated with a cluster to be
    *             used.</p>
    */
-  defaultCapacityProviderStrategy:
-    | Array<CapacityProviderStrategyItem>
-    | undefined;
+  defaultCapacityProviderStrategy: CapacityProviderStrategyItem[] | undefined;
 }
 
 export namespace PutClusterCapacityProvidersRequest {
@@ -5364,7 +5362,7 @@ export interface RegisterContainerInstanceRequest {
   /**
    * <p>The container instance attributes that this container instance supports.</p>
    */
-  attributes?: Array<Attribute>;
+  attributes?: Attribute[];
 
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the cluster with which to register your container
@@ -5397,7 +5395,7 @@ export interface RegisterContainerInstanceRequest {
    * <p>The devices that are available on the container instance. The only supported device
    *             type is a GPU.</p>
    */
-  platformDevices?: Array<PlatformDevice>;
+  platformDevices?: PlatformDevice[];
 
   /**
    * <p>The metadata that you apply to the container instance to help you categorize and
@@ -5435,12 +5433,12 @@ export interface RegisterContainerInstanceRequest {
    *             </li>
    *          </ul>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 
   /**
    * <p>The resources available on the instance.</p>
    */
-  totalResources?: Array<Resource>;
+  totalResources?: Resource[];
 
   /**
    * <p>The version information for the Amazon ECS container agent and Docker daemon running on the
@@ -5473,7 +5471,7 @@ export interface RegisterTaskDefinitionRequest {
    * <p>A list of container definitions in JSON format that describe the different containers
    *             that make up your task.</p>
    */
-  containerDefinitions: Array<ContainerDefinition> | undefined;
+  containerDefinitions: ContainerDefinition[] | undefined;
 
   /**
    * <p>The number of CPU units used by the task. It can be expressed as an integer using CPU
@@ -5527,7 +5525,7 @@ export interface RegisterTaskDefinitionRequest {
   /**
    * <p>The Elastic Inference accelerators to use for the containers in the task.</p>
    */
-  inferenceAccelerators?: Array<InferenceAccelerator>;
+  inferenceAccelerators?: InferenceAccelerator[];
 
   /**
    * <p>The IPC resource namespace to use for the containers in the task. The valid values are
@@ -5660,7 +5658,7 @@ export interface RegisterTaskDefinitionRequest {
    *             maximum of 10 constraints per task (this limit includes constraints in the task
    *             definition and those specified at runtime).</p>
    */
-  placementConstraints?: Array<TaskDefinitionPlacementConstraint>;
+  placementConstraints?: TaskDefinitionPlacementConstraint[];
 
   /**
    * <p>The configuration details for the App Mesh proxy.</p>
@@ -5680,7 +5678,7 @@ export interface RegisterTaskDefinitionRequest {
    * <p>The launch type required by the task. If no value is specified, it defaults to
    *                 <code>EC2</code>.</p>
    */
-  requiresCompatibilities?: Array<Compatibility | string>;
+  requiresCompatibilities?: (Compatibility | string)[];
 
   /**
    * <p>The metadata that you apply to the task definition to help you categorize and organize
@@ -5717,7 +5715,7 @@ export interface RegisterTaskDefinitionRequest {
    *             </li>
    *          </ul>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the IAM role that containers in this task can
@@ -5731,7 +5729,7 @@ export interface RegisterTaskDefinitionRequest {
    * <p>A list of volume definitions in JSON format that containers in your task may
    *             use.</p>
    */
-  volumes?: Array<Volume>;
+  volumes?: Volume[];
 }
 
 export namespace RegisterTaskDefinitionRequest {
@@ -5744,7 +5742,7 @@ export interface RegisterTaskDefinitionResponse {
   /**
    * <p>The list of tags associated with the task definition.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 
   /**
    * <p>The full description of the registered task definition.</p>
@@ -5813,7 +5811,7 @@ export interface Resource {
    * <p>When the <code>stringSetValue</code> type is set, the value of the resource must be a
    *             string type.</p>
    */
-  stringSetValue?: Array<string>;
+  stringSetValue?: string[];
 
   /**
    * <p>The type of the resource, such as <code>INTEGER</code>, <code>DOUBLE</code>,
@@ -5919,7 +5917,7 @@ export interface RunTaskRequest {
    *         <p>The <a>PutClusterCapacityProviders</a> API operation is used to update the
    *             list of available capacity providers for a cluster after the cluster is created.</p>
    */
-  capacityProviderStrategy?: Array<CapacityProviderStrategyItem>;
+  capacityProviderStrategy?: CapacityProviderStrategyItem[];
 
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the cluster on which to run your task.
@@ -5982,13 +5980,13 @@ export interface RunTaskRequest {
    *             constraints per task (including constraints in the task definition and those specified
    *             at runtime).</p>
    */
-  placementConstraints?: Array<PlacementConstraint>;
+  placementConstraints?: PlacementConstraint[];
 
   /**
    * <p>The placement strategy objects to use for the task. You can specify a maximum of five
    *             strategy rules per task.</p>
    */
-  placementStrategy?: Array<PlacementStrategy>;
+  placementStrategy?: PlacementStrategy[];
 
   /**
    * <p>The platform version the task should run. A platform version is only specified for
@@ -6062,7 +6060,7 @@ export interface RunTaskRequest {
    *             </li>
    *          </ul>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 
   /**
    * <p>The <code>family</code> and <code>revision</code> (<code>family:revision</code>) or
@@ -6082,13 +6080,13 @@ export interface RunTaskResponse {
   /**
    * <p>Any failures associated with the call.</p>
    */
-  failures?: Array<Failure>;
+  failures?: Failure[];
 
   /**
    * <p>A full description of the tasks that were run. The tasks that were successfully placed
    *             on your cluster are described here.</p>
    */
-  tasks?: Array<Task>;
+  tasks?: Task[];
 }
 
 export namespace RunTaskResponse {
@@ -6193,7 +6191,7 @@ export interface Service {
   /**
    * <p>The capacity provider strategy associated with the service.</p>
    */
-  capacityProviderStrategy?: Array<CapacityProviderStrategyItem>;
+  capacityProviderStrategy?: CapacityProviderStrategyItem[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the cluster that hosts the service.</p>
@@ -6226,7 +6224,7 @@ export interface Service {
   /**
    * <p>The current state of deployments for the service.</p>
    */
-  deployments?: Array<Deployment>;
+  deployments?: Deployment[];
 
   /**
    * <p>The desired number of instantiations of the task definition to keep running on the
@@ -6245,7 +6243,7 @@ export interface Service {
    * <p>The event stream for your service. A maximum of 100 of the latest events are
    *             displayed.</p>
    */
-  events?: Array<ServiceEvent>;
+  events?: ServiceEvent[];
 
   /**
    * <p>The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy
@@ -6266,7 +6264,7 @@ export interface Service {
    *             container name (as it appears in a container definition), and the container port to
    *             access from the load balancer.</p>
    */
-  loadBalancers?: Array<LoadBalancer>;
+  loadBalancers?: LoadBalancer[];
 
   /**
    * <p>The VPC subnet and security group configuration for tasks that receive their own
@@ -6282,12 +6280,12 @@ export interface Service {
   /**
    * <p>The placement constraints for the tasks in the service.</p>
    */
-  placementConstraints?: Array<PlacementConstraint>;
+  placementConstraints?: PlacementConstraint[];
 
   /**
    * <p>The placement strategy that determines how tasks for the service are placed.</p>
    */
-  placementStrategy?: Array<PlacementStrategy>;
+  placementStrategy?: PlacementStrategy[];
 
   /**
    * <p>The platform version on which to run your service. A platform version is only
@@ -6359,7 +6357,7 @@ export interface Service {
    *             information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html">Service
    *                 Discovery</a>.</p>
    */
-  serviceRegistries?: Array<ServiceRegistry>;
+  serviceRegistries?: ServiceRegistry[];
 
   /**
    * <p>The status of the service. The valid values are <code>ACTIVE</code>,
@@ -6402,7 +6400,7 @@ export interface Service {
    *             </li>
    *          </ul>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 
   /**
    * <p>The task definition to use for tasks in the service. This value is specified when the
@@ -6416,7 +6414,7 @@ export interface Service {
    *             deployment. An Amazon ECS task set includes details such as the desired number of tasks, how
    *             many tasks are running, and whether the task set serves production traffic.</p>
    */
-  taskSets?: Array<TaskSet>;
+  taskSets?: TaskSet[];
 }
 
 export namespace Service {
@@ -6591,7 +6589,7 @@ export interface StartTaskRequest {
    * <p>The container instance IDs or full ARN entries for the container instances on which
    *             you would like to place your task. You can specify up to 10 container instances.</p>
    */
-  containerInstances: Array<string> | undefined;
+  containerInstances: string[] | undefined;
 
   /**
    * <p>Specifies whether to enable Amazon ECS managed tags for the task. For more information, see
@@ -6684,7 +6682,7 @@ export interface StartTaskRequest {
    *             </li>
    *          </ul>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 
   /**
    * <p>The <code>family</code> and <code>revision</code> (<code>family:revision</code>) or
@@ -6704,13 +6702,13 @@ export interface StartTaskResponse {
   /**
    * <p>Any failures associated with the call.</p>
    */
-  failures?: Array<Failure>;
+  failures?: Failure[];
 
   /**
    * <p>A full description of the tasks that were started. Each task that was successfully
    *             placed on your container instances is described.</p>
    */
-  tasks?: Array<Task>;
+  tasks?: Task[];
 }
 
 export namespace StartTaskResponse {
@@ -6763,7 +6761,7 @@ export interface SubmitAttachmentStateChangesRequest {
   /**
    * <p>Any attachments associated with the state change request.</p>
    */
-  attachments: Array<AttachmentStateChange> | undefined;
+  attachments: AttachmentStateChange[] | undefined;
 
   /**
    * <p>The short name or full ARN of the cluster that hosts the container instance the
@@ -6810,7 +6808,7 @@ export interface SubmitContainerStateChangeRequest {
   /**
    * <p>The network bindings of the container.</p>
    */
-  networkBindings?: Array<NetworkBinding>;
+  networkBindings?: NetworkBinding[];
 
   /**
    * <p>The reason for the state change request.</p>
@@ -6856,7 +6854,7 @@ export interface SubmitTaskStateChangeRequest {
   /**
    * <p>Any attachments associated with the state change request.</p>
    */
-  attachments?: Array<AttachmentStateChange>;
+  attachments?: AttachmentStateChange[];
 
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task.</p>
@@ -6866,7 +6864,7 @@ export interface SubmitTaskStateChangeRequest {
   /**
    * <p>Any containers associated with the state change request.</p>
    */
-  containers?: Array<ContainerStateChange>;
+  containers?: ContainerStateChange[];
 
   /**
    * <p>The Unix timestamp for when the task execution stopped.</p>
@@ -7056,7 +7054,7 @@ export interface TagResourceRequest {
    *             </li>
    *          </ul>
    */
-  tags: Array<Tag> | undefined;
+  tags: Tag[] | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -7104,12 +7102,12 @@ export interface Task {
    * <p>The Elastic Network Adapter associated with the task if the task uses the
    *                 <code>awsvpc</code> network mode.</p>
    */
-  attachments?: Array<Attachment>;
+  attachments?: Attachment[];
 
   /**
    * <p>The attributes of the task</p>
    */
-  attributes?: Array<Attribute>;
+  attributes?: Attribute[];
 
   /**
    * <p>The availability zone of the task.</p>
@@ -7145,7 +7143,7 @@ export interface Task {
   /**
    * <p>The containers associated with the task.</p>
    */
-  containers?: Array<Container>;
+  containers?: Container[];
 
   /**
    * <p>The number of CPU units used by the task as expressed in a task definition. It can be
@@ -7221,7 +7219,7 @@ export interface Task {
   /**
    * <p>The Elastic Inference accelerator associated with the task.</p>
    */
-  inferenceAccelerators?: Array<InferenceAccelerator>;
+  inferenceAccelerators?: InferenceAccelerator[];
 
   /**
    * <p>The last known status of the task. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-lifecycle.html">Task
@@ -7360,7 +7358,7 @@ export interface Task {
    *             </li>
    *          </ul>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the task.</p>
@@ -7399,7 +7397,7 @@ export interface TaskDefinition {
    * <p>The launch type to use with your task. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon ECS
    *                 Launch Types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
-  compatibilities?: Array<Compatibility | string>;
+  compatibilities?: (Compatibility | string)[];
 
   /**
    * <p>A list of container definitions in JSON format that describe the different containers
@@ -7407,7 +7405,7 @@ export interface TaskDefinition {
    *             defaults, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html">Amazon ECS Task
    *                 Definitions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
-  containerDefinitions?: Array<ContainerDefinition>;
+  containerDefinitions?: ContainerDefinition[];
 
   /**
    * <p>The number of <code>cpu</code> units used by the task. If you are using the EC2 launch
@@ -7452,7 +7450,7 @@ export interface TaskDefinition {
   /**
    * <p>The Elastic Inference accelerator associated with the task.</p>
    */
-  inferenceAccelerators?: Array<InferenceAccelerator>;
+  inferenceAccelerators?: InferenceAccelerator[];
 
   /**
    * <p>The IPC resource namespace to use for the containers in the task. The valid values are
@@ -7578,7 +7576,7 @@ export interface TaskDefinition {
    * <p>An array of placement constraint objects to use for tasks. This field is not valid if
    *             you are using the Fargate launch type for your task.</p>
    */
-  placementConstraints?: Array<TaskDefinitionPlacementConstraint>;
+  placementConstraints?: TaskDefinitionPlacementConstraint[];
 
   /**
    * <p>The configuration details for the App Mesh proxy.</p>
@@ -7594,14 +7592,14 @@ export interface TaskDefinition {
    * <p>The container instance attributes required by your task. This field is not valid if
    *             you are using the Fargate launch type for your task.</p>
    */
-  requiresAttributes?: Array<Attribute>;
+  requiresAttributes?: Attribute[];
 
   /**
    * <p>The launch type the task requires. If no value is specified, it will default to
    *                 <code>EC2</code>. Valid values include <code>EC2</code> and
    *             <code>FARGATE</code>.</p>
    */
-  requiresCompatibilities?: Array<Compatibility | string>;
+  requiresCompatibilities?: (Compatibility | string)[];
 
   /**
    * <p>The revision of the task in a particular family. The revision is a version number of a
@@ -7640,7 +7638,7 @@ export interface TaskDefinition {
    *             and <code>sourcePath</code> parameters are not supported.</p>
    *         <p>For more information about volume definition parameters and defaults, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definitions.html">Amazon ECS Task Definitions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
-  volumes?: Array<Volume>;
+  volumes?: Volume[];
 }
 
 export namespace TaskDefinition {
@@ -7709,7 +7707,7 @@ export interface TaskOverride {
   /**
    * <p>One or more container overrides sent to a task.</p>
    */
-  containerOverrides?: Array<ContainerOverride>;
+  containerOverrides?: ContainerOverride[];
 
   /**
    * <p>The cpu override for the task.</p>
@@ -7725,7 +7723,7 @@ export interface TaskOverride {
   /**
    * <p>The Elastic Inference accelerator override for the task.</p>
    */
-  inferenceAcceleratorOverrides?: Array<InferenceAcceleratorOverride>;
+  inferenceAcceleratorOverrides?: InferenceAcceleratorOverride[];
 
   /**
    * <p>The memory override for the task.</p>
@@ -7753,7 +7751,7 @@ export interface TaskSet {
   /**
    * <p>The capacity provider strategy associated with the task set.</p>
    */
-  capacityProviderStrategy?: Array<CapacityProviderStrategyItem>;
+  capacityProviderStrategy?: CapacityProviderStrategyItem[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the cluster that the service that hosts the task set exists
@@ -7798,7 +7796,7 @@ export interface TaskSet {
   /**
    * <p>Details on a load balancer that is used with a task set.</p>
    */
-  loadBalancers?: Array<LoadBalancer>;
+  loadBalancers?: LoadBalancer[];
 
   /**
    * <p>The network configuration for the task set.</p>
@@ -7846,7 +7844,7 @@ export interface TaskSet {
    *             information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html">Service
    *                 Discovery</a>.</p>
    */
-  serviceRegistries?: Array<ServiceRegistry>;
+  serviceRegistries?: ServiceRegistry[];
 
   /**
    * <p>The stability status, which indicates whether the task set has reached a steady state.
@@ -7970,7 +7968,7 @@ export interface Tmpfs {
    *                 | "nr_inodes" | "nr_blocks" | "mpol"</code>
    *          </p>
    */
-  mountOptions?: Array<string>;
+  mountOptions?: string[];
 
   /**
    * <p>The size (in MiB) of the tmpfs volume.</p>
@@ -8058,7 +8056,7 @@ export interface UntagResourceRequest {
   /**
    * <p>The keys of the tags to be removed.</p>
    */
-  tagKeys: Array<string> | undefined;
+  tagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -8088,7 +8086,7 @@ export interface UpdateClusterSettingsRequest {
    *                 <code>containerInsights</code> value set with <a>PutAccountSetting</a> or
    *                 <a>PutAccountSettingDefault</a>.</p>
    */
-  settings: Array<ClusterSetting> | undefined;
+  settings: ClusterSetting[] | undefined;
 }
 
 export namespace UpdateClusterSettingsRequest {
@@ -8156,7 +8154,7 @@ export interface UpdateContainerInstancesStateRequest {
   /**
    * <p>A list of container instance IDs or full ARN entries.</p>
    */
-  containerInstances: Array<string> | undefined;
+  containerInstances: string[] | undefined;
 
   /**
    * <p>The container instance state with which to update the container instance. The only
@@ -8180,12 +8178,12 @@ export interface UpdateContainerInstancesStateResponse {
   /**
    * <p>The list of container instances.</p>
    */
-  containerInstances?: Array<ContainerInstance>;
+  containerInstances?: ContainerInstance[];
 
   /**
    * <p>Any failures associated with the call.</p>
    */
-  failures?: Array<Failure>;
+  failures?: Failure[];
 }
 
 export namespace UpdateContainerInstancesStateResponse {
@@ -8263,7 +8261,7 @@ export interface UpdateServiceRequest {
    *             cluster's default capacity provider strategy.</p>
    *         <p></p>
    */
-  capacityProviderStrategy?: Array<CapacityProviderStrategyItem>;
+  capacityProviderStrategy?: CapacityProviderStrategyItem[];
 
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the cluster that your service is running on.

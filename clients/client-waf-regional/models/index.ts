@@ -141,7 +141,7 @@ export interface ListResourcesForWebACLResponse {
   /**
    * <p>An array of ARNs (Amazon Resource Names) of the resources associated with the specified web ACL. An array with zero elements is returned if there are no resources associated with the web ACL.</p>
    */
-  ResourceArns?: Array<string>;
+  ResourceArns?: string[];
 }
 
 export namespace ListResourcesForWebACLResponse {
@@ -228,7 +228,7 @@ export interface ActivatedRule {
    *             </li>
    *          </ol>
    */
-  ExcludedRules?: Array<ExcludedRule>;
+  ExcludedRules?: ExcludedRule[];
 
   /**
    * <p>Use the <code>OverrideAction</code> to test your <code>RuleGroup</code>.</p>
@@ -288,7 +288,7 @@ export interface ByteMatchSet {
   /**
    * <p>Specifies the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings.</p>
    */
-  ByteMatchTuples: Array<ByteMatchTuple> | undefined;
+  ByteMatchTuples: ByteMatchTuple[] | undefined;
 
   /**
    * <p>A friendly name or description of the <a>ByteMatchSet</a>. You can't change <code>Name</code> after you create a <code>ByteMatchSet</code>.</p>
@@ -751,7 +751,7 @@ export interface CreateRateBasedRuleRequest {
    */
   RateLimit: number | undefined;
 
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateRateBasedRuleRequest {
@@ -875,7 +875,7 @@ export interface CreateRuleGroupRequest {
    */
   Name: string | undefined;
 
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateRuleGroupRequest {
@@ -921,7 +921,7 @@ export interface CreateRuleRequest {
    */
   Name: string | undefined;
 
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateRuleRequest {
@@ -1055,7 +1055,7 @@ export interface CreateWebACLRequest {
    */
   Name: string | undefined;
 
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateWebACLRequest {
@@ -1945,7 +1945,7 @@ export interface GeoMatchSet {
   /**
    * <p>An array of <a>GeoMatchConstraint</a> objects, which contain the country that you want AWS WAF to search for.</p>
    */
-  GeoMatchConstraints: Array<GeoMatchConstraint> | undefined;
+  GeoMatchConstraints: GeoMatchConstraint[] | undefined;
 
   /**
    * <p>The <code>GeoMatchSetId</code> for an <code>GeoMatchSet</code>. You use <code>GeoMatchSetId</code> to get information about a
@@ -2247,7 +2247,7 @@ export interface GetRateBasedRuleManagedKeysResponse {
   /**
    * <p>An array of IP addresses that currently are blocked by the specified <a>RateBasedRule</a>. </p>
    */
-  ManagedKeys?: Array<string>;
+  ManagedKeys?: string[];
 
   /**
    * <p>A null value and not currently used.</p>
@@ -2466,7 +2466,7 @@ export interface GetSampledRequestsResponse {
   /**
    * <p>A complex type that contains detailed information about each of the requests in the sample.</p>
    */
-  SampledRequests?: Array<SampledHTTPRequest>;
+  SampledRequests?: SampledHTTPRequest[];
 
   /**
    * <p>Usually, <code>TimeWindow</code> is the time range that you specified in the <code>GetSampledRequests</code> request. However,
@@ -2743,7 +2743,7 @@ export interface HTTPRequest {
   /**
    * <p>A complex type that contains two values for each header in the sampled web request: the name of the header and the value of the header.</p>
    */
-  Headers?: Array<HTTPHeader>;
+  Headers?: HTTPHeader[];
 
   /**
    * <p>The HTTP method specified in the sampled web request. CloudFront supports the following methods: <code>DELETE</code>,
@@ -2775,7 +2775,7 @@ export interface IPSet {
    * <p>The IP address type (<code>IPV4</code> or <code>IPV6</code>) and the IP address range (in CIDR notation) that web requests originate from.
    * 			If the <code>WebACL</code> is associated with a CloudFront distribution and the viewer did not use an HTTP proxy or a load balancer to send the request, this is the value of the c-ip field in the CloudFront access logs.</p>
    */
-  IPSetDescriptors: Array<IPSetDescriptor> | undefined;
+  IPSetDescriptors: IPSetDescriptor[] | undefined;
 
   /**
    * <p>The <code>IPSetId</code> for an <code>IPSet</code>. You use <code>IPSetId</code> to get information about an
@@ -2917,7 +2917,7 @@ export interface ListActivatedRulesInRuleGroupResponse {
   /**
    * <p>An array of <code>ActivatedRules</code> objects.</p>
    */
-  ActivatedRules?: Array<ActivatedRule>;
+  ActivatedRules?: ActivatedRule[];
 
   /**
    * <p>If you have more <code>ActivatedRules</code> than the number that you specified for <code>Limit</code> in the request, the response includes a <code>NextMarker</code> value. To list more <code>ActivatedRules</code>, submit another <code>ListActivatedRulesInRuleGroup</code> request, and specify the <code>NextMarker</code> value from the response in the <code>NextMarker</code> value in the next request.</p>
@@ -2958,7 +2958,7 @@ export interface ListByteMatchSetsResponse {
   /**
    * <p>An array of <a>ByteMatchSetSummary</a> objects.</p>
    */
-  ByteMatchSets?: Array<ByteMatchSetSummary>;
+  ByteMatchSets?: ByteMatchSetSummary[];
 
   /**
    * <p>If you have more <code>ByteMatchSet</code> objects than the number that you specified for <code>Limit</code> in the request,
@@ -3002,7 +3002,7 @@ export interface ListGeoMatchSetsResponse {
   /**
    * <p>An array of <a>GeoMatchSetSummary</a> objects.</p>
    */
-  GeoMatchSets?: Array<GeoMatchSetSummary>;
+  GeoMatchSets?: GeoMatchSetSummary[];
 
   /**
    * <p>If you have more <code>GeoMatchSet</code> objects than the number that you specified for <code>Limit</code> in the request,
@@ -3046,7 +3046,7 @@ export interface ListIPSetsResponse {
   /**
    * <p>An array of <a>IPSetSummary</a> objects.</p>
    */
-  IPSets?: Array<IPSetSummary>;
+  IPSets?: IPSetSummary[];
 
   /**
    * <p>To list more <code>IPSet</code> objects, submit another <code>ListIPSets</code>
@@ -3087,7 +3087,7 @@ export interface ListLoggingConfigurationsResponse {
   /**
    * <p>An array of <a>LoggingConfiguration</a> objects.</p>
    */
-  LoggingConfigurations?: Array<LoggingConfiguration>;
+  LoggingConfigurations?: LoggingConfiguration[];
 
   /**
    * <p>If you have more <code>LoggingConfigurations</code> than the number that you specified for <code>Limit</code> in the request, the response includes a <code>NextMarker</code> value. To list more <code>LoggingConfigurations</code>, submit another <code>ListLoggingConfigurations</code> request, and specify the <code>NextMarker</code> value from the response in the <code>NextMarker</code> value in the next request.</p>
@@ -3140,7 +3140,7 @@ export interface ListRateBasedRulesResponse {
   /**
    * <p>An array of <a>RuleSummary</a> objects.</p>
    */
-  Rules?: Array<RuleSummary>;
+  Rules?: RuleSummary[];
 }
 
 export namespace ListRateBasedRulesResponse {
@@ -3184,7 +3184,7 @@ export interface ListRegexMatchSetsResponse {
   /**
    * <p>An array of <a>RegexMatchSetSummary</a> objects.</p>
    */
-  RegexMatchSets?: Array<RegexMatchSetSummary>;
+  RegexMatchSets?: RegexMatchSetSummary[];
 }
 
 export namespace ListRegexMatchSetsResponse {
@@ -3228,7 +3228,7 @@ export interface ListRegexPatternSetsResponse {
   /**
    * <p>An array of <a>RegexPatternSetSummary</a> objects.</p>
    */
-  RegexPatternSets?: Array<RegexPatternSetSummary>;
+  RegexPatternSets?: RegexPatternSetSummary[];
 }
 
 export namespace ListRegexPatternSetsResponse {
@@ -3267,7 +3267,7 @@ export interface ListRuleGroupsResponse {
   /**
    * <p>An array of <a>RuleGroup</a> objects.</p>
    */
-  RuleGroups?: Array<RuleGroupSummary>;
+  RuleGroups?: RuleGroupSummary[];
 }
 
 export namespace ListRuleGroupsResponse {
@@ -3309,7 +3309,7 @@ export interface ListRulesResponse {
   /**
    * <p>An array of <a>RuleSummary</a> objects.</p>
    */
-  Rules?: Array<RuleSummary>;
+  Rules?: RuleSummary[];
 }
 
 export namespace ListRulesResponse {
@@ -3352,7 +3352,7 @@ export interface ListSizeConstraintSetsResponse {
   /**
    * <p>An array of <a>SizeConstraintSetSummary</a> objects.</p>
    */
-  SizeConstraintSets?: Array<SizeConstraintSetSummary>;
+  SizeConstraintSets?: SizeConstraintSetSummary[];
 }
 
 export namespace ListSizeConstraintSetsResponse {
@@ -3402,7 +3402,7 @@ export interface ListSqlInjectionMatchSetsResponse {
   /**
    * <p>An array of <a>SqlInjectionMatchSetSummary</a> objects.</p>
    */
-  SqlInjectionMatchSets?: Array<SqlInjectionMatchSetSummary>;
+  SqlInjectionMatchSets?: SqlInjectionMatchSetSummary[];
 }
 
 export namespace ListSqlInjectionMatchSetsResponse {
@@ -3446,7 +3446,7 @@ export interface ListSubscribedRuleGroupsResponse {
   /**
    * <p>An array of <a>RuleGroup</a> objects.</p>
    */
-  RuleGroups?: Array<SubscribedRuleGroupSummary>;
+  RuleGroups?: SubscribedRuleGroupSummary[];
 }
 
 export namespace ListSubscribedRuleGroupsResponse {
@@ -3513,7 +3513,7 @@ export interface ListWebACLsResponse {
   /**
    * <p>An array of <a>WebACLSummary</a> objects.</p>
    */
-  WebACLs?: Array<WebACLSummary>;
+  WebACLs?: WebACLSummary[];
 }
 
 export namespace ListWebACLsResponse {
@@ -3563,7 +3563,7 @@ export interface ListXssMatchSetsResponse {
   /**
    * <p>An array of <a>XssMatchSetSummary</a> objects.</p>
    */
-  XssMatchSets?: Array<XssMatchSetSummary>;
+  XssMatchSets?: XssMatchSetSummary[];
 }
 
 export namespace ListXssMatchSetsResponse {
@@ -3580,7 +3580,7 @@ export interface LoggingConfiguration {
   /**
    * <p>An array of Amazon Kinesis Data Firehose ARNs.</p>
    */
-  LogDestinationConfigs: Array<string> | undefined;
+  LogDestinationConfigs: string[] | undefined;
 
   /**
    * <p>The parts of the request that you want redacted from the logs. For
@@ -3588,7 +3588,7 @@ export interface LoggingConfiguration {
    *          if you redact the cookie field, the cookie field in the firehose will be
    *             <code>xxx</code>. </p>
    */
-  RedactedFields?: Array<FieldToMatch>;
+  RedactedFields?: FieldToMatch[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the web ACL that you want to associate with
@@ -3780,7 +3780,7 @@ export interface RateBasedRule {
    *          each <a>ByteMatchSet</a>, <a>IPSet</a>, or <a>SqlInjectionMatchSet</a> object that you want to include in a
    *             <code>RateBasedRule</code>.</p>
    */
-  MatchPredicates: Array<Predicate> | undefined;
+  MatchPredicates: Predicate[] | undefined;
 
   /**
    * <p>A friendly name or description for the metrics for a <code>RateBasedRule</code>. The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain
@@ -3868,7 +3868,7 @@ export interface RegexMatchSet {
    * 			         </li>
    *          </ul>
    */
-  RegexMatchTuples?: Array<RegexMatchTuple>;
+  RegexMatchTuples?: RegexMatchTuple[];
 }
 
 export namespace RegexMatchSet {
@@ -4078,7 +4078,7 @@ export interface RegexPatternSet {
   /**
    * <p>Specifies the regular expression (regex) patterns that you want AWS WAF to search for, such as <code>B[a@]dB[o0]t</code>.</p>
    */
-  RegexPatternStrings: Array<string> | undefined;
+  RegexPatternStrings: string[] | undefined;
 }
 
 export namespace RegexPatternSet {
@@ -4171,7 +4171,7 @@ export interface Rule {
    * <p>The <code>Predicates</code> object contains one <code>Predicate</code> element for each <a>ByteMatchSet</a>, <a>IPSet</a>, or
    * 			<a>SqlInjectionMatchSet</a> object that you want to include in a <code>Rule</code>.</p>
    */
-  Predicates: Array<Predicate> | undefined;
+  Predicates: Predicate[] | undefined;
 
   /**
    * <p>A unique identifier for a <code>Rule</code>. You use <code>RuleId</code> to get more information about a <code>Rule</code> (see <a>GetRule</a>),
@@ -4544,7 +4544,7 @@ export interface SizeConstraintSet {
   /**
    * <p>Specifies the parts of web requests that you want to inspect the size of.</p>
    */
-  SizeConstraints: Array<SizeConstraint> | undefined;
+  SizeConstraints: SizeConstraint[] | undefined;
 }
 
 export namespace SizeConstraintSet {
@@ -4632,7 +4632,7 @@ export interface SqlInjectionMatchSet {
   /**
    * <p>Specifies the parts of web requests that you want to inspect for snippets of malicious SQL code.</p>
    */
-  SqlInjectionMatchTuples: Array<SqlInjectionMatchTuple> | undefined;
+  SqlInjectionMatchTuples: SqlInjectionMatchTuple[] | undefined;
 }
 
 export namespace SqlInjectionMatchSet {
@@ -4843,7 +4843,7 @@ export namespace Tag {
 export interface TagInfoForResource {
   __type?: "TagInfoForResource";
   ResourceARN?: string;
-  TagList?: Array<Tag>;
+  TagList?: Tag[];
 }
 
 export namespace TagInfoForResource {
@@ -4854,7 +4854,7 @@ export namespace TagInfoForResource {
 export interface TagResourceRequest {
   __type?: "TagResourceRequest";
   ResourceARN: string | undefined;
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -4911,7 +4911,7 @@ export namespace TimeWindow {
 export interface UntagResourceRequest {
   __type?: "UntagResourceRequest";
   ResourceARN: string | undefined;
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -4963,7 +4963,7 @@ export interface UpdateByteMatchSetRequest {
    *             </li>
    *          </ul>
    */
-  Updates: Array<ByteMatchSetUpdate> | undefined;
+  Updates: ByteMatchSetUpdate[] | undefined;
 }
 
 export namespace UpdateByteMatchSetRequest {
@@ -5015,7 +5015,7 @@ export interface UpdateGeoMatchSetRequest {
    *             </li>
    *          </ul>
    */
-  Updates: Array<GeoMatchSetUpdate> | undefined;
+  Updates: GeoMatchSetUpdate[] | undefined;
 }
 
 export namespace UpdateGeoMatchSetRequest {
@@ -5067,7 +5067,7 @@ export interface UpdateIPSetRequest {
    *          </ul>
    * 	        <p>You can insert a maximum of 1000 addresses in a single request.</p>
    */
-  Updates: Array<IPSetUpdate> | undefined;
+  Updates: IPSetUpdate[] | undefined;
 }
 
 export namespace UpdateIPSetRequest {
@@ -5114,7 +5114,7 @@ export interface UpdateRateBasedRuleRequest {
    * <p>An array of <code>RuleUpdate</code> objects that you want to insert into or delete
    *          from a <a>RateBasedRule</a>. </p>
    */
-  Updates: Array<RuleUpdate> | undefined;
+  Updates: RuleUpdate[] | undefined;
 }
 
 export namespace UpdateRateBasedRuleRequest {
@@ -5154,7 +5154,7 @@ export interface UpdateRegexMatchSetRequest {
    * <p>An array of <code>RegexMatchSetUpdate</code> objects that you want to insert into or delete from a <a>RegexMatchSet</a>.
    * 			For more information, see <a>RegexMatchTuple</a>.</p>
    */
-  Updates: Array<RegexMatchSetUpdate> | undefined;
+  Updates: RegexMatchSetUpdate[] | undefined;
 }
 
 export namespace UpdateRegexMatchSetRequest {
@@ -5192,7 +5192,7 @@ export interface UpdateRegexPatternSetRequest {
   /**
    * <p>An array of <code>RegexPatternSetUpdate</code> objects that you want to insert into or delete from a <a>RegexPatternSet</a>.</p>
    */
-  Updates: Array<RegexPatternSetUpdate> | undefined;
+  Updates: RegexPatternSetUpdate[] | undefined;
 }
 
 export namespace UpdateRegexPatternSetRequest {
@@ -5234,7 +5234,7 @@ export interface UpdateRuleGroupRequest {
    * 		       <p>
    *             <code>ActivatedRule|OverrideAction</code> applies only when updating or adding a <code>RuleGroup</code> to a <code>WebACL</code>. In this case you do not use <code>ActivatedRule|Action</code>.  For all other update requests, <code>ActivatedRule|Action</code> is used instead of <code>ActivatedRule|OverrideAction</code>.</p>
    */
-  Updates: Array<RuleGroupUpdate> | undefined;
+  Updates: RuleGroupUpdate[] | undefined;
 }
 
 export namespace UpdateRuleGroupRequest {
@@ -5290,7 +5290,7 @@ export interface UpdateRuleRequest {
    *             </li>
    *          </ul>
    */
-  Updates: Array<RuleUpdate> | undefined;
+  Updates: RuleUpdate[] | undefined;
 }
 
 export namespace UpdateRuleRequest {
@@ -5347,7 +5347,7 @@ export interface UpdateSizeConstraintSetRequest {
    *             </li>
    *          </ul>
    */
-  Updates: Array<SizeConstraintSetUpdate> | undefined;
+  Updates: SizeConstraintSetUpdate[] | undefined;
 }
 
 export namespace UpdateSizeConstraintSetRequest {
@@ -5406,7 +5406,7 @@ export interface UpdateSqlInjectionMatchSetRequest {
    *             </li>
    *          </ul>
    */
-  Updates: Array<SqlInjectionMatchSetUpdate> | undefined;
+  Updates: SqlInjectionMatchSetUpdate[] | undefined;
 }
 
 export namespace UpdateSqlInjectionMatchSetRequest {
@@ -5472,7 +5472,7 @@ export interface UpdateWebACLRequest {
    *             </li>
    *          </ul>
    */
-  Updates?: Array<WebACLUpdate>;
+  Updates?: WebACLUpdate[];
 
   /**
    * <p>The <code>WebACLId</code> of the <a>WebACL</a> that you want to update. <code>WebACLId</code> is returned by <a>CreateWebACL</a> and by
@@ -5533,7 +5533,7 @@ export interface UpdateXssMatchSetRequest {
    *             </li>
    *          </ul>
    */
-  Updates: Array<XssMatchSetUpdate> | undefined;
+  Updates: XssMatchSetUpdate[] | undefined;
 
   /**
    * <p>The <code>XssMatchSetId</code> of the <code>XssMatchSet</code> that you want to update.
@@ -6085,7 +6085,7 @@ export interface WebACL {
    * <p>An array that contains the action for each <code>Rule</code> in a <code>WebACL</code>, the priority of the <code>Rule</code>,
    * 			and the ID of the <code>Rule</code>.</p>
    */
-  Rules: Array<ActivatedRule> | undefined;
+  Rules: ActivatedRule[] | undefined;
 
   /**
    * <p>Tha Amazon Resource Name (ARN) of the web ACL.</p>
@@ -6179,7 +6179,7 @@ export interface XssMatchSet {
   /**
    * <p>Specifies the parts of web requests that you want to inspect for cross-site scripting attacks.</p>
    */
-  XssMatchTuples: Array<XssMatchTuple> | undefined;
+  XssMatchTuples: XssMatchTuple[] | undefined;
 }
 
 export namespace XssMatchSet {
