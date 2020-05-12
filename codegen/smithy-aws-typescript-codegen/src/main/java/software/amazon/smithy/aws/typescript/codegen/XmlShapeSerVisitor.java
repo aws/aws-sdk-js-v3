@@ -70,29 +70,24 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
                 .map(XmlNameTrait::getValue)
                 .orElse("member");
 
-        // Set up a location to store all of the child node(s).
-        writer.write("const collectedNodes: any = [];");
-        writer.openBlock("for (let entry of input) {", "}", () -> {
+        writer.openBlock("return input.map(entry => {", "});", () -> {
             // Dispatch to the input value provider for any additional handling.
             writer.write("const node = $L;", target.accept(getMemberVisitor("entry")));
             // Handle proper unwrapping of target nodes.
             if (serializationReturnsArray(target)) {
-                writer.write("const container = new __XmlNode($S);", locationName);
-                writer.openBlock("for (let index in node) {", "}", () -> {
-                    writer.write("const workingNode = node[index];");
+                writer.openBlock("return node.reduce((acc: __XmlNode, workingNode: any) => {", "}", () -> {
                     // Add @xmlNamespace value of the target member.
                     AwsProtocolUtils.writeXmlNamespace(context, memberShape, "workingNode");
-                    writer.write("container.addChildNode(workingNode);");
+                    writer.write("acc.addChildNode(workingNode);");
+                    writer.write("return acc;");
                 });
-                writer.write("collectedNodes.push(container);");
+                writer.write(", new __XmlNode($S));", locationName);
             } else {
                 // Add @xmlNamespace value of the target member.
                 AwsProtocolUtils.writeXmlNamespace(context, memberShape, "node");
-                writer.write("collectedNodes.push(node.withName($S));", locationName);
+                writer.write("return node.withName($S);", locationName);
             }
         });
-
-        writer.write("return collectedNodes;");
     }
 
     @Override
