@@ -102,10 +102,8 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
         Model model = context.getModel();
         writer.addImport("XmlNode", "__XmlNode", "@aws-sdk/xml-builder");
 
-        // Set up a location to store all of the child node(s).
-        writer.write("const collectedNodes: any = [];");
         // Use the keys as an iteration point to dispatch to the input value providers.
-        writer.openBlock("Object.keys(input).forEach(key => {", "});", () -> {
+        writer.openBlock("return Object.keys(input).map(key => {", "});", () -> {
             // Prepare a containing node for each entry's k/v pair.
             writer.write("const entryNode = new __XmlNode(\"entry\");");
 
@@ -132,25 +130,23 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
             writer.write("const node = $L;", valueTarget.accept(getMemberVisitor("input[key]")));
             // Handle proper unwrapping of target nodes.
             if (serializationReturnsArray(valueTarget)) {
-                writer.write("const container = new __XmlNode($S);", valueName);
-                writer.openBlock("for (let index in node) {", "}", () -> {
-                    writer.write("const workingNode = node[index];");
-                    // Add @xmlNamespace value of the value member.
-                    AwsProtocolUtils.writeXmlNamespace(context, valueMember, "workingNode");
-                    writer.write("container.addChildNode(workingNode);");
+                writer.openBlock("entryNode.addChildNode(", ");", () -> {
+                    writer.openBlock("node.reduce((acc: __XmlNode, workingNode: any) => {", "}", () -> {
+                        // Add @xmlNamespace value of the value member.
+                        AwsProtocolUtils.writeXmlNamespace(context, valueMember, "workingNode");
+                        writer.write("acc.addChildNode(workingNode);");
+                        writer.write("return acc;");
+                    });
+                    writer.write(", new __XmlNode($S));", valueName);
                 });
-                writer.write("entryNode.addChildNode(container);");
             } else {
                 // Add @xmlNamespace value of the target member.
                 AwsProtocolUtils.writeXmlNamespace(context, valueMember, "node");
                 writer.write("entryNode.addChildNode(node.withName($S));", valueName);
             }
 
-            // Add the entry to the collection.
-            writer.write("collectedNodes.push(entryNode);");
+            writer.write("return entryNode;");
         });
-
-        writer.write("return collectedNodes;");
     }
 
     @Override
