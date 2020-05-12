@@ -12,7 +12,7 @@
     "remove-documentation": "rimraf ./docs",
     "remove-js": "rimraf *.js && rimraf ./commands/*.js && rimraf ./models/*.js && rimraf ./protocols/*.js",
     "remove-maps": "rimraf *.js.map && rimraf ./commands/*.js.map && rimraf ./models/*.js.map && rimraf ./protocols/*.js.map",
-    "test": "exit 0",
+    "test": "yarn build && jest --coverage --passWithNoTests",
     "build:es": "tsc -p tsconfig.es.json",
     "build": "yarn pretest && yarn build:es"
   },
