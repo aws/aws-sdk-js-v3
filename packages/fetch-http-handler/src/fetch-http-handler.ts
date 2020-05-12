@@ -72,10 +72,10 @@ export class FetchHttpHandler implements HttpHandler {
           transformedHeaders[pair[0]] = pair[1];
         }
 
-        const hasResponseStream = typeof ReadableStream === "function";
+        const hasReadableStream = response.body !== undefined;
 
         // Return the response with buffered body
-        if (!hasResponseStream) {
+        if (!hasReadableStream) {
           return response.blob().then(body => ({
             response: new HttpResponse({
               headers: transformedHeaders,
