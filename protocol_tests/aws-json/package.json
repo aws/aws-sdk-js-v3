@@ -13,7 +13,6 @@
     "remove-js": "rimraf *.js && rimraf ./commands/*.js && rimraf ./models/*.js && rimraf ./protocols/*.js",
     "remove-maps": "rimraf *.js.map && rimraf ./commands/*.js.map && rimraf ./models/*.js.map && rimraf ./protocols/*.js.map",
     "test": "yarn build && jest --coverage --passWithNoTests",
-    "smoke-test": "npm run pretest && node ./test/smoke/index.spec.js",
     "build:es": "tsc -p tsconfig.es.json",
     "build": "yarn pretest && yarn build:es"
   },
