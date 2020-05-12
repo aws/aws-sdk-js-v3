@@ -2622,8 +2622,7 @@ const serializeAws_restXmlS3UserMetadata = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  const collectedNodes: any = [];
-  Object.keys(input).forEach(key => {
+  return Object.keys(input).map(key => {
     const entryNode = new __XmlNode("entry");
     const keyNode = new __XmlNode("NonEmptyMaxLength1024String")
       .addChildNode(new __XmlText(key))
@@ -2633,9 +2632,8 @@ const serializeAws_restXmlS3UserMetadata = (
       new __XmlText(input[key])
     );
     entryNode.addChildNode(node.withName("value"));
-    collectedNodes.push(entryNode);
+    return entryNode;
   });
-  return collectedNodes;
 };
 
 const serializeAws_restXmlVpcConfiguration = (
