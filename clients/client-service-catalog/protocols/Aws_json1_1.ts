@@ -2424,7 +2424,9 @@ const deserializeAws_json1_1AssociateTagOptionWithResourceCommandError = async (
 export const deserializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchAssociateServiceActionWithProvisioningArtifactCommandOutput> => {
+): Promise<
+  BatchAssociateServiceActionWithProvisioningArtifactCommandOutput
+> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactCommandError(
       output,
@@ -2448,7 +2450,9 @@ export const deserializeAws_json1_1BatchAssociateServiceActionWithProvisioningAr
 const deserializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchAssociateServiceActionWithProvisioningArtifactCommandOutput> => {
+): Promise<
+  BatchAssociateServiceActionWithProvisioningArtifactCommandOutput
+> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2490,7 +2494,9 @@ const deserializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactC
 export const deserializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifactCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput> => {
+): Promise<
+  BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput
+> => {
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifactCommandError(
       output,
@@ -2514,7 +2520,9 @@ export const deserializeAws_json1_1BatchDisassociateServiceActionFromProvisionin
 const deserializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifactCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput> => {
+): Promise<
+  BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput
+> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
